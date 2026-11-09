@@ -41,3 +41,7 @@ Code: Apache-2.0; dependencies and models have separate terms. Models, data, dep
 - [Architecture and workflow documentation](https://github.com/NVlabs/alpagym#architecture)
 - [Onboarding and prerequisites](https://github.com/NVlabs/alpagym/blob/main/docs/ONBOARDING.md)
 - [Related official resource · github.com](https://github.com/NVlabs/alpagym)
+
+## Related tools
+
+See [Cosmos RL](cosmos-rl.md) for the rollout and trainer boundary and its upstream maintenance status.

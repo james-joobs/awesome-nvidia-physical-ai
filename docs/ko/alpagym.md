@@ -41,3 +41,7 @@ Apache-2.0 코드; 의존성·모델 별도. 모델, 데이터, 의존성 및 �
 - [아키텍처와 워크플로 공식 문서](https://github.com/NVlabs/alpagym#architecture)
 - [시작 안내와 사전 요구사항](https://github.com/NVlabs/alpagym/blob/main/docs/ONBOARDING.md)
 - [관련 공식 자료 · github.com](https://github.com/NVlabs/alpagym)
+
+## 연관 도구
+
+롤아웃과 학습기 사이의 인터페이스 및 업스트림 유지보수 상태는 [Cosmos RL](cosmos-rl.md)을 참고하세요.

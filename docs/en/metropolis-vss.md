@@ -41,3 +41,7 @@ Platform and services; individual SDKs and models have separate terms. Verify th
 - [Architecture and workflow documentation](https://docs.nvidia.com/vss)
 - [Video summarization deployment profiles](https://docs.nvidia.com/vss/system-components/vision-microservices/video-summarization)
 - [Related official resource · developer.nvidia.com](https://developer.nvidia.com/metropolis)
+
+## Related tools
+
+For a documented VSS and document RAG example, see [NemoClaw](nemoclaw.md). [NeMo Retriever Library](nemo-retriever.md) describes a separate document evidence pipeline. [NeMo Switchyard](nemo-switchyard.md) illustrates how downstream model calls can be routed.

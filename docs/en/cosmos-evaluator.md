@@ -22,3 +22,7 @@ Arbitrator discovers available checkers and orders jobs by their dependencies. A
 Run an attribute check for rain and a motion comparison against a source clip. Record scores separately and inspect cases where one check passes but the other fails. Compare a reviewed subset to your acceptance thresholds before processing the whole batch. A checker score expresses model agreement with its task and inputs. It cannot certify safe vehicle behavior. [Official checker definitions](https://github.com/NVIDIA/cosmos-evaluator#whats-included) · [CDF Augmentation](cdf-augmentation.md)
 
 Repository code is Apache-2.0. Check redistributed model notices and dependencies for each checker. [Official terms](https://github.com/NVIDIA/cosmos-evaluator#license-and-contributions)
+
+## Related tools
+
+Use [NeMo Evaluator](nemo-evaluator.md) for configured model or agent benchmarks. Cosmos Evaluator’s checks here target generated video.

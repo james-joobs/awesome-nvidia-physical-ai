@@ -8,7 +8,7 @@
 
 **물리 AI를 위한 시뮬레이션, 데이터, 로봇 학습 생태계 안내서**
 
-[생태계 지도](#생태계-한눈에-보기) · [오픈소스 프로젝트](#1-오픈소스-코드가-확인된-프로젝트) · [데이터와 자산](#데이터와-시뮬레이션-자산) · [플랫폼과 모델](#2-플랫폼모델제품표준-및-제한적-공개-항목) · [외부 도구](#3-대화에서-함께-언급된-외부-모델도구) · [연결 관계](#4-연결-관계와-명칭-정리)
+[생태계 지도](#생태계-한눈에-보기) · [오픈소스 프로젝트](#1-오픈소스-코드가-확인된-프로젝트) · [NeMo](#nemo와-물리-ai-도구) · [데이터와 자산](#데이터와-시뮬레이션-자산) · [플랫폼과 모델](#2-플랫폼모델제품표준-및-제한적-공개-항목) · [외부 도구](#3-대화에서-함께-언급된-외부-모델도구) · [연결 관계](#4-연결-관계와-명칭-정리)
 
 </div>
 
@@ -88,6 +88,31 @@
 | **OSMO** | GPU 자원을 사용하는 시뮬레이션·학습 워크플로 실행 관리 | Apache-2.0 | [저장소](https://github.com/NVIDIA/OSMO) | [상세 보기](docs/ko/osmo.md) |
 | **TensorRT 공개 코드** | 추론 최적화 관련 샘플·플러그인·도구 | 저장소 Apache-2.0; TensorRT 바이너리 SDK 전체가 같은 라이선스라는 뜻은 아님 | [저장소](https://github.com/NVIDIA/TensorRT) | [상세 보기](docs/ko/tensorrt.md) |
 | **Holoscan SDK** | 저지연 스트리밍·센서 AI 파이프라인 | Apache-2.0; 외부 구성 요소 별도 | [저장소](https://github.com/nvidia-holoscan/holoscan-sdk) | [상세 보기](docs/ko/holoscan-sdk.md) |
+
+### NeMo와 물리 AI 도구
+
+NeMo 도구는 데이터 준비, 모델 후학습과 에이전트 운영에 쓰입니다. AlpaGym과 Curator에 연결되는 Cosmos RL과 Xenna도 이 표에서 함께 볼 수 있습니다. 상세 문서에서는 공식 연동 사례와 설명용 워크플로를 구분합니다.
+
+| 이름 | 역할 | 공개 코드 라이선스 및 유의점 | 공식 소스 | 상세 설명 |
+|---|---|---|---|---|
+| **NeMo Switchyard** | LLM 에이전트와 애플리케이션의 모델 요청 라우팅 | Apache-2.0 | [저장소](https://github.com/NVIDIA-NeMo/Switchyard) | [상세 보기](docs/ko/nemo-switchyard.md) |
+| **NeMo Curator** | 텍스트·이미지·영상·오디오 데이터셋 분산 정제 | Apache-2.0 | [저장소](https://github.com/NVIDIA-NeMo/Curator) | [상세 보기](docs/ko/nemo-curator.md) |
+| **NeMo Data Designer** | 스키마와 시드 데이터를 이용한 합성 데이터 생성 | Apache-2.0 | [저장소](https://github.com/NVIDIA-NeMo/DataDesigner) | [상세 보기](docs/ko/nemo-data-designer.md) |
+| **NeMo AutoModel** | 지원 언어·멀티모달 모델의 PyTorch 기반 분산 학습 | Apache-2.0 | [저장소](https://github.com/NVIDIA-NeMo/Automodel) | [상세 보기](docs/ko/nemo-automodel.md) |
+| **NeMo Megatron Bridge** | Megatron Core 학습 레시피와 Hugging Face 체크포인트 양방향 변환 | Apache-2.0 | [저장소](https://github.com/NVIDIA-NeMo/Megatron-Bridge) | [상세 보기](docs/ko/nemo-megatron-bridge.md) |
+| **NeMo RL** | 지원 LLM·VLM의 분산 지도 미세조정과 강화학습 | Apache-2.0 | [저장소](https://github.com/NVIDIA-NeMo/RL) | [상세 보기](docs/ko/nemo-rl.md) |
+| **NeMo Gym** | 도구를 사용하는 에이전트의 롤아웃 환경과 검증기 | Apache-2.0 | [저장소](https://github.com/NVIDIA-NeMo/Gym) | [상세 보기](docs/ko/nemo-gym.md) |
+| **NeMo Evaluator** | 모델 엔드포인트를 대상으로 재현 가능한 모델·에이전트 평가 | Apache-2.0 | [저장소](https://github.com/NVIDIA-NeMo/Evaluator) | [상세 보기](docs/ko/nemo-evaluator.md) |
+| **NeMo Guardrails** | 모델 입력·검색 문맥·도구 실행·출력의 정책 검사 | Apache-2.0 | [저장소](https://github.com/NVIDIA-NeMo/Guardrails) | [상세 보기](docs/ko/nemo-guardrails.md) |
+| **NeMo Retriever Library** | 멀티모달 문서 추출·색인과 근거 검색 | Apache-2.0 | [저장소](https://github.com/NVIDIA/NeMo-Retriever) | [상세 보기](docs/ko/nemo-retriever.md) |
+| **NeMo Agent Toolkit** | 에이전트 연결·프로파일링 도구와 공식 로봇 합성 데이터 사례 | Apache-2.0 (사용 중단 안내, 2026년 말 지원 종료 예정) | [저장소](https://github.com/NVIDIA/NeMo-Agent-Toolkit) | [상세 보기](docs/ko/nemo-agent-toolkit.md) |
+| **NeMo Relay** | 에이전트 모델·도구 호출 추적, 미들웨어와 정책 관리 | Apache-2.0 | [저장소](https://github.com/NVIDIA/NeMo-Relay) | [상세 보기](docs/ko/nemo-relay.md) |
+| **NeMo Fabric** | 지원 에이전트 하네스의 어댑터 기반 실행 | Apache-2.0 | [저장소](https://github.com/NVIDIA/NeMo-Fabric) | [상세 보기](docs/ko/nemo-fabric.md) |
+| **NeMo Helix** | 에이전트 평가·최적화·보안 테스트를 위한 제어 계층 | Apache-2.0 | [저장소](https://github.com/NVIDIA-NeMo/nemo-helix) | [상세 보기](docs/ko/nemo-helix.md) |
+| **NemoClaw** | 지원 에이전트를 실행하는 OpenShell 기반 참조 스택 | Apache-2.0 | [저장소](https://github.com/NVIDIA/NemoClaw) | [상세 보기](docs/ko/nemoclaw.md) |
+| **NeMo Speech** | 음성 인식·합성 등 음성 모델 학습과 추론 | Apache-2.0 | [저장소](https://github.com/NVIDIA/NeMo) | [상세 보기](docs/ko/nemo-speech.md) |
+| **Cosmos RL** | AlpaGym에서 사용하는 분산 강화학습 인프라 | Apache-2.0 (제한적 유지보수) | [저장소](https://github.com/nvidia-cosmos/cosmos-rl) | [상세 보기](docs/ko/cosmos-rl.md) |
+| **Cosmos Xenna** | 데이터 정제 파이프라인에서 사용하는 Ray 기반 분산 단계 실행 | Apache-2.0 (제한적 유지보수) | [저장소](https://github.com/nvidia-cosmos/cosmos-xenna) | [상세 보기](docs/ko/cosmos-xenna.md) |
 
 ### 자율주행
 
@@ -230,6 +255,9 @@
 | **Jetson / JetPack** | 엣지 AI 하드웨어 / 소프트웨어 개발 키트 | 제품·배포판; 개별 구성 요소의 조건 상이 | [Jetson](https://developer.nvidia.com/embedded/jetson-modules) · [JetPack](https://developer.nvidia.com/embedded/jetpack) | [상세 보기](docs/ko/jetson-jetpack.md) |
 | **NVIDIA DRIVE** | 자율주행 하드웨어·소프트웨어 플랫폼 | 제품·플랫폼; 구성 요소별 이용 조건 확인 | [공식 페이지](https://developer.nvidia.com/drive) | [상세 보기](docs/ko/nvidia-drive.md) |
 | **RTX / DGX Spark** | GPU 기술·제품군 / AI 컴퓨터 | 하드웨어·제품; 오픈소스 프로젝트 아님 | [RTX](https://www.nvidia.com/en-us/geforce/graphics-cards/) · [DGX Spark](https://www.nvidia.com/en-us/products/workstations/dgx-spark/) | [상세 보기](docs/ko/rtx-dgx-spark.md) |
+| **Cosmos Framework** | Cosmos 3 학습·후학습·평가·서빙 레시피 | 저장소 코드 OpenMDW-1.1 | [저장소](https://github.com/NVIDIA/cosmos-framework) | [상세 보기](docs/ko/cosmos-framework.md) |
+| **NVIDIA NeMo Platform** | 모델 맞춤 학습·평가·가드레일·추론 인프라 | 플랫폼·서비스별 조건 확인 | [공식 문서](https://docs.nvidia.com/nemo/microservices/latest/about/core-concepts/platform.html) | [상세 보기](docs/ko/nemo-platform.md) |
+| **NVIDIA NIM** | 에이전트와 파이프라인에서 호출하는 모델별 추론 서비스 | 플랫폼·서비스별 조건 확인 | [공식 문서](https://docs.nvidia.com/nim/) | [상세 보기](docs/ko/nvidia-nim.md) |
 
 ## 3. 대화에서 함께 언급된 외부 모델·도구
 

@@ -30,3 +30,7 @@ NVIDIA 예제에는 주행 장면의 공간 제어 입력과 생성 영상이 �
 ## 공개 및 이용 조건
 
 Cosmos 3 저장소는 코드와 모델에 OpenMDW-1.1을 명시한다. 이전 [Predict2](cosmos-predict2.md), [Reason2](cosmos-reason2.md) 저장소는 각각 이용 조건을 안내한다. [공식 라이선스](https://github.com/NVIDIA/cosmos#citation--license)
+
+## 연관 도구
+
+체크포인트별 학습·후학습·서빙 레시피는 [Cosmos Framework](cosmos-framework.md)를, 패키지형 추론 엔드포인트는 [NVIDIA NIM](nvidia-nim.md)을 참고하세요.

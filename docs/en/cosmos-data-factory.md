@@ -26,3 +26,7 @@ The red Day 0 path starts with USD and a component list, then renders and augmen
 Start with a clip that illustrates the event. Retrieve similar clips, then optionally generate weather variants conditioned on RGB footage or prepared world scenario controls. Preserve each original drive ID and split by source drive before adding variants. Review actor motion and lane geometry before training, and keep the model, control input and evaluation result with accepted and rejected candidates. [Official AV blueprint](https://github.com/NVIDIA/cdf-orchestration/blob/main/docs/autonomous-vehicle-dataset-generation/getting-started.md)
 
 The entry repository specifies Apache-2.0 for code and CC-BY-4.0 for documentation and skills. Each component, dataset and model endpoint has its own terms and prerequisites. [Official license](https://github.com/NVIDIA/cosmos-data-factory#license)
+
+## Related tools
+
+[NeMo Data Designer](nemo-data-designer.md) can generate candidate structured records or questions using clip metadata. CDF workflows cover video generation, augmentation and labeling.

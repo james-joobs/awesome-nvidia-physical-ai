@@ -22,3 +22,7 @@ Arbitrator는 가용 검사기를 파악하고 의존성 순서에 맞춰 작업
 비가 나타나는지 검사하고, 원본 주행 영상과 움직임을 비교한다. 두 점수를 따로 남기고 한 검사만 통과한 사례를 검토한다. 전체 배치에 적용하기 전에 사람이 본 표본으로 임계값을 조정한다. 검사 점수는 모델이 주어진 검사 조건을 충족한다고 판단한 정도다. 실제 차량의 안전성 검증에는 별도 기준이 필요하다. [공식 검사 정의](https://github.com/NVIDIA/cosmos-evaluator#whats-included) · [CDF Augmentation](cdf-augmentation.md)
 
 코드는 Apache-2.0이다. 검사기마다 재배포 모델 안내와 의존성 조건을 확인한다. [공식 이용 조건](https://github.com/NVIDIA/cosmos-evaluator#license-and-contributions)
+
+## 연관 도구
+
+모델·에이전트 벤치마크에는 [NeMo Evaluator](nemo-evaluator.md)를 사용합니다. 이 문서의 Cosmos Evaluator는 생성 영상을 검사합니다.

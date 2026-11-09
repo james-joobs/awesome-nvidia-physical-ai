@@ -19,3 +19,7 @@ Cosmos Curator는 원본 영상에서 필요한 클립을 고르고 주석을 �
 긴 영상 몇 개를 클립으로 나눠 움직임과 영상 품질을 기준으로 선별한다. 통과한 영상에는 원본 영상 ID, 클립 시작과 끝, 캡션이나 임베딩 결과를 남긴다. 각 임계값 전후의 샘플을 비교해 필요한 장면이 빠지는지 확인한다. 캡션 단계 앞에 클립이 쌓이면 디코더를 늘리기 전에 해당 단계의 처리율과 GPU 할당을 확인한다. 원본 영상 단위로 학습과 평가를 나누면 겹치는 장면이 양쪽에 섞이는 것을 줄일 수 있다. [공식 파이프라인과 문서](https://github.com/NVIDIA/cosmos-curator#documentation)
 
 코드는 Apache-2.0이다. 모델 및 저장소 접근 조건은 별도로 확인한다. [공식 라이선스](https://github.com/NVIDIA/cosmos-curator#license-and-contact)
+
+## 연관 도구
+
+이 문서의 물리 AI 레시피와 [NeMo Curator](nemo-curator.md)의 범용 멀티모달 정제를 비교할 수 있습니다. 일부 파이프라인이 사용하는 단계 실행기는 [Cosmos Xenna](cosmos-xenna.md)를 참고하세요.

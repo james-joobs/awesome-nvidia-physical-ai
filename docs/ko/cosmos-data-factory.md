@@ -26,3 +26,7 @@ Cosmos Data Factory(CDF)는 참조 파이프라인과 조합 가능한 스킬을
 원하는 상황을 잘 보여주는 클립에서 시작한다. 비슷한 실측 클립을 찾은 뒤 필요하면 RGB 영상이나 사전에 준비한 월드 시나리오 조건으로 날씨 변형을 생성한다. 같은 원본에서 만든 영상이 학습과 검증에 섞이지 않도록 원본 주행 ID 단위로 나눈다. 학습 전 움직임과 차선 기하를 검토하고, 통과 여부와 함께 모델 버전 및 제어 입력을 남긴다. [공식 자율주행 블루프린트](https://github.com/NVIDIA/cdf-orchestration/blob/main/docs/autonomous-vehicle-dataset-generation/getting-started.md)
 
 입구 저장소는 코드 Apache-2.0, 문서와 스킬 CC-BY-4.0을 명시한다. 사용하는 구성 요소, 데이터셋, 모델 엔드포인트의 조건은 각각 확인한다. [공식 라이선스](https://github.com/NVIDIA/cosmos-data-factory#license)
+
+## 연관 도구
+
+[NeMo Data Designer](nemo-data-designer.md)는 클립 메타데이터를 바탕으로 구조화 레코드나 질문 후보를 생성할 수 있습니다. CDF는 영상 생성, 증강과 라벨링 워크플로를 제공합니다.

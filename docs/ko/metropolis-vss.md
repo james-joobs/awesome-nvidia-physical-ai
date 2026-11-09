@@ -41,3 +41,7 @@ VSS는 실시간 특징 추출, 후속 분석, 에이전트·오프라인 처리
 - [아키텍처와 워크플로 공식 문서](https://docs.nvidia.com/vss)
 - [영상 요약 배포 구성](https://docs.nvidia.com/vss/system-components/vision-microservices/video-summarization)
 - [관련 공식 자료 · developer.nvidia.com](https://developer.nvidia.com/metropolis)
+
+## 연관 도구
+
+VSS와 문서 RAG를 결합한 공식 사례는 [NemoClaw](nemoclaw.md)를 참고하세요. [NeMo Retriever Library](nemo-retriever.md)는 문서 근거 파이프라인을, [NeMo Switchyard](nemo-switchyard.md)는 후속 모델 요청을 라우팅하는 활용 예를 다룹니다.

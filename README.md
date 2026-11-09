@@ -8,7 +8,7 @@
 
 **A guide to the simulation, data, and robotics learning ecosystem behind physical AI.**
 
-[Ecosystem map](#ecosystem-at-a-glance) · [Open-source projects](#1-projects-with-confirmed-open-source-code) · [Data and assets](#data-and-simulation-assets) · [Platforms and models](#2-platforms-models-products-standards-and-restricted-code) · [External tools](#3-external-models-and-tools) · [How they fit together](#4-how-the-pieces-fit-together)
+[Ecosystem map](#ecosystem-at-a-glance) · [Open-source projects](#1-projects-with-confirmed-open-source-code) · [NeMo](#nemo-and-physical-ai-tooling) · [Data and assets](#data-and-simulation-assets) · [Platforms and models](#2-platforms-models-products-standards-and-restricted-code) · [External tools](#3-external-models-and-tools) · [How they fit together](#4-how-the-pieces-fit-together)
 
 </div>
 
@@ -88,6 +88,31 @@ This conceptual map connects data collection and assets with simulation, trainin
 | **OSMO** | Manages GPU-backed simulation and training workflows | Apache-2.0 | [Repository](https://github.com/NVIDIA/OSMO) | [Guide](docs/en/osmo.md) |
 | **TensorRT public code** | Samples, plugins, and tools for inference optimization | Repository: Apache-2.0; this does not cover the entire TensorRT binary SDK | [Repository](https://github.com/NVIDIA/TensorRT) | [Guide](docs/en/tensorrt.md) |
 | **Holoscan SDK** | Low-latency streaming and sensor AI pipelines | Apache-2.0; external components have separate terms | [Repository](https://github.com/nvidia-holoscan/holoscan-sdk) | [Guide](docs/en/holoscan-sdk.md) |
+
+### NeMo and Physical AI tooling
+
+NeMo tools cover dataset preparation, model post-training and agent operations. Cosmos RL and Xenna are listed here because they connect to AlpaGym and Curator. The detail guides distinguish documented integrations from example workflows.
+
+| Project | Role | Code license and notes | Official source | Details |
+|---|---|---|---|---|
+| **NeMo Switchyard** | Model routing for LLM agents and applications | Apache-2.0 | [Repository](https://github.com/NVIDIA-NeMo/Switchyard) | [Guide](docs/en/nemo-switchyard.md) |
+| **NeMo Curator** | Distributed preparation of text, image, video and audio datasets | Apache-2.0 | [Repository](https://github.com/NVIDIA-NeMo/Curator) | [Guide](docs/en/nemo-curator.md) |
+| **NeMo Data Designer** | Schema-driven generation of synthetic datasets from models and seed data | Apache-2.0 | [Repository](https://github.com/NVIDIA-NeMo/DataDesigner) | [Guide](docs/en/nemo-data-designer.md) |
+| **NeMo AutoModel** | PyTorch-native distributed training of supported language and multimodal models | Apache-2.0 | [Repository](https://github.com/NVIDIA-NeMo/Automodel) | [Guide](docs/en/nemo-automodel.md) |
+| **NeMo Megatron Bridge** | Megatron Core training recipes and bidirectional Hugging Face checkpoint conversion | Apache-2.0 | [Repository](https://github.com/NVIDIA-NeMo/Megatron-Bridge) | [Guide](docs/en/nemo-megatron-bridge.md) |
+| **NeMo RL** | Distributed SFT and reinforcement learning for supported LLMs and VLMs | Apache-2.0 | [Repository](https://github.com/NVIDIA-NeMo/RL) | [Guide](docs/en/nemo-rl.md) |
+| **NeMo Gym** | Tool-using agent rollout environments and verifiers | Apache-2.0 | [Repository](https://github.com/NVIDIA-NeMo/Gym) | [Guide](docs/en/nemo-gym.md) |
+| **NeMo Evaluator** | Reproducible model and agent benchmarks against configured endpoints | Apache-2.0 | [Repository](https://github.com/NVIDIA-NeMo/Evaluator) | [Guide](docs/en/nemo-evaluator.md) |
+| **NeMo Guardrails** | Programmable checks for model requests, retrieval, actions and responses | Apache-2.0 | [Repository](https://github.com/NVIDIA-NeMo/Guardrails) | [Guide](docs/en/nemo-guardrails.md) |
+| **NeMo Retriever Library** | Multimodal extraction, indexing and retrieval of document evidence | Apache-2.0 | [Repository](https://github.com/NVIDIA/NeMo-Retriever) | [Guide](docs/en/nemo-retriever.md) |
+| **NeMo Agent Toolkit** | Agent workflow integration and profiling, with a published robotics example | Apache-2.0 (Deprecated, EOL planned for end of 2026) | [Repository](https://github.com/NVIDIA/NeMo-Agent-Toolkit) | [Guide](docs/en/nemo-agent-toolkit.md) |
+| **NeMo Relay** | Agent call tracing, middleware and governance | Apache-2.0 | [Repository](https://github.com/NVIDIA/NeMo-Relay) | [Guide](docs/en/nemo-relay.md) |
+| **NeMo Fabric** | Adapter-based execution of supported agent harnesses | Apache-2.0 | [Repository](https://github.com/NVIDIA/NeMo-Fabric) | [Guide](docs/en/nemo-fabric.md) |
+| **NeMo Helix** | Control plane for agent evaluation, optimization and security testing | Apache-2.0 | [Repository](https://github.com/NVIDIA-NeMo/nemo-helix) | [Guide](docs/en/nemo-helix.md) |
+| **NemoClaw** | OpenShell-based reference stack for running supported agents | Apache-2.0 | [Repository](https://github.com/NVIDIA/NemoClaw) | [Guide](docs/en/nemoclaw.md) |
+| **NeMo Speech** | Speech model training and inference, including ASR and TTS | Apache-2.0 | [Repository](https://github.com/NVIDIA/NeMo) | [Guide](docs/en/nemo-speech.md) |
+| **Cosmos RL** | Distributed reinforcement learning infrastructure used by AlpaGym | Apache-2.0 (Limited maintenance) | [Repository](https://github.com/nvidia-cosmos/cosmos-rl) | [Guide](docs/en/cosmos-rl.md) |
+| **Cosmos Xenna** | Ray-based distributed stage execution used by curation pipelines | Apache-2.0 (Limited maintenance) | [Repository](https://github.com/nvidia-cosmos/cosmos-xenna) | [Guide](docs/en/cosmos-xenna.md) |
 
 ### Autonomous driving
 
@@ -230,6 +255,9 @@ Public access alone does not establish an open-source license or permission for 
 | **Jetson / JetPack** | Edge AI hardware / software development kit | Product and distribution; component terms vary | [Jetson](https://developer.nvidia.com/embedded/jetson-modules) · [JetPack](https://developer.nvidia.com/embedded/jetpack) | [Guide](docs/en/jetson-jetpack.md) |
 | **NVIDIA DRIVE** | Autonomous-driving hardware and software platform | Product/platform; check component terms | [Official page](https://developer.nvidia.com/drive) | [Guide](docs/en/nvidia-drive.md) |
 | **RTX / DGX Spark** | GPU product family / AI computer | Hardware products, not open-source projects | [RTX](https://www.nvidia.com/en-us/geforce/graphics-cards/) · [DGX Spark](https://www.nvidia.com/en-us/products/workstations/dgx-spark/) | [Guide](docs/en/rtx-dgx-spark.md) |
+| **Cosmos Framework** | Training, post-training, evaluation and serving recipes for Cosmos 3 | OpenMDW-1.1 repository code | [Repository](https://github.com/NVIDIA/cosmos-framework) | [Guide](docs/en/cosmos-framework.md) |
+| **NVIDIA NeMo Platform** | Infrastructure for model customization, evaluation, guardrails and inference | Platform or service terms vary by component | [Documentation](https://docs.nvidia.com/nemo/microservices/latest/about/core-concepts/platform.html) | [Guide](docs/en/nemo-platform.md) |
+| **NVIDIA NIM** | Model-specific inference services for use by agents and pipelines | Platform or service terms vary by component | [Documentation](https://docs.nvidia.com/nim/) | [Guide](docs/en/nvidia-nim.md) |
 
 ## 3. External models and tools
 

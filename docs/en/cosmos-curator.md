@@ -19,3 +19,7 @@ The physical view shows workers and object stores across nodes. A downstream wor
 Split a small batch of long videos into clips, then select filters for motion and video quality. Keep original video IDs, clip offsets, and the outputs of captioning or embedding alongside accepted clips. Review examples from both sides of each filter threshold. If clips accumulate before captioning, inspect stage throughput and GPU allocation before adding more decoders. Partition training and evaluation by source video to keep overlapping clips together. [Official pipeline and documentation](https://github.com/NVIDIA/cosmos-curator#documentation)
 
 Code is Apache-2.0. Model artifacts and storage access have separate requirements and terms. [Official license and contact](https://github.com/NVIDIA/cosmos-curator#license-and-contact)
+
+## Related tools
+
+Compare the Physical AI recipes here with general multimodal curation in [NeMo Curator](nemo-curator.md). [Cosmos Xenna](cosmos-xenna.md) describes the stage executor used by some pipelines.

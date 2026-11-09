@@ -30,3 +30,7 @@ NVIDIA’s demo shows a driving control layout alongside generated footage. For 
 ## Availability
 
 The Cosmos 3 repository identifies OpenMDW-1.1 for code and models. The earlier [Predict2](cosmos-predict2.md) and [Reason2](cosmos-reason2.md) repositories document separate terms. [Official license section](https://github.com/NVIDIA/cosmos#citation--license)
+
+## Related tools
+
+See [Cosmos Framework](cosmos-framework.md) for checkpoint-specific training, post-training and serving recipes. [NVIDIA NIM](nvidia-nim.md) covers packaged inference endpoints.
