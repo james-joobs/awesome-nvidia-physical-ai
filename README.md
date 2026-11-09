@@ -6,7 +6,7 @@
 
 **Find the right tools for your Physical AI project and see how they fit together.**
 
-174 catalog entries · 114 guides in each language · Official sources and license notes
+180 catalog entries · 115 guides in each language · Official sources and license notes
 
 [Start here](#start-with-what-you-want-to-build) · [Ecosystem map](#ecosystem-at-a-glance) · [Data and assets](#data-and-simulation-assets) · [NeMo](#nemo-and-physical-ai-tooling) · [Full catalog](#1-projects-with-confirmed-open-source-code)
 
@@ -16,12 +16,14 @@
 
 | Your goal | Example path | What the guides help you do |
 |---|---|---|
-| **Train a robot policy** | [Isaac Sim](docs/en/isaac-sim.md) → [Isaac Lab](docs/en/isaac-lab.md) → [Lab-Arena](docs/en/isaac-lab-arena.md) | Build a simulated task, train a policy, and compare it across test scenes. |
-| **Generate labeled camera data** | [SimReady](docs/en/simready.md) → [Isaac Sim](docs/en/isaac-sim.md) → [Replicator](docs/en/replicator.md) | Set up a scene, vary its conditions, and export images with labels. |
-| **Build a video analysis agent** | [Metropolis VSS](docs/en/metropolis-vss.md) → [Switchyard](docs/en/nemo-switchyard.md) (optional) | Find timestamped evidence in footage and route follow-up model requests. |
-| **Test a driving policy** | [AlpaSim](docs/en/alpasim.md) → [AlpaGym](docs/en/alpagym.md) | Compare driving behavior on the same route, then explore simulation-based post-training. |
+| <img src="assets/icons/bot.svg" width="24" height="24" alt=""> **Train a robot policy** | [Isaac Sim](docs/en/isaac-sim.md) → [Isaac Lab](docs/en/isaac-lab.md) → [Lab-Arena](docs/en/isaac-lab-arena.md) | Build a simulated task, train a policy, and compare it across test scenes. |
+| <img src="assets/icons/scan-line.svg" width="24" height="24" alt=""> **Generate labeled camera data** | [SimReady](docs/en/simready.md) → [Isaac Sim](docs/en/isaac-sim.md) → [Replicator](docs/en/replicator.md) | Set up a scene, vary its conditions, and export images with labels. |
+| <img src="assets/icons/video.svg" width="24" height="24" alt=""> **Build a video analysis agent** | [Metropolis VSS](docs/en/metropolis-vss.md) → [Switchyard](docs/en/nemo-switchyard.md) (optional) | Find timestamped evidence in footage and route follow-up model requests. |
+| <img src="assets/icons/car-front.svg" width="24" height="24" alt=""> **Test a driving policy** | [AlpaSim](docs/en/alpasim.md) → [AlpaGym](docs/en/alpagym.md) | Compare driving behavior on the same route, then explore simulation-based post-training. |
 
 [See the ecosystem map](#ecosystem-at-a-glance) · [Browse datasets](#data-and-simulation-assets) · [Watch the AlpaSim demo](docs/en/alpasim.md)
+
+**Try a real sim-to-real example.** [Microduck with Isaac Lab and Newton](docs/en/microduck.md) · [Drive it in your browser](https://huggingface.co/spaces/pollen-robotics/microduck-simulator)
 
 <p align="center">
   <img src="assets/social-preview.jpg" alt="Awesome NVIDIA Physical AI — unofficial community guide" width="540">
@@ -61,6 +63,8 @@ This guide catalogs NVIDIA Physical AI projects, simulation assets, and datasets
 |---|---|---|---|---|
 | **Isaac Lab** | Robot-learning environments for reinforcement and imitation learning | BSD-3-Clause; backends and dependencies have separate terms | [Repository](https://github.com/isaac-sim/IsaacLab) | [Guide](docs/en/isaac-lab.md) |
 | **Isaac Lab-Arena** | Composable robot task environments and policy evaluation | Apache-2.0; Isaac Sim and other dependencies have separate terms | [Repository](https://github.com/isaac-sim/IsaacLab-Arena) | [Guide](docs/en/isaac-lab-arena.md) |
+| **Microduck robot software** | Onboard Rust runtime for ONNX policies, servo control, and device services | Apache-2.0 code | [Repository](https://github.com/pollen-robotics/microduck) | [Guide](docs/en/microduck.md) |
+| **Microduck RL** | Pollen Robotics’ mjlab and PPO training environments for Microduck | Apache-2.0 code; listed STL meshes are CC BY-NC-SA 4.0 | [Repository](https://github.com/pollen-robotics/microduck_rl) | [Guide](docs/en/microduck.md) |
 | **Isaac Capture (formerly Isaac Teleop)** | Teleoperation and egocentric capture, recording, and retargeting | Apache-2.0 by default; EgoPost uses OpenMDW-1.1, while CloudXR and some optional packages have separate proprietary terms | [Repository](https://github.com/NVIDIA/IsaacCapture) | [Guide](docs/en/isaac-capture.md) |
 | **AutoData** | Expands a small set of demonstrations into trajectories across varied task conditions | Apache-2.0; Isaac Sim and specific cuRobo components have separate terms | [Repository](https://github.com/isaac-sim/AutoData) | [Guide](docs/en/autodata.md) |
 | **Video-to-Data (V2D)** | Reconstructs scenes and motion from video for robot-learning workflows | Code: Apache-2.0; documentation and skills: CC-BY-4.0; dependent models have separate terms | [Repository](https://github.com/nvidia-isaac/video_to_data) | [Guide](docs/en/video-to-data.md) |
@@ -186,6 +190,12 @@ Dataset licenses below are the Hugging Face license tags observed on **November 
 | **[PhysicalAI-Robotics-mindmap-Franka-Mug-in-Drawer](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-mindmap-Franka-Mug-in-Drawer)** | Franka mug-in-drawer task trajectories | CC-BY-NC-4.0; public | [Guide](docs/en/datasets-robot-demonstrations.md#physicalai-robotics-mindmap-franka-mug-in-drawer) |
 | **[PhysicalAI-Robotics-mindmap-Franka-Cube-Stacking](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-mindmap-Franka-Cube-Stacking)** | Franka cube-stacking task trajectories | CC-BY-NC-4.0; public | [Guide](docs/en/datasets-robot-demonstrations.md#physicalai-robotics-mindmap-franka-cube-stacking) |
 
+### Robot perception
+
+| Dataset | Role | License tag · access | Details |
+|---|---|---|---|
+| **[Microduck Duck Detector Dataset](https://huggingface.co/datasets/pollen-robotics/microduck-duck-detector-dataset)** | Onboard camera images and bounding boxes for detecting other Microducks | Apache-2.0; public | [Guide](docs/en/microduck.md#hugging-face-resources) |
+
 ### Driving, video, and world-model data
 
 | Dataset | Role | License tag · access | Details |
@@ -241,6 +251,9 @@ Public access alone does not establish an open-source license or permission for 
 | Name | Role or category | Availability and license status | Official source | Details |
 |---|---|---|---|---|
 | **cuVSLAM** | CUDA-accelerated visual odometry and SLAM library | NVIDIA Community License restricts use to NVIDIA platforms; distinct from its ROS wrapper | [Repository](https://github.com/nvidia-isaac/cuVSLAM) | [Guide](docs/en/cuvslam.md) |
+| **Microduck** | Pollen Robotics and Hugging Face’s compact biped for sim-to-real robot learning | Hardware product; mechanical and electronic designs outside the open-source scope | [Product](https://pollen-robotics.com/microduck/) · [NVIDIA walkthrough](https://huggingface.co/blog/nvidia/microduck-isaac-lab-sim-to-real) | [Guide](docs/en/microduck.md) |
+| **Microduck Sandbox and Arena** | Browser simulation demo and hosted policy benchmark | Public Spaces; Sandbox app code Apache-2.0, Arena project-wide source license unverified | [Sandbox](https://huggingface.co/spaces/pollen-robotics/microduck-simulator) · [Arena](https://huggingface.co/spaces/pollen-robotics/microduck-arena) | [Guide](docs/en/microduck.md#hugging-face-resources) |
+| **Microduck policies and checkpoints** | Deployable ONNX policies and separate mjlab training checkpoints | Public model repositories; ONNX pack tagged Apache-2.0, checkpoint license unverified | [ONNX policies](https://huggingface.co/pollen-robotics/microduck-policies) · [Training checkpoints](https://huggingface.co/pollen-robotics/microduck-training) | [Guide](docs/en/microduck.md#hugging-face-resources) |
 | **NVIDIA Omniverse** | OpenUSD-based 3D development platform | Product, SDK, and publicly available components have different terms | [Official page](https://developer.nvidia.com/omniverse) | [Guide](docs/en/omniverse.md) |
 | **SimReady** | Guidelines and specifications for simulation-ready 3D assets | Asset licenses vary; not a single software project | [Documentation](https://docs.omniverse.nvidia.com/simready/latest/index.html) | [Guide](docs/en/simready.md) |
 | **NuRec** | Neural reconstruction and rendering of real environments | Product/technology; complete source and license scope unverified | [Official page](https://developer.nvidia.com/omniverse/nurec) | [Guide](docs/en/nurec.md) |

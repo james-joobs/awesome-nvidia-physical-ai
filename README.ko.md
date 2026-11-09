@@ -6,7 +6,7 @@
 
 **만들고 싶은 것에서 출발해, 필요한 물리 AI 도구와 연결 방법을 찾아보세요.**
 
-목록 174개 항목 · 언어별 상세 가이드 114개 · 공식 출처와 라이선스 정보
+목록 180개 항목 · 언어별 상세 가이드 115개 · 공식 출처와 라이선스 정보
 
 [목표별로 시작](#만들고-싶은-것부터-시작하세요) · [생태계 지도](#생태계-한눈에-보기) · [데이터와 자산](#데이터와-시뮬레이션-자산) · [NeMo](#nemo와-물리-ai-도구) · [전체 목록](#1-오픈소스-코드가-확인된-프로젝트)
 
@@ -16,12 +16,14 @@
 
 | 내 목표 | 도구 조합 예시 | 가이드에서 배울 수 있는 것 |
 |---|---|---|
-| **로봇 정책 학습** | [Isaac Sim](docs/ko/isaac-sim.md) → [Isaac Lab](docs/ko/isaac-lab.md) → [Lab-Arena](docs/ko/isaac-lab-arena.md) | 가상 작업을 만들고 정책을 학습한 뒤 여러 테스트 장면에서 평가합니다. |
-| **라벨이 붙은 카메라 데이터 만들기** | [SimReady](docs/ko/simready.md) → [Isaac Sim](docs/ko/isaac-sim.md) → [Replicator](docs/ko/replicator.md) | 장면의 조건을 바꾸며 이미지와 라벨을 함께 생성합니다. |
-| **영상 분석 에이전트 만들기** | [Metropolis VSS](docs/ko/metropolis-vss.md) → [Switchyard](docs/ko/nemo-switchyard.md) (선택) | 영상에서 시각이 표시된 근거를 찾고 후속 요청을 적절한 모델로 보냅니다. |
-| **자율주행 정책 테스트** | [AlpaSim](docs/ko/alpasim.md) → [AlpaGym](docs/ko/alpagym.md) | 같은 경로에서 정책별 주행을 비교하고 시뮬레이션 기반 후학습으로 이어갑니다. |
+| <img src="assets/icons/bot.svg" width="24" height="24" alt=""> **로봇 정책 학습** | [Isaac Sim](docs/ko/isaac-sim.md) → [Isaac Lab](docs/ko/isaac-lab.md) → [Lab-Arena](docs/ko/isaac-lab-arena.md) | 가상 작업을 만들고 정책을 학습한 뒤 여러 테스트 장면에서 평가합니다. |
+| <img src="assets/icons/scan-line.svg" width="24" height="24" alt=""> **라벨이 붙은 카메라 데이터 만들기** | [SimReady](docs/ko/simready.md) → [Isaac Sim](docs/ko/isaac-sim.md) → [Replicator](docs/ko/replicator.md) | 장면의 조건을 바꾸며 이미지와 라벨을 함께 생성합니다. |
+| <img src="assets/icons/video.svg" width="24" height="24" alt=""> **영상 분석 에이전트 만들기** | [Metropolis VSS](docs/ko/metropolis-vss.md) → [Switchyard](docs/ko/nemo-switchyard.md) (선택) | 영상에서 시각이 표시된 근거를 찾고 후속 요청을 적절한 모델로 보냅니다. |
+| <img src="assets/icons/car-front.svg" width="24" height="24" alt=""> **자율주행 정책 테스트** | [AlpaSim](docs/ko/alpasim.md) → [AlpaGym](docs/ko/alpagym.md) | 같은 경로에서 정책별 주행을 비교하고 시뮬레이션 기반 후학습으로 이어갑니다. |
 
 [생태계 지도 보기](#생태계-한눈에-보기) · [데이터셋 찾기](#데이터와-시뮬레이션-자산) · [AlpaSim 시연 보기](docs/ko/alpasim.md)
+
+**시뮬레이션에서 실물 로봇까지.** [Isaac Lab과 Newton으로 Microduck 학습하기](docs/ko/microduck.md) · [브라우저에서 조종하기](https://huggingface.co/spaces/pollen-robotics/microduck-simulator)
 
 <p align="center">
   <img src="assets/social-preview.jpg" alt="Awesome NVIDIA Physical AI — 비공식 커뮤니티 가이드" width="540">
@@ -61,6 +63,8 @@
 |---|---|---|---|---|
 | **Isaac Lab** | 강화·모방학습 및 로봇 학습 환경 | BSD-3-Clause; 선택한 백엔드와 의존성은 별도 조건 | [저장소](https://github.com/isaac-sim/IsaacLab) | [상세 보기](docs/ko/isaac-lab.md) |
 | **Isaac Lab-Arena** | 조합 가능한 로봇 작업 환경과 정책 평가 | Apache-2.0; Isaac Sim 등 의존성 별도 | [저장소](https://github.com/isaac-sim/IsaacLab-Arena) | [상세 보기](docs/ko/isaac-lab-arena.md) |
+| **Microduck 로봇 소프트웨어** | ONNX 정책 실행, 서보 제어, 장치 서비스를 담당하는 온보드 Rust 런타임 | 코드 Apache-2.0 | [저장소](https://github.com/pollen-robotics/microduck) | [상세 보기](docs/ko/microduck.md) |
+| **Microduck RL** | Pollen Robotics의 mjlab·PPO 기반 Microduck 학습 환경 | 코드 Apache-2.0, 지정된 STL 메시는 CC BY-NC-SA 4.0 | [저장소](https://github.com/pollen-robotics/microduck_rl) | [상세 보기](docs/ko/microduck.md) |
 | **Isaac Capture (이전 Isaac Teleop 포함)** | 원격 조작 및 1인칭 데이터 수집·기록·리타기팅 | 기본 Apache-2.0; EgoPost는 OpenMDW-1.1, CloudXR과 일부 선택 패키지는 별도 독점 조건 | [저장소](https://github.com/NVIDIA/IsaacCapture) | [상세 보기](docs/ko/isaac-capture.md) |
 | **AutoData** | 소수의 시연을 다양한 작업 조건의 궤적으로 확장 | Apache-2.0; Isaac Sim 및 특정 cuRobo 구성 요소 별도 조건 | [저장소](https://github.com/isaac-sim/AutoData) | [상세 보기](docs/ko/autodata.md) |
 | **Video-to-Data (V2D)** | 영상의 장면·동작을 복원하고 로봇 학습에 연결하는 파이프라인 | 소스 Apache-2.0, 문서·스킬 CC-BY-4.0; 의존 모델 별도 | [저장소](https://github.com/nvidia-isaac/video_to_data) | [상세 보기](docs/ko/video-to-data.md) |
@@ -186,6 +190,12 @@ NeMo 도구는 데이터 준비, 모델 후학습과 에이전트 운영에 쓰�
 | **[PhysicalAI-Robotics-mindmap-Franka-Mug-in-Drawer](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-mindmap-Franka-Mug-in-Drawer)** | Franka 머그잔을 서랍에 넣는 작업 궤적 | CC-BY-NC-4.0; 공개 | [상세 보기](docs/ko/datasets-robot-demonstrations.md#physicalai-robotics-mindmap-franka-mug-in-drawer) |
 | **[PhysicalAI-Robotics-mindmap-Franka-Cube-Stacking](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-mindmap-Franka-Cube-Stacking)** | Franka 큐브 쌓기 작업 궤적 | CC-BY-NC-4.0; 공개 | [상세 보기](docs/ko/datasets-robot-demonstrations.md#physicalai-robotics-mindmap-franka-cube-stacking) |
 
+### 로봇 인지
+
+| 데이터셋 | 역할 | 라이선스 태그 · 접근 | 상세 설명 |
+|---|---|---|---|
+| **[Microduck Duck Detector Dataset](https://huggingface.co/datasets/pollen-robotics/microduck-duck-detector-dataset)** | 다른 Microduck을 탐지하기 위한 로봇 카메라 이미지와 바운딩 박스 | Apache-2.0, 공개 | [상세 보기](docs/ko/microduck.md#hugging-face-리소스) |
+
 ### 자율주행·영상·월드 모델 데이터
 
 | 데이터셋 | 역할 | 라이선스 태그 · 접근 | 상세 설명 |
@@ -241,6 +251,9 @@ NeMo 도구는 데이터 준비, 모델 후학습과 에이전트 운영에 쓰�
 | 이름 | 역할·분류 | 공개·라이선스 상태 | 공식 출처 | 상세 설명 |
 |---|---|---|---|---|
 | **cuVSLAM** | CUDA 가속 시각 위치 추정·SLAM 라이브러리 | NVIDIA Community License; NVIDIA 플랫폼 제한이 있는 공개 코드, ROS 래퍼와 별도 | [저장소](https://github.com/nvidia-isaac/cuVSLAM) | [상세 보기](docs/ko/cuvslam.md) |
+| **Microduck** | Pollen Robotics와 Hugging Face의 소형 이족보행 로봇. 시뮬레이션 학습을 실물에 적용하는 데 활용 | 하드웨어 제품. 기구·전자 설계는 오픈소스 범위에서 제외 | [제품](https://pollen-robotics.com/microduck/) · [NVIDIA 튜토리얼](https://huggingface.co/blog/nvidia/microduck-isaac-lab-sim-to-real) | [상세 보기](docs/ko/microduck.md) |
+| **Microduck Sandbox와 Arena** | 브라우저 시뮬레이션 체험 및 정책 평가 서비스 | 공개 Space. Sandbox 앱 코드는 Apache-2.0, Arena 전체 소스 라이선스는 미확인 | [Sandbox](https://huggingface.co/spaces/pollen-robotics/microduck-simulator) · [Arena](https://huggingface.co/spaces/pollen-robotics/microduck-arena) | [상세 보기](docs/ko/microduck.md#hugging-face-리소스) |
+| **Microduck 정책과 체크포인트** | 배포용 ONNX 정책과 mjlab 학습 재개용 체크포인트 | 공개 모델 저장소. ONNX 정책은 Apache-2.0 태그, 학습 체크포인트는 라이선스 미확인 | [ONNX 정책](https://huggingface.co/pollen-robotics/microduck-policies) · [학습 체크포인트](https://huggingface.co/pollen-robotics/microduck-training) | [상세 보기](docs/ko/microduck.md#hugging-face-리소스) |
 | **NVIDIA Omniverse** | OpenUSD 기반 3D 개발 플랫폼 | 제품·SDK와 공개 구성 요소의 조건이 각각 다름 | [공식 페이지](https://developer.nvidia.com/omniverse) | [상세 보기](docs/ko/omniverse.md) |
 | **SimReady** | 시뮬레이션에 필요한 속성을 갖춘 3D 자산의 규격·지침 | 자산별 라이선스 별도; 단일 소프트웨어 프로젝트 아님 | [공식 문서](https://docs.omniverse.nvidia.com/simready/latest/index.html) | [상세 보기](docs/ko/simready.md) |
 | **NuRec** | 실제 환경의 신경 재구성·렌더링 기술 | 제품·기술; 전체 소스 및 라이선스 범위 미확인 | [공식 안내](https://developer.nvidia.com/omniverse/nurec) | [상세 보기](docs/ko/nurec.md) |

@@ -57,7 +57,7 @@ Isaac Lab 코드는 BSD-3-Clause다. 백엔드, 정책 가중치, 에셋 조건�
 
 ## 관련 가이드
 
-[Isaac Sim](isaac-sim.md) · [Newton](newton.md) · [Isaac Lab-Arena](isaac-lab-arena.md) · [Isaac RLPT](isaac-rlpt.md)
+[Isaac Sim](isaac-sim.md) · [Newton](newton.md) · [Isaac Lab-Arena](isaac-lab-arena.md) · [Isaac RLPT](isaac-rlpt.md) · [Microduck](microduck.md)
 
 ## 공식 자료
 

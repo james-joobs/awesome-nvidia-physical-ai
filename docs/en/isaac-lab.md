@@ -57,7 +57,7 @@ Isaac Lab code is BSD-3-Clause. Backends, policy weights and assets have separat
 
 ## Related guides
 
-[Isaac Sim](isaac-sim.md) · [Newton](newton.md) · [Isaac Lab-Arena](isaac-lab-arena.md) · [Isaac RLPT](isaac-rlpt.md)
+[Isaac Sim](isaac-sim.md) · [Newton](newton.md) · [Isaac Lab-Arena](isaac-lab-arena.md) · [Isaac RLPT](isaac-rlpt.md) · [Microduck](microduck.md)
 
 ## Official references
 
