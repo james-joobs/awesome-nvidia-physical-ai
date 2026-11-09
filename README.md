@@ -2,11 +2,11 @@
 
 # Awesome NVIDIA Physical AI
 
+### English · [🇰🇷 한국어로 보기](README.ko.md)
+
 <img src="assets/social-preview.jpg" alt="Awesome NVIDIA Physical AI — unofficial community guide" width="900">
 
 **A guide to the simulation, data, and robotics learning ecosystem behind physical AI.**
-
-[![English](https://img.shields.io/badge/English-selected-76B900?style=for-the-badge)](README.md) [![한국어](https://img.shields.io/badge/한국어-switch-555555?style=for-the-badge)](README.ko.md)
 
 [Open-source projects](#1-projects-with-confirmed-open-source-code) · [Data and assets](#data-and-simulation-assets) · [Platforms and models](#2-platforms-models-products-standards-and-restricted-code) · [External tools](#3-external-models-and-tools) · [How they fit together](#4-how-the-pieces-fit-together)
 
