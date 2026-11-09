@@ -6,13 +6,13 @@
 
 [![English](https://img.shields.io/badge/English-selected-76B900?style=for-the-badge)](README.md) [![한국어](https://img.shields.io/badge/한국어-switch-555555?style=for-the-badge)](README.ko.md)
 
-[Open-source projects](#1-projects-with-confirmed-open-source-code) · [Platforms and models](#2-platforms-models-products-standards-and-restricted-code) · [External tools](#3-external-models-and-tools) · [How they fit together](#4-how-the-pieces-fit-together)
+[Open-source projects](#1-projects-with-confirmed-open-source-code) · [Data and assets](#data-and-simulation-assets) · [Platforms and models](#2-platforms-models-products-standards-and-restricted-code) · [External tools](#3-external-models-and-tools) · [How they fit together](#4-how-the-pieces-fit-together)
 
 </div>
 
 ---
 
-This guide catalogs the projects and technologies discussed in the source conversation, including related projects outside NVIDIA. It links to official repositories and documentation and distinguishes open-source code from models, products, and source-available code with restrictions.
+This guide catalogs NVIDIA Physical AI projects, simulation assets, and datasets, including related projects outside NVIDIA. It links to official repositories and documentation and distinguishes open-source code from models, products, and source-available code with restrictions.
 
 **Checked:** November 9, 2026. A public repository does not imply that its model weights, datasets, binaries, cloud services, or dependencies share the same license. License notes below describe the linked code where confirmed; check the exact version and individual components before use. “Unverified” means the relevant scope or license could not be established, not that it is closed source.
 
@@ -66,6 +66,84 @@ This guide catalogs the projects and technologies discussed in the source conver
 |---|---|---|---|
 | AlpaSim<br><a href="https://github.com/NVlabs/alpasim"><img src="https://raw.githubusercontent.com/NVlabs/alpasim/main/docs/assets/images/thumbnail.gif" alt="AlpaSim driving simulation" width="180"></a> | Closed-loop simulation for autonomous-driving policies | Code: Apache-2.0; models and data have separate terms | [Repository](https://github.com/NVlabs/alpasim) |
 | AlpaGym | Reinforcement learning for autonomous-driving policies | Code: Apache-2.0; dependencies and models have separate terms | [Repository](https://github.com/NVlabs/alpagym) |
+
+## Data and simulation assets
+
+### Discovery platforms and tools
+
+| Resource | Role | Access and license | Official source |
+|---|---|---|---|
+| SimReady Foundation | OpenUSD asset profiles, specifications, validation tools, and sample content | NVIDIA-authored content Apache-2.0; third-party assets have their own licenses | [GitHub](https://github.com/NVIDIA/simready-foundation) |
+| SimReady Central Library | Search and discover registered simulation-ready assets from NVIDIA and other owners | Public browsing; each asset has its own license. Accepted assets can include non-commercial terms | [Hugging Face Space](https://huggingface.co/spaces/nvidia/simready-central) · [Documentation](https://docs.omniverse.nvidia.com/simready/latest/simready-central.html) |
+| SimReady Central | Submission and review index for owner-hosted Hugging Face asset packages | Public repository; submission onboarding and asset terms apply separately | [GitHub](https://github.com/NVIDIA-Omniverse/simready-central) |
+| NVIDIA Physical AI dataset collection | Entry point to curated NVIDIA datasets for robotics, driving, and other physical AI applications | Dataset terms and access vary by entry | [Collection](https://huggingface.co/collections/nvidia/physical-ai) · [All NVIDIA datasets](https://huggingface.co/nvidia/datasets) |
+
+Dataset licenses below are the Hugging Face license tags observed on **November 9, 2026**, not a substitute for the dataset card or terms. “Public” means no access gate was reported, not that the dataset is open source or unrestricted. CC BY requires attribution; CC BY-NC restricts commercial use. `Other` and missing tags require individual review. Some asset packages include third-party materials with separate conditions.
+
+### 3D assets and environments
+
+| Dataset | Role | License tag · access |
+|---|---|---|
+| [simready-assets](https://huggingface.co/datasets/nvidia/simready-assets) | SimReady 3D props and objects | CC BY 4.0; public |
+| [simready-dsx](https://huggingface.co/datasets/nvidia/simready-dsx) | SimReady assets for AI factory digital twins | CC BY 4.0; public |
+| [isaacsim-assets](https://huggingface.co/datasets/nvidia/isaacsim-assets) | Isaac Sim assets and sample content | License unverified |
+| [PhysicalAI-SimReady-Warehouse-01](https://huggingface.co/datasets/nvidia/PhysicalAI-SimReady-Warehouse-01) | OpenUSD warehouse scene for simulation | CC-BY-4.0; public |
+| [PhysicalAI-DigitalCousin-Assets](https://huggingface.co/datasets/nvidia/PhysicalAI-DigitalCousin-Assets) | Assets for simulated GR1 tabletop environments | CC-BY-NC-4.0; public |
+| [PhysicalAI-Robotics-Manipulation-Objects-Kitchen-MJCF](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Objects-Kitchen-MJCF) | MJCF kitchen object assets | CC-BY-4.0; public |
+| [PhysicalAI-Robotics-PhysicalAssets-VoMP](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-PhysicalAssets-VoMP) | Assets for vision-based robot motion planning research | License unverified; public |
+| [PhysicalAI-Robotics-PhysicalAssets-VoMP-Eval](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-PhysicalAssets-VoMP-Eval) | Evaluation assets for vision-based motion planning | License unverified; public |
+
+### Robot demonstrations and motion
+
+| Dataset | Role | License tag · access |
+|---|---|---|
+| [PhysicalAI-Robotics-GR00T-X-Embodiment-Sim](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-X-Embodiment-Sim) | Simulated trajectories across robot embodiments for GR00T post-training | CC-BY-4.0; public |
+| [PhysicalAI-GR00T-Tuned-Tasks](https://huggingface.co/datasets/nvidia/PhysicalAI-GR00T-Tuned-Tasks) | Multimodal GR1 tabletop manipulation trajectories | CC-BY-4.0; public |
+| [PhysicalAI-Robotics-GR00T-GR1](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-GR1) | Third-person video of GR1 robot tasks | CC-BY-4.0; public |
+| [PhysicalAI-Robotics-GR00T-Teleop-G1](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-Teleop-G1) | Teleoperated Unitree G1 demonstrations | CC-BY-4.0; public |
+| [PhysicalAI-Robotics-GR00T-Teleop-Sim](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-Teleop-Sim) | Simulated teleoperation demonstrations | CC-BY-NC-4.0; public |
+| [PhysicalAI-Robotics-GR00T-Teleop-GR1](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-Teleop-GR1) | GR1 teleoperation data | CC-BY-NC-4.0; public |
+| [PhysicalAI-Robotics-GR00T-Eval](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-Eval) | GR00T robot evaluation data | CC-BY-4.0; public |
+| [PhysicalAI-Robotics-Manipulation-Kitchen](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Kitchen) | Simulated kitchen manipulation trajectories in LeRobot format | CC-BY-4.0; public |
+| [PhysicalAI-Robotics-Manipulation-SingleArm](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-SingleArm) | Simulated single-arm robot manipulation | CC-BY-4.0; public |
+| [PhysicalAI-Robotics-Manipulation-Objects](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Objects) | Simulated object pick-and-place trajectories | License unverified; public |
+| [PhysicalAI-Robotics-Manipulation-Augmented](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Augmented) | Synthetic annotated cube-stacking demonstrations | License unverified; public |
+| [PhysicalAI-Robotics-Manipulation-Kitchen-Demos](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Kitchen-Demos) | Human-teleoperated kitchen task demonstrations | CC-BY-4.0; public |
+| [PhysicalAI-Robotics-GraspGen](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GraspGen) | Candidate grasps for multiple grippers and objects | CC-BY-4.0; public |
+| [PhysicalAI-Robotics-Locomanipulation-GRAIL](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Locomanipulation-GRAIL) | Robot locomotion and manipulation motion data | CC-BY-NC-4.0; public |
+| [PhysicalAI-Robotics-Open-H-Embodiment](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Open-H-Embodiment) | Surgical robotics and ultrasound autonomy data initiative | CC-BY-4.0; public |
+| [PhysicalAI-Robotics-mindmap-GR1-Drill-in-Box](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-mindmap-GR1-Drill-in-Box) | GR1 drill-in-box task trajectories | CC-BY-NC-4.0; public |
+| [PhysicalAI-Robotics-mindmap-GR1-Stick-in-Bin](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-mindmap-GR1-Stick-in-Bin) | GR1 stick-in-bin task trajectories | CC-BY-NC-4.0; public |
+| [PhysicalAI-Robotics-mindmap-Franka-Mug-in-Drawer](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-mindmap-Franka-Mug-in-Drawer) | Franka mug-in-drawer task trajectories | CC-BY-NC-4.0; public |
+| [PhysicalAI-Robotics-mindmap-Franka-Cube-Stacking](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-mindmap-Franka-Cube-Stacking) | Franka cube-stacking task trajectories | CC-BY-NC-4.0; public |
+
+### Driving, video, and world-model data
+
+| Dataset | Role | License tag · access |
+|---|---|---|
+| [PhysicalAI-Autonomous-Vehicles](https://huggingface.co/datasets/nvidia/PhysicalAI-Autonomous-Vehicles) | Real-world autonomous-driving multisensor data | Other terms; check card; Login and access acceptance required |
+| [PhysicalAI-Autonomous-Vehicles-NuRec](https://huggingface.co/datasets/nvidia/PhysicalAI-Autonomous-Vehicles-NuRec) | Driving scenes reconstructed with NuRec | Other terms; check card; Login and access acceptance required |
+| [PhysicalAI-Autonomous-Vehicles-NCore](https://huggingface.co/datasets/nvidia/PhysicalAI-Autonomous-Vehicles-NCore) | Autonomous-driving sensor data in the NCore ecosystem | Other terms; check card; Login and access acceptance required |
+| [PhysicalAI-Autonomous-Vehicles-Foundation4D](https://huggingface.co/datasets/nvidia/PhysicalAI-Autonomous-Vehicles-Foundation4D) | Autonomous-driving data for 4D reconstruction | Other terms; check card; Login and access acceptance required |
+| [PhysicalAI-Autonomous-Vehicle-Cosmos-Drive-Dreams](https://huggingface.co/datasets/nvidia/PhysicalAI-Autonomous-Vehicle-Cosmos-Drive-Dreams) | Cosmos-based synthetic driving data | CC-BY-4.0; public |
+| [PhysicalAI-Autonomous-Vehicle-Cosmos-Synthetic](https://huggingface.co/datasets/nvidia/PhysicalAI-Autonomous-Vehicle-Cosmos-Synthetic) | Synthetic driving data; card refers to Cosmos Drive Dreams | CC-BY-4.0; public |
+| [PhysicalAI-SmartSpaces](https://huggingface.co/datasets/nvidia/PhysicalAI-SmartSpaces) | Multi-camera video for tracking people and mobile equipment | CC-BY-4.0; public |
+| [PhysicalAI-Traffic-Anomaly-Reasoning](https://huggingface.co/datasets/nvidia/PhysicalAI-Traffic-Anomaly-Reasoning) | Traffic anomaly reasoning and evaluation data | CC-BY-4.0; public |
+| [PhysicalAI-Human-1M-100K](https://huggingface.co/datasets/nvidia/PhysicalAI-Human-1M-100K) | Egocentric human video with motion and language annotations | CC-BY-4.0; public |
+| [PhysicalAI-Spatial-Intelligence-Warehouse](https://huggingface.co/datasets/nvidia/PhysicalAI-Spatial-Intelligence-Warehouse) | Spatial intelligence data for warehouse scenes | CC-BY-4.0; Login and access acceptance required |
+| [PhysicalAI-Robotics-NuRec](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-NuRec) | Neural reconstruction data for robotics | CC-BY-4.0; Login and access acceptance required |
+| [PhysicalAI-NuRec-PPISP](https://huggingface.co/datasets/nvidia/PhysicalAI-NuRec-PPISP) | Scene captures for reconstruction and image processing | CC-BY-4.0; public |
+| [PhysicalAI-SpatialIntelligence-Lyra-SDG](https://huggingface.co/datasets/nvidia/PhysicalAI-SpatialIntelligence-Lyra-SDG) | Synthetic spatial-intelligence research data | CC-BY-4.0; public |
+| [PhysicalAI-WorldModel-Synthetic-Autonomous-Driving-Scenarios](https://huggingface.co/datasets/nvidia/PhysicalAI-WorldModel-Synthetic-Autonomous-Driving-Scenarios) | Synthetic autonomous-driving scenes for world models | Other terms; check card; public |
+| [PhysicalAI-WorldModel-Synthetic-Embodied-Robot-Scenes](https://huggingface.co/datasets/nvidia/PhysicalAI-WorldModel-Synthetic-Embodied-Robot-Scenes) | Synthetic embodied-robot scenes for world models | Other terms; check card; public |
+| [PhysicalAI-WorldModel-Synthetic-Digital-Human-Scenes](https://huggingface.co/datasets/nvidia/PhysicalAI-WorldModel-Synthetic-Digital-Human-Scenes) | Synthetic digital-human video scenes | Other terms; check card; public |
+| [PhysicalAI-WorldModel-Synthetic-Physical-Interaction-Scenes](https://huggingface.co/datasets/nvidia/PhysicalAI-WorldModel-Synthetic-Physical-Interaction-Scenes) | Simulated multi-object physical interactions | Other terms; check card; public |
+| [PhysicalAI-WorldModel-Synthetic-Warehouse-Operations-Scenes](https://huggingface.co/datasets/nvidia/PhysicalAI-WorldModel-Synthetic-Warehouse-Operations-Scenes) | Synthetic warehouse operations and safety events | Other terms; check card; public |
+| [PhysicalAI-Event-Videos](https://huggingface.co/datasets/nvidia/PhysicalAI-Event-Videos) | Video anomalies, safety events, and annotations | Other terms; check card; public |
+| [PhysicalAI-VANTAGE-Bench](https://huggingface.co/datasets/nvidia/PhysicalAI-VANTAGE-Bench) | Fixed-camera video understanding benchmark | Other terms; check card; public |
+| [PhysicalAI-VANTAGE-Bench-Subset](https://huggingface.co/datasets/nvidia/PhysicalAI-VANTAGE-Bench-Subset) | Subset of the fixed-camera video benchmark | Other terms; check card; public |
+
+**Example workflow:** Build an Isaac Sim/Isaac Lab scene with SimReady assets, then train and evaluate a policy using Capture/GR00T demonstrations or existing datasets. Check robot embodiment, coordinate frames, sensors, and license compatibility for each dataset.
 
 ## 2. Platforms, models, products, standards, and restricted code
 

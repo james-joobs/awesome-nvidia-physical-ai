@@ -6,13 +6,13 @@
 
 [![English](https://img.shields.io/badge/English-switch-555555?style=for-the-badge)](README.md) [![한국어](https://img.shields.io/badge/한국어-selected-76B900?style=for-the-badge)](README.ko.md)
 
-[오픈소스 프로젝트](#1-오픈소스-코드가-확인된-프로젝트) · [플랫폼과 모델](#2-플랫폼모델제품표준-및-제한적-공개-항목) · [외부 도구](#3-대화에서-함께-언급된-외부-모델도구) · [연결 관계](#4-연결-관계와-명칭-정리)
+[오픈소스 프로젝트](#1-오픈소스-코드가-확인된-프로젝트) · [데이터와 자산](#데이터와-시뮬레이션-자산) · [플랫폼과 모델](#2-플랫폼모델제품표준-및-제한적-공개-항목) · [외부 도구](#3-대화에서-함께-언급된-외부-모델도구) · [연결 관계](#4-연결-관계와-명칭-정리)
 
 </div>
 
 ---
 
-확인일: 2026-11-09. 범위는 연결된 대화의 사용자 질문과 두 답변에서 이름이 나온 항목이다. NVIDIA 외부 프로젝트도 실제 언급된 경우 포함했다. 공식 저장소와 문서를 기준으로 했으며, 링크에 접속할 수 있다는 사실은 모든 코드·모델·데이터가 같은 조건으로 이용 가능하다는 의미가 아니다.
+확인일: 2026-11-09. 연결된 대화에서 언급된 프로젝트와 추가 조사한 시뮬레이션 자산·데이터셋을 정리했다. NVIDIA 외부 프로젝트도 관련된 경우 포함했다. 공식 저장소와 문서를 기준으로 했으며, 링크에 접속할 수 있다는 사실은 모든 코드·모델·데이터가 같은 조건으로 이용 가능하다는 의미가 아니다.
 
 **분류 기준:** 아래 첫 표는 공개 코드에 대해 오픈소스 라이선스가 확인된 프로젝트다. 코드의 라이선스는 모델 가중치, 데이터, 바이너리, 클라우드 서비스 및 의존성에 자동으로 적용되지 않는다. 표의 라이선스는 지정한 저장소의 기본적인 코드 조건이며, 개별 파일과 버전은 직접 확인해야 한다. 두 번째 표는 플랫폼·모델·제품·표준, 제한적 공개 코드, 또는 라이선스가 불명확한 항목이다. NVIDIA 고유 모델도 소스가 공개되었다는 이유만으로 오픈소스로 분류하지 않았다.
 
@@ -66,6 +66,84 @@
 |---|---|---|---|
 | AlpaSim<br><a href="https://github.com/NVlabs/alpasim"><img src="https://raw.githubusercontent.com/NVlabs/alpasim/main/docs/assets/images/thumbnail.gif" alt="AlpaSim driving simulation" width="180"></a> | 자율주행 정책의 폐루프 시뮬레이션 | Apache-2.0 코드; 모델·데이터 별도 | [저장소](https://github.com/NVlabs/alpasim) |
 | AlpaGym | 자율주행 정책 강화학습 | Apache-2.0 코드; 의존성·모델 별도 | [저장소](https://github.com/NVlabs/alpagym) |
+
+## 데이터와 시뮬레이션 자산
+
+### 검색 플랫폼과 도구
+
+| 항목 | 역할 | 공개 및 이용 조건 | 공식 출처 |
+|---|---|---|---|
+| SimReady Foundation | OpenUSD 자산 프로파일·규격·검증 도구 및 예제 | NVIDIA 작성 콘텐츠 Apache-2.0; 제3자 자산은 별도 라이선스 | [GitHub](https://github.com/NVIDIA/simready-foundation) |
+| SimReady Central Library | NVIDIA와 다른 소유자의 시뮬레이션 자산 검색·탐색 | 공개 탐색 가능; 자산별 라이선스가 다르며 비상업용 자산도 포함 | [Hugging Face Space](https://huggingface.co/spaces/nvidia/simready-central) · [공식 문서](https://docs.omniverse.nvidia.com/simready/latest/simready-central.html) |
+| SimReady Central | 소유자가 Hugging Face에 보관한 자산의 제출·검토 인덱스 | 저장소 공개; 제출을 위한 온보딩과 자산 이용 조건은 별도 | [GitHub](https://github.com/NVIDIA-Omniverse/simready-central) |
+| NVIDIA Physical AI 데이터셋 컬렉션 | 로봇·자율주행 등 NVIDIA 데이터셋의 통합 탐색 출발점 | 데이터셋별 접근 및 이용 조건 상이 | [컬렉션](https://huggingface.co/collections/nvidia/physical-ai) · [NVIDIA 전체 데이터셋](https://huggingface.co/nvidia/datasets) |
+
+아래 라이선스는 **2026년 11월 9일**에 확인한 Hugging Face 라이선스 태그이며 데이터 카드와 실제 약관을 대신하지 않는다. ‘공개’는 접근 제한이 표시되지 않았다는 뜻으로, 오픈소스 또는 무제한 이용을 의미하지 않는다. CC BY는 출처 표시가 필요하며 CC BY-NC는 상업적 사용을 제한한다. `기타` 또는 태그가 없는 경우 개별 확인이 필요하다. 자산에 포함된 제3자 자료에도 별도 조건이 적용될 수 있다.
+
+### 3D 자산과 환경
+
+| 데이터셋 | 역할 | 라이선스 태그 · 접근 |
+|---|---|---|
+| [simready-assets](https://huggingface.co/datasets/nvidia/simready-assets) | SimReady 3D 소품·물체 자산 | CC BY 4.0; 공개 |
+| [simready-dsx](https://huggingface.co/datasets/nvidia/simready-dsx) | AI 팩토리 디지털 트윈용 SimReady 자산 | CC BY 4.0; 공개 |
+| [isaacsim-assets](https://huggingface.co/datasets/nvidia/isaacsim-assets) | Isaac Sim 자산 및 예제 콘텐츠 | 라이선스 미확인 |
+| [PhysicalAI-SimReady-Warehouse-01](https://huggingface.co/datasets/nvidia/PhysicalAI-SimReady-Warehouse-01) | OpenUSD 기반 창고 시뮬레이션 장면 | CC-BY-4.0; 공개 |
+| [PhysicalAI-DigitalCousin-Assets](https://huggingface.co/datasets/nvidia/PhysicalAI-DigitalCousin-Assets) | GR1 탁상 작업 환경용 시뮬레이션 자산 | CC-BY-NC-4.0; 공개 |
+| [PhysicalAI-Robotics-Manipulation-Objects-Kitchen-MJCF](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Objects-Kitchen-MJCF) | MJCF 형식의 주방 물체 자산 | CC-BY-4.0; 공개 |
+| [PhysicalAI-Robotics-PhysicalAssets-VoMP](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-PhysicalAssets-VoMP) | 시각 기반 로봇 동작계획 연구용 자산 | 라이선스 미확인; 공개 |
+| [PhysicalAI-Robotics-PhysicalAssets-VoMP-Eval](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-PhysicalAssets-VoMP-Eval) | 시각 기반 동작계획 평가용 자산 | 라이선스 미확인; 공개 |
+
+### 로봇 시연과 동작
+
+| 데이터셋 | 역할 | 라이선스 태그 · 접근 |
+|---|---|---|
+| [PhysicalAI-Robotics-GR00T-X-Embodiment-Sim](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-X-Embodiment-Sim) | 여러 로봇 형태의 GR00T 후학습용 시뮬레이션 궤적 | CC-BY-4.0; 공개 |
+| [PhysicalAI-GR00T-Tuned-Tasks](https://huggingface.co/datasets/nvidia/PhysicalAI-GR00T-Tuned-Tasks) | GR1 탁상 조작을 위한 멀티모달 궤적 | CC-BY-4.0; 공개 |
+| [PhysicalAI-Robotics-GR00T-GR1](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-GR1) | GR1 로봇 작업을 촬영한 제3자 시점 영상 | CC-BY-4.0; 공개 |
+| [PhysicalAI-Robotics-GR00T-Teleop-G1](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-Teleop-G1) | 원격 조작으로 수집한 Unitree G1 시연 | CC-BY-4.0; 공개 |
+| [PhysicalAI-Robotics-GR00T-Teleop-Sim](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-Teleop-Sim) | 시뮬레이션 원격 조작 시연 | CC-BY-NC-4.0; 공개 |
+| [PhysicalAI-Robotics-GR00T-Teleop-GR1](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-Teleop-GR1) | GR1 원격 조작 데이터 | CC-BY-NC-4.0; 공개 |
+| [PhysicalAI-Robotics-GR00T-Eval](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-Eval) | GR00T 로봇 평가 데이터 | CC-BY-4.0; 공개 |
+| [PhysicalAI-Robotics-Manipulation-Kitchen](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Kitchen) | LeRobot 형식의 주방 조작 시뮬레이션 궤적 | CC-BY-4.0; 공개 |
+| [PhysicalAI-Robotics-Manipulation-SingleArm](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-SingleArm) | 단일 로봇팔 조작 시뮬레이션 데이터 | CC-BY-4.0; 공개 |
+| [PhysicalAI-Robotics-Manipulation-Objects](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Objects) | 물체 집기·놓기 시뮬레이션 궤적 | 라이선스 미확인; 공개 |
+| [PhysicalAI-Robotics-Manipulation-Augmented](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Augmented) | 합성·주석 처리된 큐브 쌓기 시연 | 라이선스 미확인; 공개 |
+| [PhysicalAI-Robotics-Manipulation-Kitchen-Demos](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Kitchen-Demos) | 사람의 원격 조작으로 수집한 주방 작업 시연 | CC-BY-4.0; 공개 |
+| [PhysicalAI-Robotics-GraspGen](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GraspGen) | 여러 그리퍼와 물체에 대한 파지 후보 | CC-BY-4.0; 공개 |
+| [PhysicalAI-Robotics-Locomanipulation-GRAIL](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Locomanipulation-GRAIL) | 로봇 이동·조작 동작 데이터 | CC-BY-NC-4.0; 공개 |
+| [PhysicalAI-Robotics-Open-H-Embodiment](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Open-H-Embodiment) | 수술 로봇·초음파 자율화 데이터 이니셔티브 | CC-BY-4.0; 공개 |
+| [PhysicalAI-Robotics-mindmap-GR1-Drill-in-Box](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-mindmap-GR1-Drill-in-Box) | GR1 드릴을 상자에 넣는 작업 궤적 | CC-BY-NC-4.0; 공개 |
+| [PhysicalAI-Robotics-mindmap-GR1-Stick-in-Bin](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-mindmap-GR1-Stick-in-Bin) | GR1 막대를 통에 넣는 작업 궤적 | CC-BY-NC-4.0; 공개 |
+| [PhysicalAI-Robotics-mindmap-Franka-Mug-in-Drawer](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-mindmap-Franka-Mug-in-Drawer) | Franka 머그잔을 서랍에 넣는 작업 궤적 | CC-BY-NC-4.0; 공개 |
+| [PhysicalAI-Robotics-mindmap-Franka-Cube-Stacking](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-mindmap-Franka-Cube-Stacking) | Franka 큐브 쌓기 작업 궤적 | CC-BY-NC-4.0; 공개 |
+
+### 자율주행·영상·월드 모델 데이터
+
+| 데이터셋 | 역할 | 라이선스 태그 · 접근 |
+|---|---|---|
+| [PhysicalAI-Autonomous-Vehicles](https://huggingface.co/datasets/nvidia/PhysicalAI-Autonomous-Vehicles) | 실제 자율주행 다중 센서 데이터 | 별도 약관 확인; 로그인·접근 동의 필요 |
+| [PhysicalAI-Autonomous-Vehicles-NuRec](https://huggingface.co/datasets/nvidia/PhysicalAI-Autonomous-Vehicles-NuRec) | NuRec으로 재구성한 주행 장면 | 별도 약관 확인; 로그인·접근 동의 필요 |
+| [PhysicalAI-Autonomous-Vehicles-NCore](https://huggingface.co/datasets/nvidia/PhysicalAI-Autonomous-Vehicles-NCore) | NCore 기반 자율주행 센서 데이터 | 별도 약관 확인; 로그인·접근 동의 필요 |
+| [PhysicalAI-Autonomous-Vehicles-Foundation4D](https://huggingface.co/datasets/nvidia/PhysicalAI-Autonomous-Vehicles-Foundation4D) | 4D 재구성을 위한 자율주행 데이터 | 별도 약관 확인; 로그인·접근 동의 필요 |
+| [PhysicalAI-Autonomous-Vehicle-Cosmos-Drive-Dreams](https://huggingface.co/datasets/nvidia/PhysicalAI-Autonomous-Vehicle-Cosmos-Drive-Dreams) | Cosmos 기반 합성 주행 데이터 | CC-BY-4.0; 공개 |
+| [PhysicalAI-Autonomous-Vehicle-Cosmos-Synthetic](https://huggingface.co/datasets/nvidia/PhysicalAI-Autonomous-Vehicle-Cosmos-Synthetic) | 합성 주행 데이터; 데이터 카드에서 Cosmos Drive Dreams 참조 | CC-BY-4.0; 공개 |
+| [PhysicalAI-SmartSpaces](https://huggingface.co/datasets/nvidia/PhysicalAI-SmartSpaces) | 사람과 이동 장비 추적을 위한 다중 카메라 영상 | CC-BY-4.0; 공개 |
+| [PhysicalAI-Traffic-Anomaly-Reasoning](https://huggingface.co/datasets/nvidia/PhysicalAI-Traffic-Anomaly-Reasoning) | 교통 이상 상황 추론·평가 데이터 | CC-BY-4.0; 공개 |
+| [PhysicalAI-Human-1M-100K](https://huggingface.co/datasets/nvidia/PhysicalAI-Human-1M-100K) | 동작·언어 주석이 포함된 사람의 1인칭 영상 | CC-BY-4.0; 공개 |
+| [PhysicalAI-Spatial-Intelligence-Warehouse](https://huggingface.co/datasets/nvidia/PhysicalAI-Spatial-Intelligence-Warehouse) | 창고 장면의 공간 지능 데이터 | CC-BY-4.0; 로그인·접근 동의 필요 |
+| [PhysicalAI-Robotics-NuRec](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-NuRec) | 로봇용 신경 재구성 데이터 | CC-BY-4.0; 로그인·접근 동의 필요 |
+| [PhysicalAI-NuRec-PPISP](https://huggingface.co/datasets/nvidia/PhysicalAI-NuRec-PPISP) | 재구성·이미지 처리를 위한 장면 촬영 데이터 | CC-BY-4.0; 공개 |
+| [PhysicalAI-SpatialIntelligence-Lyra-SDG](https://huggingface.co/datasets/nvidia/PhysicalAI-SpatialIntelligence-Lyra-SDG) | 공간 지능 연구용 합성 데이터 | CC-BY-4.0; 공개 |
+| [PhysicalAI-WorldModel-Synthetic-Autonomous-Driving-Scenarios](https://huggingface.co/datasets/nvidia/PhysicalAI-WorldModel-Synthetic-Autonomous-Driving-Scenarios) | 월드 모델용 합성 자율주행 장면 | 별도 약관 확인; 공개 |
+| [PhysicalAI-WorldModel-Synthetic-Embodied-Robot-Scenes](https://huggingface.co/datasets/nvidia/PhysicalAI-WorldModel-Synthetic-Embodied-Robot-Scenes) | 월드 모델용 합성 로봇 장면 | 별도 약관 확인; 공개 |
+| [PhysicalAI-WorldModel-Synthetic-Digital-Human-Scenes](https://huggingface.co/datasets/nvidia/PhysicalAI-WorldModel-Synthetic-Digital-Human-Scenes) | 합성 디지털 휴먼 영상 장면 | 별도 약관 확인; 공개 |
+| [PhysicalAI-WorldModel-Synthetic-Physical-Interaction-Scenes](https://huggingface.co/datasets/nvidia/PhysicalAI-WorldModel-Synthetic-Physical-Interaction-Scenes) | 물리 시뮬레이션 기반 다중 물체 상호작용 | 별도 약관 확인; 공개 |
+| [PhysicalAI-WorldModel-Synthetic-Warehouse-Operations-Scenes](https://huggingface.co/datasets/nvidia/PhysicalAI-WorldModel-Synthetic-Warehouse-Operations-Scenes) | 합성 창고 운영 및 안전 이벤트 영상 | 별도 약관 확인; 공개 |
+| [PhysicalAI-Event-Videos](https://huggingface.co/datasets/nvidia/PhysicalAI-Event-Videos) | 영상 이상 상황·안전 이벤트 및 주석 | 별도 약관 확인; 공개 |
+| [PhysicalAI-VANTAGE-Bench](https://huggingface.co/datasets/nvidia/PhysicalAI-VANTAGE-Bench) | 고정 카메라 영상 이해 벤치마크 | 별도 약관 확인; 공개 |
+| [PhysicalAI-VANTAGE-Bench-Subset](https://huggingface.co/datasets/nvidia/PhysicalAI-VANTAGE-Bench-Subset) | 고정 카메라 영상 벤치마크의 부분집합 | 별도 약관 확인; 공개 |
+
+**연계 예:** SimReady 자산으로 Isaac Sim·Isaac Lab 장면을 구성하고, Capture·GR00T 시연이나 기존 데이터셋으로 정책을 학습한 뒤 평가할 수 있다. 각 데이터셋의 로봇 형태·좌표계·센서와 라이선스가 호환되는지 따로 확인해야 한다.
 
 ## 2. 플랫폼·모델·제품·표준 및 제한적 공개 항목
 
