@@ -2,6 +2,8 @@
 
 # Awesome NVIDIA Physical AI
 
+<img src="assets/social-preview.jpg" alt="Awesome NVIDIA Physical AI — unofficial community guide" width="900">
+
 **A guide to the simulation, data, and robotics learning ecosystem behind physical AI.**
 
 [![English](https://img.shields.io/badge/English-selected-76B900?style=for-the-badge)](README.md) [![한국어](https://img.shields.io/badge/한국어-switch-555555?style=for-the-badge)](README.ko.md)
@@ -46,6 +48,17 @@ This guide catalogs NVIDIA Physical AI projects, simulation assets, and datasets
 | LeRobot<br><a href="https://github.com/huggingface/lerobot"><img src="https://raw.githubusercontent.com/huggingface/lerobot/main/media/readme/robots_control_video.webp" alt="LeRobot robot control demonstration" width="180"></a> | Robot datasets and model-training tools; integrates with Capture | Apache-2.0; a Hugging Face project | [Repository](https://github.com/huggingface/lerobot) |
 | Isaac ROS | Collection of GPU-accelerated ROS 2 robotics packages | Package terms vary; check licenses for each repository and distribution | [Documentation](https://nvidia-isaac-ros.github.io/) · [Common code](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common) |
 
+| Isaac ROS Visual SLAM | Visual odometry and SLAM integration for ROS 2 | Apache-2.0; cuVSLAM has separate terms | [Repository](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam) |
+| Isaac ROS Nvblox<br><a href="https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nvblox"><img src="https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/isaac_ros_nvblox/main/resources/nvblox_performance_setup.png" alt="Isaac ROS Nvblox example" width="180"></a> | ROS 2 3D mapping and Nav2 obstacle costmaps | Apache-2.0; dependencies separate | [Repository](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nvblox) |
+| Isaac ROS Pose Estimation | GPU-accelerated object pose estimation packages | Apache-2.0 code; models separate | [Repository](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_pose_estimation) |
+| Isaac ROS Manipulation | ROS 2 workflows for robotic-arm manipulation | Apache-2.0 code; models and dependencies separate | [Repository](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_manipulation) |
+| Isaac ROS DNN Stereo Depth | Neural stereo depth estimation in ROS 2 | Apache-2.0 code; models separate | [Repository](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_dnn_stereo_depth) |
+| Isaac ROS DNN Inference | TensorRT and Triton inference integrations for ROS 2 | Apache-2.0 code; runtime and models separate | [Repository](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_dnn_inference) |
+| LEAPP<br><a href="https://github.com/nvidia-isaac/leapp"><img src="https://media.githubusercontent.com/media/nvidia-isaac/leapp/main/docs/source/_static/images/gr00t_unitree_g1_graph_visualization.png" alt="LEAPP example" width="180"></a> | Export and deploy complete robot policy inference pipelines | Apache-2.0; models and runtime dependencies separate | [Repository](https://github.com/nvidia-isaac/leapp) |
+| WBC-AGILE<br><a href="https://github.com/nvidia-isaac/WBC-AGILE"><img src="https://media.githubusercontent.com/media/nvidia-isaac/WBC-AGILE/main/docs/figures/agile_highlights.png" alt="WBC-AGILE example" width="180"></a> | Isaac Lab-based humanoid whole-body locomotion and manipulation learning | Apache-2.0, with BSD-3-Clause RSL-RL patches | [Repository](https://github.com/nvidia-isaac/WBC-AGILE) |
+| FoundationPose Inference Library | Deployment-oriented object pose inference library | Apache-2.0 code; model weights separate | [Repository](https://github.com/nvidia-isaac/foundation-pose-inference-library) |
+| Isaac Automator | Automates setup and deployment of Isaac simulation workflows | Apache-2.0; installed components have separate terms | [Repository](https://github.com/isaac-sim/IsaacAutomator) |
+
 ### Data generation, processing, and orchestration
 
 | Project | Role | Code license and notes | Official source |
@@ -54,7 +67,7 @@ This guide catalogs NVIDIA Physical AI projects, simulation assets, and datasets
 | CDF Auto Labeling (formerly paidf-auto-labeling) | Automated video and image annotation workflows | Apache-2.0; models and services have separate terms | [Repository](https://github.com/NVIDIA/cdf-auto-labeling) |
 | CDF Augmentation (formerly paidf-augmentation) | Video, image, and text augmentation workflows | Apache-2.0; models have separate terms | [Repository](https://github.com/NVIDIA/cdf-augmentation) |
 | CDF Simulation (formerly paidf-simulation) | Synthetic data generation with Isaac Sim and Replicator | Apache-2.0; simulator and assets have separate terms | [Repository](https://github.com/NVIDIA/cdf-simulation) |
-| Cosmos Curator | Splits, filters, annotates, and deduplicates video and images | Apache-2.0; models have separate terms | [Repository](https://github.com/NVIDIA/cosmos-curator) |
+| Cosmos Curator<br><a href="https://github.com/NVIDIA/cosmos-curator"><img src="https://raw.githubusercontent.com/NVIDIA/cosmos-curator/main/docs/assets/cosmos-curator-dashboard.png" alt="Cosmos Curator dashboard" width="180"></a> | Splits, filters, annotates, and deduplicates video and images | Apache-2.0; models have separate terms | [Repository](https://github.com/NVIDIA/cosmos-curator) |
 | Cosmos Evaluator<br><a href="https://github.com/NVIDIA/cosmos-evaluator"><img src="https://raw.githubusercontent.com/NVIDIA/cosmos-evaluator/main/docs/assets/architecture_diagram.png" alt="Cosmos Evaluator architecture diagram" width="180"></a> | Evaluates generated video for object consistency, physical plausibility, and other qualities | Apache-2.0; model terms vary by checker | [Repository](https://github.com/NVIDIA/cosmos-evaluator) |
 | OSMO<br><a href="https://github.com/NVIDIA/OSMO"><img src="https://media.githubusercontent.com/media/NVIDIA/OSMO/main/docs/front_cover.png" alt="OSMO workflow overview" width="180"></a> | Manages GPU-backed simulation and training workflows | Apache-2.0 | [Repository](https://github.com/NVIDIA/OSMO) |
 | TensorRT public code | Samples, plugins, and tools for inference optimization | Repository: Apache-2.0; this does not cover the entire TensorRT binary SDK | [Repository](https://github.com/NVIDIA/TensorRT) |
@@ -73,10 +86,11 @@ This guide catalogs NVIDIA Physical AI projects, simulation assets, and datasets
 
 | Resource | Role | Access and license | Official source |
 |---|---|---|---|
-| SimReady Foundation | OpenUSD asset profiles, specifications, validation tools, and sample content | NVIDIA-authored content Apache-2.0; third-party assets have their own licenses | [GitHub](https://github.com/NVIDIA/simready-foundation) |
+| SimReady Foundation<br><a href="https://github.com/NVIDIA/simready-foundation"><img src="https://media.githubusercontent.com/media/NVIDIA/simready-foundation/main/nv_core/cip_specs/isaac_asset_transformer/tests/fixtures/prop_physx_toolbox/simready_usd/.thumbs/sm_obs_electricians_large_tool_box_a01_01_thumbnail.png" alt="SimReady sample object" width="180"></a> | OpenUSD asset profiles, specifications, validation tools, and sample content | NVIDIA-authored content Apache-2.0; third-party assets have their own licenses | [GitHub](https://github.com/NVIDIA/simready-foundation) |
 | SimReady Central Library | Search and discover registered simulation-ready assets from NVIDIA and other owners | Public browsing; each asset has its own license. Accepted assets can include non-commercial terms | [Hugging Face Space](https://huggingface.co/spaces/nvidia/simready-central) · [Documentation](https://docs.omniverse.nvidia.com/simready/latest/simready-central.html) |
 | SimReady Central | Submission and review index for owner-hosted Hugging Face asset packages | Public repository; submission onboarding and asset terms apply separately | [GitHub](https://github.com/NVIDIA-Omniverse/simready-central) |
 | NVIDIA Physical AI dataset collection | Entry point to curated NVIDIA datasets for robotics, driving, and other physical AI applications | Dataset terms and access vary by entry | [Collection](https://huggingface.co/collections/nvidia/physical-ai) · [All NVIDIA datasets](https://huggingface.co/nvidia/datasets) |
+| Human-1M Explorer | Browser for human egocentric capture and reconstruction examples | Public Space; check dataset access and terms separately | [Hugging Face Space](https://huggingface.co/spaces/nvidia/PhysicalAI-Human-1M-Explorer) |
 
 Dataset licenses below are the Hugging Face license tags observed on **November 9, 2026**, not a substitute for the dataset card or terms. “Public” means no access gate was reported, not that the dataset is open source or unrestricted. CC BY requires attribution; CC BY-NC restricts commercial use. `Other` and missing tags require individual review. Some asset packages include third-party materials with separate conditions.
 
@@ -87,7 +101,7 @@ Dataset licenses below are the Hugging Face license tags observed on **November 
 | [simready-assets](https://huggingface.co/datasets/nvidia/simready-assets) | SimReady 3D props and objects | CC BY 4.0; public |
 | [simready-dsx](https://huggingface.co/datasets/nvidia/simready-dsx) | SimReady assets for AI factory digital twins | CC BY 4.0; public |
 | [isaacsim-assets](https://huggingface.co/datasets/nvidia/isaacsim-assets) | Isaac Sim assets and sample content | License unverified |
-| [PhysicalAI-SimReady-Warehouse-01](https://huggingface.co/datasets/nvidia/PhysicalAI-SimReady-Warehouse-01) | OpenUSD warehouse scene for simulation | CC-BY-4.0; public |
+| [PhysicalAI-SimReady-Warehouse-01](https://huggingface.co/datasets/nvidia/PhysicalAI-SimReady-Warehouse-01)<br><a href="https://huggingface.co/datasets/nvidia/PhysicalAI-SimReady-Warehouse-01"><img src="https://huggingface.co/datasets/nvidia/PhysicalAI-SimReady-Warehouse-01/resolve/main/images/PhysicalAI_Dataset_01.png" alt="SimReady warehouse simulation scene" width="180"></a> | OpenUSD warehouse scene for simulation | CC-BY-4.0; public |
 | [PhysicalAI-DigitalCousin-Assets](https://huggingface.co/datasets/nvidia/PhysicalAI-DigitalCousin-Assets) | Assets for simulated GR1 tabletop environments | CC-BY-NC-4.0; public |
 | [PhysicalAI-Robotics-Manipulation-Objects-Kitchen-MJCF](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Objects-Kitchen-MJCF) | MJCF kitchen object assets | CC-BY-4.0; public |
 | [PhysicalAI-Robotics-PhysicalAssets-VoMP](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-PhysicalAssets-VoMP) | Assets for vision-based robot motion planning research | License unverified; public |
@@ -104,7 +118,7 @@ Dataset licenses below are the Hugging Face license tags observed on **November 
 | [PhysicalAI-Robotics-GR00T-Teleop-Sim](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-Teleop-Sim) | Simulated teleoperation demonstrations | CC-BY-NC-4.0; public |
 | [PhysicalAI-Robotics-GR00T-Teleop-GR1](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-Teleop-GR1) | GR1 teleoperation data | CC-BY-NC-4.0; public |
 | [PhysicalAI-Robotics-GR00T-Eval](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-Eval) | GR00T robot evaluation data | CC-BY-4.0; public |
-| [PhysicalAI-Robotics-Manipulation-Kitchen](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Kitchen) | Simulated kitchen manipulation trajectories in LeRobot format | CC-BY-4.0; public |
+| [PhysicalAI-Robotics-Manipulation-Kitchen](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Kitchen)<br><a href="https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Kitchen"><img src="https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Kitchen/resolve/main/assets/episode_000009.gif" alt="Robot dishwasher manipulation demonstration" width="180"></a> | Simulated kitchen manipulation trajectories in LeRobot format | CC-BY-4.0; public |
 | [PhysicalAI-Robotics-Manipulation-SingleArm](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-SingleArm) | Simulated single-arm robot manipulation | CC-BY-4.0; public |
 | [PhysicalAI-Robotics-Manipulation-Objects](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Objects) | Simulated object pick-and-place trajectories | License unverified; public |
 | [PhysicalAI-Robotics-Manipulation-Augmented](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Augmented) | Synthetic annotated cube-stacking demonstrations | License unverified; public |
@@ -129,7 +143,7 @@ Dataset licenses below are the Hugging Face license tags observed on **November 
 | [PhysicalAI-Autonomous-Vehicle-Cosmos-Synthetic](https://huggingface.co/datasets/nvidia/PhysicalAI-Autonomous-Vehicle-Cosmos-Synthetic) | Synthetic driving data; card refers to Cosmos Drive Dreams | CC-BY-4.0; public |
 | [PhysicalAI-SmartSpaces](https://huggingface.co/datasets/nvidia/PhysicalAI-SmartSpaces) | Multi-camera video for tracking people and mobile equipment | CC-BY-4.0; public |
 | [PhysicalAI-Traffic-Anomaly-Reasoning](https://huggingface.co/datasets/nvidia/PhysicalAI-Traffic-Anomaly-Reasoning) | Traffic anomaly reasoning and evaluation data | CC-BY-4.0; public |
-| [PhysicalAI-Human-1M-100K](https://huggingface.co/datasets/nvidia/PhysicalAI-Human-1M-100K) | Egocentric human video with motion and language annotations | CC-BY-4.0; public |
+| [PhysicalAI-Human-1M-100K](https://huggingface.co/datasets/nvidia/PhysicalAI-Human-1M-100K)<br><a href="https://huggingface.co/datasets/nvidia/PhysicalAI-Human-1M-100K"><img src="https://huggingface.co/datasets/nvidia/PhysicalAI-Human-1M-100K/resolve/main/assets/carousel-preview.webp" alt="Human-1M egocentric capture and reconstruction" width="180"></a> | Egocentric human video with motion and language annotations | CC-BY-4.0; public |
 | [PhysicalAI-Spatial-Intelligence-Warehouse](https://huggingface.co/datasets/nvidia/PhysicalAI-Spatial-Intelligence-Warehouse) | Spatial intelligence data for warehouse scenes | CC-BY-4.0; Login and access acceptance required |
 | [PhysicalAI-Robotics-NuRec](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-NuRec) | Neural reconstruction data for robotics | CC-BY-4.0; Login and access acceptance required |
 | [PhysicalAI-NuRec-PPISP](https://huggingface.co/datasets/nvidia/PhysicalAI-NuRec-PPISP) | Scene captures for reconstruction and image processing | CC-BY-4.0; public |
@@ -143,6 +157,25 @@ Dataset licenses below are the Hugging Face license tags observed on **November 
 | [PhysicalAI-VANTAGE-Bench](https://huggingface.co/datasets/nvidia/PhysicalAI-VANTAGE-Bench) | Fixed-camera video understanding benchmark | Other terms; check card; public |
 | [PhysicalAI-VANTAGE-Bench-Subset](https://huggingface.co/datasets/nvidia/PhysicalAI-VANTAGE-Bench-Subset) | Subset of the fixed-camera video benchmark | Other terms; check card; public |
 
+### V2D and Cosmos datasets
+
+| Dataset | Role | License tag · access |
+|---|---|---|
+| [video-to-data-robot-dexterity-task-library-and-dataset](https://huggingface.co/datasets/nvidia/video-to-data-robot-dexterity-task-library-and-dataset) | V2D human hand demonstrations retargeted to robot hands | CC BY 4.0; public |
+| [Cosmos-Reason1-RL-Dataset](https://huggingface.co/datasets/nvidia/Cosmos-Reason1-RL-Dataset) | Video and text annotations for reasoning reinforcement learning | License unverified; public |
+| [Cosmos-Reason1-Benchmark](https://huggingface.co/datasets/nvidia/Cosmos-Reason1-Benchmark) | Video reasoning evaluation annotations | License unverified; public |
+| [Cosmos-Reason1-SFT-Dataset](https://huggingface.co/datasets/nvidia/Cosmos-Reason1-SFT-Dataset) | Video and text annotations for supervised reasoning | CC BY 4.0; public |
+| [Cosmos-Transfer-LidarGen-Example](https://huggingface.co/datasets/nvidia/Cosmos-Transfer-LidarGen-Example) | LiDAR generation example data | Other terms; access gated |
+| [Cosmos-Transfer1-7B-Sample-AV-Data-Example](https://huggingface.co/datasets/nvidia/Cosmos-Transfer1-7B-Sample-AV-Data-Example) | Sample autonomous-driving input for Cosmos Transfer | CC BY 4.0; access gated |
+| [ALOHA-Cosmos-Policy](https://huggingface.co/datasets/nvidia/ALOHA-Cosmos-Policy) | Real bimanual manipulation dataset for Cosmos Policy | CC tag; exact terms require review |
+| [LIBERO-Cosmos-Policy](https://huggingface.co/datasets/nvidia/LIBERO-Cosmos-Policy) | LIBERO simulation benchmark data adapted for Cosmos Policy | CC tag; exact terms require review |
+| [RoboCasa-Cosmos-Policy](https://huggingface.co/datasets/nvidia/RoboCasa-Cosmos-Policy) | RoboCasa simulation benchmark data adapted for Cosmos Policy | CC tag; exact terms require review |
+| [Cosmos-HumanEval-v1](https://huggingface.co/datasets/nvidia/Cosmos-HumanEval-v1) | Human evaluation data for Cosmos outputs | Other terms; check card |
+| [Cosmos-AnomalyGen-PCB-Dataset](https://huggingface.co/datasets/nvidia/Cosmos-AnomalyGen-PCB-Dataset) | PCB defect generation data | Other terms; check card |
+| [Cosmos-AnomalyGen-Glass-Masks](https://huggingface.co/datasets/nvidia/Cosmos-AnomalyGen-Glass-Masks) | Masks for glass defect generation | License unverified; public |
+| [Cosmos3-DROID](https://huggingface.co/datasets/nvidia/Cosmos3-DROID) | Robot manipulation demonstrations for Cosmos 3 | OpenMDW-1.1; public |
+| [Cosmos3-Driving-Simulation-Evaluation](https://huggingface.co/datasets/nvidia/Cosmos3-Driving-Simulation-Evaluation) | Driving simulation evaluation controls and captions | OpenMDW-1.1; public |
+
 **Example workflow:** Build an Isaac Sim/Isaac Lab scene with SimReady assets, then train and evaluate a policy using Capture/GR00T demonstrations or existing datasets. Check robot embodiment, coordinate frames, sensors, and license compatibility for each dataset.
 
 ## 2. Platforms, models, products, standards, and restricted code
@@ -151,6 +184,7 @@ Public access alone does not establish an open-source license or permission for 
 
 | Name | Role or category | Availability and license status | Official source |
 |---|---|---|---|
+| cuVSLAM | CUDA-accelerated visual odometry and SLAM library | NVIDIA Community License restricts use to NVIDIA platforms; distinct from its ROS wrapper | [Repository](https://github.com/nvidia-isaac/cuVSLAM) |
 | NVIDIA Omniverse | OpenUSD-based 3D development platform | Product, SDK, and publicly available components have different terms | [Official page](https://developer.nvidia.com/omniverse) |
 | SimReady | Guidelines and specifications for simulation-ready 3D assets | Asset licenses vary; not a single software project | [Documentation](https://docs.omniverse.nvidia.com/simready/latest/index.html) |
 | NuRec | Neural reconstruction and rendering of real environments | Product/technology; complete source and license scope unverified | [Official page](https://developer.nvidia.com/omniverse/nurec) |

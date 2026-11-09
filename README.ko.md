@@ -2,6 +2,8 @@
 
 # Awesome NVIDIA Physical AI
 
+<img src="assets/social-preview.jpg" alt="Awesome NVIDIA Physical AI — unofficial community guide" width="900">
+
 **물리 AI를 위한 시뮬레이션, 데이터, 로봇 학습 생태계 안내서**
 
 [![English](https://img.shields.io/badge/English-switch-555555?style=for-the-badge)](README.md) [![한국어](https://img.shields.io/badge/한국어-selected-76B900?style=for-the-badge)](README.ko.md)
@@ -46,6 +48,17 @@
 | LeRobot<br><a href="https://github.com/huggingface/lerobot"><img src="https://raw.githubusercontent.com/huggingface/lerobot/main/media/readme/robots_control_video.webp" alt="LeRobot robot control demonstration" width="180"></a> | 로봇 데이터셋과 모델 학습 도구; Capture와 연동 가능 | Apache-2.0; Hugging Face 프로젝트 | [저장소](https://github.com/huggingface/lerobot) |
 | Isaac ROS | ROS 2 기반 GPU 가속 로봇 패키지 모음 | 패키지별 조건 상이; 공통 저장소와 배포물의 개별 라이선스 확인 | [공식 문서](https://nvidia-isaac-ros.github.io/) · [공통 코드](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common) |
 
+| Isaac ROS Visual SLAM | ROS 2 기반 시각 주행거리 추정·SLAM 연동 | Apache-2.0; cuVSLAM은 별도 약관 | [저장소](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam) |
+| Isaac ROS Nvblox<br><a href="https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nvblox"><img src="https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/isaac_ros_nvblox/main/resources/nvblox_performance_setup.png" alt="Isaac ROS Nvblox example" width="180"></a> | ROS 2 3D 지도 및 Nav2 장애물 비용 지도 | Apache-2.0; 의존성 별도 | [저장소](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nvblox) |
+| Isaac ROS Pose Estimation | GPU 가속 물체 자세 추정 패키지 | 코드 Apache-2.0; 모델 별도 | [저장소](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_pose_estimation) |
+| Isaac ROS Manipulation | ROS 2 기반 로봇팔 조작 워크플로 | 코드 Apache-2.0; 모델·의존성 별도 | [저장소](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_manipulation) |
+| Isaac ROS DNN Stereo Depth | ROS 2 신경망 스테레오 깊이 추정 | 코드 Apache-2.0; 모델 별도 | [저장소](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_dnn_stereo_depth) |
+| Isaac ROS DNN Inference | ROS 2용 TensorRT·Triton 추론 연동 | 코드 Apache-2.0; 런타임·모델 별도 | [저장소](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_dnn_inference) |
+| LEAPP<br><a href="https://github.com/nvidia-isaac/leapp"><img src="https://media.githubusercontent.com/media/nvidia-isaac/leapp/main/docs/source/_static/images/gr00t_unitree_g1_graph_visualization.png" alt="LEAPP example" width="180"></a> | 로봇 정책의 전체 추론 파이프라인 내보내기·배포 | Apache-2.0; 모델·런타임 의존성 별도 | [저장소](https://github.com/nvidia-isaac/leapp) |
+| WBC-AGILE<br><a href="https://github.com/nvidia-isaac/WBC-AGILE"><img src="https://media.githubusercontent.com/media/nvidia-isaac/WBC-AGILE/main/docs/figures/agile_highlights.png" alt="WBC-AGILE example" width="180"></a> | Isaac Lab 기반 휴머노이드 전신 이동·조작 학습 | 대부분 Apache-2.0, RSL-RL 패치는 BSD-3-Clause | [저장소](https://github.com/nvidia-isaac/WBC-AGILE) |
+| FoundationPose Inference Library | 배포용 물체 자세 추정 라이브러리 | 코드 Apache-2.0; 모델 가중치 별도 | [저장소](https://github.com/nvidia-isaac/foundation-pose-inference-library) |
+| Isaac Automator | Isaac 시뮬레이션 워크플로 설치·배포 자동화 | Apache-2.0; 설치되는 구성 요소는 별도 약관 | [저장소](https://github.com/isaac-sim/IsaacAutomator) |
+
 ### 데이터 생성·처리 및 실행
 
 | 이름 | 역할 | 공개 코드 라이선스 및 유의점 | 공식 소스 |
@@ -54,7 +67,7 @@
 | CDF Auto Labeling (이전 paidf-auto-labeling) | 영상·이미지 자동 주석 워크플로 | Apache-2.0; 모델·서비스 별도 | [저장소](https://github.com/NVIDIA/cdf-auto-labeling) |
 | CDF Augmentation (이전 paidf-augmentation) | 영상·이미지·텍스트 증강 워크플로 | Apache-2.0; 모델 별도 | [저장소](https://github.com/NVIDIA/cdf-augmentation) |
 | CDF Simulation (이전 paidf-simulation) | Isaac Sim·Replicator 기반 합성 데이터 생성 | Apache-2.0; 시뮬레이터 및 자산 별도 | [저장소](https://github.com/NVIDIA/cdf-simulation) |
-| Cosmos Curator | 영상·이미지 분할, 필터링, 주석, 중복 제거 | Apache-2.0; 모델은 별도 | [저장소](https://github.com/NVIDIA/cosmos-curator) |
+| Cosmos Curator<br><a href="https://github.com/NVIDIA/cosmos-curator"><img src="https://raw.githubusercontent.com/NVIDIA/cosmos-curator/main/docs/assets/cosmos-curator-dashboard.png" alt="Cosmos Curator dashboard" width="180"></a> | 영상·이미지 분할, 필터링, 주석, 중복 제거 | Apache-2.0; 모델은 별도 | [저장소](https://github.com/NVIDIA/cosmos-curator) |
 | Cosmos Evaluator<br><a href="https://github.com/NVIDIA/cosmos-evaluator"><img src="https://raw.githubusercontent.com/NVIDIA/cosmos-evaluator/main/docs/assets/architecture_diagram.png" alt="Cosmos Evaluator architecture diagram" width="180"></a> | 생성 영상의 객체 일관성·물리적 개연성 등 평가 | Apache-2.0; 체커별 모델 조건 별도 | [저장소](https://github.com/NVIDIA/cosmos-evaluator) |
 | OSMO<br><a href="https://github.com/NVIDIA/OSMO"><img src="https://media.githubusercontent.com/media/NVIDIA/OSMO/main/docs/front_cover.png" alt="OSMO workflow overview" width="180"></a> | GPU 자원을 사용하는 시뮬레이션·학습 워크플로 실행 관리 | Apache-2.0 | [저장소](https://github.com/NVIDIA/OSMO) |
 | TensorRT 공개 코드 | 추론 최적화 관련 샘플·플러그인·도구 | 저장소 Apache-2.0; TensorRT 바이너리 SDK 전체가 같은 라이선스라는 뜻은 아님 | [저장소](https://github.com/NVIDIA/TensorRT) |
@@ -73,10 +86,11 @@
 
 | 항목 | 역할 | 공개 및 이용 조건 | 공식 출처 |
 |---|---|---|---|
-| SimReady Foundation | OpenUSD 자산 프로파일·규격·검증 도구 및 예제 | NVIDIA 작성 콘텐츠 Apache-2.0; 제3자 자산은 별도 라이선스 | [GitHub](https://github.com/NVIDIA/simready-foundation) |
+| SimReady Foundation<br><a href="https://github.com/NVIDIA/simready-foundation"><img src="https://media.githubusercontent.com/media/NVIDIA/simready-foundation/main/nv_core/cip_specs/isaac_asset_transformer/tests/fixtures/prop_physx_toolbox/simready_usd/.thumbs/sm_obs_electricians_large_tool_box_a01_01_thumbnail.png" alt="SimReady sample object" width="180"></a> | OpenUSD 자산 프로파일·규격·검증 도구 및 예제 | NVIDIA 작성 콘텐츠 Apache-2.0; 제3자 자산은 별도 라이선스 | [GitHub](https://github.com/NVIDIA/simready-foundation) |
 | SimReady Central Library | NVIDIA와 다른 소유자의 시뮬레이션 자산 검색·탐색 | 공개 탐색 가능; 자산별 라이선스가 다르며 비상업용 자산도 포함 | [Hugging Face Space](https://huggingface.co/spaces/nvidia/simready-central) · [공식 문서](https://docs.omniverse.nvidia.com/simready/latest/simready-central.html) |
 | SimReady Central | 소유자가 Hugging Face에 보관한 자산의 제출·검토 인덱스 | 저장소 공개; 제출을 위한 온보딩과 자산 이용 조건은 별도 | [GitHub](https://github.com/NVIDIA-Omniverse/simready-central) |
 | NVIDIA Physical AI 데이터셋 컬렉션 | 로봇·자율주행 등 NVIDIA 데이터셋의 통합 탐색 출발점 | 데이터셋별 접근 및 이용 조건 상이 | [컬렉션](https://huggingface.co/collections/nvidia/physical-ai) · [NVIDIA 전체 데이터셋](https://huggingface.co/nvidia/datasets) |
+| Human-1M Explorer | 사람의 1인칭 촬영 및 복원 사례 탐색 | Space 공개; 데이터셋 접근과 약관은 별도 | [Hugging Face Space](https://huggingface.co/spaces/nvidia/PhysicalAI-Human-1M-Explorer) |
 
 아래 라이선스는 **2026년 11월 9일**에 확인한 Hugging Face 라이선스 태그이며 데이터 카드와 실제 약관을 대신하지 않는다. ‘공개’는 접근 제한이 표시되지 않았다는 뜻으로, 오픈소스 또는 무제한 이용을 의미하지 않는다. CC BY는 출처 표시가 필요하며 CC BY-NC는 상업적 사용을 제한한다. `기타` 또는 태그가 없는 경우 개별 확인이 필요하다. 자산에 포함된 제3자 자료에도 별도 조건이 적용될 수 있다.
 
@@ -87,7 +101,7 @@
 | [simready-assets](https://huggingface.co/datasets/nvidia/simready-assets) | SimReady 3D 소품·물체 자산 | CC BY 4.0; 공개 |
 | [simready-dsx](https://huggingface.co/datasets/nvidia/simready-dsx) | AI 팩토리 디지털 트윈용 SimReady 자산 | CC BY 4.0; 공개 |
 | [isaacsim-assets](https://huggingface.co/datasets/nvidia/isaacsim-assets) | Isaac Sim 자산 및 예제 콘텐츠 | 라이선스 미확인 |
-| [PhysicalAI-SimReady-Warehouse-01](https://huggingface.co/datasets/nvidia/PhysicalAI-SimReady-Warehouse-01) | OpenUSD 기반 창고 시뮬레이션 장면 | CC-BY-4.0; 공개 |
+| [PhysicalAI-SimReady-Warehouse-01](https://huggingface.co/datasets/nvidia/PhysicalAI-SimReady-Warehouse-01)<br><a href="https://huggingface.co/datasets/nvidia/PhysicalAI-SimReady-Warehouse-01"><img src="https://huggingface.co/datasets/nvidia/PhysicalAI-SimReady-Warehouse-01/resolve/main/images/PhysicalAI_Dataset_01.png" alt="SimReady warehouse simulation scene" width="180"></a> | OpenUSD 기반 창고 시뮬레이션 장면 | CC-BY-4.0; 공개 |
 | [PhysicalAI-DigitalCousin-Assets](https://huggingface.co/datasets/nvidia/PhysicalAI-DigitalCousin-Assets) | GR1 탁상 작업 환경용 시뮬레이션 자산 | CC-BY-NC-4.0; 공개 |
 | [PhysicalAI-Robotics-Manipulation-Objects-Kitchen-MJCF](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Objects-Kitchen-MJCF) | MJCF 형식의 주방 물체 자산 | CC-BY-4.0; 공개 |
 | [PhysicalAI-Robotics-PhysicalAssets-VoMP](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-PhysicalAssets-VoMP) | 시각 기반 로봇 동작계획 연구용 자산 | 라이선스 미확인; 공개 |
@@ -104,7 +118,7 @@
 | [PhysicalAI-Robotics-GR00T-Teleop-Sim](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-Teleop-Sim) | 시뮬레이션 원격 조작 시연 | CC-BY-NC-4.0; 공개 |
 | [PhysicalAI-Robotics-GR00T-Teleop-GR1](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-Teleop-GR1) | GR1 원격 조작 데이터 | CC-BY-NC-4.0; 공개 |
 | [PhysicalAI-Robotics-GR00T-Eval](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-Eval) | GR00T 로봇 평가 데이터 | CC-BY-4.0; 공개 |
-| [PhysicalAI-Robotics-Manipulation-Kitchen](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Kitchen) | LeRobot 형식의 주방 조작 시뮬레이션 궤적 | CC-BY-4.0; 공개 |
+| [PhysicalAI-Robotics-Manipulation-Kitchen](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Kitchen)<br><a href="https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Kitchen"><img src="https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Kitchen/resolve/main/assets/episode_000009.gif" alt="Robot dishwasher manipulation demonstration" width="180"></a> | LeRobot 형식의 주방 조작 시뮬레이션 궤적 | CC-BY-4.0; 공개 |
 | [PhysicalAI-Robotics-Manipulation-SingleArm](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-SingleArm) | 단일 로봇팔 조작 시뮬레이션 데이터 | CC-BY-4.0; 공개 |
 | [PhysicalAI-Robotics-Manipulation-Objects](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Objects) | 물체 집기·놓기 시뮬레이션 궤적 | 라이선스 미확인; 공개 |
 | [PhysicalAI-Robotics-Manipulation-Augmented](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Augmented) | 합성·주석 처리된 큐브 쌓기 시연 | 라이선스 미확인; 공개 |
@@ -129,7 +143,7 @@
 | [PhysicalAI-Autonomous-Vehicle-Cosmos-Synthetic](https://huggingface.co/datasets/nvidia/PhysicalAI-Autonomous-Vehicle-Cosmos-Synthetic) | 합성 주행 데이터; 데이터 카드에서 Cosmos Drive Dreams 참조 | CC-BY-4.0; 공개 |
 | [PhysicalAI-SmartSpaces](https://huggingface.co/datasets/nvidia/PhysicalAI-SmartSpaces) | 사람과 이동 장비 추적을 위한 다중 카메라 영상 | CC-BY-4.0; 공개 |
 | [PhysicalAI-Traffic-Anomaly-Reasoning](https://huggingface.co/datasets/nvidia/PhysicalAI-Traffic-Anomaly-Reasoning) | 교통 이상 상황 추론·평가 데이터 | CC-BY-4.0; 공개 |
-| [PhysicalAI-Human-1M-100K](https://huggingface.co/datasets/nvidia/PhysicalAI-Human-1M-100K) | 동작·언어 주석이 포함된 사람의 1인칭 영상 | CC-BY-4.0; 공개 |
+| [PhysicalAI-Human-1M-100K](https://huggingface.co/datasets/nvidia/PhysicalAI-Human-1M-100K)<br><a href="https://huggingface.co/datasets/nvidia/PhysicalAI-Human-1M-100K"><img src="https://huggingface.co/datasets/nvidia/PhysicalAI-Human-1M-100K/resolve/main/assets/carousel-preview.webp" alt="Human-1M egocentric capture and reconstruction" width="180"></a> | 동작·언어 주석이 포함된 사람의 1인칭 영상 | CC-BY-4.0; 공개 |
 | [PhysicalAI-Spatial-Intelligence-Warehouse](https://huggingface.co/datasets/nvidia/PhysicalAI-Spatial-Intelligence-Warehouse) | 창고 장면의 공간 지능 데이터 | CC-BY-4.0; 로그인·접근 동의 필요 |
 | [PhysicalAI-Robotics-NuRec](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-NuRec) | 로봇용 신경 재구성 데이터 | CC-BY-4.0; 로그인·접근 동의 필요 |
 | [PhysicalAI-NuRec-PPISP](https://huggingface.co/datasets/nvidia/PhysicalAI-NuRec-PPISP) | 재구성·이미지 처리를 위한 장면 촬영 데이터 | CC-BY-4.0; 공개 |
@@ -143,6 +157,25 @@
 | [PhysicalAI-VANTAGE-Bench](https://huggingface.co/datasets/nvidia/PhysicalAI-VANTAGE-Bench) | 고정 카메라 영상 이해 벤치마크 | 별도 약관 확인; 공개 |
 | [PhysicalAI-VANTAGE-Bench-Subset](https://huggingface.co/datasets/nvidia/PhysicalAI-VANTAGE-Bench-Subset) | 고정 카메라 영상 벤치마크의 부분집합 | 별도 약관 확인; 공개 |
 
+### V2D 및 Cosmos 데이터셋
+
+| 데이터셋 | 역할 | 라이선스 태그 · 접근 |
+|---|---|---|
+| [video-to-data-robot-dexterity-task-library-and-dataset](https://huggingface.co/datasets/nvidia/video-to-data-robot-dexterity-task-library-and-dataset) | V2D 사람 손 시연을 로봇 손으로 리타기팅한 데이터 | CC BY 4.0; 공개 |
+| [Cosmos-Reason1-RL-Dataset](https://huggingface.co/datasets/nvidia/Cosmos-Reason1-RL-Dataset) | 추론 강화학습용 영상·텍스트 주석 | 라이선스 미확인; 공개 |
+| [Cosmos-Reason1-Benchmark](https://huggingface.co/datasets/nvidia/Cosmos-Reason1-Benchmark) | 영상 추론 평가 주석 | 라이선스 미확인; 공개 |
+| [Cosmos-Reason1-SFT-Dataset](https://huggingface.co/datasets/nvidia/Cosmos-Reason1-SFT-Dataset) | 지도 추론 학습용 영상·텍스트 주석 | CC BY 4.0; 공개 |
+| [Cosmos-Transfer-LidarGen-Example](https://huggingface.co/datasets/nvidia/Cosmos-Transfer-LidarGen-Example) | LiDAR 생성 예제 데이터 | 별도 약관; 접근 제한 |
+| [Cosmos-Transfer1-7B-Sample-AV-Data-Example](https://huggingface.co/datasets/nvidia/Cosmos-Transfer1-7B-Sample-AV-Data-Example) | Cosmos Transfer용 자율주행 입력 예제 | CC BY 4.0; 접근 제한 |
+| [ALOHA-Cosmos-Policy](https://huggingface.co/datasets/nvidia/ALOHA-Cosmos-Policy) | Cosmos Policy 학습용 실제 양손 조작 데이터 | CC 태그; 상세 약관 확인 필요 |
+| [LIBERO-Cosmos-Policy](https://huggingface.co/datasets/nvidia/LIBERO-Cosmos-Policy) | Cosmos Policy용 LIBERO 시뮬레이션 데이터 | CC 태그; 상세 약관 확인 필요 |
+| [RoboCasa-Cosmos-Policy](https://huggingface.co/datasets/nvidia/RoboCasa-Cosmos-Policy) | Cosmos Policy용 RoboCasa 시뮬레이션 데이터 | CC 태그; 상세 약관 확인 필요 |
+| [Cosmos-HumanEval-v1](https://huggingface.co/datasets/nvidia/Cosmos-HumanEval-v1) | Cosmos 출력의 사람 평가 데이터 | 별도 약관 확인 |
+| [Cosmos-AnomalyGen-PCB-Dataset](https://huggingface.co/datasets/nvidia/Cosmos-AnomalyGen-PCB-Dataset) | PCB 결함 생성 데이터 | 별도 약관 확인 |
+| [Cosmos-AnomalyGen-Glass-Masks](https://huggingface.co/datasets/nvidia/Cosmos-AnomalyGen-Glass-Masks) | 유리 결함 생성용 마스크 | 라이선스 미확인; 공개 |
+| [Cosmos3-DROID](https://huggingface.co/datasets/nvidia/Cosmos3-DROID) | Cosmos 3용 로봇 조작 시연 | OpenMDW-1.1; 공개 |
+| [Cosmos3-Driving-Simulation-Evaluation](https://huggingface.co/datasets/nvidia/Cosmos3-Driving-Simulation-Evaluation) | 자율주행 시뮬레이션 평가용 제어 영상·설명 | OpenMDW-1.1; 공개 |
+
 **연계 예:** SimReady 자산으로 Isaac Sim·Isaac Lab 장면을 구성하고, Capture·GR00T 시연이나 기존 데이터셋으로 정책을 학습한 뒤 평가할 수 있다. 각 데이터셋의 로봇 형태·좌표계·센서와 라이선스가 호환되는지 따로 확인해야 한다.
 
 ## 2. 플랫폼·모델·제품·표준 및 제한적 공개 항목
@@ -151,6 +184,7 @@
 
 | 이름 | 역할·분류 | 공개·라이선스 상태 | 공식 출처 |
 |---|---|---|---|
+| cuVSLAM | CUDA 가속 시각 위치 추정·SLAM 라이브러리 | NVIDIA Community License; NVIDIA 플랫폼 제한이 있는 공개 코드, ROS 래퍼와 별도 | [저장소](https://github.com/nvidia-isaac/cuVSLAM) |
 | NVIDIA Omniverse | OpenUSD 기반 3D 개발 플랫폼 | 제품·SDK와 공개 구성 요소의 조건이 각각 다름 | [공식 페이지](https://developer.nvidia.com/omniverse) |
 | SimReady | 시뮬레이션에 필요한 속성을 갖춘 3D 자산의 규격·지침 | 자산별 라이선스 별도; 단일 소프트웨어 프로젝트 아님 | [공식 문서](https://docs.omniverse.nvidia.com/simready/latest/index.html) |
 | NuRec | 실제 환경의 신경 재구성·렌더링 기술 | 제품·기술; 전체 소스 및 라이선스 범위 미확인 | [공식 안내](https://developer.nvidia.com/omniverse/nurec) |
