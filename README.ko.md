@@ -16,32 +16,34 @@
 
 **분류 기준:** 아래 첫 표는 공개 코드에 대해 오픈소스 라이선스가 확인된 프로젝트다. 코드의 라이선스는 모델 가중치, 데이터, 바이너리, 클라우드 서비스 및 의존성에 자동으로 적용되지 않는다. 표의 라이선스는 지정한 저장소의 기본적인 코드 조건이며, 개별 파일과 버전은 직접 확인해야 한다. 두 번째 표는 플랫폼·모델·제품·표준, 제한적 공개 코드, 또는 라이선스가 불명확한 항목이다. NVIDIA 고유 모델도 소스가 공개되었다는 이유만으로 오픈소스로 분류하지 않았다.
 
+> 이미지는 각 프로젝트의 공식 저장소에서 가져왔습니다. 움직이는 예시는 로딩에 시간이 걸릴 수 있으며, Capture, V2D, Cosmos Evaluator와 AnomalyGen은 구성도입니다. 썸네일을 누르면 공식 프로젝트로 이동합니다.
+
 ## 1. 오픈소스 코드가 확인된 프로젝트
 
 ### 물리, 3D 및 시뮬레이션
 
 | 이름 | 역할 | 공개 코드 라이선스 및 유의점 | 공식 소스 |
 |---|---|---|---|
-| Newton | Warp 기반 GPU 물리 엔진과 로봇 시뮬레이션 솔버 | Apache-2.0 | [저장소](https://github.com/newton-physics/newton) |
-| NVIDIA Warp | GPU 가속 물리·기하 계산용 Python 프레임워크 | Apache-2.0 | [저장소](https://github.com/NVIDIA/warp) |
+| Newton<br><a href="https://github.com/newton-physics/newton"><img src="https://raw.githubusercontent.com/newton-physics/newton/main/docs/images/examples/example_basic_urdf.jpg" alt="Newton robot simulation" width="180"></a> | Warp 기반 GPU 물리 엔진과 로봇 시뮬레이션 솔버 | Apache-2.0 | [저장소](https://github.com/newton-physics/newton) |
+| NVIDIA Warp<br><a href="https://github.com/NVIDIA/warp"><img src="https://media.githubusercontent.com/media/NVIDIA/warp/main/docs/img/examples/core_fluid.png" alt="Warp fluid simulation" width="180"></a> | GPU 가속 물리·기하 계산용 Python 프레임워크 | Apache-2.0 | [저장소](https://github.com/NVIDIA/warp) |
 | NVIDIA PhysX | 강체·충돌 등 물리 시뮬레이션 엔진 | BSD-3-Clause; 일부 추가 구성 요소는 별도 조건 확인 | [저장소](https://github.com/NVIDIA-Omniverse/PhysX) |
-| MuJoCo Warp (MJWarp) | MuJoCo 물리 계산의 Warp 기반 가속 구현 | Apache-2.0; Google DeepMind 프로젝트 | [저장소](https://github.com/google-deepmind/mujoco_warp) |
+| MuJoCo Warp (MJWarp)<br><a href="https://github.com/google-deepmind/mujoco_warp"><img src="https://raw.githubusercontent.com/google-deepmind/mujoco_warp/main/benchmarks/unitree_g1/rollout_flat.webp" alt="MuJoCo Warp humanoid simulation" width="180"></a> | MuJoCo 물리 계산의 Warp 기반 가속 구현 | Apache-2.0; Google DeepMind 프로젝트 | [저장소](https://github.com/google-deepmind/mujoco_warp) |
 | OpenUSD | 3D 장면과 자산 교환·구성을 위한 프레임워크 | 수정 BSD 계열; 표준 및 상표와 구현은 구분 | [저장소](https://github.com/PixarAnimationStudios/OpenUSD) |
-| Isaac Sim | 로봇·센서·환경 시뮬레이션 참조 애플리케이션 | 저장소 코드 Apache-2.0; 전체 배포물·의존성은 별도 NVIDIA 약관이 적용될 수 있음 | [저장소](https://github.com/isaac-sim/IsaacSim) |
-| PhysicsNeMo | 물리 기반 AI 및 대리 모델 학습 프레임워크 | Apache-2.0 | [저장소](https://github.com/NVIDIA/physicsnemo) |
+| Isaac Sim<br><a href="https://github.com/isaac-sim/IsaacSim"><img src="https://media.githubusercontent.com/media/isaac-sim/IsaacSim/main/docs/readme/hero_shot_compressed.png" alt="Isaac Sim robot simulation" width="180"></a> | 로봇·센서·환경 시뮬레이션 참조 애플리케이션 | 저장소 코드 Apache-2.0; 전체 배포물·의존성은 별도 NVIDIA 약관이 적용될 수 있음 | [저장소](https://github.com/isaac-sim/IsaacSim) |
+| PhysicsNeMo<br><a href="https://github.com/NVIDIA/physicsnemo"><img src="https://raw.githubusercontent.com/NVIDIA/physicsnemo/main/docs/img/al_shiftsuv_field_predictions.png" alt="PhysicsNeMo vehicle aerodynamics predictions" width="180"></a> | 물리 기반 AI 및 대리 모델 학습 프레임워크 | Apache-2.0 | [저장소](https://github.com/NVIDIA/physicsnemo) |
 
 ### 로봇 학습, 수집 및 제어
 
 | 이름 | 역할 | 공개 코드 라이선스 및 유의점 | 공식 소스 |
 |---|---|---|---|
-| Isaac Lab | 강화·모방학습 및 로봇 학습 환경 | BSD-3-Clause; 선택한 백엔드와 의존성은 별도 조건 | [저장소](https://github.com/isaac-sim/IsaacLab) |
-| Isaac Lab-Arena | 조합 가능한 로봇 작업 환경과 정책 평가 | Apache-2.0; Isaac Sim 등 의존성 별도 | [저장소](https://github.com/isaac-sim/IsaacLab-Arena) |
-| Isaac Capture (이전 Isaac Teleop 포함) | 원격 조작 및 1인칭 데이터 수집·기록·리타기팅 | 기본 Apache-2.0; EgoPost는 OpenMDW-1.1, CloudXR과 일부 선택 패키지는 별도 독점 조건 | [저장소](https://github.com/NVIDIA/IsaacCapture) |
-| AutoData | 소수의 시연을 다양한 작업 조건의 궤적으로 확장 | Apache-2.0; Isaac Sim 및 특정 cuRobo 구성 요소 별도 조건 | [저장소](https://github.com/isaac-sim/AutoData) |
-| Video-to-Data (V2D) | 영상의 장면·동작을 복원하고 로봇 학습에 연결하는 파이프라인 | 소스 Apache-2.0, 문서·스킬 CC-BY-4.0; 의존 모델 별도 | [저장소](https://github.com/nvidia-isaac/video_to_data) |
-| Isaac GR00T 코드 | GR00T 로봇 정책의 학습·추론·배포 코드 | 코드 Apache-2.0; 모델과 가중치는 별도 조건 | [저장소](https://github.com/NVIDIA/Isaac-GR00T) |
-| cuRobo | GPU 기반 로봇 역기구학·동작계획 | 저장소 Apache-2.0; AutoData 배포의 특정 구성 요소는 별도 약관 확인 | [저장소](https://github.com/NVlabs/curobo) |
-| LeRobot | 로봇 데이터셋과 모델 학습 도구; Capture와 연동 가능 | Apache-2.0; Hugging Face 프로젝트 | [저장소](https://github.com/huggingface/lerobot) |
+| Isaac Lab<br><a href="https://github.com/isaac-sim/IsaacLab"><img src="https://raw.githubusercontent.com/isaac-sim/IsaacLab/main/docs/source/_static/isaaclab.jpg" alt="Isaac Lab robot learning simulation" width="180"></a> | 강화·모방학습 및 로봇 학습 환경 | BSD-3-Clause; 선택한 백엔드와 의존성은 별도 조건 | [저장소](https://github.com/isaac-sim/IsaacLab) |
+| Isaac Lab-Arena<br><a href="https://github.com/isaac-sim/IsaacLab-Arena"><img src="https://media.githubusercontent.com/media/isaac-sim/IsaacLab-Arena/main/docs/images/agentic_env_gen_gui_panel_sim_preview.png" alt="Isaac Lab-Arena simulation environment preview" width="180"></a> | 조합 가능한 로봇 작업 환경과 정책 평가 | Apache-2.0; Isaac Sim 등 의존성 별도 | [저장소](https://github.com/isaac-sim/IsaacLab-Arena) |
+| Isaac Capture (이전 Isaac Teleop 포함)<br><a href="https://github.com/NVIDIA/IsaacCapture"><img src="https://media.githubusercontent.com/media/NVIDIA/IsaacCapture/main/docs/source/_static/isaac-capture-architecture.png" alt="Isaac Capture 구성도" width="180"></a> | 원격 조작 및 1인칭 데이터 수집·기록·리타기팅 | 기본 Apache-2.0; EgoPost는 OpenMDW-1.1, CloudXR과 일부 선택 패키지는 별도 독점 조건 | [저장소](https://github.com/NVIDIA/IsaacCapture) |
+| AutoData<br><a href="https://github.com/isaac-sim/AutoData"><img src="https://media.githubusercontent.com/media/isaac-sim/AutoData/main/docs/images/autodata.gif" alt="AutoData demonstration generation" width="180"></a> | 소수의 시연을 다양한 작업 조건의 궤적으로 확장 | Apache-2.0; Isaac Sim 및 특정 cuRobo 구성 요소 별도 조건 | [저장소](https://github.com/isaac-sim/AutoData) |
+| Video-to-Data (V2D)<br><a href="https://github.com/nvidia-isaac/video_to_data"><img src="https://raw.githubusercontent.com/nvidia-isaac/video_to_data/main/docs/figures/v2d_overview.png" alt="Video-to-Data pipeline diagram" width="180"></a> | 영상의 장면·동작을 복원하고 로봇 학습에 연결하는 파이프라인 | 소스 Apache-2.0, 문서·스킬 CC-BY-4.0; 의존 모델 별도 | [저장소](https://github.com/nvidia-isaac/video_to_data) |
+| Isaac GR00T 코드<br><a href="https://github.com/NVIDIA/Isaac-GR00T"><img src="https://raw.githubusercontent.com/NVIDIA/Isaac-GR00T/main/media/header_compress.png" alt="Isaac GR00T 로봇 시연" width="180"></a> | GR00T 로봇 정책의 학습·추론·배포 코드 | 코드 Apache-2.0; 모델과 가중치는 별도 조건 | [저장소](https://github.com/NVIDIA/Isaac-GR00T) |
+| cuRobo<br><a href="https://github.com/NVlabs/curobo"><img src="https://raw.githubusercontent.com/NVlabs/curobo/main/docs/images/franka_spheres.png" alt="cuRobo robot collision geometry" width="180"></a> | GPU 기반 로봇 역기구학·동작계획 | 저장소 Apache-2.0; AutoData 배포의 특정 구성 요소는 별도 약관 확인 | [저장소](https://github.com/NVlabs/curobo) |
+| LeRobot<br><a href="https://github.com/huggingface/lerobot"><img src="https://raw.githubusercontent.com/huggingface/lerobot/main/media/readme/robots_control_video.webp" alt="LeRobot robot control demonstration" width="180"></a> | 로봇 데이터셋과 모델 학습 도구; Capture와 연동 가능 | Apache-2.0; Hugging Face 프로젝트 | [저장소](https://github.com/huggingface/lerobot) |
 | Isaac ROS | ROS 2 기반 GPU 가속 로봇 패키지 모음 | 패키지별 조건 상이; 공통 저장소와 배포물의 개별 라이선스 확인 | [공식 문서](https://nvidia-isaac-ros.github.io/) · [공통 코드](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common) |
 
 ### 데이터 생성·처리 및 실행
@@ -53,8 +55,8 @@
 | CDF Augmentation (이전 paidf-augmentation) | 영상·이미지·텍스트 증강 워크플로 | Apache-2.0; 모델 별도 | [저장소](https://github.com/NVIDIA/cdf-augmentation) |
 | CDF Simulation (이전 paidf-simulation) | Isaac Sim·Replicator 기반 합성 데이터 생성 | Apache-2.0; 시뮬레이터 및 자산 별도 | [저장소](https://github.com/NVIDIA/cdf-simulation) |
 | Cosmos Curator | 영상·이미지 분할, 필터링, 주석, 중복 제거 | Apache-2.0; 모델은 별도 | [저장소](https://github.com/NVIDIA/cosmos-curator) |
-| Cosmos Evaluator | 생성 영상의 객체 일관성·물리적 개연성 등 평가 | Apache-2.0; 체커별 모델 조건 별도 | [저장소](https://github.com/NVIDIA/cosmos-evaluator) |
-| OSMO | GPU 자원을 사용하는 시뮬레이션·학습 워크플로 실행 관리 | Apache-2.0 | [저장소](https://github.com/NVIDIA/OSMO) |
+| Cosmos Evaluator<br><a href="https://github.com/NVIDIA/cosmos-evaluator"><img src="https://raw.githubusercontent.com/NVIDIA/cosmos-evaluator/main/docs/assets/architecture_diagram.png" alt="Cosmos Evaluator architecture diagram" width="180"></a> | 생성 영상의 객체 일관성·물리적 개연성 등 평가 | Apache-2.0; 체커별 모델 조건 별도 | [저장소](https://github.com/NVIDIA/cosmos-evaluator) |
+| OSMO<br><a href="https://github.com/NVIDIA/OSMO"><img src="https://media.githubusercontent.com/media/NVIDIA/OSMO/main/docs/front_cover.png" alt="OSMO workflow overview" width="180"></a> | GPU 자원을 사용하는 시뮬레이션·학습 워크플로 실행 관리 | Apache-2.0 | [저장소](https://github.com/NVIDIA/OSMO) |
 | TensorRT 공개 코드 | 추론 최적화 관련 샘플·플러그인·도구 | 저장소 Apache-2.0; TensorRT 바이너리 SDK 전체가 같은 라이선스라는 뜻은 아님 | [저장소](https://github.com/NVIDIA/TensorRT) |
 | Holoscan SDK | 저지연 스트리밍·센서 AI 파이프라인 | Apache-2.0; 외부 구성 요소 별도 | [저장소](https://github.com/nvidia-holoscan/holoscan-sdk) |
 
@@ -62,7 +64,7 @@
 
 | 이름 | 역할 | 공개 코드 라이선스 및 유의점 | 공식 소스 |
 |---|---|---|---|
-| AlpaSim | 자율주행 정책의 폐루프 시뮬레이션 | Apache-2.0 코드; 모델·데이터 별도 | [저장소](https://github.com/NVlabs/alpasim) |
+| AlpaSim<br><a href="https://github.com/NVlabs/alpasim"><img src="https://raw.githubusercontent.com/NVlabs/alpasim/main/docs/assets/images/thumbnail.gif" alt="AlpaSim driving simulation" width="180"></a> | 자율주행 정책의 폐루프 시뮬레이션 | Apache-2.0 코드; 모델·데이터 별도 | [저장소](https://github.com/NVlabs/alpasim) |
 | AlpaGym | 자율주행 정책 강화학습 | Apache-2.0 코드; 의존성·모델 별도 | [저장소](https://github.com/NVlabs/alpagym) |
 
 ## 2. 플랫폼·모델·제품·표준 및 제한적 공개 항목
@@ -74,7 +76,7 @@
 | NVIDIA Omniverse | OpenUSD 기반 3D 개발 플랫폼 | 제품·SDK와 공개 구성 요소의 조건이 각각 다름 | [공식 페이지](https://developer.nvidia.com/omniverse) |
 | SimReady | 시뮬레이션에 필요한 속성을 갖춘 3D 자산의 규격·지침 | 자산별 라이선스 별도; 단일 소프트웨어 프로젝트 아님 | [공식 문서](https://docs.omniverse.nvidia.com/simready/latest/index.html) |
 | NuRec | 실제 환경의 신경 재구성·렌더링 기술 | 제품·기술; 전체 소스 및 라이선스 범위 미확인 | [공식 안내](https://developer.nvidia.com/omniverse/nurec) |
-| Cosmos 및 Cosmos 3 | 월드 모델·도구 플랫폼 및 모델 계열 | [Cosmos 저장소](https://github.com/NVIDIA/cosmos)는 코드와 모델에 OpenMDW-1.1을 명시; OSI 승인 오픈소스라고 단정하지 않음. 개별 저장소는 별도 조건 | [공식 저장소](https://github.com/NVIDIA/cosmos) |
+| Cosmos 및 Cosmos 3<br><a href="https://github.com/NVIDIA/cosmos"><img src="https://raw.githubusercontent.com/NVIDIA/cosmos/main/assets/demos/transfer_worldscenario.gif" alt="Cosmos 주행 장면 생성 예시" width="180"></a> | 월드 모델·도구 플랫폼 및 모델 계열 | [Cosmos 저장소](https://github.com/NVIDIA/cosmos)는 코드와 모델에 OpenMDW-1.1을 명시; OSI 승인 오픈소스라고 단정하지 않음. 개별 저장소는 별도 조건 | [공식 저장소](https://github.com/NVIDIA/cosmos) |
 | Cosmos Predict / Transfer / Reason | 각각 세계·영상 생성, 시각 조건 변환, 장면 추론 모델 계열 | 모델 버전과 가중치별 약관 확인; 전체를 일괄 오픈소스로 취급하지 않음 | [Cosmos 공식 저장소](https://github.com/NVIDIA/cosmos) |
 | Cosmos Embed / Dataset Search | 멀티모달 임베딩 모델·서비스 및 영상 검색 마이크로서비스 | 서비스·모델의 전체 소스 및 라이선스 미확인 | [공식 문서](https://docs.nvidia.com/cosmos/cds/latest/introduction.html) |
 | Isaac GR00T / GR00T N1.7 | 로봇 행동 기반 모델·플랫폼 | 코드와 가중치의 라이선스 별도; 모델 이용 조건은 버전별 확인 | [공식 저장소](https://github.com/NVIDIA/Isaac-GR00T) |
@@ -83,14 +85,14 @@
 | Isaac RLPT | 사전학습 정책을 강화학습으로 개선하는 워크플로 | 독립 저장소와 라이선스 미확인 | [Isaac Lab](https://github.com/isaac-sim/IsaacLab) |
 | Replicator | Omniverse/Isaac Sim의 합성 데이터 생성 도구 | 제품 구성 요소; 전체 코드 공개 및 독립 라이선스 미확인 | [Isaac Sim 문서](https://docs.isaacsim.omniverse.nvidia.com/latest/replicator_tutorials/index.html) |
 | EgoHand / EgoPost | Capture의 1인칭 손·카메라 동작 관련 구성 요소 | EgoPost는 OpenMDW-1.1; EgoHand의 독립 라이선스 미확인. 상위 패키지 기본 라이선스를 일괄 적용하지 않음 | [Isaac Capture](https://github.com/NVIDIA/IsaacCapture) |
-| MimicGen | 시연으로 다양한 로봇 행동 데이터 생성 | 소스 공개; NVIDIA Source Code License 조건을 확인해야 하며 오픈소스로 단정하지 않음 | [저장소](https://github.com/NVlabs/mimicgen) |
+| MimicGen<br><a href="https://github.com/NVlabs/mimicgen"><img src="https://raw.githubusercontent.com/NVlabs/mimicgen/main/docs/images/mimicgen.gif" alt="MimicGen demonstration generation" width="180"></a> | 시연으로 다양한 로봇 행동 데이터 생성 | 소스 공개; NVIDIA Source Code License 조건을 확인해야 하며 오픈소스로 단정하지 않음 | [저장소](https://github.com/NVlabs/mimicgen) |
 | DexMimicGen | 양손·다중 조작 시연 데이터 생성 연구 | 코드 NVIDIA Source Code License; 데이터 CC-BY-4.0, 코드 이용 제한 확인 | [저장소](https://github.com/NVlabs/dexmimicgen) |
 | SkillGen / SkillMimicGen | 동작계획으로 시연 구간을 연결·생성하는 방법 | Isaac Lab 구현과 cuRobo 등 의존성의 조건을 각각 확인; 논문명과 구현명은 구분 | [Isaac Lab 구현 문서](https://github.com/isaac-sim/IsaacLab/blob/main/docs/source/features/imitation-learning/skillgen.rst) |
 | Isaac Lab Eureka | 언어 모델을 이용한 보상 함수 생성 연구 코드 | 공개 저장소; 적용 라이선스 미확인 | [저장소](https://github.com/NVlabs/IsaacLabEureka) |
-| FoundationPose | 물체 6D 자세 추정·추적 연구 코드·모델 | 연구 저장소 코드는 비상업적 사용 제한; 별도 배포 모델은 별도 조건 | [코드](https://github.com/NVlabs/FoundationPose) · [모델 카드](https://huggingface.co/nvidia/foundationpose) |
-| FoundationStereo | 스테레오 깊이 추정 연구 코드·모델 | 연구 코드 비상업적 제한; 별도 상업용 모델 제공 여부와 조건은 해당 배포물 확인 | [저장소](https://github.com/NVlabs/FoundationStereo) |
-| nvblox | 3D 공간 매핑·장애물 표현 라이브러리 | 코드 공개; 저장소의 혼합 라이선스 범위 미확인 | [저장소](https://github.com/nvidia-isaac/nvblox) |
-| AnomalyGen | 소수 예시를 이용한 결함 이미지 생성 워크플로 | 공개 저장소; 코드·모델·어댑터 각각의 조건 미확인 | [저장소](https://github.com/NVIDIA/cdf-anomalygen) |
+| FoundationPose<br><a href="https://github.com/NVlabs/FoundationPose"><img src="https://raw.githubusercontent.com/NVlabs/FoundationPose/main/assets/demo.jpg" alt="FoundationPose pose estimation demo" width="180"></a> | 물체 6D 자세 추정·추적 연구 코드·모델 | 연구 저장소 코드는 비상업적 사용 제한; 별도 배포 모델은 별도 조건 | [코드](https://github.com/NVlabs/FoundationPose) · [모델 카드](https://huggingface.co/nvidia/foundationpose) |
+| FoundationStereo<br><a href="https://github.com/NVlabs/FoundationStereo"><img src="https://raw.githubusercontent.com/NVlabs/FoundationStereo/master/teaser/output.jpg" alt="FoundationStereo stereo depth output" width="180"></a> | 스테레오 깊이 추정 연구 코드·모델 | 연구 코드 비상업적 제한; 별도 상업용 모델 제공 여부와 조건은 해당 배포물 확인 | [저장소](https://github.com/NVlabs/FoundationStereo) |
+| nvblox<br><a href="https://github.com/nvidia-isaac/nvblox"><img src="https://media.githubusercontent.com/media/nvidia-isaac/nvblox/public/docs/images/nvblox_navigation_trim.gif" alt="nvblox mapping and navigation" width="180"></a> | 3D 공간 매핑·장애물 표현 라이브러리 | 코드 공개; 저장소의 혼합 라이선스 범위 미확인 | [저장소](https://github.com/nvidia-isaac/nvblox) |
+| AnomalyGen<br><a href="https://github.com/NVIDIA/cdf-anomalygen"><img src="https://raw.githubusercontent.com/NVIDIA/cdf-anomalygen/main/anomalygen/auto_mask_placement/gui/frontend/public/detail_workflow.png" alt="AnomalyGen mask placement workflow diagram" width="180"></a> | 소수 예시를 이용한 결함 이미지 생성 워크플로 | 공개 저장소; 코드·모델·어댑터 각각의 조건 미확인 | [저장소](https://github.com/NVIDIA/cdf-anomalygen) |
 | CDF Orchestration | 데이터 팩토리 작업 실행·관리 구성 요소 | 공개 저장소; 라이선스 및 실행 서비스별 조건 미확인 | [저장소](https://github.com/NVIDIA/cdf-orchestration) |
 | Alpamayo | 자율주행 추론·행동 모델 계열 | 공개 가중치의 조건과 접근 절차는 모델 버전별 상이 | [AlpaSim 모델 안내](https://github.com/NVlabs/alpasim/blob/main/docs/TUTORIAL.md) |
 | Metropolis / VSS | 영상 AI 플랫폼 / 영상 검색·요약 워크플로 | 플랫폼·서비스; 개별 SDK·모델의 조건 별도 | [Metropolis](https://developer.nvidia.com/metropolis) |
