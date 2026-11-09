@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1180" viewBox="0 0 1600 1180" role="img" aria-labelledby="title desc">
+<title id="title">NVIDIA Physical AI ecosystem and development flywheel</title>
+<desc id="desc">An unofficial overview of data, world building and simulation, model learning, and deployment, with an iterative physical AI flywheel and platform layers.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#151a18"/><stop offset="1" stop-color="#090c0b"/></linearGradient>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".035"/></pattern>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#76b900"/></marker>
+  <style>
+  text {font-family:Arial,Helvetica,sans-serif}.title{font-size:42px;font-weight:700;fill:#f5f7f2;letter-spacing:.5px}.sub{font-size:19px;fill:#a8b4aa}.eyebrow{font-size:17px;font-weight:700;letter-spacing:2.4px;fill:#96d31a}.section{font-size:24px;font-weight:700;fill:#f5f7f2}.cardtitle{font-size:23px;font-weight:700;fill:#fff}.description{font-size:17px;fill:#a7b4aa}.label{font-size:17px;font-weight:700;fill:#eef5e9}.tiny{font-size:15px;fill:#b0bdb2}.flow{font-size:19px;font-weight:700;fill:#f0f7ed}.flowdetail{font-size:15px;fill:#9eafa0}.card{fill:#17201b;stroke:#3b513e;stroke-width:1.5}.chip{fill:#25372a;stroke:#49683b;stroke-width:1}.line{stroke:#76b900;stroke-width:2.8;fill:none;marker-end:url(#arrow)}
+  </style>
+</defs>
+<rect width="1600" height="1180" rx="20" fill="url(#bg)"/><rect width="1600" height="1180" rx="20" fill="url(#grid)"/>
+<rect x="0" y="0" width="12" height="1180" fill="#76b900"/>
+<text x="64" y="71" class="eyebrow">UNOFFICIAL COMMUNITY MAP  /  NVIDIA PHYSICAL AI</text>
+<text x="64" y="132" class="title">From real-world data to intelligent action</text>
+<text x="64" y="170" class="sub">A practical map of the ecosystem: where the tools fit and how the development loop connects.</text>
+<text x="64" y="232" class="section">01  /  THE TECHNOLOGY STACK</text>
+<text x="1536" y="232" class="tiny" text-anchor="end">Choose the components your workflow needs</text>
+<!-- four technology layers -->
+<g transform="translate(64 260)"><rect class="card" width="348" height="325" rx="14"/><rect x="0" width="348" height="5" rx="2" fill="#76b900"/>
+<text x="24" y="49" class="eyebrow">01 / INPUT</text><text x="24" y="83" class="cardtitle">Data &amp; assets</text><text x="24" y="112" class="description">Capture, reconstruct, curate</text>
+<text x="24" y="159" class="label">Isaac Capture · Teleop</text><text x="24" y="190" class="label">Video-to-Data · AutoData</text><text x="24" y="221" class="label">SimReady · OpenUSD</text><text x="24" y="252" class="label">Physical AI datasets</text><text x="24" y="290" class="tiny">Real / synthetic demonstrations + 3D</text></g>
+<g transform="translate(433 260)"><rect class="card" width="348" height="325" rx="14"/><rect x="0" width="348" height="5" rx="2" fill="#76b900"/>
+<text x="24" y="49" class="eyebrow">02 / WORLD</text><text x="24" y="83" class="cardtitle">Simulation &amp; generation</text><text x="24" y="112" class="description">Build, simulate, diversify</text>
+<text x="24" y="159" class="label">Isaac Sim · Omniverse</text><text x="24" y="190" class="label">Newton · PhysX · Warp</text><text x="24" y="221" class="label">Replicator · NuRec</text><text x="24" y="252" class="label">Cosmos Predict · Transfer</text><text x="24" y="290" class="tiny">Physics, sensors + visual variation</text></g>
+<g transform="translate(802 260)"><rect class="card" width="348" height="325" rx="14"/><rect x="0" width="348" height="5" rx="2" fill="#76b900"/>
+<text x="24" y="49" class="eyebrow">03 / INTELLIGENCE</text><text x="24" y="83" class="cardtitle">Train &amp; evaluate</text><text x="24" y="112" class="description">Learn policies, test behaviors</text>
+<text x="24" y="159" class="label">Isaac Lab · Lab-Arena</text><text x="24" y="190" class="label">Isaac GR00T · WBC-AGILE</text><text x="24" y="221" class="label">Cosmos Reason · Evaluator</text><text x="24" y="252" class="label">Alpamayo · AlpaGym</text><text x="24" y="290" class="tiny">Robot learning + world reasoning</text></g>
+<g transform="translate(1171 260)"><rect class="card" width="365" height="325" rx="14"/><rect x="0" width="365" height="5" rx="2" fill="#76b900"/>
+<text x="24" y="49" class="eyebrow">04 / ACTION</text><text x="24" y="83" class="cardtitle">Deploy &amp; operate</text><text x="24" y="112" class="description">Connect models to the world</text>
+<text x="24" y="159" class="label">Isaac ROS · cuRobo · nvblox</text><text x="24" y="190" class="label">TensorRT · LEAPP</text><text x="24" y="221" class="label">Jetson · DRIVE · Holoscan</text><text x="24" y="252" class="label">DeepStream · Metropolis</text><text x="24" y="290" class="tiny">Robots / vehicles / smart spaces</text></g>
+<path d="M413 420h15M782 420h15M1151 420h15" class="line"/>
+<!-- platform band -->
+<text x="64" y="641" class="section">02  /  PLATFORMS &amp; SHARED SERVICES</text>
+<rect x="64" y="663" width="1472" height="114" rx="14" fill="#1d2b20" stroke="#49643d"/>
+<text x="88" y="700" class="eyebrow">ACROSS THE STACK</text>
+<text x="88" y="737" class="label">Omniverse / OpenUSD</text><text x="346" y="737" class="tiny">worlds &amp; assets</text>
+<text x="525" y="737" class="label">Cosmos Data Factory</text><text x="736" y="737" class="tiny">data pipelines</text>
+<text x="900" y="737" class="label">OSMO</text><text x="969" y="737" class="tiny">workflow orchestration</text>
+<text x="1202" y="737" class="label">Hugging Face</text><text x="1348" y="737" class="tiny">datasets &amp; models</text>
+<!-- flywheel -->
+<text x="64" y="836" class="section">03  /  THE PHYSICAL AI FLYWHEEL</text>
+<text x="1536" y="836" class="tiny" text-anchor="end">Repeat as new failures and observations surface</text>
+<rect x="64" y="860" width="1472" height="220" rx="14" fill="#111a14" stroke="#314b32"/>
+<g transform="translate(102 904)"><rect class="chip" width="252" height="83" rx="9"/><text x="17" y="32" class="flow">1. Capture</text><text x="17" y="59" class="flowdetail">real data &amp; demonstrations</text></g>
+<g transform="translate(407 904)"><rect class="chip" width="252" height="83" rx="9"/><text x="17" y="32" class="flow">2. Generate</text><text x="17" y="59" class="flowdetail">simulate &amp; augment</text></g>
+<g transform="translate(712 904)"><rect class="chip" width="252" height="83" rx="9"/><text x="17" y="32" class="flow">3. Train &amp; test</text><text x="17" y="59" class="flowdetail">policies &amp; world models</text></g>
+<g transform="translate(1017 904)"><rect class="chip" width="252" height="83" rx="9"/><text x="17" y="32" class="flow">4. Deploy</text><text x="17" y="59" class="flowdetail">observe &amp; collect failures</text></g>
+<path d="M354 945H397 M659 945H702 M964 945H1007" class="line"/>
+<path d="M1269 945H1413Q1453 945 1453 985V1012Q1453 1032 1428 1032H255Q227 1032 227 1001V997" class="line"/>
+<text x="826" y="1022" text-anchor="middle" class="tiny">feedback: real-world observations, failure cases and new data</text>
+<text x="64" y="1135" class="tiny">Conceptual overview • Paths are optional, not a required sequence • Model, dataset and component licenses differ</text>
+<text x="1536" y="1135" class="tiny" text-anchor="end">github.com/james-joobs/awesome-nvidia-physical-ai</text>
+</svg>

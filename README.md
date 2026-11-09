@@ -8,7 +8,7 @@
 
 **A guide to the simulation, data, and robotics learning ecosystem behind physical AI.**
 
-[Open-source projects](#1-projects-with-confirmed-open-source-code) · [Data and assets](#data-and-simulation-assets) · [Platforms and models](#2-platforms-models-products-standards-and-restricted-code) · [External tools](#3-external-models-and-tools) · [How they fit together](#4-how-the-pieces-fit-together)
+[Ecosystem map](#ecosystem-at-a-glance) · [Open-source projects](#1-projects-with-confirmed-open-source-code) · [Data and assets](#data-and-simulation-assets) · [Platforms and models](#2-platforms-models-products-standards-and-restricted-code) · [External tools](#3-external-models-and-tools) · [How they fit together](#4-how-the-pieces-fit-together)
 
 </div>
 
@@ -19,6 +19,14 @@ This guide catalogs NVIDIA Physical AI projects, simulation assets, and datasets
 **Checked:** November 9, 2026. A public repository does not imply that its model weights, datasets, binaries, cloud services, or dependencies share the same license. License notes below describe the linked code where confirmed; check the exact version and individual components before use. “Unverified” means the relevant scope or license could not be established, not that it is closed source.
 
 > Images are from official project repositories and dataset cards. Animated examples may take a moment to load; Some previews are diagrams rather than screenshots. Select a thumbnail to open its source project.
+
+## Ecosystem at a glance
+
+![NVIDIA Physical AI technology stack and development flywheel](assets/physical-ai-landscape.svg)
+
+This conceptual map connects data collection and assets with simulation, training, evaluation, and deployment. Real-world observations and failures feed the next iteration. Workflows can use only the tools and stages they need.
+
+[View the diagram](assets/physical-ai-landscape.svg) · [한국어 다이어그램](assets/physical-ai-landscape.ko.svg)
 
 ## 1. Projects with confirmed open-source code
 

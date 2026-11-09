@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1180" viewBox="0 0 1600 1180" role="img" aria-labelledby="title desc">
+<title id="title">NVIDIA Physical AI 생태계와 개발 플라이휠</title>
+<desc id="desc">An unofficial overview of data, world building and simulation, model learning, and deployment, with an iterative physical AI flywheel and platform layers.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#151a18"/><stop offset="1" stop-color="#090c0b"/></linearGradient>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".035"/></pattern>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#76b900"/></marker>
+  <style>
+  text {font-family:Arial,Noto Sans KR,Helvetica,sans-serif}.title{font-size:42px;font-weight:700;fill:#f5f7f2;letter-spacing:.5px}.sub{font-size:19px;fill:#a8b4aa}.eyebrow{font-size:17px;font-weight:700;letter-spacing:2.4px;fill:#96d31a}.section{font-size:24px;font-weight:700;fill:#f5f7f2}.cardtitle{font-size:23px;font-weight:700;fill:#fff}.description{font-size:17px;fill:#a7b4aa}.label{font-size:17px;font-weight:700;fill:#eef5e9}.tiny{font-size:15px;fill:#b0bdb2}.flow{font-size:19px;font-weight:700;fill:#f0f7ed}.flowdetail{font-size:15px;fill:#9eafa0}.card{fill:#17201b;stroke:#3b513e;stroke-width:1.5}.chip{fill:#25372a;stroke:#49683b;stroke-width:1}.line{stroke:#76b900;stroke-width:2.8;fill:none;marker-end:url(#arrow)}
+  </style>
+</defs>
+<rect width="1600" height="1180" rx="20" fill="url(#bg)"/><rect width="1600" height="1180" rx="20" fill="url(#grid)"/>
+<rect x="0" y="0" width="12" height="1180" fill="#76b900"/>
+<text x="64" y="71" class="eyebrow">비공식 커뮤니티 가이드  /  NVIDIA PHYSICAL AI</text>
+<text x="64" y="132" class="title">현실 데이터에서 지능형 행동까지</text>
+<text x="64" y="170" class="sub">기술별 역할과 개발 과정의 순환을 한눈에 보는 생태계 지도</text>
+<text x="64" y="232" class="section">01  /  기술 스택</text>
+<text x="1536" y="232" class="tiny" text-anchor="end">목적에 맞는 구성 요소를 선택하세요</text>
+<!-- four technology layers -->
+<g transform="translate(64 260)"><rect class="card" width="348" height="325" rx="14"/><rect x="0" width="348" height="5" rx="2" fill="#76b900"/>
+<text x="24" y="49" class="eyebrow">01 / 입력</text><text x="24" y="83" class="cardtitle">데이터와 자산</text><text x="24" y="112" class="description">수집 · 복원 · 정제</text>
+<text x="24" y="159" class="label">Isaac Capture · Teleop</text><text x="24" y="190" class="label">Video-to-Data · AutoData</text><text x="24" y="221" class="label">SimReady · OpenUSD</text><text x="24" y="252" class="label">Physical AI 데이터셋</text><text x="24" y="290" class="tiny">실제·합성 시연 및 3D 자산</text></g>
+<g transform="translate(433 260)"><rect class="card" width="348" height="325" rx="14"/><rect x="0" width="348" height="5" rx="2" fill="#76b900"/>
+<text x="24" y="49" class="eyebrow">02 / 세계</text><text x="24" y="83" class="cardtitle">시뮬레이션과 생성</text><text x="24" y="112" class="description">구성 · 물리 계산 · 다양화</text>
+<text x="24" y="159" class="label">Isaac Sim · Omniverse</text><text x="24" y="190" class="label">Newton · PhysX · Warp</text><text x="24" y="221" class="label">Replicator · NuRec</text><text x="24" y="252" class="label">Cosmos Predict · Transfer</text><text x="24" y="290" class="tiny">물리·센서와 시각적 다양성</text></g>
+<g transform="translate(802 260)"><rect class="card" width="348" height="325" rx="14"/><rect x="0" width="348" height="5" rx="2" fill="#76b900"/>
+<text x="24" y="49" class="eyebrow">03 / 지능</text><text x="24" y="83" class="cardtitle">학습과 평가</text><text x="24" y="112" class="description">정책 학습 · 행동 평가</text>
+<text x="24" y="159" class="label">Isaac Lab · Lab-Arena</text><text x="24" y="190" class="label">Isaac GR00T · WBC-AGILE</text><text x="24" y="221" class="label">Cosmos Reason · Evaluator</text><text x="24" y="252" class="label">Alpamayo · AlpaGym</text><text x="24" y="290" class="tiny">로봇 학습과 세계 추론</text></g>
+<g transform="translate(1171 260)"><rect class="card" width="365" height="325" rx="14"/><rect x="0" width="365" height="5" rx="2" fill="#76b900"/>
+<text x="24" y="49" class="eyebrow">04 / 행동</text><text x="24" y="83" class="cardtitle">배포와 운영</text><text x="24" y="112" class="description">실제 환경에 모델 연결</text>
+<text x="24" y="159" class="label">Isaac ROS · cuRobo · nvblox</text><text x="24" y="190" class="label">TensorRT · LEAPP</text><text x="24" y="221" class="label">Jetson · DRIVE · Holoscan</text><text x="24" y="252" class="label">DeepStream · Metropolis</text><text x="24" y="290" class="tiny">로봇 / 차량 / 스마트 공간</text></g>
+<path d="M413 420h15M782 420h15M1151 420h15" class="line"/>
+<!-- platform band -->
+<text x="64" y="641" class="section">02  /  플랫폼과 공통 서비스</text>
+<rect x="64" y="663" width="1472" height="114" rx="14" fill="#1d2b20" stroke="#49643d"/>
+<text x="88" y="700" class="eyebrow">전체 스택을 지원</text>
+<text x="88" y="737" class="label">Omniverse / OpenUSD</text><text x="346" y="737" class="tiny">환경·자산</text>
+<text x="525" y="737" class="label">Cosmos Data Factory</text><text x="736" y="737" class="tiny">데이터 파이프라인</text>
+<text x="900" y="737" class="label">OSMO</text><text x="969" y="737" class="tiny">작업 흐름 관리</text>
+<text x="1202" y="737" class="label">Hugging Face</text><text x="1348" y="737" class="tiny">데이터·모델</text>
+<!-- flywheel -->
+<text x="64" y="836" class="section">03  /  PHYSICAL AI 플라이휠</text>
+<text x="1536" y="836" class="tiny" text-anchor="end">새로운 관측과 실패 사례를 반영해 반복</text>
+<rect x="64" y="860" width="1472" height="220" rx="14" fill="#111a14" stroke="#314b32"/>
+<g transform="translate(102 904)"><rect class="chip" width="252" height="83" rx="9"/><text x="17" y="32" class="flow">1. 수집</text><text x="17" y="59" class="flowdetail">실제 데이터와 시연</text></g>
+<g transform="translate(407 904)"><rect class="chip" width="252" height="83" rx="9"/><text x="17" y="32" class="flow">2. 생성</text><text x="17" y="59" class="flowdetail">시뮬레이션과 증강</text></g>
+<g transform="translate(712 904)"><rect class="chip" width="252" height="83" rx="9"/><text x="17" y="32" class="flow">3. 학습·평가</text><text x="17" y="59" class="flowdetail">정책 및 월드 모델</text></g>
+<g transform="translate(1017 904)"><rect class="chip" width="252" height="83" rx="9"/><text x="17" y="32" class="flow">4. 배포</text><text x="17" y="59" class="flowdetail">관측 및 실패 사례 수집</text></g>
+<path d="M354 945H397 M659 945H702 M964 945H1007" class="line"/>
+<path d="M1269 945H1413Q1453 945 1453 985V1012Q1453 1032 1428 1032H255Q227 1032 227 1001V997" class="line"/>
+<text x="826" y="1022" text-anchor="middle" class="tiny">피드백: 실제 환경의 관측·실패 사례와 새로운 데이터</text>
+<text x="64" y="1135" class="tiny">개념도 • 모든 단계를 반드시 거칠 필요는 없음 • 모델·데이터·구성 요소별 이용 조건 확인</text>
+<text x="1536" y="1135" class="tiny" text-anchor="end">github.com/james-joobs/awesome-nvidia-physical-ai</text>
+</svg>
