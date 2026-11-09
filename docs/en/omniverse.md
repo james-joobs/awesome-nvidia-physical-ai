@@ -1,40 +1,61 @@
 # NVIDIA Omniverse
 
-[← All projects](../../README.md) · [한국어](../ko/omniverse.md)
+[← Catalog](../../README.md) · [한국어](../ko/omniverse.md)
 
-## Overview
+Omniverse provides tools for building OpenUSD applications. Omniverse Kit runs an application assembled from extensions, which can provide UI, scene tools, rendering and other capabilities through declared dependencies.
 
-OpenUSD-based 3D development platform.
+## Architecture
 
-## Conceptual workflow
+| Component | Responsibility and data boundary |
+|---|---|
+| Carbonite and Kit kernel | The Carbonite framework supplies core plugin infrastructure. The Kit kernel starts the application and provides extension management and foundational interfaces. |
+| App configuration and extensions | A Kit application selects extensions and settings through configuration. Extensions declare other dependencies. Kit resolves and starts the dependency graph. |
+| USD scene and consuming features | Application extensions can author or inspect a USD stage and pass the composed scene to visualization or domain-specific features. The stage and extension configuration are distinct inputs. |
+
+Guide diagram based on the official references below.
 
 ```mermaid
 flowchart LR
-    n0["Compose OpenUSD assets and scenes"] --> n1
-    n1["connect simulation applications"] --> n2
-    n2["build and iterate digital twins"]
+    config["Kit app configuration"]
+    kernel["Kit kernel and extension manager"]
+    carbon["Carbonite plugin framework"]
+    ext["Resolved UI, USD and render extensions"]
+    usd["Composed OpenUSD stage"]
+    view["Digital twin viewer"]
+    carbon --> kernel
+    config --> kernel
+    kernel --> ext
+    usd --> ext
+    ext --> view
 ```
 
-## Workflow and use
+### Official figures and examples
 
-Compose OpenUSD assets and scenes → connect simulation applications → build and iterate digital twins. This is a conceptual workflow; check the official source for version-specific prerequisites and supported configurations.
+![NVIDIA’s Kit-based USD Viewer example shows the composed stage loaded in the application.](https://docs.omniverse.nvidia.com/xr/omniverse-spatial-docs/latest/_images/usd_viewer_xr_loaded.png)
 
-**Example use case:** a digital twin of a factory. Check applicability, supported inputs and model versions in the official source.
+NVIDIA’s Kit-based USD Viewer example shows the composed stage loaded in the application. [Original figure and context](https://docs.omniverse.nvidia.com/xr/omniverse-spatial-docs/latest/server/02-build-and-launch.html)
 
-**Related technologies:** OpenUSD, Isaac Sim, SimReady.
+## Walkthrough
 
-## Architecture and example
+1. Start with a Kit application template that can display USD. Enable only the features required for a factory layout viewer. Add a custom extension for checking equipment clearances or reading scene metadata.
+2. Reference equipment assets in an OpenUSD stage and open it through the app. Separate reusable asset data from application-specific UI and controls.
+3. Build and launch the app with the same configuration in a clean environment. Inspect extension resolution logs and confirm assets and materials are available.
 
-Omniverse Kit provides an application framework built from extensions; OpenUSD is used to compose and exchange scene data across compatible applications.
+## Validation
 
-Compose factory geometry and equipment into a shared scene, then connect a simulator to evaluate a robot workflow.
+- Pin app and extension versions together. A working USD asset does not validate the extension dependency graph.
+- Keep digital twin data and interface code separable so you can validate composition without bringing up the entire UI.
 
-[Official technical source](https://docs.omniverse.nvidia.com/kit/docs/kit-manual/latest/guide/kit_architecture.html)
+## License and scope
 
-## Availability and terms
+Omniverse is a platform and SDK family. Check the terms of the chosen Kit runtime, extensions and services individually.
 
-Product, SDK, and publicly available components have different terms. Verify the exact version and the terms of any models, datasets, binaries and dependencies before use.
+## Related guides
 
-## Official sources
+[OpenUSD](openusd.md) · [Isaac Sim](isaac-sim.md) · [SimReady](simready.md)
 
-[Official page](https://developer.nvidia.com/omniverse)
+## Official references
+
+- [Omniverse platform](https://developer.nvidia.com/omniverse)
+- [Kit kernel and extension architecture](https://docs.omniverse.nvidia.com/kit/docs/kit-manual/latest/guide/kit_architecture.html)
+- [Build an OpenUSD application](https://docs.omniverse.nvidia.com/composer/latest/how-to-build.html)

@@ -246,7 +246,7 @@ These were mentioned as components or dependencies in workflows such as V2D. The
 | **PyTorch** | Machine-learning framework | [Repository](https://github.com/pytorch/pytorch); BSD-style license, dependencies separate | [Guide](docs/en/pytorch.md) |
 | **ROS 2** | Robotics middleware | [Documentation](https://docs.ros.org/en/rolling/); package licenses vary | [Guide](docs/en/ros-2.md) |
 | **CUDA / TensorRT / ONNX** | GPU computing platform / inference SDK / model interchange format | CUDA and TensorRT distributions have separate product terms; [ONNX](https://github.com/onnx/onnx) has a public implementation and standard. TensorRT public code is listed above | [Guide](docs/en/cuda-tensorrt-onnx.md) |
-| **MCAP / HDF5 / URDF / CAD** | Recording format / data format / robot description format / design concept | A format or concept and its implementations have distinct licenses. [MCAP](https://mcap.dev/) · [HDF5](https://www.hdfgroup.org/solutions/hdf5/) · [URDF](https://docs.ros.org/en/rolling/Tutorials/Intermediate/URDF/URDF-Main.html) | [Guide](docs/en/mcap-hdf5-urdf-cad.md) |
+| **MCAP / HDF5 / URDF / CAD** | Recording format / data format / robot description format / design concept | A format or concept and its implementations have distinct licenses. [MCAP](https://mcap.dev/) · [HDF5](https://www.hdfgroup.org/solutions/hdf5/) · [URDF](https://github.com/ros/urdfdom) | [Guide](docs/en/mcap-hdf5-urdf-cad.md) |
 
 ## 4. How the pieces fit together
 

@@ -1,31 +1,37 @@
 # SigLIP 2
 
-[← All projects](../../README.md) · [한국어](../ko/siglip-2.md) · [Official source](https://huggingface.co/google/siglip2-base-patch16-224) · [Documentation / related project](https://huggingface.co/google/siglip2-base-patch16-224)
+[← Catalog](../../README.md) · [한국어](../ko/siglip-2.md)
 
-A Google vision-language model family that represents images and text for cross-modal tasks.
+SigLIP 2 encodes images and text for cross-modal retrieval and related vision tasks. A pair of encoders maps each modality into a representation that can be compared.
 
-**Availability and terms:** Check each model card and checkpoint license. Model limitations and bias must be evaluated for the intended dataset.
+## How it works
 
-## Architecture and workflow
+The image encoder embeds patches and the text encoder embeds tokens. Training uses a pairwise sigmoid image-text objective and adds captioning and self-supervised signals described in the paper. Fixed-resolution and NaFlex checkpoints differ in how they prepare images. For video retrieval, an application can sample frames and define how to aggregate the resulting scores.
 
 ```mermaid
 flowchart LR
-    A["Image + text"] --> B["respective encoders"] --> C["embeddings / similarity"] --> D["ranking"]
+    I["Image or video frame"] --> V["Image encoder"] --> IV["Image embedding"]
+    T["Text prompt"] --> L["Text encoder"] --> TV["Text embedding"]
+    IV --> S["Image-text similarity"]
+    TV --> S
+    S --> R["Retrieval ranking"]
 ```
 
-*Conceptual illustration for this guide; refer to official sources for supported implementations.*
+*Guide diagram based on the official references below.*
 
-Preprocess images and candidate text with the checkpoint’s processor, compute embeddings or scores, and rank or classify candidates. Video applications commonly sample frames; verify the specific pipeline.
+## A practical workflow
 
-## Use cases
+Index thumbnails from robot demonstrations. Rank them using both Korean and English prompts for the same motion, then look at false positives and verify that the selected frames actually show the requested event.
 
-Zero-shot image classification and image–text retrieval.
+## What to verify
 
-## Connections
+Use the checkpoint’s tokenizer and image preprocessing. Evaluate recall using manually labeled examples. Validate temporal coverage separately because a frame-level embedding can miss brief actions.
 
-Embeddings can support data curation or search alongside video ingestion and labeling systems.
+## License and availability
+
+Check each model card and checkpoint license. Model limitations and bias must be evaluated for the intended dataset.
 
 ## Official references
 
-- [Project source](https://huggingface.co/google/siglip2-base-patch16-224)
-- [Documentation / related project](https://huggingface.co/google/siglip2-base-patch16-224)
+- [Official technical reference](https://arxiv.org/abs/2502.14786)
+- [Checkpoint card and examples](https://huggingface.co/google/siglip2-base-patch16-224)

@@ -1,34 +1,34 @@
 # CUDA / TensorRT / ONNX
 
-[← All projects](../../README.md) · [한국어](../ko/cuda-tensorrt-onnx.md) · [Official source](https://github.com/onnx/onnx) · [Documentation / related project](https://developer.nvidia.com/tensorrt)
+[← Catalog](../../README.md) · [한국어](../ko/cuda-tensorrt-onnx.md)
 
-A GPU computing platform (CUDA), an inference optimization SDK (TensorRT), and an open model interchange format and ecosystem (ONNX).
+CUDA, TensorRT and ONNX are distinct layers in deployment. CUDA supplies accelerated computation, TensorRT builds and executes inference engines, and ONNX describes a portable model graph.
 
-**Availability and terms:** ONNX code and specification have their own terms. CUDA and TensorRT product distributions, drivers and third-party components have separate NVIDIA or third-party conditions.
+![ONNX example model graph](https://onnx.ai/onnx/_images/linreg1.png)
 
-## Architecture and workflow
+*The small official graph illustrates how inputs, constants and operators define model computation.* [Official figure source](https://onnx.ai/onnx/intro/concepts.html)
 
-```mermaid
-flowchart LR
-    A["Trained model"] --> B["optional ONNX export"] --> C["TensorRT optimization"] --> D["GPU inference"]
-```
+## How it works
 
-*Conceptual illustration for this guide; refer to official sources for supported implementations.*
+An ONNX graph encodes tensors, operators, initializers and operator set versions. A compatible TensorRT parser turns it into a network for the builder. The builder chooses target implementations and emits an engine. Execution uses device buffers and CUDA streams. Applications still supply model preprocessing and interpret output tensors.
 
-Export a supported model to ONNX where appropriate, build an inference engine for the target environment, then compare output and performance against the original.
+## A practical workflow
 
-## Use cases
+Export a model and save a fixed input/output fixture. Run the ONNX graph with a compatible runtime and compare against the source framework, then build and compare the TensorRT engine. This narrows down whether a mismatch begins at export or engine execution.
 
-Optimize supported vision or robot-policy inference for an NVIDIA GPU.
+## What to verify
 
-## Connections
+Confirm operator and shape coverage, plugin requirements, precision and device compatibility. Preserve labels and transforms alongside the graph. Check separately distributed CUDA and TensorRT terms.
 
-PyTorch can export supported models to ONNX; TensorRT uses NVIDIA GPU software. The exact export and runtime path depends on operator support and versions.
+## License and availability
+
+ONNX code and specification have their own terms. CUDA and TensorRT product distributions, drivers and third-party components have separate NVIDIA or third-party conditions.
 
 ## Official references
 
-- [Project source](https://github.com/onnx/onnx)
-- [Documentation / related project](https://developer.nvidia.com/tensorrt)
-- [CUDA](https://developer.nvidia.com/cuda-toolkit)
-- [TensorRT](https://developer.nvidia.com/tensorrt)
-- [ONNX](https://onnx.ai/)
+- [Official technical reference](https://onnx.ai/onnx/intro/concepts.html)
+- [TensorRT build and runtime](https://docs.nvidia.com/deeplearning/tensorrt/latest/architecture/how-trt-works.html)
+- [Related official resource · github.com](https://github.com/onnx/onnx)
+- [Related official resource · developer.nvidia.com](https://developer.nvidia.com/tensorrt)
+- [Related official resource · developer.nvidia.com](https://developer.nvidia.com/cuda-toolkit)
+- [Related official resource · onnx.ai](https://onnx.ai/)

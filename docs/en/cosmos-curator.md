@@ -2,35 +2,20 @@
 
 [Catalog](../../README.md) · [한국어](../ko/cosmos-curator.md)
 
-A data curation framework for processing and filtering large collections of videos and images.
+Cosmos Curator turns source footage into selected, annotated clips for dataset construction. A curation recipe defines the stages, and Cosmos-Xenna executes them over Ray workers.
 
-**Official sources:** [Repository](https://github.com/NVIDIA/cosmos-curator)
+## Logical and physical views
 
-**License and access:** Apache-2.0; models have separate terms. Models, data, dependencies and hosted services may have separate terms; check each source before use.
+![Cosmos Curator official logical architecture](https://raw.githubusercontent.com/NVIDIA/cosmos-curator/main/docs/assets/cosmos-curator-logical-view.png)
 
-![Cosmos Curator dashboard](https://raw.githubusercontent.com/NVIDIA/cosmos-curator/main/docs/assets/cosmos-curator-dashboard.png)
+In the logical view, each stage owns a pool of stateful Ray actors. Video decode and clipping can feed filters, captioning, embedding and output writers. The driver schedules downstream work with object references. A worker resolves the reference when it needs the task data. [Official logical architecture](https://github.com/NVIDIA/cosmos-curator/blob/main/docs/curator/reference/architecture.md#logical-view)
 
-Image source: [Cosmos Curator](https://github.com/NVIDIA/cosmos-curator)
+![Cosmos Curator official physical architecture](https://raw.githubusercontent.com/NVIDIA/cosmos-curator/main/docs/assets/cosmos-curator-physical-view.png)
 
-**Architecture.** Curator pipelines use parallel workers per stage. The architecture guide describes how workers process video tasks, transfer artifacts and scale stages. [Official architecture](https://github.com/NVIDIA/cosmos-curator/blob/main/docs/curator/reference/architecture.md).
+The physical view shows workers and object stores across nodes. A downstream worker can load an object from the local or a remote store. The scheduler can prefer locality and vary pool sizes based on stage throughput and resource demand. [Official physical architecture](https://github.com/NVIDIA/cosmos-curator/blob/main/docs/curator/reference/architecture.md#physical-view)
 
-## Workflow
+## Worked example — curate a manipulation video archive
 
-The following conceptual diagram is an explanatory overview, not an official architecture diagram.
+Split a small batch of long videos into clips, then select filters for motion and video quality. Keep original video IDs, clip offsets, and the outputs of captioning or embedding alongside accepted clips. Review examples from both sides of each filter threshold. If clips accumulate before captioning, inspect stage throughput and GPU allocation before adding more decoders. Partition training and evaluation by source video to keep overlapping clips together. [Official pipeline and documentation](https://github.com/NVIDIA/cosmos-curator#documentation)
 
-```mermaid
-flowchart LR
-  S0["Ingest media"]
-  S1["split and process"]
-  S2["filter and deduplicate"]
-  S3["inspect and export"]
-  S0 --> S1 --> S2 --> S3
-```
-
-## Use case
-
-Prepare cleaner video corpora before model training or dataset search.
-
-## Related technologies
-
-Cosmos Data Factory, Cosmos Dataset Search. Confirm compatibility and runtime requirements in the documentation for each version.
+Code is Apache-2.0. Model artifacts and storage access have separate requirements and terms. [Official license and contact](https://github.com/NVIDIA/cosmos-curator#license-and-contact)

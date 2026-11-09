@@ -1,34 +1,33 @@
 # MCAP / HDF5 / URDF / CAD
 
-[← 전체 목록](../../README.ko.md) · [English](../en/mcap-hdf5-urdf-cad.md) · [공식 소스](https://mcap.dev/) · [공식 문서 / 관련 프로젝트](https://docs.ros.org/en/rolling/Tutorials/Intermediate/URDF/URDF-Main.html)
+[← 전체 목록](../../README.ko.md) · [English](../en/mcap-hdf5-urdf-cad.md)
 
-로봇·공학에서 쓰이는 MCAP 로그, HDF5 구조화 데이터, URDF 로봇 설명, CAD 설계 에셋을 함께 설명합니다.
+이 포맷은 물리 AI 산출물을 각각 다르게 표현합니다. MCAP은 시각이 있는 메시지, HDF5는 구조화된 수치 데이터, URDF는 로봇 구조, CAD는 설계 형상을 담습니다.
 
-**공개 및 이용 조건:** 형식·개념과 구현체는 별개입니다. 각 라이브러리, 파일, 에셋, 변환 도구와 데이터셋의 조건을 확인하세요.
+## 어떻게 동작하나
 
-## 구성과 활용 흐름
+| 산출물 | 확인할 내용 | 주 사용처 |
+|---|---|---|
+| MCAP | 스키마, 채널, 타임스탬프, 직렬화 메시지, 선택 인덱스 | 재생·검사 도구 |
+| HDF5 | 그룹, 데이터셋, 차원, 타입, 속성 | 학습 로더·분석 코드 |
+| URDF | 링크, 관절, 한계, 관성, 충돌·시각 형상 | ROS 모델 로더·지원 시뮬레이터 |
+| CAD | 부품 형상, 조립 구조, 단위, 공차 | 에셋 준비 도구 |
 
-```mermaid
-flowchart LR
-    A["CAD / URDF 로봇 설명"] --> B["시뮬레이터 또는 로봇"] --> C["MCAP / HDF5 기록"] --> D["분석"]
-```
+## 실전 워크플로
 
-*이 안내서의 개념도이며, 지원 구현은 공식 자료를 확인하세요.*
+로봇 동작을 MCAP에 기록합니다. 알려진 시간 기준으로 영상과 관절 상태를 정렬합니다. 선택한 학습 텐서를 형상·보정 메타데이터와 HDF5에 넣습니다. 재생 시 URDF 또는 에셋 파이프라인으로 관절 이름과 형상을 해석합니다.
 
-기하와 로봇 설명을 준비해 호환 소프트웨어를 구성하고 동기화된 데이터를 기록한 뒤 분석용으로 확인하거나 변환합니다. 형식 간 변환은 자동이 아닙니다.
+## 검증할 항목
 
-## 활용 사례
+변환 전에 시간과 스키마를 검증합니다. 관절 순서, 좌표계, 단위와 형상 경로를 따로 점검합니다. 원본 로그를 보관해 데이터 변환을 재현할 수 있게 합니다.
 
-센서 스트림 기록, 학습 배열 저장, 시뮬레이터에 로봇 모델을 불러오는 데 활용할 수 있습니다.
+## 공개 범위와 라이선스
 
-## 연계 기술
-
-ROS 2 도구는 MCAP과 URDF를 활용할 수 있으며 HDF5는 구조화 데이터를 저장합니다. CAD 파일은 시뮬레이션 전에 별도 변환이 필요할 수 있습니다.
+형식·개념과 구현체는 별개입니다. 각 라이브러리, 파일, 에셋, 변환 도구와 데이터셋의 조건을 확인하세요.
 
 ## 공식 자료
 
-- [프로젝트 자료](https://mcap.dev/)
-- [공식 문서 / 관련 프로젝트](https://docs.ros.org/en/rolling/Tutorials/Intermediate/URDF/URDF-Main.html)
-- [MCAP](https://mcap.dev/)
-- [HDF5](https://www.hdfgroup.org/solutions/hdf5/)
-- [URDF](https://docs.ros.org/en/rolling/Tutorials/Intermediate/URDF/URDF-Main.html)
+- [공식 기술 자료](https://mcap.dev/spec)
+- [HDF5 데이터 모델](https://www.hdfgroup.org/solutions/hdf5/)
+- [ROS URDF 파서와 모델](https://github.com/ros/urdfdom)
+- [관련 공식 자료 · mcap.dev](https://mcap.dev/)

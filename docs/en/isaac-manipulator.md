@@ -1,39 +1,42 @@
 # Isaac Manipulator
 
-[← All projects](../../README.md) · [한국어](../ko/isaac-manipulator.md)
+[← Back to catalog](../../README.md) · [한국어](../ko/isaac-manipulator.md)
 
-## Overview
+Isaac for Manipulation is a reference architecture for coordinating robot-arm perception, planning and execution in ROS 2. Individual packages contribute depth, object poses, obstacle maps and trajectories, which the workflow brings together for tasks such as picking and placing.
 
-Reference workflows for robotic-arm perception, grasping, and planning.
+## Architecture and data flow
 
-## Conceptual workflow
+| Component | Inputs, processing and outputs |
+|---|---|
+| **Visual input and object pose** | The reference workflow takes camera observations and estimates task object pose. Depending on the configuration, detectors or segmentation identify a region and FoundationPose estimates a pose for the manipulation stack. |
+| **Scene collision model** | Stereo depth or another depth source feeds mapping. nvblox maintains local scene geometry and provides collision-relevant information to planning. |
+| **Motion planning and execution** | MoveIt and cuMotion can use the current robot state, grasp goal and obstacles to compute a trajectory. Controllers execute the result while the workflow handles task progression. |
 
-```mermaid
-flowchart LR
-    n0["Capture sensor data"] --> n1
-    n1["estimate object pose"] --> n2
-    n2["plan grasp and motion"] --> n3
-    n3["execute on robot"]
-```
+![The official reference diagram connects perception outputs to robot planning and execution. Follow the object-pose and obstacle-map paths independently because they solve different planning inputs.](https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.2/resources/isaac_ros_docs/reference_workflows/isaac_for_manipulation/manipulator_RA_main.png)
 
-## Workflow and use
+The official reference diagram connects perception outputs to robot planning and execution. Follow the object-pose and obstacle-map paths independently because they solve different planning inputs. [Official figure source](https://nvidia-isaac-ros.github.io/v/release-4.2/reference_workflows/isaac_for_manipulation/reference_architecture.html)
 
-Capture sensor data → estimate object pose → plan grasp and motion → execute on robot. This is a conceptual workflow; check the official source for version-specific prerequisites and supported configurations.
+![The RViz example gives a view of the scene and robot geometry used in the workflow. It is a practical starting point for verifying transforms before commanding the arm.](https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.2/resources/isaac_ros_docs/reference_workflows/isaac_for_manipulation/manipulator_RA_rviz.png)
 
-**Example use case:** picking an object using a robot arm. Check applicability, supported inputs and model versions in the official source.
+The RViz example gives a view of the scene and robot geometry used in the workflow. It is a practical starting point for verifying transforms before commanding the arm. [Official figure source](https://nvidia-isaac-ros.github.io/v/release-4.2/reference_workflows/isaac_for_manipulation/reference_architecture.html)
 
-**Related technologies:** Isaac ROS, FoundationPose, cuRobo.
+## Worked example
 
-## Architecture and practical details
+1. Set up a supported reference pick-and-place workflow. Confirm object pose and obstacle geometry in the planning frame using RViz.
+2. Plan approach, grasp and retreat motions before executing the sequence. Record perception, planning and control failures separately.
 
-A typical manipulation graph combines camera perception, object pose estimation, grasp or motion planning and robot control. For example, a robot arm can use the estimated pose of an item to plan a pick; the exact supported robots, sensors and components depend on the selected reference workflow and release.
+## What to verify
 
-[Official documentation](https://nvidia-isaac-ros.github.io/)
+- Check camera-to-base transforms, pose timestamps, attached objects and gripper tool frames. A correct camera-frame pose can still become an incorrect goal in the planning frame.
+- Verify release-specific hardware and component prerequisites. The packages and model weights are distributed separately and may carry different terms.
 
-## Availability and terms
+## Official references and terms
 
-Isaac ROS packages, models, and components have different terms. Verify the exact version and the terms of any models, datasets, binaries and dependencies before use.
+Isaac ROS packages and model assets are published separately with their own terms.
 
-## Official sources
+- [Official reference architecture and figures](https://nvidia-isaac-ros.github.io/v/release-4.2/reference_workflows/isaac_for_manipulation/reference_architecture.html)
+- [Isaac ROS Manipulator repository](https://github.com/NVIDIA-ISAAC-ROS/isaac_manipulator)
 
-[Isaac ROS documentation](https://nvidia-isaac-ros.github.io/)
+## Related guides
+
+[FoundationPose](foundationpose.md) · [Isaac ROS Nvblox](isaac-ros-nvblox.md) · [cuRobo](curobo.md)

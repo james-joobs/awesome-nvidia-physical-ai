@@ -1,37 +1,64 @@
 # OpenUSD
 
-[← 전체 목록](../../README.ko.md) · [English](../en/openusd.md) · [공식 소스](https://github.com/PixarAnimationStudios/OpenUSD) · [공식 문서](https://openusd.org/release/intro.html)
+[← 전체 목록](../../README.ko.md) · [English](../en/openusd.md)
 
-복잡한 3D 장면과 에셋을 기술·합성·교환하기 위한 프레임워크입니다.
+OpenUSD는 장면 기술과 합성 시스템이다. 스테이지에서 합성된 장면을 프림으로 탐색하며 각 프림의 값과 설정은 독립 파일이나 메모리 레이어에 남겨 둘 수 있다.
 
-**라이선스:** 구현체는 수정 BSD 계열 라이선스; 표준과 상표는 별도. 사용 전에 해당 버전과 에셋·모델·의존성의 조건을 확인하세요.
+## 아키텍처
 
+| 구성 요소 | 역할과 데이터 경계 |
+|---|---|
+| 레이어, 명세와 편집 대상 | 레이어는 프림과 프로퍼티의 작성 명세를 저장한다. 스테이지의 편집 대상으로 값을 저장할 레이어를 정하므로 원본 에셋을 수정하지 않고 작업 레이어에서 값을 덮어쓸 수 있다. |
+| 합성 아크 | 서브레이어는 여러 레이어의 설정을 쌓는다. 참조로 내용을 특정 경로에 포함하고 페이로드는 필요할 때 로드할 콘텐츠를 표현한다. 배리언트 세트는 장비 구성처럼 이름을 붙인 대안을 노출한다. |
+| 스테이지, 프림과 스키마 | 합성 스테이지가 여러 레이어의 설정을 해석해 프림과 프로퍼티를 제공한다. 적용 스키마는 물리 속성과 같은 도메인별 정보를 추가하고 호환 런타임이 이를 해석한다. |
 
-
-## 구성과 아키텍처
-
-스테이지는 합성된 장면 그래프를 나타냅니다. 레이어와 합성 기능을 통해 각 기여를 모두 평탄화하지 않고도 장면 데이터를 조립하고 수정할 수 있습니다.
+아래 공식 자료를 바탕으로 이 가이드에서 재구성한 그림입니다.
 
 ```mermaid
 flowchart LR
-    A["에셋과 레이어"] --> B["합성"] --> C["USD 스테이지"] --> D["호환 애플리케이션"]
+    assets["참조할 로봇과 장비 에셋"]
+    layer["배치·작업 오버라이드 레이어"]
+    comp["USD 합성과 값 해석"]
+    stage["스테이지·프림 경로·스키마"]
+    app["렌더러 또는 시뮬레이션 런타임"]
+    assets --> comp
+    layer --> comp
+    comp --> stage
+    stage --> app
 ```
 
-*이 안내서에서 만든 개념적 흐름도입니다. 실제 구현은 공식 문서를 확인하세요.*
+### 공식 그림과 예시
 
-## 활용 흐름
+![독립 레이어가 기하와 속성을 합성 장면에 제공하는 과정.](https://docs.nvidia.com/learn-openusd/latest/_images/Layers.png)
 
-재사용할 에셋과 레이어를 작성하고 참조와 오버라이드를 합성해 스테이지를 만든 후 호환 애플리케이션과 장면을 교환합니다.
+독립 레이어가 기하와 속성을 합성 장면에 제공하는 과정. [그림 출처와 원문 설명](https://docs.nvidia.com/learn-openusd/latest/composition-basics/layers.html)
 
-## 활용 사례
+![상위 레이어가 여러 서브레이어를 포함하는 예시. 순서는 같은 속성을 여러 곳에서 작성했을 때 어떤 값이 선택되는지에 영향을 준다.](https://docs.nvidia.com/learn-openusd/latest/_images/Sublayers.png)
 
-재사용 가능한 로봇·공장 에셋 구성, 3D 도구 간 장면 교환, 시뮬레이션 환경 조립에 활용할 수 있습니다.
+상위 레이어가 여러 서브레이어를 포함하는 예시. 순서는 같은 속성을 여러 곳에서 작성했을 때 어떤 값이 선택되는지에 영향을 준다. [그림 출처와 원문 설명](https://docs.nvidia.com/learn-openusd/latest/composition-basics/layers.html)
 
-## 연계 기술
+## 워크플로 예시
 
-SimReady는 시뮬레이션용 에셋의 규약을 제공하며 Omniverse와 Isaac Sim은 OpenUSD 기반 장면을 활용합니다. USD는 장면을 기술하며 자체 물리 솔버는 아닙니다.
+1. 재사용할 로봇을 /World/Robot에 참조한다. 장비 배치는 레이아웃 레이어에 두고 테스트의 센서 자세와 작업 목표는 별도 편집 레이어에 둔다.
+2. 두 레이어를 합성한다. pxr.Usd나 Isaac Sim에서 최종 프림을 확인한다. 작업 레이어 값을 바꿔 어느 레이어에서 그 값이 왔는지 추적한다.
+3. 무거운 환경 세부 요소를 선택적으로 불러와야 하면 페이로드를 쓴다. 다른 컴퓨터에서도 장면이 열리도록 텍스처 등의 의존성을 패키징하거나 경로를 설정한다.
+
+## 검증 포인트
+
+- 시뮬레이터로 넘기기 전 미해결 경로, 위 방향 축, metersPerUnit, 프림 경로와 합성 결과를 확인한다.
+- 작업에 쓴 적용 스키마를 런타임이 지원하는지 확인한다. OpenUSD는 런타임이 사용할 콘텐츠를 기술한다.
+
+## 라이선스와 범위
+
+Pixar 구현은 수정된 BSD 계열 라이선스다. 에셋, 명세, 상표 조건은 별도다.
+
+## 관련 가이드
+
+[SimReady](simready.md) · [Omniverse](omniverse.md) · [Isaac Sim](isaac-sim.md)
 
 ## 공식 자료
 
-- [프로젝트 저장소](https://github.com/PixarAnimationStudios/OpenUSD)
-- [공식 문서](https://openusd.org/release/intro.html)
+- [Pixar OpenUSD 소개](https://openusd.org/release/intro.html)
+- [레이어 작성과 순서](https://docs.nvidia.com/learn-openusd/latest/composition-basics/layers.html)
+- [합성 아크](https://docs.nvidia.com/learn-openusd/latest/creating-composition-arcs/index.html)
+- [OpenUSD 소스](https://github.com/PixarAnimationStudios/OpenUSD)

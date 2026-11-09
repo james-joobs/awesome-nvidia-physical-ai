@@ -1,47 +1,34 @@
 # nvblox
 
-[← All projects](../../README.md) · [한국어](../ko/nvblox.md)
+[← Catalog](../../README.md) · [한국어](../ko/nvblox.md)
 
-![nvblox mapping and navigation](https://media.githubusercontent.com/media/nvidia-isaac/nvblox/public/docs/images/nvblox_navigation_trim.gif)
+Nvblox is a GPU mapping library. The core C++ library operates on geometry and poses, and the Isaac ROS package adds topics, TF and navigation integration.
 
-Image: official project source linked below.
+![Nvblox mapping system diagram](https://media.githubusercontent.com/media/nvidia-isaac/nvblox/public/docs/images/system_diagram.png)
 
-## Overview
+*Use the mapping graph to connect inputs and representations with planner-facing outputs.* [Official figure source](https://github.com/nvidia-isaac/nvblox/tree/public)
 
-3D mapping and obstacle representation.
+![Nvblox distance field example](https://media.githubusercontent.com/media/nvidia-isaac/nvblox/public/docs/images/esdf_example.gif)
 
-## Conceptual workflow
+*The distance field visualizes proximity to geometry, the quantity a planner can query.* [Official figure source](https://github.com/nvidia-isaac/nvblox/tree/public)
 
-```mermaid
-flowchart LR
-    n0["Capture depth and camera pose"] --> n1
-    n1["integrate a 3D map"] --> n2
-    n2["derive obstacles"] --> n3
-    n3["support navigation"]
-```
+## How it works
 
-## Workflow and use
+Calibrated depth and a camera-to-map transform place measurements in sparse voxel blocks. A TSDF fuses observations near surfaces. A mesher can extract geometry for visualization, and an ESDF represents distances to surfaces for planning. Layer resolution and integration settings govern update cost and map detail.
 
-Capture depth and camera pose → integrate a 3D map → derive obstacles → support navigation. This is a conceptual workflow; check the official source for version-specific prerequisites and supported configurations.
+## A practical workflow
 
-**Example use case:** building an obstacle map for a mobile robot. Check applicability, supported inputs and model versions in the official source.
+Reconstruct a bench or aisle by feeding depth frames and known poses. Compare the reconstructed mesh with measured dimensions. Inspect a distance-field slice before giving it to a collision planner. Use [Isaac ROS Nvblox](isaac-ros-nvblox.md) when integrating with Nav2.
 
-**Related technologies:** Isaac ROS Nvblox.
+## What to verify
 
-## Architecture and practical details
+Check depth scale and pose direction with a single frame. Monitor stale voxels, drift, map bounds and GPU memory as the robot moves. Mesh visual quality and distance accuracy are separate checks.
 
-Depth images and camera pose are integrated into a GPU-based 3D representation; TSDF and ESDF layers support geometry and distance queries. A mobile robot can use these maps for obstacle-aware navigation, often through the separate Isaac ROS integration.
-
-[Official documentation](https://github.com/nvidia-isaac/nvblox)
-
-![nvblox system diagram](https://raw.githubusercontent.com/nvidia-isaac/nvblox/public/docs/images/system_diagram.png)
-
-*Image source: [Official repository](https://github.com/nvidia-isaac/nvblox)*
-
-## Availability and terms
+## License and availability
 
 Source is public; scope of mixed repository licenses unverified. Verify the exact version and the terms of any models, datasets, binaries and dependencies before use.
 
-## Official sources
+## Official references
 
-[Repository](https://github.com/nvidia-isaac/nvblox)
+- [Nvblox library and layer examples](https://github.com/nvidia-isaac/nvblox/tree/public)
+- [Related official resource · github.com](https://github.com/nvidia-isaac/nvblox)

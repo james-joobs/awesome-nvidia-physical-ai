@@ -1,27 +1,39 @@
 # LEAPP
+
 [← 목록으로](../../README.ko.md) · [English](../en/leapp.md)
 
-로봇 정책의 전체 추론 파이프라인 내보내기·배포.
+LEAPP는 학습된 모델과 그 주변 연산을 함께 내보냅니다. 관측값 구성, 정책 추론, 명령 처리의 텐서 연산을 추적한 후 실행 파일과 입출력 설명을 묶습니다.
 
-**공식 자료:** [저장소](https://github.com/nvidia-isaac/leapp)  
-**라이선스와 범위:** Apache-2.0; 모델·런타임 의존성 별도.
+## 아키텍처와 데이터 흐름
 
-![LEAPP getting started graph](https://raw.githubusercontent.com/nvidia-isaac/leapp/main/docs/images/getting_started_graph.png)
+| 구성 요소 | 입력·처리·출력 |
+|---|---|
+| **추적 경계** | 실행 경로의 시작과 끝에 이름 있는 입출력 텐서를 지정합니다. LEAPP는 여러 함수에 걸친 지원 텐서 연산을 추적해 추론과 전·후처리를 함께 기록할 수 있습니다. |
+| **컴파일된 그래프와 번들** | 컴파일 결과는 ONNX 등의 모델 파일과 텐서 이름·형상·자료형·백엔드·그래프 연결을 기술한 YAML입니다. 텐서 의미 정보를 넣으면 로봇 런타임에서 값의 용도를 알 수 있습니다. |
+| **검증과 런타임** | 선택적으로 컴파일 검증에서 예제 입력을 재생합니다. 후속 런타임은 번들을 읽고 그래프 입출력을 실제 센서와 제어 인터페이스에 연결합니다. |
 
-*이미지 출처: [Official repository](https://github.com/nvidia-isaac/leapp)*
+![공식 예제 그래프는 정규화, 추론, 행동 스케일링을 하나의 내보내기용 제어 노드에 묶습니다. 연결선을 보면 실행 환경에서 어떤 입력을 주고 어떤 출력을 받을지 알 수 있습니다.](https://nvidia-isaac.github.io/leapp/_images/getting_started_graph.png)
 
-## 구성과 워크플로
+공식 예제 그래프는 정규화, 추론, 행동 스케일링을 하나의 내보내기용 제어 노드에 묶습니다. 연결선을 보면 실행 환경에서 어떤 입력을 주고 어떤 출력을 받을지 알 수 있습니다. [공식 그림 출처](https://nvidia-isaac.github.io/leapp/getting_started.html)
 
-아래는 활용 흐름을 이해하기 위한 개념도입니다. 공식 아키텍처나 자동 연결을 뜻하지 않습니다.
+## 적용 예시
 
-**정책·전처리 설정 → 추론 파이프라인 내보내기 → 런타임 연동 → 로봇 배포**
+1. 공식 관절 제어 예제에서 시작합니다. 관절 위치·속도와 문맥을 입력으로 지정하고 스케일링과 클리핑을 거친 최종 관절 목표를 출력으로 표시합니다.
+2. 내보낸 그래프와 YAML을 함께 확인합니다. 형상과 자료형을 점검한 후 대표 센서 상태에서 ONNX 출력과 원래 Python 파이프라인 출력을 비교합니다.
 
-## 활용 사례
+## 검증할 항목
 
-정책 추론과 관련 전후처리를 함께 패키징해 배포합니다.
+- 추적은 실제 실행한 경로를 기록합니다. 경고, 입력값에 따른 분기, 텐서의 스칼라 변환을 점검하고 추적에 사용한 것 이외의 입력으로 검증합니다.
+- 모델, YAML, 선택적 상태 산출물의 버전을 함께 관리합니다. 가중치가 같아도 센서 순서나 스케일링이 바뀌면 배포 정책의 입출력 인터페이스가 달라집니다.
 
-## 연결 기술
+## 공식 자료와 이용 조건
 
-Isaac Lab, policy runtimes, robot applications.
+LEAPP 소스는 Apache-2.0입니다. 내보낸 가중치와 런타임 의존성의 이용 조건은 별도입니다.
 
-버전과 사용 환경에 따라 호환성, 데이터 형식, 모델 및 의존성 조건을 공식 자료에서 확인하세요.
+- [소스와 라이선스](https://github.com/nvidia-isaac/leapp)
+- [공식 추적 예제와 그래프](https://nvidia-isaac.github.io/leapp/getting_started.html)
+- [내보내기 옵션](https://nvidia-isaac.github.io/leapp/guides/export.html)
+
+## 연관 상세 페이지
+
+[Isaac ROS Deploy](isaac-ros-deploy.md) · [WBC-AGILE](wbc-agile.md)

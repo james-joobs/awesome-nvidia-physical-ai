@@ -1,35 +1,31 @@
 # PyTorch
 
-[← All projects](../../README.md) · [한국어](../ko/pytorch.md) · [Official source](https://github.com/pytorch/pytorch) · [Documentation / related project](https://docs.pytorch.org/docs/stable/index.html)
+[← Catalog](../../README.md) · [한국어](../ko/pytorch.md)
 
-An open-source machine-learning framework for tensor computation and automatic differentiation.
+PyTorch supplies tensor computation, automatic differentiation and neural-network building blocks used by many model projects in this catalog.
 
-**Availability and terms:** PyTorch is BSD-style licensed; models, packages, CUDA runtimes and other dependencies have their own conditions.
+![PyTorch autograd computation graph](https://docs.pytorch.org/tutorials/_images/comp-graph.png)
 
-![PyTorch official illustration](https://raw.githubusercontent.com/pytorch/pytorch/main/docs/source/_static/img/tensor_illustration.png)
+*The forward operations define dependencies used to propagate gradients during backpropagation.* [Official figure source](https://docs.pytorch.org/tutorials/beginner/basics/autogradqs_tutorial.html)
 
-*Illustration: [official project repository](https://github.com/pytorch/pytorch); check source reuse terms.*
+## How it works
 
-## Architecture and workflow
+A dataset and loader supply batches of tensors. A module computes predictions, a loss scores them, and autograd tracks differentiable operations to compute gradients. An optimizer updates parameters from those gradients. A deployment workflow can serialize a checkpoint or export supported computation to a separate runtime.
 
-```mermaid
-flowchart LR
-    A["Data"] --> B["tensors and model"] --> C["training / inference"] --> D["outputs"]
-```
+## A practical workflow
 
-*Conceptual illustration for this guide; refer to official sources for supported implementations.*
+Fine-tune a detector on labeled robot-camera images. Overfit a tiny batch first to check labels and gradient flow. Save the preprocessing settings with the model and compare predictions before and after deployment export.
 
-Load data into tensors, define a model and loss, train using automatic differentiation, and evaluate or export the result.
+## What to verify
 
-## Use cases
+Check device, dtype, tensor layout and train/eval modes. Test gradients independently from the data loader. Check export operator coverage and numeric agreement before deploying.
 
-Train vision models, robot policies, and physics-informed models.
+## License and availability
 
-## Connections
-
-Many ecosystem models and tools use PyTorch; TensorRT can be used in supported deployment paths.
+PyTorch is BSD-style licensed; models, packages, CUDA runtimes and other dependencies have their own conditions.
 
 ## Official references
 
-- [Project source](https://github.com/pytorch/pytorch)
-- [Documentation / related project](https://docs.pytorch.org/docs/stable/index.html)
+- [Official technical reference](https://docs.pytorch.org/tutorials/beginner/basics/autogradqs_tutorial.html)
+- [Related official resource · github.com](https://github.com/pytorch/pytorch)
+- [Related official resource · docs.pytorch.org](https://docs.pytorch.org/docs/stable/index.html)

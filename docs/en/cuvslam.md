@@ -1,42 +1,30 @@
 # cuVSLAM
 
-[← All projects](../../README.md) · [한국어](../ko/cuvslam.md)
+[← Catalog](../../README.md) · [한국어](../ko/cuvslam.md)
 
-![cuVSLAM official example](https://media.githubusercontent.com/media/nvidia-isaac/cuVSLAM/main/examples/assets/pycuvslam_overview.jpg)
+cuVSLAM is the CUDA-accelerated odometry and mapping library used by the separate Isaac ROS Visual SLAM package. It also exposes native and Python interfaces.
 
-Image: official project source linked below.
+![cuVSLAM Python workflow](https://media.githubusercontent.com/media/nvidia-isaac/cuVSLAM/main/examples/assets/pycuvslam_overview.jpg)
 
-## Overview
+*The official example shows calibration and sensor configuration around the tracking call.* [Official figure source](https://github.com/nvidia-isaac/cuVSLAM)
 
-CUDA-accelerated visual odometry and SLAM library.
+## How it works
 
-## Conceptual workflow
+Initialize a rig with calibrated camera models, extrinsics and a tracking mode. New timestamped images, and optional IMU or depth in supported modes, update the tracked pose. Stereo establishes metric scale using the baseline. The monocular configuration has scale ambiguity. A mapping layer can use the tracked trajectory for global localization and loop closure.
 
-```mermaid
-flowchart LR
-    n0["Stereo or multi-camera frames"] --> n1
-    n1["visual odometry and mapping"] --> n2
-    n2["camera pose for navigation"]
-```
+## A practical workflow
 
-## Workflow and use
+Run the official multicamera example on recorded data. Plot the incremental path and compare against a measured loop. Inspect missed frames and compare blur under slower and faster motion. Use [Isaac ROS Visual SLAM](isaac-ros-visual-slam.md) for ROS messages and TF.
 
-Stereo or multi-camera frames → visual odometry and mapping → camera pose for navigation. This is a conceptual workflow; check the official source for version-specific prerequisites and supported configurations.
+## What to verify
 
-**Example use case:** robot localization in a warehouse. Check applicability, supported inputs and model versions in the official source.
+Validate time synchronization, exposure, calibration and supported sensor modes. Track drift, loss of tracking and relocalization as separate behaviors.
 
-**Related technologies:** Isaac ROS Visual SLAM.
-
-## Architecture and practical details
-
-Camera calibration and synchronized visual observations feed visual odometry and mapping; estimated poses can be consumed by a navigation application. For a warehouse mobile robot, compare tracking quality under motion, texture and lighting changes before deploying. Isaac ROS Visual SLAM is a separate ROS integration, and cuVSLAM has its own terms.
-
-[Official documentation](https://github.com/nvidia-isaac/cuVSLAM)
-
-## Availability and terms
+## License and availability
 
 NVIDIA Community License restricts use to NVIDIA platforms; distinct from its ROS wrapper. Verify the exact version and the terms of any models, datasets, binaries and dependencies before use.
 
-## Official sources
+## Official references
 
-[Repository](https://github.com/nvidia-isaac/cuVSLAM)
+- [Modes, calibration and examples](https://github.com/nvidia-isaac/cuVSLAM)
+- [cuVSLAM technical report](https://arxiv.org/html/2506.04359v3)

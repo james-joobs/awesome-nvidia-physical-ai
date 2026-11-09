@@ -1,26 +1,44 @@
 # cuRobo
+
 [← 목록으로](../../README.ko.md) · [English](../en/curobo.md)
 
-GPU 기반 로봇 역기구학·동작계획.
+cuRobo는 기하 및 로봇 제약을 만족하면서 목표 자세에 도달하는 동작을 계산합니다. 로봇 모델, 환경의 표현, 시작 상태를 입력받아 별도 컨트롤러가 실행할 궤적을 반환합니다. cuRobo와 cuRoboV2 논문은 서로 다른 플래너 설계를 설명합니다.
 
-**공식 자료:** [저장소](https://github.com/NVlabs/curobo)  
-**라이선스와 범위:** 저장소 Apache-2.0; AutoData 배포의 특정 구성 요소는 별도 약관 확인.
+## 아키텍처와 데이터 흐름
 
-![cuRobo robot collision geometry](https://raw.githubusercontent.com/NVlabs/curobo/main/docs/images/franka_spheres.png)
-*이미지 출처: [Repository](https://github.com/NVlabs/curobo)*
+| 구성 요소 | 입력·처리·출력 |
+|---|---|
+| **로봇과 충돌 기하** | 운동학 모델이 관절과 링크를 정의합니다. 충돌 기하는 로봇 형상을 근사하며 플래너가 사용하는 월드 좌표계에서 장애물을 표현합니다. |
+| **역기구학과 궤적 최적화** | 직교 좌표로 주어진 목표에 대해 역기구학으로 관절 목표 후보를 구합니다. 초기 버전의 플래너는 충돌 및 동작 비용을 고려해 GPU에서 궤적 후보를 평가하고 개선합니다. |
+| **cuRoboV2** | V2 논문은 토크를 고려한 B-스플라인 최적화, 깊이 데이터를 융합한 GPU 거리장, 전신 운동학·동역학을 설명합니다. 설치한 버전의 API와 충돌 검사 백엔드를 확인합니다. |
 
-## 구성과 워크플로
+![Franka 그림은 계획에 쓰이는 링크별 충돌 구를 보여줍니다. 실제 링크와 그리퍼, 잡고 있는 물체의 형상을 충분히 덮는지 확인할 수 있습니다.](https://raw.githubusercontent.com/NVlabs/curobo/main/docs/images/franka_spheres.png)
 
-아래는 활용 흐름을 이해하기 위한 개념도입니다. 공식 아키텍처나 자동 연결을 뜻하지 않습니다.
+Franka 그림은 계획에 쓰이는 링크별 충돌 구를 보여줍니다. 실제 링크와 그리퍼, 잡고 있는 물체의 형상을 충분히 덮는지 확인할 수 있습니다. [공식 그림 출처](https://github.com/NVlabs/curobo)
 
-**로봇 모델 + 충돌 형상 + 목표 자세 → 역기구학·동작계획 → 충돌 검사된 궤적**
+![cuRoboV2-Fast의 배포 그림은 장면 인식, 파지 제안, 토크 제한을 고려한 동작 계획을 연결합니다. 물체 표면과 충돌 거리 지도는 시스템 안에서 서로 다른 경로로 전달됩니다.](https://arxiv.org/html/2611.06913v1/deployment_graph.png)
 
-## 활용 사례
+cuRoboV2-Fast의 배포 그림은 장면 인식, 파지 제안, 토크 제한을 고려한 동작 계획을 연결합니다. 물체 표면과 충돌 거리 지도는 시스템 안에서 서로 다른 경로로 전달됩니다. [공식 논문 그림 17](https://arxiv.org/html/2611.06913v1#S4.F17)
 
-장애물을 피해 목표 자세로 이동하는 로봇팔 경로를 계획합니다.
+## 적용 예시
 
-## 연결 기술
+1. 물체를 집어 옮기는 이동 구간이라면 현재 관절 상태, 목표 도구 자세, 장애물을 공통 좌표계로 제공합니다. 시뮬레이션에서 계획된 궤적을 먼저 확인합니다.
+2. 통과한 궤적을 컨트롤러에 전달하고 추적 성능과 여유 거리를 각각 확인합니다. 장면이 달라지면 경로를 다시 계획합니다.
 
-Isaac Sim, AutoData, Isaac ROS.
+## 검증할 항목
 
-버전과 사용 환경에 따라 호환성, 데이터 형식, 모델 및 의존성 조건을 공식 자료에서 확인하세요.
+- 자세 규약, 관절 이름, 충돌 여유를 확인합니다. 충돌 형상에 누락이 있으면 모델 안에서만 안전한 경로가 나올 수 있습니다.
+- 플래너 결과 상태를 확인하고 목표 GPU에서 실제 작업을 측정합니다. 계획 지연 시간과 실제 컨트롤러의 궤적 추적은 별개의 단계입니다.
+
+## 공식 자료와 이용 조건
+
+저장소 코드는 Apache-2.0입니다. 로봇 에셋이나 연동 구성 요소를 사용할 때 LICENSE_ASSETS와 구성 요소별 조건을 확인합니다.
+
+- [저장소와 버전별 릴리스](https://github.com/NVlabs/curobo)
+- [초기 cuRobo 논문](https://arxiv.org/abs/2310.17274)
+- [cuRoboV2 구성과 평가](https://arxiv.org/abs/2603.05493)
+- [cuRobo 최신 공식 문서와 릴리스 노트](https://nvlabs.github.io/curobo/latest/)
+
+## 연관 상세 페이지
+
+[SkillGen](skillgen.md) · [Isaac Manipulator](isaac-manipulator.md)

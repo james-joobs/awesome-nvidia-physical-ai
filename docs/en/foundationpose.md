@@ -1,43 +1,36 @@
 # FoundationPose
 
-[← All projects](../../README.md) · [한국어](../ko/foundationpose.md)
+[← Catalog](../../README.md) · [한국어](../ko/foundationpose.md)
 
-![FoundationPose pose estimation demo](https://raw.githubusercontent.com/NVlabs/FoundationPose/main/assets/demo.jpg)
+FoundationPose estimates and tracks the 6D pose of an object that was unseen during training. A CAD mesh or reference views provide the instance-specific geometry.
 
-Image: official project source linked below.
+![FoundationPose method diagram](https://nvlabs.github.io/FoundationPose/static/images/pipeline.jpg)
 
-## Overview
+*The mesh and reference-view branches converge before candidate refinement and scoring.* [Official figure source](https://nvlabs.github.io/FoundationPose/)
 
-Research code and models for 6D object pose estimation and tracking.
+![FoundationPose research results](https://nvlabs.github.io/FoundationPose/static/images/intro.jpg)
 
-## Conceptual workflow
+*Use these overlays as a reference for checking whether pose and geometry agree with the image.* [Official figure source](https://nvlabs.github.io/FoundationPose/)
 
-```mermaid
-flowchart LR
-    n0["Provide object observations and model information"] --> n1
-    n1["estimate 6D pose"] --> n2
-    n2["track across frames"] --> n3
-    n3["use in manipulation"]
-```
+## How it works
 
-## Workflow and use
+The model-based path renders the mesh. In the paper’s model-free path, an object-centric neural field renders novel RGB-D views from reference observations. Both use the same render-and-compare stages: initialize pose hypotheses, refine each candidate against the observation, score the refined poses, then select the best. Tracking uses the prior frame’s pose as a starting point.
 
-Provide object observations and model information → estimate 6D pose → track across frames → use in manipulation. This is a conceptual workflow; check the official source for version-specific prerequisites and supported configurations.
+## A practical workflow
 
-**Example use case:** tracking an object for robot grasping. Check applicability, supported inputs and model versions in the official source.
+Prepare a calibrated RGB-D sequence, object mask and correctly scaled mesh. Overlay the rendered silhouette from the first pose on the RGB image. Track across frames and deliberately occlude the object to decide when to register again. In a robot application, transform the object-to-camera pose into the base frame before computing a grasp.
 
-**Related technologies:** Isaac ROS Pose Estimation.
+## What to verify
 
-## Architecture and practical details
+Use measured poses or a fixture for reference. Check mask quality, depth units, mesh origin, camera intrinsics and object symmetries. Record initialization and tracking failures separately.
 
-FoundationPose supports both model-based and model-free 6D pose estimation and tracking. A CAD model or a small set of reference views supplies object information; a robot can then use the inferred pose for a manipulation experiment. The research repository and separately distributed models can have different terms.
-
-[Official documentation](https://github.com/NVlabs/FoundationPose)
-
-## Availability and terms
+## License and availability
 
 Research repository code restricts commercial use; separately distributed models have separate terms. Verify the exact version and the terms of any models, datasets, binaries and dependencies before use.
 
-## Official sources
+## Official references
 
-[Code](https://github.com/NVlabs/FoundationPose) · [Model card](https://huggingface.co/nvidia/foundationpose)
+- [Research project, architecture and examples](https://nvlabs.github.io/FoundationPose/)
+- [FoundationPose paper](https://arxiv.org/abs/2312.08344)
+- [Related official resource · github.com](https://github.com/NVlabs/FoundationPose)
+- [Related official resource · huggingface.co](https://huggingface.co/nvidia/foundationpose)

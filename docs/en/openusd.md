@@ -1,37 +1,64 @@
 # OpenUSD
 
-[← All projects](../../README.md) · [한국어](../ko/openusd.md) · [Official source](https://github.com/PixarAnimationStudios/OpenUSD) · [Documentation](https://openusd.org/release/intro.html)
+[← Catalog](../../README.md) · [한국어](../ko/openusd.md)
 
-A framework for describing, composing, and exchanging complex 3D scenes and assets.
-
-**License:** Modified BSD-style license for the implementation; standards and trademarks are separate. Check the exact release, assets, models, and dependencies before use.
-
-
+OpenUSD defines a scene description and composition system. A stage presents the composed scene as prims while opinions about each prim can remain in independent files or in-memory layers.
 
 ## Architecture
 
-A stage represents the composed scene graph; layers and composition arcs let teams assemble and override scene data without flattening every contribution.
+| Component | Responsibility and data boundary |
+|---|---|
+| Layer, spec and edit target | A layer stores authored prim and property specs. The stage edit target determines where edits are written, so a task layer can override a source asset without editing the asset file. |
+| Composition arcs | Sublayers combine opinions into a layer stack. References bring content into a namespace and payloads provide loadable content. Variant sets expose named alternatives such as equipment configurations. |
+| Stage, prim and schema | The composed stage resolves opinions to yield prims and properties. Applied schemas add domain-specific attributes such as physics properties, which a compatible runtime interprets. |
+
+Guide diagram based on the official references below.
 
 ```mermaid
 flowchart LR
-    A["Assets and layers"] --> B["composition"] --> C["USD stage"] --> D["compatible applications"]
+    assets["Referenced robot and equipment assets"]
+    layer["Layout and task override layers"]
+    comp["USD composition and resolution"]
+    stage["Stage, prim paths and schemas"]
+    app["Renderer or simulation runtime"]
+    assets --> comp
+    layer --> comp
+    comp --> stage
+    stage --> app
 ```
 
-*Conceptual workflow created for this guide; consult the official documentation for implementation details.*
+### Official figures and examples
 
-## Workflow
+![Independent layers contribute geometry and other opinions to the composed scene.](https://docs.nvidia.com/learn-openusd/latest/_images/Layers.png)
 
-Author reusable assets and layers; compose references and overrides into a stage; exchange the resulting scene with compatible applications.
+Independent layers contribute geometry and other opinions to the composed scene. [Original figure and context](https://docs.nvidia.com/learn-openusd/latest/composition-basics/layers.html)
 
-## Use cases
+![The sublayer example shows how a parent layer incorporates a set of layers. Order affects which overlapping opinions win.](https://docs.nvidia.com/learn-openusd/latest/_images/Sublayers.png)
 
-Organize reusable robot and factory assets, exchange scenes between 3D tools, and assemble simulation environments.
+The sublayer example shows how a parent layer incorporates a set of layers. Order affects which overlapping opinions win. [Original figure and context](https://docs.nvidia.com/learn-openusd/latest/composition-basics/layers.html)
 
-## Connections
+## Walkthrough
 
-SimReady defines conventions for simulation-ready assets; Omniverse and Isaac Sim use OpenUSD-based scene workflows. USD describes scenes and does not itself provide a physics solver.
+1. Reference a reusable robot asset at `/World/Robot`. Keep equipment placement in a layout layer, and configure the test scene’s sensor poses and task targets in a separate edit layer.
+2. Compose a stage with both layers. Query the resolved prims in `pxr.Usd` or inspect them in Isaac Sim. Try changing a task-layer opinion and identify which layer supplies the value.
+3. Use payloads for heavy environment detail when consumers need selective loading. Package or resolve textures and other dependencies so the stage opens on another machine.
+
+## Validation
+
+- Inspect unresolved paths, up-axis, `metersPerUnit`, prim namespaces and the composition result before importing into a simulator.
+- Confirm the runtime supports the applied schemas used for your task. OpenUSD describes content that the runtime consumes.
+
+## License and scope
+
+The Pixar implementation uses a modified BSD-style license. Asset, specification and trademark terms are separate.
+
+## Related guides
+
+[SimReady](simready.md) · [Omniverse](omniverse.md) · [Isaac Sim](isaac-sim.md)
 
 ## Official references
 
-- [Project repository](https://github.com/PixarAnimationStudios/OpenUSD)
-- [Documentation](https://openusd.org/release/intro.html)
+- [Pixar OpenUSD introduction](https://openusd.org/release/intro.html)
+- [Layer authoring and ordering](https://docs.nvidia.com/learn-openusd/latest/composition-basics/layers.html)
+- [Composition arcs](https://docs.nvidia.com/learn-openusd/latest/creating-composition-arcs/index.html)
+- [OpenUSD source](https://github.com/PixarAnimationStudios/OpenUSD)

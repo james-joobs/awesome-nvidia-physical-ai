@@ -2,20 +2,34 @@
 
 [Catalog](../../README.md) · [한국어](../ko/datasets-v2d-cosmos.md)
 
-Review each official dataset card for formats, access requirements and license. Public access does not mean unrestricted use.
+The entries serve different roles in V2D and Cosmos workflows. Some provide motion and actions, some are conditioning examples, and some are held out for evaluation.
 
-## Selection and use
+## Match the artifact to the recipe
 
-This is a conceptual workflow.
+| Goal | Representative data | What to verify |
+|---|---|---|
+| Inspect human-to-robot motion conversion | [V2D dexterity task library](#video-to-data-robot-dexterity-task-library-and-dataset) | Parquet motion sequence, robot episode, embodiment and action definition |
+| Post-train or benchmark video reasoning | Reason1 [SFT](#cosmos-reason1-sft-dataset), [RL](#cosmos-reason1-rl-dataset), [benchmark](#cosmos-reason1-benchmark) | Which split provides prompts, supervision or evaluation |
+| Reproduce Transfer conditioning | [LiDAR example](#cosmos-transfer-lidargen-example) or [AV sample](#cosmos-transfer1-7b-sample-av-data-example) | Camera, control modality, frame rates and matching checkpoint |
+| Train or replay robot episodes | [Cosmos3-DROID](#cosmos3-droid), or Cosmos Policy datasets below | Video view keys, state and action arrays, timestamps and episode boundaries |
 
 ```mermaid
 flowchart LR
-  S0["Choose task and data"]
-  S1["review dataset card and terms"]
-  S2["prepare formats"]
-  S3["train or evaluate"]
-  S0 --> S1 --> S2 --> S3
+    M["V2D Parquet motion sequences"] --> R["Retargeted robot episodes"]
+    R --> Q["Replay and check articulation and contact"]
+    C["Cosmos conditioning examples"] --> G["Model inference"]
+    G --> E["Compare to held-out evaluation protocol"]
 ```
+
+The guide diagram separates motion replay from conditioned generation. The V2D card documents Parquet and LeRobot v3 outputs with video, motion trajectories and actions. Cosmos3-DROID documents a different LeRobot v3 conversion with sharded MP4 views, Parquet state/action records, task metadata and episode boundaries. [V2D data card](https://huggingface.co/datasets/nvidia/video-to-data-robot-dexterity-task-library-and-dataset) · [DROID data card](https://huggingface.co/datasets/nvidia/Cosmos3-DROID)
+
+![Official Video to Data reconstruction and grounding pipeline](https://raw.githubusercontent.com/nvidia-isaac/video_to_data/main/docs/figures/v2d_overview.png)
+
+The official pipeline traces human demonstration video through ingestion, reconstruction and robot grounding in Isaac Lab. The dataset below provides examples of motion and action outputs from that path. A user can inspect replayable artifacts independently of later policy training or robot deployment. [Official Video to Data pipeline](https://github.com/nvidia-isaac/video_to_data)
+
+## Worked example — verify one DROID episode before training
+
+Read meta/info.json for feature names and decode the exterior and wrist views for one episode. Plot or replay the associated joint and gripper values over the same frame indices. Check action convention and coordinate frame before adapting the sequence to a different robot. For V2D, inspect the human motion and retargeted robot rollout separately to catch joint limits or missed contacts. [DROID schema](https://huggingface.co/datasets/nvidia/Cosmos3-DROID#features) · [Video-to-Data](video-to-data.md)
 
 ## Dataset details
 
@@ -130,4 +144,3 @@ Driving simulation evaluation controls and captions.
 
 **License and access:** OpenMDW-1.1; public.  
 **Official dataset card:** [Cosmos3-Driving-Simulation-Evaluation](https://huggingface.co/datasets/nvidia/Cosmos3-Driving-Simulation-Evaluation)
-

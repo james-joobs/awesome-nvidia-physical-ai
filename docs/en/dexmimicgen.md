@@ -1,39 +1,39 @@
 # DexMimicGen
 
-[← All projects](../../README.md) · [한국어](../ko/dexmimicgen.md)
+[← Back to catalog](../../README.md) · [한국어](../ko/dexmimicgen.md)
 
-## Overview
+DexMimicGen extends demonstration generation to bimanual dexterous tasks. It preserves relationships between two end effectors where the arms need to work together, and orders subtasks when one arm must complete an action before the other starts.
 
-Research on generating bimanual and multi-manipulator demonstrations.
+## Architecture and data flow
 
-## Conceptual workflow
+| Component | Inputs, processing and outputs |
+|---|---|
+| **Parallel subtasks** | When each arm can reach its own subgoal independently, the generator selects and adapts segments for the two arms independently. |
+| **Coordination subtasks** | When both arms manipulate a shared object or perform a handoff, the generator preserves coordination across the selected motions, using the object pose to transform the relevant segments. |
+| **Sequential subtasks and evaluation** | Dependencies define which subtask must finish before another begins. The environment runs the two-arm actions and records the resulting observations and success. |
 
-```mermaid
-flowchart LR
-    n0["Collect multi-arm demonstrations"] --> n1
-    n1["generate variants"] --> n2
-    n2["validate dexterous trajectories"] --> n3
-    n3["use for imitation learning"]
-```
+![The official pipeline figure distinguishes independent, coordinated and ordered motion. This distinction determines how two arms can reuse demonstrations safely under a new arrangement.](https://dexmimicgen.github.io/resources/pipeline.jpg)
 
-## Workflow and use
+The official pipeline figure distinguishes independent, coordinated and ordered motion. This distinction determines how two arms can reuse demonstrations safely under a new arrangement. [Official figure source](https://dexmimicgen.github.io/)
 
-Collect multi-arm demonstrations → generate variants → validate dexterous trajectories → use for imitation learning. This is a conceptual workflow; check the official source for version-specific prerequisites and supported configurations.
+## Worked example
 
-**Example use case:** generating two-arm manipulation demonstrations. Check applicability, supported inputs and model versions in the official source.
+1. For a bimanual handoff, mark the first arm’s grasp, the shared transfer and the second arm’s placement. Declare where the arms must move together or wait for completion.
+2. Randomize object or fixture pose. Verify transfer timing, end-effector clearance and the final outcome in the simulated rollouts before selecting episodes for imitation learning.
 
-**Related technologies:** MimicGen, Isaac Lab.
+## What to verify
 
-## Architecture and practical details
+- Inspect both arm trajectories and finger commands. A completed task can conceal inconsistent handoff timing or implausible contact.
+- Review the robot, simulator and dataset terms separately. A result for one embodiment is not a validation of the same subtask configuration on another.
 
-The official release provides simulation environments and datasets for the DexMimicGen research on bimanual dexterous manipulation. Its documented workflow uses robosuite environments and generates training configurations for robomimic; code and datasets use different terms.
+## Official references and terms
 
-[Official documentation](https://github.com/NVlabs/dexmimicgen)
+The code uses the NVIDIA Source Code License. The published dataset uses CC BY 4.0.
 
-## Availability and terms
+- [Research project and pipeline figure](https://dexmimicgen.github.io/)
+- [Code and data terms](https://github.com/NVlabs/dexmimicgen)
+- [Paper with the subtask taxonomy](https://arxiv.org/abs/2410.24185)
 
-Code uses NVIDIA Source Code License; data uses CC-BY-4.0. Check code restrictions. Verify the exact version and the terms of any models, datasets, binaries and dependencies before use.
+## Related guides
 
-## Official sources
-
-[Repository](https://github.com/NVlabs/dexmimicgen)
+[MimicGen](mimicgen.md) · [SkillGen](skillgen.md)

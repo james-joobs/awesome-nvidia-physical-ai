@@ -1,31 +1,33 @@
 # Grounding DINO
 
-[← 전체 목록](../../README.ko.md) · [English](../en/grounding-dino.md) · [공식 소스](https://github.com/IDEA-Research/GroundingDINO) · [공식 문서 / 관련 프로젝트](https://github.com/IDEA-Research/GroundingDINO)
+[← 전체 목록](../../README.ko.md) · [English](../en/grounding-dino.md)
 
-텍스트 조건으로 물체를 탐지하는 IDEA Research의 모델입니다.
+Grounding DINO는 이미지와 함께 넣은 문구에 해당하는 2D 박스를 반환합니다. 프롬프트가 탐지할 물체를 지정합니다.
 
-**공개 및 이용 조건:** 저장소 코드 라이선스, 체크포인트 조건과 제3자 구성 요소를 각각 확인하세요.
+![Grounding DINO 모델 구성도](https://raw.githubusercontent.com/IDEA-Research/GroundingDINO/main/.asset/model_explan1.PNG)
 
-## 구성과 활용 흐름
+*디코더가 위치를 반환하기 전에 영상과 텍스트 특징이 만나는 위치를 확인하세요.* [공식 그림 출처](https://github.com/IDEA-Research/GroundingDINO)
 
-```mermaid
-flowchart LR
-    A["이미지 + 텍스트 프롬프트"] --> B["탐지 모델"] --> C["박스와 점수"] --> D["후속 작업"]
-```
+![Grounding DINO 탐지 예시](https://raw.githubusercontent.com/IDEA-Research/GroundingDINO/main/.asset/hero_figure.png)
 
-*이 안내서의 개념도이며, 지원 구현은 공식 자료를 확인하세요.*
+*탐지한 물체를 이를 설명하는 프롬프트와 대조할 수 있습니다.* [공식 그림 출처](https://github.com/IDEA-Research/GroundingDINO)
 
-이미지와 물체 설명을 입력하고 추론한 뒤 점수 기준으로 후보 박스를 걸러 활용합니다.
+## 어떻게 동작하나
 
-## 활용 사례
+영상·언어 백본이 각각 특징을 추출합니다. 특징 강화 계층에서 두 모달리티의 정보가 교환됩니다. 언어 기반 쿼리 선택이 후보 영역을 고르고 교차 모달 디코더가 박스와 토큰 대응을 보정합니다. 응용 단계에서는 임계값을 적용하고 박스를 원본 좌표로 복원합니다.
 
-라벨링을 위해 지정한 물체를 찾거나 분할 모델에 박스를 전달할 수 있습니다.
+## 실전 워크플로
 
-## 연계 기술
+작업대 기록 영상에서 빨간 상자와 파란 상자를 문구로 탐지합니다. 박스를 [SAM 2](sam-2-sam-3d.md)의 프롬프트로 전달해 라벨링용 마스크를 생성합니다.
 
-탐지 박스를 SAM 같은 분할 작업의 입력으로 사용할 수 있으며 정확도는 프롬프트와 데이터에 따라 달라집니다.
+## 검증할 항목
+
+동의어와 구체적인 문구를 비교합니다. 분할 또는 자세 추정에 전달하기 전에 박스 형식, 영상 크기 보정과 신뢰도 기준을 확인합니다.
+
+## 공개 범위와 라이선스
+
+저장소 코드 라이선스, 체크포인트 조건과 제3자 구성 요소를 각각 확인하세요.
 
 ## 공식 자료
 
-- [프로젝트 자료](https://github.com/IDEA-Research/GroundingDINO)
-- [공식 문서 / 관련 프로젝트](https://github.com/IDEA-Research/GroundingDINO)
+- [공식 기술 자료](https://arxiv.org/html/2303.05499)

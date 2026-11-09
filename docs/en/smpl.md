@@ -1,31 +1,35 @@
 # SMPL
 
-[← All projects](../../README.md) · [한국어](../ko/smpl.md) · [Official source](https://smpl.is.tue.mpg.de/) · [Documentation / related project](https://smpl.is.tue.mpg.de/license.html)
+[← Catalog](../../README.md) · [한국어](../ko/smpl.md)
 
-A parametric model family for representing human body shape and pose in 3D.
+SMPL is a learned parametric human body mesh. A sequence of fitted body parameters represents motion and can be an intermediate for retargeting.
 
-**Availability and terms:** Model data, code, derivatives, research and commercial use may have different terms; consult the exact model license and access conditions.
+## How it works
 
-## Architecture and workflow
+Shape coefficients deform a template and influence joint locations. Pose parameters articulate the joints and drive pose-dependent corrective shapes. Linear blend skinning moves the vertices with the skeleton. A separate fitting system estimates parameters from observations.
 
 ```mermaid
 flowchart LR
-    A["Body shape + pose parameters"] --> B["body model"] --> C["3D mesh"] --> D["downstream analysis"]
+    B["Shape coefficients"] --> T["Shaped template and joints"]
+    P["Joint pose"] --> C["Pose corrections"]
+    T --> S["Linear blend skinning"]
+    C --> S
+    S --> M["Posed mesh"]
 ```
 
-*Conceptual illustration for this guide; refer to official sources for supported implementations.*
+## A practical workflow
 
-Obtain the applicable model and terms, estimate or supply shape and pose parameters, then generate and inspect the body mesh.
+Use parameters from a licensed motion dataset to reconstruct the body mesh and joint trajectory. Check the skeleton against a known motion, then map the selected joints and contacts to the target robot’s morphology.
 
-## Use cases
+## What to verify
 
-Human motion analysis, animation, and reconstruction research.
+Confirm model variant, units, root orientation and joint definitions. Check foot contact and motion continuity after retargeting. Verify the terms for the full model and for the specific SMPL-Body subset separately.
 
-## Connections
+## License and availability
 
-Body meshes can inform motion capture or retargeting workflows; coordinate systems and embodiment mapping must be handled explicitly.
+Model data, code, derivatives, research and commercial use may have different terms; consult the exact model license and access conditions.
 
 ## Official references
 
-- [Project source](https://smpl.is.tue.mpg.de/)
-- [Documentation / related project](https://smpl.is.tue.mpg.de/license.html)
+- [Official technical reference](https://smpl.is.tue.mpg.de/)
+- [SMPL-Body license scope](https://smpl.is.tue.mpg.de/license.html)

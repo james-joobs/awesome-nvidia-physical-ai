@@ -1,34 +1,43 @@
 # AutoData
+
 [← Back to catalog](../../README.md) · [한국어](../ko/autodata.md)
 
-Expands a small set of demonstrations into trajectories across varied task conditions.
+AutoData expands a small set of successful robot demonstrations into simulated trajectories. A task definition tells the generator how to reset a scene, identify the reference object and judge success. The generated dataset contains robot actions and observations from replay in the simulator.
 
-**Official sources:** [Repository](https://github.com/isaac-sim/AutoData)  
-**License and scope:** Apache-2.0; Isaac Sim and specific cuRobo components have separate terms.
+## Architecture and data flow
 
-![AutoData demonstration generation](https://media.githubusercontent.com/media/isaac-sim/AutoData/main/docs/images/autodata.gif)
-*Image source: [Repository](https://github.com/isaac-sim/AutoData)*
+| Component | Inputs, processing and outputs |
+|---|---|
+| **Source demonstrations** | Annotated episodes define subtask boundaries, the reference object and the demonstrated end-effector motion. A subtask can be expressed relative to its object so it can be reused at another pose. |
+| **Generation algorithm** | MimicGen transforms and replays the object-relative segment in the new reset. SkillGen uses cuRobo to plan the transit to the adapted segment before executing the skill. |
+| **Simulation and task checks** | The simulator executes target motions and the task applies termination and success checks. The output contains rollouts with actual simulation observations and actions. |
 
-## Architecture and workflow
+![The official architecture separates input demonstrations, generation logic and simulation. The task and simulator remain involved when a demonstration segment is reused in a changed scene.](https://raw.githubusercontent.com/isaac-sim/AutoData/main/docs/images/System_Architecture.svg)
 
-The following is an illustrative workflow, not an official architecture or a claim of automatic integration.
+The official architecture separates input demonstrations, generation logic and simulation. The task and simulator remain involved when a demonstration segment is reused in a changed scene. [Official figure source](https://github.com/isaac-sim/AutoData)
 
-**Seed demonstrations → vary task and scene conditions → synthesize trajectories → review and train**
+![The repository demonstration visualizes rollouts across scene variations. Compare the changed initial arrangement and the resulting executed paths.](https://media.githubusercontent.com/media/isaac-sim/AutoData/main/docs/images/autodata.gif)
 
-## Components and official architecture
+The repository demonstration visualizes rollouts across scene variations. Compare the changed initial arrangement and the resulting executed paths. [Official figure source](https://github.com/isaac-sim/AutoData)
 
-![AutoData system architecture](https://raw.githubusercontent.com/isaac-sim/AutoData/main/docs/images/System_Architecture.svg)
+## Worked example
 
-*Image source: [Official repository](https://github.com/isaac-sim/AutoData)*
+1. Start with successful pick-and-place trajectories and mark grasp and place boundaries and their object references.
+2. Move the object or change the fixture position during resets. Choose interpolation or a planned transit based on obstacles in the scene.
+3. Replay accepted examples and keep the dataset configuration, task success criteria and asset versions with the generated demonstrations.
 
-AutoData starts from a small collection of demonstrations and generates additional robot trajectories under varied task conditions. Simulation and planning dependencies determine which environments and robot configurations can be used. Inspect generated trajectories and success criteria before adding them to a training set.
+## What to verify
 
-## Example use case
+- Compare success by reset condition rather than only total accepted episodes. Check whether difficult initial poses are systematically missing from the generated dataset.
+- Inspect the join between transit and skill segments for collisions, discontinuities and incorrect gripper timing.
 
-Expand a small set of demonstrations into varied robot manipulation data.
+## Official references and terms
 
-## Related technologies
+The repository code uses Apache-2.0. Check the separate terms of Isaac Sim and any cuRobo components used by your configuration.
 
-Isaac Sim, cuRobo, Isaac Lab.
+- [Repository and official figure](https://github.com/isaac-sim/AutoData)
+- [Generation algorithms](https://isaac-sim.github.io/AutoData/main/pages/concepts/algorithms.html)
 
-Check version compatibility, data formats, and model and dependency terms in the official sources for your setup.
+## Related guides
+
+[MimicGen](mimicgen.md) · [SkillGen](skillgen.md) · [cuRobo](curobo.md) · [Isaac Sim](isaac-sim.md)

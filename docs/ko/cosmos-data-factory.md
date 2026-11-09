@@ -2,32 +2,27 @@
 
 [전체 목록](../../README.ko.md) · [English](../en/cosmos-data-factory.md)
 
-피지컬 AI 학습 데이터를 선별·레이블링·증강·생성하는 조합 가능한 워크플로우와 스킬 모음이다.
+Cosmos Data Factory(CDF)는 참조 파이프라인과 조합 가능한 스킬을 제공한다. 선택한 블루프린트에 따라 검색, 시뮬레이션, 증강, 라벨링, 평가 도구 중 어떤 것을 쓸지 결정된다.
 
-**공식 출처:** [Repository](https://github.com/NVIDIA/cosmos-data-factory)
+## 블루프린트 구성
 
-**라이선스 및 공개 여부:** Code: Apache-2.0; documentation and skills: CC-BY-4.0; models and services have separate terms. 모델, 데이터, 의존성 및 배포 서비스에는 별도 조건이 적용될 수 있으므로 사용 전 각 출처를 확인한다.
+![CDF 공식 영상 증강 워크플로](https://raw.githubusercontent.com/NVIDIA/cosmos-data-factory/main/docs/workflows/physical-ai-video-data-augmentation/media/main_workflow.png)
 
-**구성 요소:** 참조 블루프린트는 선별·레이블링·증강·시뮬레이션·평가 구성 요소를 조합한다. CDF Orchestration은 참조 블루프린트를 Airflow DAG로 실행하며 백엔드는 블루프린트에 따라 다르다. [공식 개요](https://github.com/NVIDIA/cosmos-data-factory).
+이 그림은 기존 영상이 장면 조건이 되는 영상 증강 블루프린트다. 자율주행 데이터 수집은 검색에서 시작할 수 있고, PCB 결함 생성은 렌더링한 부품에서 시작할 수 있다. [공식 블루프린트 소개](https://github.com/NVIDIA/cosmos-data-factory#reference-blueprints)
 
-## 워크플로우
+| 계층 | 책임 |
+|---|---|
+| 블루프린트 | 자율주행, 이벤트, 속성, 영상, 결함 생성의 입력과 실행 순서 및 구성을 정의 |
+| 실행 | [CDF Orchestration](cdf-orchestration.md)이 Airflow 작업과 GPU 서비스를 실행. 이벤트 영상과 영상 증강은 공식 문서에 OSMO 경로도 있음 |
+| 처리 | [Curator](cosmos-curator.md)와 [CDS](cosmos-embed-search.md)는 클립을 찾고, [Augmentation](cdf-augmentation.md)은 생성 엔드포인트를 호출. [Simulation](cdf-simulation.md)은 3D 장면을 렌더링하고, [Auto Labeling](cdf-auto-labeling.md)은 주석을 내보냄 |
+| 평가 | [Cosmos Evaluator](cosmos-evaluator.md)의 검사 결과를 받아 학습에 포함할 변형을 선택 |
 
-아래는 이해를 돕기 위한 개념도이며 공식 아키텍처 도면이 아니다.
+![CDF 공식 결함 이미지 생성 워크플로](https://raw.githubusercontent.com/NVIDIA/cosmos-data-factory/main/docs/workflows/physical-ai-defect-image-generation/media/dig_workflows.png)
 
-```mermaid
-flowchart LR
-  S0["원본 데이터 수집"]
-  S1["선별·레이블링"]
-  S2["증강 또는 시뮬레이션"]
-  S3["평가"]
-  S4["내보내기"]
-  S0 --> S1 --> S2 --> S3 --> S4
-```
+빨간색 Day 0 경로는 USD와 부품 목록에서 시작해 기판을 렌더링하고 외관을 증강한다. 보라색 Day 1 경로는 정상 부품 사진을 AnomalyGen의 이미지 입력으로 사용한다. 그림 위쪽 후학습 경로에는 결함·마스크 쌍과 결함 명세가 들어간다. 구조 결함과 표면 결함이 서로 다른 경로로 Auto Labeling에 들어가는 점을 보면 라벨 후보가 어디서 만들어지는지 알 수 있다. [공식 결함 이미지 생성 가이드](https://github.com/NVIDIA/cosmos-data-factory/tree/main/docs/workflows/physical-ai-defect-image-generation)
 
-## 활용 사례
+## 활용 예시 — 드문 주행 상황 확장
 
-제한된 원본으로 다양한 주행 영상, 희귀 이벤트 영상, 결함 검사 데이터를 생성한다.
+원하는 상황을 잘 보여주는 클립에서 시작한다. 비슷한 실측 클립을 찾은 뒤 필요하면 RGB 영상이나 사전에 준비한 월드 시나리오 조건으로 날씨 변형을 생성한다. 같은 원본에서 만든 영상이 학습과 검증에 섞이지 않도록 원본 주행 ID 단위로 나눈다. 학습 전 움직임과 차선 기하를 검토하고, 통과 여부와 함께 모델 버전 및 제어 입력을 남긴다. [공식 자율주행 블루프린트](https://github.com/NVIDIA/cdf-orchestration/blob/main/docs/autonomous-vehicle-dataset-generation/getting-started.md)
 
-## 연결 기술
-
-CDF Auto Labeling, CDF Augmentation, CDF Simulation, Cosmos Curator, Cosmos Evaluator, OSMO. 실제 호환성과 실행 요건은 각 버전의 공식 문서를 확인한다.
+입구 저장소는 코드 Apache-2.0, 문서와 스킬 CC-BY-4.0을 명시한다. 사용하는 구성 요소, 데이터셋, 모델 엔드포인트의 조건은 각각 확인한다. [공식 라이선스](https://github.com/NVIDIA/cosmos-data-factory#license)

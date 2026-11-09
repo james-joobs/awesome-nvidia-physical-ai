@@ -2,22 +2,26 @@
 
 [전체 목록](../../README.ko.md) · [English](../en/datasets-driving-world-model.md)
 
-공식 데이터셋 카드를 기준으로 형식, 접근 조건과 라이선스를 각각 확인한다. 공개 접근과 제한 없는 이용 권한은 다르다.
+실제 주행 센서 기록, 재구성 장면, 합성 물리 상호작용, 영상 추론 벤치마크가 섞여 있다. 데이터 종류에 따라 유효한 입력과 평가 방법을 구분한다.
 
-## 선택 및 활용 흐름
+## 작업 기준으로 선택하기
 
-이 그림은 개념적 사용 흐름이다.
+| 필요한 작업 | 대표 자료 | 먼저 확인할 것 |
+|---|---|---|
+| 실측 센서 데이터 처리 | [PhysicalAI-Autonomous-Vehicles](#physicalai-autonomous-vehicles), [NCore](#physicalai-autonomous-vehicles-ncore) | 센서 종류, 클립 ID, 타임스탬프, 보정 및 접근 |
+| 재구성 장면 렌더링 | [AV NuRec](#physicalai-autonomous-vehicles-nurec) | 장면 형식, 렌더러 호환성, 기준 카메라 자세 |
+| 시각 이해 평가 | [VANTAGE-Bench](#physicalai-vantage-bench) | 과제 폴더, 제출 형식, 과제별 지표 |
+| 1인칭 동작과 언어 탐색 | [Human-1M](#physicalai-human-1m-100k) | 카메라 유무, 시간, 추적 신뢰도, T1과 T2 라벨 |
 
-```mermaid
-flowchart LR
-  S0["시나리오와 모달리티 선택"]
-  S1["접근 조건 확인"]
-  S2["영상 또는 장면 처리"]
-  S3["학습 또는 평가"]
-  S0 --> S1 --> S2 --> S3
-```
+![VANTAGE-Bench의 공식 작업 분류](https://huggingface.co/datasets/nvidia/PhysicalAI-VANTAGE-Bench/resolve/main/assets/vantage_bench_tasks.png)
 
-## 데이터셋별 상세
+공식 그림은 의미, 시간, 공간, 시공간 과제를 나눈다. 카드에는 시간 위치 추정의 구간 mIoU, 영상 질의응답의 정확도처럼 과제별 지표가 지정돼 있다. 공식 평가에 필요한 정답 주석은 서버에서 관리한다. [공식 VANTAGE 카드와 제출 정보](https://huggingface.co/datasets/nvidia/PhysicalAI-VANTAGE-Bench#evaluation)
+
+## 활용 예시 — 재생과 생성의 출처 보존
+
+원본 ID를 확인한 주행 클립 하나에서 시작한다. 재생할 때는 시간과 카메라 외부 파라미터를 확인하고, 새 시점을 요청하기 전에 원래 자세에서 먼저 렌더링한다. 영상을 변형할 때는 원본 ID, 생성 조건, 모델 버전과 시드를 기록한다. 파생 영상은 원본과 같은 분할에 둔다. 영상 이해 성능은 생성 라벨에 의존하기보다 별도 규약이 있는 벤치마크로 평가한다. [공식 NuRec 장면 가이드](https://docs.nvidia.com/nurec/nurec/model.html) · [NuRec](nurec.md) · [Human-1M Explorer](human-1m-explorer.md)
+
+## 데이터셋 상세
 
 <a id="physicalai-autonomous-vehicles"></a>
 ### PhysicalAI-Autonomous-Vehicles
@@ -215,10 +219,6 @@ Cosmos 기반 합성 주행 데이터.
 **라이선스·접근:** 별도 약관 확인; 공개.  
 **공식 데이터셋 카드:** [PhysicalAI-VANTAGE-Bench](https://huggingface.co/datasets/nvidia/PhysicalAI-VANTAGE-Bench)
 
-![PhysicalAI-VANTAGE-Bench official example](https://huggingface.co/datasets/nvidia/PhysicalAI-VANTAGE-Bench/resolve/main/assets/vantage_bench_tasks.png)
-
-이미지 출처: [PhysicalAI-VANTAGE-Bench](https://huggingface.co/datasets/nvidia/PhysicalAI-VANTAGE-Bench)
-
 <a id="physicalai-vantage-bench-subset"></a>
 ### PhysicalAI-VANTAGE-Bench-Subset
 
@@ -230,4 +230,3 @@ Cosmos 기반 합성 주행 데이터.
 ![PhysicalAI-VANTAGE-Bench-Subset official example](https://huggingface.co/datasets/nvidia/PhysicalAI-VANTAGE-Bench-Subset/resolve/main/assets/vantage_bench_tasks.png)
 
 이미지 출처: [PhysicalAI-VANTAGE-Bench-Subset](https://huggingface.co/datasets/nvidia/PhysicalAI-VANTAGE-Bench-Subset)
-

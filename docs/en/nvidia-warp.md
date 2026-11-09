@@ -1,39 +1,69 @@
 # NVIDIA Warp
 
-[← All projects](../../README.md) · [한국어](../ko/nvidia-warp.md) · [Official source](https://github.com/NVIDIA/warp) · [Documentation](https://nvidia.github.io/warp/stable/user_guide/faq.html)
+[← Catalog](../../README.md) · [한국어](../ko/nvidia-warp.md)
 
-A Python framework for writing high-performance kernels for simulation, geometry, robotics, and machine learning on CPUs and NVIDIA GPUs.
-
-**License:** Apache-2.0. Check the exact release, assets, models, and dependencies before use.
-
-![NVIDIA Warp official example](https://media.githubusercontent.com/media/NVIDIA/warp/main/docs/img/examples/core_fluid.png)
-
-*Image: [official project repository](https://github.com/NVIDIA/warp); see the source for attribution and reuse terms.*
+Warp compiles numerical Python kernels to code that runs in parallel on CPUs or CUDA GPUs. It supplies arrays, geometric operations and automatic differentiation that simulation projects can use to implement their own computations.
 
 ## Architecture
 
-Warp compiles supported Python kernel code into native CPU or CUDA code. It provides geometry primitives and automatic differentiation for supported operations; it is not itself a complete turnkey physics engine.
+| Component | Responsibility and data boundary |
+|---|---|
+| `@wp.kernel` / `wp.launch` | A kernel defines work for a logical thread. The launch sets the iteration dimensions and passes typed arrays and parameters. |
+| Compilation and cache | Warp lowers a Python module’s kernels and functions to native code for the selected target. Its module cache avoids repeating the same compilation. |
+| `wp.array` / interop | Host code allocates the arrays and chooses placement. The Warp/PyTorch bridge can share compatible memory, so device placement and synchronization matter when one framework hands off a buffer. |
+| `wp.Tape` | Tape records differentiable kernel launches and references to arrays. Backward launches use the required forward values and accumulate gradients in gradient buffers. |
+
+Guide diagram based on the official references below.
 
 ```mermaid
 flowchart LR
-    A["Python kernel"] --> B["compiler and runtime"] --> C["CPU/GPU execution"] --> D["simulation or ML"]
+    p["Typed Python kernels"]
+    c["Module compilation and cache"]
+    a["Device arrays"]
+    k["Parallel forward launches"]
+    loss["Scalar loss"]
+    t["Tape and adjoint kernels"]
+    g["Input gradients"]
+    p --> c
+    c --> k
+    a --> k
+    k --> loss
+    k --> t
+    loss --> t
+    t --> g
 ```
 
-*Conceptual workflow created for this guide; consult the official documentation for implementation details.*
+### Official figures and examples
 
-## Workflow
+![Warp’s compiler pipeline shows how kernel declarations become device code. The Python application controls allocation and launch.](https://nvidia.github.io/warp/latest/_images/compiler_pipeline.svg)
 
-Define typed kernels in Python; compile and launch on the target device; process arrays or geometry; integrate results with a simulation or learning workflow.
+Warp’s compiler pipeline shows how kernel declarations become device code. The Python application controls allocation and launch. [Original figure and context](https://nvidia.github.io/warp/latest/user_guide/programming_model.html)
 
-## Use cases
+![The Tape diagram distinguishes forward kernel launches and the reverse pass used to propagate gradients.](https://nvidia.github.io/warp/latest/_images/tape.svg)
 
-Build custom fluid or geometry algorithms, accelerate simulation components, or experiment with differentiable computation.
+The Tape diagram distinguishes forward kernel launches and the reverse pass used to propagate gradients. [Original figure and context](https://nvidia.github.io/warp/latest/user_guide/differentiability.html)
 
-## Connections
+## Walkthrough
 
-Newton uses Warp as its computational foundation; MuJoCo Warp also uses Warp. PyTorch and other frameworks can participate in larger pipelines.
+1. For a spring parameter fit, allocate arrays for initial positions, velocities, and stiffness. Write one kernel to advance the state and another to compare the predicted endpoint with an observed endpoint.
+2. Run the launch sequence inside a `wp.Tape`, keep the state values required by backward launches, and call `backward` on the loss. Feed the stiffness gradient to the optimizer.
+3. Benchmark steady-state execution after a warmup that includes first-use compilation. For repeated launch graphs, evaluate the graph capture and replay API once data flow and device placement are stable.
+
+## Validation
+
+- Tape references arrays rather than storing every value they held. Keep separate states or use checkpointing when an iterative kernel overwrites values needed for backward computation.
+- On a small problem, compare the computed gradient with finite differences before increasing rollout length or using a GPU graph.
+
+## License and scope
+
+Apache-2.0 for Warp. Runtime and GPU requirements depend on the release.
+
+## Related guides
+
+[Newton](newton.md) · [MuJoCo Warp](mujoco-warp.md)
 
 ## Official references
 
-- [Project repository](https://github.com/NVIDIA/warp)
-- [Documentation](https://nvidia.github.io/warp/stable/user_guide/faq.html)
+- [Warp source and examples](https://github.com/NVIDIA/warp)
+- [Programming model and compiler](https://nvidia.github.io/warp/latest/user_guide/programming_model.html)
+- [Differentiation and array lifetimes](https://nvidia.github.io/warp/latest/user_guide/differentiability.html)

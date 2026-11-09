@@ -1,43 +1,42 @@
 # FoundationStereo
 
-[← All projects](../../README.md) · [한국어](../ko/foundationstereo.md)
+[← Catalog](../../README.md) · [한국어](../ko/foundationstereo.md)
 
-![FoundationStereo stereo depth output](https://raw.githubusercontent.com/NVlabs/FoundationStereo/master/teaser/output.jpg)
+FoundationStereo estimates dense disparity between rectified stereo images. Calibration converts disparity to metric depth.
 
-Image: official project source linked below.
+![FoundationStereo network overview](https://nvlabs.github.io/FoundationStereo/static/images/overview.jpg)
 
-## Overview
+*Read from feature extraction to cost filtering and iterative disparity refinement.* [Official figure source](https://nvlabs.github.io/FoundationStereo/)
 
-Research code and models for stereo depth estimation.
+![FoundationStereo depth examples](https://nvlabs.github.io/FoundationStereo/static/images/intro.jpg)
 
-## Conceptual workflow
+*Compare stereo input with reconstructed depth; fine geometry near discontinuities is worth checking.* [Official figure source](https://nvlabs.github.io/FoundationStereo/)
 
-```mermaid
-flowchart LR
-    n0["Capture stereo image pair"] --> n1
-    n1["estimate depth"] --> n2
-    n2["inspect geometry"] --> n3
-    n3["use depth in downstream perception"]
-```
+## How it works
 
-## Workflow and use
+The published network combines fine local CNN features with monocular cues adapted from DepthAnythingV2. Its hybrid cost volume represents possible left-right matches. Attentive filtering aggregates context over image locations and disparity. A recurrent update stage then refines the disparity, using cost and correlation features at each estimate.
 
-Capture stereo image pair → estimate depth → inspect geometry → use depth in downstream perception. This is a conceptual workflow; check the official source for version-specific prerequisites and supported configurations.
+### Component interfaces
 
-**Example use case:** estimating scene depth from paired cameras. Check applicability, supported inputs and model versions in the official source.
+| Component | Input | Output |
+|---|---|---|
+| Feature extraction | Rectified left and right RGB images | CNN and monocular-prior features |
+| Matching and refinement | Left and right features | Dense disparity in image coordinates |
+| Projection | Disparity and stereo calibration | Metric depth or point cloud |
 
-**Related technologies:** Isaac ROS DNN Stereo Depth.
+## A practical workflow
 
-## Architecture and practical details
+Capture calibrated stereo images of a bin with matte, glossy and transparent objects. Convert disparity to depth, project points into 3D and compare them with known object distances. Evaluate depth around object boundaries separately from background pixels.
 
-FoundationStereo accepts a stereo image pair and produces dense disparity, which can be converted to metric depth or a 3D point cloud using camera calibration. For example, use stereo depth to inspect a scene for robot perception; the research code and commercially distributed model have distinct terms.
+## What to verify
 
-[Official documentation](https://github.com/NVlabs/FoundationStereo)
+Keep camera calibration and baseline fixed when comparing models. Measure valid depth coverage, error by distance, and latency at the deployment image size. Benchmark results depend on dataset and hardware.
 
-## Availability and terms
+## License and availability
 
 Research code has non-commercial restrictions; check separately distributed commercial models. Verify the exact version and the terms of any models, datasets, binaries and dependencies before use.
 
-## Official sources
+## Official references
 
-[Repository](https://github.com/NVlabs/FoundationStereo)
+- [Research architecture and benchmark examples](https://nvlabs.github.io/FoundationStereo/)
+- [Related official resource · github.com](https://github.com/NVlabs/FoundationStereo)

@@ -2,40 +2,24 @@
 
 [← All projects](../../README.md) · [한국어](../ko/cosmos-embed-search.md)
 
-## Overview
+Cosmos Dataset Search (CDS) indexes video and text so users can retrieve candidate clips from a large corpus. Cosmos Embed NIM projects supported text and video inputs into a shared vector space.
 
-Multimodal embedding model/service and video-search microservices.
+## Read the official service diagram
 
-## Conceptual workflow
+![NVIDIA Cosmos Dataset Search architecture](https://docs.nvidia.com/cosmos/cds/latest/_images/cds_system_overview.png)
 
-```mermaid
-flowchart LR
-    n0["Prepare a video collection"] --> n1
-    n1["create embeddings"] --> n2
-    n2["search by multimodal query"] --> n3
-    n3["inspect retrieved clips"]
-```
+| Layer | Responsibility |
+|---|---|
+| Core service and indexing | Orchestrate ingestion and create an index tied to a dataset volume and version |
+| Cosmos Embed NIM | Encode clips and text queries into comparable vectors |
+| Milvus | Store vectors and find nearest candidates |
+| PostgreSQL | Store collection metadata and storage configuration |
+| Retrieval and UI | Query the selected volume and index, resolve assets, and render them for the user |
 
-## Workflow and use
+The indexing arrow takes you from stored media to a named index. The retrieval arrow starts with a query and resolves vector neighbors back to accessible assets. This division helps distinguish a stale index, a ranking issue and an unreadable asset. [NVIDIA CDS architecture](https://docs.nvidia.com/cosmos/cds/latest/introduction.html) · [Docker Compose deployment](https://docs.nvidia.com/cosmos/cds/latest/docker-compose-deployment.html)
 
-Prepare a video collection → create embeddings → search by multimodal query → inspect retrieved clips. This is a conceptual workflow; check the official source for version-specific prerequisites and supported configurations.
+## Worked example — retrieve traffic near misses
 
-**Example use case:** finding relevant clips in a video archive. Check applicability, supported inputs and model versions in the official source.
+Index an authorized collection and search for pedestrians entering the crosswalk from behind parked vehicles. Review the top results against a small hand-labeled set. Inspect clip boundaries because a brief event can span two chunks. Create an index version when clip definitions or the embedding checkpoint change. Similarity ranks candidates for review. Use a timestamp-aware model or manual review before treating hits as ground truth. [Official repository](https://github.com/NVIDIA-Omniverse-blueprints/cosmos-dataset-search) · [Cosmos Reason2](cosmos-reason2.md)
 
-**Related technologies:** Cosmos Curator, Cosmos.
-
-## Architecture and example
-
-Dataset Search combines a core ingestion/search service, Cosmos Embed NIM, Milvus vector storage, Postgres metadata and a web interface. It creates indexes from video and associated text, then searches embeddings.
-
-Index driving footage and use a semantic query to find clips matching a scenario; review results before curation.
-
-[Official technical source](https://docs.nvidia.com/cosmos/cds/latest/introduction.html)
-
-## Availability and terms
-
-Complete source availability and license scope unverified. Verify the exact version and the terms of any models, datasets, binaries and dependencies before use.
-
-## Official sources
-
-[Documentation](https://docs.nvidia.com/cosmos/cds/latest/introduction.html)
+Check official deployment and service terms for the selected CDS and NIM versions. [NVIDIA documentation](https://docs.nvidia.com/cosmos/cds/latest/introduction.html)

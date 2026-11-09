@@ -1,34 +1,33 @@
 # MCAP / HDF5 / URDF / CAD
 
-[← All projects](../../README.md) · [한국어](../ko/mcap-hdf5-urdf-cad.md) · [Official source](https://mcap.dev/) · [Documentation / related project](https://docs.ros.org/en/rolling/Tutorials/Intermediate/URDF/URDF-Main.html)
+[← Catalog](../../README.md) · [한국어](../ko/mcap-hdf5-urdf-cad.md)
 
-Common robotics and engineering data concepts: MCAP logs, HDF5 structured data, URDF robot descriptions, and CAD design assets.
+These formats and representations carry different Physical AI artifacts. MCAP stores time-stamped messages, HDF5 stores structured numerical data, URDF describes a robot, and CAD describes engineered geometry.
 
-**Availability and terms:** Formats and concepts are distinct from implementations. Check the licenses of each library, file, asset, conversion tool and dataset.
+## How it works
 
-## Architecture and workflow
+| Artifact | What to look for | Typical consumer |
+|---|---|---|
+| MCAP | Schema and channel records, timestamps, encoded messages, optional indexes | Replay and inspection tools |
+| HDF5 | Groups, datasets, dimensions, types and attributes | Training loader or analysis code |
+| URDF | Links, joints, limits, inertial, collision and visual properties | ROS model loaders or supported simulation importers |
+| CAD | Part geometry, assembly hierarchy, units and engineering tolerances | Asset preparation tools |
 
-```mermaid
-flowchart LR
-    A["CAD / URDF robot description"] --> B["simulator or robot"] --> C["MCAP / HDF5 recordings"] --> D["analysis"]
-```
+## A practical workflow
 
-*Conceptual illustration for this guide; refer to official sources for supported implementations.*
+Record a robot run in MCAP. Align images and joint states using known clock domains. Store selected training tensors with shape and calibration metadata in HDF5. Use the URDF or asset pipeline to interpret joint names and geometry when replaying the episode.
 
-Prepare geometry and a robot description, configure compatible software, record synchronized data, and inspect or transform it for analysis. Conversion between formats is not automatic.
+## What to verify
 
-## Use cases
+Validate timestamps and schemas before conversion. Check joint order, frame conventions, units and geometry paths separately. Keep source logs so dataset transformations remain reproducible.
 
-Record sensor streams, store training arrays, or bring a robot model into a simulator.
+## License and availability
 
-## Connections
-
-ROS 2 tooling may use MCAP and URDF; HDF5 stores structured datasets; CAD files may need explicit conversion before simulation.
+Formats and concepts are distinct from implementations. Check the licenses of each library, file, asset, conversion tool and dataset.
 
 ## Official references
 
-- [Project source](https://mcap.dev/)
-- [Documentation / related project](https://docs.ros.org/en/rolling/Tutorials/Intermediate/URDF/URDF-Main.html)
-- [MCAP](https://mcap.dev/)
-- [HDF5](https://www.hdfgroup.org/solutions/hdf5/)
-- [URDF](https://docs.ros.org/en/rolling/Tutorials/Intermediate/URDF/URDF-Main.html)
+- [Official technical reference](https://mcap.dev/spec)
+- [HDF5 data model](https://www.hdfgroup.org/solutions/hdf5/)
+- [ROS URDF parser and model](https://github.com/ros/urdfdom)
+- [Related official resource · mcap.dev](https://mcap.dev/)

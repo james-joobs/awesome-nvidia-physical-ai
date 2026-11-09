@@ -1,35 +1,31 @@
 # PyTorch
 
-[← 전체 목록](../../README.ko.md) · [English](../en/pytorch.md) · [공식 소스](https://github.com/pytorch/pytorch) · [공식 문서 / 관련 프로젝트](https://docs.pytorch.org/docs/stable/index.html)
+[← 전체 목록](../../README.ko.md) · [English](../en/pytorch.md)
 
-텐서 계산과 자동 미분을 제공하는 오픈소스 머신러닝 프레임워크입니다.
+PyTorch는 이 목록의 여러 모델에서 사용하는 텐서 연산, 자동 미분, 신경망 구성 요소를 제공합니다.
 
-**공개 및 이용 조건:** PyTorch는 BSD 계열 라이선스이며 모델·패키지·CUDA 런타임 등 의존성의 조건은 별도입니다.
+![PyTorch 자동 미분 연산 그래프](https://docs.pytorch.org/tutorials/_images/comp-graph.png)
 
-![PyTorch official illustration](https://raw.githubusercontent.com/pytorch/pytorch/main/docs/source/_static/img/tensor_illustration.png)
+*순방향 연산의 의존 관계를 역전파에서 기울기 전파에 사용합니다.* [공식 그림 출처](https://docs.pytorch.org/tutorials/beginner/basics/autogradqs_tutorial.html)
 
-*이미지 출처: [공식 프로젝트 저장소](https://github.com/pytorch/pytorch). 원본의 재사용 조건을 확인하세요.*
+## 어떻게 동작하나
 
-## 구성과 활용 흐름
+데이터셋과 로더가 텐서 배치를 공급합니다. 모듈이 예측을, 손실 함수가 예측 점수를 계산하며, 자동 미분이 미분 가능한 연산을 추적해 기울기를 구합니다. 옵티마이저는 기울기로 파라미터를 갱신합니다. 배포 시 체크포인트를 저장하거나 지원 연산을 별도 런타임으로 내보낼 수 있습니다.
 
-```mermaid
-flowchart LR
-    A["데이터"] --> B["텐서와 모델"] --> C["학습 / 추론"] --> D["결과"]
-```
+## 실전 워크플로
 
-*이 안내서의 개념도이며, 지원 구현은 공식 자료를 확인하세요.*
+로봇 카메라 라벨 영상으로 탐지기를 파인튜닝합니다. 먼저 아주 작은 배치에 과적합시켜 라벨과 기울기 흐름을 점검합니다. 모델과 전처리 설정을 함께 저장하고 배포 내보내기 전후 예측을 비교합니다.
 
-데이터를 텐서로 불러오고 모델과 손실을 정의한 뒤 자동 미분으로 학습하고 결과를 평가하거나 내보냅니다.
+## 검증할 항목
 
-## 활용 사례
+장치, 데이터 타입, 텐서 레이아웃과 학습·평가 모드를 확인합니다. 데이터 로더와 별도로 기울기를 시험하고 내보내기 지원 연산과 수치 일치도를 검증합니다.
 
-비전 모델, 로봇 정책, 물리 기반 모델 학습에 활용할 수 있습니다.
+## 공개 범위와 라이선스
 
-## 연계 기술
-
-생태계의 여러 모델과 도구가 PyTorch를 사용하며 지원되는 배포 경로에서 TensorRT를 활용할 수 있습니다.
+PyTorch는 BSD 계열 라이선스이며 모델·패키지·CUDA 런타임 등 의존성의 조건은 별도입니다.
 
 ## 공식 자료
 
-- [프로젝트 자료](https://github.com/pytorch/pytorch)
-- [공식 문서 / 관련 프로젝트](https://docs.pytorch.org/docs/stable/index.html)
+- [공식 기술 자료](https://docs.pytorch.org/tutorials/beginner/basics/autogradqs_tutorial.html)
+- [관련 공식 자료 · github.com](https://github.com/pytorch/pytorch)
+- [관련 공식 자료 · docs.pytorch.org](https://docs.pytorch.org/docs/stable/index.html)

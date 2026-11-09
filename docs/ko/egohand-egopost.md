@@ -1,42 +1,43 @@
 # EgoHand / EgoPost
 
-[← 전체 목록](../../README.ko.md) · [English](../en/egohand-egopost.md)
+[← 목록으로](../../README.ko.md) · [English](../en/egohand-egopost.md)
 
-## 소개
+EgoHand는 헤드마운트 영상으로 사람의 손을 복원합니다. EgoPost는 Isaac Capture에서 이 워크플로의 후처리 코드를 담는 구성 요소입니다. 복원 결과는 카메라 좌표계에서 검토할 수 있으며, 카메라 궤적이 있으면 월드 좌표계로 변환할 수 있습니다.
 
-Capture의 1인칭 손·카메라 동작 관련 구성 요소.
+## 아키텍처와 데이터 흐름
 
-## 개념적 워크플로
+| 구성 요소 | 입력·처리·출력 |
+|---|---|
+| **영상과 카메라 보정** | 디코딩한 RGB 영상과 카메라 보정값을 넣습니다. 각 손의 2D 바운딩 박스는 선택적 RT-DETR 검출기나 프레임별 박스 파일로 제공할 수 있습니다. |
+| **손 복원** | 추론 파이프라인은 손 영역과 카메라 보정값으로 SOMA 손 자세, 3D 관절, 메시를 추정합니다. 선택적 시퀀스 피팅에서는 손의 형상과 크기를 클립 전체에서 공유하고 자세와 위치는 프레임마다 추정합니다. |
+| **카메라 위치 추정** | 호환되는 카메라 위치 추정 또는 SLAM 파이프라인의 카메라 움직임을 사용해 손 추정값을 월드 좌표계로 변환합니다. |
+| **검토용 산출물** | 시퀀스 피팅 결과는 `soma_parameters.npz`와 진단 보고서로 내보낼 수 있습니다. 오버레이 영상은 복원한 관절을 원본 영상에 투영해 프레임별 검토를 돕습니다. |
 
-```mermaid
-flowchart LR
-    n0["1인칭 관측 수집"] --> n1
-    n1["손과 카메라 움직임 추정"] --> n2
-    n2["후속 리타기팅을 위한 처리"]
-```
+![구성도에서 손 복원과 카메라 위치 추정이 별개 경로로 표시됩니다. 월드 좌표계의 손 궤적을 구하려면 두 추정값이 모두 필요합니다.](https://nvidia.github.io/IsaacCapture/main/_images/egohand-pipeline.svg)
 
-## 활용 흐름과 사례
+구성도에서 손 복원과 카메라 위치 추정이 별개 경로로 표시됩니다. 월드 좌표계의 손 궤적을 구하려면 두 추정값이 모두 필요합니다. [공식 그림 출처](https://nvidia.github.io/IsaacCapture/main/ego_post_processing/egohand.html)
 
-1인칭 관측 수집 → 손과 카메라 움직임 추정 → 후속 리타기팅을 위한 처리. 개념적인 흐름이며 버전별 사전 요구사항과 지원 구성은 공식 문서를 확인한다.
+![공식 V2D 예시에는 입력 카메라 시점과 복원 결과가 나옵니다. 물체와 접촉해 손이 가려지기 쉬운 순간의 손가락과 손목을 살펴볼 수 있습니다.](https://nvidia.github.io/IsaacCapture/main/_images/egohand-v2d-example.jpg)
 
-**활용 사례:** 로봇 시연을 위한 손동작 기록. 지원 입력과 모델 버전은 공식 출처에서 확인한다.
+공식 V2D 예시에는 입력 카메라 시점과 복원 결과가 나옵니다. 물체와 접촉해 손이 가려지기 쉬운 순간의 손가락과 손목을 살펴볼 수 있습니다. [공식 그림 출처](https://nvidia.github.io/IsaacCapture/main/ego_post_processing/egohand.html)
 
-**연결 기술:** Isaac Capture.
+## 적용 예시
 
-## 구성과 실제 활용
+1. 공식 문서의 V2D 헤드마운트 예시와 제공되는 보정값으로 시작합니다. 손 영역을 검출하거나 프레임별 좌·우 손 박스 파일을 지정합니다.
+2. 손을 복원하고 오버레이를 확인한 후 로봇 리타기팅에 전달합니다. 여러 시점에서 일관된 월드 좌표가 필요한 작업에 카메라 궤적을 추가합니다.
 
-Ego Pipeline은 1인칭 관측을 수집하고 후처리하여 손과 카메라 자세를 복원합니다. 로봇 없이 사람이 물체를 다루는 영상을 수집한 후, 로봇용 리타기팅에 사용하기 전에 복원 동작을 검토하는 사례가 있습니다. 수집 장치와 복원 구성 요소 및 각 라이선스를 별도로 확인하세요.
+## 검증할 항목
 
-[공식 문서](https://github.com/NVIDIA/IsaacCapture)
+- 박스는 원본 영상 픽셀과 인체 기준 좌·우를 사용합니다. 영상이 좌우 반전되거나 보정값이 틀리면 투영이 그럴듯해 보여도 3D 자세가 어긋날 수 있습니다.
+- 관절을 영상에 다시 투영해 보고, 가림 구간의 떨림이나 갑작스러운 크기 변화를 확인합니다. 카메라 위치 추정을 사용했다면 월드 좌표의 드리프트도 별도로 검사합니다.
 
-![EgoHand pipeline](https://raw.githubusercontent.com/NVIDIA/IsaacCapture/main/docs/source/_static/egohand-pipeline.svg)
+## 공식 자료와 이용 조건
 
-*이미지 출처: [Official repository](https://github.com/NVIDIA/IsaacCapture)*
+EgoPost는 OpenMDW-1.1을 적용합니다. EgoHand의 독립 라이선스는 미확인입니다. 사용하는 에셋과 가중치에 표시된 조건을 확인합니다.
 
-## 공개 및 이용 조건
+- [EgoHand 설치·입출력 문서](https://nvidia.github.io/IsaacCapture/main/ego_post_processing/egohand.html)
+- [Isaac Capture 소스와 구성 요소별 이용 조건](https://github.com/NVIDIA/IsaacCapture)
 
-EgoPost는 OpenMDW-1.1; EgoHand의 독립 라이선스 미확인. 상위 패키지 기본 라이선스를 일괄 적용하지 않음. 사용 전 해당 버전과 모델·데이터·바이너리·의존성의 조건을 각각 확인한다.
+## 연관 상세 페이지
 
-## 공식 출처
-
-[Isaac Capture](https://github.com/NVIDIA/IsaacCapture)
+[Isaac Capture](isaac-capture.md) · [Video to Data](video-to-data.md)

@@ -1,26 +1,30 @@
 # Isaac ROS Teleop
-[← Back to catalog](../../README.md) · [한국어](../ko/isaac-ros-teleop.md)
 
-XR-based robot teleoperation through ROS 2.
+[← Catalog](../../README.md) · [한국어](../ko/isaac-ros-teleop.md)
 
-**Official sources:** [Repository](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_teleop)  
-**License and scope:** Apache-2.0; device software separate.
+Isaac ROS Teleop connects an operator’s XR input to supported robot teleoperation bringups.
 
-![Isaac ROS Teleop official example](https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-5.0/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_physical_ai/isaac_ros_unitree_g1_teleop_bringup/unitree-g1-teleop-hero.gif)
-*Image source: [Repository](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_teleop)*
+![Unitree G1 teleoperation demo](https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-5.0/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_physical_ai/isaac_ros_unitree_g1_teleop_bringup/unitree-g1-teleop-hero.gif)
 
-## Architecture and workflow
+*Compare the operator’s arm motion with the humanoid motion. The video shows the application, while the bringup defines the command interfaces.* [Official figure source](https://nvidia-isaac-ros.github.io/v/release-5.0/repositories_and_packages/isaac_ros_teleop/index.html)
 
-The following is an illustrative workflow, not an official architecture or a claim of automatic integration.
+## How it works
 
-**XR operator input → ROS 2 teleoperation interface → robot commands → robot response**
+In the Unitree G1 example, the operator’s XR input is streamed to the application, interpreted as motion intent and converted to robot commands through the bringup. The robot-side controller consumes commands. Camera feedback returns to the operator and lets them correct the motion. Robot-specific mappings and controls are configured with the bringup.
 
-## Example use case
+## A practical workflow
 
-Operate a supported robot remotely using an XR device.
+Start with the supported simulated robot. Compare neutral poses and slowly move one hand. Check how the controller responds when the hand leaves the tracking volume or the network drops before adapting the setup to hardware.
 
-## Related technologies
+## What to verify
 
-Isaac ROS, XR devices, robot drivers.
+Confirm versions, mappings, calibration, network latency and any stop or reset behavior. Test command limits and communication-loss handling independently of operator feedback.
 
-Check version compatibility, data formats, and model and dependency terms in the official sources for your setup.
+## License and availability
+
+Apache-2.0; device software separate.
+
+## Official references
+
+- [Isaac ROS Teleop package documentation](https://nvidia-isaac-ros.github.io/v/release-5.0/repositories_and_packages/isaac_ros_teleop/index.html)
+- [Related official resource · github.com](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_teleop)

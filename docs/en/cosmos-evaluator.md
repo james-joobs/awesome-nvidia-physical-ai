@@ -2,33 +2,23 @@
 
 [Catalog](../../README.md) · [한국어](../ko/cosmos-evaluator.md)
 
-A framework for evaluating generated video with checks for physical plausibility and visual fidelity.
+Cosmos Evaluator applies separate checks to synthetic video. A pipeline can call one checker directly or submit several through the orchestration service.
 
-**Official sources:** [Repository](https://github.com/NVIDIA/cosmos-evaluator)
+## Read the official service architecture
 
-**License and access:** Apache-2.0; model terms vary by checker. Models, data, dependencies and hosted services may have separate terms; check each source before use.
+![NVIDIA Cosmos Evaluator architecture](https://raw.githubusercontent.com/NVIDIA/cosmos-evaluator/main/docs/assets/architecture_diagram.png)
 
-![Cosmos Evaluator architecture diagram](https://raw.githubusercontent.com/NVIDIA/cosmos-evaluator/main/docs/assets/architecture_diagram.png)
+Arbitrator discovers available checkers and orders jobs by their dependencies. A client submits at /process/async and receives an execution ID. Polling /executions/{request_id} yields run state and per-checker rows. The Database REST API records results in PostgreSQL when configured according to the orchestration guide. [Official architecture](https://github.com/NVIDIA/cosmos-evaluator#architecture-diagram) · [Orchestration endpoints](https://github.com/NVIDIA/cosmos-evaluator/blob/main/docs/services/orchestration.md)
 
-Image source: [Cosmos Evaluator](https://github.com/NVIDIA/cosmos-evaluator)
+| Checker | Question |
+|---|---|
+| Hallucination | Is motion added or removed relative to the source motion mask? |
+| Objects | Are expected objects where the reference says they should be? |
+| Attribute verification | Does the generated scene contain the requested attribute? |
+| Physical plausibility | Does temporal motion appear physically plausible to the configured model? |
 
-## Workflow
+## Worked example — review wet-road variants
 
-The following conceptual diagram is an explanatory overview, not an official architecture diagram.
+Run an attribute check for rain and a motion comparison against a source clip. Record scores separately and inspect cases where one check passes but the other fails. Compare a reviewed subset to your acceptance thresholds before processing the whole batch. A checker score expresses model agreement with its task and inputs. It cannot certify safe vehicle behavior. [Official checker definitions](https://github.com/NVIDIA/cosmos-evaluator#whats-included) · [CDF Augmentation](cdf-augmentation.md)
 
-```mermaid
-flowchart LR
-  S0["Choose generated video and criteria"]
-  S1["run suitable checkers"]
-  S2["inspect results"]
-  S3["refine data"]
-  S0 --> S1 --> S2 --> S3
-```
-
-## Use case
-
-Screen synthetic driving or manipulation videos before adding them to training data.
-
-## Related technologies
-
-Cosmos Data Factory, Cosmos generation models. Confirm compatibility and runtime requirements in the documentation for each version.
+Repository code is Apache-2.0. Check redistributed model notices and dependencies for each checker. [Official terms](https://github.com/NVIDIA/cosmos-evaluator#license-and-contributions)

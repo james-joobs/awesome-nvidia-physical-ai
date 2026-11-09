@@ -1,43 +1,39 @@
 # Isaac GR00T / GR00T N1.7
 
-[← All projects](../../README.md) · [한국어](../ko/groot-model.md)
+[← Back to catalog](../../README.md) · [한국어](../ko/groot-model.md)
 
-## Overview
+GR00T N1.7 is a vision-language-action (VLA) checkpoint for robot manipulation. Its visual-language backbone embeds the scene and instruction, while its action head predicts a continuous sequence conditioned on the robot’s current state and embodiment. The trained model and its surrounding deployment software have separate release and license information.
 
-Robot action foundation model and platform.
+## Architecture and data flow
 
-## Conceptual workflow
+| Component | Inputs, processing and outputs |
+|---|---|
+| **Vision and language** | Robot camera frames and a text instruction condition a Cosmos Reason2-based visual-language backbone. See the N1.7 repository for the backbone change from N1.6. |
+| **Proprioception and embodiment** | An embodiment-indexed MLP encodes robot state. Padding and named modality fields let the architecture handle different state dimensions while preserving per-robot semantics. |
+| **Flow-matching action head** | A diffusion transformer estimates the flow that turns a noisy action sequence into an action chunk. Embodiment-specific projections encode and decode control vectors. |
+| **Controller boundary** | Relative end-effector targets express motion with respect to the configured current pose. The execution stack converts the selected actions into commands compatible with the robot’s controller. |
 
-```mermaid
-flowchart LR
-    n0["Prepare demonstrations"] --> n1
-    n1["select a model and embodiment"] --> n2
-    n2["train or adapt policy"] --> n3
-    n3["evaluate and deploy"]
-```
+![The architecture diagram separates visual-language conditioning from action generation. Read the state and embodiment inputs alongside the action path to see where the robot’s control semantics enter the model.](https://raw.githubusercontent.com/NVIDIA/Isaac-GR00T/main/media/model-architecture.png)
 
-## Workflow and use
+The architecture diagram separates visual-language conditioning from action generation. Read the state and embodiment inputs alongside the action path to see where the robot’s control semantics enter the model. [Official figure source](https://huggingface.co/nvidia/GR00T-N1.7-3B)
 
-Prepare demonstrations → select a model and embodiment → train or adapt policy → evaluate and deploy. This is a conceptual workflow; check the official source for version-specific prerequisites and supported configurations.
+## Worked example
 
-**Example use case:** adapting a robot policy to a task. Check applicability, supported inputs and model versions in the official source.
+1. Start with a released model and a supported DROID observation sample. Provide the declared camera keys, state fields, instruction and embodiment tag.
+2. Inspect the resulting action chunk in the expected coordinate and normalization conventions. Run a closed-loop rollout with a compatible controller before assessing success on the target task.
 
-**Related technologies:** Isaac Capture, Isaac Lab, Isaac GR00T code.
+## What to verify
 
-## Architecture and practical details
+- The number and order of action dimensions depend on the embodiment configuration. Check the controller and modality definitions before interpreting values as motor commands.
+- Evaluate new tasks and environments separately from those covered by published checkpoints. Track latency and task success as well as numerical action error.
 
-GR00T N1.7 is a vision-language-action model: language and image observations, together with robot-specific configuration, support action prediction. The official workflow prepares demonstrations, performs inference or fine-tuning, evaluates in simulation or hardware, then connects a policy to a controller. Check terms for the exact checkpoint.
+## Official references and terms
 
-[Official documentation](https://github.com/NVIDIA/Isaac-GR00T)
+N1.7 model weights use the NVIDIA Open Model License. The Isaac GR00T repository separately licenses its code under Apache-2.0.
 
-![GR00T model architecture](https://raw.githubusercontent.com/NVIDIA/Isaac-GR00T/main/media/model-architecture.png)
+- [N1.7 model card, architecture and terms](https://huggingface.co/nvidia/GR00T-N1.7-3B)
+- [N1.7 software and relative action interface](https://github.com/NVIDIA/Isaac-GR00T)
 
-*Image source: [Official repository](https://github.com/NVIDIA/Isaac-GR00T)*
+## Related guides
 
-## Availability and terms
-
-Code and weights have separate licenses; check the model version. Verify the exact version and the terms of any models, datasets, binaries and dependencies before use.
-
-## Official sources
-
-[Repository](https://github.com/NVIDIA/Isaac-GR00T)
+[Isaac GR00T code](isaac-gr00t.md) · [GR00T-H](gr00t-h.md)

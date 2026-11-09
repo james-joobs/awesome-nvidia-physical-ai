@@ -1,41 +1,31 @@
 # Jetson / JetPack
 
-[← All projects](../../README.md) · [한국어](../ko/jetson-jetpack.md)
+[← Catalog](../../README.md) · [한국어](../ko/jetson-jetpack.md)
 
-## Overview
+Jetson provides edge compute modules. JetPack supplies the system image and SDK components that run on supported modules.
 
-Edge AI hardware / software development kit.
+![JetPack robotics software stack](https://developer.download.nvidia.com/images/jetson/robotics-diagram-update-jetpack7.2-cptx26.png)
 
-## Conceptual workflow
+*The diagram shows the layers included in the documented JetPack release. Match the layers to the release used on the module.* [Official figure source](https://developer.nvidia.com/embedded/jetpack)
 
-```mermaid
-flowchart LR
-    n0["Select Jetson hardware"] --> n1
-    n1["install JetPack"] --> n2
-    n2["optimize model"] --> n3
-    n3["run edge inference"]
-```
+## How it works
 
-## Workflow and use
+At the system layer, Jetson Linux supplies the board support package, drivers and interfaces for sensors and accelerators. Above it, CUDA and TensorRT support compute and inference, with application-level packages such as Isaac ROS or DeepStream on a compatible release. The module, carrier, OS release and runtime libraries constrain which containers and drivers work together.
 
-Select Jetson hardware → install JetPack → optimize model → run edge inference. This is a conceptual workflow; check the official source for version-specific prerequisites and supported configurations.
+## A practical workflow
 
-**Example use case:** running robot perception on an edge device. Check applicability, supported inputs and model versions in the official source.
+For a mobile robot, start with the target carrier and Jetson Linux release. Verify camera enumeration and timestamps, then deploy a small TensorRT perception pipeline. Log end-to-end latency and power consumption during sustained operation before choosing a power profile.
 
-**Related technologies:** TensorRT, Isaac ROS, DeepStream.
+## What to verify
 
-## Architecture and example
+Check the module and carrier support matrix, architecture of container images, compatibility of camera drivers and engine files, and performance after warm-up under the expected thermal load.
 
-Jetson is the embedded compute hardware family. JetPack supplies the software stack, including Jetson Linux and compatible versions of CUDA and TensorRT; support depends on the hardware and release.
-
-Deploy a robot camera perception pipeline on a supported Jetson module and measure latency on the target hardware.
-
-[Official technical source](https://developer.nvidia.com/embedded/jetpack/downloads)
-
-## Availability and terms
+## License and availability
 
 Product and distribution; component terms vary. Verify the exact version and the terms of any models, datasets, binaries and dependencies before use.
 
-## Official sources
+## Official references
 
-[Jetson](https://developer.nvidia.com/embedded/jetson-modules) · [JetPack](https://developer.nvidia.com/embedded/jetpack)
+- [Architecture and workflow documentation](https://developer.nvidia.com/embedded/jetpack)
+- [Related official resource · developer.nvidia.com](https://developer.nvidia.com/embedded/jetpack/downloads)
+- [Related official resource · developer.nvidia.com](https://developer.nvidia.com/embedded/jetson-modules)

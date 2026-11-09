@@ -1,35 +1,36 @@
 # SAM 2 / SAM 3D Objects
 
-[← All projects](../../README.md) · [한국어](../ko/sam-2-sam-3d.md) · [Official source](https://github.com/facebookresearch/sam2) · [Documentation / related project](https://github.com/facebookresearch/sam-3d-objects)
+[← Catalog](../../README.md) · [한국어](../ko/sam-2-sam-3d.md)
 
-Meta models for promptable image/video segmentation (SAM 2) and 3D object reconstruction (SAM 3D Objects).
+SAM 2 segments objects in images and video. SAM 3D Objects estimates 3D object geometry and appearance from image evidence. Their interfaces serve different stages of a reconstruction workflow.
 
-**Availability and terms:** SAM 2 code and model terms must be checked independently. SAM 3D Objects code and checkpoints are governed by the SAM License; review its terms and dependencies.
+![SAM 2 model and memory](https://raw.githubusercontent.com/facebookresearch/sam2/main/assets/model_diagram.png)
 
-![SAM 2 / SAM 3D Objects official illustration](https://raw.githubusercontent.com/facebookresearch/sam2/main/assets/model_diagram.png)
+*Follow frame features and memory into the mask prediction path.* [Official figure source](https://github.com/facebookresearch/sam2)
 
-*Illustration: [official project repository](https://github.com/facebookresearch/sam2); check source reuse terms.*
+![SAM 3D Objects architecture](https://raw.githubusercontent.com/facebookresearch/sam-3d-objects/main/doc/arch.png)
 
-## Architecture and workflow
+*The reconstruction conditions on the target region and predicts 3D properties. Compare its output boundary with SAM 2’s 2D mask.* [Official figure source](https://github.com/facebookresearch/sam-3d-objects)
 
-```mermaid
-flowchart LR
-    A["Image or video + prompt"] --> B["segmentation mask"] --> C["optional 3D reconstruction"] --> D["review"]
-```
+## How it works
 
-*Conceptual illustration for this guide; refer to official sources for supported implementations.*
+**SAM 2.** A prompt encoder represents points or boxes. An image encoder supplies frame features, and the mask decoder emits a segmentation. Video inference uses memory from earlier interactions and predicted masks to condition later frames.
 
-Select an object using a point, box or other supported prompt; produce and review a mask. A separate SAM 3D Objects workflow can use an image and mask to reconstruct an object.
+**SAM 3D Objects.** A target mask and image condition a reconstruction pipeline for shape and appearance. Its output is a 3D prediction whose invisible surfaces depend on learned priors.
 
-## Use cases
+## A practical workflow
 
-Segment objects across video frames or reconstruct a 3D object for scene understanding.
+Label an object in an early video frame, propagate the mask with SAM 2, and correct drift at occlusion boundaries. Choose a clear frame and mask for SAM 3D Objects. Inspect its result from unseen angles before using it as a visualization asset.
 
-## Connections
+## What to verify
 
-Grounding DINO may supply boxes; 3D output can support downstream reconstruction workflows. These are separate models, not one automatic pipeline.
+Measure mask quality before reconstruction. Confirm geometry scale, orientation and suitability for downstream tasks. Use independently measured geometry when dimensions or collision accuracy are critical. Review the separate SAM 2 and SAM 3D Objects terms.
+
+## License and availability
+
+SAM 2 code and model terms must be checked independently. SAM 3D Objects code and checkpoints are governed by the SAM License; review its terms and dependencies.
 
 ## Official references
 
-- [Project source](https://github.com/facebookresearch/sam2)
-- [Documentation / related project](https://github.com/facebookresearch/sam-3d-objects)
+- [Official technical reference](https://github.com/facebookresearch/sam2)
+- [SAM 3D Objects architecture and demo](https://github.com/facebookresearch/sam-3d-objects)

@@ -1,25 +1,42 @@
 # Isaac ROS
-[← Back to catalog](../../README.md) · [한국어](../ko/isaac-ros.md)
 
-Collection of GPU-accelerated ROS 2 robotics packages.
+[← Catalog](../../README.md) · [한국어](../ko/isaac-ros.md)
 
-**Official sources:** [Documentation](https://nvidia-isaac-ros.github.io/) · [Common code](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common)  
-**License and scope:** Package terms vary; check licenses for each repository and distribution.
+Isaac ROS packages connect accelerated perception, localization and manipulation to ROS 2. The Perceptor reference workflow shows how individually reusable nodes form a complete robot perception stack.
 
-> Official image: no verified image is included; the conceptual flow below illustrates the role.
+![Isaac Perceptor data flow](https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-3.1/resources/isaac_ros_docs/repositories_and_packages/isaac_perceptor/perceptor_diagram.png)
 
-## Architecture and workflow
+*Follow the stereo input as it splits into odometry and depth and rejoins at Nvblox. The diagram documents Perceptor release 3.1.* [Official figure source](https://nvidia-isaac-ros.github.io/v/release-3.1/reference_workflows/isaac_perceptor/technical_details.html)
 
-The following is an illustrative workflow, not an official architecture or a claim of automatic integration.
+## How it works
 
-**Sensor topics → accelerated ROS 2 perception and inference → mapping or planning → robot application**
+1. **Sensor layer.** Time-synchronized stereo frames can come from Nova cameras, a recording or Isaac Sim. Image pipeline nodes rectify frames.
+2. **Parallel geometry branches.** Stereo depth estimates distance along camera rays. Visual SLAM estimates motion and pose from sequences of images.
+3. **Map and planner.** Nvblox integrates depth at the estimated pose to build a local voxel map. A 2D costmap plugin makes obstacles available to Nav2. NITROS supports efficient transfer for nodes that negotiate compatible accelerated message formats.
 
-## Example use case
+### Component interfaces
 
-Build a perception and navigation pipeline on a CUDA-capable robot computer.
+| Component | Input | Output |
+|---|---|---|
+| Stereo acquisition | Synchronized left/right images and camera info | Rectified image topics to depth and SLAM |
+| Geometry | Stereo disparity and tracked camera poses | Depth image and world-to-camera relationship to mapping |
+| Local planning | Voxel reconstruction and configured slice heights | Costmap layer queried by Nav2 |
 
-## Related technologies
+## A practical workflow
 
-ROS 2, Jetson, Isaac ROS Visual SLAM, Nvblox.
+Replay a warehouse rosbag first. Inspect rectified images, then visualize odometry and the depth image separately. Add Nvblox and check that a stationary pallet stays in one place in the map as the robot moves. Connect the costmap to Nav2 once localization and obstacle marking agree.
 
-Check version compatibility, data formats, and model and dependency terms in the official sources for your setup.
+## What to verify
+
+Confirm topic remaps, timestamp synchronization, camera calibration and TF connectivity. Measure sensor-to-costmap latency and watch for conversions across CPU/GPU boundaries. Start with a release-specific reference launch and compatible drivers.
+
+## License and availability
+
+Package terms vary; check licenses for each repository and distribution.
+
+## Official references
+
+- [Isaac Perceptor data flow](https://nvidia-isaac-ros.github.io/v/release-3.1/reference_workflows/isaac_perceptor/technical_details.html)
+- [Isaac for Manipulation reference architecture](https://nvidia-isaac-ros.github.io/v/release-4.6/reference_workflows/isaac_for_manipulation/reference_architecture.html)
+- [Related official resource · nvidia-isaac-ros.github.io](https://nvidia-isaac-ros.github.io/)
+- [Related official resource · github.com](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common)

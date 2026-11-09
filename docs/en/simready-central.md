@@ -1,30 +1,62 @@
 # SimReady Central
 
-[Catalog](../../README.md) · [한국어](../ko/simready-central.md)
+[← Catalog](../../README.md) · [한국어](../ko/simready-central.md)
 
-A submission and review index for owner-hosted Hugging Face simulation asset packages.
+SimReady Central’s GitHub repository is the submission and review index. Contributors keep asset packages in owner-hosted Hugging Face datasets. The GitHub submission lists the exact versions that should be reviewed.
 
-**Official sources:** [GitHub](https://github.com/NVIDIA-Omniverse/simready-central)
+## Architecture
 
-**License and access:** Public repository; submission onboarding and asset terms apply separately. Models, data, dependencies and hosted services may have separate terms; check each source before use.
+| Component | Responsibility and data boundary |
+|---|---|
+| Asset preparation and hosting | The submission tooling checks and packages OpenUSD assets, then uploads to the contributor’s Hugging Face dataset. Package definitions describe metadata and evidence. |
+| Pinned submission manifest | A file under `submissions/<namespace>/<dataset>` lists immutable package-definition URLs with Hugging Face commit hashes. Each update supplies the full intended list. |
+| PR validation and indexing | Automated checks and reviewer approval gate merge. Accepted data becomes eligible for discovery according to the service and license conditions. The package stays with its owner. |
 
-## Workflow
-
-The following conceptual diagram is an explanatory overview, not an official architecture diagram.
+Guide diagram based on the official references below.
 
 ```mermaid
 flowchart LR
-  S0["Prepare an owner-hosted package"]
-  S1["submit registration"]
-  S2["review"]
-  S3["discover accepted assets in the library"]
-  S0 --> S1 --> S2 --> S3
+    usd["OpenUSD asset and evidence"]
+    pkg["Validate and package"]
+    hf["Owner-hosted HF dataset revision"]
+    index["Pinned package URLs in PR"]
+    review["Acceptance checks and review"]
+    browse["Accepted index and discovery"]
+    usd --> pkg
+    pkg --> hf
+    hf --> index
+    index --> review
+    review --> browse
 ```
 
-## Use case
+### Official figures and examples
 
-Make assets discoverable while preserving their original hosting and licensing.
+![NVIDIA’s contributor workflow connects OEM asset preparation and validation with submission and developer discovery.](https://cdn-uploads.huggingface.co/production/uploads/6abfe9e7d7cf09a9b38ef308/_o9mV5oHYpmPQzpHkzpDV.png)
 
-## Related technologies
+NVIDIA’s contributor workflow connects OEM asset preparation and validation with submission and developer discovery. [Original figure and context](https://huggingface.co/blog/nvidia/simready-central-assets-robotics-ai-factories)
 
-SimReady Central Library, Hugging Face, OpenUSD. Confirm compatibility and runtime requirements in the documentation for each version.
+## Walkthrough
+
+1. For an equipment manufacturer publishing a gripper, complete the documented onboarding. Pick a profile, validate the asset and package it in your own dataset with license and validation evidence.
+2. Submit the package-definition URL pinned to the intended dataset commit. To update a submission, preserve the other package lines that should stay available.
+3. Use the repository’s local library workflow to inspect submitted package fields such as owner, version, license and validation. Fix failures in the package before requesting review again.
+
+## Validation
+
+- Use an immutable commit URL. A moving branch URL makes it difficult to reproduce the reviewed asset.
+- Onboarding, acceptance and discovery are separate stages. Confirm applicable licensing and acceptance criteria before submitting.
+
+## License and scope
+
+The submission repository has an Apache-2.0 license. Onboarding, hosted services and contributed asset packages have separate terms.
+
+## Related guides
+
+[SimReady Central Library](simready-central-library.md) · [SimReady Foundation](simready-foundation.md)
+
+## Official references
+
+- [Official submission index and flow](https://github.com/NVIDIA-Omniverse/simready-central)
+- [Acceptance criteria](https://github.com/NVIDIA-Omniverse/simready-central/blob/main/docs/acceptance-criteria.md)
+- [Inspect a submission locally](https://github.com/NVIDIA-Omniverse/simready-central/blob/main/docs/index-to-library-guide.md)
+- [Submission repository license](https://github.com/NVIDIA-Omniverse/simready-central/blob/main/LICENSE)

@@ -2,42 +2,41 @@
 
 [← 전체 목록](../../README.ko.md) · [English](../en/foundationstereo.md)
 
-![FoundationStereo stereo depth output](https://raw.githubusercontent.com/NVlabs/FoundationStereo/master/teaser/output.jpg)
+FoundationStereo는 정류한 스테레오 영상의 밀집 시차를 예측합니다. 보정 파라미터로 시차를 미터 단위 깊이로 바꿉니다.
 
-이미지: 아래 공식 프로젝트 출처.
+![FoundationStereo 네트워크 개요](https://nvlabs.github.io/FoundationStereo/static/images/overview.jpg)
 
-## 소개
+*특징 추출부터 비용 필터링과 반복 시차 보정까지 따라가 보세요.* [공식 그림 출처](https://nvlabs.github.io/FoundationStereo/)
 
-스테레오 깊이 추정 연구 코드·모델.
+![FoundationStereo 깊이 예시](https://nvlabs.github.io/FoundationStereo/static/images/intro.jpg)
 
-## 개념적 워크플로
+*입력 영상과 복원 깊이를 대조하고 깊이가 급변하는 경계의 세부 형상을 확인해 보세요.* [공식 그림 출처](https://nvlabs.github.io/FoundationStereo/)
 
-```mermaid
-flowchart LR
-    n0["스테레오 이미지 쌍 촬영"] --> n1
-    n1["깊이 추정"] --> n2
-    n2["기하 결과 검토"] --> n3
-    n3["후속 인식에 활용"]
-```
+## 어떻게 동작하나
 
-## 활용 흐름과 사례
+논문의 네트워크는 CNN의 세밀한 국소 특징과 DepthAnythingV2의 단안 단서를 결합합니다. 혼합 비용 볼륨은 좌우 영상에서 가능한 대응을 표현합니다. 어텐션 기반 필터링이 영상 위치와 시차 방향의 문맥을 모으고, 반복 갱신 단계가 비용 및 상관 특징으로 시차 추정을 개선합니다.
 
-스테레오 이미지 쌍 촬영 → 깊이 추정 → 기하 결과 검토 → 후속 인식에 활용. 개념적인 흐름이며 버전별 사전 요구사항과 지원 구성은 공식 문서를 확인한다.
+### 구성 요소별 입출력
 
-**활용 사례:** 카메라 쌍을 통한 장면 깊이 추정. 지원 입력과 모델 버전은 공식 출처에서 확인한다.
+| 구성 요소 | 입력 | 출력 |
+|---|---|---|
+| 특징 추출 | 정류 좌우 RGB 영상 | CNN과 단안 사전 정보 특징 |
+| 대응 및 보정 | 좌우 특징 | 영상 좌표의 밀집 시차 |
+| 투영 | 시차와 스테레오 보정값 | 미터 단위 깊이 또는 점군 |
 
-**연결 기술:** Isaac ROS DNN Stereo Depth.
+## 실전 워크플로
 
-## 구성과 실제 활용
+무광·유광·투명 물체가 있는 상자를 보정된 카메라로 촬영합니다. 시차를 깊이로 바꿔 3D 점으로 투영하고 알려진 물체 거리와 비교합니다. 물체 경계와 배경의 오차를 나눠 살펴봅니다.
 
-FoundationStereo는 스테레오 영상 쌍에서 조밀한 시차 지도를 생성합니다. 카메라 보정 정보를 이용하면 실제 단위의 깊이나 3D 포인트 클라우드로 변환할 수 있습니다. 예를 들어 로봇 인식용 장면 깊이를 확인할 수 있으며 연구 코드와 상용 배포 모델의 조건은 구분해야 합니다.
+## 검증할 항목
 
-[공식 문서](https://github.com/NVlabs/FoundationStereo)
+모델을 비교할 때 카메라 보정과 간격을 고정합니다. 유효 깊이 비율, 거리별 오차와 배포 해상도에서의 지연을 측정합니다. 벤치마크 결과는 데이터셋과 장비에 따라 달라집니다.
 
-## 공개 및 이용 조건
+## 공개 범위와 라이선스
 
 연구 코드 비상업적 제한; 별도 상업용 모델 제공 여부와 조건은 해당 배포물 확인. 사용 전 해당 버전과 모델·데이터·바이너리·의존성의 조건을 각각 확인한다.
 
-## 공식 출처
+## 공식 자료
 
-[저장소](https://github.com/NVlabs/FoundationStereo)
+- [연구 아키텍처와 벤치마크 예제](https://nvlabs.github.io/FoundationStereo/)
+- [관련 공식 자료 · github.com](https://github.com/NVlabs/FoundationStereo)

@@ -2,20 +2,24 @@
 
 [Catalog](../../README.md) · [한국어](../ko/datasets-robot-demonstrations.md)
 
-Review each official dataset card for formats, access requirements and license. Public access does not mean unrestricted use.
+These datasets cover real teleoperation, simulated trajectories, grasps and benchmark tasks. The useful unit for policy training is usually an episode with synchronized observations and actions, tied to an embodiment and task.
 
-## Selection and use
+## Compare concrete schemas
 
-This is a conceptual workflow.
+| Card | Data | Integration check |
+|---|---|---|
+| [GR00T Teleop G1](#physicalai-robotics-gr00t-teleop-g1) | MP4 and HDF5 with 43-dimensional observation and action vectors. The card documents 640 × 480 RGB at 20 FPS | Confirm full-body and hand joint order and align each video to its matching trajectory |
+| [Manipulation Kitchen](#physicalai-robotics-manipulation-kitchen) | LeRobot-format simulated tasks such as opening a drawer or a dishwasher. The card describes a 34-dimensional action and a 13-dimensional object-state observation plus camera streams | Select head, wrist and external cameras deliberately. Match joint and observation definitions to the policy |
+| [GraspGen](#physicalai-robotics-graspgen) | Grasp data and object assets | Check the gripper geometry, object frame and units before using grasps as targets |
+| [GR00T Eval](#physicalai-robotics-gr00t-eval) | Evaluation assets and tasks | Confirm the protocol and keep evaluation data separate from training |
 
-```mermaid
-flowchart LR
-  S0["Select robot embodiment and task"]
-  S1["inspect trajectories and terms"]
-  S2["prepare training data"]
-  S3["evaluate policy"]
-  S0 --> S1 --> S2 --> S3
-```
+![Official simulated kitchen world-camera rollout](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Kitchen/resolve/main/assets/episode_000004_world.gif)
+
+This official kitchen example shows a world view. The card also provides head and wrist views for comparison. A policy using wrist images sees a different crop and motion pattern from an evaluation replay using the world camera. [Official kitchen camera and schema examples](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Kitchen#dataset-format)
+
+## Worked example — test ingestion on one trajectory
+
+Read a single G1 pick-and-place trajectory, decode the matching MP4, and plot or replay several action and observation joints against the contact frame. Check dimension, order, units, sample timing and whether the stored action is compatible with the controller. Before mixing real and simulated data, keep embodiment and source labels and split by original episode or collection session. [Official G1 card](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-Teleop-G1) · [GR00T model](groot-model.md)
 
 ## Dataset details
 
@@ -202,4 +206,3 @@ Franka cube-stacking task trajectories.
 
 **License and access:** CC-BY-NC-4.0; public.  
 **Official dataset card:** [PhysicalAI-Robotics-mindmap-Franka-Cube-Stacking](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-mindmap-Franka-Cube-Stacking)
-

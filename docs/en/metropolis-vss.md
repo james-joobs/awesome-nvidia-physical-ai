@@ -1,41 +1,43 @@
 # Metropolis / VSS
 
-[← All projects](../../README.md) · [한국어](../ko/metropolis-vss.md)
+[← Catalog](../../README.md) · [한국어](../ko/metropolis-vss.md)
 
-## Overview
+Metropolis is NVIDIA’s video AI ecosystem. Its Video Search and Summarization Blueprint (VSS) describes reference architectures for analytics, timestamped video reasoning and agent-driven search.
 
-Video AI platform / video search and summarization workflow.
+![VSS high-level architecture](https://docs.nvidia.com/vss/_fern-files/_img/e3a2810a613f30c365cd8ad42ca684fad69f222838e3d9e49ec4226044fba0de.webp)
 
-## Conceptual workflow
+*The diagram splits real-time extraction from analytics and agent workflows. Locate the shared records and video evidence that connect them.* [Official figure source](https://docs.nvidia.com/vss)
 
-```mermaid
-flowchart LR
-    n0["Ingest video"] --> n1
-    n1["run video AI analysis"] --> n2
-    n2["index events or clips"] --> n3
-    n3["search and summarize"]
-```
+![VSS file summarization architecture](https://docs.nvidia.com/vss/_fern-files/_img/6bb9edc3e4cd755a499d9dfb3bd00f777d5bc3e06186d02b1f2909770f025206.webp)
 
-## Workflow and use
+*Follow a file upload to VLM events and the aggregated summary. The timestamps connect each event back to the source media.* [Official figure source](https://docs.nvidia.com/vss/system-components/vision-microservices/video-summarization)
 
-Ingest video → run video AI analysis → index events or clips → search and summarize. This is a conceptual workflow; check the official source for version-specific prerequisites and supported configurations.
+## How it works
 
-**Example use case:** searching footage for relevant events. Check applicability, supported inputs and model versions in the official source.
+VSS separates real-time extraction, downstream analytics and agent/offline processing. DeepStream can emit detections and tracks, while a real-time VLM can produce captions or event candidates. Consumers retrieve records and video clips using timestamps. In the file summarization profile, a service chunks the file, calls the VLM, stores timestamped events and aggregates them with a summarization model. The streaming profile can add message-bus components.
 
-**Related technologies:** DeepStream, Cosmos Embed.
+### Component interfaces
 
-## Architecture and example
+| Component | Input | Output |
+|---|---|---|
+| Real-time CV or VLM | Video stream, processing profile and models | Detections, tracks, captions or event candidates |
+| Event storage and verification | Timestamped events and relevant clips | Searchable events with source references |
+| Agent and summarization | Question or summary request and retrieved evidence | Answer, timestamped summary or clip reference |
 
-The Metropolis video search and summarization reference architecture combines vision-language models, language models and retrieval components to analyze and search live or recorded footage.
+## A practical workflow
 
-Search a warehouse camera archive for a described event and inspect the corresponding video segments.
+Index a short facility video and ask for a timestamped summary of an event. Use the returned timestamps to retrieve the original clip and compare the claim with visible evidence. Start with a file before adding a continuous RTSP workload.
 
-[Official technical source](https://developer.nvidia.com/blog/?p=116772)
+## What to verify
 
-## Availability and terms
+Measure event recall, false positives, clip timestamp alignment and processing latency separately. Keep raw detections, model explanations and verified events distinguishable in downstream records. Check supported service images and deployment profiles.
+
+## License and availability
 
 Platform and services; individual SDKs and models have separate terms. Verify the exact version and the terms of any models, datasets, binaries and dependencies before use.
 
-## Official sources
+## Official references
 
-[Metropolis](https://developer.nvidia.com/metropolis)
+- [Architecture and workflow documentation](https://docs.nvidia.com/vss)
+- [Video summarization deployment profiles](https://docs.nvidia.com/vss/system-components/vision-microservices/video-summarization)
+- [Related official resource · developer.nvidia.com](https://developer.nvidia.com/metropolis)

@@ -2,44 +2,20 @@
 
 [← All projects](../../README.md) · [한국어](../ko/cdf-orchestration.md)
 
-![CDF Orchestration official example](https://raw.githubusercontent.com/NVIDIA/cdf-orchestration/main/docs/assets/architecture_diagram.png)
+CDF Orchestration runs the reference blueprints as Airflow DAGs on Kubernetes. The build packages DAGs and plugins into the Airflow controller image. Individual jobs can deploy inference services or run batch processing.
 
-Image: official project source linked below.
+## Official control and execution flow
 
-## Overview
+![NVIDIA CDF Orchestration architecture](https://raw.githubusercontent.com/NVIDIA/cdf-orchestration/main/docs/assets/architecture_diagram.png)
 
-Runs and manages data factory workflows.
+Read the Airflow controller as the dependency manager. Kubernetes is the execution environment for the jobs and the in-cluster services. Object storage holds input and output artifacts. For documented OSMO routes, the workflow uses external model endpoints. [Official architecture](https://github.com/NVIDIA/cdf-orchestration#architecture) · [Getting started](https://github.com/NVIDIA/cdf-orchestration/blob/main/docs/getting-started.md)
 
-## Conceptual workflow
+![NVIDIA SMT defect workflow](https://raw.githubusercontent.com/NVIDIA/cdf-orchestration/main/docs/defect-image-generation/assets/smt-workflow.png)
 
-```mermaid
-flowchart LR
-    n0["Define a data workflow"] --> n1
-    n1["schedule processing tasks"] --> n2
-    n2["monitor execution"] --> n3
-    n3["inspect outputs"]
-```
+The SMT blueprint makes the distinction concrete. Simulation creates labeled board or component renders, augmentation adjusts appearance, and defect generation produces more defect examples. Separate artifacts let an operator inspect or rerun one part of the workflow. [SMT blueprint](https://github.com/NVIDIA/cdf-orchestration/blob/main/docs/defect-image-generation/getting-started.md)
 
-## Workflow and use
+## Worked example — diagnose a failed defect run
 
-Define a data workflow → schedule processing tasks → monitor execution → inspect outputs. This is a conceptual workflow; check the official source for version-specific prerequisites and supported configurations.
+Pin the DAG image and model endpoints for a small board job. Record the scene, job configuration and output prefix. If a later stage fails, inspect intermediate renders and task logs to tell apart scene/configuration failures, storage access errors and endpoint failures. Confirm output counts and sample IDs before restarting a failed run or publishing an export.
 
-**Example use case:** managing video processing workflows. Check applicability, supported inputs and model versions in the official source.
-
-**Related technologies:** Cosmos Data Factory, OSMO.
-
-## Architecture and example
-
-The orchestrator packages Airflow DAGs and plugins into a controller image and deploys workflow tasks and GPU inference services on Kubernetes. Some documented workflows also support OSMO.
-
-Run a video augmentation DAG to vary lighting and weather and produce associated annotations.
-
-[Official technical source](https://github.com/NVIDIA/cdf-orchestration)
-
-## Availability and terms
-
-The repository states Apache-2.0; execution services and dependencies may have separate terms. Verify the exact version and the terms of any models, datasets, binaries and dependencies before use.
-
-## Official sources
-
-[Repository](https://github.com/NVIDIA/cdf-orchestration)
+The repository is Apache-2.0. Check underlying services, model endpoints and third-party dependencies separately. [Official terms](https://github.com/NVIDIA/cdf-orchestration#license-and-contributions)

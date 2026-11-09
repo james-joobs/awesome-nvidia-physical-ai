@@ -1,43 +1,39 @@
 # MimicGen
 
-[← All projects](../../README.md) · [한국어](../ko/mimicgen.md)
+[← Back to catalog](../../README.md) · [한국어](../ko/mimicgen.md)
 
-![MimicGen demonstration generation](https://raw.githubusercontent.com/NVlabs/mimicgen/main/docs/images/mimicgen.gif)
+MimicGen reuses parts of existing robot demonstrations to create new imitation-learning episodes. It relies on observed object poses and task boundaries so recorded robot motions can be adapted when an object starts in a different place.
 
-Image: official project source linked below.
+## Architecture and data flow
 
-## Overview
+| Component | Inputs, processing and outputs |
+|---|---|
+| **Task interface** | The environment exposes reference object poses and signals that identify the ends of subtasks. For example, a grasp signal can mark the transition from grasping to placing. |
+| **Source selection and transformation** | The generator chooses source segments, expresses their end-effector trajectories relative to the relevant object, and transforms them using the current object pose. A transition joins the current robot pose to the adapted trajectory. |
+| **Execution and acceptance** | The simulation executes each adapted segment. Task success conditions determine which trials become successful demonstration episodes. |
 
-Generates varied robot demonstrations from existing demonstrations.
+![The official overview shows how a few source demonstrations can generate episodes under varied scene configurations. The object-relative segments explain which parts of motion can be transferred.](https://mimicgen.github.io/resources/overview.png)
 
-## Conceptual workflow
+The official overview shows how a few source demonstrations can generate episodes under varied scene configurations. The object-relative segments explain which parts of motion can be transferred. [Official figure source](https://mimicgen.github.io/)
 
-```mermaid
-flowchart LR
-    n0["Collect a small set of demonstrations"] --> n1
-    n1["generate task variations in simulation"] --> n2
-    n2["validate trajectories"] --> n3
-    n3["train a policy"]
-```
+## Worked example
 
-## Workflow and use
+1. Break a pick-and-place task into a segment relative to the object being picked and another segment relative to its placement target. Supply the pose and termination signals in the simulator.
+2. Randomize the two starting poses and inspect both accepted and failed rollouts. Train a policy on accepted episodes, then test it in placements excluded from generation.
 
-Collect a small set of demonstrations → generate task variations in simulation → validate trajectories → train a policy. This is a conceptual workflow; check the official source for version-specific prerequisites and supported configurations.
+## What to verify
 
-**Example use case:** varying object positions for manipulation training. Check applicability, supported inputs and model versions in the official source.
+- The first transition of each task termination signal must represent the actual semantic boundary. Wrong timing can transfer the wrong motion relative to an object.
+- Count attempted and successful generations separately. Changes in robot morphology, reach and scene constraints affect which demonstrations can be reused.
 
-**Related technologies:** Isaac Lab, AutoData.
+## Official references and terms
 
-## Architecture and practical details
+The repository publishes source under the NVIDIA Source Code License. Refer to the repository terms for permitted uses.
 
-MimicGen parses a source dataset into segments using subtask termination signals, chooses source segments, and transforms and composes their waypoints into new trajectories. The official getting-started example generates a square-task dataset and records successful and failed trajectories separately; inspect success statistics before training.
+- [Research project and overview diagram](https://mimicgen.github.io/)
+- [Source and license](https://github.com/NVlabs/mimicgen)
+- [Custom task interface](https://github.com/NVlabs/mimicgen/blob/main/docs/tutorials/datagen_custom.md)
 
-[Official documentation](https://github.com/NVlabs/mimicgen/blob/main/docs/tutorials/getting_started.md)
+## Related guides
 
-## Availability and terms
-
-Source available under NVIDIA Source Code License; do not assume unrestricted open-source use. Verify the exact version and the terms of any models, datasets, binaries and dependencies before use.
-
-## Official sources
-
-[Repository](https://github.com/NVlabs/mimicgen)
+[DexMimicGen](dexmimicgen.md) · [AutoData](autodata.md) · [SkillGen](skillgen.md)

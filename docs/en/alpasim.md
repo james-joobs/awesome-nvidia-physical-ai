@@ -1,36 +1,41 @@
 # AlpaSim
 
-[Catalog](../../README.md) · [한국어](../ko/alpasim.md)
+[← Catalog](../../README.md) · [한국어](../ko/alpasim.md)
 
-A modular autonomous-driving simulator for testing policies in a closed feedback loop.
+AlpaSim evaluates autonomous driving policies in a closed loop. As the policy moves the ego vehicle, the next sensor observations are rendered from the new state.
 
-**Official sources:** [Repository](https://github.com/NVlabs/alpasim)
+![AlpaSim service architecture](https://raw.githubusercontent.com/NVlabs/alpasim/main/docs/assets/images/alpasim-architecture.png)
 
-**License and access:** Code: Apache-2.0; models and data have separate terms. Models, data, dependencies and hosted services may have separate terms; check each source before use.
+*The runtime orchestrates the components and writes logs for a separate evaluator. Follow the rendered observations back to the driver to see where the loop closes.* [Official figure source](https://github.com/NVlabs/alpasim/blob/main/docs/DESIGN.md)
 
-![AlpaSim driving simulation](https://raw.githubusercontent.com/NVlabs/alpasim/main/docs/assets/images/thumbnail.gif)
+![AlpaSim demonstration](https://raw.githubusercontent.com/NVlabs/alpasim/main/docs/assets/images/thumbnail.gif)
 
-Image source: [AlpaSim](https://github.com/NVlabs/alpasim)
+*The driving example shows the output you can inspect alongside episode metrics.* [Official figure source](https://github.com/NVlabs/alpasim)
 
-**Architecture.** A driver policy receives simulated observations and returns trajectories; the simulator advances the vehicle and supplies the next observation. The modular services and their interfaces are described in the [official design](https://github.com/NVlabs/alpasim/blob/main/docs/DESIGN.md).
+## How it works
 
-## Workflow
+The runtime advances simulation time and calls Python services through gRPC. The renderer produces observations from a scene and pose. The driver converts observations into a plan, and the controller and physics advance the ego state under vehicle and ground constraints. The evaluator runs over recorded output outside the main loop. Rendering backends can share a service interface, including the documented neural reconstruction and video-model backends.
 
-The following conceptual diagram is an explanatory overview, not an official architecture diagram.
+### Component interfaces
 
-```mermaid
-flowchart LR
-  S0["Select scene and driver policy"]
-  S1["simulate sensors and vehicle motion"]
-  S2["feed observations back"]
-  S3["evaluate rollout"]
-  S0 --> S1 --> S2 --> S3
-```
+| Component | Input | Output |
+|---|---|---|
+| Renderer | Scene, camera configuration and simulation state | Frames for the driver |
+| Driver and controller | Rendered observations, route and ego state | Policy trajectory, then vehicle commands |
+| Runtime and evaluator | Service outputs and simulation clock | Episode logs and derived metrics |
 
-## Use case
+## A practical workflow
 
-Compare autonomous-driving policies and test challenging scenarios.
+Start with a tutorial scene and reference driver. Keep the scene, route and initial pose fixed while changing one policy checkpoint. Inspect trajectory, collisions and route progress in the logs, then inspect the rendered video around failures. Repeat across scenes to avoid drawing conclusions from one reconstruction.
 
-## Related technologies
+## What to verify
 
-Alpamayo, AlpaGym, NuRec. Confirm compatibility and runtime requirements in the documentation for each version.
+Check scene and renderer compatibility, service health and route or camera configuration before comparing policies. The design prioritizes sensor fidelity and scale, so use a separate vehicle validation setup when precise dynamics or real-time operation is required.
+
+## License and availability
+
+Code: Apache-2.0; models and data have separate terms. Models, data, dependencies and hosted services may have separate terms; check each source before use.
+
+## Official references
+
+- [Architecture and workflow documentation](https://github.com/NVlabs/alpasim/blob/main/docs/DESIGN.md)

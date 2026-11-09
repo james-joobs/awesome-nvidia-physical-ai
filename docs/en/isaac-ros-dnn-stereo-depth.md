@@ -1,26 +1,34 @@
 # Isaac ROS DNN Stereo Depth
-[← Back to catalog](../../README.md) · [한국어](../ko/isaac-ros-dnn-stereo-depth.md)
 
-Neural stereo depth estimation in ROS 2.
+[← Catalog](../../README.md) · [한국어](../ko/isaac-ros-dnn-stereo-depth.md)
 
-**Official sources:** [Repository](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_dnn_stereo_depth)  
-**License and scope:** Apache-2.0 code; models separate.
+The stereo-depth packages estimate depth from calibrated camera pairs. Their documentation compares different models for throughput and accuracy tradeoffs.
 
-![Isaac ROS DNN Stereo Depth official example](https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-5.0/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_dnn_stereo_depth/ess3.0_conf0_r2b_storage_576p.gif)
-*Image source: [Repository](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_dnn_stereo_depth)*
+![ESS ROS node graph](https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-5.0/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_dnn_stereo_depth/isaac_ros_ess_nodegraph.png)
 
-## Architecture and workflow
+*The graph separates preprocessing, neural disparity and downstream conversion to depth.* [Official figure source](https://nvidia-isaac-ros.github.io/v/release-5.0/repositories_and_packages/isaac_ros_dnn_stereo_depth/index.html)
 
-The following is an illustrative workflow, not an official architecture or a claim of automatic integration.
+![ESS ROS node graph example](https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-5.0/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_dnn_stereo_depth/model_comparison.png)
 
-**Calibrated stereo images → neural stereo inference → depth image → mapping or perception**
+*The official model comparison helps identify which accuracy and throughput tradeoffs need to be retested on your hardware.* [Official figure source](https://nvidia-isaac-ros.github.io/v/release-5.0/repositories_and_packages/isaac_ros_dnn_stereo_depth/index.html)
 
-## Example use case
+## How it works
 
-Estimate depth from stereo cameras for a mobile robot.
+Rectification aligns corresponding image points along epipolar rows. The inference node predicts disparity from the left and right frames. Depth follows from focal length × stereo baseline ÷ disparity when units and calibration agree. ESS and FoundationStereo have different model and compute requirements. The resulting depth image can feed [Nvblox](isaac-ros-nvblox.md).
 
-## Related technologies
+## A practical workflow
 
-Isaac ROS DNN Inference, Nvblox, TensorRT.
+Measure a box at several known distances using your stereo rig. Compare depth near the center, occluding edges and reflective surfaces. Replay the same frames through the candidate models to compare latency and valid-pixel coverage.
 
-Check version compatibility, data formats, and model and dependency terms in the official sources for your setup.
+## What to verify
+
+Validate baseline and units, alignment, expected model input resolution, and handling of invalid or low-confidence pixels. Quantify depth error versus distance before choosing a model or confidence threshold.
+
+## License and availability
+
+Apache-2.0 code; models separate.
+
+## Official references
+
+- [Package overview and node graph](https://nvidia-isaac-ros.github.io/v/release-5.0/repositories_and_packages/isaac_ros_dnn_stereo_depth/index.html)
+- [ROS package source](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_dnn_stereo_depth)

@@ -1,26 +1,34 @@
 # Isaac ROS Object Detection
-[← Back to catalog](../../README.md) · [한국어](../ko/isaac-ros-object-detection.md)
 
-ROS 2 object-detection packages.
+[← Catalog](../../README.md) · [한국어](../ko/isaac-ros-object-detection.md)
 
-**Official sources:** [Repository](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_object_detection)  
-**License and scope:** Apache-2.0; models separate.
+The object detection packages publish model-specific 2D detections from ROS camera streams. They supply perception results to downstream tracking or manipulation.
 
-![Isaac ROS Object Detection official example](https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-5.0/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_object_detection/isaac_ros_object_detection_example_bbox.png)
-*Image source: [Repository](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_object_detection)*
+![Object detection node graph](https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-5.0/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_object_detection/isaac_ros_object_detection_nodegraph.png)
 
-## Architecture and workflow
+*The output boundary is a set of 2D detections. Downstream nodes decide how to consume them.* [Official figure source](https://nvidia-isaac-ros.github.io/v/release-5.0/repositories_and_packages/isaac_ros_object_detection/index.html)
 
-The following is an illustrative workflow, not an official architecture or a claim of automatic integration.
+![Object detection node graph example](https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-5.0/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_object_detection/isaac_ros_object_detection_example_bbox.png)
 
-**Camera image → detector inference → bounding boxes and labels → downstream application**
+*The overlay shows class boxes placed back on an input image.* [Official figure source](https://nvidia-isaac-ros.github.io/v/release-5.0/repositories_and_packages/isaac_ros_object_detection/index.html)
 
-## Example use case
+## How it works
 
-Detect objects in a ROS 2 robot perception graph.
+The documented graph starts with an image encoder and a neural runtime. A detector-specific decoder produces 2D boxes, confidence and class labels. For example, a fixed-class detector uses its trained label set. An application can pass a detected box to a promptable segmentation node or use it to select an object region.
 
-## Related technologies
+## A practical workflow
 
-Isaac ROS DNN Inference, TensorRT.
+Use a bench camera to detect totes. Inspect images with overlays, then match detection timestamps against RGB frames and record false positives around similar packaging. If you need grasp coordinates, add depth and pose estimation.
 
-Check version compatibility, data formats, and model and dependency terms in the official sources for your setup.
+## What to verify
+
+Confirm trained label IDs, confidence and suppression settings, box coordinate conventions and model licensing. Evaluate detection under the actual viewing distance, occlusion and lighting.
+
+## License and availability
+
+Apache-2.0; models separate.
+
+## Official references
+
+- [Package overview and node graph](https://nvidia-isaac-ros.github.io/v/release-5.0/repositories_and_packages/isaac_ros_object_detection/index.html)
+- [ROS package source](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_object_detection)

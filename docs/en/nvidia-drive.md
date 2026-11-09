@@ -1,40 +1,37 @@
 # NVIDIA DRIVE
 
-[← All projects](../../README.md) · [한국어](../ko/nvidia-drive.md)
+[← Catalog](../../README.md) · [한국어](../ko/nvidia-drive.md)
 
-## Overview
+DRIVE spans automotive compute and software. DRIVE AGX is the target compute platform, DriveOS supplies its operating system and runtime stack, and DriveWorks provides automotive middleware and development modules.
 
-Autonomous-driving hardware and software platform.
+## How it works
 
-## Conceptual workflow
+Sensors enter through platform drivers and media interfaces. DriveWorks helps integrate sensor streams and accelerated application components. CUDA and TensorRT provide compute and inference, while application code owns perception, planning and control decisions. The developer kit enables software integration and testing on representative compute.
 
 ```mermaid
 flowchart LR
-    n0["Prepare driving software and models"] --> n1
-    n1["develop on DRIVE platform"] --> n2
-    n2["validate for the target vehicle"]
+    S["Vehicle sensors"] --> D["DriveOS drivers and media interfaces"]
+    D --> W["DriveWorks middleware"]
+    W --> A["AV application"]
+    C["CUDA and TensorRT"] --> A
+    A --> O["Application outputs and logs"]
 ```
 
-## Workflow and use
+## A practical workflow
 
-Prepare driving software and models → develop on DRIVE platform → validate for the target vehicle. This is a conceptual workflow; check the official source for version-specific prerequisites and supported configurations.
+Replay a recorded camera or sensor sequence with a reference application on the intended DRIVE AGX kit. Compare timestamp handling and inference results with development logs, then evaluate missed deadlines and recovery when a feed stops.
 
-**Example use case:** developing autonomous driving software. Check applicability, supported inputs and model versions in the official source.
+## What to verify
 
-**Related technologies:** Alpamayo, AlpaSim.
+Confirm the exact DRIVE platform and SDK version, access conditions and supported sensors. Validate timing, fault behavior and target hardware before vehicle-level testing. The DriveOS guide includes a version-specific software stack diagram.
 
-## Architecture and example
-
-DRIVE AGX provides automotive compute hardware; the DRIVE OS SDK supplies the system software and interfaces used to develop and test automotive AI workloads.
-
-Integrate and evaluate a vehicle sensor-processing stack on a DRIVE AGX developer kit before vehicle-level validation.
-
-[Official technical source](https://developer.nvidia.com/DRIVE)
-
-## Availability and terms
+## License and availability
 
 Product/platform; check component terms. Verify the exact version and the terms of any models, datasets, binaries and dependencies before use.
 
-## Official sources
+## Official references
 
-[Official page](https://developer.nvidia.com/drive)
+- [Architecture and workflow documentation](https://developer.nvidia.com/drive/faq)
+- [DriveOS 6.0.7 Linux SDK guide and stack diagram](https://developer.nvidia.com/docs/drive/drive-os/6.0.7/public/drive-os-linux-sdk/drive_os_v5l_sdk_dev_guide.pdf)
+- [Related official resource · developer.nvidia.com](https://developer.nvidia.com/DRIVE)
+- [Related official resource · developer.nvidia.com](https://developer.nvidia.com/drive)

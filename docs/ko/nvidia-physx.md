@@ -1,37 +1,67 @@
 # NVIDIA PhysX
 
-[← 전체 목록](../../README.ko.md) · [English](../en/nvidia-physx.md) · [공식 소스](https://github.com/NVIDIA-Omniverse/PhysX) · [공식 문서](https://nvidia-omniverse.github.io/PhysX/physx/5.4.0/docs/RigidBodyDynamics.html)
+[← 전체 목록](../../README.ko.md) · [English](../en/nvidia-physx.md)
 
-강체, 충돌, 제약 및 관절 시스템을 시뮬레이션하는 물리 SDK입니다.
+PhysX는 충돌 형상·강체·관절 기구의 물리 시뮬레이션과 장면 질의를 제공한다. Isaac Sim에서 USD에 작성한 물리 설정은 백엔드가 관리하는 물리 객체로 변환된다.
 
-**라이선스:** PhysX SDK는 BSD-3-Clause; 추가 구성 요소는 별도 확인. 사용 전에 해당 버전과 에셋·모델·의존성의 조건을 확인하세요.
+## 아키텍처
 
+| 구성 요소 | 역할과 데이터 경계 |
+|---|---|
+| `PxScene`과 액터 | 장면은 정적·동적 액터, 형상, 재질, 필터, 솔버 설정을 묶는다. 넓은 단계의 충돌 탐지에서 후보 쌍을 찾고 좁은 단계에서 접촉을 계산한다. |
+| 제약과 관절체 | 접촉과 관절이 강체 운동을 제한한다. 축소 좌표 관절체는 연결된 링크를 관절 좌표로 모델링하고 로봇 제어에 필요한 구동기를 제공한다. |
+| GPU 동역학과 광역 충돌 탐지 | 장면에서 GPU 강체 동역학과 GPU 광역 충돌 탐지를 각각 켤 수 있다. 지원 형상과 동작은 버전에 따라 달라진다. |
+| `simulate` / `fetchResults` | 시뮬레이션이 액터 상태를 진행하고 결과와 콜백을 애플리케이션에 전달한다. 레이캐스트 등의 기하 질의는 별도의 인터페이스로 장면을 읽는다. |
 
-
-## 구성과 아키텍처
-
-장면에 시뮬레이션 객체를 넣고 시간 단위로 진행합니다. 지원되는 구성에서는 GPU 강체 시뮬레이션 기능도 제공합니다.
+아래 공식 자료를 바탕으로 이 가이드에서 재구성한 그림입니다.
 
 ```mermaid
 flowchart LR
-    A["강체와 형상"] --> B["충돌·제약 처리"] --> C["물리 계산"] --> D["갱신된 상태"]
+    s["장면 형상과 필터"]
+    pairs["광역 충돌 후보"]
+    contacts["정밀 접촉 계산"]
+    j["관절 및 구동 제약"]
+    step["동역학 풀이와 적분"]
+    report["자세와 접촉 보고"]
+    s --> pairs
+    pairs --> contacts
+    contacts --> step
+    j --> step
+    step --> report
 ```
 
-*이 안내서에서 만든 개념적 흐름도입니다. 실제 구현은 공식 문서를 확인하세요.*
+### 공식 그림과 예시
 
-## 활용 흐름
+![PhysX 관절체 가이드의 예시. 관절로 이어진 링크 트리로 표현할 수 있는 기구들을 보여 준다.](https://nvidia-omniverse.github.io/PhysX/physx/5.4.0/_images/articulation_examples.png)
 
-형상·강체·관절·재질 속성으로 장면을 구성하고 시간을 진행한 뒤 상태와 접촉 결과를 애플리케이션에 활용합니다.
+PhysX 관절체 가이드의 예시. 관절로 이어진 링크 트리로 표현할 수 있는 기구들을 보여 준다. [그림 출처와 원문 설명](https://nvidia-omniverse.github.io/PhysX/physx/5.4.0/docs/Articulations.html)
 
-## 활용 사례
+![자유물체도는 관절체 링크에서 보고하는 유입 관절력의 방향과 의미를 해석하는 데 도움이 된다.](https://nvidia-omniverse.github.io/PhysX/physx/5.4.0/_images/articulation_incoming_joint_force_free_body.png)
 
-로봇 팔과 물체 상호작용, 충돌 동작, 상호작용형 3D 환경을 시뮬레이션할 수 있습니다.
+자유물체도는 관절체 링크에서 보고하는 유입 관절력의 방향과 의미를 해석하는 데 도움이 된다. [그림 출처와 원문 설명](https://nvidia-omniverse.github.io/PhysX/physx/5.4.0/docs/Articulations.html)
 
-## 연계 기술
+## 워크플로 예시
 
-Isaac Sim은 OpenUSD 기반 환경에서 물리 시뮬레이션을 사용합니다. PhysX는 물리 계산 SDK이고 OpenUSD는 장면을 기술합니다.
+1. 두 손가락 그리퍼 관절체를 만들고 정적 테이블 위에 강체 작업물을 배치한다. 링크 질량·관성, 콜라이더, 구동기 제한과 마찰 재질을 정의한다.
+2. 고정 시간 간격과 관절 위치 목표로 장면을 진행한다. 그리퍼를 닫고 들어 올리는 동안 작업물 자세와 접촉 보고를 기록한다.
+3. 마찰과 콜라이더 근사 형상을 각각 바꿔 어떤 설정이 파지 실패에 더 큰 영향을 주는지 확인한다.
+
+## 검증 포인트
+
+- 단순한 콜라이더로 시작해 무게중심, 관절 축, 구동 단위를 확인한다. 시각 메시가 맞아도 물리 표현에는 오류가 있을 수 있다.
+- 다수 환경이나 접촉이 많은 작업으로 확장하기 전에 SDK 버전의 GPU 버퍼 제한과 충돌 지원 표를 확인한다.
+
+## 라이선스와 범위
+
+PhysX SDK 코드는 BSD-3-Clause다. 상위 애플리케이션과 추가 구성 요소의 조건은 별도다.
+
+## 관련 가이드
+
+[Isaac Sim](isaac-sim.md) · [Isaac Lab](isaac-lab.md) · [Newton](newton.md)
 
 ## 공식 자료
 
-- [프로젝트 저장소](https://github.com/NVIDIA-Omniverse/PhysX)
-- [공식 문서](https://nvidia-omniverse.github.io/PhysX/physx/5.4.0/docs/RigidBodyDynamics.html)
+- [PhysX 소스 저장소](https://github.com/NVIDIA-Omniverse/PhysX)
+- [축소 좌표 관절체 및 구동기](https://nvidia-omniverse.github.io/PhysX/physx/5.4.0/docs/Articulations.html)
+- [GPU 장면 설정](https://nvidia-omniverse.github.io/PhysX/physx/5.4.0/docs/GPURigidBodies.html)
+- [시뮬레이션 제어와 결과](https://nvidia-omniverse.github.io/PhysX/physx/5.4.0/docs/Simulation.html)

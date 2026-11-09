@@ -1,30 +1,38 @@
 # TensorRT public code
 
-[Catalog](../../README.md) · [한국어](../ko/tensorrt.md)
+[← Catalog](../../README.md) · [한국어](../ko/tensorrt.md)
 
-The TensorRT repository provides inference optimization samples, plugins and tooling; the distributed SDK has separate terms.
+TensorRT builds optimized inference engines from supported networks and runs those engines on NVIDIA devices. The public repository contains plugins, samples and related code.
 
-**Official sources:** [Repository](https://github.com/NVIDIA/TensorRT)
+![TensorRT object lifetimes](https://docs.nvidia.com/deeplearning/tensorrt/latest/_images/trt-object-lifetimes.svg)
 
-**License and access:** Repository: Apache-2.0; this does not cover the entire TensorRT binary SDK. Models, data, dependencies and hosted services may have separate terms; check each source before use.
+*Use the diagram to distinguish build objects from runtime objects and see which owners must outlive their dependents.* [Official figure source](https://docs.nvidia.com/deeplearning/tensorrt/latest/architecture/how-trt-works.html)
 
-## Workflow
+## How it works
 
-The following conceptual diagram is an explanatory overview, not an official architecture diagram.
+In the build phase a parser or network definition describes layers, shapes and data types. The builder profiles implementation choices and produces a serialized engine. At runtime an execution context manages execution state and, where applicable, runtime shapes. The application binds buffers and enqueues work on a CUDA stream. Plugins extend supported operations when the required implementation is available.
 
-```mermaid
-flowchart LR
-  S0["Prepare trained model"]
-  S1["optimize for target hardware"]
-  S2["validate numerical behavior"]
-  S3["deploy inference"]
-  S0 --> S1 --> S2 --> S3
-```
+### Component interfaces
 
-## Use case
+| Component | Input | Output |
+|---|---|---|
+| Build | Model graph, optimization profiles, precision and plugins | Serialized engine for compatible targets |
+| Load | Engine file and compatible runtime | Deserialized engine and execution context |
+| Execute | Input buffers, runtime shapes and CUDA stream | Output buffers for application postprocessing |
 
-Reduce inference latency for perception or robot-policy applications.
+## A practical workflow
 
-## Related technologies
+Export a robot detector as ONNX, build an engine with the deployment input shape, and compare raw outputs with the training framework on identical inputs. Use a warm-up, then measure both inference latency and whole-pipeline latency.
 
-CUDA, ONNX, Isaac ROS, Jetson. Confirm compatibility and runtime requirements in the documentation for each version.
+## What to verify
+
+Verify compatibility with the runtime and target GPU, chosen precision, dynamic shapes and required plugins. When evaluating lower precision, check application accuracy and rare cases as well as latency. Plan engine rebuilds for incompatible runtime or target changes.
+
+## License and availability
+
+Repository: Apache-2.0; this does not cover the entire TensorRT binary SDK. Models, data, dependencies and hosted services may have separate terms; check each source before use.
+
+## Official references
+
+- [Architecture and workflow documentation](https://docs.nvidia.com/deeplearning/tensorrt/latest/architecture/how-trt-works.html)
+- [Related official resource · github.com](https://github.com/NVIDIA/TensorRT)

@@ -2,44 +2,29 @@
 
 [← 전체 목록](../../README.ko.md) · [English](../en/anomalygen.md)
 
-![AnomalyGen mask placement workflow diagram](https://raw.githubusercontent.com/NVIDIA/cdf-anomalygen/main/anomalygen/auto_mask_placement/gui/frontend/public/detail_workflow.png)
+AnomalyGen은 외관 검사에 사용할 결함 이미지와 대상 마스크를 생성한다. 텍스처 결함 경로에서는 실제 결함과 정상 이미지로 시작해 특정 결함에 맞춘 어댑터를 학습한다.
 
-이미지: 아래 공식 프로젝트 출처.
+## 결함 위치와 이미지 생성의 연결
 
-## 소개
+![AnomalyGen 공식 Auto Mask Placement 워크플로](https://raw.githubusercontent.com/NVIDIA/cdf-anomalygen/main/anomalygen/auto_mask_placement/gui/frontend/public/detail_workflow.png)
 
-소수 예시를 이용한 결함 이미지 생성 워크플로.
-
-## 개념적 워크플로
+이 공식 그림은 Auto Mask Placement 경로다. 규칙에 따라 기존 결함 부분 마스크를 배치한다. 공식 문서의 기본 Agentic Mask Generation 경로는 시각 언어 모델을 이용해 후보를 제안하고, 판정하고, 수정한다. 두 경로 모두 이후 생성에 사용할 위치 정보를 만든다. [공식 워크플로](https://github.com/NVIDIA/cdf-anomalygen#overview) · [Agentic Mask Generation](https://github.com/NVIDIA/cdf-anomalygen/blob/main/docs/tutorial/texture/3-agentic-mask-generation.md)
 
 ```mermaid
 flowchart LR
-    n0["예시와 마스크 준비"] --> n1
-    n1["결함 생성 설정"] --> n2
-    n2["변형 생성"] --> n3
-    n3["검토 후 이상 탐지에 활용"]
+    A["실제 결함 이미지와 마스크"] --> B["결함별 LoRA 학습"]
+    C["정상 이미지와 대상 마스크"] --> D["영역 마스킹 후 잠재 표현 인코딩"]
+    E["결함 텍스트 프롬프트"] --> F["확산 모델의 생성 조건"]
+    D --> F
+    B --> F
+    F --> G["생성 이미지 디코딩"]
+    G --> H["점수 평가, 개선, 의사 라벨 내보내기"]
 ```
 
-## 활용 흐름과 사례
+학습에 쓰는 실측 샘플과 생성에 쓰는 입력을 구분한 개념도다. 생성 배치를 실측 기준과 비교해 점수를 매긴다. 여러 후보 중 적합한 결과를 고른 뒤 인스턴스 주석이나 클래스별 학습 데이터로 내보낼 수 있다. [공식 평가와 개선 문서](https://github.com/NVIDIA/cdf-anomalygen/blob/main/docs/tutorial/texture/6-evaluation-and-refinement.md)
 
-예시와 마스크 준비 → 결함 생성 설정 → 변형 생성 → 검토 후 이상 탐지에 활용. 개념적인 흐름이며 버전별 사전 요구사항과 지원 구성은 공식 문서를 확인한다.
+## 활용 예시 — 유리 표면 흠집 생성
 
-**활용 사례:** 제조 결함 예시 생성. 지원 입력과 모델 버전은 공식 출처에서 확인한다.
+실제 흠집 데이터 일부를 검증용으로 분리한다. 정상 이미지 몇 장에서 마스크가 허용된 영역에 놓이는지 확인하고, 생성된 변화가 그 영역에 남는지와 유사한 조명에서 실측 흠집과 비슷한지를 검토한다. 합성 예시를 사용한 분류기와 사용하지 않은 분류기를 같은 실측 검증 세트에서 비교한다. [유리 마스크 데이터셋](https://huggingface.co/datasets/nvidia/Cosmos-AnomalyGen-Glass-Masks)
 
-**연결 기술:** Cosmos Data Factory.
-
-## 구성과 구체적인 활용
-
-공식 파이프라인은 실제 결함 예시와 마스크를 준비하고, 위치 마스크를 생성한 뒤 생성 모델을 미세조정한다. 이후 후보 이미지를 만들고 평가·개선해 의사 레이블을 만든다.
-
-레이블이 있는 소수의 PCB 결함 예시를 이용해 검사 모델용 마스크 정렬 합성 결함을 만든다.
-
-[공식 기술 자료](https://github.com/NVIDIA/cdf-anomalygen)
-
-## 공개 및 이용 조건
-
-공개 저장소; 코드·모델·어댑터 각각의 조건 미확인. 사용 전 해당 버전과 모델·데이터·바이너리·의존성의 조건을 각각 확인한다.
-
-## 공식 출처
-
-[저장소](https://github.com/NVIDIA/cdf-anomalygen)
+코드, 기본 가중치, 어댑터, 입력 데이터의 조건을 각각 확인한다. [공식 저장소](https://github.com/NVIDIA/cdf-anomalygen)

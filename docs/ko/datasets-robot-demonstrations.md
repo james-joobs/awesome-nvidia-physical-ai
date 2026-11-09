@@ -2,22 +2,26 @@
 
 [전체 목록](../../README.ko.md) · [English](../en/datasets-robot-demonstrations.md)
 
-공식 데이터셋 카드를 기준으로 형식, 접근 조건과 라이선스를 각각 확인한다. 공개 접근과 제한 없는 이용 권한은 다르다.
+실물 원격 조작, 시뮬레이션 궤적, 파지 데이터와 벤치마크 작업을 모았다. 정책 학습에서는 로봇 형태와 작업에 연결된 관측·행동 시계열을 한 에피소드로 읽는 경우가 많다.
 
-## 선택 및 활용 흐름
+## 공식 카드의 스키마 비교
 
-이 그림은 개념적 사용 흐름이다.
+| 카드 | 제공 데이터 | 통합 시 확인 |
+|---|---|---|
+| [GR00T Teleop G1](#physicalai-robotics-gr00t-teleop-g1) | MP4, HDF5에 관측 및 행동 벡터 43차원. 카드 기준 640 × 480 RGB, 20 FPS | 전신과 손 관절의 순서를 확인하고 영상과 궤적을 짝지음 |
+| [Manipulation Kitchen](#physicalai-robotics-manipulation-kitchen) | 서랍과 식기세척기 열기 등 시뮬레이션 작업의 LeRobot 형식. 카드에 행동 34차원, 물체 상태 관측 13차원과 카메라 스트림 명시 | 머리, 손목, 외부 카메라 중 정책에 쓸 시점을 고르고 관절 및 관측 정의를 맞춤 |
+| [GraspGen](#physicalai-robotics-graspgen) | 물체 자산과 파지 데이터 | 그리퍼 형상, 물체 좌표계와 단위 확인 |
+| [GR00T Eval](#physicalai-robotics-gr00t-eval) | 평가 자산과 작업 | 평가 규약을 확인하고 학습 데이터와 분리 |
 
-```mermaid
-flowchart LR
-  S0["로봇 형태와 작업 선택"]
-  S1["궤적과 조건 확인"]
-  S2["학습 데이터 준비"]
-  S3["정책 평가"]
-  S0 --> S1 --> S2 --> S3
-```
+![공식 시뮬레이션 주방의 월드 카메라 롤아웃](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Kitchen/resolve/main/assets/episode_000004_world.gif)
 
-## 데이터셋별 상세
+공식 주방 예제의 외부 월드 뷰다. 카드의 머리와 손목 뷰도 비교할 수 있다. 손목 카메라를 입력받는 정책에서는 월드 뷰 평가 화면과 물체의 보이는 영역이나 움직임이 다르다. [공식 주방 카메라·스키마 예제](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Kitchen#dataset-format)
+
+## 활용 예시 — 궤적 하나로 로더 검증
+
+G1의 물체 옮기기 궤적 하나를 읽고 대응하는 MP4를 디코딩한다. 접촉 프레임을 기준으로 주요 관절의 행동과 관측을 그려 보거나 재생한다. 차원, 관절 순서, 단위, 샘플링 시점과 제어기에 맞는 행동 표현인지 확인한다. 실측과 합성을 섞을 때는 로봇 형태와 출처를 남기고 원본 에피소드 또는 수집 세션 단위로 분할한다. [공식 G1 카드](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-Teleop-G1) · [GR00T 모델](groot-model.md)
+
+## 데이터셋 상세
 
 <a id="physicalai-robotics-gr00t-x-embodiment-sim"></a>
 ### PhysicalAI-Robotics-GR00T-X-Embodiment-Sim
@@ -202,4 +206,3 @@ Franka 큐브 쌓기 작업 궤적.
 
 **라이선스·접근:** CC-BY-NC-4.0; 공개.  
 **공식 데이터셋 카드:** [PhysicalAI-Robotics-mindmap-Franka-Cube-Stacking](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-mindmap-Franka-Cube-Stacking)
-

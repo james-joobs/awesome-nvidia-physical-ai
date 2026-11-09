@@ -1,31 +1,29 @@
 # MoGe
 
-[← All projects](../../README.md) · [한국어](../ko/moge.md) · [Official source](https://github.com/microsoft/MoGe) · [Documentation / related project](https://github.com/microsoft/MoGe)
+[← Catalog](../../README.md) · [한국어](../ko/moge.md)
 
-A Microsoft research model family for estimating 3D geometry from a single image.
+MoGe predicts dense geometry from a single RGB image. Output contracts differ by model generation, so the repository’s checkpoint examples are the starting point.
 
-**Availability and terms:** Verify code and checkpoint licenses separately for each model version and its dependencies.
+![MoGe method overview](https://raw.githubusercontent.com/microsoft/MoGe/main/assets/overview_simplified.png)
 
-## Architecture and workflow
+*The official figure shows how the RGB input becomes geometry predictions. Read the output contract for your checkpoint.* [Official figure source](https://github.com/microsoft/MoGe)
 
-```mermaid
-flowchart LR
-    A["RGB image"] --> B["geometry model"] --> C["depth / point map"] --> D["geometry review"]
-```
+## How it works
 
-*Conceptual illustration for this guide; refer to official sources for supported implementations.*
+The image encoder extracts features and the geometry heads predict a point map and valid-region information. The original method handles unknown global scale and shift in its formulation. Later versions extend the output, including metric geometry for supported checkpoints. A point map assigns a 3D point to each valid image pixel.
 
-Run the selected checkpoint on an image, inspect predicted depth or point maps, and export supported geometry outputs. Available outputs depend on model version.
+## A practical workflow
 
-## Use cases
+Run the model on a tabletop image and visualize the point map from a side view. Exclude invalid pixels and compare estimated distances with a known reference. Use the result as an initial geometry estimate in a reconstruction workflow.
 
-Reconstruct approximate scene geometry or provide spatial cues for downstream visual reasoning.
+## What to verify
 
-## Connections
+Check coordinate convention, metric scale and valid masks for the checkpoint. Inspect far regions and depth discontinuities. Compare against calibrated stereo or measured geometry before using it for collision checks.
 
-Outputs can contribute to video-to-data or reconstruction workflows; a single-image estimate should be checked for scale and geometry errors.
+## License and availability
+
+Verify code and checkpoint licenses separately for each model version and its dependencies.
 
 ## Official references
 
-- [Project source](https://github.com/microsoft/MoGe)
-- [Documentation / related project](https://github.com/microsoft/MoGe)
+- [Official technical reference](https://github.com/microsoft/MoGe)

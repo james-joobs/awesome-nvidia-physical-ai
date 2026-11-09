@@ -2,20 +2,24 @@
 
 [Catalog](../../README.md) · [한국어](../ko/datasets-3d-assets.md)
 
-Review each official dataset card for formats, access requirements and license. Public access does not mean unrestricted use.
+These resources supply reusable geometry, scenes, or objects for simulation. Choose a package by the simulator and task. A warehouse scenario, a graspable prop, and a library of MJCF objects have different integration requirements.
 
-## Selection and use
+## From catalog to usable scene
 
-This is a conceptual workflow.
+| Stage | What to inspect |
+|---|---|
+| Select assets | File format, package dependencies, asset class, labels and license |
+| Compose | Relative references and payloads, up axis and stage units, and available semantic labels |
+| Configure physics | Collider shape, mass, rigid body or articulation and contact behavior |
+| Validate | Load in the target simulator, render and run one short interaction before preparing a batch |
 
-```mermaid
-flowchart LR
-  S0["Find an asset"]
-  S1["review format and license"]
-  S2["import into a simulation scene"]
-  S3["validate"]
-  S0 --> S1 --> S2 --> S3
-```
+![NVIDIA Isaac Sim stage view for adding rigid bodies](https://huggingface.co/datasets/nvidia/PhysicalAI-SimReady-Warehouse-01/resolve/main/images/PhysicalAI_Dataset_02.png)
+
+In the warehouse card's official walkthrough, select the top-level asset Xform in the stage. The USD scene uses payloads to compose individual assets. The documented scene ships with colliders, and assets that should move can be configured with rigid bodies as shown in the card. Its CSV catalog maps asset paths to classification, semantic Q-codes and approximate masses. [Official warehouse card and setup](https://huggingface.co/datasets/nvidia/PhysicalAI-SimReady-Warehouse-01#how-to-use)
+
+## Worked example — test a shelf pick
+
+Select a small set of warehouse props using the catalog. Load the USD scene and use one object to test grasp contact and gravity. Check its scale against the gripper, verify that its mass and collider suit the task, and confirm the camera can see the object before randomizing placement. For an MJCF kitchen benchmark, use the compatible object package and inspect mesh and contact settings in the target environment. [Kitchen MJCF card](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Objects-Kitchen-MJCF) · [SimReady](simready.md)
 
 ## Dataset details
 
@@ -90,4 +94,3 @@ Evaluation assets for vision-based motion planning.
 
 **License and access:** License unverified; public.  
 **Official dataset card:** [PhysicalAI-Robotics-PhysicalAssets-VoMP-Eval](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-PhysicalAssets-VoMP-Eval)
-

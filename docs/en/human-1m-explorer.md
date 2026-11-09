@@ -2,29 +2,18 @@
 
 [Catalog](../../README.md) · [한국어](../ko/human-1m-explorer.md)
 
-A browser for examples of egocentric human capture and reconstruction.
+Human-1M Explorer is NVIDIA's browser for inspecting egocentric human work demonstrations. The Space illustrates selected examples and their annotations. The dataset card describes the released 100K-hour slice and its data contract.
 
-**Official sources:** [Hugging Face Space](https://huggingface.co/spaces/nvidia/PhysicalAI-Human-1M-Explorer)
+## Read the anatomy of an episode
 
-**License and access:** Public Space; check dataset access and terms separately. Models, data, dependencies and hosted services may have separate terms; check each source before use.
+![NVIDIA Human-1M official episode anatomy for bundling flower stems](https://huggingface.co/datasets/nvidia/PhysicalAI-Human-1M-100K/resolve/main/figures/card_episode_anatomy.png)
 
-## Workflow
+The flower-stem example aligns head and wrist views, reconstructed geometry, hand and head tracks, a task-level goal (T1), and timed subtask actions (T2). The picture shows a stereo example with wrist views. Other capture configurations have different camera availability. [Dataset card](https://huggingface.co/datasets/nvidia/PhysicalAI-Human-1M-100K#anatomy-of-an-episode) · [Official Explorer](https://huggingface.co/spaces/nvidia/PhysicalAI-Human-1M-Explorer)
 
-The following conceptual diagram is an explanatory overview, not an official architecture diagram.
+![Human-1M Explorer 3D task map](https://huggingface.co/spaces/nvidia/PhysicalAI-Human-1M-Explorer/resolve/main/figures/task_landscape_3d.png)
 
-```mermaid
-flowchart LR
-  S0["Browse examples"]
-  S1["inspect available modalities"]
-  S2["review dataset card and permissions"]
-  S3["select data"]
-  S0 --> S1 --> S2 --> S3
-```
+The task map positions task descriptions by embedding similarity. Use it to browse related activities, then open individual episodes to inspect whether the actual motions and objects match the task you are collecting. [Official task explorer](https://huggingface.co/spaces/nvidia/PhysicalAI-Human-1M-Explorer#semantic-map)
 
-## Use case
+## Worked example — select hand-tool interactions
 
-Explore human motion examples for embodied AI research.
-
-## Related technologies
-
-Human-1M, Hugging Face, Video-to-Data. Confirm compatibility and runtime requirements in the documentation for each version.
+Find episodes around assembly and repair. For a small sample, align T2 intervals with the MP4 timestamps, inspect both hands near occlusions, and check pose confidence and tracking masks in the frame data. LeRobot v3 shards separate video streams from Parquet frame rows and episode metadata. Join through episode metadata and timestamps rather than assuming that every episode has the same cameras or duration. Retargeting is an additional step with embodiment and contact constraints. [Official schema](https://huggingface.co/datasets/nvidia/PhysicalAI-Human-1M-100K/blob/main/SCHEMA.md) · [Quality standards](https://huggingface.co/datasets/nvidia/PhysicalAI-Human-1M-100K#quality-at-every-step)

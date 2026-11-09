@@ -1,31 +1,33 @@
 # Grounding DINO
 
-[← All projects](../../README.md) · [한국어](../ko/grounding-dino.md) · [Official source](https://github.com/IDEA-Research/GroundingDINO) · [Documentation / related project](https://github.com/IDEA-Research/GroundingDINO)
+[← Catalog](../../README.md) · [한국어](../ko/grounding-dino.md)
 
-A text-conditioned object detector from IDEA Research.
+Grounding DINO returns 2D boxes for text phrases supplied with an image. The prompt determines which objects the detector should seek.
 
-**Availability and terms:** Check the repository code license, checkpoint terms, and any third-party components separately.
+![Grounding DINO model diagram](https://raw.githubusercontent.com/IDEA-Research/GroundingDINO/main/.asset/model_explan1.PNG)
 
-## Architecture and workflow
+*Find where image and text features interact before the decoder returns localized results.* [Official figure source](https://github.com/IDEA-Research/GroundingDINO)
 
-```mermaid
-flowchart LR
-    A["Image + text prompt"] --> B["grounded detector"] --> C["boxes and scores"] --> D["downstream task"]
-```
+![Grounding DINO detection examples](https://raw.githubusercontent.com/IDEA-Research/GroundingDINO/main/.asset/hero_figure.png)
 
-*Conceptual illustration for this guide; refer to official sources for supported implementations.*
+*Compare each localized object with the prompt that describes it.* [Official figure source](https://github.com/IDEA-Research/GroundingDINO)
 
-Provide an image and a textual object description, run inference, then filter candidate boxes by thresholds before using them.
+## How it works
 
-## Use cases
+Image and language backbones produce features. A feature enhancer exchanges information across modalities. Language-guided query selection chooses candidate regions, and a cross-modal decoder refines boxes and token alignment. Applications apply thresholds and transform the predicted boxes back to the input image coordinates.
 
-Find named objects for annotation or as prompts for segmentation.
+## A practical workflow
 
-## Connections
+Prompt for a “red bin” and a “blue bin” on recorded workstation frames. Convert the selected boxes into prompts for [SAM 2](sam-2-sam-3d.md) to obtain masks for a labeling experiment.
 
-Bounding boxes can seed a segmentation workflow such as SAM; model accuracy depends on the prompt and data.
+## What to verify
+
+Compare synonyms and separate generic from precise prompts. Check box format, resizing offsets and confidence thresholds before passing boxes to a segmentation or pose stage.
+
+## License and availability
+
+Check the repository code license, checkpoint terms, and any third-party components separately.
 
 ## Official references
 
-- [Project source](https://github.com/IDEA-Research/GroundingDINO)
-- [Documentation / related project](https://github.com/IDEA-Research/GroundingDINO)
+- [Official technical reference](https://arxiv.org/html/2303.05499)

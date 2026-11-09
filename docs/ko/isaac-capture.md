@@ -1,34 +1,45 @@
 # Isaac Capture (이전 Isaac Teleop 포함)
+
 [← 목록으로](../../README.ko.md) · [English](../en/isaac-capture.md)
 
-원격 조작 및 1인칭 데이터 수집·기록·리타기팅.
+Isaac Capture는 로봇 학습용 데이터를 두 가지 경로로 수집합니다. Isaac Teleop에서는 조작자가 로봇을 움직이는 동안 로봇이 관측하고 실행한 내용을 기록합니다. Ego Pipeline에서는 사람이 본 영상을 기록한 후 후속 처리에 필요한 사람의 동작을 복원합니다. 두 경로는 장치와 데이터 유틸리티를 공유하지만 학습 단계에 넘기는 입력은 서로 다릅니다.
 
-**공식 자료:** [저장소](https://github.com/NVIDIA/IsaacCapture)  
-**라이선스와 범위:** 기본 Apache-2.0; EgoPost는 OpenMDW-1.1, CloudXR과 일부 선택 패키지는 별도 독점 조건.
+## 아키텍처와 데이터 흐름
 
-![Isaac Capture architecture diagram](https://media.githubusercontent.com/media/NVIDIA/IsaacCapture/main/docs/source/_static/isaac-capture-architecture.png)
-*이미지 출처: [Repository](https://github.com/NVIDIA/IsaacCapture)*
+| 구성 요소 | 입력·처리·출력 |
+|---|---|
+| **장치 플러그인** | 추적 장치에서 손, 손목, 헤드셋 자세 등의 스트림을 받습니다. 플러그인이 이 데이터를 런타임에 전달하므로 장치 연결 코드를 다시 작성하지 않고 리타기팅을 바꿀 수 있습니다. |
+| **원격 조작과 리타기팅** | 로봇별 리타기터가 추적 샘플을 시뮬레이터 또는 실제 장비의 목표 명령으로 변환합니다. 관측값, 로봇 상태, 제어 인터페이스는 로봇 환경에서 제공합니다. |
+| **기록과 재생** | 장치 스트림은 MCAP에 저장하고 재생할 수 있습니다. 환경 관측과 행동은 학습 워크플로에 맞게 별도로 기록합니다. 예를 들어 SO-101 연동에서는 LeRobot 에피소드 형식을 사용합니다. |
+| **1인칭 영상 파이프라인** | 보정된 헤드마운트 영상을 손 복원과 선택적인 카메라 위치 추정에 사용합니다. 결과는 카메라 또는 월드 좌표계의 사람 손 동작 추정값이며, 검토 및 후속 리타기팅에 씁니다. |
 
-## 구성과 워크플로
+![NVIDIA 개요 그림의 아래쪽에는 장치·리타기팅·데이터 공통 기능이, 위쪽에는 원격 조작 및 1인칭 파이프라인이 배치되어 있습니다. 연동 항목을 보면 두 경로가 각각 어떤 로봇 개발 환경과 연결되는지 알 수 있습니다.](https://developer.download.nvidia.com/images/isaac/capture/26gtceu-robotics-isaac-capture-diagram.jpg)
 
-아래는 활용 흐름을 이해하기 위한 개념도입니다. 공식 아키텍처나 자동 연결을 뜻하지 않습니다.
+NVIDIA 개요 그림의 아래쪽에는 장치·리타기팅·데이터 공통 기능이, 위쪽에는 원격 조작 및 1인칭 파이프라인이 배치되어 있습니다. 연동 항목을 보면 두 경로가 각각 어떤 로봇 개발 환경과 연결되는지 알 수 있습니다. [공식 그림 출처](https://developer.nvidia.com/isaac/capture)
 
-**입력 장치 → 리타기팅 → 시뮬레이션 또는 실제 로봇 → 시연 기록·재생**
+![Teleop 그림은 실시간 제어 경로를 확대해 보여줍니다. 장치 추적에서 리타기팅을 거쳐 로봇에 연결되는 흐름을 따라가면서 실시간 입력과 기록 재생 입력을 구분하면 됩니다.](https://nvidia.github.io/IsaacCapture/main/_images/isaac-teleop-architecture.svg)
 
-## 주요 구성과 공식 아키텍처
+Teleop 그림은 실시간 제어 경로를 확대해 보여줍니다. 장치 추적에서 리타기팅을 거쳐 로봇에 연결되는 흐름을 따라가면서 실시간 입력과 기록 재생 입력을 구분하면 됩니다. [공식 그림 출처](https://github.com/NVIDIA/IsaacCapture)
 
-![Isaac Teleop 아키텍처](https://raw.githubusercontent.com/NVIDIA/IsaacCapture/main/docs/source/_static/isaac-teleop-architecture.svg)
+## 적용 예시
 
-*이미지 출처: [Official repository](https://github.com/NVIDIA/IsaacCapture)*
+1. 공식 SO-101 연동 가이드로 로봇을 보정하고 지원되는 조작 장치를 구성합니다. 짧고 반복 가능한 탁상 작업을 정합니다.
+2. 카메라 배치를 유지한 채 에피소드 몇 개를 수집합니다. 리타기팅 경로를 재현해야 한다면 조작자 스트림도 별도로 기록합니다.
+3. 에피소드 하나를 재생하고, 관측·명령이 동기화됐는지와 작업이 끝나는 시점을 확인한 뒤 수집 규모를 늘립니다.
 
-공유 코어는 장치 플러그인, 리타기터와 기록 유틸리티를 제공합니다. Isaac Teleop은 로봇을 조작하며 데이터를 수집하고, 별도의 Ego Pipeline은 1인칭 관측을 수집해 손과 카메라 자세를 복원합니다. 리타기팅은 사람의 입력을 로봇 제어 표현으로 변환하며 장치와 로봇별 지원 범위를 확인해야 합니다.
+## 검증할 항목
 
-## 활용 사례
+- 자세 좌표계와 회전 표현, 장치 샘플 누락, 그리퍼 명령의 방향을 점검합니다.
+- 장치 기록과 학습 데이터셋을 각각 검토합니다. MCAP 재생이 성공하더라도 학습 데이터의 카메라와 행동이 맞춰졌는지 별도로 확인해야 합니다.
 
-원격 조작으로 로봇 시연을 기록합니다. Ego Pipeline은 로봇 없이 1인칭 인간 데이터도 수집합니다.
+## 공식 자료와 이용 조건
 
-## 연결 기술
+저장소 기본 조건은 Apache-2.0입니다. EgoPost는 OpenMDW-1.1을 사용합니다. CloudXR과 선택적 의존성의 이용 조건은 별도입니다.
 
-Isaac Lab, LeRobot, Isaac GR00T.
+- [NVIDIA 제품 개요](https://developer.nvidia.com/isaac/capture)
+- [Isaac Capture 공식 문서](https://nvidia.github.io/IsaacCapture/main/)
+- [소스와 라이선스](https://github.com/NVIDIA/IsaacCapture)
 
-버전과 사용 환경에 따라 호환성, 데이터 형식, 모델 및 의존성 조건을 공식 자료에서 확인하세요.
+## 연관 상세 페이지
+
+[EgoHand와 EgoPost](egohand-egopost.md) · [LeRobot](lerobot.md) · [AutoData](autodata.md)

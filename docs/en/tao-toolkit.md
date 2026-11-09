@@ -1,41 +1,35 @@
 # TAO Toolkit
 
-[← All projects](../../README.md) · [한국어](../ko/tao-toolkit.md)
+[← Catalog](../../README.md) · [한국어](../ko/tao-toolkit.md)
 
-## Overview
+TAO Toolkit provides predefined workflows for adapting vision models to task-specific data and exporting them for deployment.
 
-Vision AI model training and fine-tuning.
+![TAO Toolkit overview](https://docs.nvidia.com/tao/tao-toolkit/latest/_images/tao_overview_image.png)
 
-## Conceptual workflow
+*Use the official overview to locate training and export in the deployment workflow.* [Official figure source](https://docs.nvidia.com/tao/tao-toolkit/latest/text/overview.html)
 
-```mermaid
-flowchart LR
-    n0["Prepare labeled data"] --> n1
-    n1["select and adapt a model"] --> n2
-    n2["evaluate"] --> n3
-    n3["export for deployment"]
-```
+![TAO software stack](https://docs.nvidia.com/tao/tao-toolkit/latest/_images/tao_stack.png)
 
-## Workflow and use
+*The stack shows how TAO’s workflow sits above the accelerated software underneath.* [Official figure source](https://docs.nvidia.com/tao/tao-toolkit/latest/text/overview.html)
 
-Prepare labeled data → select and adapt a model → evaluate → export for deployment. This is a conceptual workflow; check the official source for version-specific prerequisites and supported configurations.
+## How it works
 
-**Example use case:** adapting a detection model to a new domain. Check applicability, supported inputs and model versions in the official source.
+The training specification chooses the model, dataset and optimization settings. A supported pretrained checkpoint initializes training. Evaluation checks the adapted model against labeled validation data. Export produces an artifact whose format depends on the task. TensorRT and DeepStream can consume compatible exports using the documented deployment instructions.
 
-**Related technologies:** Replicator, TensorRT, DeepStream.
+## A practical workflow
 
-## Architecture and example
+Generate labeled images with [Replicator](replicator.md), then fine-tune a detector for parts on a conveyor. Reserve a real camera validation set and compare the pretrained and adapted models on it before exporting. Reproduce a few predictions after deployment.
 
-TAO reference workflows chain model actions such as training, evaluation and inference with data services between them. Model architectures and export paths depend on the chosen task.
+## What to verify
 
-Fine-tune an object detector with labeled factory images, evaluate it on held-out data and prepare it for deployment.
+Check class definitions, dataset format, train/test scene leakage and real camera coverage. Keep exported preprocessing and postprocessing consistent with training. Verify compatibility and model terms for the selected workflow.
 
-[Official technical source](https://docs.nvidia.com/tao/tao-toolkit/latest/text/reference_workflows/index.html)
-
-## Availability and terms
+## License and availability
 
 Product/SDK; check model and component terms. Verify the exact version and the terms of any models, datasets, binaries and dependencies before use.
 
-## Official sources
+## Official references
 
-[Official page](https://developer.nvidia.com/tao-toolkit)
+- [Architecture and workflow documentation](https://docs.nvidia.com/tao/tao-toolkit/latest/text/overview.html)
+- [Related official resource · docs.nvidia.com](https://docs.nvidia.com/tao/tao-toolkit/latest/text/reference_workflows/index.html)
+- [Related official resource · developer.nvidia.com](https://developer.nvidia.com/tao-toolkit)

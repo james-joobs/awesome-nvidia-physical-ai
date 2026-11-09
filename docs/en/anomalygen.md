@@ -2,44 +2,29 @@
 
 [← All projects](../../README.md) · [한국어](../ko/anomalygen.md)
 
-![AnomalyGen mask placement workflow diagram](https://raw.githubusercontent.com/NVIDIA/cdf-anomalygen/main/anomalygen/auto_mask_placement/gui/frontend/public/detail_workflow.png)
+AnomalyGen generates defect images with target masks for visual inspection. Its texture workflow takes real defect examples and clean images and trains a small adaptation for the chosen defect type.
 
-Image: official project source linked below.
+## How defect placement and rendering connect
 
-## Overview
+![Official AnomalyGen Auto Mask Placement workflow](https://raw.githubusercontent.com/NVIDIA/cdf-anomalygen/main/anomalygen/auto_mask_placement/gui/frontend/public/detail_workflow.png)
 
-Generates defect images from a small number of examples.
-
-## Conceptual workflow
+This image illustrates the Auto Mask Placement route. It places available defect submasks according to routing rules. The documented default Agentic Mask Generation route uses a propose, judge and refine loop with a vision-language model. Both produce placement metadata for generation. [Official workflow](https://github.com/NVIDIA/cdf-anomalygen#overview) · [Agentic mask generation](https://github.com/NVIDIA/cdf-anomalygen/blob/main/docs/tutorial/texture/3-agentic-mask-generation.md)
 
 ```mermaid
 flowchart LR
-    n0["Provide examples and masks"] --> n1
-    n1["configure defect generation"] --> n2
-    n2["produce variants"] --> n3
-    n3["inspect and use for anomaly detection"]
+    A["Real anomaly images and masks"] --> B["Train a defect-specific LoRA"]
+    C["Clean image and target mask"] --> D["Mask region and encode source latent"]
+    E["Defect text prompt"] --> F["Condition diffusion generation"]
+    D --> F
+    B --> F
+    F --> G["Decode generated image"]
+    G --> H["Score, refine and export pseudo-labels"]
 ```
 
-## Workflow and use
+This guide diagram separates training references from generation inputs. The generated batch is scored against real references. Refinement can select among repeated candidate generations and pseudo-labeling can export instance or classification layouts. [Official evaluation and refinement](https://github.com/NVIDIA/cdf-anomalygen/blob/main/docs/tutorial/texture/6-evaluation-and-refinement.md)
 
-Provide examples and masks → configure defect generation → produce variants → inspect and use for anomaly detection. This is a conceptual workflow; check the official source for version-specific prerequisites and supported configurations.
+## Worked example — simulate scratches on glass
 
-**Example use case:** creating examples of manufacturing defects. Check applicability, supported inputs and model versions in the official source.
+Reserve real scratched samples for evaluation. For a few clean images, check that masks follow allowable regions, then inspect whether generated changes remain inside the intended area and resemble the real scratch under comparable lighting. Compare a classifier trained with and without the generated variants on the held-out real set. [Glass dataset](https://huggingface.co/datasets/nvidia/Cosmos-AnomalyGen-Glass-Masks)
 
-**Related technologies:** Cosmos Data Factory.
-
-## Architecture and example
-
-The documented pipeline prepares real anomaly examples and masks, generates placement masks, fine-tunes a generator, synthesizes candidates and evaluates or refines them before pseudo-labeling.
-
-Use a few labeled PCB defect examples to create mask-aligned synthetic defects for an inspection model.
-
-[Official technical source](https://github.com/NVIDIA/cdf-anomalygen)
-
-## Availability and terms
-
-Public repository; terms for code, models, and adapters unverified. Verify the exact version and the terms of any models, datasets, binaries and dependencies before use.
-
-## Official sources
-
-[Repository](https://github.com/NVIDIA/cdf-anomalygen)
+Check code, base weights, adapters and source data separately for applicable terms. [Official repository](https://github.com/NVIDIA/cdf-anomalygen)

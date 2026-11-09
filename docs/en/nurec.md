@@ -2,40 +2,29 @@
 
 [← All projects](../../README.md) · [한국어](../ko/nurec.md)
 
-## Overview
+Omniverse NuRec reconstructs a captured scene as a neural representation so a simulator can render sensor observations from new viewpoints. An AV pipeline typically converts driving logs into NCore, trains or initializes a Gaussian representation and exports a USDZ artifact for rendering.
 
-Neural reconstruction and rendering of real environments.
+## Reconstruction from sensor logs
 
-## Conceptual workflow
+![NVIDIA NuRec workflow from driving logs to reconstructed USDZ](https://docs.nvidia.com/nurec/_images/nurec-pipeline-overview.png)
 
-```mermaid
-flowchart LR
-    n0["Capture camera or LiDAR data"] --> n1
-    n1["reconstruct a scene"] --> n2
-    n2["render it in a simulator"] --> n3
-    n3["evaluate sensor-driven workloads"]
-```
+The official pipeline separates conversion, reconstruction and packaging. In the published layered example, fixed background, moving rigid actors, pedestrians and road use distinct Gaussian layers, while sky uses an environment map. Tracking and semantic labels help assign observations to layers. [Official scaling and layering guide](https://docs.nvidia.com/nurec/best-practices/scaling-neural-reconstruction.html)
 
-## Workflow and use
+## Read the official sensor adaptation workflow
 
-Capture camera or LiDAR data → reconstruct a scene → render it in a simulator → evaluate sensor-driven workloads. This is a conceptual workflow; check the official source for version-specific prerequisites and supported configurations.
+![NVIDIA NuRec carline adaptation architecture](https://developer-blogs.nvidia.com/wp-content/uploads/2026/08/image-39.webp)
 
-**Example use case:** replaying reconstructed road scenes. Check applicability, supported inputs and model versions in the official source.
+Start at the reconstructed USDZ scene. A target camera rig defines the sensor geometry for re-rendering. The illustrated workflow can run NVIDIA Harmonizer on generated frames before training a perception model. In a live simulator integration, NuRec gRPC receives a scene and camera or LiDAR render request. The client receives the requested observation product. [Official carline adaptation walkthrough](https://developer.nvidia.com/blog/scale-av-perception-across-vehicle-platforms-with-nvidia-omniverse-nurec) · [gRPC API guide](https://docs.nvidia.com/nurec/api/grpc_api_guide.html)
 
-**Related technologies:** OpenUSD, Isaac Sim, AlpaSim.
+| Boundary | Check |
+|---|---|
+| Capture to NCore | Calibration, synchronized timestamps and ego motion are consistent |
+| Reconstruction to USDZ | Confirm the artifact and reference render load with the expected scene ID |
+| Runtime to client | Match camera intrinsics, requested pose and output format |
+| Synthetic to validation | Check occlusion, moving objects and appearance for positions outside recorded coverage |
 
-## Architecture and example
+## Worked example — assess a new camera placement
 
-NuRec reconstructs camera or lidar captures as USD scenes with metadata, then renders neural reconstructions using Gaussian splatting. Simulators commonly connect to the rendering service over gRPC.
+Re-render one reconstructed drive with its original pose first, then with the new rig. Compare the source view and original-rig render for lane-edge alignment and dynamic actor timing before interpreting the new view. New perspectives can expose occluded regions never captured by the source sensors. Flag those samples during dataset review. [Official reconstruction guide](https://docs.nvidia.com/nurec/nurec/model.html) · [Scaling neural reconstruction](https://docs.nvidia.com/nurec/best-practices/scaling-neural-reconstruction.html)
 
-Reconstruct a captured road scene and render sensor viewpoints in AlpaSim to test a driving policy.
-
-[Official technical source](https://developer.nvidia.com/omniverse/nurec)
-
-## Availability and terms
-
-Product/technology; complete source and license scope unverified. Verify the exact version and the terms of any models, datasets, binaries and dependencies before use.
-
-## Official sources
-
-[Official page](https://developer.nvidia.com/omniverse/nurec)
+Access, runtime, trained artifacts and data terms vary by distribution. [Official NuRec overview](https://developer.nvidia.com/omniverse/nurec)

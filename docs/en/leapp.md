@@ -1,27 +1,39 @@
 # LEAPP
+
 [← Back to catalog](../../README.md) · [한국어](../ko/leapp.md)
 
-Export and deploy complete robot policy inference pipelines.
+LEAPP exports the computation around a trained policy alongside the model. It captures tensor operations for observation construction, policy inference and command processing, then packages executable artifacts and a description of their inputs and outputs.
 
-**Official sources:** [Repository](https://github.com/nvidia-isaac/leapp)  
-**License and scope:** Apache-2.0; models and runtime dependencies separate.
+## Architecture and data flow
 
-![LEAPP getting started graph](https://raw.githubusercontent.com/nvidia-isaac/leapp/main/docs/images/getting_started_graph.png)
+| Component | Inputs, processing and outputs |
+|---|---|
+| **Trace boundary** | Annotate named input and output tensors around an execution path. LEAPP follows supported tensor operations across helper functions and can capture preprocessing and postprocessing together with inference. |
+| **Compiled graph and bundle** | Compilation emits model artifacts, such as ONNX, plus YAML describing tensor names, shapes, dtypes, backends and graph connectivity. Tensor semantics can describe what those values mean to a robot runtime. |
+| **Validation and runtime** | Optional compilation validation replays example inputs. Downstream runtimes load the bundle and map graph inputs and outputs to their actual sensor and control interfaces. |
 
-*Image source: [Official repository](https://github.com/nvidia-isaac/leapp)*
+![The official example graph groups normalization, inference and action scaling inside a single exported control node. The edges identify what the target runtime needs to supply and receive.](https://nvidia-isaac.github.io/leapp/_images/getting_started_graph.png)
 
-## Architecture and workflow
+The official example graph groups normalization, inference and action scaling inside a single exported control node. The edges identify what the target runtime needs to supply and receive. [Official figure source](https://nvidia-isaac.github.io/leapp/getting_started.html)
 
-The following is an illustrative workflow, not an official architecture or a claim of automatic integration.
+## Worked example
 
-**Policy and preprocessing configuration → export inference pipeline → runtime integration → robot deployment**
+1. Start with the official joint-control example. Annotate joint position, velocity and context, then expose final joint targets after scaling and clipping.
+2. Open the exported graph and YAML together. Check shape and dtype, then compare ONNX outputs with the original Python pipeline on representative sensor states.
 
-## Example use case
+## What to verify
 
-Package policy inference with its surrounding processing for deployment.
+- Tracing records the path that executed. Check warnings, data-dependent branches and tensor-to-scalar conversions, then validate with inputs beyond the trace sample.
+- Version the model, YAML and optional state artifacts together. Changing sensor ordering or scaling changes the deployed policy interface even with the same model weights.
 
-## Related technologies
+## Official references and terms
 
-Isaac Lab, policy runtimes, robot applications.
+The LEAPP source uses Apache-2.0. Exported weights and runtime dependencies retain their own terms.
 
-Check version compatibility, data formats, and model and dependency terms in the official sources for your setup.
+- [Source and license](https://github.com/nvidia-isaac/leapp)
+- [Official trace example and graph](https://nvidia-isaac.github.io/leapp/getting_started.html)
+- [Export options](https://nvidia-isaac.github.io/leapp/guides/export.html)
+
+## Related guides
+
+[Isaac ROS Deploy](isaac-ros-deploy.md) · [WBC-AGILE](wbc-agile.md)

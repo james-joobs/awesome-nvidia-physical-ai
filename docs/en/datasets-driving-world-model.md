@@ -2,20 +2,24 @@
 
 [Catalog](../../README.md) · [한국어](../ko/datasets-driving-world-model.md)
 
-Review each official dataset card for formats, access requirements and license. Public access does not mean unrestricted use.
+The catalog includes recorded driving sensors, reconstructed scenes, synthetic physical interactions, and video reasoning benchmarks. Use the dataset type to decide what a valid input or evaluation looks like.
 
-## Selection and use
+## Select by the work you are doing
 
-This is a conceptual workflow.
+| Need | Representative resource | Check first |
+|---|---|---|
+| Work with observed sensor data | [PhysicalAI-Autonomous-Vehicles](#physicalai-autonomous-vehicles) or [NCore](#physicalai-autonomous-vehicles-ncore) | Sensor modalities, clip IDs, timing, calibration and access |
+| Render an existing reconstruction | [AV NuRec](#physicalai-autonomous-vehicles-nurec) | Scene asset format, renderer compatibility and reference camera poses |
+| Evaluate visual understanding | [VANTAGE-Bench](#physicalai-vantage-bench) | Task folder, submission format and task-specific metric |
+| Explore egocentric motion and language | [Human-1M](#physicalai-human-1m-100k) | Camera availability, timestamps, tracking confidence and T1/T2 labels |
 
-```mermaid
-flowchart LR
-  S0["Select scenario and modality"]
-  S1["review access and terms"]
-  S2["process clips or scenes"]
-  S3["train or evaluate"]
-  S0 --> S1 --> S2 --> S3
-```
+![NVIDIA VANTAGE-Bench official task breakdown](https://huggingface.co/datasets/nvidia/PhysicalAI-VANTAGE-Bench/resolve/main/assets/vantage_bench_tasks.png)
+
+The official diagram groups semantic, temporal, spatial and spatiotemporal tasks. The card lists separate metrics, such as interval mIoU for temporal localization and accuracy for video QA. Ground-truth annotations for official evaluation are held server-side. [Official VANTAGE card and submission details](https://huggingface.co/datasets/nvidia/PhysicalAI-VANTAGE-Bench#evaluation)
+
+## Worked example — preserve provenance across replay and generation
+
+Select one driving clip with a verified source ID. For replay, inspect timestamps and camera extrinsics and render from an original pose before trying a novel view. For video variants, record source ID, condition inputs, model revision and seed. Keep derived versions in the same split as the original. Evaluate understanding on a benchmark with its own protocol instead of treating generated labels as ground truth. [Official NuRec scene guide](https://docs.nvidia.com/nurec/nurec/model.html) · [NuRec](nurec.md) · [Human-1M Explorer](human-1m-explorer.md)
 
 ## Dataset details
 
@@ -215,10 +219,6 @@ Fixed-camera video understanding benchmark.
 **License and access:** Other terms; check card; public.  
 **Official dataset card:** [PhysicalAI-VANTAGE-Bench](https://huggingface.co/datasets/nvidia/PhysicalAI-VANTAGE-Bench)
 
-![PhysicalAI-VANTAGE-Bench official example](https://huggingface.co/datasets/nvidia/PhysicalAI-VANTAGE-Bench/resolve/main/assets/vantage_bench_tasks.png)
-
-Image source: [PhysicalAI-VANTAGE-Bench](https://huggingface.co/datasets/nvidia/PhysicalAI-VANTAGE-Bench)
-
 <a id="physicalai-vantage-bench-subset"></a>
 ### PhysicalAI-VANTAGE-Bench-Subset
 
@@ -230,4 +230,3 @@ Subset of the fixed-camera video benchmark.
 ![PhysicalAI-VANTAGE-Bench-Subset official example](https://huggingface.co/datasets/nvidia/PhysicalAI-VANTAGE-Bench-Subset/resolve/main/assets/vantage_bench_tasks.png)
 
 Image source: [PhysicalAI-VANTAGE-Bench-Subset](https://huggingface.co/datasets/nvidia/PhysicalAI-VANTAGE-Bench-Subset)
-

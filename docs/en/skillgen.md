@@ -1,38 +1,43 @@
 # SkillGen / SkillMimicGen
 
-[← All projects](../../README.md) · [한국어](../ko/skillgen.md)
+[← Back to catalog](../../README.md) · [한국어](../ko/skillgen.md)
 
-## Overview
+SkillGen generates demonstrations by combining reusable local skills with planned motion between them. The research is published as SkillMimicGen. The Isaac Lab tutorial integrates the generation workflow with Isaac Lab Mimic and cuRobo for tasks such as cube stacking.
 
-Connects demonstration segments with motion planning.
+## Architecture and data flow
 
-## Conceptual workflow
+| Component | Inputs, processing and outputs |
+|---|---|
+| **Local skill segments** | A recorded demonstration is annotated into object-relative contact-rich skills and transit motion. The skill boundaries determine what gets reused and where new planning begins. |
+| **Motion-planned transit** | In a new scene reset, the generator adapts the local skill to the object pose, then uses the planner to reach the new start. Planning accounts for collision geometry along the transit. |
+| **Rollouts and policies** | The simulator executes the planned transitions and local skill trajectories and records successful demonstrations. The paper also studies learning skill initiation, control and termination for planning-based execution; the Isaac Lab tutorial includes behavior cloning. |
 
-```mermaid
-flowchart LR
-    n0["Segment demonstrations into skills"] --> n1
-    n1["use motion planning to connect segments"] --> n2
-    n2["generate and validate demonstrations"]
-```
+![The official research figure separates reusable local skills from transit motion that can be planned again. This is the key distinction when adapting a demonstration to a different scene.](https://skillgen.github.io/resources/overview.png)
 
-## Workflow and use
+The official research figure separates reusable local skills from transit motion that can be planned again. This is the key distinction when adapting a demonstration to a different scene. [Official figure source](https://skillgen.github.io/)
 
-Segment demonstrations into skills → use motion planning to connect segments → generate and validate demonstrations. This is a conceptual workflow; check the official source for version-specific prerequisites and supported configurations.
+![The Isaac Lab obstacle avoidance example demonstrates the motion planner’s role in the transit segment.](https://download.isaacsim.omniverse.nvidia.com/isaaclab/images/obstacle_avoidance_curobo.gif)
 
-**Example use case:** connecting task segments in new arrangements. Check applicability, supported inputs and model versions in the official source.
+The Isaac Lab obstacle avoidance example demonstrates the motion planner’s role in the transit segment. [Official figure source](https://isaac-sim.github.io/IsaacLab/v3.0.0/source/features/imitation-learning/skillgen.html)
 
-**Related technologies:** Isaac Lab, cuRobo.
+## Worked example
 
-## Architecture and practical details
+1. Use the official Franka cube-stacking example and label transitions around grasp and placement. Try the small generation run with visualization before scaling.
+2. For the bin-stacking variant, inspect obstacle avoidance and whether the robot reaches the intended skill start. Compare generation success with downstream behavior-cloning success.
 
-SkillGen requires manually annotated starts and ends for subtask segments. It samples goals, uses cuRobo to plan transitions between transformed skill segments, stitches the resulting trajectory and checks task success. For example, generate cube-stacking demonstrations with changed object placements, while reviewing planner failures.
+## What to verify
 
-[Official documentation](https://isaac-sim.github.io/IsaacLab/v3.0.0/source/features/imitation-learning/skillgen.html)
+- Annotations and collision models strongly affect generation. Validate a small sample before launching a long run and record failure reasons by subtask.
+- Follow the version-specific Isaac Lab and cuRobo setup. Check that the task IDs, source dataset and planner settings correspond to the same documented workflow.
 
-## Availability and terms
+## Official references and terms
 
-Check terms for the Isaac Lab implementation and dependencies such as cuRobo separately; paper and implementation names differ. Verify the exact version and the terms of any models, datasets, binaries and dependencies before use.
+Check the Isaac Lab implementation and its dependencies individually. The research page and the Isaac Lab tutorial document different parts of the workflow.
 
-## Official sources
+- [SkillMimicGen project and research figure](https://skillgen.github.io/)
+- [Isaac Lab SkillGen tutorial](https://isaac-sim.github.io/IsaacLab/v3.0.0/source/features/imitation-learning/skillgen.html)
+- [Paper and publication details](https://proceedings.mlr.press/v270/garrett25a.html)
 
-[Isaac Lab documentation](https://github.com/isaac-sim/IsaacLab/blob/main/docs/source/features/imitation-learning/skillgen.rst)
+## Related guides
+
+[MimicGen](mimicgen.md) · [cuRobo](curobo.md) · [Isaac Lab](isaac-lab.md)

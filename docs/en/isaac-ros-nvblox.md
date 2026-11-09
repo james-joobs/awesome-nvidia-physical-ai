@@ -1,27 +1,34 @@
 # Isaac ROS Nvblox
-[← Back to catalog](../../README.md) · [한국어](../ko/isaac-ros-nvblox.md)
 
-ROS 2 3D mapping and Nav2 obstacle costmaps.
+[← Catalog](../../README.md) · [한국어](../ko/isaac-ros-nvblox.md)
 
-**Official sources:** [Repository](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nvblox)  
-**License and scope:** Apache-2.0; dependencies separate.
+Isaac ROS Nvblox adapts the GPU voxel mapping library to ROS 2 and provides a costmap layer for Nav2.
 
-![Nvblox performance setup](https://raw.githubusercontent.com/NVIDIA-ISAAC-ROS/isaac_ros_nvblox/main/resources/nvblox_performance_setup.png)
+![Depth and pose into mapping and Nav2](https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-5.0/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_nvblox/isaac_ros_nvblox_nodegraph.png)
 
-*Image source: [Official repository](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nvblox)*
+*Follow depth and pose into the reconstruction node, then follow the planner-facing slice separately from visualization.* [Official figure source](https://nvidia-isaac-ros.github.io/v/release-5.0/repositories_and_packages/isaac_ros_nvblox/index.html)
 
-## Architecture and workflow
+![Depth and pose into mapping and Nav2 example](https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-5.0/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_nvblox/isaac_sim_nvblox_humans.gif)
 
-The following is an illustrative workflow, not an official architecture or a claim of automatic integration.
+*The simulator example shows people in a mapped scene. Inspect the map and costmap together when testing dynamic obstacles.* [Official figure source](https://nvidia-isaac-ros.github.io/v/release-5.0/repositories_and_packages/isaac_ros_nvblox/index.html)
 
-**Depth observations + camera pose → 3D reconstruction → distance fields and costmaps → navigation**
+## How it works
 
-## Example use case
+Depth and camera intrinsics give 3D measurements. Pose or TF places each measurement into a shared map frame. Nvblox integrates measurements into a voxel reconstruction and derives distances to obstacles. Nav2 receives a 2D costmap slice. Optional RGB contributes color to visualization, while the mesh is a separate output from the costmap.
 
-Create a local obstacle map from depth images for a mobile robot.
+## A practical workflow
 
-## Related technologies
+Bring up depth and TF in a small simulated aisle. Set the slice height for the obstacle geometry the robot must avoid. Place a low box and an overhanging shelf and compare what the mesh sees with what the planner sees.
 
-Isaac ROS, Nav2, visual SLAM.
+## What to verify
 
-Check version compatibility, data formats, and model and dependency terms in the official sources for your setup.
+Check depth scale, matching camera intrinsics, TF delays, voxel resolution and the slice height. Smaller voxels increase detail and GPU memory use. Dynamic human handling depends on the selected pipeline and its supported inputs.
+
+## License and availability
+
+Apache-2.0; dependencies separate.
+
+## Official references
+
+- [Package overview and node graph](https://nvidia-isaac-ros.github.io/v/release-5.0/repositories_and_packages/isaac_ros_nvblox/index.html)
+- [ROS package source](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nvblox)

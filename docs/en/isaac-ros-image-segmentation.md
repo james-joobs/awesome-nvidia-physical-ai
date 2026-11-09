@@ -1,26 +1,34 @@
 # Isaac ROS Image Segmentation
-[← Back to catalog](../../README.md) · [한국어](../ko/isaac-ros-image-segmentation.md)
 
-ROS 2 semantic image segmentation.
+[← Catalog](../../README.md) · [한국어](../ko/isaac-ros-image-segmentation.md)
 
-**Official sources:** [Repository](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_image_segmentation)  
-**License and scope:** Apache-2.0; models separate.
+The image segmentation packages turn camera images into pixel-level masks. A semantic mask labels classes by pixel, while instance-oriented pipelines can separate objects for downstream tasks.
 
-![Isaac ROS Image Segmentation official example](https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-5.0/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_image_segmentation/isaac_ros_image_segmentation_example_seg.png)
-*Image source: [Repository](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_image_segmentation)*
+![Image segmentation node graph](https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-5.0/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_image_segmentation/isaac_ros_image_segmentation_nodegraph.png)
 
-## Architecture and workflow
+*Look at the decoder where a model tensor becomes a pixel mask.* [Official figure source](https://nvidia-isaac-ros.github.io/v/release-5.0/repositories_and_packages/isaac_ros_image_segmentation/index.html)
 
-The following is an illustrative workflow, not an official architecture or a claim of automatic integration.
+![Image segmentation node graph example](https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-5.0/resources/isaac_ros_docs/repositories_and_packages/isaac_ros_image_segmentation/isaac_ros_image_segmentation_example_seg.png)
 
-**Camera image → segmentation inference → pixel labels → downstream perception**
+*The mask overlay shows pixel regions instead of a single bounding box per object.* [Official figure source](https://nvidia-isaac-ros.github.io/v/release-5.0/repositories_and_packages/isaac_ros_image_segmentation/index.html)
 
-## Example use case
+## How it works
 
-Classify image regions for a robot perception application.
+An encoder converts the image to tensors. The inference runtime evaluates the segmentation model, and decoding yields masks aligned to image coordinates. The downstream consumer may use labels for scene understanding or pass the mask for one object to a pose estimator. The exact message and class mapping depend on the package and model.
 
-## Related technologies
+## A practical workflow
 
-Isaac ROS DNN Inference, TensorRT.
+For a bin with a target object, inspect the masks against a few hand-labeled RGB frames. Compare object edges and holes, then verify the chosen mask and depth frame are aligned before feeding [pose estimation](isaac-ros-pose-estimation.md).
 
-Check version compatibility, data formats, and model and dependency terms in the official sources for your setup.
+## What to verify
+
+Check class IDs, interpolation when resizing masks, alignment with the depth frame, and time synchronization. Measure downstream pose stability with partial masks and reflective or occluded targets.
+
+## License and availability
+
+Apache-2.0; models separate.
+
+## Official references
+
+- [Package overview and node graph](https://nvidia-isaac-ros.github.io/v/release-5.0/repositories_and_packages/isaac_ros_image_segmentation/index.html)
+- [ROS package source](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_image_segmentation)
