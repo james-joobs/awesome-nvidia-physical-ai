@@ -4,21 +4,28 @@
 
 ### English · [🇰🇷 한국어로 보기](README.ko.md)
 
-<img src="assets/social-preview.jpg" alt="Awesome NVIDIA Physical AI — unofficial community guide" width="900">
+**Find the right tools for your Physical AI project and see how they fit together.**
 
-**A guide to the simulation, data, and robotics learning ecosystem behind physical AI.**
+174 catalog entries · 114 guides in each language · Official sources and license notes
 
-[Ecosystem map](#ecosystem-at-a-glance) · [Open-source projects](#1-projects-with-confirmed-open-source-code) · [NeMo](#nemo-and-physical-ai-tooling) · [Data and assets](#data-and-simulation-assets) · [Platforms and models](#2-platforms-models-products-standards-and-restricted-code) · [External tools](#3-external-models-and-tools) · [How they fit together](#4-how-the-pieces-fit-together)
+[Start here](#start-with-what-you-want-to-build) · [Ecosystem map](#ecosystem-at-a-glance) · [Data and assets](#data-and-simulation-assets) · [NeMo](#nemo-and-physical-ai-tooling) · [Full catalog](#1-projects-with-confirmed-open-source-code)
 
 </div>
 
----
+## Start with what you want to build
 
-This guide catalogs NVIDIA Physical AI projects, simulation assets, and datasets, including related projects outside NVIDIA. It links to official repositories and documentation and distinguishes open-source code from models, products, and source-available code with restrictions.
+| Your goal | Example path | What the guides help you do |
+|---|---|---|
+| **Train a robot policy** | [Isaac Sim](docs/en/isaac-sim.md) → [Isaac Lab](docs/en/isaac-lab.md) → [Lab-Arena](docs/en/isaac-lab-arena.md) | Build a simulated task, train a policy, and compare it across test scenes. |
+| **Generate labeled camera data** | [SimReady](docs/en/simready.md) → [Isaac Sim](docs/en/isaac-sim.md) → [Replicator](docs/en/replicator.md) | Set up a scene, vary its conditions, and export images with labels. |
+| **Build a video analysis agent** | [Metropolis VSS](docs/en/metropolis-vss.md) → [Switchyard](docs/en/nemo-switchyard.md) (optional) | Find timestamped evidence in footage and route follow-up model requests. |
+| **Test a driving policy** | [AlpaSim](docs/en/alpasim.md) → [AlpaGym](docs/en/alpagym.md) | Compare driving behavior on the same route, then explore simulation-based post-training. |
 
-**Checked:** November 9, 2026. A public repository does not imply that its model weights, datasets, binaries, cloud services, or dependencies share the same license. License notes below describe the linked code where confirmed; check the exact version and individual components before use. “Unverified” means the relevant scope or license could not be established, not that it is closed source.
+[See the ecosystem map](#ecosystem-at-a-glance) · [Browse datasets](#data-and-simulation-assets) · [Watch the AlpaSim demo](docs/en/alpasim.md)
 
-> Open a detail guide for architecture, workflow examples, and image credits. Dataset names link directly to their official cards.
+<p align="center">
+  <img src="assets/social-preview.jpg" alt="Awesome NVIDIA Physical AI — unofficial community guide" width="540">
+</p>
 
 ## Ecosystem at a glance
 
@@ -27,6 +34,12 @@ This guide catalogs NVIDIA Physical AI projects, simulation assets, and datasets
 The green arrows follow data and model artifacts from curation through training, evaluation, and serving. The blue lane shows an optional inference path. An application can use Switchyard to select a compatible model endpoint for a request. Observations, failures, and traces feed the next iteration.
 
 [View the diagram](assets/physical-ai-landscape.svg) · [한국어 다이어그램](assets/physical-ai-landscape.ko.svg) · [Switchyard guide](docs/en/nemo-switchyard.md) · [Cosmos Framework guide](docs/en/cosmos-framework.md)
+
+This guide catalogs NVIDIA Physical AI projects, simulation assets, and datasets, including related projects outside NVIDIA. It links to official repositories and documentation and distinguishes open-source code from models, products, and source-available code with restrictions.
+
+**Checked:** November 9, 2026. A public repository does not imply that its model weights, datasets, binaries, cloud services, or dependencies share the same license. License notes below describe the linked code where confirmed; check the exact version and individual components before use. “Unverified” means the relevant scope or license could not be established, not that it is closed source.
+
+> Open a detail guide for architecture, workflow examples, and image credits. Dataset names link directly to their official cards.
 
 ## 1. Projects with confirmed open-source code
 
