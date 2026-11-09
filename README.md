@@ -22,11 +22,11 @@ This guide catalogs NVIDIA Physical AI projects, simulation assets, and datasets
 
 ## Ecosystem at a glance
 
-![NVIDIA Physical AI technology stack and development flywheel](assets/physical-ai-landscape.svg)
+![NVIDIA Physical AI stack, NeMo and Cosmos model workflow, Switchyard request routing, and feedback loop](assets/physical-ai-landscape.svg)
 
-This conceptual map connects data collection and assets with simulation, training, evaluation, and deployment. Real-world observations and failures feed the next iteration. Workflows can use only the tools and stages they need.
+The green arrows follow data and model artifacts from curation through training, evaluation, and serving. The blue lane shows an optional inference path. An application can use Switchyard to select a compatible model endpoint for a request. Observations, failures, and traces feed the next iteration.
 
-[View the diagram](assets/physical-ai-landscape.svg) · [한국어 다이어그램](assets/physical-ai-landscape.ko.svg)
+[View the diagram](assets/physical-ai-landscape.svg) · [한국어 다이어그램](assets/physical-ai-landscape.ko.svg) · [Switchyard guide](docs/en/nemo-switchyard.md) · [Cosmos Framework guide](docs/en/cosmos-framework.md)
 
 ## 1. Projects with confirmed open-source code
 

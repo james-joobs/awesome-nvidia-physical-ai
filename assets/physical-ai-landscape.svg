@@ -1,54 +1,177 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1180" viewBox="0 0 1600 1180" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" width="1600" height="1500" viewBox="0 0 1600 1500" role="img" aria-labelledby="title desc">
 <title id="title">NVIDIA Physical AI ecosystem and development flywheel</title>
-<desc id="desc">An unofficial overview of data, world building and simulation, model learning, and deployment, with an iterative physical AI flywheel and platform layers.</desc>
+<desc id="desc">A community map of the core Physical AI stack, the NeMo and Cosmos workflow from curation to serving, optional Switchyard request routing, and the feedback loop from deployment to data collection.</desc>
 <defs>
-  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#151a18"/><stop offset="1" stop-color="#090c0b"/></linearGradient>
-  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".035"/></pattern>
-  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#76b900"/></marker>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop stop-color="#151a18"/><stop offset="1" stop-color="#090c0b"/>
+  </linearGradient>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".035"/>
+  </pattern>
+  <marker id="green-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+    <path d="M0 0L10 5L0 10Z" fill="#8ecb24"/>
+  </marker>
+  <marker id="blue-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+    <path d="M0 0L10 5L0 10Z" fill="#68d8ee"/>
+  </marker>
   <style>
-  text {font-family:Arial,Helvetica,sans-serif}.title{font-size:42px;font-weight:700;fill:#f5f7f2;letter-spacing:.5px}.sub{font-size:19px;fill:#a8b4aa}.eyebrow{font-size:17px;font-weight:700;letter-spacing:2.4px;fill:#96d31a}.section{font-size:24px;font-weight:700;fill:#f5f7f2}.cardtitle{font-size:23px;font-weight:700;fill:#fff}.description{font-size:17px;fill:#a7b4aa}.label{font-size:17px;font-weight:700;fill:#eef5e9}.tiny{font-size:15px;fill:#b0bdb2}.flow{font-size:19px;font-weight:700;fill:#f0f7ed}.flowdetail{font-size:15px;fill:#9eafa0}.card{fill:#17201b;stroke:#3b513e;stroke-width:1.5}.chip{fill:#25372a;stroke:#49683b;stroke-width:1}.line{stroke:#76b900;stroke-width:2.8;fill:none;marker-end:url(#arrow)}
+    text { font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif; }
+    .title { font-size: 44px; font-weight: 700; fill: #f5f7f2; }
+    .section { font-size: 24px; font-weight: 700; fill: #f5f7f2; letter-spacing: .6px; }
+    .eyebrow { font-size: 16px; font-weight: 700; letter-spacing: 1.8px; fill: #a9df47; }
+    .card-title { font-size: 23px; font-weight: 700; fill: #fff; }
+    .label { font-size: 18px; font-weight: 700; fill: #edf6ea; }
+    .muted { font-size: 17px; fill: #b8c4b9; }
+    .small { font-size: 16px; fill: #b8c4b9; }
+    .artifact { font-size: 16px; font-weight: 700; fill: #c9e8a3; }
+    .blue { fill: #92e7f5; }
+    .card { fill: #17201b; stroke: #3d5743; stroke-width: 1.4; }
+    .chip { fill: #25372a; stroke: #4e693f; stroke-width: 1; }
+    .band { fill: #111b15; stroke: #364f37; stroke-width: 1.4; }
+    .route-band { fill: #101e23; stroke: #365560; stroke-width: 1.4; }
+    .route { fill: #152a30; stroke: #446773; stroke-width: 1.4; }
+    .switch { fill: #1b3841; stroke: #68d8ee; stroke-width: 2; }
+    .green-line { fill: none; stroke: #8ecb24; stroke-width: 2.5; marker-end: url(#green-arrow); }
+    .blue-line { fill: none; stroke: #68d8ee; stroke-width: 2.5; marker-end: url(#blue-arrow); }
+    .serve-line { stroke-dasharray: 5 4; }
   </style>
 </defs>
-<rect width="1600" height="1180" rx="20" fill="url(#bg)"/><rect width="1600" height="1180" rx="20" fill="url(#grid)"/>
-<rect x="0" y="0" width="12" height="1180" fill="#76b900"/>
-<text x="64" y="71" class="eyebrow">UNOFFICIAL COMMUNITY MAP  /  NVIDIA PHYSICAL AI</text>
-<text x="64" y="132" class="title">From real-world data to intelligent action</text>
-<text x="64" y="170" class="sub">A practical map of the ecosystem: where the tools fit and how the development loop connects.</text>
-<text x="64" y="232" class="section">01  /  THE TECHNOLOGY STACK</text>
-<text x="1536" y="232" class="tiny" text-anchor="end">Choose the components your workflow needs</text>
-<!-- four technology layers -->
-<g transform="translate(64 260)"><rect class="card" width="348" height="325" rx="14"/><rect x="0" width="348" height="5" rx="2" fill="#76b900"/>
-<text x="24" y="49" class="eyebrow">01 / INPUT</text><text x="24" y="83" class="cardtitle">Data &amp; assets</text><text x="24" y="112" class="description">Capture, reconstruct, curate</text>
-<text x="24" y="159" class="label">Isaac Capture · Teleop</text><text x="24" y="190" class="label">Video-to-Data · AutoData</text><text x="24" y="221" class="label">SimReady · OpenUSD</text><text x="24" y="252" class="label">Physical AI datasets</text><text x="24" y="290" class="tiny">Real / synthetic demonstrations + 3D</text></g>
-<g transform="translate(433 260)"><rect class="card" width="348" height="325" rx="14"/><rect x="0" width="348" height="5" rx="2" fill="#76b900"/>
-<text x="24" y="49" class="eyebrow">02 / WORLD</text><text x="24" y="83" class="cardtitle">Simulation &amp; generation</text><text x="24" y="112" class="description">Build, simulate, diversify</text>
-<text x="24" y="159" class="label">Isaac Sim · Omniverse</text><text x="24" y="190" class="label">Newton · PhysX · Warp</text><text x="24" y="221" class="label">Replicator · NuRec</text><text x="24" y="252" class="label">Cosmos Predict · Transfer</text><text x="24" y="290" class="tiny">Physics, sensors + visual variation</text></g>
-<g transform="translate(802 260)"><rect class="card" width="348" height="325" rx="14"/><rect x="0" width="348" height="5" rx="2" fill="#76b900"/>
-<text x="24" y="49" class="eyebrow">03 / INTELLIGENCE</text><text x="24" y="83" class="cardtitle">Train &amp; evaluate</text><text x="24" y="112" class="description">Learn policies, test behaviors</text>
-<text x="24" y="159" class="label">Isaac Lab · Lab-Arena</text><text x="24" y="190" class="label">Isaac GR00T · WBC-AGILE</text><text x="24" y="221" class="label">Cosmos Reason · Evaluator</text><text x="24" y="252" class="label">Alpamayo · AlpaGym</text><text x="24" y="290" class="tiny">Robot learning + world reasoning</text></g>
-<g transform="translate(1171 260)"><rect class="card" width="365" height="325" rx="14"/><rect x="0" width="365" height="5" rx="2" fill="#76b900"/>
-<text x="24" y="49" class="eyebrow">04 / ACTION</text><text x="24" y="83" class="cardtitle">Deploy &amp; operate</text><text x="24" y="112" class="description">Connect models to the world</text>
-<text x="24" y="159" class="label">Isaac ROS · cuRobo · nvblox</text><text x="24" y="190" class="label">TensorRT · LEAPP</text><text x="24" y="221" class="label">Jetson · DRIVE · Holoscan</text><text x="24" y="252" class="label">DeepStream · Metropolis</text><text x="24" y="290" class="tiny">Robots / vehicles / smart spaces</text></g>
-<path d="M413 420h15M782 420h15M1151 420h15" class="line"/>
-<!-- platform band -->
-<text x="64" y="641" class="section">02  /  PLATFORMS &amp; SHARED SERVICES</text>
-<rect x="64" y="663" width="1472" height="114" rx="14" fill="#1d2b20" stroke="#49643d"/>
-<text x="88" y="700" class="eyebrow">ACROSS THE STACK</text>
-<text x="88" y="737" class="label">Omniverse / OpenUSD</text><text x="346" y="737" class="tiny">worlds &amp; assets</text>
-<text x="525" y="737" class="label">Cosmos Data Factory</text><text x="736" y="737" class="tiny">data pipelines</text>
-<text x="900" y="737" class="label">OSMO</text><text x="969" y="737" class="tiny">workflow orchestration</text>
-<text x="1202" y="737" class="label">Hugging Face</text><text x="1348" y="737" class="tiny">datasets &amp; models</text>
-<!-- flywheel -->
-<text x="64" y="836" class="section">03  /  THE PHYSICAL AI FLYWHEEL</text>
-<text x="1536" y="836" class="tiny" text-anchor="end">Repeat as new failures and observations surface</text>
-<rect x="64" y="860" width="1472" height="220" rx="14" fill="#111a14" stroke="#314b32"/>
-<g transform="translate(102 904)"><rect class="chip" width="252" height="83" rx="9"/><text x="17" y="32" class="flow">1. Capture</text><text x="17" y="59" class="flowdetail">real data &amp; demonstrations</text></g>
-<g transform="translate(407 904)"><rect class="chip" width="252" height="83" rx="9"/><text x="17" y="32" class="flow">2. Generate</text><text x="17" y="59" class="flowdetail">simulate &amp; augment</text></g>
-<g transform="translate(712 904)"><rect class="chip" width="252" height="83" rx="9"/><text x="17" y="32" class="flow">3. Train &amp; test</text><text x="17" y="59" class="flowdetail">policies &amp; world models</text></g>
-<g transform="translate(1017 904)"><rect class="chip" width="252" height="83" rx="9"/><text x="17" y="32" class="flow">4. Deploy</text><text x="17" y="59" class="flowdetail">observe &amp; collect failures</text></g>
-<path d="M354 945H397 M659 945H702 M964 945H1007" class="line"/>
-<path d="M1269 945H1413Q1453 945 1453 985V1012Q1453 1032 1428 1032H255Q227 1032 227 1001V997" class="line"/>
-<text x="826" y="1022" text-anchor="middle" class="tiny">feedback: real-world observations, failure cases and new data</text>
-<text x="64" y="1135" class="tiny">Conceptual overview • Paths are optional, not a required sequence • Model, dataset and component licenses differ</text>
-<text x="1536" y="1135" class="tiny" text-anchor="end">github.com/james-joobs/awesome-nvidia-physical-ai</text>
+<rect width="1600" height="1500" rx="20" fill="url(#bg)"/>
+<rect width="1600" height="1500" rx="20" fill="url(#grid)"/>
+<rect width="12" height="1500" fill="#76b900"/>
+<text x="64" y="62" class="eyebrow">UNOFFICIAL COMMUNITY MAP  /  NVIDIA PHYSICAL AI</text>
+<text x="64" y="119" class="title">From real-world data to intelligent action</text>
+<text x="64" y="155" class="muted">Simulation, model development, and the services that connect deployed models to applications.</text>
+<!-- Core stack -->
+<text x="64" y="205" class="section">01  /  CORE PHYSICAL AI STACK</text>
+<rect x="64" y="226" width="356" height="223" rx="12" class="card"/>
+<rect x="64" y="226" width="356" height="4" rx="2" fill="#76b900"/>
+<text x="84" y="255" class="eyebrow">01 / INPUT</text>
+<text x="84" y="287" class="card-title">Data &amp; assets</text>
+<text x="84" y="314" class="muted">Capture, reconstruct, and prepare</text>
+<text x="84" y="346" class="label">Isaac Capture · Video-to-Data</text>
+<text x="84" y="372" class="label">AutoData · Physical AI datasets</text>
+<text x="84" y="398" class="label">SimReady · OpenUSD</text>
+<rect x="436" y="226" width="356" height="223" rx="12" class="card"/>
+<rect x="436" y="226" width="356" height="4" rx="2" fill="#76b900"/>
+<text x="456" y="255" class="eyebrow">02 / WORLD</text>
+<text x="456" y="287" class="card-title">Simulation &amp; generation</text>
+<text x="456" y="314" class="muted">Build scenes and vary conditions</text>
+<text x="456" y="346" class="label">Isaac Sim · Omniverse</text>
+<text x="456" y="372" class="label">Newton · PhysX · Warp</text>
+<text x="456" y="398" class="label">Replicator · NuRec</text>
+<text x="456" y="424" class="label">Cosmos Predict · Transfer</text>
+<rect x="808" y="226" width="356" height="223" rx="12" class="card"/>
+<rect x="808" y="226" width="356" height="4" rx="2" fill="#76b900"/>
+<text x="828" y="255" class="eyebrow">03 / INTELLIGENCE</text>
+<text x="828" y="287" class="card-title">Policy learning &amp; testing</text>
+<text x="828" y="314" class="muted">Learn and validate behavior</text>
+<text x="828" y="346" class="label">Isaac Lab · Lab-Arena</text>
+<text x="828" y="372" class="label">Isaac GR00T · WBC-AGILE</text>
+<text x="828" y="398" class="label">Alpamayo · AlpaGym</text>
+<text x="828" y="424" class="label">Cosmos 3 · Cosmos Reason</text>
+<rect x="1180" y="226" width="356" height="223" rx="12" class="card"/>
+<rect x="1180" y="226" width="356" height="4" rx="2" fill="#76b900"/>
+<text x="1200" y="255" class="eyebrow">04 / ACTION</text>
+<text x="1200" y="287" class="card-title">Deploy &amp; operate</text>
+<text x="1200" y="314" class="muted">Run on robots, vehicles, and sites</text>
+<text x="1200" y="346" class="label">Isaac ROS · cuRobo · nvblox</text>
+<text x="1200" y="372" class="label">TensorRT · LEAPP</text>
+<text x="1200" y="398" class="label">Jetson · DRIVE · Holoscan</text>
+<text x="1200" y="424" class="label">DeepStream · Metropolis VSS</text>
+<!-- Model lifecycle -->
+<text x="64" y="501" class="section">02  /  NeMo &amp; COSMOS MODEL WORKFLOW</text>
+<text x="1536" y="501" class="small" text-anchor="end">Green arrows show the flow of data and model artifacts.</text>
+<rect x="64" y="522" width="356" height="192" rx="12" class="card"/>
+<text x="84" y="554" class="card-title">Curate data</text>
+<text x="84" y="587" class="label">Cosmos Curator · NeMo Curator</text>
+<text x="84" y="614" class="label">NeMo Data Designer · NeMo Speech</text>
+<text x="84" y="641" class="label">Cosmos Xenna  /  stage execution</text>
+<path d="M84 655h316" stroke="#3d5743"/>
+<text x="84" y="684" class="artifact">Curated clips, labels, and manifests</text>
+<rect x="436" y="522" width="356" height="192" rx="12" class="card"/>
+<text x="456" y="554" class="card-title">Train &amp; post-train</text>
+<text x="456" y="587" class="label">Cosmos Framework · Cosmos RL</text>
+<text x="456" y="614" class="label">NeMo AutoModel · Megatron Bridge</text>
+<text x="456" y="641" class="label">NeMo RL · NeMo Gym</text>
+<path d="M456 655h316" stroke="#3d5743"/>
+<text x="456" y="684" class="artifact">Candidate model checkpoints</text>
+<rect x="808" y="522" width="356" height="192" rx="12" class="card"/>
+<text x="828" y="554" class="card-title">Evaluate &amp; select</text>
+<text x="828" y="587" class="label">Cosmos Evaluator  /  video quality</text>
+<text x="828" y="614" class="label">NeMo Evaluator  /  benchmarks</text>
+<text x="828" y="641" class="label">NeMo Helix  /  agent evaluation</text>
+<path d="M828 655h316" stroke="#3d5743"/>
+<text x="828" y="684" class="artifact">Scores and a release decision</text>
+<rect x="1180" y="522" width="356" height="192" rx="12" class="card"/>
+<text x="1200" y="554" class="card-title">Serve models</text>
+<text x="1200" y="587" class="label">NVIDIA NIM  /  model inference</text>
+<text x="1200" y="614" class="label">NeMo Platform  /  inference gateway</text>
+<text x="1200" y="641" class="label">Cosmos Framework  /  serving recipes</text>
+<path d="M1200 655h316" stroke="#3d5743"/>
+<text x="1200" y="684" class="artifact">Compatible inference endpoints</text>
+<path d="M421 616H432" class="green-line"/>
+<path d="M793 616H804" class="green-line"/>
+<path d="M1165 616H1176" class="green-line"/>
+<!-- Optional inference request path -->
+<text x="64" y="766" class="section">03  /  SWITCHYARD AT INFERENCE TIME</text>
+<text x="1086" y="766" class="small" text-anchor="end">Example request path with an optional host integration</text>
+<rect x="64" y="788" width="1472" height="259" rx="12" class="route-band"/>
+<rect x="88" y="821" width="448" height="103" rx="12" class="route"/>
+<text x="106" y="854" class="card-title">Application or agent</text>
+<text x="106" y="881" class="label">Example: a video report workflow</text>
+<text x="106" y="905" class="small">VSS supplies evidence · NemoClaw runs agents</text>
+<rect x="616" y="821" width="364" height="103" rx="12" class="switch"/>
+<text x="634" y="854" class="card-title blue">NeMo Switchyard</text>
+<text x="634" y="881" class="label">Selects a model for each request</text>
+<text x="634" y="905" class="small">Routing library or host integration</text>
+<rect x="1060" y="821" width="452" height="103" rx="12" class="route"/>
+<text x="1078" y="854" class="card-title">Compatible model APIs</text>
+<text x="1078" y="881" class="label">NIM or other configured providers</text>
+<text x="1078" y="905" class="small">The selected endpoint runs inference</text>
+<path d="M543 873H606" class="blue-line"/>
+<path d="M987 873H1050" class="blue-line"/>
+<path d="M1358 715V811" class="blue-line serve-line"/>
+<text x="1372" y="766" class="small blue">exposes APIs</text>
+<text x="88" y="963" class="small">Document context · NeMo Retriever</text>
+<text x="554" y="963" class="small">Execution and traces · NeMo Fabric / Relay</text>
+<text x="1034" y="963" class="small">Application checks · NeMo Guardrails</text>
+<text x="88" y="1013" class="small">NeMo Agent Toolkit (deprecated)  →  Relay, Fabric, or Helix by capability</text>
+<!-- Shared platforms -->
+<text x="64" y="1097" class="section">04  /  SHARED PLATFORMS</text>
+<rect x="64" y="1118" width="1472" height="59" rx="12" class="band"/>
+<text x="88" y="1154" class="small">Worlds &amp; assets · Omniverse / OpenUSD</text>
+<text x="463" y="1154" class="small">Data pipelines · Cosmos Data Factory</text>
+<text x="864" y="1154" class="small">Orchestration · OSMO</text>
+<text x="1174" y="1154" class="small">Data &amp; models · Hugging Face</text>
+<!-- Physical AI feedback loop -->
+<text x="64" y="1227" class="section">05  /  PHYSICAL AI FLYWHEEL</text>
+<rect x="64" y="1248" width="1472" height="171" rx="12" class="band"/>
+<rect x="88" y="1270" width="214" height="70" rx="9" class="chip"/>
+<text x="101" y="1299" class="label">1. Capture</text>
+<text x="101" y="1324" class="small">Observations and demos</text>
+<rect x="330" y="1270" width="214" height="70" rx="9" class="chip"/>
+<text x="343" y="1299" class="label">2. Generate</text>
+<text x="343" y="1324" class="small">Simulate and augment</text>
+<rect x="572" y="1270" width="214" height="70" rx="9" class="chip"/>
+<text x="585" y="1299" class="label">3. Curate</text>
+<text x="585" y="1324" class="small">Filter and annotate</text>
+<rect x="814" y="1270" width="214" height="70" rx="9" class="chip"/>
+<text x="827" y="1299" class="label">4. Train</text>
+<text x="827" y="1324" class="small">Policies and models</text>
+<rect x="1056" y="1270" width="214" height="70" rx="9" class="chip"/>
+<text x="1069" y="1299" class="label">5. Evaluate</text>
+<text x="1069" y="1324" class="small">Test and select</text>
+<rect x="1298" y="1270" width="214" height="70" rx="9" class="chip"/>
+<text x="1311" y="1299" class="label">6. Deploy</text>
+<text x="1311" y="1324" class="small">Operate and observe</text>
+<path d="M303 1305H324" class="green-line"/>
+<path d="M545 1305H566" class="green-line"/>
+<path d="M787 1305H808" class="green-line"/>
+<path d="M1029 1305H1050" class="green-line"/>
+<path d="M1271 1305H1292" class="green-line"/>
+<path d="M1405 1341V1377Q1405 1393 1389 1393H211Q195 1393 195 1377V1347" class="green-line"/>
+<text x="800" y="1382" class="small" text-anchor="middle">Feed observations, failures, and traces into the next data and evaluation cycle.</text>
+<text x="64" y="1469" class="small">Conceptual paths · Choose tools for the task · Model, data, and service terms vary</text>
+<text x="1536" y="1469" class="small" text-anchor="end">github.com/james-joobs/awesome-nvidia-physical-ai</text>
 </svg>

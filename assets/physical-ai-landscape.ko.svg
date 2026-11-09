@@ -1,54 +1,177 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1180" viewBox="0 0 1600 1180" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="ko" width="1600" height="1500" viewBox="0 0 1600 1500" role="img" aria-labelledby="title desc">
 <title id="title">NVIDIA Physical AI 생태계와 개발 플라이휠</title>
-<desc id="desc">An unofficial overview of data, world building and simulation, model learning, and deployment, with an iterative physical AI flywheel and platform layers.</desc>
+<desc id="desc">핵심 물리 AI 스택, NeMo와 Cosmos의 데이터 정제부터 서빙까지, Switchyard 선택 라우팅, 배포 결과를 다시 수집하는 플라이휠을 보여 주는 비공식 지도입니다.</desc>
 <defs>
-  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#151a18"/><stop offset="1" stop-color="#090c0b"/></linearGradient>
-  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".035"/></pattern>
-  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#76b900"/></marker>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop stop-color="#151a18"/><stop offset="1" stop-color="#090c0b"/>
+  </linearGradient>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".035"/>
+  </pattern>
+  <marker id="green-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+    <path d="M0 0L10 5L0 10Z" fill="#8ecb24"/>
+  </marker>
+  <marker id="blue-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+    <path d="M0 0L10 5L0 10Z" fill="#68d8ee"/>
+  </marker>
   <style>
-  text {font-family:Arial,Noto Sans KR,Helvetica,sans-serif}.title{font-size:42px;font-weight:700;fill:#f5f7f2;letter-spacing:.5px}.sub{font-size:19px;fill:#a8b4aa}.eyebrow{font-size:17px;font-weight:700;letter-spacing:2.4px;fill:#96d31a}.section{font-size:24px;font-weight:700;fill:#f5f7f2}.cardtitle{font-size:23px;font-weight:700;fill:#fff}.description{font-size:17px;fill:#a7b4aa}.label{font-size:17px;font-weight:700;fill:#eef5e9}.tiny{font-size:15px;fill:#b0bdb2}.flow{font-size:19px;font-weight:700;fill:#f0f7ed}.flowdetail{font-size:15px;fill:#9eafa0}.card{fill:#17201b;stroke:#3b513e;stroke-width:1.5}.chip{fill:#25372a;stroke:#49683b;stroke-width:1}.line{stroke:#76b900;stroke-width:2.8;fill:none;marker-end:url(#arrow)}
+    text { font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif; }
+    .title { font-size: 44px; font-weight: 700; fill: #f5f7f2; }
+    .section { font-size: 24px; font-weight: 700; fill: #f5f7f2; letter-spacing: .6px; }
+    .eyebrow { font-size: 16px; font-weight: 700; letter-spacing: 1.8px; fill: #a9df47; }
+    .card-title { font-size: 23px; font-weight: 700; fill: #fff; }
+    .label { font-size: 18px; font-weight: 700; fill: #edf6ea; }
+    .muted { font-size: 17px; fill: #b8c4b9; }
+    .small { font-size: 16px; fill: #b8c4b9; }
+    .artifact { font-size: 16px; font-weight: 700; fill: #c9e8a3; }
+    .blue { fill: #92e7f5; }
+    .card { fill: #17201b; stroke: #3d5743; stroke-width: 1.4; }
+    .chip { fill: #25372a; stroke: #4e693f; stroke-width: 1; }
+    .band { fill: #111b15; stroke: #364f37; stroke-width: 1.4; }
+    .route-band { fill: #101e23; stroke: #365560; stroke-width: 1.4; }
+    .route { fill: #152a30; stroke: #446773; stroke-width: 1.4; }
+    .switch { fill: #1b3841; stroke: #68d8ee; stroke-width: 2; }
+    .green-line { fill: none; stroke: #8ecb24; stroke-width: 2.5; marker-end: url(#green-arrow); }
+    .blue-line { fill: none; stroke: #68d8ee; stroke-width: 2.5; marker-end: url(#blue-arrow); }
+    .serve-line { stroke-dasharray: 5 4; }
   </style>
 </defs>
-<rect width="1600" height="1180" rx="20" fill="url(#bg)"/><rect width="1600" height="1180" rx="20" fill="url(#grid)"/>
-<rect x="0" y="0" width="12" height="1180" fill="#76b900"/>
-<text x="64" y="71" class="eyebrow">비공식 커뮤니티 가이드  /  NVIDIA PHYSICAL AI</text>
-<text x="64" y="132" class="title">현실 데이터에서 지능형 행동까지</text>
-<text x="64" y="170" class="sub">기술별 역할과 개발 과정의 순환을 한눈에 보는 생태계 지도</text>
-<text x="64" y="232" class="section">01  /  기술 스택</text>
-<text x="1536" y="232" class="tiny" text-anchor="end">목적에 맞는 구성 요소를 선택하세요</text>
-<!-- four technology layers -->
-<g transform="translate(64 260)"><rect class="card" width="348" height="325" rx="14"/><rect x="0" width="348" height="5" rx="2" fill="#76b900"/>
-<text x="24" y="49" class="eyebrow">01 / 입력</text><text x="24" y="83" class="cardtitle">데이터와 자산</text><text x="24" y="112" class="description">수집 · 복원 · 정제</text>
-<text x="24" y="159" class="label">Isaac Capture · Teleop</text><text x="24" y="190" class="label">Video-to-Data · AutoData</text><text x="24" y="221" class="label">SimReady · OpenUSD</text><text x="24" y="252" class="label">Physical AI 데이터셋</text><text x="24" y="290" class="tiny">실제·합성 시연 및 3D 자산</text></g>
-<g transform="translate(433 260)"><rect class="card" width="348" height="325" rx="14"/><rect x="0" width="348" height="5" rx="2" fill="#76b900"/>
-<text x="24" y="49" class="eyebrow">02 / 세계</text><text x="24" y="83" class="cardtitle">시뮬레이션과 생성</text><text x="24" y="112" class="description">구성 · 물리 계산 · 다양화</text>
-<text x="24" y="159" class="label">Isaac Sim · Omniverse</text><text x="24" y="190" class="label">Newton · PhysX · Warp</text><text x="24" y="221" class="label">Replicator · NuRec</text><text x="24" y="252" class="label">Cosmos Predict · Transfer</text><text x="24" y="290" class="tiny">물리·센서와 시각적 다양성</text></g>
-<g transform="translate(802 260)"><rect class="card" width="348" height="325" rx="14"/><rect x="0" width="348" height="5" rx="2" fill="#76b900"/>
-<text x="24" y="49" class="eyebrow">03 / 지능</text><text x="24" y="83" class="cardtitle">학습과 평가</text><text x="24" y="112" class="description">정책 학습 · 행동 평가</text>
-<text x="24" y="159" class="label">Isaac Lab · Lab-Arena</text><text x="24" y="190" class="label">Isaac GR00T · WBC-AGILE</text><text x="24" y="221" class="label">Cosmos Reason · Evaluator</text><text x="24" y="252" class="label">Alpamayo · AlpaGym</text><text x="24" y="290" class="tiny">로봇 학습과 세계 추론</text></g>
-<g transform="translate(1171 260)"><rect class="card" width="365" height="325" rx="14"/><rect x="0" width="365" height="5" rx="2" fill="#76b900"/>
-<text x="24" y="49" class="eyebrow">04 / 행동</text><text x="24" y="83" class="cardtitle">배포와 운영</text><text x="24" y="112" class="description">실제 환경에 모델 연결</text>
-<text x="24" y="159" class="label">Isaac ROS · cuRobo · nvblox</text><text x="24" y="190" class="label">TensorRT · LEAPP</text><text x="24" y="221" class="label">Jetson · DRIVE · Holoscan</text><text x="24" y="252" class="label">DeepStream · Metropolis</text><text x="24" y="290" class="tiny">로봇 / 차량 / 스마트 공간</text></g>
-<path d="M413 420h15M782 420h15M1151 420h15" class="line"/>
-<!-- platform band -->
-<text x="64" y="641" class="section">02  /  플랫폼과 공통 서비스</text>
-<rect x="64" y="663" width="1472" height="114" rx="14" fill="#1d2b20" stroke="#49643d"/>
-<text x="88" y="700" class="eyebrow">전체 스택을 지원</text>
-<text x="88" y="737" class="label">Omniverse / OpenUSD</text><text x="346" y="737" class="tiny">환경·자산</text>
-<text x="525" y="737" class="label">Cosmos Data Factory</text><text x="736" y="737" class="tiny">데이터 파이프라인</text>
-<text x="900" y="737" class="label">OSMO</text><text x="969" y="737" class="tiny">작업 흐름 관리</text>
-<text x="1202" y="737" class="label">Hugging Face</text><text x="1348" y="737" class="tiny">데이터·모델</text>
-<!-- flywheel -->
-<text x="64" y="836" class="section">03  /  PHYSICAL AI 플라이휠</text>
-<text x="1536" y="836" class="tiny" text-anchor="end">새로운 관측과 실패 사례를 반영해 반복</text>
-<rect x="64" y="860" width="1472" height="220" rx="14" fill="#111a14" stroke="#314b32"/>
-<g transform="translate(102 904)"><rect class="chip" width="252" height="83" rx="9"/><text x="17" y="32" class="flow">1. 수집</text><text x="17" y="59" class="flowdetail">실제 데이터와 시연</text></g>
-<g transform="translate(407 904)"><rect class="chip" width="252" height="83" rx="9"/><text x="17" y="32" class="flow">2. 생성</text><text x="17" y="59" class="flowdetail">시뮬레이션과 증강</text></g>
-<g transform="translate(712 904)"><rect class="chip" width="252" height="83" rx="9"/><text x="17" y="32" class="flow">3. 학습·평가</text><text x="17" y="59" class="flowdetail">정책 및 월드 모델</text></g>
-<g transform="translate(1017 904)"><rect class="chip" width="252" height="83" rx="9"/><text x="17" y="32" class="flow">4. 배포</text><text x="17" y="59" class="flowdetail">관측 및 실패 사례 수집</text></g>
-<path d="M354 945H397 M659 945H702 M964 945H1007" class="line"/>
-<path d="M1269 945H1413Q1453 945 1453 985V1012Q1453 1032 1428 1032H255Q227 1032 227 1001V997" class="line"/>
-<text x="826" y="1022" text-anchor="middle" class="tiny">피드백: 실제 환경의 관측·실패 사례와 새로운 데이터</text>
-<text x="64" y="1135" class="tiny">개념도 • 모든 단계를 반드시 거칠 필요는 없음 • 모델·데이터·구성 요소별 이용 조건 확인</text>
-<text x="1536" y="1135" class="tiny" text-anchor="end">github.com/james-joobs/awesome-nvidia-physical-ai</text>
+<rect width="1600" height="1500" rx="20" fill="url(#bg)"/>
+<rect width="1600" height="1500" rx="20" fill="url(#grid)"/>
+<rect width="12" height="1500" fill="#76b900"/>
+<text x="64" y="62" class="eyebrow">비공식 커뮤니티 가이드  /  NVIDIA PHYSICAL AI</text>
+<text x="64" y="119" class="title">현실 데이터에서 지능형 행동까지</text>
+<text x="64" y="155" class="muted">시뮬레이션과 모델 개발, 그리고 배포된 모델을 애플리케이션에 연결하는 서비스</text>
+<!-- Core stack -->
+<text x="64" y="205" class="section">01  /  물리 AI 핵심 스택</text>
+<rect x="64" y="226" width="356" height="223" rx="12" class="card"/>
+<rect x="64" y="226" width="356" height="4" rx="2" fill="#76b900"/>
+<text x="84" y="255" class="eyebrow">01 / 입력</text>
+<text x="84" y="287" class="card-title">데이터와 자산</text>
+<text x="84" y="314" class="muted">수집 · 복원 · 준비</text>
+<text x="84" y="346" class="label">Isaac Capture · Video-to-Data</text>
+<text x="84" y="372" class="label">AutoData · Physical AI 데이터셋</text>
+<text x="84" y="398" class="label">SimReady · OpenUSD</text>
+<rect x="436" y="226" width="356" height="223" rx="12" class="card"/>
+<rect x="436" y="226" width="356" height="4" rx="2" fill="#76b900"/>
+<text x="456" y="255" class="eyebrow">02 / 세계</text>
+<text x="456" y="287" class="card-title">시뮬레이션과 생성</text>
+<text x="456" y="314" class="muted">장면 구성 · 조건 변화</text>
+<text x="456" y="346" class="label">Isaac Sim · Omniverse</text>
+<text x="456" y="372" class="label">Newton · PhysX · Warp</text>
+<text x="456" y="398" class="label">Replicator · NuRec</text>
+<text x="456" y="424" class="label">Cosmos Predict · Transfer</text>
+<rect x="808" y="226" width="356" height="223" rx="12" class="card"/>
+<rect x="808" y="226" width="356" height="4" rx="2" fill="#76b900"/>
+<text x="828" y="255" class="eyebrow">03 / 지능</text>
+<text x="828" y="287" class="card-title">정책 학습과 검증</text>
+<text x="828" y="314" class="muted">정책 학습 · 행동 검증</text>
+<text x="828" y="346" class="label">Isaac Lab · Lab-Arena</text>
+<text x="828" y="372" class="label">Isaac GR00T · WBC-AGILE</text>
+<text x="828" y="398" class="label">Alpamayo · AlpaGym</text>
+<text x="828" y="424" class="label">Cosmos 3 · Cosmos Reason</text>
+<rect x="1180" y="226" width="356" height="223" rx="12" class="card"/>
+<rect x="1180" y="226" width="356" height="4" rx="2" fill="#76b900"/>
+<text x="1200" y="255" class="eyebrow">04 / 행동</text>
+<text x="1200" y="287" class="card-title">배포와 운영</text>
+<text x="1200" y="314" class="muted">로봇 · 차량 · 현장에 적용</text>
+<text x="1200" y="346" class="label">Isaac ROS · cuRobo · nvblox</text>
+<text x="1200" y="372" class="label">TensorRT · LEAPP</text>
+<text x="1200" y="398" class="label">Jetson · DRIVE · Holoscan</text>
+<text x="1200" y="424" class="label">DeepStream · Metropolis VSS</text>
+<!-- Model lifecycle -->
+<text x="64" y="501" class="section">02  /  NeMo와 COSMOS 모델 워크플로</text>
+<text x="1536" y="501" class="small" text-anchor="end">초록 화살표는 데이터와 모델 산출물의 흐름을 나타냅니다.</text>
+<rect x="64" y="522" width="356" height="192" rx="12" class="card"/>
+<text x="84" y="554" class="card-title">데이터 정제</text>
+<text x="84" y="587" class="label">Cosmos Curator · NeMo Curator</text>
+<text x="84" y="614" class="label">NeMo Data Designer · NeMo Speech</text>
+<text x="84" y="641" class="label">Cosmos Xenna  /  처리 단계 실행</text>
+<path d="M84 655h316" stroke="#3d5743"/>
+<text x="84" y="684" class="artifact">정제 클립 · 라벨 · 데이터 목록</text>
+<rect x="436" y="522" width="356" height="192" rx="12" class="card"/>
+<text x="456" y="554" class="card-title">학습과 후학습</text>
+<text x="456" y="587" class="label">Cosmos Framework · Cosmos RL</text>
+<text x="456" y="614" class="label">NeMo AutoModel · Megatron Bridge</text>
+<text x="456" y="641" class="label">NeMo RL · NeMo Gym</text>
+<path d="M456 655h316" stroke="#3d5743"/>
+<text x="456" y="684" class="artifact">후보 모델 체크포인트</text>
+<rect x="808" y="522" width="356" height="192" rx="12" class="card"/>
+<text x="828" y="554" class="card-title">평가와 선택</text>
+<text x="828" y="587" class="label">Cosmos Evaluator  /  영상 품질</text>
+<text x="828" y="614" class="label">NeMo Evaluator  /  벤치마크</text>
+<text x="828" y="641" class="label">NeMo Helix  /  에이전트 평가</text>
+<path d="M828 655h316" stroke="#3d5743"/>
+<text x="828" y="684" class="artifact">평가 점수와 배포 판단</text>
+<rect x="1180" y="522" width="356" height="192" rx="12" class="card"/>
+<text x="1200" y="554" class="card-title">모델 서빙</text>
+<text x="1200" y="587" class="label">NVIDIA NIM  /  모델 추론</text>
+<text x="1200" y="614" class="label">NeMo Platform  /  추론 게이트웨이</text>
+<text x="1200" y="641" class="label">Cosmos Framework  /  서빙 레시피</text>
+<path d="M1200 655h316" stroke="#3d5743"/>
+<text x="1200" y="684" class="artifact">호환 추론 엔드포인트</text>
+<path d="M421 616H432" class="green-line"/>
+<path d="M793 616H804" class="green-line"/>
+<path d="M1165 616H1176" class="green-line"/>
+<!-- Optional inference request path -->
+<text x="64" y="766" class="section">03  /  추론 시점의 SWITCHYARD</text>
+<text x="1086" y="766" class="small" text-anchor="end">호스트에서 선택적으로 연동하는 요청 흐름 예시</text>
+<rect x="64" y="788" width="1472" height="259" rx="12" class="route-band"/>
+<rect x="88" y="821" width="448" height="103" rx="12" class="route"/>
+<text x="106" y="854" class="card-title">애플리케이션 또는 에이전트</text>
+<text x="106" y="881" class="label">예시: 영상 분석 보고서 작성</text>
+<text x="106" y="905" class="small">VSS는 영상 근거 제공 · NemoClaw는 에이전트 실행</text>
+<rect x="616" y="821" width="364" height="103" rx="12" class="switch"/>
+<text x="634" y="854" class="card-title blue">NeMo Switchyard</text>
+<text x="634" y="881" class="label">요청마다 사용할 모델 선택</text>
+<text x="634" y="905" class="small">라우팅 라이브러리 또는 호스트 연동</text>
+<rect x="1060" y="821" width="452" height="103" rx="12" class="route"/>
+<text x="1078" y="854" class="card-title">호환 모델 API</text>
+<text x="1078" y="881" class="label">NIM 또는 설정된 다른 공급자</text>
+<text x="1078" y="905" class="small">선택된 엔드포인트에서 추론 실행</text>
+<path d="M543 873H606" class="blue-line"/>
+<path d="M987 873H1050" class="blue-line"/>
+<path d="M1358 715V811" class="blue-line serve-line"/>
+<text x="1372" y="766" class="small blue">API 제공</text>
+<text x="88" y="963" class="small">문서 근거 · NeMo Retriever</text>
+<text x="554" y="963" class="small">실행과 추적 · NeMo Fabric / Relay</text>
+<text x="1034" y="963" class="small">애플리케이션 검사 · NeMo Guardrails</text>
+<text x="88" y="1013" class="small">NeMo Agent Toolkit (지원 종료 예정)  →  기능에 따라 Relay · Fabric · Helix로 전환</text>
+<!-- Shared platforms -->
+<text x="64" y="1097" class="section">04  /  공통 플랫폼</text>
+<rect x="64" y="1118" width="1472" height="59" rx="12" class="band"/>
+<text x="88" y="1154" class="small">장면·자산 · Omniverse / OpenUSD</text>
+<text x="463" y="1154" class="small">데이터 파이프라인 · Cosmos Data Factory</text>
+<text x="864" y="1154" class="small">실행 관리 · OSMO</text>
+<text x="1174" y="1154" class="small">데이터·모델 · Hugging Face</text>
+<!-- Physical AI feedback loop -->
+<text x="64" y="1227" class="section">05  /  물리 AI 플라이휠</text>
+<rect x="64" y="1248" width="1472" height="171" rx="12" class="band"/>
+<rect x="88" y="1270" width="214" height="70" rx="9" class="chip"/>
+<text x="101" y="1299" class="label">1. 수집</text>
+<text x="101" y="1324" class="small">관측 및 시연</text>
+<rect x="330" y="1270" width="214" height="70" rx="9" class="chip"/>
+<text x="343" y="1299" class="label">2. 생성</text>
+<text x="343" y="1324" class="small">시뮬레이션과 증강</text>
+<rect x="572" y="1270" width="214" height="70" rx="9" class="chip"/>
+<text x="585" y="1299" class="label">3. 정제</text>
+<text x="585" y="1324" class="small">필터링과 라벨링</text>
+<rect x="814" y="1270" width="214" height="70" rx="9" class="chip"/>
+<text x="827" y="1299" class="label">4. 학습</text>
+<text x="827" y="1324" class="small">정책과 모델</text>
+<rect x="1056" y="1270" width="214" height="70" rx="9" class="chip"/>
+<text x="1069" y="1299" class="label">5. 평가</text>
+<text x="1069" y="1324" class="small">검증과 선택</text>
+<rect x="1298" y="1270" width="214" height="70" rx="9" class="chip"/>
+<text x="1311" y="1299" class="label">6. 배포</text>
+<text x="1311" y="1324" class="small">운영 및 관측</text>
+<path d="M303 1305H324" class="green-line"/>
+<path d="M545 1305H566" class="green-line"/>
+<path d="M787 1305H808" class="green-line"/>
+<path d="M1029 1305H1050" class="green-line"/>
+<path d="M1271 1305H1292" class="green-line"/>
+<path d="M1405 1341V1377Q1405 1393 1389 1393H211Q195 1393 195 1377V1347" class="green-line"/>
+<text x="800" y="1382" class="small" text-anchor="middle">관측, 실패 사례와 실행 기록을 다음 데이터 수집과 평가에 반영</text>
+<text x="64" y="1469" class="small">개념도 · 작업에 맞는 도구 선택 · 모델·데이터·서비스별 이용 조건 확인</text>
+<text x="1536" y="1469" class="small" text-anchor="end">github.com/james-joobs/awesome-nvidia-physical-ai</text>
 </svg>

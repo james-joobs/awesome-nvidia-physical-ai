@@ -22,11 +22,11 @@
 
 ## 생태계 한눈에 보기
 
-![NVIDIA Physical AI 기술 스택과 개발 플라이휠](assets/physical-ai-landscape.ko.svg)
+![NVIDIA Physical AI 기술 스택, NeMo와 Cosmos 모델 워크플로, Switchyard 요청 라우팅, 피드백 순환](assets/physical-ai-landscape.ko.svg)
 
-데이터 수집과 자산 구성부터 시뮬레이션, 학습·평가, 실제 배포까지의 개념적 관계를 보여줍니다. 배포 후 관측과 실패 사례는 다시 데이터 수집으로 이어집니다. 모든 도구나 단계가 필수인 것은 아닙니다.
+초록 화살표는 정제된 데이터와 모델 산출물이 학습, 평가, 서빙으로 이어지는 흐름입니다. 파란색 영역은 애플리케이션이 Switchyard를 통해 요청에 맞는 모델 엔드포인트를 선택하는 예입니다. 운영 중 모은 관측, 실패 사례와 실행 기록은 다음 개발 주기에 반영됩니다.
 
-[다이어그램 원본 보기](assets/physical-ai-landscape.ko.svg) · [English diagram](assets/physical-ai-landscape.svg)
+[다이어그램 원본 보기](assets/physical-ai-landscape.ko.svg) · [English diagram](assets/physical-ai-landscape.svg) · [Switchyard 상세](docs/ko/nemo-switchyard.md) · [Cosmos Framework 상세](docs/ko/cosmos-framework.md)
 
 ## 1. 오픈소스 코드가 확인된 프로젝트
 
