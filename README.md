@@ -31,80 +31,20 @@
 
 ## Ecosystem at a glance
 
-Start with real recordings, simulation, or both. Select either diagram to view the full-size figure.
+Captured and simulated data feed two example development paths. Green arrows follow data and model artifacts, blue arrows show optional inference routing, and dashed arrows carry feedback into the next iteration.
 
-**Capture or simulate → Curate → Train → Evaluate → Deploy and serve ↺**
+[![Physical AI ecosystem. Capture and simulation feed data curation, followed by separate robot and driving policy and world-model development paths. The runtime sends operating feedback back to data collection and curation.](assets/ecosystem/physical-ai-ecosystem.en.svg)](assets/ecosystem/physical-ai-ecosystem.en.svg)
 
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      <strong>01 · Capture and reconstruct</strong><br>
-      <div align="center">
-        <img src="assets/project-marks/video-to-data-icon.png" alt="Green human-and-robot-arm symbol" width="82"><br>
-        <sub><a href="https://nvidia-isaac.github.io/video_to_data/">V2D project-site icon</a></sub>
-      </div>
-      Record demonstrations or reconstruct trajectories and scene assets from video.<br>
-      <a href="docs/en/isaac-capture.md">Isaac Capture</a> · <a href="docs/en/video-to-data.md">Video-to-Data</a>
-    </td>
-    <td width="50%" valign="top">
-      <strong>02 · Simulate and generate</strong><br>
-      <div align="center">
-        <img src="assets/project-marks/isaac-sim.svg" alt="Isaac Sim robotic-arm symbol" width="82"><br>
-        <sub><a href="https://github.com/isaac-sim/IsaacSim/blob/7c206f75bdadd9e05fc457f19863ca4c3f0cb693/source/deprecated/isaacsim.replicator.domain_randomization/python/nodes/icons/isaac-sim.svg">Official Isaac Sim icon</a></sub>
-      </div>
-      Build virtual scenes and generate rollouts or labeled sensor data.<br>
-      <a href="docs/en/simready.md">SimReady</a> · <a href="docs/en/isaac-sim.md">Isaac Sim</a> · <a href="docs/en/newton.md">Newton</a> · <a href="docs/en/autodata.md">AutoData</a>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <strong>03 · Curate</strong><br>
-      <div align="center">
-        <a href="https://docs.nvidia.com/nemo/curator/_fern-files/_img/67388f28b69b406148bf172d2269e71cd23dfbfd40c5ebb2bb0f312d9e7766ab.webp"><img src="assets/ecosystem/nemo-curator-video.webp" alt="NeMo Curator diagram showing video clipping and sharding pipelines" width="138"></a><br>
-        <sub><a href="https://docs.nvidia.com/nemo/curator/curate-video">Official NeMo Curator diagram</a></sub>
-      </div>
-      Filter and caption clips, then organize them with their metadata for training.<br>
-      <a href="docs/en/nemo-curator.md">NeMo Curator</a> · <a href="docs/en/cosmos-curator.md">Cosmos Curator</a>
-    </td>
-    <td width="50%" valign="top">
-      <strong>04 · Train and adapt</strong><br>
-      <div align="center">
-        <img src="assets/project-marks/cosmos.png" alt="NVIDIA Cosmos logo" width="138"><br>
-        <sub><a href="https://github.com/NVIDIA/cosmos/blob/71317702510f7c456ba3d702b84fb103546caea2/assets/brand/cosmos-logo.png">Official Cosmos logo</a></sub>
-      </div>
-      Train robot policies or adapt world and multimodal models to produce checkpoints.<br>
-      <a href="docs/en/isaac-lab.md">Isaac Lab</a> · <a href="docs/en/isaac-gr00t.md">Isaac GR00T</a> · <a href="docs/en/cosmos-framework.md">Cosmos Framework</a> · <a href="docs/en/nemo-automodel.md">NeMo AutoModel</a>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <strong>05 · Evaluate</strong><br>
-      <div align="center">
-        <a href="https://developer-blogs.nvidia.com/wp-content/uploads/2026/01/nvidia-isaac-lab-arena-architecture-png.webp"><img src="assets/ecosystem/isaac-lab-arena.webp" alt="Isaac Lab-Arena diagram linking benchmark tasks and the evaluation framework" width="138"></a><br>
-        <sub><a href="https://developer.nvidia.com/blog/simplify-generalist-robot-policy-evaluation-in-simulation-with-nvidia-isaac-lab-arena/">Official Lab-Arena diagram</a></sub>
-      </div>
-      Compare policy behavior or model outputs against benchmarks and inspect failures.<br>
-      <a href="docs/en/isaac-lab-arena.md">Isaac Lab-Arena</a> · <a href="docs/en/alpasim.md">AlpaSim</a> · <a href="docs/en/cosmos-evaluator.md">Cosmos Evaluator</a> · <a href="docs/en/nemo-evaluator.md">NeMo Evaluator</a>
-    </td>
-    <td width="50%" valign="top">
-      <strong>06 · Deploy and serve</strong><br>
-      <div align="center">
-        <img src="assets/project-marks/switchyard-logo.webp" alt="Switchyard wordmark and routing symbol" width="138"><br>
-        <sub><a href="https://github.com/NVIDIA-NeMo/Switchyard/blob/88fe33e323d48bedc82b4c55920b6764548411fd/assets/logo.png">Official Switchyard banner</a></sub>
-      </div>
-      Run policies on hardware or expose models through inference endpoints.<br>
-      <a href="docs/en/leapp.md">LEAPP</a> · <a href="docs/en/jetson-jetpack.md">Jetson</a> · <a href="docs/en/nvidia-drive.md">NVIDIA DRIVE</a> · <a href="docs/en/nvidia-nim.md">NVIDIA NIM</a>
-    </td>
-  </tr>
-</table>
+[View full size](assets/ecosystem/physical-ai-ecosystem.en.svg) · [Open in draw.io](https://app.diagrams.net/#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Fjames-joobs%2Fawesome-nvidia-physical-ai%2Fmain%2Fassets%2Fecosystem%2Fphysical-ai-ecosystem.drawio) · [Download the bilingual .drawio file](assets/ecosystem/physical-ai-ecosystem.drawio?raw=1)
 
-**Optional request routing** · [VSS](docs/en/metropolis-vss.md) or another application → [NeMo Switchyard](docs/en/nemo-switchyard.md) → a compatible model endpoint.
+<details>
+<summary>Official visual sources</summary>
 
-**Feedback loop** · Field observations, failures, and traces guide the next round of capture and curation.
+- **Data and simulation** · [V2D](https://nvidia-isaac.github.io/video_to_data/) · [Isaac Sim](https://github.com/isaac-sim/IsaacSim/blob/7c206f75bdadd9e05fc457f19863ca4c3f0cb693/source/deprecated/isaacsim.replicator.domain_randomization/python/nodes/icons/isaac-sim.svg) · [NeMo Curator](https://docs.nvidia.com/nemo/curator/curate-video)
+- **Model development** · [Isaac GR00T](https://github.com/NVIDIA/Isaac-GR00T/blob/7aa0bca50f1097f8b17f5c274c98264b72a1419f/media/header_compress.png) · [Lab-Arena](https://developer.nvidia.com/blog/simplify-generalist-robot-policy-evaluation-in-simulation-with-nvidia-isaac-lab-arena/) · [Cosmos](https://github.com/NVIDIA/cosmos/blob/71317702510f7c456ba3d702b84fb103546caea2/assets/brand/cosmos-logo.png) · [Cosmos Evaluator](https://github.com/NVIDIA/cosmos-evaluator#architecture-diagram)
+- **Deployment and serving** · [Jetson Thor](https://developer.nvidia.com/blog/introducing-nvidia-jetson-thor-the-ultimate-platform-for-physical-ai) · [NVIDIA NIM](https://developer.nvidia.com/blog/nvidia-nim-offers-optimized-inference-microservices-for-deploying-ai-models-at-scale/) · [NeMo Switchyard](https://github.com/NVIDIA-NeMo/Switchyard/blob/88fe33e323d48bedc82b4c55920b6764548411fd/assets/logo.png)
 
-**Shared platforms** · [Omniverse](docs/en/omniverse.md) and [OpenUSD](docs/en/openusd.md) for scenes · [Cosmos Data Factory](docs/en/cosmos-data-factory.md) for data pipelines · [OSMO](docs/en/osmo.md) for running workflows.
-
-[Open the full ecosystem diagram](assets/physical-ai-landscape.svg)
+</details>
 
 This guide catalogs NVIDIA Physical AI projects, simulation assets, and datasets, including related projects outside NVIDIA. It links to official repositories and documentation and distinguishes open-source code from models, products, and source-available code with restrictions.
 
