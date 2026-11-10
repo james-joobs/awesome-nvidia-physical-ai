@@ -2,6 +2,11 @@
 
 [← Catalog](../../README.md) · [한국어](../ko/nemo-switchyard.md)
 
+<p align="center">
+  <img src="../../assets/project-marks/switchyard-logo.webp" width="400" alt="Switchyard wordmark above a green model-routing symbol"><br>
+  <sub><a href="https://github.com/NVIDIA-NeMo/Switchyard/blob/88fe33e323d48bedc82b4c55920b6764548411fd/assets/logo.png">Official NeMo Switchyard logo banner</a></sub>
+</p>
+
 Model routing for LLM agents and applications.
 
 ![Switchyard components](https://raw.githubusercontent.com/NVIDIA-NeMo/Switchyard/main/docs/assets/switchyard-components.png)

@@ -2,6 +2,11 @@
 
 [← 전체 목록](../../README.ko.md) · [English](../en/nvidia-warp.md)
 
+<p align="center">
+  <img src="../../assets/project-marks/warp-simulation.webp" width="400" alt="드론 경로, 공의 궤적, 경주차 주변의 공기 흐름을 보여 주는 Warp 시뮬레이션"><br>
+  <sub><a href="https://github.com/NVIDIA/warp/blob/416577971d0c39e8ea2fbe6d0894229b749125cd/README.md">NVIDIA Warp 공식 저장소의 대표 시뮬레이션 이미지</a></sub>
+</p>
+
 Warp는 Python으로 작성한 수치 계산 커널을 CPU 또는 CUDA GPU에서 병렬 실행할 코드로 컴파일한다. 배열, 기하 연산과 자동 미분을 제공해 시뮬레이션 프로젝트가 필요한 계산을 직접 구현할 수 있게 한다.
 
 ## 아키텍처

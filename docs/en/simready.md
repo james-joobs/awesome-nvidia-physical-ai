@@ -2,6 +2,11 @@
 
 [← Catalog](../../README.md) · [한국어](../ko/simready.md)
 
+<p align="center">
+  <img src="../../assets/project-marks/simready-overview.webp" width="400" alt="Warehouse scene with shelving, pallets, and boxes from the SimReady overview"><br>
+  <sub><a href="https://docs.omniverse.nvidia.com/simready/latest/index.html">Representative warehouse scene from NVIDIA’s SimReady overview</a></sub>
+</p>
+
 SimReady describes what an OpenUSD asset must provide for a specific simulation use. A robot arm may need correct articulation and joint limits, a manipulation prop needs usable collision and mass data, and a perception asset may need semantic labels.
 
 ## Architecture

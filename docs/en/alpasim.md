@@ -2,6 +2,11 @@
 
 [← Catalog](../../README.md) · [한국어](../ko/alpasim.md)
 
+<p align="center">
+  <img src="../../assets/project-marks/alpasim-hdmap.webp" width="400" alt="AlpaSim camera frame of an intersection overlaid with an HD map render"><br>
+  <sub><a href="https://github.com/NVlabs/alpasim/blob/affc2eab209fa43bdfa2f26c0f8d437922d78a68/docs/VIDEO_MODEL.md#how-it-works">Representative camera frame from the official AlpaSim video renderer guide</a></sub>
+</p>
+
 AlpaSim evaluates autonomous driving policies in a closed loop. As the policy moves the ego vehicle, the next sensor observations are rendered from the new state.
 
 ![AlpaSim service architecture](https://raw.githubusercontent.com/NVlabs/alpasim/main/docs/assets/images/alpasim-architecture.png)

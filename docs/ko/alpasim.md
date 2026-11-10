@@ -2,6 +2,11 @@
 
 [← 전체 목록](../../README.ko.md) · [English](../en/alpasim.md)
 
+<p align="center">
+  <img src="../../assets/project-marks/alpasim-hdmap.webp" width="400" alt="교차로 카메라 프레임에 정밀지도 렌더를 겹쳐 표시한 AlpaSim 예시"><br>
+  <sub><a href="https://github.com/NVlabs/alpasim/blob/affc2eab209fa43bdfa2f26c0f8d437922d78a68/docs/VIDEO_MODEL.md#how-it-works">AlpaSim 공식 비디오 렌더러 문서의 대표 카메라 프레임</a></sub>
+</p>
+
 AlpaSim은 자율주행 정책을 폐루프로 평가합니다. 정책이 자차를 움직이면 다음 센서 관측은 변경된 상태에서 렌더링됩니다.
 
 ![AlpaSim 서비스 아키텍처](https://raw.githubusercontent.com/NVlabs/alpasim/main/docs/assets/images/alpasim-architecture.png)

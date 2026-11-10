@@ -2,6 +2,11 @@
 
 [← 전체 목록](../../README.ko.md) · [English](../en/nemo-switchyard.md)
 
+<p align="center">
+  <img src="../../assets/project-marks/switchyard-logo.webp" width="400" alt="초록색 모델 라우팅 심볼 위에 배치된 Switchyard 워드마크"><br>
+  <sub><a href="https://github.com/NVIDIA-NeMo/Switchyard/blob/88fe33e323d48bedc82b4c55920b6764548411fd/assets/logo.png">NeMo Switchyard 공식 로고 배너</a></sub>
+</p>
+
 LLM 에이전트와 애플리케이션의 모델 요청 라우팅.
 
 ![Switchyard 구성 요소](https://raw.githubusercontent.com/NVIDIA-NeMo/Switchyard/main/docs/assets/switchyard-components.png)

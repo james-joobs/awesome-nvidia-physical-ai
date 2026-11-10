@@ -2,6 +2,11 @@
 
 [← Catalog](../../README.md) · [한국어](../ko/nvidia-warp.md)
 
+<p align="center">
+  <img src="../../assets/project-marks/warp-simulation.webp" width="400" alt="Warp simulations showing a drone path, ball trajectories, and airflow around a race car"><br>
+  <sub><a href="https://github.com/NVIDIA/warp/blob/416577971d0c39e8ea2fbe6d0894229b749125cd/README.md">Representative simulation image from the official NVIDIA Warp repository</a></sub>
+</p>
+
 Warp compiles numerical Python kernels to code that runs in parallel on CPUs or CUDA GPUs. It supplies arrays, geometric operations and automatic differentiation that simulation projects can use to implement their own computations.
 
 ## Architecture

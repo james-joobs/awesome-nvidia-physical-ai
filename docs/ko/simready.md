@@ -2,6 +2,11 @@
 
 [← 전체 목록](../../README.ko.md) · [English](../en/simready.md)
 
+<p align="center">
+  <img src="../../assets/project-marks/simready-overview.webp" width="400" alt="선반, 팔레트, 상자가 배치된 SimReady 개요의 물류창고 장면"><br>
+  <sub><a href="https://docs.omniverse.nvidia.com/simready/latest/index.html">NVIDIA SimReady 공식 개요의 대표 물류창고 이미지</a></sub>
+</p>
+
 SimReady는 특정 시뮬레이션 용도에 필요한 OpenUSD 에셋 조건을 설명한다. 로봇팔에는 정확한 관절체와 가동 범위, 조작 소품에는 충돌·질량 정보, 인식용 에셋에는 의미 라벨이 필요할 수 있다.
 
 ## 아키텍처
