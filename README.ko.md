@@ -55,6 +55,8 @@
 
 ### 물리, 3D 및 시뮬레이션
 
+![두 시뮬레이션 경로. OpenUSD 장면은 Isaac Sim과 PhysX에서 실행할 수 있고, Warp 기반 Newton은 Isaac Lab 학습 환경을 독립 실행할 수 있습니다.](assets/section-diagrams/physics-simulation.ko.svg)
+
 | 이름 | 역할 | 공개 코드 라이선스 및 유의점 | 공식 소스 | 상세 설명 |
 |---|---|---|---|---|
 | **Newton** | Warp 기반 GPU 물리 엔진과 로봇 시뮬레이션 솔버 | Apache-2.0 | [저장소](https://github.com/newton-physics/newton) | [상세 보기](docs/ko/newton.md) |
@@ -66,6 +68,8 @@
 | **PhysicsNeMo** | 물리 기반 AI 및 대리 모델 학습 프레임워크 | Apache-2.0 | [저장소](https://github.com/NVIDIA/physicsnemo) | [상세 보기](docs/ko/physicsnemo.md) |
 
 ### 로봇 학습, 수집 및 제어
+
+![Isaac Capture나 V2D로 시연을 확보하고, 데이터를 준비해 정책을 학습한 뒤 Lab-Arena에서 평가합니다. LEAPP나 Isaac ROS로 배포하고 운영 결과를 다음 수집에 반영합니다.](assets/section-diagrams/robot-learning.ko.svg)
 
 | 이름 | 역할 | 공개 코드 라이선스 및 유의점 | 공식 소스 | 상세 설명 |
 |---|---|---|---|---|
@@ -101,6 +105,8 @@
 
 ### 데이터 생성·처리 및 실행
 
+![Cosmos Data Factory의 예시 흐름. 시뮬레이션 장면이나 기존 영상을 정제·증강하고 라벨과 품질을 확인해 데이터셋으로 내보냅니다.](assets/section-diagrams/data-generation.ko.svg)
+
 | 이름 | 역할 | 공개 코드 라이선스 및 유의점 | 공식 소스 | 상세 설명 |
 |---|---|---|---|---|
 | **Cosmos Data Factory (CDF; 이전 Physical AI Data Factory)** | 영상·이미지 생성 및 처리 워크플로와 스킬 모음 | 코드 Apache-2.0, 문서·스킬 CC-BY-4.0; 사용 모델·서비스 별도 | [저장소](https://github.com/NVIDIA/cosmos-data-factory) | [상세 보기](docs/ko/cosmos-data-factory.md) |
@@ -115,6 +121,8 @@
 | **Holoscan SDK** | 저지연 스트리밍·센서 AI 파이프라인 | Apache-2.0; 외부 구성 요소 별도 | [저장소](https://github.com/nvidia-holoscan/holoscan-sdk) | [상세 보기](docs/ko/holoscan-sdk.md) |
 
 ### NeMo와 물리 AI 도구
+
+![NeMo의 데이터셋 준비·학습·평가 경로와, 앱에서 Switchyard를 거쳐 모델 엔드포인트로 보내는 선택적 요청 경로.](assets/section-diagrams/nemo-tooling.ko.svg)
 
 NeMo 도구는 데이터 준비, 모델 후학습과 에이전트 운영에 쓰입니다. AlpaGym과 Curator에 연결되는 Cosmos RL과 Xenna도 이 표에서 함께 볼 수 있습니다. 상세 문서에서는 공식 연동 사례와 설명용 워크플로를 구분합니다.
 
@@ -141,12 +149,16 @@ NeMo 도구는 데이터 준비, 모델 후학습과 에이전트 운영에 쓰�
 
 ### 자율주행
 
+![AlpaSim에서 관측과 행동을 반복해 차량 상태를 갱신합니다. 선택적 후학습 경로에서는 AlpaGym이 에피소드를 채점하고 Cosmos RL이 정책을 업데이트합니다.](assets/section-diagrams/autonomous-driving.ko.svg)
+
 | 이름 | 역할 | 공개 코드 라이선스 및 유의점 | 공식 소스 | 상세 설명 |
 |---|---|---|---|---|
 | **AlpaSim** | 자율주행 정책의 폐루프 시뮬레이션 | Apache-2.0 코드; 모델·데이터 별도 | [저장소](https://github.com/NVlabs/alpasim) | [상세 보기](docs/ko/alpasim.md) |
 | **AlpaGym** | 자율주행 정책 강화학습 | Apache-2.0 코드; 의존성·모델 별도 | [저장소](https://github.com/NVlabs/alpagym) | [상세 보기](docs/ko/alpagym.md) |
 
 ## 데이터와 시뮬레이션 자산
+
+![SimReady에서 OpenUSD 장면 자산을 찾고, Hugging Face의 NVIDIA Physical AI 컬렉션에서 학습·평가용 데이터를 탐색하는 두 경로.](assets/section-diagrams/data-assets.ko.svg)
 
 ### 검색 플랫폼과 도구
 

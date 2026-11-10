@@ -55,6 +55,8 @@ This guide catalogs NVIDIA Physical AI projects, simulation assets, and datasets
 
 ### Physics, 3D, and simulation
 
+![Two simulation paths. OpenUSD scenes run in Isaac Sim with PhysX, while a Warp-native Newton backend can run Isaac Lab tasks independently.](assets/section-diagrams/physics-simulation.en.svg)
+
 | Project | Role | Code license and notes | Official source | Details |
 |---|---|---|---|---|
 | **Newton** | Warp-based GPU physics engine and robotics simulation solvers | Apache-2.0 | [Repository](https://github.com/newton-physics/newton) | [Guide](docs/en/newton.md) |
@@ -66,6 +68,8 @@ This guide catalogs NVIDIA Physical AI projects, simulation assets, and datasets
 | **PhysicsNeMo** | Framework for physics-informed AI and surrogate models | Apache-2.0 | [Repository](https://github.com/NVIDIA/physicsnemo) | [Guide](docs/en/physicsnemo.md) |
 
 ### Robot learning, capture, and control
+
+![Isaac Capture or Video-to-Data supplies demonstrations. Prepare the data, train a policy, test in Lab-Arena, deploy with LEAPP or Isaac ROS, and use field results to guide the next capture.](assets/section-diagrams/robot-learning.en.svg)
 
 | Project | Role | Code license and notes | Official source | Details |
 |---|---|---|---|---|
@@ -101,6 +105,8 @@ This guide catalogs NVIDIA Physical AI projects, simulation assets, and datasets
 
 ### Data generation, processing, and orchestration
 
+![A Cosmos Data Factory example takes simulated renders or existing footage through curation, augmentation, labeling, and quality checks into a dataset export.](assets/section-diagrams/data-generation.en.svg)
+
 | Project | Role | Code license and notes | Official source | Details |
 |---|---|---|---|---|
 | **Cosmos Data Factory (CDF; formerly Physical AI Data Factory)** | Workflows and skills for generating and processing video and images | Code: Apache-2.0; documentation and skills: CC-BY-4.0; models and services have separate terms | [Repository](https://github.com/NVIDIA/cosmos-data-factory) | [Guide](docs/en/cosmos-data-factory.md) |
@@ -115,6 +121,8 @@ This guide catalogs NVIDIA Physical AI projects, simulation assets, and datasets
 | **Holoscan SDK** | Low-latency streaming and sensor AI pipelines | Apache-2.0; external components have separate terms | [Repository](https://github.com/nvidia-holoscan/holoscan-sdk) | [Guide](docs/en/holoscan-sdk.md) |
 
 ### NeMo and Physical AI tooling
+
+![Separate NeMo paths for dataset preparation, training, and benchmarking, and optional inference routing from an application through Switchyard to a model endpoint.](assets/section-diagrams/nemo-tooling.en.svg)
 
 NeMo tools cover dataset preparation, model post-training and agent operations. Cosmos RL and Xenna are listed here because they connect to AlpaGym and Curator. The detail guides distinguish documented integrations from example workflows.
 
@@ -141,12 +149,16 @@ NeMo tools cover dataset preparation, model post-training and agent operations. 
 
 ### Autonomous driving
 
+![AlpaSim turns observations and actions into new vehicle states. An optional path collects rollouts, scores episodes in AlpaGym, and updates the policy with Cosmos RL.](assets/section-diagrams/autonomous-driving.en.svg)
+
 | Project | Role | Code license and notes | Official source | Details |
 |---|---|---|---|---|
 | **AlpaSim** | Closed-loop simulation for autonomous-driving policies | Code: Apache-2.0; models and data have separate terms | [Repository](https://github.com/NVlabs/alpasim) | [Guide](docs/en/alpasim.md) |
 | **AlpaGym** | Reinforcement learning for autonomous-driving policies | Code: Apache-2.0; dependencies and models have separate terms | [Repository](https://github.com/NVlabs/alpagym) | [Guide](docs/en/alpagym.md) |
 
 ## Data and simulation assets
+
+![Two discovery paths. Browse SimReady for OpenUSD scene assets, or use the NVIDIA Physical AI collection on Hugging Face to find data for training and evaluation.](assets/section-diagrams/data-assets.en.svg)
 
 ### Discovery platforms and tools
 
