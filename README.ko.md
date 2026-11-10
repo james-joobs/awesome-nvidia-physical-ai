@@ -31,11 +31,80 @@
 
 ## 생태계 한눈에 보기
 
-![NVIDIA Physical AI 기술 스택, NeMo와 Cosmos 모델 워크플로, Switchyard 요청 라우팅, 피드백 순환](assets/physical-ai-landscape.ko.svg)
+실제 기록이나 시뮬레이션으로 시작할 수 있습니다. 구성도를 누르면 원본 크기로 볼 수 있습니다.
 
-초록 화살표는 정제된 데이터와 모델 산출물이 학습, 평가, 서빙으로 이어지는 흐름입니다. 파란색 영역은 애플리케이션이 Switchyard를 통해 요청에 맞는 모델 엔드포인트를 선택하는 예입니다. 운영 중 모은 관측, 실패 사례와 실행 기록은 다음 개발 주기에 반영됩니다.
+**수집·시뮬레이션 → 정제 → 학습 → 평가 → 배포 ↺**
 
-[다이어그램 원본 보기](assets/physical-ai-landscape.ko.svg) · [English diagram](assets/physical-ai-landscape.svg) · [Switchyard 상세](docs/ko/nemo-switchyard.md) · [Cosmos Framework 상세](docs/ko/cosmos-framework.md)
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <strong>01 · 수집·재구성</strong><br>
+      <div align="center">
+        <img src="assets/project-marks/video-to-data-icon.png" alt="사람과 로봇팔을 그린 초록색 아이콘" width="82"><br>
+        <sub><a href="https://nvidia-isaac.github.io/video_to_data/">V2D 공식 사이트 아이콘</a></sub>
+      </div>
+      로봇 시연을 기록하거나 영상에서 궤적과 장면 자산을 복원합니다.<br>
+      <a href="docs/ko/isaac-capture.md">Isaac Capture</a> · <a href="docs/ko/video-to-data.md">Video-to-Data</a>
+    </td>
+    <td width="50%" valign="top">
+      <strong>02 · 시뮬레이션·생성</strong><br>
+      <div align="center">
+        <img src="assets/project-marks/isaac-sim.svg" alt="Isaac Sim의 로봇팔 아이콘" width="82"><br>
+        <sub><a href="https://github.com/isaac-sim/IsaacSim/blob/7c206f75bdadd9e05fc457f19863ca4c3f0cb693/source/deprecated/isaacsim.replicator.domain_randomization/python/nodes/icons/isaac-sim.svg">Isaac Sim 공식 아이콘</a></sub>
+      </div>
+      가상 장면을 만들고 시뮬레이션 실행 기록이나 라벨이 붙은 센서 데이터를 생성합니다.<br>
+      <a href="docs/ko/simready.md">SimReady</a> · <a href="docs/ko/isaac-sim.md">Isaac Sim</a> · <a href="docs/ko/newton.md">Newton</a> · <a href="docs/ko/autodata.md">AutoData</a>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <strong>03 · 데이터 정제</strong><br>
+      <div align="center">
+        <a href="https://docs.nvidia.com/nemo/curator/_fern-files/_img/67388f28b69b406148bf172d2269e71cd23dfbfd40c5ebb2bb0f312d9e7766ab.webp"><img src="assets/ecosystem/nemo-curator-video.webp" alt="영상 구간 분할과 샤딩을 보여 주는 NeMo Curator 구성도" width="138"></a><br>
+        <sub><a href="https://docs.nvidia.com/nemo/curator/curate-video">NeMo Curator 공식 구성도</a></sub>
+      </div>
+      영상 구간을 선별하고 설명을 붙인 뒤 학습에 쓸 메타데이터와 함께 정리합니다.<br>
+      <a href="docs/ko/nemo-curator.md">NeMo Curator</a> · <a href="docs/ko/cosmos-curator.md">Cosmos Curator</a>
+    </td>
+    <td width="50%" valign="top">
+      <strong>04 · 학습·후학습</strong><br>
+      <div align="center">
+        <img src="assets/project-marks/cosmos.png" alt="NVIDIA Cosmos 로고" width="138"><br>
+        <sub><a href="https://github.com/NVIDIA/cosmos/blob/71317702510f7c456ba3d702b84fb103546caea2/assets/brand/cosmos-logo.png">Cosmos 공식 로고</a></sub>
+      </div>
+      로봇 정책을 학습하거나 월드 모델과 멀티모달 모델을 후학습해 체크포인트를 만듭니다.<br>
+      <a href="docs/ko/isaac-lab.md">Isaac Lab</a> · <a href="docs/ko/isaac-gr00t.md">Isaac GR00T</a> · <a href="docs/ko/cosmos-framework.md">Cosmos Framework</a> · <a href="docs/ko/nemo-automodel.md">NeMo AutoModel</a>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <strong>05 · 평가</strong><br>
+      <div align="center">
+        <a href="https://developer-blogs.nvidia.com/wp-content/uploads/2026/01/nvidia-isaac-lab-arena-architecture-png.webp"><img src="assets/ecosystem/isaac-lab-arena.webp" alt="벤치마크 작업과 평가 프레임워크를 연결한 Isaac Lab-Arena 구성도" width="138"></a><br>
+        <sub><a href="https://developer.nvidia.com/blog/simplify-generalist-robot-policy-evaluation-in-simulation-with-nvidia-isaac-lab-arena/">Lab-Arena 공식 구성도</a></sub>
+      </div>
+      벤치마크에서 정책의 행동이나 모델의 출력을 비교하고 실패 사례를 확인합니다.<br>
+      <a href="docs/ko/isaac-lab-arena.md">Isaac Lab-Arena</a> · <a href="docs/ko/alpasim.md">AlpaSim</a> · <a href="docs/ko/cosmos-evaluator.md">Cosmos Evaluator</a> · <a href="docs/ko/nemo-evaluator.md">NeMo Evaluator</a>
+    </td>
+    <td width="50%" valign="top">
+      <strong>06 · 배포·서빙</strong><br>
+      <div align="center">
+        <img src="assets/project-marks/switchyard-logo.webp" alt="Switchyard 워드마크와 요청 라우팅 기호" width="138"><br>
+        <sub><a href="https://github.com/NVIDIA-NeMo/Switchyard/blob/88fe33e323d48bedc82b4c55920b6764548411fd/assets/logo.png">Switchyard 공식 배너</a></sub>
+      </div>
+      정책을 하드웨어에서 실행하거나 모델을 추론 API로 제공합니다.<br>
+      <a href="docs/ko/leapp.md">LEAPP</a> · <a href="docs/ko/jetson-jetpack.md">Jetson</a> · <a href="docs/ko/nvidia-drive.md">NVIDIA DRIVE</a> · <a href="docs/ko/nvidia-nim.md">NVIDIA NIM</a>
+    </td>
+  </tr>
+</table>
+
+**선택적 요청 라우팅** · [VSS](docs/ko/metropolis-vss.md) 또는 다른 앱 → [NeMo Switchyard](docs/ko/nemo-switchyard.md) → 요청을 처리할 수 있는 모델 엔드포인트.
+
+**피드백 루프** · 운영 중 수집한 관측, 실패 사례, 실행 기록을 다음 데이터 수집과 정제에 반영합니다.
+
+**공통 플랫폼** · 장면 구성은 [Omniverse](docs/ko/omniverse.md)와 [OpenUSD](docs/ko/openusd.md) · 데이터 파이프라인은 [Cosmos Data Factory](docs/ko/cosmos-data-factory.md) · 워크플로 실행은 [OSMO](docs/ko/osmo.md).
+
+[전체 생태계 다이어그램 보기](assets/physical-ai-landscape.ko.svg)
 
 확인일: 2026-11-09. 연결된 대화에서 언급된 프로젝트와 추가 조사한 시뮬레이션 자산·데이터셋을 정리했다. NVIDIA 외부 프로젝트도 관련된 경우 포함했다. 공식 저장소와 문서를 기준으로 했으며, 링크에 접속할 수 있다는 사실은 모든 코드·모델·데이터가 같은 조건으로 이용 가능하다는 의미가 아니다.
 
