@@ -3,16 +3,16 @@
 # Awesome NVIDIA Physical AI
 
 <p align="center">
-  <a href="README.md" title="English"><kbd><img src="assets/icons/language-en.svg" width="34" height="23" alt="English"></kbd></a>
+  <a href="README.md" title="English"><img src="assets/icons/language-en.svg" width="34" height="23" alt="English"></a>
   &nbsp;
-  <a href="README.ko.md" title="한국어"><kbd><img src="assets/icons/language-ko.svg" width="34" height="23" alt="한국어"></kbd></a>
+  <a href="README.ko.md" title="한국어"><img src="assets/icons/language-ko.svg" width="34" height="23" alt="한국어"></a>
 </p>
 
 **Find the right tools for your Physical AI project and see how they fit together.**
 
-<kbd>📚 180 catalog entries</kbd> &nbsp; <kbd>📖 115 guides per language</kbd> &nbsp; <kbd>🔎 Official sources and licenses</kbd>
+180 catalog entries · 115 guides per language · Official sources and license notes
 
-[<kbd>🧭 Start</kbd>](#start-with-what-you-want-to-build) &nbsp; [<kbd>🗺️ Ecosystem</kbd>](#ecosystem-at-a-glance) &nbsp; [<kbd>🗂️ Data and assets</kbd>](#data-and-simulation-assets) &nbsp; [<kbd>🧠 NeMo</kbd>](#nemo-and-physical-ai-tooling) &nbsp; [<kbd>📚 Catalog</kbd>](#1-projects-with-confirmed-open-source-code)
+[Start here](#start-with-what-you-want-to-build) · [Ecosystem map](#ecosystem-at-a-glance) · [Data and assets](#data-and-simulation-assets) · [NeMo](#nemo-and-physical-ai-tooling) · [Full catalog](#1-projects-with-confirmed-open-source-code) · [Latest release](https://github.com/james-joobs/awesome-nvidia-physical-ai/releases/latest)
 
 </div>
 
@@ -20,15 +20,15 @@
 
 | Goal | Tool path | Result |
 |---|---|---|
-| <img src="assets/icons/bot.svg" width="24" height="24" alt=""> **Train a robot policy** | [<kbd><img src="assets/project-marks/isaac-sim.svg" width="15" height="15" alt=""> Isaac Sim</kbd>](docs/en/isaac-sim.md) → [<kbd>🧪 Isaac Lab</kbd>](docs/en/isaac-lab.md) → [<kbd>🏁 Lab-Arena</kbd>](docs/en/isaac-lab-arena.md) | Compare policy performance across scenes. |
-| <img src="assets/icons/scan-line.svg" width="24" height="24" alt=""> **Generate labeled camera data** | [<kbd>🧱 SimReady</kbd>](docs/en/simready.md) → [<kbd><img src="assets/project-marks/isaac-sim.svg" width="15" height="15" alt=""> Isaac Sim</kbd>](docs/en/isaac-sim.md) → [<kbd>🏷️ Replicator</kbd>](docs/en/replicator.md) | Export labeled images. |
-| <img src="assets/icons/video.svg" width="24" height="24" alt=""> **Build a video analysis agent** | [<kbd>🎞️ Metropolis VSS</kbd>](docs/en/metropolis-vss.md) → [<kbd><img src="assets/project-marks/switchyard-app-icon.webp" width="15" height="15" alt=""> Switchyard</kbd>](docs/en/nemo-switchyard.md) (optional) | Find video evidence and route follow-up requests. |
-| <img src="assets/icons/car-front.svg" width="24" height="24" alt=""> **Test a driving policy** | [<kbd>▶️ AlpaSim</kbd>](docs/en/alpasim.md) → [<kbd>📈 AlpaGym</kbd>](docs/en/alpagym.md) | Compare driving policies on the same route. |
+| **Train a robot policy** | [Isaac Sim](docs/en/isaac-sim.md) → [Isaac Lab](docs/en/isaac-lab.md) → [Lab-Arena](docs/en/isaac-lab-arena.md) | Compare policy performance across scenes. |
+| **Generate labeled camera data** | [SimReady](docs/en/simready.md) → [Isaac Sim](docs/en/isaac-sim.md) → [Replicator](docs/en/replicator.md) | Export labeled images. |
+| **Build a video analysis agent** | [Metropolis VSS](docs/en/metropolis-vss.md) → [Switchyard](docs/en/nemo-switchyard.md) (optional) | Find video evidence and route follow-up requests. |
+| **Test a driving policy** | [AlpaSim](docs/en/alpasim.md) → [AlpaGym](docs/en/alpagym.md) | Compare driving policies on the same route. |
 
 <p align="center">
-  <sub><strong>Sim-to-real in action</strong></sub><br>
+  <strong>Sim-to-real in action</strong><br>
   <a href="docs/en/microduck.md" title="Microduck guide with Isaac Lab and Newton"><img src="assets/microduck/wordmark-badge.webp" width="142" alt="Microduck guide with Isaac Lab and Newton"></a><br>
-  <a href="https://huggingface.co/spaces/pollen-robotics/microduck-simulator"><kbd>🎮 Browser simulator</kbd></a>
+  <a href="https://huggingface.co/spaces/pollen-robotics/microduck-simulator">Browser simulator</a>
 </p>
 
 <p align="center">

@@ -4,4 +4,4 @@
 
 The language selector uses the repository's `EN` lettering and the public-domain [Taegeukgi SVG](https://commons.wikimedia.org/wiki/File:Flag_of_South_Korea.svg).
 
-The [Switchyard desktop app icon](https://github.com/NVIDIA-NeMo/Switchyard/blob/88fe33e323d48bedc82b4c55920b6764548411fd/experimental/switchyard-desktop/icons/icon.png) is resized for the README tool badge.
+The [Switchyard desktop app icon](https://github.com/NVIDIA-NeMo/Switchyard/blob/88fe33e323d48bedc82b4c55920b6764548411fd/experimental/switchyard-desktop/icons/icon.png) is the source for the compact `switchyard-app-icon.webp` asset.
