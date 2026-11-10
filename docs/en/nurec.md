@@ -28,3 +28,9 @@ Start at the reconstructed USDZ scene. A target camera rig defines the sensor ge
 Re-render one reconstructed drive with its original pose first, then with the new rig. Compare the source view and original-rig render for lane-edge alignment and dynamic actor timing before interpreting the new view. New perspectives can expose occluded regions never captured by the source sensors. Flag those samples during dataset review. [Official reconstruction guide](https://docs.nvidia.com/nurec/nurec/model.html) · [Scaling neural reconstruction](https://docs.nvidia.com/nurec/best-practices/scaling-neural-reconstruction.html)
 
 Access, runtime, trained artifacts and data terms vary by distribution. [Official NuRec overview](https://developer.nvidia.com/omniverse/nurec)
+
+## Source and runtime distribution
+
+The public NuRec SDK contains reconstruction and rendering libraries, training systems, and application entry points under Apache-2.0. Runtime containers are distributed through NGC under the terms on their catalog pages. Model checkpoints and scene data have separate terms. NCore provides an Apache-2.0 format and conversion tooling for the sensor recordings that enter the pipeline. [NuRec SDK and distribution matrix](https://github.com/NVIDIA/NuRec#source-containers-and-models) · [SDK license](https://github.com/NVIDIA/NuRec/blob/main/LICENSE.md) · [NCore](https://github.com/NVIDIA/ncore)
+
+[Follow a closed-loop AlpaSim evaluation using a prepared NuRec scene](workflows/alpasim-closed-loop.md).

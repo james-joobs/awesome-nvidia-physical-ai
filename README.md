@@ -4,41 +4,42 @@
 
 **English** · [한국어](README.ko.md)
 
-**Find the right tools for your Physical AI project and see how they fit together.**
+**Choose what to build, find the right NVIDIA Physical AI tools, and follow an official example to your first result.**
 
-180 catalog entries · 115 guides per language · Official sources and license notes
+An independent community guide to simulation, robotics, autonomous driving, and the data and 3D assets they share.
 
-[Start here](#start-with-what-you-want-to-build) · [Ecosystem map](#ecosystem-at-a-glance) · [Data and assets](#data-and-simulation-assets) · [NeMo](#nemo-and-physical-ai-tooling) · [Full catalog](#1-projects-with-confirmed-open-source-code) · [Latest release](https://github.com/james-joobs/awesome-nvidia-physical-ai/releases/latest)
+[Start by goal](#start-with-what-you-want-to-build) · [Ecosystem map](#ecosystem-at-a-glance) · [Data and assets](#data-and-simulation-assets) · [NeMo](#nemo-and-physical-ai-tooling) · [Full catalog](#1-projects-with-confirmed-open-source-code) · [Latest release](https://github.com/james-joobs/awesome-nvidia-physical-ai/releases/latest)
+
+<img src="assets/social-preview.jpg" alt="Awesome NVIDIA Physical AI community guide" width="460">
 
 </div>
 
 ## Start with what you want to build
 
-| Goal | Tool path | Result |
-|---|---|---|
-| **Train a robot policy** | [Isaac Sim](docs/en/isaac-sim.md) → [Isaac Lab](docs/en/isaac-lab.md) → [Lab-Arena](docs/en/isaac-lab-arena.md) | Compare policy performance across scenes. |
-| **Generate labeled camera data** | [SimReady](docs/en/simready.md) → [Isaac Sim](docs/en/isaac-sim.md) → [Replicator](docs/en/replicator.md) | Export labeled images. |
-| **Build a video analysis agent** | [Metropolis VSS](docs/en/metropolis-vss.md) → [Switchyard](docs/en/nemo-switchyard.md) (optional) | Find video evidence and route follow-up requests. |
-| **Test a driving policy** | [AlpaSim](docs/en/alpasim.md) → [AlpaGym](docs/en/alpagym.md) | Compare driving policies on the same route. |
+| Your goal | Where to start | What to check first |
+| --- | --- | --- |
+| **Create a simulation-ready 3D scene** | From CAD, [workbench CAD → USD → Isaac Sim](docs/en/workflows/workbench-cad-to-isaac-sim.md). From tabletop video, [SimFoundry](https://github.com/NVlabs/SimFoundry). | Correct dimensions and a cube that settles on the tabletop |
+| **Evaluate a driving policy** | [AlpaSim closed-loop evaluation walkthrough](docs/en/workflows/alpasim-closed-loop.md) | A completed rollout and its collision and off-road metrics |
+| **Render labeled camera data** | [SimReady](docs/en/simready.md) → [Isaac Sim](docs/en/isaac-sim.md) → [Replicator](docs/en/replicator.md) | RGB, depth, and a mask for the same frame |
+| **Reconstruct a real scene with 3DGS** | [NuRec](docs/en/nurec.md) for sensor and driving workflows, or [fVDB Reality Capture](https://github.com/openvdb/fvdb-reality-capture) for reconstruction experiments | Re-render a known camera view and identify where collision geometry is needed |
+| **Choose a physics backend** | [Isaac Lab physics backends](https://docs.nvidia.com/isaaclab/concepts/physics-backends) · [Renderer compatibility](https://docs.nvidia.com/isaaclab/concepts/renderers) | One contact and joint test with a supported renderer |
+| **Plan a robot-arm pick-and-place** | [Isaac Manipulator](docs/en/isaac-manipulator.md) · [Isaac ROS cuMotion](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_cumotion) | A feasible trajectory and a successful grasp and placement |
+| **Record demonstrations and train a robot policy** | [SO-101 official course](https://docs.nvidia.com/learning/physical-ai/sim-to-real-so-101/latest/) · [Isaac Capture](docs/en/isaac-capture.md) · [Isaac Lab](docs/en/isaac-lab.md) | A replayable demonstration and a repeatable task success measure |
+| **Build a factory or warehouse digital twin** | [AIF CAD-to-USD sample](https://github.com/NVIDIA-Omniverse/aif-pipeline-samples/blob/main/docs/get-started/cad-to-usd-workflow.md) → [Omniverse](docs/en/omniverse.md) · [Mega Blueprint](https://blogs.nvidia.com/blog/mega-omniverse-blueprint/) for fleets | One measured zone and a defined operating scenario |
+| **Build a video analysis agent** | [Metropolis VSS](docs/en/metropolis-vss.md) · [Switchyard](docs/en/nemo-switchyard.md) if model routing is needed | A timestamped video answer with evidence |
 
-<p align="center">
-  <strong>Sim-to-real in action</strong><br>
-  <a href="docs/en/microduck.md" title="Microduck guide with Isaac Lab and Newton"><img src="assets/microduck/wordmark-badge.webp" width="142" alt="Microduck guide with Isaac Lab and Newton"></a><br>
-  <a href="https://huggingface.co/spaces/pollen-robotics/microduck-simulator">Browser simulator</a>
-</p>
-
-<p align="center">
-  <img src="assets/social-preview.jpg" alt="Awesome NVIDIA Physical AI — unofficial community guide" width="540">
-</p>
+**Sim-to-real example** · [Microduck with Isaac Lab and Newton](docs/en/microduck.md) · [Browser simulator](https://huggingface.co/spaces/pollen-robotics/microduck-simulator)
 
 ## Ecosystem at a glance
 
-Captured and simulated data feed two example development paths. Green arrows follow data and model artifacts, blue arrows show optional inference routing, and dashed arrows carry feedback into the next iteration.
+Start with the input you have and follow the artifacts down to the result you need. A CAD workflow can stop at labeled frames, a driving workflow at a rollout report, and a robot-learning workflow at a policy evaluated in simulation or on hardware.
 
-![Physical AI ecosystem. Capture and simulation feed data curation, followed by separate robot and driving policy and world-model development paths. The runtime sends operating feedback back to data collection and curation.](assets/ecosystem/physical-ai-ecosystem.en.svg)
+![NVIDIA Physical AI ecosystem with three paths. CAD and 3D assets become OpenUSD scenes for simulation, rendering, and digital twins. Camera and driving logs become reconstructed scenes for closed-loop evaluation. Teleoperated demonstrations become training datasets for robot policy development. Evaluation results inform the next iteration.](assets/ecosystem/physical-ai-ecosystem.en.svg)
+
+**Scene, physics, and rendering are separate choices.** OpenUSD composes the scene. 3D Gaussian Splatting (3DGS) represents how a scene looks from a camera, while colliders, masses, and joints describe its physical interactions. PhysX and Newton advance the simulation state. RTX rendering and sensor simulation produce observations. Check backend and renderer compatibility for the tools you select.
 
 <details>
-<summary>Visual sources</summary>
+<summary>Official tool references and earlier visual credits</summary>
 
 - **Data and simulation** · [V2D](https://nvidia-isaac.github.io/video_to_data/) · [Isaac Sim](https://github.com/isaac-sim/IsaacSim/blob/7c206f75bdadd9e05fc457f19863ca4c3f0cb693/source/deprecated/isaacsim.replicator.domain_randomization/python/nodes/icons/isaac-sim.svg)
 - **Model development** · [Isaac GR00T](https://github.com/NVIDIA/Isaac-GR00T/blob/7aa0bca50f1097f8b17f5c274c98264b72a1419f/media/header_compress.png) · [Cosmos Framework](https://github.com/NVIDIA/cosmos-framework/blob/5950e7b4ea3677b99a2de279a7ed7058b5446e42/tools/docs/images/cosmos-logo.png)
@@ -53,11 +54,13 @@ This guide catalogs NVIDIA Physical AI projects, simulation assets, and datasets
 
 > Open a detail guide for architecture, workflow examples, and image credits. Dataset names link directly to their official cards.
 
+**Workflow and new catalog entries checked** · November 10, 2026. The two walkthroughs distinguish official reference checks from GPU execution.
+
 ## 1. Projects with confirmed open-source code
 
 ### Physics, 3D, and simulation
 
-![Two simulation paths. OpenUSD scenes run in Isaac Sim with PhysX, while a Warp-native Newton backend can run Isaac Lab tasks independently.](assets/section-diagrams/physics-simulation.en.svg)
+[Open the physics and simulation workflow diagram](assets/section-diagrams/physics-simulation.en.svg)
 
 | Project | Role | Code license and notes | Official source | Details |
 |---|---|---|---|---|
@@ -68,15 +71,24 @@ This guide catalogs NVIDIA Physical AI projects, simulation assets, and datasets
 | **OpenUSD** | Framework for composing and exchanging 3D scenes and assets | Modified BSD-style license; distinguish the implementation from the standard and trademarks | [Repository](https://github.com/PixarAnimationStudios/OpenUSD) | [Guide](docs/en/openusd.md) |
 | **Isaac Sim** | Reference application for simulating robots, sensors, and environments | Repository code: Apache-2.0; distribution and dependencies may have separate NVIDIA terms | [Repository](https://github.com/isaac-sim/IsaacSim) | [Guide](docs/en/isaac-sim.md) |
 | **PhysicsNeMo** | Framework for physics-informed AI and surrogate models | Apache-2.0 | [Repository](https://github.com/NVIDIA/physicsnemo) | [Guide](docs/en/physicsnemo.md) |
+| **OpenUSD Exchange SDK** | Helpers for authoring and exchanging OpenUSD scenes | Apache-2.0 | [Repository](https://github.com/NVIDIA-Omniverse/usd-exchange) | [Related guide](docs/en/workflows/workbench-cad-to-isaac-sim.md) |
+| **AIF Pipeline Samples** | Sample CAD conversion, USD validation, optimization, and metadata workflows | MIT for the sample code. Kit and converters have separate terms | [Repository](https://github.com/NVIDIA-Omniverse/aif-pipeline-samples) | [Related guide](docs/en/workflows/workbench-cad-to-isaac-sim.md) |
+| **SimFoundry** | Builds editable simulation scenes with objects and physics properties from tabletop video | Apache-2.0 code. External models and assets have separate terms | [Repository](https://github.com/NVlabs/SimFoundry) | [Related guide](docs/en/workflows/workbench-cad-to-isaac-sim.md) |
+| **fVDB Core** | GPU-accelerated sparse volumetric data structures and 3D operations | Apache-2.0 | [Repository](https://github.com/openvdb/fvdb-core) | — |
+| **fVDB Reality Capture** | 3D Gaussian Splatting reconstruction and processing toolkit built on fVDB | Apache-2.0 code. Check sample and dependency terms | [Repository](https://github.com/openvdb/fvdb-reality-capture) | — |
+| **gsplat** | CUDA-accelerated Gaussian Splatting library used by NuRec | Apache-2.0 code. An independent Nerfstudio project with NVIDIA contributors | [Repository](https://github.com/nerfstudio-project/gsplat) | — |
+| **3DGRUT** | Research code for Gaussian ray tracing and hybrid rasterization | Apache-2.0 code. Check dependency terms | [Repository](https://github.com/nv-tlabs/3dgrut) | — |
+| **OvPhysX** | USD-based physics via the PhysX SDK without a Kit installation | Apache-2.0 source. Prebuilt wheels and SDK use the NVIDIA Omniverse License | [Source and license](https://github.com/NVIDIA-Omniverse/PhysX/blob/main/ovphysx/README.md#5-licensing) | [Related guide](docs/en/nvidia-physx.md) |
 
 ### Robot learning, capture, and control
 
-![Isaac Capture or Video-to-Data supplies demonstrations. Prepare the data, train a policy, test in Lab-Arena, deploy with LEAPP or Isaac ROS, and use field results to guide the next capture.](assets/section-diagrams/robot-learning.en.svg)
+[Open the robot learning workflow diagram](assets/section-diagrams/robot-learning.en.svg)
 
 | Project | Role | Code license and notes | Official source | Details |
 |---|---|---|---|---|
 | **Isaac Lab** | Robot-learning environments for reinforcement and imitation learning | BSD-3-Clause; backends and dependencies have separate terms | [Repository](https://github.com/isaac-sim/IsaacLab) | [Guide](docs/en/isaac-lab.md) |
 | **Isaac Lab-Arena** | Composable robot task environments and policy evaluation | Apache-2.0; Isaac Sim and other dependencies have separate terms | [Repository](https://github.com/isaac-sim/IsaacLab-Arena) | [Guide](docs/en/isaac-lab-arena.md) |
+| **RoboLab** | Isaac Lab benchmark for simulated manipulation policy evaluation | Apache-2.0 code. Check task assets and policy terms separately | [Repository](https://github.com/NVlabs/RoboLab) | [Related guide](docs/en/isaac-lab.md) |
 | **Microduck robot software** | Onboard Rust runtime for ONNX policies, servo control, and device services | Apache-2.0 code | [Repository](https://github.com/pollen-robotics/microduck) | [Guide](docs/en/microduck.md) |
 | **Microduck RL** | Pollen Robotics’ mjlab and PPO training environments for Microduck | Apache-2.0 code; listed STL meshes are CC BY-NC-SA 4.0 | [Repository](https://github.com/pollen-robotics/microduck_rl) | [Guide](docs/en/microduck.md) |
 | **Isaac Capture (formerly Isaac Teleop)** | Teleoperation and egocentric capture, recording, and retargeting | Apache-2.0 by default; EgoPost uses OpenMDW-1.1, while CloudXR and some optional packages have separate proprietary terms | [Repository](https://github.com/NVIDIA/IsaacCapture) | [Guide](docs/en/isaac-capture.md) |
@@ -107,7 +119,7 @@ This guide catalogs NVIDIA Physical AI projects, simulation assets, and datasets
 
 ### Data generation, processing, and orchestration
 
-![A Cosmos Data Factory example takes simulated renders or existing footage through curation, augmentation, labeling, and quality checks into a dataset export.](assets/section-diagrams/data-generation.en.svg)
+[Open the data generation workflow diagram](assets/section-diagrams/data-generation.en.svg)
 
 | Project | Role | Code license and notes | Official source | Details |
 |---|---|---|---|---|
@@ -124,7 +136,7 @@ This guide catalogs NVIDIA Physical AI projects, simulation assets, and datasets
 
 ### NeMo and Physical AI tooling
 
-![Separate NeMo paths for dataset preparation, training, and benchmarking, and optional inference routing from an application through Switchyard to a model endpoint.](assets/section-diagrams/nemo-tooling.en.svg)
+[Open the NeMo workflow diagram](assets/section-diagrams/nemo-tooling.en.svg)
 
 NeMo tools cover dataset preparation, model post-training and agent operations. Cosmos RL and Xenna are listed here because they connect to AlpaGym and Curator. The detail guides distinguish documented integrations from example workflows.
 
@@ -151,16 +163,23 @@ NeMo tools cover dataset preparation, model post-training and agent operations. 
 
 ### Autonomous driving
 
-![AlpaSim turns observations and actions into new vehicle states. An optional path collects rollouts, scores episodes in AlpaGym, and updates the policy with Cosmos RL.](assets/section-diagrams/autonomous-driving.en.svg)
+[Open the autonomous driving workflow diagram](assets/section-diagrams/autonomous-driving.en.svg)
 
 | Project | Role | Code license and notes | Official source | Details |
 |---|---|---|---|---|
 | **AlpaSim** | Closed-loop simulation for autonomous-driving policies | Code: Apache-2.0; models and data have separate terms | [Repository](https://github.com/NVlabs/alpasim) | [Guide](docs/en/alpasim.md) |
 | **AlpaGym** | Reinforcement learning for autonomous-driving policies | Code: Apache-2.0; dependencies and models have separate terms | [Repository](https://github.com/NVlabs/alpagym) | [Guide](docs/en/alpagym.md) |
+| **NuRec SDK source** | GPU libraries, applications, and APIs for neural scene reconstruction and sensor rendering | Apache-2.0 repository. Runtime images, weights, and data are separately distributed | [Repository](https://github.com/NVIDIA/NuRec) · [License](https://github.com/NVIDIA/NuRec/blob/main/LICENSE.md) | [Guide](docs/en/nurec.md) |
+| **NCore** | Common sensor-recording format and Python tooling for conversion, calibration, and poses | Apache-2.0 code. Driving datasets and converter plugins have separate terms | [Repository](https://github.com/NVIDIA/ncore) | [Related guide](docs/en/workflows/alpasim-closed-loop.md) |
+| **Asset Harvester** | Extracts reusable Gaussian object assets from driving logs for NuRec object insertion | Apache-2.0 code. Checkpoint access and terms are separate | [Repository](https://github.com/NVIDIA/asset-harvester) · [Model card](https://huggingface.co/nvidia/asset-harvester) | [Related guide](docs/en/nurec.md) |
+| **NuRec Skills** | Agent skills for NuRec, including reconstruction and object-asset workflows | Apache-2.0 repository. NuRec runtimes and retrieved assets have separate terms | [Repository](https://github.com/NVIDIA/nurec-skills) | [Related guide](docs/en/nurec.md) |
+| **Alpamayo Recipes** | Examples for Alpamayo model tuning, quantization, and deployment | Apache-2.0 code. Model and data terms are separate | [Repository](https://github.com/NVlabs/alpamayo-recipes) | [Related guide](docs/en/workflows/alpasim-closed-loop.md) |
+| **OmniDreams** | Autoregressive video model code for driving simulation, with an optional AlpaSim renderer path | Apache-2.0 repository. Weights and access terms are separate | [Repository](https://github.com/nv-tlabs/omni-dreams) · [Model card](https://huggingface.co/nvidia/omni-dreams-models) | [Related guide](docs/en/workflows/alpasim-closed-loop.md) |
+| **FlashDreams** | Inference acceleration and service integration for autoregressive video and world models | Most source is Apache-2.0. See file-level exceptions and external model terms | [Repository](https://github.com/NVIDIA/flashdreams) | [Related guide](docs/en/workflows/alpasim-closed-loop.md) |
 
 ## Data and simulation assets
 
-![Two discovery paths. Browse SimReady for OpenUSD scene assets, or use the NVIDIA Physical AI collection on Hugging Face to find data for training and evaluation.](assets/section-diagrams/data-assets.en.svg)
+[Open the data and asset discovery diagram](assets/section-diagrams/data-assets.en.svg)
 
 ### Discovery platforms and tools
 
@@ -277,14 +296,20 @@ Public access alone does not establish an open-source license or permission for 
 | **Microduck Sandbox and Arena** | Browser simulation demo and hosted policy benchmark | Public Spaces; Sandbox app code Apache-2.0, Arena project-wide source license unverified | [Sandbox](https://huggingface.co/spaces/pollen-robotics/microduck-simulator) · [Arena](https://huggingface.co/spaces/pollen-robotics/microduck-arena) | [Guide](docs/en/microduck.md#hugging-face-resources) |
 | **Microduck policies and checkpoints** | Deployable ONNX policies and separate mjlab training checkpoints | Public model repositories; ONNX pack tagged Apache-2.0, checkpoint license unverified | [ONNX policies](https://huggingface.co/pollen-robotics/microduck-policies) · [Training checkpoints](https://huggingface.co/pollen-robotics/microduck-training) | [Guide](docs/en/microduck.md#hugging-face-resources) |
 | **NVIDIA Omniverse** | OpenUSD-based 3D development platform | Product, SDK, and publicly available components have different terms | [Official page](https://developer.nvidia.com/omniverse) | [Guide](docs/en/omniverse.md) |
+| **Asset Validator** | Rule-based OpenUSD validation in Omniverse Kit and via a standalone CLI | Public documentation. Independent license unverified. Check each distribution | [Documentation](https://docs.omniverse.nvidia.com/kit/docs/asset-validator/) | [Related guide](docs/en/workflows/workbench-cad-to-isaac-sim.md) |
+| **OVRTX** | Embeddable RTX rendering and sensor simulation for applications | Pre-release under the NVIDIA Software License Agreement and product terms | [Repository](https://github.com/NVIDIA-Omniverse/ovrtx) | [Related guide](docs/en/omniverse.md) |
+| **ovstage** | Shared GPU-capable runtime scene data for Omniverse libraries | Pre-release under the NVIDIA Software License Agreement and product terms | [Repository](https://github.com/NVIDIA-Omniverse/ovstage) | [Related guide](docs/en/omniverse.md) |
+| **Mega Omniverse Blueprint** | Reference architecture for testing robot fleets in industrial digital twins | Blueprint. Availability and licenses vary by component | [Official overview](https://blogs.nvidia.com/blog/mega-omniverse-blueprint/) | [Related guide](docs/en/omniverse.md) |
 | **SimReady** | Guidelines and specifications for simulation-ready 3D assets | Asset licenses vary; not a single software project | [Documentation](https://docs.omniverse.nvidia.com/simready/latest/index.html) | [Guide](docs/en/simready.md) |
-| **NuRec** | Neural reconstruction and rendering of real environments | Product/technology; complete source and license scope unverified | [Official page](https://developer.nvidia.com/omniverse/nurec) | [Guide](docs/en/nurec.md) |
+| **NuRec** | Neural reconstruction and rendering platform and runtime images | SDK source is listed above. Runtime images, models, and datasets have separate terms | [Official page](https://developer.nvidia.com/omniverse/nurec) · [Distribution terms](https://github.com/NVIDIA/NuRec#source-containers-and-models) | [Guide](docs/en/nurec.md) |
 | **Cosmos and Cosmos 3** | World-model and tooling platform and model family | The [Cosmos repository](https://github.com/NVIDIA/cosmos) specifies OpenMDW-1.1 for its code and models; it is not assumed to be OSI-approved. Other repositories have their own terms | [Repository](https://github.com/NVIDIA/cosmos) | [Guide](docs/en/cosmos.md) |
 | **Cosmos Predict / Transfer / Reason** | Model families for world/video generation, visual transformation, and scene reasoning | Check the terms for each model version and its weights | [Cosmos](https://github.com/NVIDIA/cosmos) | [Guide](docs/en/cosmos-models.md) |
 | **Cosmos Embed / Dataset Search** | Multimodal embedding model/service and video-search microservices | Complete source availability and license scope unverified | [Documentation](https://docs.nvidia.com/cosmos/cds/latest/introduction.html) | [Guide](docs/en/cosmos-embed-search.md) |
 | **Isaac GR00T / GR00T N1.7** | Robot action foundation model and platform | Code and weights have separate licenses; check the model version | [Repository](https://github.com/NVIDIA/Isaac-GR00T) | [Guide](docs/en/groot-model.md) |
 | **GR00T-Mimic / GR00T-Dreams** | Robot demonstration and synthetic-data generation techniques/workflows | Independent project status and terms for implementations and models require individual verification | [GR00T](https://github.com/NVIDIA/Isaac-GR00T) | [Guide](docs/en/groot-mimic-dreams.md) |
 | **Isaac Manipulator** | Reference workflows for robotic-arm perception, grasping, and planning | Isaac ROS packages, models, and components have different terms | [Isaac ROS documentation](https://nvidia-isaac-ros.github.io/) | [Guide](docs/en/isaac-manipulator.md) |
+| **Isaac ROS cuMotion** | ROS 2 packages for GPU-accelerated robot motion planning | Public repository. Current main branch uses the NVIDIA Isaac ROS Software License | [Repository](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_cumotion) | [Related guide](docs/en/isaac-manipulator.md) |
+| **Isaac OS** | Beta NVIDIA Edge robotics stack for deterministic sensing, control, and AI inference | Beta platform with public documentation. Check the distribution and component terms | [Documentation](https://docs.nvidia.com/isaac-os/overview) | — |
 | **Isaac RLPT** | Workflow for improving pretrained policies with reinforcement learning | Independent repository and license unverified | [Isaac Lab](https://github.com/isaac-sim/IsaacLab) | [Guide](docs/en/isaac-rlpt.md) |
 | **Replicator** | Synthetic data generation tool within Omniverse/Isaac Sim | Product component; complete source availability and independent license unverified | [Isaac Sim documentation](https://docs.isaacsim.omniverse.nvidia.com/latest/replicator_tutorials/index.html) | [Guide](docs/en/replicator.md) |
 | **EgoHand / EgoPost** | Capture components for egocentric hand and camera motion | EgoPost uses OpenMDW-1.1; EgoHand's independent license is unverified | [Isaac Capture](https://github.com/NVIDIA/IsaacCapture) | [Guide](docs/en/egohand-egopost.md) |
