@@ -2,11 +2,7 @@
 
 # Awesome NVIDIA Physical AI
 
-<p align="center">
-  <a href="README.md" title="English"><img src="assets/icons/language-en.svg" width="34" height="23" alt="English"></a>
-  &nbsp;
-  <a href="README.ko.md" title="한국어"><img src="assets/icons/language-ko.svg" width="34" height="23" alt="한국어"></a>
-</p>
+**English** · [한국어](README.ko.md)
 
 **Find the right tools for your Physical AI project and see how they fit together.**
 
