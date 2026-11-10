@@ -2,28 +2,34 @@
 
 # Awesome NVIDIA Physical AI
 
-### [🇺🇸 Read in English](README.md) · 🇰🇷 한국어
+<p align="center">
+  <a href="README.md" title="English"><kbd><img src="assets/icons/language-en.svg" width="34" height="23" alt="English"></kbd></a>
+  &nbsp;
+  <a href="README.ko.md" title="한국어"><kbd><img src="assets/icons/language-ko.svg" width="34" height="23" alt="한국어"></kbd></a>
+</p>
 
 **만들고 싶은 것에서 출발해, 필요한 물리 AI 도구와 연결 방법을 찾아보세요.**
 
-목록 180개 항목 · 언어별 상세 가이드 115개 · 공식 출처와 라이선스 정보
+<kbd>📚 목록 180개 항목</kbd> &nbsp; <kbd>📖 언어별 가이드 115개</kbd> &nbsp; <kbd>🔎 공식 출처와 라이선스</kbd>
 
-[목표별로 시작](#만들고-싶은-것부터-시작하세요) · [생태계 지도](#생태계-한눈에-보기) · [데이터와 자산](#데이터와-시뮬레이션-자산) · [NeMo](#nemo와-물리-ai-도구) · [전체 목록](#1-오픈소스-코드가-확인된-프로젝트)
+[<kbd>🧭 시작하기</kbd>](#만들고-싶은-것부터-시작하세요) &nbsp; [<kbd>🗺️ 생태계</kbd>](#생태계-한눈에-보기) &nbsp; [<kbd>🗂️ 데이터와 자산</kbd>](#데이터와-시뮬레이션-자산) &nbsp; [<kbd>🧠 NeMo</kbd>](#nemo와-물리-ai-도구) &nbsp; [<kbd>📚 전체 목록</kbd>](#1-오픈소스-코드가-확인된-프로젝트)
 
 </div>
 
 ## 만들고 싶은 것부터 시작하세요
 
-| 내 목표 | 도구 조합 예시 | 가이드에서 배울 수 있는 것 |
+| 목표 | 도구 경로 | 결과 |
 |---|---|---|
-| <img src="assets/icons/bot.svg" width="24" height="24" alt=""> **로봇 정책 학습** | [Isaac Sim](docs/ko/isaac-sim.md) → [Isaac Lab](docs/ko/isaac-lab.md) → [Lab-Arena](docs/ko/isaac-lab-arena.md) | 가상 작업을 만들고 정책을 학습한 뒤 여러 테스트 장면에서 평가합니다. |
-| <img src="assets/icons/scan-line.svg" width="24" height="24" alt=""> **라벨이 붙은 카메라 데이터 만들기** | [SimReady](docs/ko/simready.md) → [Isaac Sim](docs/ko/isaac-sim.md) → [Replicator](docs/ko/replicator.md) | 장면의 조건을 바꾸며 이미지와 라벨을 함께 생성합니다. |
-| <img src="assets/icons/video.svg" width="24" height="24" alt=""> **영상 분석 에이전트 만들기** | [Metropolis VSS](docs/ko/metropolis-vss.md) → [Switchyard](docs/ko/nemo-switchyard.md) (선택) | 영상에서 시각이 표시된 근거를 찾고 후속 요청을 적절한 모델로 보냅니다. |
-| <img src="assets/icons/car-front.svg" width="24" height="24" alt=""> **자율주행 정책 테스트** | [AlpaSim](docs/ko/alpasim.md) → [AlpaGym](docs/ko/alpagym.md) | 같은 경로에서 정책별 주행을 비교하고 시뮬레이션 기반 후학습으로 이어갑니다. |
+| <img src="assets/icons/bot.svg" width="24" height="24" alt=""><br>**로봇 정책 학습** | [<kbd><img src="assets/project-marks/isaac-sim.svg" width="15" height="15" alt=""> Isaac Sim</kbd>](docs/ko/isaac-sim.md) → [<kbd>🧪 Isaac Lab</kbd>](docs/ko/isaac-lab.md) → [<kbd>🏁 Lab-Arena</kbd>](docs/ko/isaac-lab-arena.md) | 장면별 정책 성능 비교 |
+| <img src="assets/icons/scan-line.svg" width="24" height="24" alt=""><br>**카메라 데이터** | [<kbd>🧱 SimReady</kbd>](docs/ko/simready.md) → [<kbd><img src="assets/project-marks/isaac-sim.svg" width="15" height="15" alt=""> Isaac Sim</kbd>](docs/ko/isaac-sim.md) → [<kbd>🏷️ Replicator</kbd>](docs/ko/replicator.md) | 라벨이 붙은 이미지 내보내기 |
+| <img src="assets/icons/video.svg" width="24" height="24" alt=""><br>**영상 분석** | [<kbd>🎞️ Metropolis VSS</kbd>](docs/ko/metropolis-vss.md) → [<kbd><img src="assets/project-marks/switchyard-app-icon.webp" width="15" height="15" alt=""> Switchyard</kbd>](docs/ko/nemo-switchyard.md) (선택) | 영상 근거 검색 및 후속 요청 라우팅 |
+| <img src="assets/icons/car-front.svg" width="24" height="24" alt=""><br>**주행 정책 평가** | [<kbd>▶️ AlpaSim</kbd>](docs/ko/alpasim.md) → [<kbd>📈 AlpaGym</kbd>](docs/ko/alpagym.md) | 같은 경로에서 정책별 주행 비교 |
 
-[생태계 지도 보기](#생태계-한눈에-보기) · [데이터셋 찾기](#데이터와-시뮬레이션-자산) · [AlpaSim 시연 보기](docs/ko/alpasim.md)
-
-**시뮬레이션에서 실물 로봇까지.** [Isaac Lab과 Newton으로 Microduck 학습하기](docs/ko/microduck.md) · [브라우저에서 조종하기](https://huggingface.co/spaces/pollen-robotics/microduck-simulator)
+<p align="center">
+  <sub><strong>시뮬레이션에서 실물 로봇까지</strong></sub><br>
+  <a href="docs/ko/microduck.md" title="Isaac Lab과 Newton으로 Microduck 학습하기"><img src="assets/microduck/wordmark-badge.webp" width="142" alt="Isaac Lab과 Newton으로 Microduck 학습하기"></a><br>
+  <a href="https://huggingface.co/spaces/pollen-robotics/microduck-simulator"><kbd>🎮 브라우저에서 조종하기</kbd></a>
+</p>
 
 <p align="center">
   <img src="assets/social-preview.jpg" alt="Awesome NVIDIA Physical AI — 비공식 커뮤니티 가이드" width="540">

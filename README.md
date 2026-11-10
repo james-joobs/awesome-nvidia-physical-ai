@@ -2,28 +2,34 @@
 
 # Awesome NVIDIA Physical AI
 
-### English · [🇰🇷 한국어로 보기](README.ko.md)
+<p align="center">
+  <a href="README.md" title="English"><kbd><img src="assets/icons/language-en.svg" width="34" height="23" alt="English"></kbd></a>
+  &nbsp;
+  <a href="README.ko.md" title="한국어"><kbd><img src="assets/icons/language-ko.svg" width="34" height="23" alt="한국어"></kbd></a>
+</p>
 
 **Find the right tools for your Physical AI project and see how they fit together.**
 
-180 catalog entries · 115 guides in each language · Official sources and license notes
+<kbd>📚 180 catalog entries</kbd> &nbsp; <kbd>📖 115 guides per language</kbd> &nbsp; <kbd>🔎 Official sources and licenses</kbd>
 
-[Start here](#start-with-what-you-want-to-build) · [Ecosystem map](#ecosystem-at-a-glance) · [Data and assets](#data-and-simulation-assets) · [NeMo](#nemo-and-physical-ai-tooling) · [Full catalog](#1-projects-with-confirmed-open-source-code)
+[<kbd>🧭 Start</kbd>](#start-with-what-you-want-to-build) &nbsp; [<kbd>🗺️ Ecosystem</kbd>](#ecosystem-at-a-glance) &nbsp; [<kbd>🗂️ Data and assets</kbd>](#data-and-simulation-assets) &nbsp; [<kbd>🧠 NeMo</kbd>](#nemo-and-physical-ai-tooling) &nbsp; [<kbd>📚 Catalog</kbd>](#1-projects-with-confirmed-open-source-code)
 
 </div>
 
 ## Start with what you want to build
 
-| Your goal | Example path | What the guides help you do |
+| Goal | Tool path | Result |
 |---|---|---|
-| <img src="assets/icons/bot.svg" width="24" height="24" alt=""> **Train a robot policy** | [Isaac Sim](docs/en/isaac-sim.md) → [Isaac Lab](docs/en/isaac-lab.md) → [Lab-Arena](docs/en/isaac-lab-arena.md) | Build a simulated task, train a policy, and compare it across test scenes. |
-| <img src="assets/icons/scan-line.svg" width="24" height="24" alt=""> **Generate labeled camera data** | [SimReady](docs/en/simready.md) → [Isaac Sim](docs/en/isaac-sim.md) → [Replicator](docs/en/replicator.md) | Set up a scene, vary its conditions, and export images with labels. |
-| <img src="assets/icons/video.svg" width="24" height="24" alt=""> **Build a video analysis agent** | [Metropolis VSS](docs/en/metropolis-vss.md) → [Switchyard](docs/en/nemo-switchyard.md) (optional) | Find timestamped evidence in footage and route follow-up model requests. |
-| <img src="assets/icons/car-front.svg" width="24" height="24" alt=""> **Test a driving policy** | [AlpaSim](docs/en/alpasim.md) → [AlpaGym](docs/en/alpagym.md) | Compare driving behavior on the same route, then explore simulation-based post-training. |
+| <img src="assets/icons/bot.svg" width="24" height="24" alt=""> **Train a robot policy** | [<kbd><img src="assets/project-marks/isaac-sim.svg" width="15" height="15" alt=""> Isaac Sim</kbd>](docs/en/isaac-sim.md) → [<kbd>🧪 Isaac Lab</kbd>](docs/en/isaac-lab.md) → [<kbd>🏁 Lab-Arena</kbd>](docs/en/isaac-lab-arena.md) | Compare policy performance across scenes. |
+| <img src="assets/icons/scan-line.svg" width="24" height="24" alt=""> **Generate labeled camera data** | [<kbd>🧱 SimReady</kbd>](docs/en/simready.md) → [<kbd><img src="assets/project-marks/isaac-sim.svg" width="15" height="15" alt=""> Isaac Sim</kbd>](docs/en/isaac-sim.md) → [<kbd>🏷️ Replicator</kbd>](docs/en/replicator.md) | Export labeled images. |
+| <img src="assets/icons/video.svg" width="24" height="24" alt=""> **Build a video analysis agent** | [<kbd>🎞️ Metropolis VSS</kbd>](docs/en/metropolis-vss.md) → [<kbd><img src="assets/project-marks/switchyard-app-icon.webp" width="15" height="15" alt=""> Switchyard</kbd>](docs/en/nemo-switchyard.md) (optional) | Find video evidence and route follow-up requests. |
+| <img src="assets/icons/car-front.svg" width="24" height="24" alt=""> **Test a driving policy** | [<kbd>▶️ AlpaSim</kbd>](docs/en/alpasim.md) → [<kbd>📈 AlpaGym</kbd>](docs/en/alpagym.md) | Compare driving policies on the same route. |
 
-[See the ecosystem map](#ecosystem-at-a-glance) · [Browse datasets](#data-and-simulation-assets) · [Watch the AlpaSim demo](docs/en/alpasim.md)
-
-**Try a real sim-to-real example.** [Microduck with Isaac Lab and Newton](docs/en/microduck.md) · [Drive it in your browser](https://huggingface.co/spaces/pollen-robotics/microduck-simulator)
+<p align="center">
+  <sub><strong>Sim-to-real in action</strong></sub><br>
+  <a href="docs/en/microduck.md" title="Microduck guide with Isaac Lab and Newton"><img src="assets/microduck/wordmark-badge.webp" width="142" alt="Microduck guide with Isaac Lab and Newton"></a><br>
+  <a href="https://huggingface.co/spaces/pollen-robotics/microduck-simulator"><kbd>🎮 Browser simulator</kbd></a>
+</p>
 
 <p align="center">
   <img src="assets/social-preview.jpg" alt="Awesome NVIDIA Physical AI — unofficial community guide" width="540">
