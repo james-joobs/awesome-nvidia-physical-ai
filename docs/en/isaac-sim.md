@@ -2,6 +2,11 @@
 
 [← Catalog](../../README.md) · [한국어](../ko/isaac-sim.md)
 
+<p align="center">
+  <img src="../../assets/project-marks/isaac-sim.svg" width="106" alt="NVIDIA Isaac Sim robotic-arm icon"><br>
+  <sub><a href="https://github.com/isaac-sim/IsaacSim/blob/7c206f75bdadd9e05fc457f19863ca4c3f0cb693/source/deprecated/isaacsim.replicator.domain_randomization/python/nodes/icons/isaac-sim.svg">Official Isaac Sim icon</a></sub>
+</p>
+
 Isaac Sim is a robotics simulation application that composes OpenUSD scenes, advances robot and object dynamics, and exposes simulated sensors. The same scene can be used for a ROS 2 integration test, a Replicator dataset job, or an Isaac Lab task with the appropriate setup.
 
 ## Architecture

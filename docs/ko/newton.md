@@ -2,6 +2,14 @@
 
 [← 전체 목록](../../README.ko.md) · [English](../en/newton.md)
 
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="../../assets/project-marks/newton-dark.png">
+    <img src="../../assets/project-marks/newton-light.png" width="155" alt="Newton Physics 로고">
+  </picture><br>
+  <sub><a href="https://github.com/newton-physics/newton/blob/0ced8f8420d4ee1eab9ecfaee59e1354ef670348/docs/conf.py#L301-L304">Newton 공식 문서 로고</a></sub>
+</p>
+
 Newton은 Warp 위에서 동작하는 로봇용 물리 엔진이다. 선택한 솔버로 수치화된 세계 상태를 한 스텝씩 진행한다. 로봇 학습에서 관측·행동·보상·에피소드 리셋은 환경 쪽에서 정의한다.
 
 ## 아키텍처

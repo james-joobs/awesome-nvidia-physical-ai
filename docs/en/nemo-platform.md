@@ -2,6 +2,11 @@
 
 [← Catalog](../../README.md) · [한국어](../ko/nemo-platform.md)
 
+<p align="center">
+  <img src="../../assets/project-marks/nemo-launch.png" width="300" alt="NVIDIA NeMo launch graphic with stacked green neural modules"><br>
+  <sub><a href="https://developer.nvidia.com/blog/announcing-nemo-fast-development-of-speech-and-language-models/">Official NVIDIA NeMo launch artwork</a></sub>
+</p>
+
 Infrastructure for model customization, evaluation, guardrails and inference.
 
 ![NeMo microservices topology](https://docs.nvidia.com/nemo/microservices/25.4.0/_images/architecture-topology.png)

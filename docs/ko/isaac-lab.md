@@ -2,6 +2,11 @@
 
 [← 전체 목록](../../README.ko.md) · [English](../en/isaac-lab.md)
 
+<p align="center">
+  <img src="../../assets/project-marks/isaac-lab.jpg" width="384" alt="Isaac Lab의 가상 지형에서 이동하는 로봇"><br>
+  <sub><a href="https://github.com/isaac-sim/IsaacLab">Isaac Lab 공식 저장소 대표 이미지</a></sub>
+</p>
+
 Isaac Lab은 배치 시뮬레이션을 로봇 학습 환경으로 묶는다. 관측, 행동, 보상, 리셋 인터페이스를 제공하고 물리 스텝, 관절체 상태, 센서 계산은 선택한 백엔드에서 수행한다.
 
 ## 아키텍처
@@ -35,10 +40,6 @@ flowchart LR
 ![Isaac Lab 공식 백엔드 구성도는 환경이 사용하는 인터페이스와 백엔드별 구현의 연결을 보여 준다.](https://raw.githubusercontent.com/isaac-sim/IsaacLab/main/docs/source/_static/concepts/backend-architecture-light.svg)
 
 Isaac Lab 공식 백엔드 구성도는 환경이 사용하는 인터페이스와 백엔드별 구현의 연결을 보여 준다. [그림 출처와 원문 설명](https://isaac-sim.github.io/IsaacLab/develop/source/concepts/backends_and_presets.html)
-
-![Isaac Lab 프로젝트의 대표 시뮬레이션 작업 이미지. 여러 로봇 형태와 환경 구성을 보여 준다.](https://raw.githubusercontent.com/isaac-sim/IsaacLab/main/docs/source/_static/isaaclab.jpg)
-
-Isaac Lab 프로젝트의 대표 시뮬레이션 작업 이미지. 여러 로봇 형태와 환경 구성을 보여 준다. [그림 출처와 원문 설명](https://github.com/isaac-sim/IsaacLab)
 
 ## 워크플로 예시
 

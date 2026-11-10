@@ -2,6 +2,11 @@
 
 [← 전체 목록](../../README.ko.md) · [English](../en/isaac-sim.md)
 
+<p align="center">
+  <img src="../../assets/project-marks/isaac-sim.svg" width="106" alt="NVIDIA Isaac Sim 로봇팔 아이콘"><br>
+  <sub><a href="https://github.com/isaac-sim/IsaacSim/blob/7c206f75bdadd9e05fc457f19863ca4c3f0cb693/source/deprecated/isaacsim.replicator.domain_randomization/python/nodes/icons/isaac-sim.svg">Isaac Sim 공식 아이콘</a></sub>
+</p>
+
 Isaac Sim은 OpenUSD 장면을 구성하고 로봇·물체의 동역학을 진행하며 가상 센서를 제공하는 로봇 시뮬레이션 애플리케이션이다. 설정에 따라 한 장면을 ROS 2 연동 시험, Replicator 데이터 생성, Isaac Lab 학습 작업에 사용할 수 있다.
 
 ## 아키텍처

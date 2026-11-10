@@ -2,6 +2,11 @@
 
 [← Catalog](../../README.md) · [한국어](../ko/openusd.md)
 
+<p align="center">
+  <img src="../../assets/project-marks/openusd.svg" width="106" alt="OpenUSD logo"><br>
+  <sub><a href="https://openusd.org/release/index.html">Official OpenUSD documentation logo</a></sub>
+</p>
+
 OpenUSD defines a scene description and composition system. A stage presents the composed scene as prims while opinions about each prim can remain in independent files or in-memory layers.
 
 ## Architecture

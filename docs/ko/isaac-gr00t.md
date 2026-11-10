@@ -2,6 +2,11 @@
 
 [← 목록으로](../../README.ko.md) · [English](../en/isaac-gr00t.md)
 
+<p align="center">
+  <img src="../../assets/project-marks/isaac-groot.png" width="290" alt="NVIDIA Isaac GR00T 워드마크"><br>
+  <sub><a href="https://github.com/NVIDIA/Isaac-GR00T/blob/7aa0bca50f1097f8b17f5c274c98264b72a1419f/media/header_compress.png">Isaac GR00T 공식 저장소 워드마크</a></sub>
+</p>
+
 Isaac GR00T 저장소에는 로봇 정책을 미세조정하고 평가한 후 제공하는 소프트웨어가 있습니다. N1.7 체크포인트는 이 워크플로의 입력 중 하나입니다. 저장소에는 학습 데이터 구조, 로봇 형태별 전처리, 학습 정책의 평가·배포 인터페이스도 있습니다.
 
 ## 아키텍처와 데이터 흐름

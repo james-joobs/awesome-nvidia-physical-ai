@@ -2,6 +2,11 @@
 
 [← Back to catalog](../../README.md) · [한국어](../ko/isaac-gr00t.md)
 
+<p align="center">
+  <img src="../../assets/project-marks/isaac-groot.png" width="290" alt="NVIDIA Isaac GR00T wordmark"><br>
+  <sub><a href="https://github.com/NVIDIA/Isaac-GR00T/blob/7aa0bca50f1097f8b17f5c274c98264b72a1419f/media/header_compress.png">Official Isaac GR00T repository wordmark</a></sub>
+</p>
+
 The Isaac GR00T repository contains the software for adapting, evaluating and serving a robot policy. The N1.7 checkpoint is one input to this workflow. The repository also defines the dataset schema, embodiment-specific preprocessing and interfaces for evaluating or deploying a trained policy.
 
 ## Architecture and data flow

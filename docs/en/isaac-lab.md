@@ -2,6 +2,11 @@
 
 [← Catalog](../../README.md) · [한국어](../ko/isaac-lab.md)
 
+<p align="center">
+  <img src="../../assets/project-marks/isaac-lab.jpg" width="384" alt="Robots traversing simulated terrain in Isaac Lab"><br>
+  <sub><a href="https://github.com/isaac-sim/IsaacLab">Official Isaac Lab repository banner</a></sub>
+</p>
+
 Isaac Lab organizes batched simulation into robot learning environments. It provides task interfaces for observations, actions, rewards and resets, and delegates stepping, articulation state and sensors to the selected backend.
 
 ## Architecture
@@ -35,10 +40,6 @@ flowchart LR
 ![Isaac Lab’s official backend diagram explains where backend-specific implementations connect to the environment-facing interfaces.](https://raw.githubusercontent.com/isaac-sim/IsaacLab/main/docs/source/_static/concepts/backend-architecture-light.svg)
 
 Isaac Lab’s official backend diagram explains where backend-specific implementations connect to the environment-facing interfaces. [Original figure and context](https://isaac-sim.github.io/IsaacLab/develop/source/concepts/backends_and_presets.html)
-
-![Isaac Lab project visual with representative simulation tasks. The examples cover different embodiments and environment configurations.](https://raw.githubusercontent.com/isaac-sim/IsaacLab/main/docs/source/_static/isaaclab.jpg)
-
-Isaac Lab project visual with representative simulation tasks. The examples cover different embodiments and environment configurations. [Original figure and context](https://github.com/isaac-sim/IsaacLab)
 
 ## Walkthrough
 

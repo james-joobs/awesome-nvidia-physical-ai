@@ -2,6 +2,11 @@
 
 [← 전체 목록](../../README.ko.md) · [English](../en/cosmos.md)
 
+<p align="center">
+  <img src="../../assets/project-marks/cosmos.png" width="210" alt="NVIDIA Cosmos 로고"><br>
+  <sub><a href="https://github.com/NVIDIA/cosmos/blob/71317702510f7c456ba3d702b84fb103546caea2/assets/brand/cosmos-logo.png">NVIDIA Cosmos 공식 로고</a></sub>
+</p>
+
 Cosmos는 NVIDIA의 Physical AI 월드 모델 플랫폼이다. Cosmos 3는 멀티모달 추론과 생성을 결합한 모델 계열이다. 플랫폼에서는 학습, 데이터 선별, 결과 평가 도구도 별도로 제공한다.
 
 ## 공식 아키텍처 읽기

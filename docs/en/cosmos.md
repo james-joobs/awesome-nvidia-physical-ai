@@ -2,6 +2,11 @@
 
 [← All projects](../../README.md) · [한국어](../ko/cosmos.md)
 
+<p align="center">
+  <img src="../../assets/project-marks/cosmos.png" width="210" alt="NVIDIA Cosmos logo"><br>
+  <sub><a href="https://github.com/NVIDIA/cosmos/blob/71317702510f7c456ba3d702b84fb103546caea2/assets/brand/cosmos-logo.png">Official NVIDIA Cosmos logo</a></sub>
+</p>
+
 Cosmos is NVIDIA’s world-model platform for physical AI. Cosmos 3 is the model family that combines multimodal reasoning and generation. The platform also provides separate training, curation and evaluation tools.
 
 ## Read the official architecture

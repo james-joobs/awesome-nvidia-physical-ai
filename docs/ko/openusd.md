@@ -2,6 +2,11 @@
 
 [← 전체 목록](../../README.ko.md) · [English](../en/openusd.md)
 
+<p align="center">
+  <img src="../../assets/project-marks/openusd.svg" width="106" alt="OpenUSD 로고"><br>
+  <sub><a href="https://openusd.org/release/index.html">OpenUSD 공식 문서 로고</a></sub>
+</p>
+
 OpenUSD는 장면 기술과 합성 시스템이다. 스테이지에서 합성된 장면을 프림으로 탐색하며 각 프림의 값과 설정은 독립 파일이나 메모리 레이어에 남겨 둘 수 있다.
 
 ## 아키텍처

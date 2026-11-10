@@ -2,6 +2,14 @@
 
 [← Catalog](../../README.md) · [한국어](../ko/newton.md)
 
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="../../assets/project-marks/newton-dark.png">
+    <img src="../../assets/project-marks/newton-light.png" width="155" alt="Newton Physics logo">
+  </picture><br>
+  <sub><a href="https://github.com/newton-physics/newton/blob/0ced8f8420d4ee1eab9ecfaee59e1354ef670348/docs/conf.py#L301-L304">Official Newton documentation logo</a></sub>
+</p>
+
 Newton is a Warp-based physics engine for robotics. It owns the numerical world state and advances it through a selected solver. In a robot learning stack, the environment still defines observations, actions, rewards, and episode resets.
 
 ## Architecture

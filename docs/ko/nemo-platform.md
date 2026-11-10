@@ -2,6 +2,11 @@
 
 [← 전체 목록](../../README.ko.md) · [English](../en/nemo-platform.md)
 
+<p align="center">
+  <img src="../../assets/project-marks/nemo-launch.png" width="300" alt="초록색 신경망 모듈을 쌓은 NVIDIA NeMo 공개 이미지"><br>
+  <sub><a href="https://developer.nvidia.com/blog/announcing-nemo-fast-development-of-speech-and-language-models/">NVIDIA NeMo 공식 공개 이미지</a></sub>
+</p>
+
 모델 맞춤 학습·평가·가드레일·추론 인프라.
 
 ![NeMo 마이크로서비스 토폴로지](https://docs.nvidia.com/nemo/microservices/25.4.0/_images/architecture-topology.png)
