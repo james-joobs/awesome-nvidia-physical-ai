@@ -33,16 +33,15 @@
 
 Captured and simulated data feed two example development paths. Green arrows follow data and model artifacts, blue arrows show optional inference routing, and dashed arrows carry feedback into the next iteration.
 
-[![Physical AI ecosystem. Capture and simulation feed data curation, followed by separate robot and driving policy and world-model development paths. The runtime sends operating feedback back to data collection and curation.](assets/ecosystem/physical-ai-ecosystem.en.svg)](assets/ecosystem/physical-ai-ecosystem.en.svg)
-
-[View full size](assets/ecosystem/physical-ai-ecosystem.en.svg) · [Open in draw.io](https://app.diagrams.net/#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Fjames-joobs%2Fawesome-nvidia-physical-ai%2Fmain%2Fassets%2Fecosystem%2Fphysical-ai-ecosystem.drawio) · [Download the bilingual .drawio file](assets/ecosystem/physical-ai-ecosystem.drawio?raw=1)
+![Physical AI ecosystem. Capture and simulation feed data curation, followed by separate robot and driving policy and world-model development paths. The runtime sends operating feedback back to data collection and curation.](assets/ecosystem/physical-ai-ecosystem.en.svg)
 
 <details>
-<summary>Official visual sources</summary>
+<summary>Visual sources</summary>
 
-- **Data and simulation** · [V2D](https://nvidia-isaac.github.io/video_to_data/) · [Isaac Sim](https://github.com/isaac-sim/IsaacSim/blob/7c206f75bdadd9e05fc457f19863ca4c3f0cb693/source/deprecated/isaacsim.replicator.domain_randomization/python/nodes/icons/isaac-sim.svg) · [NeMo Curator](https://docs.nvidia.com/nemo/curator/curate-video)
-- **Model development** · [Isaac GR00T](https://github.com/NVIDIA/Isaac-GR00T/blob/7aa0bca50f1097f8b17f5c274c98264b72a1419f/media/header_compress.png) · [Lab-Arena](https://developer.nvidia.com/blog/simplify-generalist-robot-policy-evaluation-in-simulation-with-nvidia-isaac-lab-arena/) · [Cosmos](https://github.com/NVIDIA/cosmos/blob/71317702510f7c456ba3d702b84fb103546caea2/assets/brand/cosmos-logo.png) · [Cosmos Evaluator](https://github.com/NVIDIA/cosmos-evaluator#architecture-diagram)
-- **Deployment and serving** · [Jetson Thor](https://developer.nvidia.com/blog/introducing-nvidia-jetson-thor-the-ultimate-platform-for-physical-ai) · [NVIDIA NIM](https://developer.nvidia.com/blog/nvidia-nim-offers-optimized-inference-microservices-for-deploying-ai-models-at-scale/) · [NeMo Switchyard](https://github.com/NVIDIA-NeMo/Switchyard/blob/88fe33e323d48bedc82b4c55920b6764548411fd/assets/logo.png)
+- **Data and simulation** · [V2D](https://nvidia-isaac.github.io/video_to_data/) · [Isaac Sim](https://github.com/isaac-sim/IsaacSim/blob/7c206f75bdadd9e05fc457f19863ca4c3f0cb693/source/deprecated/isaacsim.replicator.domain_randomization/python/nodes/icons/isaac-sim.svg)
+- **Model development** · [Isaac GR00T](https://github.com/NVIDIA/Isaac-GR00T/blob/7aa0bca50f1097f8b17f5c274c98264b72a1419f/media/header_compress.png) · [Cosmos Framework](https://github.com/NVIDIA/cosmos-framework/blob/5950e7b4ea3677b99a2de279a7ed7058b5446e42/tools/docs/images/cosmos-logo.png)
+- **Deployment and serving** · [NeMo Switchyard](https://github.com/NVIDIA-NeMo/Switchyard/blob/88fe33e323d48bedc82b4c55920b6764548411fd/experimental/switchyard-desktop/icons/icon.png)
+- **Stage icons** · [Lucide](https://lucide.dev/icons/) ([ISC license](assets/icons/LICENSE))
 
 </details>
 

@@ -33,16 +33,15 @@
 
 수집·시뮬레이션 데이터에서 출발하는 두 개발 경로를 보여 줍니다. 초록색은 데이터와 모델 산출물, 파란색은 선택적 추론 요청, 점선은 다음 개발 주기에 반영하는 운영 피드백입니다.
 
-[![물리 AI 생태계. 수집과 시뮬레이션에서 나온 데이터를 정제한 뒤 로봇·자율주행 정책과 월드 모델을 각각 개발합니다. 운영 피드백은 다음 수집과 정제로 돌아갑니다.](assets/ecosystem/physical-ai-ecosystem.ko.svg)](assets/ecosystem/physical-ai-ecosystem.ko.svg)
-
-[원본 크기로 보기](assets/ecosystem/physical-ai-ecosystem.ko.svg) · [draw.io에서 열기](https://app.diagrams.net/#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Fjames-joobs%2Fawesome-nvidia-physical-ai%2Fmain%2Fassets%2Fecosystem%2Fphysical-ai-ecosystem.drawio) · [영문·한국어 .drawio 파일 다운로드](assets/ecosystem/physical-ai-ecosystem.drawio?raw=1)
+![물리 AI 생태계. 수집과 시뮬레이션에서 나온 데이터를 정제한 뒤 로봇·자율주행 정책과 월드 모델을 각각 개발합니다. 운영 피드백은 다음 수집과 정제로 돌아갑니다.](assets/ecosystem/physical-ai-ecosystem.ko.svg)
 
 <details>
-<summary>공식 시각 자료 출처</summary>
+<summary>시각 자료 출처</summary>
 
-- **데이터·시뮬레이션** · [V2D](https://nvidia-isaac.github.io/video_to_data/) · [Isaac Sim](https://github.com/isaac-sim/IsaacSim/blob/7c206f75bdadd9e05fc457f19863ca4c3f0cb693/source/deprecated/isaacsim.replicator.domain_randomization/python/nodes/icons/isaac-sim.svg) · [NeMo Curator](https://docs.nvidia.com/nemo/curator/curate-video)
-- **모델 개발** · [Isaac GR00T](https://github.com/NVIDIA/Isaac-GR00T/blob/7aa0bca50f1097f8b17f5c274c98264b72a1419f/media/header_compress.png) · [Lab-Arena](https://developer.nvidia.com/blog/simplify-generalist-robot-policy-evaluation-in-simulation-with-nvidia-isaac-lab-arena/) · [Cosmos](https://github.com/NVIDIA/cosmos/blob/71317702510f7c456ba3d702b84fb103546caea2/assets/brand/cosmos-logo.png) · [Cosmos Evaluator](https://github.com/NVIDIA/cosmos-evaluator#architecture-diagram)
-- **배포·서빙** · [Jetson Thor](https://developer.nvidia.com/blog/introducing-nvidia-jetson-thor-the-ultimate-platform-for-physical-ai) · [NVIDIA NIM](https://developer.nvidia.com/blog/nvidia-nim-offers-optimized-inference-microservices-for-deploying-ai-models-at-scale/) · [NeMo Switchyard](https://github.com/NVIDIA-NeMo/Switchyard/blob/88fe33e323d48bedc82b4c55920b6764548411fd/assets/logo.png)
+- **데이터·시뮬레이션** · [V2D](https://nvidia-isaac.github.io/video_to_data/) · [Isaac Sim](https://github.com/isaac-sim/IsaacSim/blob/7c206f75bdadd9e05fc457f19863ca4c3f0cb693/source/deprecated/isaacsim.replicator.domain_randomization/python/nodes/icons/isaac-sim.svg)
+- **모델 개발** · [Isaac GR00T](https://github.com/NVIDIA/Isaac-GR00T/blob/7aa0bca50f1097f8b17f5c274c98264b72a1419f/media/header_compress.png) · [Cosmos Framework](https://github.com/NVIDIA/cosmos-framework/blob/5950e7b4ea3677b99a2de279a7ed7058b5446e42/tools/docs/images/cosmos-logo.png)
+- **배포·서빙** · [NeMo Switchyard](https://github.com/NVIDIA-NeMo/Switchyard/blob/88fe33e323d48bedc82b4c55920b6764548411fd/experimental/switchyard-desktop/icons/icon.png)
+- **단계별 아이콘** · [Lucide](https://lucide.dev/icons/) ([ISC 라이선스](assets/icons/LICENSE))
 
 </details>
 
