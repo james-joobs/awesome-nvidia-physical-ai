@@ -2,6 +2,11 @@
 
 [← 목록으로](../../README.ko.md) · [English](../en/video-to-data.md)
 
+<p align="center">
+  <img src="../../assets/project-marks/video-to-data-icon.png" width="112" alt="사람과 로봇팔을 나란히 그린 초록색 아이콘"><br>
+  <sub><a href="https://nvidia-isaac.github.io/video_to_data/">Video-to-Data 공식 프로젝트 사이트 아이콘(파비콘)</a></sub>
+</p>
+
 Video to Data(V2D)는 사람의 시연 영상을 검토 가능한 3D 산출물과 로봇 학습 입력으로 바꿉니다. 단계마다 중간 결과를 저장하므로 해당 영상 구간을 다시 선택하거나 복원·리타기팅할 때 다른 단계를 모두 반복할 필요가 없습니다.
 
 ## 아키텍처와 데이터 흐름

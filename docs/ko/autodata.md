@@ -2,6 +2,11 @@
 
 [← 목록으로](../../README.ko.md) · [English](../en/autodata.md)
 
+<p align="center">
+  <img src="../../assets/project-marks/autodata-generation.webp" width="400" alt="여러 G1 로봇이 시뮬레이션에서 병렬로 물체를 집어 옮기는 시연 데이터를 생성하는 장면"><br>
+  <sub><a href="https://isaac-sim.github.io/AutoData/main/pages/workflows/humanoid_dexmimicgen/step_3_generate_dataset.html">AutoData 공식 가이드의 G1 데이터 생성 예시 이미지</a></sub>
+</p>
+
 AutoData는 소수의 성공 시연을 시뮬레이션에서 다양한 궤적으로 확장합니다. 작업 정의에서 장면 초기화 방법, 기준 물체, 성공 판정 조건을 지정합니다. 생성 데이터셋에는 시뮬레이터에서 시연을 실행하며 얻은 로봇 행동과 관측이 들어갑니다.
 
 ## 아키텍처와 데이터 흐름

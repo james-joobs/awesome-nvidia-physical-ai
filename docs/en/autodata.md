@@ -2,6 +2,11 @@
 
 [← Back to catalog](../../README.md) · [한국어](../ko/autodata.md)
 
+<p align="center">
+  <img src="../../assets/project-marks/autodata-generation.webp" width="400" alt="Multiple simulated G1 robots generate pick-and-place demonstrations in parallel"><br>
+  <sub><a href="https://isaac-sim.github.io/AutoData/main/pages/workflows/humanoid_dexmimicgen/step_3_generate_dataset.html">Representative G1 dataset generation image from the official AutoData guide</a></sub>
+</p>
+
 AutoData expands a small set of successful robot demonstrations into simulated trajectories. A task definition tells the generator how to reset a scene, identify the reference object and judge success. The generated dataset contains robot actions and observations from replay in the simulator.
 
 ## Architecture and data flow

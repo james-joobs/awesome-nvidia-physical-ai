@@ -2,6 +2,11 @@
 
 [← 목록으로](../../README.ko.md) · [English](../en/isaac-capture.md)
 
+<p align="center">
+  <img src="../../assets/project-marks/isaac-capture-teleop.webp" width="400" alt="헤드셋을 착용한 조작자와 휴머노이드 로봇이 각각 노란색 물체를 들어 올리는 모습"><br>
+  <sub><a href="https://nvidia.github.io/IsaacCapture/main/overview/isaac_teleop.html">Isaac Capture 공식 문서의 대표 원격 조작 사진</a></sub>
+</p>
+
 Isaac Capture는 로봇 학습용 데이터를 두 가지 경로로 수집합니다. Isaac Teleop에서는 조작자가 로봇을 움직이는 동안 로봇이 관측하고 실행한 내용을 기록합니다. Ego Pipeline에서는 사람이 본 영상을 기록한 후 후속 처리에 필요한 사람의 동작을 복원합니다. 두 경로는 장치와 데이터 유틸리티를 공유하지만 학습 단계에 넘기는 입력은 서로 다릅니다.
 
 ## 아키텍처와 데이터 흐름

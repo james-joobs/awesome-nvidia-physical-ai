@@ -2,6 +2,11 @@
 
 [← Back to catalog](../../README.md) · [한국어](../ko/isaac-capture.md)
 
+<p align="center">
+  <img src="../../assets/project-marks/isaac-capture-teleop.webp" width="400" alt="A headset-wearing operator and a humanoid robot hold up the same type of yellow object"><br>
+  <sub><a href="https://nvidia.github.io/IsaacCapture/main/overview/isaac_teleop.html">Representative teleoperation photo from the official Isaac Capture documentation</a></sub>
+</p>
+
 Isaac Capture offers two collection routes for robot learning. Isaac Teleop captures what a robot actually observes and executes while an operator drives it. The ego pipeline records what a person sees and reconstructs the person’s motion for downstream processing. The routes share device and data utilities but produce different training inputs.
 
 ## Architecture and data flow
