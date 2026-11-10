@@ -9,6 +9,8 @@
 
 Isaac Sim is a robotics simulation application that composes OpenUSD scenes, advances robot and object dynamics, and exposes simulated sensors. The same scene can be used for a ROS 2 integration test, a Replicator dataset job, or an Isaac Lab task with the appropriate setup.
 
+New to Isaac Sim? [Try the falling-cube exercise](workflows/isaac-sim-first-cube.md) to see how a rigid body and a collider work together.
+
 ## Architecture
 
 | Component | Responsibility and data boundary |
