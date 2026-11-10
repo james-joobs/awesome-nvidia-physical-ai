@@ -60,7 +60,7 @@
 
 ### 물리, 3D 및 시뮬레이션
 
-[물리·시뮬레이션 워크플로 그림 보기](assets/section-diagrams/physics-simulation.ko.svg)
+![두 시뮬레이션 경로. OpenUSD 장면은 Isaac Sim과 PhysX에서 실행할 수 있고, Warp 기반 Newton은 Isaac Lab 학습 환경을 독립 실행할 수 있습니다.](assets/section-diagrams/physics-simulation.ko.svg)
 
 | 이름 | 역할 | 공개 코드 라이선스 및 유의점 | 공식 소스 | 상세 설명 |
 |---|---|---|---|---|
@@ -82,7 +82,7 @@
 
 ### 로봇 학습, 수집 및 제어
 
-[로봇 학습 워크플로 그림 보기](assets/section-diagrams/robot-learning.ko.svg)
+![Isaac Capture나 V2D로 시연을 확보하고, 데이터를 준비해 정책을 학습한 뒤 Lab-Arena에서 평가합니다. LEAPP나 Isaac ROS로 배포하고 운영 결과를 다음 수집에 반영합니다.](assets/section-diagrams/robot-learning.ko.svg)
 
 | 이름 | 역할 | 공개 코드 라이선스 및 유의점 | 공식 소스 | 상세 설명 |
 |---|---|---|---|---|
@@ -119,7 +119,7 @@
 
 ### 데이터 생성·처리 및 실행
 
-[데이터 생성 워크플로 그림 보기](assets/section-diagrams/data-generation.ko.svg)
+![Cosmos Data Factory의 예시 흐름. 시뮬레이션 장면이나 기존 영상을 정제·증강하고 라벨과 품질을 확인해 데이터셋으로 내보냅니다.](assets/section-diagrams/data-generation.ko.svg)
 
 | 이름 | 역할 | 공개 코드 라이선스 및 유의점 | 공식 소스 | 상세 설명 |
 |---|---|---|---|---|
@@ -136,7 +136,7 @@
 
 ### NeMo와 물리 AI 도구
 
-[NeMo 워크플로 그림 보기](assets/section-diagrams/nemo-tooling.ko.svg)
+![NeMo의 데이터셋 준비·학습·평가 경로와, 앱에서 Switchyard를 거쳐 모델 엔드포인트로 보내는 선택적 요청 경로.](assets/section-diagrams/nemo-tooling.ko.svg)
 
 NeMo 도구는 데이터 준비, 모델 후학습과 에이전트 운영에 쓰입니다. AlpaGym과 Curator에 연결되는 Cosmos RL과 Xenna도 이 표에서 함께 볼 수 있습니다. 상세 문서에서는 공식 연동 사례와 설명용 워크플로를 구분합니다.
 
@@ -163,7 +163,7 @@ NeMo 도구는 데이터 준비, 모델 후학습과 에이전트 운영에 쓰�
 
 ### 자율주행
 
-[자율주행 워크플로 그림 보기](assets/section-diagrams/autonomous-driving.ko.svg)
+![AlpaSim에서 관측과 행동을 반복해 차량 상태를 갱신합니다. 선택적 후학습 경로에서는 AlpaGym이 에피소드를 채점하고 Cosmos RL이 정책을 업데이트합니다.](assets/section-diagrams/autonomous-driving.ko.svg)
 
 | 이름 | 역할 | 공개 코드 라이선스 및 유의점 | 공식 소스 | 상세 설명 |
 |---|---|---|---|---|
@@ -179,7 +179,7 @@ NeMo 도구는 데이터 준비, 모델 후학습과 에이전트 운영에 쓰�
 
 ## 데이터와 시뮬레이션 자산
 
-[데이터·자산 검색 흐름 그림 보기](assets/section-diagrams/data-assets.ko.svg)
+![SimReady에서 OpenUSD 장면 자산을 찾고, Hugging Face의 NVIDIA Physical AI 컬렉션에서 학습·평가용 데이터를 탐색하는 두 경로.](assets/section-diagrams/data-assets.ko.svg)
 
 ### 검색 플랫폼과 도구
 

@@ -60,7 +60,7 @@ This guide catalogs NVIDIA Physical AI projects, simulation assets, and datasets
 
 ### Physics, 3D, and simulation
 
-[Open the physics and simulation workflow diagram](assets/section-diagrams/physics-simulation.en.svg)
+![Two simulation paths. OpenUSD scenes run in Isaac Sim with PhysX, while a Warp-native Newton backend can run Isaac Lab tasks independently.](assets/section-diagrams/physics-simulation.en.svg)
 
 | Project | Role | Code license and notes | Official source | Details |
 |---|---|---|---|---|
@@ -82,7 +82,7 @@ This guide catalogs NVIDIA Physical AI projects, simulation assets, and datasets
 
 ### Robot learning, capture, and control
 
-[Open the robot learning workflow diagram](assets/section-diagrams/robot-learning.en.svg)
+![Isaac Capture or Video-to-Data supplies demonstrations. Prepare the data, train a policy, test in Lab-Arena, deploy with LEAPP or Isaac ROS, and use field results to guide the next capture.](assets/section-diagrams/robot-learning.en.svg)
 
 | Project | Role | Code license and notes | Official source | Details |
 |---|---|---|---|---|
@@ -119,7 +119,7 @@ This guide catalogs NVIDIA Physical AI projects, simulation assets, and datasets
 
 ### Data generation, processing, and orchestration
 
-[Open the data generation workflow diagram](assets/section-diagrams/data-generation.en.svg)
+![A Cosmos Data Factory example takes simulated renders or existing footage through curation, augmentation, labeling, and quality checks into a dataset export.](assets/section-diagrams/data-generation.en.svg)
 
 | Project | Role | Code license and notes | Official source | Details |
 |---|---|---|---|---|
@@ -136,7 +136,7 @@ This guide catalogs NVIDIA Physical AI projects, simulation assets, and datasets
 
 ### NeMo and Physical AI tooling
 
-[Open the NeMo workflow diagram](assets/section-diagrams/nemo-tooling.en.svg)
+![Separate NeMo paths for dataset preparation, training, and benchmarking, and optional inference routing from an application through Switchyard to a model endpoint.](assets/section-diagrams/nemo-tooling.en.svg)
 
 NeMo tools cover dataset preparation, model post-training and agent operations. Cosmos RL and Xenna are listed here because they connect to AlpaGym and Curator. The detail guides distinguish documented integrations from example workflows.
 
@@ -163,7 +163,7 @@ NeMo tools cover dataset preparation, model post-training and agent operations. 
 
 ### Autonomous driving
 
-[Open the autonomous driving workflow diagram](assets/section-diagrams/autonomous-driving.en.svg)
+![AlpaSim turns observations and actions into new vehicle states. An optional path collects rollouts, scores episodes in AlpaGym, and updates the policy with Cosmos RL.](assets/section-diagrams/autonomous-driving.en.svg)
 
 | Project | Role | Code license and notes | Official source | Details |
 |---|---|---|---|---|
@@ -179,7 +179,7 @@ NeMo tools cover dataset preparation, model post-training and agent operations. 
 
 ## Data and simulation assets
 
-[Open the data and asset discovery diagram](assets/section-diagrams/data-assets.en.svg)
+![Two discovery paths. Browse SimReady for OpenUSD scene assets, or use the NVIDIA Physical AI collection on Hugging Face to find data for training and evaluation.](assets/section-diagrams/data-assets.en.svg)
 
 ### Discovery platforms and tools
 
