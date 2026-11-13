@@ -12,6 +12,12 @@
 
 Newton은 Warp 위에서 동작하는 로봇용 물리 엔진이다. 선택한 솔버로 수치화된 세계 상태를 한 스텝씩 진행한다. 로봇 학습에서 관측·행동·보상·에피소드 리셋은 환경 쪽에서 정의한다.
 
+## Newton 1.8
+
+**Newton 1.8.0**은 접촉이 많은 강화학습 환경의 관절 강체를 위한 실험적 Steel 솔버, XPBD·VBD의 경로 지정 텐던, 변형체 접촉 및 렌더링 개선을 추가합니다. VBD 기본값과 불러온 관절의 감쇠 동작도 바뀌었으므로, 튜닝한 장면을 옮길 때 접촉과 궤적을 다시 비교합니다. [Newton 1.8.0 릴리스 및 마이그레이션 안내](https://github.com/newton-physics/newton/releases/tag/v1.8.0)
+
+Isaac Lab 3.0과 Isaac Sim 6.2의 대상 버전은 Newton 1.6.1입니다. 시뮬레이터나 학습 환경에서 작업을 실행할 때는 해당 환경이 지정한 의존성 버전을 사용합니다. [Isaac Lab 3.0 릴리스](https://github.com/isaac-sim/IsaacLab/releases/tag/v3.0.0) · [Isaac Sim 6.2 릴리스 노트](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/overview/release_notes.html)
+
 ## 아키텍처
 
 | 구성 요소 | 역할과 데이터 경계 |
@@ -65,7 +71,7 @@ Newton 공식 URDF 예제의 관절 모델. 작업 스크립트를 붙이기 전
 
 ## 라이선스와 범위
 
-Newton 저장소는 Apache-2.0이다. 의존성과 로봇 에셋의 조건은 별도로 확인한다.
+Newton 저장소는 Apache-2.0을 사용합니다. 의존성과 로봇 에셋에는 별도 조건이 적용됩니다. [Newton 1.8 라이선스 원문](https://github.com/newton-physics/newton/blob/v1.8.0/LICENSE.md)
 
 ## 관련 가이드
 

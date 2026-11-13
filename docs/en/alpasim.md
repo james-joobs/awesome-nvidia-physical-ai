@@ -17,6 +17,10 @@ AlpaSim evaluates autonomous driving policies in a closed loop. As the policy mo
 
 *The driving example shows the output you can inspect alongside episode metrics.* [Official figure source](https://github.com/NVlabs/alpasim)
 
+## Release and model compatibility
+
+The latest tagged release, **v2026.5**, adds a built-in video-model renderer, updates the public scene catalog, and renames the renderer service key from `sensorsim` to `renderer`. Its tutorial covers Alpamayo 1 and 1.5. The newer `main` changelog documents `driver=alpamayo2` for **Alpamayo 2 Super**. Check the driver preset at the exact tag or commit before choosing weights. [v2026.5 release](https://github.com/NVlabs/alpasim/releases/tag/v2026.5) · [Tagged tutorial](https://github.com/NVlabs/alpasim/blob/v2026.5/docs/TUTORIAL.md) · [Main changelog](https://github.com/NVlabs/alpasim/blob/main/CHANGELOG.md) · [Alpamayo model guide](alpamayo.md)
+
 ## How it works
 
 The runtime advances simulation time and calls Python services through gRPC. The renderer produces observations from a scene and pose. The driver converts observations into a plan, and the controller and physics advance the ego state under vehicle and ground constraints. The evaluator runs over recorded output outside the main loop. Rendering backends can share a service interface, including the documented neural reconstruction and video-model backends.
@@ -39,7 +43,7 @@ Check scene and renderer compatibility, service health and route or camera confi
 
 ## License and availability
 
-Code: Apache-2.0; models and data have separate terms. Models, data, dependencies and hosted services may have separate terms; check each source before use.
+The AlpaSim source uses Apache-2.0. Models, data, dependencies and hosted services may have separate terms. [AlpaSim v2026.5 LICENSE](https://github.com/NVlabs/alpasim/blob/v2026.5/LICENSE)
 
 ## Official references
 

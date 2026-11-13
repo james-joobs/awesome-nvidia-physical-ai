@@ -9,6 +9,12 @@
 
 Isaac Lab organizes batched simulation into robot learning environments. It provides task interfaces for observations, actions, rewards and resets, and delegates stepping, articulation state and sensors to the selected backend.
 
+## Isaac Lab 3.0
+
+The **3.0.0 general-availability release** targets one task API across interchangeable physics, rendering, and visualization backends. The base installation can run supported tasks with Newton without Omniverse Kit. Add the Isaac Sim 6.2 extra for workflows that need the full PhysX and RTX stack, the ROS bridge, or Kit tooling. OvPhysX and OVRTX are separate backend options for compatible tasks. [Isaac Lab 3.0.0 release](https://github.com/isaac-sim/IsaacLab/releases/tag/v3.0.0) · [Backend presets](https://docs.nvidia.com/isaaclab/concepts/backends-and-presets)
+
+The release targets Python 3.12, PyTorch 2.11 with CUDA 13.0, Newton 1.6.1, and Warp 1.17.0. For reproducible installs, use the tested dependency overrides in the installation guide, especially when enabling the Isaac Sim extra. [Isaac Lab 3.0 installation](https://docs.nvidia.com/isaaclab/isaac-lab/installation)
+
 ## Architecture
 
 | Component | Responsibility and data boundary |
@@ -54,7 +60,7 @@ Isaac Lab’s official backend diagram explains where backend-specific implement
 
 ## License and scope
 
-Isaac Lab code is BSD-3-Clause. Backends, policy weights and assets have separate terms.
+Isaac Lab code is BSD-3-Clause. Backends, policy weights and assets have separate terms. [Isaac Lab 3.0 LICENSE](https://github.com/isaac-sim/IsaacLab/blob/v3.0.0/LICENSE)
 
 ## Related guides
 

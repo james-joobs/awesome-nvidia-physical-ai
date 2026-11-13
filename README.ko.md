@@ -8,7 +8,7 @@
 
 시뮬레이션, 로보틱스, 자율주행과 이들이 함께 사용하는 데이터·3D 자산을 연결하는 비공식 커뮤니티 가이드입니다.
 
-[목표별로 시작](#만들고-싶은-것부터-시작하세요) · [생태계 지도](#생태계-한눈에-보기) · [데이터와 자산](#데이터와-시뮬레이션-자산) · [NeMo](#nemo와-물리-ai-도구) · [전체 목록](#1-오픈소스-코드가-확인된-프로젝트) · [최신 릴리스](https://github.com/james-joobs/awesome-nvidia-physical-ai/releases/latest)
+[목표별로 시작](#만들고-싶은-것부터-시작하세요) · [생태계 지도](#생태계-한눈에-보기) · [데이터와 자산](#데이터와-시뮬레이션-자산) · [NeMo](#nemo와-물리-ai-도구) · [로봇 모델](#로봇-파운데이션-모델과-vla) · [업스트림 릴리스](#최근-업스트림-릴리스) · [전체 목록](#1-오픈소스-코드가-확인된-프로젝트) · [최신 릴리스](https://github.com/james-joobs/awesome-nvidia-physical-ai/releases/latest)
 
 <img src="assets/social-preview.jpg" alt="Awesome NVIDIA Physical AI 커뮤니티 가이드" width="460">
 
@@ -25,6 +25,7 @@
 | **물리 백엔드 고르기** | [Isaac Lab 물리 백엔드](https://docs.nvidia.com/isaaclab/concepts/physics-backends) · [렌더러 호환성](https://docs.nvidia.com/isaaclab/concepts/renderers) | 지원되는 렌더러 조합에서 접촉·관절 테스트 하나 |
 | **로봇팔로 물체 집어 옮기기** | [Isaac Manipulator](docs/ko/isaac-manipulator.md) · [Isaac ROS cuMotion](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_cumotion) | 실행 가능한 궤적과 물체를 집고 놓은 결과 |
 | **원격조작 시연으로 로봇 정책 학습하기** | [SO-101 공식 과정](https://docs.nvidia.com/learning/physical-ai/sim-to-real-so-101/latest/) · [Isaac Capture](docs/ko/isaac-capture.md) · [Isaac Lab](docs/ko/isaac-lab.md) | 재생할 수 있는 시연 기록과 반복 측정할 수 있는 작업 성공률 |
+| **사전 학습된 로봇 정책 고르기** | [로봇 파운데이션 모델과 VLA](#로봇-파운데이션-모델과-vla) · [모델 선택과 평가](docs/ko/robot-foundation-models.md) | 지원 로봇이나 벤치마크를 고르고 재현 가능한 실행 한 번 완료 |
 | **공장·창고 디지털 트윈 만들기** | [AIF CAD → USD 예제](https://github.com/NVIDIA-Omniverse/aif-pipeline-samples/blob/main/docs/get-started/cad-to-usd-workflow.md) → [Omniverse](docs/ko/omniverse.md) · 다중 로봇은 [Mega Blueprint](https://blogs.nvidia.com/blog/mega-omniverse-blueprint/) | 치수를 검증한 구역 하나와 운영 시나리오 하나 |
 | **영상 분석 에이전트 만들기** | [Metropolis VSS](docs/ko/metropolis-vss.md) · 모델 요청을 분기한다면 [Switchyard](docs/ko/nemo-switchyard.md) | 영상의 타임스탬프를 근거로 제시하는 답변 |
 
@@ -56,6 +57,17 @@
 
 **워크플로와 신규 목록 항목 확인일** · 2026-11-10. 두 가이드는 공식 자료 대조와 GPU 실행 검증을 구분합니다.
 
+## 최근 업스트림 릴리스
+
+2026년 11월 13일 공식 자료 확인. 정식판과 프리뷰는 공개 상태를 함께 표시합니다.
+
+- **Isaac Sim** · 현재 정식판은 [6.2.0](https://github.com/isaac-sim/IsaacSim/releases/tag/v6.2.0)입니다. [7.0 Alpha 1](https://github.com/isaac-sim/IsaacSim/releases/tag/v7.0.0a1)은 Kit 없이 물리 계산과 로봇 제어를 수행하는 모듈형 라이브러리의 미리보기입니다. [가이드](docs/ko/isaac-sim.md)
+- **Isaac Lab** · [3.0 정식판](https://github.com/isaac-sim/IsaacLab/releases/tag/v3.0.0)은 같은 작업 API에서 물리 엔진과 렌더러를 선택할 수 있게 합니다. Kit 기반 워크플로의 기준 버전은 Isaac Sim 6.2입니다. [가이드](docs/ko/isaac-lab.md)
+- **Newton / Warp** · [Newton 1.8.0](https://github.com/newton-physics/newton/releases/tag/v1.8.0)은 실험 기능인 SolverSteel을, [Warp 1.19.0](https://github.com/NVIDIA/warp/releases/tag/v1.19.0)은 재사용 가능한 희소 행렬 조립과 Surface Nets를 추가했습니다. 함께 설치할 때는 Isaac Lab이 지정한 버전을 확인하세요.
+- **Alpamayo 2** · [Super](https://huggingface.co/nvidia/Alpamayo2-Super)는 34B 주행 VLA입니다. 차량 탑재 환경을 위한 [Edge](https://huggingface.co/nvidia/Alpamayo2-Edge)는 11월 10일 가중치를 공개했습니다. 두 모델 카드 모두 OpenMDW-1.1을 명시합니다. [가이드](docs/ko/alpamayo.md)
+- **Cosmos 3** · NVIDIA가 영상 및 주행 센서 관측을 생성하는 [대화형 시뮬레이션 체크포인트](https://huggingface.co/blog/nvidia/cosmos-interactive-world-simulation)를 공개했습니다. [가이드](docs/ko/cosmos.md)
+- **Isaac Lab-Arena** · NVIDIA가 CoRL에서 [0.4 개발자 프리뷰](https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/)를 발표했습니다. Arena로 반복 가능한 로봇 정책 평가를 구성할 수 있습니다. [가이드](docs/ko/isaac-lab-arena.md)
+
 ## 1. 오픈소스 코드가 확인된 프로젝트
 
 최근 커밋은 연결된 저장소의 기본 브랜치를 기준으로 UTC 날짜를 표시하며, 매주 갱신합니다. 라이선스 링크는 2026년 11월 13일에 확인한 원문을 가리킵니다. OvPhysX의 날짜는 상위 PhysX 저장소를 기준으로 합니다.
@@ -76,8 +88,8 @@
 | **OpenUSD Exchange SDK** | OpenUSD 장면 작성과 교환을 돕는 SDK | [Apache-2.0](https://github.com/NVIDIA-Omniverse/usd-exchange/blob/3faf293720c8aa6854b92a16f492f4f8159cf494/LICENSE.md) | [2026-10-07](https://github.com/NVIDIA-Omniverse/usd-exchange/commit/3faf293720c8aa6854b92a16f492f4f8159cf494) | [저장소](https://github.com/NVIDIA-Omniverse/usd-exchange) | [관련 가이드](docs/ko/workflows/workbench-cad-to-isaac-sim.md) |
 | **AIF Pipeline Samples** | CAD 변환·USD 검증·최적화·메타데이터 설정 예제 | 샘플 코드 [MIT](https://github.com/NVIDIA-Omniverse/aif-pipeline-samples/blob/41038967ef0a2459b128a225161f8d59beb3b424/LICENSE). Kit와 변환기는 별도 조건 | [2026-03-13](https://github.com/NVIDIA-Omniverse/aif-pipeline-samples/commit/41038967ef0a2459b128a225161f8d59beb3b424) | [저장소](https://github.com/NVIDIA-Omniverse/aif-pipeline-samples) | [관련 가이드](docs/ko/workflows/workbench-cad-to-isaac-sim.md) |
 | **SimFoundry** | 작업대 영상에서 객체와 물리 속성이 있는 편집 가능한 시뮬레이션 장면 생성 | 코드 [Apache-2.0](https://github.com/NVlabs/SimFoundry/blob/9e34ebefcd020583fbb755a8b57268dce78eca26/LICENSE). 외부 모델과 자산은 별도 조건 | [2026-08-27](https://github.com/NVlabs/SimFoundry/commit/9e34ebefcd020583fbb755a8b57268dce78eca26) | [저장소](https://github.com/NVlabs/SimFoundry) | [관련 가이드](docs/ko/workflows/workbench-cad-to-isaac-sim.md) |
-| **fVDB Core** | GPU 가속 희소 볼륨 자료구조와 3D 연산 | [Apache-2.0](https://github.com/openvdb/fvdb-core/blob/57887afd59171716164c9ba00f7079660fecea34/LICENSE) | [2026-11-13](https://github.com/openvdb/fvdb-core/commit/57887afd59171716164c9ba00f7079660fecea34) | [저장소](https://github.com/openvdb/fvdb-core) | — |
-| **fVDB Reality Capture** | fVDB 기반 3D Gaussian Splatting 복원·처리 도구 | 코드 [Apache-2.0](https://github.com/openvdb/fvdb-reality-capture/blob/461117232d68fc4e4a0538abf3a6d781bbbf9da2/LICENSE). 샘플과 의존성은 별도 확인 | [2026-11-13](https://github.com/openvdb/fvdb-reality-capture/commit/461117232d68fc4e4a0538abf3a6d781bbbf9da2) | [저장소](https://github.com/openvdb/fvdb-reality-capture) | — |
+| **fVDB Core** | GPU 가속 희소 볼륨 자료구조와 3D 연산 | [Apache-2.0](https://github.com/openvdb/fvdb-core/blob/57887afd59171716164c9ba00f7079660fecea34/LICENSE) | [2026-11-13](https://github.com/openvdb/fvdb-core/commit/a9a64216bfa3cb12fcd748e4827d9fb866e44e34) | [저장소](https://github.com/openvdb/fvdb-core) | — |
+| **fVDB Reality Capture** | fVDB 기반 3D Gaussian Splatting 복원·처리 도구 | 코드 [Apache-2.0](https://github.com/openvdb/fvdb-reality-capture/blob/461117232d68fc4e4a0538abf3a6d781bbbf9da2/LICENSE). 샘플과 의존성은 별도 확인 | [2026-11-13](https://github.com/openvdb/fvdb-reality-capture/commit/9d4ce6b90d28640414466fa9e947445510d93704) | [저장소](https://github.com/openvdb/fvdb-reality-capture) | — |
 | **gsplat** | NuRec이 사용하는 CUDA 가속 Gaussian Splatting 라이브러리 | 코드 [Apache-2.0](https://github.com/nerfstudio-project/gsplat/blob/512d366b67073d77ca099ede742683c165dfc23b/LICENSE). NVIDIA가 기여하는 Nerfstudio 독립 프로젝트 | [2026-09-19](https://github.com/nerfstudio-project/gsplat/commit/512d366b67073d77ca099ede742683c165dfc23b) | [저장소](https://github.com/nerfstudio-project/gsplat) | — |
 | **3DGRUT** | Gaussian 레이 트레이싱과 하이브리드 래스터화 연구 코드 | 코드 [Apache-2.0](https://github.com/nv-tlabs/3dgrut/blob/dfd3d54c8c612003fb7948443edf7778f2bcd5ec/LICENSE). 의존성 조건은 별도 확인 | [2026-11-06](https://github.com/nv-tlabs/3dgrut/commit/dfd3d54c8c612003fb7948443edf7778f2bcd5ec) | [저장소](https://github.com/nv-tlabs/3dgrut) | — |
 | **OvPhysX** | Kit 설치 없이 PhysX SDK로 USD 장면의 물리 계산 | 소스 [Apache-2.0](https://github.com/NVIDIA-Omniverse/PhysX/blob/b97365c6ddb32fda8469bc788ec18024862b0368/ovphysx/LICENSE.txt). 배포 wheel과 SDK는 NVIDIA Omniverse License | [2026-10-15](https://github.com/NVIDIA-Omniverse/PhysX/commit/b97365c6ddb32fda8469bc788ec18024862b0368) | [소스·라이선스](https://github.com/NVIDIA-Omniverse/PhysX/blob/main/ovphysx/README.md#5-licensing) | [관련 가이드](docs/ko/nvidia-physx.md) |
@@ -89,7 +101,7 @@
 | 이름 | 역할 | 공개 코드 라이선스 및 유의점 | 최근 커밋 | 공식 소스 | 상세 설명 |
 |---|---|---|---|---|---|
 | **Isaac Lab** | 강화·모방학습 및 로봇 학습 환경 | [BSD-3-Clause](https://github.com/isaac-sim/IsaacLab/blob/7bca8097a5ed27c26744686c84355d1786769e81/LICENSE); 선택한 백엔드와 의존성은 별도 조건 | [2026-11-12](https://github.com/isaac-sim/IsaacLab/commit/7bca8097a5ed27c26744686c84355d1786769e81) | [저장소](https://github.com/isaac-sim/IsaacLab) | [상세 보기](docs/ko/isaac-lab.md) |
-| **Isaac Lab-Arena** | 조합 가능한 로봇 작업 환경과 정책 평가 | [Apache-2.0](https://github.com/isaac-sim/IsaacLab-Arena/blob/b724395e2a0c5963757021003aeb664c84a10e90/LICENSE.md); Isaac Sim 등 의존성 별도 | [2026-11-13](https://github.com/isaac-sim/IsaacLab-Arena/commit/b724395e2a0c5963757021003aeb664c84a10e90) | [저장소](https://github.com/isaac-sim/IsaacLab-Arena) | [상세 보기](docs/ko/isaac-lab-arena.md) |
+| **Isaac Lab-Arena** | 조합 가능한 로봇 작업 환경과 정책 평가 | [Apache-2.0](https://github.com/isaac-sim/IsaacLab-Arena/blob/b724395e2a0c5963757021003aeb664c84a10e90/LICENSE.md); Isaac Sim 등 의존성 별도 | [2026-11-13](https://github.com/isaac-sim/IsaacLab-Arena/commit/fc9354a419ca69ec98c510ca88f5391b1f6ad7be) | [저장소](https://github.com/isaac-sim/IsaacLab-Arena) | [상세 보기](docs/ko/isaac-lab-arena.md) |
 | **RoboLab** | Isaac Lab 기반 로봇팔 조작 정책 평가 벤치마크 | 코드 [Apache-2.0](https://github.com/NVlabs/RoboLab/blob/9cce00cadd5dc575fd2b8ea3836f5bdcde574229/LICENSE). 작업 자산과 정책 이용 조건은 별도 확인 | [2026-10-27](https://github.com/NVlabs/RoboLab/commit/9cce00cadd5dc575fd2b8ea3836f5bdcde574229) | [저장소](https://github.com/NVlabs/RoboLab) | [관련 가이드](docs/ko/isaac-lab.md) |
 | **Microduck 로봇 소프트웨어** | ONNX 정책 실행, 서보 제어, 장치 서비스를 담당하는 온보드 Rust 런타임 | 코드 [Apache-2.0](https://github.com/pollen-robotics/microduck/blob/86b222a598efeeb258fdd94473bad924fd872785/LICENSE) | [2026-11-13](https://github.com/pollen-robotics/microduck/commit/86b222a598efeeb258fdd94473bad924fd872785) | [저장소](https://github.com/pollen-robotics/microduck) | [상세 보기](docs/ko/microduck.md) |
 | **Microduck RL** | Pollen Robotics의 mjlab·PPO 기반 Microduck 학습 환경 | 코드 [Apache-2.0](https://github.com/pollen-robotics/microduck_rl/blob/0daab160d3fb1c2cbaba16a4a19052f36709dd9e/LICENSE), 지정된 STL 메시는 [CC BY-NC-SA 4.0](https://github.com/pollen-robotics/microduck_rl/blob/0daab160d3fb1c2cbaba16a4a19052f36709dd9e/LICENSE-MODELS.md) | [2026-11-10](https://github.com/pollen-robotics/microduck_rl/commit/0daab160d3fb1c2cbaba16a4a19052f36709dd9e) | [저장소](https://github.com/pollen-robotics/microduck_rl) | [상세 보기](docs/ko/microduck.md) |
@@ -117,6 +129,13 @@
 | **GR00T-H 코드** | 의료·수술 로봇 정책 학습 및 추론 코드 | 코드 [Apache-2.0](https://github.com/NVIDIA-Medtech/GR00T-H/blob/d8369db7c85ae0ae9f2cbd08b5ec2ca52d69af55/LICENSE); 의료 모델 가중치·데이터 별도 약관 | [2026-06-01](https://github.com/NVIDIA-Medtech/GR00T-H/commit/d8369db7c85ae0ae9f2cbd08b5ec2ca52d69af55) | [저장소](https://github.com/NVIDIA-Medtech/GR00T-H) | [상세 보기](docs/ko/gr00t-h.md) |
 | **Cosmos Reason2 코드** | 월드 추론 모델의 추론·학습 코드 | 코드 [Apache-2.0](https://github.com/nvidia-cosmos/cosmos-reason2/blob/a3b4a1db4065fe13c4b1f4d2fb8605bad647f4b9/LICENSE); 모델 가중치 별도 약관 | [2026-06-07](https://github.com/nvidia-cosmos/cosmos-reason2/commit/a3b4a1db4065fe13c4b1f4d2fb8605bad647f4b9) | [저장소](https://github.com/nvidia-cosmos/cosmos-reason2) | [상세 보기](docs/ko/cosmos-reason2.md) |
 | **Cosmos Predict2 코드** | 월드·영상 생성 모델 코드 | 코드 [Apache-2.0](https://github.com/nvidia-cosmos/cosmos-predict2/blob/661da4774b0ca41d082a0ecbeb47550bcf07e03f/LICENSE); 모델 가중치 별도 약관 | [2025-10-07](https://github.com/nvidia-cosmos/cosmos-predict2/commit/661da4774b0ca41d082a0ecbeb47550bcf07e03f) · 보관됨 | [저장소](https://github.com/nvidia-cosmos/cosmos-predict2) | [상세 보기](docs/ko/cosmos-predict2.md) |
+| **openpi** | Physical Intelligence π 정책의 학습·추론·파인튜닝 코드 | [Apache-2.0](https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/LICENSE). 체크포인트와 백본 조건은 별도 | [2026-08-24](https://github.com/Physical-Intelligence/openpi/commit/215abfb217dbac7d5f1273282331b9b1866c0479) | [저장소](https://github.com/Physical-Intelligence/openpi) | [가이드](docs/ko/physical-intelligence-pi.md) |
+| **Cosmos Policy code** | Predict2 기반 로봇 조작 정책의 후학습·추론 | [Apache-2.0](https://github.com/NVlabs/cosmos-policy/blob/18a2accadf4e7a3531e56754102af5a24d2316da/LICENSE). 공개 체크포인트는 별도 조건 | [2026-01-23](https://github.com/NVlabs/cosmos-policy/commit/18a2accadf4e7a3531e56754102af5a24d2316da) | [저장소](https://github.com/NVlabs/cosmos-policy) | [가이드](docs/ko/robot-foundation-models.md#cosmos-policy) |
+| **OpenVLA code** | 7B 로봇 조작 VLA 추론·파인튜닝 코드 | [MIT](https://github.com/openvla/openvla/blob/c8f03f48af692657d3060c19588038c7220e9af9/LICENSE). 가중치에 Llama 2 조건도 적용 | [2025-03-23](https://github.com/openvla/openvla/commit/c8f03f48af692657d3060c19588038c7220e9af9) | [저장소](https://github.com/openvla/openvla) | [가이드](docs/ko/robot-foundation-models.md#다른-vla) |
+| **MolmoAct 2 code** | 깊이 정보를 활용하는 조작 모델의 추론·파인튜닝 | [Apache-2.0](https://github.com/allenai/molmoact2/blob/6070080a20321b4f498ab30f28e1d09ac465edb7/LICENSE) | [2026-10-02](https://github.com/allenai/molmoact2/commit/6070080a20321b4f498ab30f28e1d09ac465edb7) | [저장소](https://github.com/allenai/molmoact2) | [가이드](docs/ko/robot-foundation-models.md#다른-vla) |
+| **X-VLA code** | 로봇 형태별 소프트 프롬프트를 사용하는 로봇 정책 | [Apache-2.0](https://github.com/2toinf/X-VLA/blob/6c4ecfb8be458ae7c0c96094e4b0add4174f4fe2/LICENSE) | [2026-10-20](https://github.com/2toinf/X-VLA/commit/6c4ecfb8be458ae7c0c96094e4b0add4174f4fe2) | [저장소](https://github.com/2toinf/X-VLA) | [가이드](docs/ko/robot-foundation-models.md#다른-vla) |
+| **Praxis-1 code** | 미래 영상·행동 공동 예측과 추론·파인튜닝 코드 | [Apache-2.0](https://github.com/runwayml/praxis-1-oss/blob/afef2e18a0af22b2e9926e9f743dc4694ab8b6b5/LICENSE). 가중치는 Hugging Face 접근 절차 필요 | [2026-11-12](https://github.com/runwayml/praxis-1-oss/commit/afef2e18a0af22b2e9926e9f743dc4694ab8b6b5) | [저장소](https://github.com/runwayml/praxis-1-oss) | [가이드](docs/ko/robot-foundation-models.md#월드-액션-모델) |
+| **FLUX 3 Action code** | 영상·행동을 함께 예측하는 모델의 추론·파인튜닝 | [Apache-2.0](https://github.com/black-forest-labs/flux-action/blob/aea7863fbbbda1e282fa7bde2054e290bf09b3f8/LICENSE). 가중치는 별도 이용 조건 | [2026-11-10](https://github.com/black-forest-labs/flux-action/commit/aea7863fbbbda1e282fa7bde2054e290bf09b3f8) | [저장소](https://github.com/black-forest-labs/flux-action) | [가이드](docs/ko/robot-foundation-models.md#월드-액션-모델) |
 
 ### 데이터 생성·처리 및 실행
 
@@ -177,6 +196,9 @@ NeMo 도구는 데이터 준비, 모델 후학습과 에이전트 운영에 쓰�
 | **Alpamayo Recipes** | Alpamayo 모델 튜닝·양자화·배포 예제 | 코드 [Apache-2.0](https://github.com/NVlabs/alpamayo-recipes/blob/622f9d23ff9e4961ba8c6aac71367776cdf6b016/LICENSE). 모델과 데이터는 별도 조건 | [2026-11-11](https://github.com/NVlabs/alpamayo-recipes/commit/622f9d23ff9e4961ba8c6aac71367776cdf6b016) | [저장소](https://github.com/NVlabs/alpamayo-recipes) | [관련 가이드](docs/ko/workflows/alpasim-closed-loop.md) |
 | **OmniDreams** | 자율주행 시뮬레이션용 자기회귀 영상 모델 코드와 선택형 AlpaSim 렌더러 경로 | 저장소 [Apache-2.0](https://github.com/nv-tlabs/omni-dreams/blob/50f36212c03012a85f12fe3b33e9deb23c8da749/LICENSE). 가중치와 접근 조건은 별도 | [2026-10-02](https://github.com/nv-tlabs/omni-dreams/commit/50f36212c03012a85f12fe3b33e9deb23c8da749) | [저장소](https://github.com/nv-tlabs/omni-dreams) · [모델 카드](https://huggingface.co/nvidia/omni-dreams-models) | [관련 가이드](docs/ko/workflows/alpasim-closed-loop.md) |
 | **FlashDreams** | 자기회귀 영상·월드 모델 추론 가속 및 서비스 연동 | 소스 대부분 [Apache-2.0](https://github.com/NVIDIA/flashdreams/blob/614969691a78400c868225db2d192b33cc55a25e/LICENSE). 파일별 예외와 외부 모델 조건은 별도 확인 | [2026-11-11](https://github.com/NVIDIA/flashdreams/commit/614969691a78400c868225db2d192b33cc55a25e) | [저장소](https://github.com/NVIDIA/flashdreams) | [관련 가이드](docs/ko/workflows/alpasim-closed-loop.md) |
+| **Alpamayo 2 Super code** | 추론 근거·궤적 생성과 자동 라벨링을 위한 34B 주행 VLA 추론 | [Apache-2.0](https://github.com/NVlabs/alpamayo2/blob/59776920bbd981f2c989213bba5ee8594e71ed1d/LICENSE). 가중치는 OpenMDW-1.1 | [2026-10-07](https://github.com/NVlabs/alpamayo2/commit/59776920bbd981f2c989213bba5ee8594e71ed1d) | [저장소](https://github.com/NVlabs/alpamayo2) | [가이드](docs/ko/alpamayo.md) |
+| **Alpamayo 2 Edge code** | 차량 탑재 환경용 경량 주행 VLA 추론·내보내기 도구 | [Apache-2.0](https://github.com/NVlabs/alpamayo2-edge/blob/02f55a7aeabc1a2b9f7a80445c08e40bddc89f5e/LICENSE). 가중치는 OpenMDW-1.1 | [2026-11-10](https://github.com/NVlabs/alpamayo2-edge/commit/02f55a7aeabc1a2b9f7a80445c08e40bddc89f5e) | [저장소](https://github.com/NVlabs/alpamayo2-edge) | [가이드](docs/ko/alpamayo.md) |
+| **AlpaJudge code** | 주행 궤적과 추론 근거를 평가하는 VLM | [Apache-2.0](https://github.com/NVlabs/alpajudge/blob/607ae9d2c56e08a9f55a1093ce625af43a53b114/LICENSE). [가중치는 OpenMDW-1.1](https://huggingface.co/nvidia/alpajudge) | [2026-10-29](https://github.com/NVlabs/alpajudge/commit/607ae9d2c56e08a9f55a1093ce625af43a53b114) | [저장소](https://github.com/NVlabs/alpajudge) | [가이드](docs/ko/alpamayo.md) |
 
 ## 데이터와 시뮬레이션 자산
 
@@ -286,6 +308,29 @@ NeMo 도구는 데이터 준비, 모델 후학습과 에이전트 운영에 쓰�
 
 **연계 예:** SimReady 자산으로 Isaac Sim·Isaac Lab 장면을 구성하고, Capture·GR00T 시연이나 기존 데이터셋으로 정책을 학습한 뒤 평가할 수 있다. 각 데이터셋의 로봇 형태·좌표계·센서와 라이선스가 호환되는지 따로 확인해야 한다.
 
+## 로봇 파운데이션 모델과 VLA
+
+로봇 파운데이션 모델(RFM)은 여러 작업이나 로봇 데이터로 사전 학습한 뒤, 사용할 로봇에 맞춰 적용하는 모델입니다. VLA(시각·언어·행동) 모델은 카메라 관측, 지시문, 필요에 따라 로봇 상태를 받아 행동을 출력합니다. 월드 액션 모델은 행동과 미래 관측을 함께 예측할 수 있습니다. 먼저 대상 로봇이나 벤치마크를 정한 뒤 체크포인트와 이용 조건을 확인하세요. [모델 선택과 평가](docs/ko/robot-foundation-models.md)
+
+| 모델 | 개발팀과 역할 | 체크포인트 공개 여부 및 조건 | 공식 자료 |
+|---|---|---|---|
+| **GR00T N1.7** | NVIDIA · 휴머노이드·로봇팔 VLA | 3B 체크포인트 다운로드 · [NVIDIA Open Model License](https://huggingface.co/nvidia/GR00T-N1.7-3B/blob/main/LICENSE) | [모델 카드](https://huggingface.co/nvidia/GR00T-N1.7-3B) · [가이드](docs/ko/groot-model.md) |
+| **GR00T 2 / Turbo** | NVIDIA · 조작용 Cosmos 기반 월드 액션 모델(WAM) | 11월 9일 발표 · 2026년 12월 코드 공개 예정 · 공개 체크포인트와 가중치 조건 미확인 | [공식 연구 페이지](https://research.nvidia.com/labs/gear/gr00t-2/) · [가이드](docs/ko/groot-model.md) |
+| **GR00T-H N1.7** | NVIDIA · 의료 로봇 연구용 VLA | 다운로드 가능 · [NVIDIA Open Model License](https://huggingface.co/nvidia/GR00T-H-N1.7/blob/main/LICENSE) · 모델 카드에서 임상 용도 제외 | [모델 카드](https://huggingface.co/nvidia/GR00T-H-N1.7) · [가이드](docs/ko/gr00t-h.md) |
+| **π₀ / π₀-FAST / π₀.₅** | Physical Intelligence · 로컬 추론·파인튜닝용 범용 로봇 VLA | openpi에서 다운로드 · 체크포인트와 백본별 조건 확인 · openpi 코드는 Apache-2.0 | [공식 체크포인트](https://github.com/Physical-Intelligence/openpi#model-checkpoints) · [가이드](docs/ko/physical-intelligence-pi.md) |
+| **π₀.₆ / π*₀.₆ / π₀.₇** | Physical Intelligence · 실기 경험 학습과 조건에 따른 행동 조절 | 연구 결과 공개 · 다운로드 가중치 미확인 · Pi API 호스팅 베타는 대기 신청, 제공 모델 ID 미공개 | [π*₀.₆](https://www.pi.website/blog/pistar06) · [π₀.₇](https://www.pi.website/blog/pi07) · [Pi API](https://www.pi.website/blog/api-beta) |
+| **Cosmos 3 Policy DROID** | NVIDIA · DROID 조작 행동 정책 · Edge 4B·Nano 16B | 다운로드 가능 · [OpenMDW-1.1](https://openmdw.ai/) | [Edge 모델 카드](https://huggingface.co/nvidia/Cosmos3-Edge-Policy-DROID) · [Nano 모델 카드](https://huggingface.co/nvidia/Cosmos3-Nano-Policy-DROID) |
+| **Cosmos Policy (Predict2)** | NVIDIA · 영상 월드 모델 기반 로봇 정책과 선택적 플래닝 | 다운로드 가능 · 링크한 체크포인트는 NVIDIA One-Way Noncommercial License | [LIBERO 모델 카드와 약관](https://huggingface.co/nvidia/Cosmos-Policy-LIBERO-Predict2-2B#license) · [컬렉션](https://huggingface.co/collections/nvidia/cosmos-policy) |
+| **SmolVLA** | Hugging Face · SO-100·SO-101 등에서 시작하기 좋은 경량 LeRobot VLA | 베이스 체크포인트 다운로드 · Apache-2.0 | [모델 카드](https://huggingface.co/lerobot/smolvla_base) · [LeRobot 가이드](https://huggingface.co/docs/lerobot/smolvla) |
+| **OpenVLA** | OpenVLA 연구팀 · 7B 조작 VLA와 파인튜닝 기준 모델 | 다운로드 가능 · 모델 카드에는 MIT 표기 · 개발팀은 Llama 2 Community License 조건도 적용된다고 명시 | [모델 카드](https://huggingface.co/openvla/openvla-7b) · [원본 저장소 약관](https://github.com/openvla/openvla#pretrained-vlas) |
+| **MolmoAct 2** | Ai2 · 깊이 정보를 활용한 행동 추론·조작 | 베이스·작업별 체크포인트 다운로드 · [Ai2가 명시한 Apache-2.0](https://github.com/allenai/molmoact2#7-license) | [모델 카드](https://huggingface.co/allenai/MolmoAct2) · [공식 프로젝트](https://allenai.org/blog/molmoact2) |
+| **X-VLA** | 2toINF · 로봇 형태별 소프트 프롬프트를 쓰는 VLA | 베이스 체크포인트 다운로드 · 모델 카드에 Apache-2.0 표기 | [모델 카드](https://huggingface.co/2toINF/X-VLA-Pt) · [LeRobot 가이드](https://huggingface.co/docs/lerobot/xvla) |
+| **Praxis-1** | Runway · 영상과 로봇 행동을 함께 예측하는 월드 액션 모델 | 11월 11일 공개 · 가중치 Apache-2.0 · Hugging Face 접근 절차 필요 | [베이스](https://huggingface.co/runwayml/praxis-1-base) · [DROID](https://huggingface.co/runwayml/praxis-1-droid) · [YAM](https://huggingface.co/runwayml/praxis-1-yam) · [공식 발표](https://runway.com/news/company-news/praxis-1-is-now-available) |
+| **FLUX 3 Action** | Black Forest Labs · SO-101과 DROID용 변형을 제공하는 7B 월드 액션 모델 | Hugging Face 접근 절차 필요 · [FLUX Kommunity License v1.0](https://huggingface.co/black-forest-labs/flux-3-action-so101/blob/main/LICENSE.md) | [SO-101 체크포인트](https://huggingface.co/black-forest-labs/flux-3-action-so101) · [공식 프로젝트](https://bfl.ai/models/flux-3-action) |
+| **Gemini Robotics 2.5** | Google DeepMind · 정밀 조작과 여러 단계 작업을 위한 VLA | 11월 10일 발표 · 파트너 제공 중 · 공개 체크포인트와 가중치 조건 미확인 | [공식 발표](https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/) |
+
+차량 궤적과 주행 추론에는 [Alpamayo 가이드](docs/ko/alpamayo.md)와 [AlpaSim 평가 가이드](docs/ko/workflows/alpasim-closed-loop.md)를 참고하세요.
+
 ## 2. 플랫폼·모델·제품·표준 및 제한적 공개 항목
 
 이 표의 ‘공개’는 접근 가능성만 뜻하며, 오픈소스 라이선스 또는 상업적 이용 허가를 뜻하지 않는다. 확인하지 못한 조건은 미확인으로 표시한다.
@@ -306,7 +351,6 @@ NeMo 도구는 데이터 준비, 모델 후학습과 에이전트 운영에 쓰�
 | **Cosmos 및 Cosmos 3** | 월드 모델·도구 플랫폼 및 모델 계열 | [Cosmos 저장소](https://github.com/NVIDIA/cosmos)는 코드와 모델에 OpenMDW-1.1을 명시; OSI 승인 오픈소스라고 단정하지 않음. 개별 저장소는 별도 조건 | [공식 저장소](https://github.com/NVIDIA/cosmos) | [상세 보기](docs/ko/cosmos.md) |
 | **Cosmos Predict / Transfer / Reason** | 각각 세계·영상 생성, 시각 조건 변환, 장면 추론 모델 계열 | 모델 버전과 가중치별 약관 확인; 전체를 일괄 오픈소스로 취급하지 않음 | [Cosmos 공식 저장소](https://github.com/NVIDIA/cosmos) | [상세 보기](docs/ko/cosmos-models.md) |
 | **Cosmos Embed / Dataset Search** | 멀티모달 임베딩 모델·서비스 및 영상 검색 마이크로서비스 | 서비스·모델의 전체 소스 및 라이선스 미확인 | [공식 문서](https://docs.nvidia.com/cosmos/cds/latest/introduction.html) | [상세 보기](docs/ko/cosmos-embed-search.md) |
-| **Isaac GR00T / GR00T N1.7** | 로봇 행동 기반 모델·플랫폼 | 코드와 가중치의 라이선스 별도; 모델 이용 조건은 버전별 확인 | [공식 저장소](https://github.com/NVIDIA/Isaac-GR00T) | [상세 보기](docs/ko/groot-model.md) |
 | **GR00T-Mimic / GR00T-Dreams** | 로봇 시연·합성 데이터 생성 기술·워크플로 | 독립 프로젝트 여부와 각 구현·모델의 조건은 개별 확인 필요 | [GR00T 공식 저장소](https://github.com/NVIDIA/Isaac-GR00T) | [상세 보기](docs/ko/groot-mimic-dreams.md) |
 | **Isaac Manipulator** | 로봇팔 인식·파지·계획용 참조 워크플로 | Isaac ROS 패키지·모델 및 구성 요소마다 조건 상이 | [Isaac ROS 문서](https://nvidia-isaac-ros.github.io/) | [상세 보기](docs/ko/isaac-manipulator.md) |
 | **Isaac ROS** | ROS 2 기반 GPU 가속 로봇 패키지 모음 | 패키지별 이용 조건이 다름. Isaac ROS Common은 [NVIDIA Isaac ROS Software License](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common/blob/7bec6ae5dbb2faa11617f40226e8932a4a94e6e4/LICENSE) 적용 | [공식 문서](https://nvidia-isaac-ros.github.io/) · [공통 코드](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common) | [상세 보기](docs/ko/isaac-ros.md) |
@@ -323,7 +367,7 @@ NeMo 도구는 데이터 준비, 모델 후학습과 에이전트 운영에 쓰�
 | **FoundationStereo** | 스테레오 깊이 추정 연구 코드·모델 | 연구 코드 비상업적 제한; 별도 상업용 모델 제공 여부와 조건은 해당 배포물 확인 | [저장소](https://github.com/NVlabs/FoundationStereo) | [상세 보기](docs/ko/foundationstereo.md) |
 | **nvblox** | 3D 공간 매핑·장애물 표현 라이브러리 | 코드 공개; 저장소의 혼합 라이선스 범위 미확인 | [저장소](https://github.com/nvidia-isaac/nvblox) | [상세 보기](docs/ko/nvblox.md) |
 | **AnomalyGen** | 소수 예시를 이용한 결함 이미지 생성 워크플로 | 공개 저장소; 코드·모델·어댑터 각각의 조건 미확인 | [저장소](https://github.com/NVIDIA/cdf-anomalygen) | [상세 보기](docs/ko/anomalygen.md) |
-| **Alpamayo** | 자율주행 추론·행동 모델 계열 | 공개 가중치의 조건과 접근 절차는 모델 버전별 상이 | [AlpaSim 모델 안내](https://github.com/NVlabs/alpasim/blob/main/docs/TUTORIAL.md) | [상세 보기](docs/ko/alpamayo.md) |
+| **Alpamayo** | 자율주행 추론·행동 모델 계열 | 2 Super·2 Edge 가중치는 OpenMDW-1.1로 공개. 사용할 체크포인트와 모델 카드 확인 | [2 Super](https://huggingface.co/nvidia/Alpamayo2-Super) · [2 Edge](https://huggingface.co/nvidia/Alpamayo2-Edge) · [AlpaSim 모델 안내](https://github.com/NVlabs/alpasim/blob/main/docs/TUTORIAL.md) | [상세 보기](docs/ko/alpamayo.md) |
 | **Metropolis / VSS** | 영상 AI 플랫폼 / 영상 검색·요약 워크플로 | 플랫폼·서비스; 개별 SDK·모델의 조건 별도 | [Metropolis](https://developer.nvidia.com/metropolis) | [상세 보기](docs/ko/metropolis-vss.md) |
 | **DeepStream** | 실시간 영상 분석 SDK | 제품 SDK; 공개 샘플과 바이너리의 조건 별도 | [공식 페이지](https://developer.nvidia.com/deepstream-sdk) | [상세 보기](docs/ko/deepstream.md) |
 | **TAO Toolkit** | 비전 AI 모델 학습·파인튜닝 도구 | 제품·SDK; 모델과 구성 요소별 조건 확인 | [공식 페이지](https://developer.nvidia.com/tao-toolkit) | [상세 보기](docs/ko/tao-toolkit.md) |

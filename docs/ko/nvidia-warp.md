@@ -9,6 +9,10 @@
 
 Warp는 Python으로 작성한 수치 계산 커널을 CPU 또는 CUDA GPU에서 병렬 실행할 코드로 컴파일한다. 배열, 기하 연산과 자동 미분을 제공해 시뮬레이션 프로젝트가 필요한 계산을 직접 구현할 수 있게 한다.
 
+## Warp 1.19
+
+**Warp 1.19.0**은 희소 행렬 조립 구조 재사용, 새 희소 전처리기, Surface Nets 메시 추출과 실험적 텍스처 샘플링 미분을 추가합니다. 유한요소 해석에서 희소 구조는 그대로 두고 계수만 반복해 갱신할 때 조립 구조를 재사용할 수 있습니다. Isaac Lab 3.0과 Isaac Sim 6.2의 대상 버전은 Warp 1.17.0입니다. [Warp 1.19.0 릴리스](https://github.com/NVIDIA/warp/releases/tag/v1.19.0) · [Isaac Lab 3.0 릴리스](https://github.com/isaac-sim/IsaacLab/releases/tag/v3.0.0) · [Isaac Sim 6.2 릴리스 노트](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/overview/release_notes.html)
+
 ## 아키텍처
 
 | 구성 요소 | 역할과 데이터 경계 |
@@ -61,7 +65,7 @@ Warp 공식 컴파일 흐름. 커널 선언을 장치 코드로 변환하며 Pyt
 
 ## 라이선스와 범위
 
-Warp는 Apache-2.0이다. 런타임과 GPU 요구사항은 릴리스에 따라 달라진다.
+Warp는 Apache-2.0을 사용합니다. 런타임과 GPU 요구사항은 릴리스에 따라 달라집니다. [Warp 1.19 라이선스 원문](https://github.com/NVIDIA/warp/blob/v1.19.0/LICENSE.md)
 
 ## 관련 가이드
 

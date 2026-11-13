@@ -4,6 +4,8 @@
 
 Isaac Lab-Arena assembles robot-policy evaluation environments from reusable pieces. A benchmark can hold a task constant and vary the scene, embodiment or policy, so failures can be attributed to the changed condition.
 
+NVIDIA announced **0.4 as a developer preview** at CoRL 2026. The preview builds on Arena's composable, parallel evaluation workflows. [NVIDIA announcement](https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/)
+
 ## Architecture
 
 | Component | Responsibility and data boundary |

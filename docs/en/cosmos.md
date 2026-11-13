@@ -9,6 +9,8 @@
 
 Cosmos is NVIDIA’s world-model platform for physical AI. Cosmos 3 is the model family that combines multimodal reasoning and generation. The platform also provides separate training, curation and evaluation tools.
 
+NVIDIA published four [interactive simulation checkpoints](https://huggingface.co/blog/nvidia/cosmos-interactive-world-simulation) under OpenMDW-1.1 in November 2026. Sim-Bimanual predicts video given robot or camera actions, Sim-Transfer renders video from simulator controls, and Sim-Auto and Transfer-Auto serve driving workflows. For models that output robot actions, see the [Cosmos Policy entries](robot-foundation-models.md#cosmos-policy).
+
 ## Read the official architecture
 
 ![Cosmos 3 two-tower model architecture](https://raw.githubusercontent.com/NVIDIA/cosmos/main/docs/assets/cosmos3-model-architecture.png)

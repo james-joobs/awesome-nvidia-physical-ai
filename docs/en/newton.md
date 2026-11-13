@@ -12,6 +12,12 @@
 
 Newton is a Warp-based physics engine for robotics. It owns the numerical world state and advances it through a selected solver. In a robot learning stack, the environment still defines observations, actions, rewards, and episode resets.
 
+## Newton 1.8
+
+**Newton 1.8.0** adds the experimental Steel solver for articulated rigid bodies and contact-rich reinforcement learning, routed tendons for XPBD and VBD, and more detailed deformable contacts and rendering. The release also changes VBD defaults and imported joint damping behavior, so compare contacts and trajectories when migrating a tuned scene. [Newton 1.8.0 release and migration notes](https://github.com/newton-physics/newton/releases/tag/v1.8.0)
+
+Isaac Lab 3.0 and Isaac Sim 6.2 target Newton 1.6.1. Use the dependency versions of the simulator or training stack that will run your task. [Isaac Lab 3.0 release](https://github.com/isaac-sim/IsaacLab/releases/tag/v3.0.0) · [Isaac Sim 6.2 release notes](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/overview/release_notes.html)
+
 ## Architecture
 
 | Component | Responsibility and data boundary |
@@ -65,7 +71,7 @@ Newton’s URDF example visualizes an articulated model after importing its desc
 
 ## License and scope
 
-Apache-2.0 for the Newton repository. Inspect dependency and robot asset terms separately.
+The Newton repository uses Apache-2.0. Dependencies and robot assets have their own terms. [Newton 1.8 LICENSE](https://github.com/newton-physics/newton/blob/v1.8.0/LICENSE.md)
 
 ## Related guides
 

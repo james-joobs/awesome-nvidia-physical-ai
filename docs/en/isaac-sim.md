@@ -11,6 +11,12 @@ Isaac Sim is a robotics simulation application that composes OpenUSD scenes, adv
 
 New to Isaac Sim? [Try the falling-cube exercise](workflows/isaac-sim-first-cube.md) to see how a rigid body and a collider work together.
 
+## Release tracks
+
+**Isaac Sim 6.2.0** is the latest general-availability release as of November 13, 2026 and the Isaac Sim version targeted by Isaac Lab 3.0. It bundles Newton 1.6.1 and Warp 1.17.0, adds a startup timeout for asset-server checks, fixes Newton substep and actuator behavior, and removes Cortex. The general-availability tag is the reproducible reference for this guide and its exercises. [GitHub release](https://github.com/isaac-sim/IsaacSim/releases/tag/v6.2.0) · [6.2 release notes](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/overview/release_notes.html)
+
+**Isaac Sim 7.0.0 Alpha 1** previews standalone simulation libraries with C, C++, and Python APIs. NVIDIA labels the libraries as early evaluation and notes that APIs and packages can change between milestones. The repository’s `release/6.3` branch has no corresponding general-availability tag as of the same check. [7.0 Alpha 1 release](https://github.com/isaac-sim/IsaacSim/releases/tag/v7.0.0a1) · [Alpha overview](https://docs.isaacsim.omniverse.nvidia.com/7.0.0a1/about.html) · [6.3 branch](https://github.com/isaac-sim/IsaacSim/tree/release/6.3)
+
 ## Architecture
 
 | Component | Responsibility and data boundary |
@@ -63,7 +69,7 @@ The Replicator panel shows annotations generated alongside rendered views, givin
 
 ## License and scope
 
-The source repository uses Apache-2.0 for its code. Some distributed components, dependencies and assets have separate terms.
+The repository code uses Apache-2.0. The Omniverse Kit SDK, some distributed components, and assets have separate terms. [Isaac Sim 6.2 LICENSE](https://github.com/isaac-sim/IsaacSim/blob/v6.2.0/LICENSE)
 
 ## Related guides
 

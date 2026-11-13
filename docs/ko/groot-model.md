@@ -1,10 +1,15 @@
-# Isaac GR00T / GR00T N1.7
+# Isaac GR00T 모델 계열
 
 [← 목록으로](../../README.ko.md) · [English](../en/groot-model.md)
 
-GR00T N1.7은 로봇 조작을 위한 비전·언어·행동(VLA) 체크포인트입니다. 비전·언어 백본은 장면과 지시를 임베딩하고, 행동 헤드는 로봇의 현재 상태와 형태를 조건으로 연속값 행동 시퀀스를 예측합니다. 학습된 모델과 이를 실행하는 배포 소프트웨어의 릴리스 및 이용 조건은 각각 확인해야 합니다.
+| 버전 | 모델 유형과 역할 | 공개 상태 · 2026년 11월 13일 기준 |
+|---|---|---|
+| **GR00T 2 / GR00T 2 Turbo** | Cosmos 기반 월드 액션 모델(WAM). 관측, 지시, 로봇 상태에서 미래 영상과 행동 시퀀스를 함께 예측합니다. Turbo는 로봇에서 직접 실행하는 전신 제어용입니다. | 11월 9일 CoRL에서 발표했습니다. NVIDIA Research는 2026년 12월 코드 공개를 예고했습니다. 11월 13일 기준 공개 가중치와 적용 약관은 확인되지 않았습니다. [연구·데모](https://research.nvidia.com/labs/gear/gr00t-2/) · [CoRL 발표](https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/) |
+| **GR00T N1.7-3B** | 여러 로봇 형태에 대응하는 조작용 시각·언어·행동(VLA) 모델. | [2026년 7월 7일](https://github.com/NVIDIA/Isaac-GR00T/commit/1a1837f20538b7d7e21f977a11a5aee14f99803c) 정식 공개(GA). 참조 코드는 Apache-2.0, 가중치는 NVIDIA Open Model License를 적용합니다. [코드](https://github.com/NVIDIA/Isaac-GR00T) · [기본 체크포인트](https://huggingface.co/nvidia/GR00T-N1.7-3B) · [가중치 약관](https://huggingface.co/nvidia/GR00T-N1.7-3B/blob/main/LICENSE) |
 
-## 아키텍처와 데이터 흐름
+## N1.7 아키텍처와 데이터 흐름
+
+N1.7의 시각·언어 백본은 장면과 지시를 임베딩하고, 행동 헤드는 로봇의 현재 상태와 형태를 조건으로 연속값 행동 시퀀스를 예측합니다.
 
 | 구성 요소 | 입력·처리·출력 |
 |---|---|
@@ -29,10 +34,10 @@ GR00T N1.7은 로봇 조작을 위한 비전·언어·행동(VLA) 체크포인�
 
 ## 공식 자료와 이용 조건
 
-N1.7 가중치는 NVIDIA Open Model License를 사용합니다. Isaac GR00T 저장소의 코드는 별도로 Apache-2.0을 적용합니다.
+NVIDIA는 11월 11일 N1.7-3B와 공식 Bridge·Fractal·DROID·LIBERO 체크포인트에 남아 있던 비상업용 약관 파일을 교체했다고 확인했습니다. 수정된 NVIDIA Open Model License는 약관에 따라 상업적 사용을 허용합니다. [NVIDIA 확인](https://forums.developer.nvidia.com/t/gr00t-n1-7-license-clarification-model-card-says-commercial-use-but-license-file-in-hf-repo-says-non-commercial/387959/3)
 
-- [N1.7 모델 카드·구성·이용 조건](https://huggingface.co/nvidia/GR00T-N1.7-3B)
-- [N1.7 소프트웨어와 상대 행동 인터페이스](https://github.com/NVIDIA/Isaac-GR00T)
+- [N1.7 코드 라이선스](https://github.com/NVIDIA/Isaac-GR00T/blob/main/LICENSE)
+- [N1.7 벤치마크 체크포인트와 로봇 형태 태그](https://github.com/NVIDIA/Isaac-GR00T#model-checkpoints--embodiment-tags)
 
 ## 연관 상세 페이지
 

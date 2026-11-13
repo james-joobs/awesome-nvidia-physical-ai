@@ -17,6 +17,10 @@ AlpaSim은 자율주행 정책을 폐루프로 평가합니다. 정책이 자차
 
 *에피소드 지표와 함께 확인할 수 있는 주행 영상 출력의 예입니다.* [공식 그림 출처](https://github.com/NVlabs/alpasim)
 
+## 릴리스와 모델 호환성
+
+최신 릴리스 태그인 **v2026.5**는 내장 비디오 모델 렌더러를 추가하고 공개 장면 목록을 갱신했습니다. 렌더러 서비스 키는 `sensorsim`에서 `renderer`로 바뀌었습니다. 이 태그의 튜토리얼은 Alpamayo 1과 1.5를 다룹니다. 이후 `main` 브랜치 변경 기록에는 **Alpamayo 2 Super**용 `driver=alpamayo2`가 안내돼 있습니다. 가중치를 고르기 전에 실행할 태그나 커밋의 드라이버 프리셋을 확인합니다. [v2026.5 릴리스](https://github.com/NVlabs/alpasim/releases/tag/v2026.5) · [태그 기준 튜토리얼](https://github.com/NVlabs/alpasim/blob/v2026.5/docs/TUTORIAL.md) · [main 변경 기록](https://github.com/NVlabs/alpasim/blob/main/CHANGELOG.md) · [Alpamayo 모델 가이드](alpamayo.md)
+
 ## 어떻게 동작하나
 
 런타임이 시뮬레이션 시간을 진행시키고 gRPC로 Python 서비스를 호출합니다. 렌더러는 장면과 자세에서 관측을 생성하고, 드라이버는 관측으로 주행 계획을 계산합니다. 제어와 물리 단계가 차량·지면 제약에 맞춰 자차 상태를 갱신합니다. 평가 모듈은 주 루프 밖에서 기록을 처리합니다. 공식 설계에서 신경 재구성 및 영상 모델 렌더러는 같은 서비스 인터페이스를 사용할 수 있습니다.
@@ -39,7 +43,7 @@ AlpaSim은 자율주행 정책을 폐루프로 평가합니다. 정책이 자차
 
 ## 공개 범위와 라이선스
 
-Apache-2.0 코드; 모델·데이터 별도. 모델, 데이터, 의존성 및 배포 서비스에는 별도 조건이 적용될 수 있으므로 사용 전 각 출처를 확인한다.
+AlpaSim 소스는 Apache-2.0을 사용합니다. 모델, 데이터, 의존성, 호스팅 서비스에는 별도 조건이 적용될 수 있습니다. [AlpaSim v2026.5 라이선스 원문](https://github.com/NVlabs/alpasim/blob/v2026.5/LICENSE)
 
 ## 공식 자료
 

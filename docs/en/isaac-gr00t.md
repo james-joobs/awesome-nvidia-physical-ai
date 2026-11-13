@@ -9,7 +9,9 @@
 
 The Isaac GR00T repository contains the software for adapting, evaluating and serving a robot policy. The N1.7 checkpoint is one input to this workflow. The repository also defines the dataset schema, embodiment-specific preprocessing and interfaces for evaluating or deploying a trained policy.
 
-## Architecture and data flow
+N1.7 reached general availability on July 7, 2026. NVIDIA announced GR00T 2 and GR00T 2 Turbo at CoRL in November 2026. Its research page lists December 2026 for the GR00T 2 code. [N1.7 GA](https://github.com/NVIDIA/Isaac-GR00T/commit/1a1837f20538b7d7e21f977a11a5aee14f99803c) · [GR00T 2 research](https://research.nvidia.com/labs/gear/gr00t-2/)
+
+## N1.7 architecture and data flow
 
 | Component | Inputs, processing and outputs |
 |---|---|
@@ -41,6 +43,8 @@ The official Unitree G1 demo illustrates a hardware rollout. The repository docu
 The code uses Apache-2.0. The repository lists the NVIDIA Open Model License for its N1.7 model weights.
 
 - [Repository and supported evaluation examples](https://github.com/NVIDIA/Isaac-GR00T)
+- [Code license](https://github.com/NVIDIA/Isaac-GR00T/blob/main/LICENSE)
+- [N1.7-3B checkpoint](https://huggingface.co/nvidia/GR00T-N1.7-3B) · [Weight license](https://huggingface.co/nvidia/GR00T-N1.7-3B/blob/main/LICENSE)
 - [Dataset preparation](https://github.com/NVIDIA/Isaac-GR00T/blob/main/getting_started/data_preparation.md)
 - [Policy API and embodiment tags](https://github.com/NVIDIA/Isaac-GR00T/blob/main/getting_started/policy.md)
 

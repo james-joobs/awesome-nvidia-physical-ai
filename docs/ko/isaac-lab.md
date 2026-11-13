@@ -9,6 +9,12 @@
 
 Isaac Lab은 배치 시뮬레이션을 로봇 학습 환경으로 묶는다. 관측, 행동, 보상, 리셋 인터페이스를 제공하고 물리 스텝, 관절체 상태, 센서 계산은 선택한 백엔드에서 수행한다.
 
+## Isaac Lab 3.0
+
+**3.0.0 정식 릴리스**는 물리·렌더링·시각화 백엔드가 공통 작업 API를 쓰도록 구성합니다. 기본 설치에서는 지원되는 작업을 Omniverse Kit 없이 Newton으로 실행할 수 있습니다. 전체 PhysX·RTX 구성, ROS 브리지 또는 Kit 도구가 필요한 작업에는 Isaac Sim 6.2를 추가합니다. 호환되는 작업에서는 OvPhysX와 OVRTX도 별도 백엔드로 선택할 수 있습니다. [Isaac Lab 3.0.0 릴리스](https://github.com/isaac-sim/IsaacLab/releases/tag/v3.0.0) · [백엔드 프리셋](https://docs.nvidia.com/isaaclab/concepts/backends-and-presets)
+
+이 릴리스의 대상 환경은 Python 3.12, CUDA 13.0용 PyTorch 2.11, Newton 1.6.1, Warp 1.17.0입니다. 특히 Isaac Sim을 함께 설치할 때는 설치 안내에 있는 검증된 의존성 버전 지정을 사용합니다. [Isaac Lab 3.0 설치 가이드](https://docs.nvidia.com/isaaclab/isaac-lab/installation)
+
 ## 아키텍처
 
 | 구성 요소 | 역할과 데이터 경계 |
@@ -54,7 +60,7 @@ Isaac Lab 공식 백엔드 구성도는 환경이 사용하는 인터페이스�
 
 ## 라이선스와 범위
 
-Isaac Lab 코드는 BSD-3-Clause다. 백엔드, 정책 가중치, 에셋 조건은 별도다.
+Isaac Lab 코드는 BSD-3-Clause입니다. 백엔드, 정책 가중치, 에셋에는 별도 조건이 적용됩니다. [Isaac Lab 3.0 라이선스 원문](https://github.com/isaac-sim/IsaacLab/blob/v3.0.0/LICENSE)
 
 ## 관련 가이드
 

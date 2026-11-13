@@ -9,6 +9,8 @@
 
 Cosmos는 NVIDIA의 Physical AI 월드 모델 플랫폼이다. Cosmos 3는 멀티모달 추론과 생성을 결합한 모델 계열이다. 플랫폼에서는 학습, 데이터 선별, 결과 평가 도구도 별도로 제공한다.
 
+NVIDIA는 2026년 11월 [대화형 시뮬레이션 체크포인트](https://huggingface.co/blog/nvidia/cosmos-interactive-world-simulation) 네 종을 OpenMDW-1.1로 공개했다. Sim-Bimanual은 로봇이나 카메라 행동에서 영상을 예측하고, Sim-Transfer는 시뮬레이터 제어값으로 영상을 생성한다. Sim-Auto와 Transfer-Auto는 주행 워크플로에 사용한다. 로봇 행동을 출력하는 모델은 [Cosmos Policy 목록](robot-foundation-models.md#cosmos-policy)에서 확인할 수 있다.
+
 ## 공식 아키텍처 읽기
 
 ![Cosmos 3의 Reasoner와 Generator 아키텍처](https://raw.githubusercontent.com/NVIDIA/cosmos/main/docs/assets/cosmos3-model-architecture.png)

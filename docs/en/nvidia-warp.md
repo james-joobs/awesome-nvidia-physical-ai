@@ -9,6 +9,10 @@
 
 Warp compiles numerical Python kernels to code that runs in parallel on CPUs or CUDA GPUs. It supplies arrays, geometric operations and automatic differentiation that simulation projects can use to implement their own computations.
 
+## Warp 1.19
+
+**Warp 1.19.0** adds reusable sparse-matrix assembly, new sparse preconditioners, Surface Nets mesh extraction, and experimental gradients for texture sampling. Reusable assembly helps when a finite-element solve repeatedly changes coefficients while keeping the same sparsity pattern. Isaac Lab 3.0 and Isaac Sim 6.2 target Warp 1.17.0. [Warp 1.19.0 release](https://github.com/NVIDIA/warp/releases/tag/v1.19.0) · [Isaac Lab 3.0 release](https://github.com/isaac-sim/IsaacLab/releases/tag/v3.0.0) · [Isaac Sim 6.2 release notes](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/overview/release_notes.html)
+
 ## Architecture
 
 | Component | Responsibility and data boundary |
@@ -61,7 +65,7 @@ The Tape diagram distinguishes forward kernel launches and the reverse pass used
 
 ## License and scope
 
-Apache-2.0 for Warp. Runtime and GPU requirements depend on the release.
+Warp uses Apache-2.0. Runtime and GPU requirements depend on the release. [Warp 1.19 LICENSE](https://github.com/NVIDIA/warp/blob/v1.19.0/LICENSE.md)
 
 ## Related guides
 

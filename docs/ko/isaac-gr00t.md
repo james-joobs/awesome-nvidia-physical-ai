@@ -9,7 +9,9 @@
 
 Isaac GR00T 저장소에는 로봇 정책을 미세조정하고 평가한 후 제공하는 소프트웨어가 있습니다. N1.7 체크포인트는 이 워크플로의 입력 중 하나입니다. 저장소에는 학습 데이터 구조, 로봇 형태별 전처리, 학습 정책의 평가·배포 인터페이스도 있습니다.
 
-## 아키텍처와 데이터 흐름
+N1.7은 2026년 7월 7일 정식 공개(GA)됐습니다. NVIDIA는 2026년 11월 CoRL에서 GR00T 2와 GR00T 2 Turbo를 발표했고, 연구 페이지에서 GR00T 2 코드 공개를 2026년 12월로 예고했습니다. [N1.7 정식 공개](https://github.com/NVIDIA/Isaac-GR00T/commit/1a1837f20538b7d7e21f977a11a5aee14f99803c) · [GR00T 2 연구](https://research.nvidia.com/labs/gear/gr00t-2/)
+
+## N1.7 아키텍처와 데이터 흐름
 
 | 구성 요소 | 입력·처리·출력 |
 |---|---|
@@ -41,6 +43,8 @@ Isaac GR00T 저장소에는 로봇 정책을 미세조정하고 평가한 후 �
 코드는 Apache-2.0입니다. 저장소는 N1.7 가중치에 NVIDIA Open Model License를 명시합니다.
 
 - [저장소와 공식 평가 예제](https://github.com/NVIDIA/Isaac-GR00T)
+- [코드 라이선스](https://github.com/NVIDIA/Isaac-GR00T/blob/main/LICENSE)
+- [N1.7-3B 체크포인트](https://huggingface.co/nvidia/GR00T-N1.7-3B) · [가중치 약관](https://huggingface.co/nvidia/GR00T-N1.7-3B/blob/main/LICENSE)
 - [데이터셋 준비 가이드](https://github.com/NVIDIA/Isaac-GR00T/blob/main/getting_started/data_preparation.md)
 - [정책 API와 로봇 형태 태그](https://github.com/NVIDIA/Isaac-GR00T/blob/main/getting_started/policy.md)
 

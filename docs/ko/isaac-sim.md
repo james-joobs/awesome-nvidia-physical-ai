@@ -11,6 +11,12 @@ Isaac Sim은 OpenUSD 장면을 구성하고 로봇·물체의 동역학을 진�
 
 처음이라면 [큐브 낙하 실습](workflows/isaac-sim-first-cube.md)에서 강체와 충돌체를 적용해 보세요.
 
+## 릴리스 구분
+
+**Isaac Sim 6.2.0**은 2026년 11월 13일 기준 최신 정식 버전이자 Isaac Lab 3.0의 대상 버전입니다. Newton 1.6.1과 Warp 1.17.0을 포함하고, 에셋 서버 확인에 시간 제한을 추가했습니다. Newton의 물리 서브스텝과 구동기 동작을 수정했고 Cortex는 제거했습니다. 이 가이드의 실습을 재현할 때는 6.2.0 정식 태그를 기준으로 삼습니다. [GitHub 릴리스](https://github.com/isaac-sim/IsaacSim/releases/tag/v6.2.0) · [6.2 릴리스 노트](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/overview/release_notes.html)
+
+**Isaac Sim 7.0.0 Alpha 1**은 C, C++, Python API를 제공하는 독립 실행형 시뮬레이션 라이브러리의 초기 버전입니다. NVIDIA는 초기 평가용으로 공개했으며 후속 알파에서 API와 패키지가 바뀔 수 있다고 안내합니다. 같은 확인일 기준으로 저장소의 `release/6.3` 브랜치에 대응하는 정식 릴리스 태그는 아직 없습니다. [7.0 Alpha 1 릴리스](https://github.com/isaac-sim/IsaacSim/releases/tag/v7.0.0a1) · [알파 버전 개요](https://docs.isaacsim.omniverse.nvidia.com/7.0.0a1/about.html) · [6.3 브랜치](https://github.com/isaac-sim/IsaacSim/tree/release/6.3)
+
 ## 아키텍처
 
 | 구성 요소 | 역할과 데이터 경계 |
@@ -63,7 +69,7 @@ Replicator 화면에서는 렌더링한 뷰와 함께 주석을 생성하는 데
 
 ## 라이선스와 범위
 
-저장소 코드는 Apache-2.0이며 일부 배포 구성 요소·의존성·에셋에는 별도 조건이 적용된다.
+저장소 코드는 Apache-2.0입니다. Omniverse Kit SDK와 일부 배포 구성 요소, 에셋에는 별도 조건이 적용됩니다. [Isaac Sim 6.2 라이선스 원문](https://github.com/isaac-sim/IsaacSim/blob/v6.2.0/LICENSE)
 
 ## 관련 가이드
 

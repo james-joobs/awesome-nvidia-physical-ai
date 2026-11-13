@@ -1,10 +1,15 @@
-# Isaac GR00T / GR00T N1.7
+# Isaac GR00T model family
 
 [← Back to catalog](../../README.md) · [한국어](../ko/groot-model.md)
 
-GR00T N1.7 is a vision-language-action (VLA) checkpoint for robot manipulation. Its visual-language backbone embeds the scene and instruction, while its action head predicts a continuous sequence conditioned on the robot’s current state and embodiment. The trained model and its surrounding deployment software have separate release and license information.
+| Version | Model type and role | Availability as of November 13, 2026 |
+|---|---|---|
+| **GR00T 2 / GR00T 2 Turbo** | Cosmos-based world-action models (WAMs). They jointly predict future video and an action sequence from observations, an instruction and robot state. Turbo is designed for on-robot whole-body control. | Announced at CoRL on November 9. NVIDIA Research lists code availability in December 2026. Public weights and their terms were unverified on November 13. [Research and demos](https://research.nvidia.com/labs/gear/gr00t-2/) · [CoRL announcement](https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/) |
+| **GR00T N1.7-3B** | Cross-embodiment vision-language-action (VLA) model for robot manipulation. | Generally available since [July 7, 2026](https://github.com/NVIDIA/Isaac-GR00T/commit/1a1837f20538b7d7e21f977a11a5aee14f99803c). Apache-2.0 reference code and NVIDIA Open Model License for the weights. [Code](https://github.com/NVIDIA/Isaac-GR00T) · [Base checkpoint](https://huggingface.co/nvidia/GR00T-N1.7-3B) · [Weight license](https://huggingface.co/nvidia/GR00T-N1.7-3B/blob/main/LICENSE) |
 
-## Architecture and data flow
+## N1.7 architecture and data flow
+
+N1.7’s vision-language backbone embeds the scene and instruction, and its action head predicts a continuous sequence conditioned on robot state and embodiment.
 
 | Component | Inputs, processing and outputs |
 |---|---|
@@ -29,10 +34,10 @@ The architecture diagram separates visual-language conditioning from action gene
 
 ## Official references and terms
 
-N1.7 model weights use the NVIDIA Open Model License. The Isaac GR00T repository separately licenses its code under Apache-2.0.
+On November 11, NVIDIA confirmed that it had replaced older noncommercial license files for N1.7-3B and its official Bridge, Fractal, DROID and LIBERO checkpoints. The corrected NVIDIA Open Model License permits commercial use subject to its terms. [NVIDIA clarification](https://forums.developer.nvidia.com/t/gr00t-n1-7-license-clarification-model-card-says-commercial-use-but-license-file-in-hf-repo-says-non-commercial/387959/3)
 
-- [N1.7 model card, architecture and terms](https://huggingface.co/nvidia/GR00T-N1.7-3B)
-- [N1.7 software and relative action interface](https://github.com/NVIDIA/Isaac-GR00T)
+- [N1.7 code license](https://github.com/NVIDIA/Isaac-GR00T/blob/main/LICENSE)
+- [N1.7 benchmark checkpoints and embodiment tags](https://github.com/NVIDIA/Isaac-GR00T#model-checkpoints--embodiment-tags)
 
 ## Related guides
 

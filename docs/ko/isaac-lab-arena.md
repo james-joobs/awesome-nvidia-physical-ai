@@ -4,6 +4,8 @@
 
 Isaac Lab-Arena는 재사용 가능한 요소를 조합해 로봇 정책 평가 환경을 만든다. 작업을 고정한 상태에서 장면, 로봇 형태 또는 정책을 바꿔 실패가 어느 조건과 관련 있는지 추적할 수 있다.
 
+NVIDIA는 CoRL 2026에서 **0.4 개발자 프리뷰**를 발표했다. Arena의 재사용 가능한 평가 구성 요소와 병렬 실행을 기반으로 한다. [NVIDIA 공식 발표](https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/)
+
 ## 아키텍처
 
 | 구성 요소 | 역할과 데이터 경계 |
