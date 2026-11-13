@@ -55,7 +55,7 @@ The sublayer example shows how a parent layer incorporates a set of layers. Orde
 
 ## License and scope
 
-The Pixar implementation uses a modified BSD-style license. Asset, specification and trademark terms are separate.
+Pixar’s OpenUSD implementation uses TOST 1.0, based on Apache-2.0 with a modified trademark clause. Asset and specification terms are separate. [OpenUSD LICENSE](https://github.com/PixarAnimationStudios/OpenUSD/blob/39c5ce8fa2255956c18c6ea34c33733980708acd/LICENSE.txt)
 
 ## Related guides
 

@@ -1,0 +1,33 @@
+name: Refresh catalog commit dates
+
+on:
+  schedule:
+    - cron: "23 0 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-catalog-commit-dates
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Refresh both README files
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/refresh-commit-dates.py
+      - name: Commit updated dates
+        run: |
+          if git diff --quiet -- README.md README.ko.md; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md README.ko.md
+          git commit -m "Refresh upstream commit dates"
+          git push

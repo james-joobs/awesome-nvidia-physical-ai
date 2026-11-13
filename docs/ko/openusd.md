@@ -55,7 +55,7 @@ flowchart LR
 
 ## 라이선스와 범위
 
-Pixar 구현은 수정된 BSD 계열 라이선스다. 에셋, 명세, 상표 조건은 별도다.
+Pixar의 OpenUSD 구현에는 Apache-2.0의 상표 조항을 수정한 TOST 1.0이 적용된다. 에셋과 명세에는 별도 조건이 적용된다. [OpenUSD 라이선스 원문](https://github.com/PixarAnimationStudios/OpenUSD/blob/39c5ce8fa2255956c18c6ea34c33733980708acd/LICENSE.txt)
 
 ## 관련 가이드
 
