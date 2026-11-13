@@ -407,3 +407,9 @@ These were mentioned as components or dependencies in workflows such as V2D. The
 ## Verification and limitations
 
 Names were collected from the source conversation and duplicate names were consolidated. Official GitHub repositories were checked against repository responses and README/license information; redirects use the current destination. Official documentation and product links were also checked. Access can change and some sites may restrict automated access, regions, or require login. Repository visibility, a specific version's license, model-weight terms, and third-party dependencies are separate questions: review the applicable LICENSE and model card before adoption. GPU compatibility and model-version claims in the earlier conversation were not established by this license review.
+
+## Contributing and license
+
+Report a correction or suggest an addition through [GitHub Issues](https://github.com/james-joobs/awesome-nvidia-physical-ai/issues). See the [contribution guide](CONTRIBUTING.md) for pull requests.
+
+The repository's original content uses the [MIT License](LICENSE). See the [third-party notice](NOTICE.md) for images, icons, trademarks, and upstream materials.
