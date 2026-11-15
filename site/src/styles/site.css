@@ -81,7 +81,7 @@ html[lang="ko"] :is(h1, h2, h3) { word-break: keep-all; }
   text-decoration: none;
   white-space: nowrap;
 }
-.main-nav a:hover, .header-github:hover { color: var(--accent); }
+.main-nav a:hover, .main-nav a[aria-current], .header-github:hover { color: var(--accent); }
 .languages {
   gap: 2px;
   padding: 3px;
@@ -386,14 +386,18 @@ html[lang="ko"] :is(h1, h2, h3) { word-break: keep-all; }
   .quick-facts div { grid-template-columns: 1fr; gap: 1px; }
 }
 
+@media (max-width: 900px) {
+  .header-inner { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0 12px; padding-top: 9px; }
+  .brand { min-height: 44px; }
+  .header-actions { grid-row: 1; grid-column: 2; }
+  .main-nav { grid-column: 1 / -1; flex-wrap: wrap; column-gap: clamp(12px, 4vw, 25px); }
+}
+
 @media (max-width: 760px) {
   .shell { width: calc(100% - 36px); }
-  .header-inner { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0 12px; padding-top: 9px; }
-  .brand { min-height: 44px; font-size: .9rem; gap: 7px; }
+  .brand { font-size: .9rem; gap: 7px; }
   .brand-mark { width: 29px; height: 29px; }
-  .header-actions { grid-row: 1; grid-column: 2; }
   .header-github { display: none; }
-  .main-nav { grid-column: 1 / -1; gap: 25px; }
   .main-nav a { font-size: .825rem; }
   .hero { display: block; min-height: 0; padding-block: 29px 26px; }
   .hero-copy { padding: 0; }

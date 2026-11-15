@@ -1,0 +1,172 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from './Icon.astro';
+import { catalogCopy, catalogFields } from '../lib/catalog-filters.mjs';
+import { catalogs, copy, repositoryFile } from '../lib/catalog.mjs';
+import { catalogEntries } from '../lib/markdown.mjs';
+import '../styles/catalog.css';
+
+const { locale } = Astro.props;
+const labels = catalogCopy[locale];
+const entries = catalogEntries(locale);
+const licenses = [...new Set(entries.map((entry) => entry.license))].sort();
+const distinctLicenses = licenses.filter((license) => license !== 'review');
+const fields = new Map(catalogFields.map((field) => [field.id, field[locale]]));
+---
+<Base locale={locale} page="catalog" title={labels.title} description={labels.description}>
+  <div class="shell catalog" data-catalog>
+    <header class="catalog-header">
+      <h1>{labels.title}</h1>
+      <p>{labels.description}</p>
+      <a class="plain-link" href={repositoryFile(catalogs[locale].file)}>
+        {copy[locale].catalog} <Icon name="external" size={16} />
+      </a>
+    </header>
+
+    <form class="catalog-controls" data-filters role="search" hidden>
+      <div class="catalog-search">
+        <label for="catalog-query">{labels.search}</label>
+        <input id="catalog-query" name="q" type="search" placeholder={labels.placeholder} />
+      </div>
+      <div class="catalog-facets">
+        <div>
+          <label for="catalog-field">{labels.field}</label>
+          <select id="catalog-field" name="field">
+            <option value="">{labels.allFields}</option>
+            {catalogFields.map((field) => <option value={field.id}>{field[locale]}</option>)}
+          </select>
+        </div>
+        <div>
+          <label for="catalog-license">{labels.license}</label>
+          <select id="catalog-license" name="license">
+            <option value="">{labels.allLicenses}</option>
+            {distinctLicenses.map((license) => <option value={license}>{license}</option>)}
+            {licenses.includes('review') && <option value="review">{labels.review}</option>}
+          </select>
+        </div>
+        <div>
+          <label for="catalog-access">{labels.access}</label>
+          <select id="catalog-access" name="access">
+            <option value="">{labels.allAccess}</option>
+            {Object.entries(labels.statuses).map(([key, caption]) => <option value={key}>{caption}</option>)}
+          </select>
+        </div>
+      </div>
+      <button class="catalog-reset" type="reset">{labels.clear}</button>
+    </form>
+
+    <p class="catalog-note">{labels.termsNote}</p>
+    <p class="catalog-count" role="status" aria-live="polite" data-count={labels.showing} hidden></p>
+    <p class="catalog-empty" data-empty hidden>{labels.none}</p>
+    <ul class="catalog-results" data-results>
+      {entries.map((entry) => (
+        <li class="catalog-card" data-entry data-title={entry.title} data-field={entry.field}
+          data-access={entry.access} data-license={entry.license}
+          data-search={entry.search}>
+          <div class="catalog-badges">
+            <span>{fields.get(entry.field)}</span>
+            <span data-status={entry.access}>{labels.statuses[entry.access]}</span>
+          </div>
+          <h2 set:html={entry.name} />
+          <p class="catalog-role" set:html={entry.role} />
+          <p class="catalog-terms" set:html={entry.terms} />
+          {entry.commit && <p class="catalog-commit">{labels.commit} <span set:html={entry.commit} /></p>}
+          {entry.links && <p class="catalog-links" set:html={entry.links} />}
+        </li>
+      ))}
+    </ul>
+    <button class="catalog-more" data-more type="button" hidden>{labels.more}</button>
+  </div>
+</Base>
+
+<script>
+  const catalog = document.querySelector<HTMLElement>('[data-catalog]')!;
+  const form = catalog.querySelector<HTMLFormElement>('[data-filters]')!;
+  const list = catalog.querySelector<HTMLUListElement>('[data-results]')!;
+  const count = catalog.querySelector<HTMLElement>('[data-count]')!;
+  const empty = catalog.querySelector<HTMLElement>('[data-empty]')!;
+  const more = catalog.querySelector<HTMLButtonElement>('[data-more]')!;
+  const switchLink = document.querySelector<HTMLAnchorElement>('[data-language-switch]');
+  const controls = Array.from(form.querySelectorAll<HTMLInputElement | HTMLSelectElement>('input, select'));
+  const pageSize = 24;
+  let visible = pageSize;
+
+  function normalize(text: string) {
+    return text.normalize('NFKC').toLowerCase().replace(/π/g, 'pi').replace(/gr00t/g, 'groot').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+  }
+
+  const entries = Array.from(list.querySelectorAll<HTMLLIElement>('[data-entry]'), (element) => ({
+    element,
+    title: normalize(element.dataset.title!),
+    search: normalize(element.dataset.search!),
+  }));
+
+  function readUrl() {
+    const params = new URLSearchParams(location.search);
+    for (const control of controls) control.value = params.get(control.name) ?? '';
+  }
+
+  function writeUrl() {
+    const url = new URL(location.href);
+    for (const { name, value } of controls) {
+      if (value.trim()) url.searchParams.set(name, value.trim());
+      else url.searchParams.delete(name);
+    }
+    if (url.href !== location.href) history.replaceState(null, '', url);
+    if (switchLink) switchLink.search = url.search;
+  }
+
+  function update() {
+    const { q, field, license, access } = Object.fromEntries(controls.map(({ name, value }) => [name, value]));
+    const query = normalize(q);
+    const terms = query ? query.split(' ') : [];
+    const matching = entries.filter(({ element, search }) =>
+      (!field || element.dataset.field === field) &&
+      (!license || element.dataset.license === license) &&
+      (!access || element.dataset.access === access) &&
+      terms.every((term) => search.includes(term))
+    );
+    if (terms.length) {
+      const rank = (title: string) => title === query ? 0 : terms.every((term) => title.includes(term)) ? 1 : 2;
+      matching.sort((a, b) => rank(a.title) - rank(b.title));
+    }
+    const shown = matching.slice(0, visible);
+    list.replaceChildren(...shown.map(({ element }) => element));
+    count.textContent = count.dataset.count!.replace('{visible}', String(shown.length)).replace('{matches}', String(matching.length));
+    empty.hidden = matching.length !== 0;
+    more.hidden = matching.length <= visible;
+    writeUrl();
+  }
+
+  function resetLimit() {
+    visible = pageSize;
+    update();
+  }
+
+  form.addEventListener('input', resetLimit);
+  form.addEventListener('submit', (event) => event.preventDefault());
+  form.addEventListener('reset', (event) => {
+    event.preventDefault();
+    for (const control of controls) control.value = '';
+    resetLimit();
+  });
+  more.addEventListener('click', () => {
+    const previous = list.children.length;
+    visible += pageSize;
+    update();
+    const next = list.children[previous] as HTMLElement | undefined;
+    if (next) {
+      next.tabIndex = -1;
+      next.focus();
+    }
+  });
+  window.addEventListener('popstate', () => {
+    readUrl();
+    resetLimit();
+  });
+
+  readUrl();
+  update();
+  form.hidden = false;
+  count.hidden = false;
+</script>

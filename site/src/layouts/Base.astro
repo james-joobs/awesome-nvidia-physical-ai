@@ -41,6 +41,7 @@ const absolute = (path) => new URL(path, Astro.site);
           {['workflows', 'ecosystem', 'models'].map((id) =>
             <a href={`${pageUrl(locale)}#${id}`}>{labels[id]}</a>
           )}
+          <a href={pageUrl(locale, 'catalog')} aria-current={page === 'catalog' ? 'page' : undefined}>{labels.browseCatalog}</a>
         </nav>
         <div class="header-actions">
           <nav class="languages" aria-label={labels.language}>
