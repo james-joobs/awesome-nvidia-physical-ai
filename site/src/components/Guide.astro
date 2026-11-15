@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from './Icon.astro';
+import { cubeScene } from '../lib/assets.mjs';
+import { copy, pageUrl, repositoryFile, workflows } from '../lib/catalog.mjs';
+import { renderGuide } from '../lib/markdown.mjs';
+
+const { locale, page, guide, sourcePath, parent } = Astro.props;
+const labels = copy[locale];
+const entry = guide[locale];
+const { headings, html } = renderGuide(locale, sourcePath, guide.sections);
+const isCube = guide.slug === 'isaac-sim-first-cube';
+---
+<Base locale={locale} page={page} title={entry.title} description={entry.description}>
+  <div class:list={['guide shell', guide.theme]}>
+    <header class="guide-header">
+      <a class="breadcrumb" href={`${pageUrl(locale)}#${parent}`}>{labels[parent]}</a>
+      <h1>{entry.title}</h1>
+      <div class="guide-actions">
+        {isCube && (
+          <a class="button button-primary" href={cubeScene} download="cube-drop.usda">
+            {labels.download} <Icon name="download" size={18} />
+          </a>
+        )}
+        <a class="plain-link" href={repositoryFile(sourcePath)}>{labels.source} <Icon name="external" size={17} /></a>
+        {isCube && (
+          <a class="plain-link" href={repositoryFile(`docs/${locale}/isaac-sim.md`)}>
+            {labels.isaacSimGuide} <Icon name="external" size={17} />
+          </a>
+        )}
+      </div>
+    </header>
+    <div class="guide-body">
+      <nav class="toc" aria-label={labels.onThisPage}>
+        <p>{labels.onThisPage}</p>
+        <ul>
+          {headings.map(({ id, label }) => <li><a href={`#${id}`}>{label}</a></li>)}
+        </ul>
+      </nav>
+      <article class="prose guide-content" set:html={html} />
+    </div>
+    {guide.slug && (
+      <nav class="related-workflows" aria-label={labels.otherWorkflows}>
+        <h2>{labels.otherWorkflows}</h2>
+        {workflows.filter(({ slug }) => slug !== guide.slug).map((workflow) =>
+          <a class="plain-link" href={pageUrl(locale, `workflows/${workflow.slug}`)}>
+            {workflow[locale].title} <Icon name="right" size={17} />
+          </a>
+        )}
+      </nav>
+    )}
+  </div>
+</Base>

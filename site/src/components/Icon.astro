@@ -1,0 +1,13 @@
+---
+const { name, size = 20 } = Astro.props;
+---
+<svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  {name === 'cube' && <path d="M12 2.8 21 8v8l-9 5.2L3 16V8l9-5.2ZM3 8l9 5.2L21 8m-9 5.2v8" />}
+  {name === 'workbench' && <path d="M3 7h18v4H3zM5 11v8m14-8v8M5 15h14m-9-8V4h4v3" />}
+  {name === 'car' && <path d="m5 11 1.6-4.1A1.5 1.5 0 0 1 8 6h8a1.5 1.5 0 0 1 1.4.9L19 11M5 11h14a2 2 0 0 1 2 2v3H3v-3a2 2 0 0 1 2-2Zm1 5v2m12-2v2M6 13.5h1m10 0h1" />}
+  {name === 'right' && <path d="M4 12h15m-6-6 6 6-6 6" />}
+  {name === 'down' && <path d="M12 4v15m-6-6 6 6 6-6" />}
+  {name === 'external' && <path d="M7 17 17 7M7 7h10v10" />}
+  {name === 'download' && <path d="M12 3v12m-5-5 5 5 5-5M5 16v4h14v-4" />}
+</svg>
