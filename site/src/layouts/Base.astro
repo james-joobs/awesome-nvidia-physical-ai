@@ -1,0 +1,78 @@
+---
+import '@fontsource-variable/inter';
+import '@fontsource-variable/space-grotesk';
+import '../styles/site.css';
+import Icon from '../components/Icon.astro';
+import { copy, languages, pageUrl, readme, repository, repositoryFile } from '../lib/catalog.mjs';
+import { heroImage } from '../lib/assets.mjs';
+
+const { locale, page = '', title, description } = Astro.props;
+const labels = copy[locale];
+const brand = 'Awesome NVIDIA Physical AI';
+const fullTitle = title ? `${title} · ${brand}` : brand;
+const absolute = (path) => new URL(path, Astro.site);
+---
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={absolute(pageUrl(locale, page))} />
+    {languages.map((lang) => <link rel="alternate" hreflang={lang} href={absolute(pageUrl(lang, page))} />)}
+    <link rel="alternate" hreflang="x-default" href={absolute(pageUrl('en', page))} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={absolute(heroImage)} />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#101310" />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">{labels.skip}</a>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a href={pageUrl(locale)} class="brand" lang="en">
+          <span class="brand-mark"><Icon name="cube" size={21} /></span>
+          <span>Awesome <strong>NVIDIA Physical AI</strong></span>
+        </a>
+        <nav class="main-nav" aria-label={labels.navigation}>
+          {['workflows', 'ecosystem', 'models'].map((id) =>
+            <a href={`${pageUrl(locale)}#${id}`}>{labels[id]}</a>
+          )}
+        </nav>
+        <div class="header-actions">
+          <nav class="languages" aria-label={labels.language}>
+            {languages.map((lang) => {
+              const name = lang === 'en' ? 'English' : '한국어';
+              return lang === locale
+                ? <span lang={lang} aria-current="page" aria-label={name}>{lang === 'en' ? 'EN' : '한국어'}</span>
+                : <a href={pageUrl(lang, page)} lang={lang} hreflang={lang} aria-label={name} data-language-switch>{lang === 'en' ? 'EN' : '한국어'}</a>;
+            })}
+          </nav>
+          <a class="header-github" href={repository} lang="en">GitHub <Icon name="external" size={16} /></a>
+        </div>
+      </div>
+    </header>
+    <main id="main-content" tabindex="-1"><slot /></main>
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <div><span lang="en">{brand}</span><p>{labels.community}</p></div>
+        <div class="footer-links">
+          <a href={repositoryFile(readme[locale].file)}>{labels.catalog} <Icon name="external" size={16} /></a>
+          <a href={repositoryFile('NOTICE.md')}>{labels.license} <Icon name="external" size={16} /></a>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const switchLink = document.querySelector<HTMLAnchorElement>('[data-language-switch]');
+      if (switchLink) {
+        const updateLanguageLink = () => {
+          switchLink.hash = window.location.hash;
+        };
+        updateLanguageLink();
+        window.addEventListener('hashchange', updateLanguageLink);
+      }
+    </script>
+  </body>
+</html>

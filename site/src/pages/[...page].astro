@@ -1,0 +1,27 @@
+---
+import Guide from '../components/Guide.astro';
+import { languages, modelGuide, workflows } from '../lib/catalog.mjs';
+
+export function getStaticPaths() {
+  return languages.flatMap((locale) => {
+    const prefix = locale === 'ko' ? 'ko/' : '';
+    const entries = workflows.map((guide) => ({
+      page: `workflows/${guide.slug}`,
+      sourcePath: `docs/${locale}/workflows/${guide.slug}.md`,
+      guide,
+      parent: 'workflows',
+    }));
+    entries.push({
+      page: modelGuide.route,
+      sourcePath: `docs/${locale}/robot-foundation-models.md`,
+      guide: modelGuide,
+      parent: 'models',
+    });
+    return entries.map((entry) => ({
+      params: { page: prefix + entry.page },
+      props: { locale, ...entry },
+    }));
+  });
+}
+---
+<Guide {...Astro.props} />

@@ -1,0 +1,71 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from './Icon.astro';
+import { heroImage, maps } from '../lib/assets.mjs';
+import { copy, modelGuide, pageUrl, readme, repositoryFile, workflows } from '../lib/catalog.mjs';
+import { renderModelList } from '../lib/markdown.mjs';
+
+const { locale } = Astro.props;
+const labels = copy[locale];
+const models = renderModelList(locale);
+---
+<Base locale={locale} description={labels.heroDescription}>
+  <section class="hero shell" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow"><span></span>{labels.community}</p>
+      <h1 id="hero-title">{labels.heroTitle}<br />{' '}<em>{labels.heroAccent}</em></h1>
+      <p class="hero-description">{labels.heroDescription}</p>
+      <a href="#workflows" class="button button-primary">{labels.heroAction}<Icon name="down" size={18} /></a>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <img src={heroImage} alt="" width="1280" height="640" fetchpriority="high" />
+    </div>
+  </section>
+  <section class="section workflows-section shell" id="workflows" aria-labelledby="workflows-heading">
+    <div class="section-head">
+      <h2 id="workflows-heading">{labels.workflowHeading}</h2>
+      <a href={repositoryFile(readme[locale].file)} class="plain-link">
+        {labels.catalog} <Icon name="external" size={17} />
+      </a>
+    </div>
+    <div class="workflow-grid">
+      {workflows.map((workflow) => {
+        const entry = workflow[locale];
+        return (
+          <article class:list={['workflow-card', workflow.theme]}>
+            <span class="workflow-icon"><Icon name={workflow.icon} size={24} /></span>
+            <p class="goal">{entry.goal}</p>
+            <h3>{entry.title}</h3>
+            <p class="workflow-description">{entry.description}</p>
+            <dl class="quick-facts">
+              <div><dt>{labels.toolLabel}</dt><dd>{workflow.tools.join(' · ')}</dd></div>
+              <div><dt>{labels.resultLabel}</dt><dd>{entry.result}</dd></div>
+            </dl>
+            <a href={pageUrl(locale, `workflows/${workflow.slug}`)} class="workflow-link">
+              {entry.action}<Icon name="right" size={19} />
+            </a>
+          </article>
+        );
+      })}
+    </div>
+  </section>
+  <section class="section resources shell" id="ecosystem" aria-labelledby="ecosystem-heading">
+    <div class="section-head">
+      <div>
+        <h2 id="ecosystem-heading">{labels.ecosystemHeading}</h2>
+        <p>{labels.ecosystemDescription}</p>
+      </div>
+      <a class="plain-link" href={maps[locale]}>{labels.openMap} <Icon name="external" size={17} /></a>
+    </div>
+    <a class="ecosystem-map" href={maps[locale]} aria-label={labels.openMap}>
+      <img src={maps[locale]} alt={labels.mapAlt} loading="lazy" width="907" height="737" />
+    </a>
+  </section>
+  <section class="section resources shell" id="models" aria-labelledby="models-heading">
+    <div class="section-head">
+      <h2 id="models-heading">{labels.modelsHeading}</h2>
+      <a class="plain-link" href={pageUrl(locale, modelGuide.route)}>{labels.modelAction} <Icon name="right" size={17} /></a>
+    </div>
+    <div class="prose model-list" set:html={models} />
+  </section>
+</Base>
