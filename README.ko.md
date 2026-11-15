@@ -14,9 +14,11 @@
 
 </div>
 
-[![Isaac Sim에서 녹화한 16개 장면. 첫 칸에서 GR00T가 큐브를 그릇에 놓습니다.](site/public/showcase/isaac-sim-grid.jpg)](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/showcase/)
+## Isaac Sim으로 찍은 16개 장면
 
-[▶ Isaac Sim 16개 장면 보기](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/showcase/) · [실습 흐름 직접 체험하기](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/#repo-tour)
+[![Isaac Sim에서 녹화한 16개 장면의 움직이는 미리보기. 첫 칸에서 GR00T가 큐브를 그릇에 놓습니다.](assets/showcase/isaac-sim-grid.gif)](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/showcase/)
+
+[자세히 보기](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/showcase/) · [실습 흐름 직접 체험하기](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/#repo-tour)
 
 ## 만들고 싶은 것부터 시작하세요
 

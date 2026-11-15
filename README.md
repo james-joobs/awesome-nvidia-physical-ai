@@ -14,9 +14,11 @@ An independent community guide to simulation, robot learning, autonomous driving
 
 </div>
 
-[![Sixteen scenes recorded in Isaac Sim. GR00T puts the cube in the bowl in the first tile.](site/public/showcase/isaac-sim-grid.jpg)](https://james-joobs.github.io/awesome-nvidia-physical-ai/showcase/)
+## 16 Isaac Sim scenes
 
-[▶ Watch 16 Isaac Sim scenes](https://james-joobs.github.io/awesome-nvidia-physical-ai/showcase/) · [Try the interactive walkthrough](https://james-joobs.github.io/awesome-nvidia-physical-ai/#repo-tour)
+[![Animated preview of 16 scenes recorded in Isaac Sim. GR00T puts the cube in the bowl in the first tile.](assets/showcase/isaac-sim-grid.gif)](https://james-joobs.github.io/awesome-nvidia-physical-ai/showcase/)
+
+[View more videos](https://james-joobs.github.io/awesome-nvidia-physical-ai/showcase/) · [Try the interactive walkthrough](https://james-joobs.github.io/awesome-nvidia-physical-ai/#repo-tour)
 
 ## Start with what you want to build
 

@@ -1,14 +1,14 @@
 ---
 import { showcaseCopy, showcaseMedia } from '../lib/showcase.mjs';
 
-const { locale, clip, title, eager = false } = Astro.props;
+const { locale, clip, title, eager = false, autoplay = false } = Astro.props;
 const labels = showcaseCopy[locale];
 const poster = showcaseMedia(`${clip.id}.jpg`);
 const movie = showcaseMedia(`${clip.id}.mp4`);
 const playLabel = locale === 'ko' ? `${title} ${labels.play}` : `${labels.play} ${title}`;
 ---
 <div class="video-frame">
-  <a href={movie} class="video-cover" data-video-cover aria-label={playLabel}>
+  <a href={movie} class="video-cover" data-video-cover data-autoplay={autoplay ? '' : undefined} aria-label={playLabel}>
     <img src={poster} width={clip.width} height={clip.height} loading={eager ? 'eager' : 'lazy'}
       fetchpriority={eager ? 'high' : 'auto'} alt="" />
     <span class="video-play" aria-hidden="true">
@@ -16,22 +16,33 @@ const playLabel = locale === 'ko' ? `${title} ${labels.play}` : `${labels.play} 
     </span>
     <span class="video-duration" aria-hidden="true">{clip.duration}</span>
   </a>
-  <video hidden controls playsinline preload="none" tabindex="0" aria-label={title} poster={poster}></video>
+  <video hidden controls playsinline muted={autoplay} preload="none" tabindex="0" aria-label={title} poster={poster}></video>
 </div>
 
 <script>
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   for (const cover of document.querySelectorAll<HTMLAnchorElement>('[data-video-cover]')) {
     const player = cover.nextElementSibling;
     if (!(player instanceof HTMLVideoElement)) continue;
+    const play = () => {
+      if (!player.hasAttribute('src')) player.src = cover.href;
+      cover.hidden = true;
+      player.hidden = false;
+      return player.play();
+    };
     cover.addEventListener('click', (event) => {
       if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
       event.preventDefault();
-      player.src = cover.href;
-      cover.hidden = true;
-      player.hidden = false;
+      void play().catch(() => {});
       player.focus();
-      void player.play().catch(() => {});
     });
+    if (cover.hasAttribute('data-autoplay') && !reduceMotion.matches) {
+      player.muted = true;
+      void play().catch(() => {
+        player.hidden = true;
+        cover.hidden = false;
+      });
+    }
   }
 </script>
 

@@ -24,7 +24,7 @@ const sections = [
       <a class="plain-link" href={showcaseMedia(`${featured.id}.mp4`)}>{labels.open} <Icon name="external" size={16} /></a>
     </div>
     <div class="hero-video">
-      <ShowcaseVideo locale={locale} clip={featured} title={labels.featured} eager />
+      <ShowcaseVideo locale={locale} clip={featured} title={labels.featured} eager autoplay />
     </div>
     <p>{labels.featuredDetail}</p>
     <details class="scene-list">
