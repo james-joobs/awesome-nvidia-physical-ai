@@ -5,8 +5,9 @@ import '../styles/site.css';
 import Icon from '../components/Icon.astro';
 import { copy, languages, pageUrl, catalogs, repository, repositoryFile } from '../lib/catalog.mjs';
 import { heroImage } from '../lib/assets.mjs';
+import { showcaseCopy } from '../lib/showcase.mjs';
 
-const { locale, page = '', title, description } = Astro.props;
+const { locale, page = '', title, description, socialImage = heroImage } = Astro.props;
 const labels = copy[locale];
 const brand = 'Awesome NVIDIA Physical AI';
 const fullTitle = title ? `${title} · ${brand}` : brand;
@@ -25,7 +26,7 @@ const absolute = (path) => new URL(path, Astro.site);
     <link rel="alternate" hreflang="x-default" href={absolute(pageUrl('en', page))} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={absolute(heroImage)} />
+    <meta property="og:image" content={absolute(socialImage)} />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#101310" />
   </head>
@@ -41,6 +42,7 @@ const absolute = (path) => new URL(path, Astro.site);
           {['workflows', 'ecosystem', 'models'].map((id) =>
             <a href={`${pageUrl(locale)}#${id}`}>{labels[id]}</a>
           )}
+          <a href={pageUrl(locale, 'showcase')} aria-current={page === 'showcase' ? 'page' : undefined}>{showcaseCopy[locale].nav}</a>
           <a href={pageUrl(locale, 'catalog')} aria-current={page === 'catalog' ? 'page' : undefined}>{labels.browseCatalog}</a>
         </nav>
         <div class="header-actions">

@@ -14,9 +14,9 @@ An independent community guide to simulation, robot learning, autonomous driving
 
 </div>
 
-[![Animated preview of the CAD-to-Isaac-Sim walkthrough. Open the interactive guide.](assets/repo-tour/preview.en.gif)](https://james-joobs.github.io/awesome-nvidia-physical-ai/#repo-tour)
+[![Sixteen scenes recorded in Isaac Sim. GR00T puts the cube in the bowl in the first tile.](site/public/showcase/isaac-sim-grid.jpg)](https://james-joobs.github.io/awesome-nvidia-physical-ai/showcase/)
 
-[▶ Try the interactive walkthrough](https://james-joobs.github.io/awesome-nvidia-physical-ai/#repo-tour)
+[▶ Watch 16 Isaac Sim scenes](https://james-joobs.github.io/awesome-nvidia-physical-ai/showcase/) · [Try the interactive walkthrough](https://james-joobs.github.io/awesome-nvidia-physical-ai/#repo-tour)
 
 ## Start with what you want to build
 
@@ -52,7 +52,7 @@ A workbench from CAD can become a reusable simulation scene and a source of labe
 | **Physics, 3D, and simulation** | [OpenUSD](docs/en/openusd.md) · [Isaac Sim](docs/en/isaac-sim.md) · [Newton](docs/en/newton.md) | [Simulation tools](CATALOG.md#physics-3d-and-simulation) |
 | **Robot learning and control** | [Isaac Capture](docs/en/isaac-capture.md) · [Isaac Lab](docs/en/isaac-lab.md) | [Robotics tools](CATALOG.md#robot-learning-capture-and-control) |
 | **Data and simulation assets** | [SimReady](docs/en/simready.md) · [Video to Data](docs/en/video-to-data.md) · [AutoData](docs/en/autodata.md) | [Datasets and assets](CATALOG.md#data-and-simulation-assets) |
-| **Robot foundation models** | [GR00T](docs/en/isaac-gr00t.md) · [Physical Intelligence π](docs/en/physical-intelligence-pi.md) | [Robot models and VLAs](CATALOG.md#robot-foundation-models-and-vlas) |
+| **Robot foundation models** | [GR00T](docs/en/groot-model.md) · [Physical Intelligence π](docs/en/physical-intelligence-pi.md) | [Robot models and VLAs](CATALOG.md#robot-foundation-models-and-vlas) |
 | **Autonomous driving** | [NuRec](docs/en/nurec.md) · [Alpamayo](docs/en/alpamayo.md) · [AlpaSim](docs/en/alpasim.md) | [Driving tools](CATALOG.md#autonomous-driving) |
 | **World models and NeMo** | [Cosmos](docs/en/cosmos.md) · [NeMo Curator](docs/en/nemo-curator.md) · [NeMo Switchyard](docs/en/nemo-switchyard.md) | [NeMo and Physical AI tooling](CATALOG.md#nemo-and-physical-ai-tooling) |
 

@@ -1,0 +1,103 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from './Icon.astro';
+import ShowcaseVideo from './ShowcaseVideo.astro';
+import { pageUrl, repositoryFile } from '../lib/catalog.mjs';
+import { clips, featured, grids, sceneLabels, showcaseCopy, showcaseMedia } from '../lib/showcase.mjs';
+
+const { locale } = Astro.props;
+const labels = showcaseCopy[locale];
+const sections = [
+  { id: 'by-topic', title: labels.grids, items: grids },
+  { id: 'single-clips', title: labels.clips, items: clips },
+];
+---
+<Base locale={locale} page="showcase" title={labels.title} description={labels.intro}
+  socialImage={showcaseMedia(`${featured.id}.jpg`)}>
+  <section class="shell showcase-header" aria-labelledby="showcase-title">
+    <h1 id="showcase-title">{labels.title}</h1>
+    <p>{labels.intro}</p>
+  </section>
+  <section class="shell featured" aria-labelledby="featured-title">
+    <div class="feature-title">
+      <h2 id="featured-title">{labels.featured}</h2>
+      <a class="plain-link" href={showcaseMedia(`${featured.id}.mp4`)}>{labels.open} <Icon name="external" size={16} /></a>
+    </div>
+    <div class="hero-video">
+      <ShowcaseVideo locale={locale} clip={featured} title={labels.featured} eager />
+    </div>
+    <p>{labels.featuredDetail}</p>
+    <details class="scene-list">
+      <summary>{labels.scenes}</summary>
+      <ol>{sceneLabels[locale].map((scene) => <li>{scene}</li>)}</ol>
+      <p>{labels.editNote}</p>
+    </details>
+  </section>
+  {sections.map(({ id, title, items }) => (
+    <section class="section shell showcase-section" id={id} aria-labelledby={`${id}-heading`}>
+      <div class="section-head"><h2 id={`${id}-heading`}>{title}</h2></div>
+      <div class:list={['showcase-grid', id]}>
+        {items.map((item) => {
+          const entry = item[locale];
+          const guide = item.route ? pageUrl(locale, item.route) : repositoryFile(`docs/${locale}/${item.guide}.md`);
+          return (
+            <article class="showcase-card" id={item.id}>
+              <ShowcaseVideo locale={locale} clip={item} title={entry.title} />
+              <div class="showcase-caption">
+                <h3>{entry.title}</h3>
+                <p>{entry.description}</p>
+                <a class="plain-link" href={guide}>{labels.guide} <Icon name="right" size={16} /></a>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  ))}
+  <div class="shell credits">
+    <a href={repositoryFile('NOTICE.md')} class="plain-link">{labels.source} <Icon name="external" size={16} /></a>
+  </div>
+</Base>
+
+<style>
+  .showcase-header { padding-block: 44px 30px; }
+  .showcase-header h1 {
+    font-size: clamp(2.55rem, 6.2vw, 5rem);
+    line-height: 1.05;
+    letter-spacing: -.055em;
+  }
+  .showcase-header p { margin-top: 15px; max-width: 61ch; color: var(--muted); line-height: 1.65; }
+  .featured { padding: 20px; border: 1px solid var(--edge); border-radius: 16px; background: var(--surface); }
+  .feature-title { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 18px; margin-bottom: 10px; }
+  .feature-title h2 { font-size: clamp(1.22rem, 2.6vw, 1.85rem); letter-spacing: -.03em; }
+  .hero-video { border-radius: 9px; overflow: clip; }
+  .featured > p { margin-top: 14px; line-height: 1.55; }
+  .scene-list { margin-top: 12px; border-top: 1px solid var(--edge); }
+  .scene-list summary { padding: 12px 0 0; cursor: pointer; font-size: .875rem; color: var(--accent); }
+  .scene-list ol { columns: 2; padding-left: 23px; color: var(--muted); font-size: .88rem; line-height: 1.55; }
+  .scene-list li { break-inside: avoid; margin-bottom: 4px; }
+  .scene-list p { color: var(--muted); font-size: .83rem; line-height: 1.6; }
+  .showcase-section { padding-top: 42px; padding-bottom: 9px; }
+  .showcase-grid { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .single-clips { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .showcase-card {
+    min-width: 0; display: flex; flex-direction: column; overflow: clip;
+    border: 1px solid var(--edge); border-radius: 12px; background: var(--surface);
+  }
+  .showcase-card:focus-within { border-color: #607744; }
+  .showcase-caption { flex: 1; display: flex; flex-direction: column; padding: 15px 17px 9px; }
+  .showcase-caption h3 { font-size: 1.16rem; letter-spacing: -.021em; }
+  .showcase-caption p { margin: 7px 0 8px; color: var(--muted); font-size: .86rem; line-height: 1.58; }
+  .showcase-caption a { align-self: flex-start; margin-top: auto; }
+  .credits { padding-block: 19px 30px; }
+  @media (max-width: 990px) {
+    .single-clips { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 560px) {
+    .showcase-header { padding-block: 29px 20px; }
+    .featured { padding: 12px; border-radius: 11px; }
+    .showcase-grid { grid-template-columns: 1fr; gap: 12px; }
+    .scene-list ol { columns: 1; }
+    .showcase-section { padding-top: 30px; }
+  }
+</style>

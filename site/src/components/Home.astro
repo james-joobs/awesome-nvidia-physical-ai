@@ -2,15 +2,17 @@
 import Base from '../layouts/Base.astro';
 import Icon from './Icon.astro';
 import RepoTour from './RepoTour.astro';
-import { heroImage, maps } from '../lib/assets.mjs';
+import { maps } from '../lib/assets.mjs';
 import { copy, modelGuide, pageUrl, workflows } from '../lib/catalog.mjs';
 import { renderModelList } from '../lib/markdown.mjs';
 import { tourCopy } from '../lib/repo-tour.mjs';
+import { featured, showcaseCopy, showcaseMedia } from '../lib/showcase.mjs';
 
 const { locale } = Astro.props;
 const labels = copy[locale];
 const models = renderModelList(locale);
 const map = maps[locale];
+const video = showcaseCopy[locale];
 ---
 <Base locale={locale} description={labels.heroDescription}>
   <section class="hero shell" aria-labelledby="hero-title">
@@ -23,9 +25,11 @@ const map = maps[locale];
         <a href="#repo-tour" class="plain-link">{tourCopy[locale].shortcut}<Icon name="right" size={18} /></a>
       </div>
     </div>
-    <div class="hero-visual" aria-hidden="true">
-      <img src={heroImage} alt="" width="1280" height="640" fetchpriority="high" />
-    </div>
+    <a href={pageUrl(locale, 'showcase')} class="home-video">
+      <img src={showcaseMedia(`${featured.id}.jpg`)} alt={video.homeAlt}
+        width={featured.width} height={featured.height} fetchpriority="high" />
+      <span>{video.homeAction}<Icon name="right" size={18} /></span>
+    </a>
   </section>
   <section class="section workflows-section shell" id="workflows" aria-labelledby="workflows-heading">
     <div class="section-head">
@@ -83,4 +87,16 @@ const map = maps[locale];
 <style>
   .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 18px; }
   .hero-actions .plain-link { min-height: 44px; }
+  .home-video {
+    display: block; align-self: center; overflow: hidden; padding: 6px;
+    border: 1px solid var(--edge); border-radius: 13px;
+    color: var(--text); background: var(--surface); text-decoration: none;
+  }
+  .home-video:hover { border-color: #607744; }
+  .home-video img { width: 100%; border-radius: 8px; }
+  .home-video span {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px;
+    padding: 4px 10px 0; font-weight: 675; font-size: .91rem;
+  }
+  .home-video svg { color: var(--accent); flex: none; }
 </style>

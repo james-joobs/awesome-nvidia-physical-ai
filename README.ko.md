@@ -14,9 +14,9 @@
 
 </div>
 
-[![작업대 CAD를 Isaac Sim으로 가져오는 실습 미리보기. 눌러서 직접 체험하세요.](assets/repo-tour/preview.ko.gif)](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/#repo-tour)
+[![Isaac Sim에서 녹화한 16개 장면. 첫 칸에서 GR00T가 큐브를 그릇에 놓습니다.](site/public/showcase/isaac-sim-grid.jpg)](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/showcase/)
 
-[▶ 실습 흐름 직접 체험하기](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/#repo-tour)
+[▶ Isaac Sim 16개 장면 보기](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/showcase/) · [실습 흐름 직접 체험하기](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/#repo-tour)
 
 ## 만들고 싶은 것부터 시작하세요
 
@@ -52,7 +52,7 @@ CAD로 만든 작업대 장면은 시뮬레이션과 라벨링된 카메라 데�
 | **물리·3D·시뮬레이션** | [OpenUSD](docs/ko/openusd.md) · [Isaac Sim](docs/ko/isaac-sim.md) · [Newton](docs/ko/newton.md) | [시뮬레이션 도구](CATALOG.ko.md#물리-3d-및-시뮬레이션) |
 | **로봇 학습·제어** | [Isaac Capture](docs/ko/isaac-capture.md) · [Isaac Lab](docs/ko/isaac-lab.md) | [로봇 도구](CATALOG.ko.md#로봇-학습-수집-및-제어) |
 | **데이터·시뮬레이션 에셋** | [SimReady](docs/ko/simready.md) · [Video to Data](docs/ko/video-to-data.md) · [AutoData](docs/ko/autodata.md) | [데이터셋과 에셋](CATALOG.ko.md#데이터와-시뮬레이션-자산) |
-| **로봇 파운데이션 모델** | [GR00T](docs/ko/isaac-gr00t.md) · [Physical Intelligence π](docs/ko/physical-intelligence-pi.md) | [로봇 모델과 VLA](CATALOG.ko.md#로봇-파운데이션-모델과-vla) |
+| **로봇 파운데이션 모델** | [GR00T](docs/ko/groot-model.md) · [Physical Intelligence π](docs/ko/physical-intelligence-pi.md) | [로봇 모델과 VLA](CATALOG.ko.md#로봇-파운데이션-모델과-vla) |
 | **자율주행** | [NuRec](docs/ko/nurec.md) · [Alpamayo](docs/ko/alpamayo.md) · [AlpaSim](docs/ko/alpasim.md) | [자율주행 도구](CATALOG.ko.md#자율주행) |
 | **월드 모델·NeMo** | [Cosmos](docs/ko/cosmos.md) · [NeMo Curator](docs/ko/nemo-curator.md) · [NeMo Switchyard](docs/ko/nemo-switchyard.md) | [NeMo와 피지컬 AI 도구](CATALOG.ko.md#nemo와-물리-ai-도구) |
 
