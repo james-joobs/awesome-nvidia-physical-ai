@@ -45,6 +45,6 @@ flowchart LR
 - [Isaac Lab에서 로봇으로 목표 도달 정책을 배포하는 튜토리얼](https://nvidia-isaac-ros.github.io/v/release-4.5/reference_workflows/isaac_for_manipulation/tutorials/sim_to_real/tutorial_sim_to_real.html)
 - [소스 저장소](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_deploy)
 
-## 연관 상세 페이지
+## 관련 가이드
 
 [LEAPP](leapp.md) · [Isaac Lab](isaac-lab.md) · [Isaac GR00T](isaac-gr00t.md)

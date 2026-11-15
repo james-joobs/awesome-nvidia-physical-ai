@@ -1,6 +1,6 @@
 # AlpaSim
 
-[← 전체 목록](../../README.ko.md) · [English](../en/alpasim.md)
+[← 프로젝트 홈](../../README.ko.md) · [English](../en/alpasim.md)
 
 <p align="center">
   <img src="../../assets/project-marks/alpasim-hdmap.webp" width="400" alt="교차로 카메라 프레임에 정밀지도 렌더를 겹쳐 표시한 AlpaSim 예시"><br>
@@ -21,7 +21,7 @@ AlpaSim은 자율주행 정책을 폐루프로 평가합니다. 정책이 자차
 
 최신 릴리스 태그인 **v2026.5**는 내장 비디오 모델 렌더러를 추가하고 공개 장면 목록을 갱신했습니다. 렌더러 서비스 키는 `sensorsim`에서 `renderer`로 바뀌었습니다. 이 태그의 튜토리얼은 Alpamayo 1과 1.5를 다룹니다. 이후 `main` 브랜치 변경 기록에는 **Alpamayo 2 Super**용 `driver=alpamayo2`가 안내돼 있습니다. 가중치를 고르기 전에 실행할 태그나 커밋의 드라이버 프리셋을 확인합니다. [v2026.5 릴리스](https://github.com/NVlabs/alpasim/releases/tag/v2026.5) · [태그 기준 튜토리얼](https://github.com/NVlabs/alpasim/blob/v2026.5/docs/TUTORIAL.md) · [main 변경 기록](https://github.com/NVlabs/alpasim/blob/main/CHANGELOG.md) · [Alpamayo 모델 가이드](alpamayo.md)
 
-## 어떻게 동작하나
+## 작동 방식
 
 런타임이 시뮬레이션 시간을 진행시키고 gRPC로 Python 서비스를 호출합니다. 렌더러는 장면과 자세에서 관측을 생성하고, 드라이버는 관측으로 주행 계획을 계산합니다. 제어와 물리 단계가 차량·지면 제약에 맞춰 자차 상태를 갱신합니다. 평가 모듈은 주 루프 밖에서 기록을 처리합니다. 공식 설계에서 신경 재구성 및 영상 모델 렌더러는 같은 서비스 인터페이스를 사용할 수 있습니다.
 
@@ -33,7 +33,7 @@ AlpaSim은 자율주행 정책을 폐루프로 평가합니다. 정책이 자차
 | 드라이버와 제어기 | 렌더링 관측, 경로, 자차 상태 | 정책 궤적과 제어 명령 |
 | 런타임과 평가기 | 서비스 출력과 시뮬레이션 클록 | 에피소드 로그와 평가 지표 |
 
-## 실전 워크플로
+## 사용 순서
 
 튜토리얼 장면과 참조 드라이버로 시작합니다. 장면, 경로, 초기 자세를 고정한 채 정책 체크포인트 하나를 바꿉니다. 로그에서 궤적, 충돌, 경로 진행을 확인하고 실패 전후의 렌더 영상을 봅니다. 여러 장면에서 반복해 특정 재구성에 따른 편향을 줄입니다.
 

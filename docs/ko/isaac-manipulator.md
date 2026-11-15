@@ -2,7 +2,7 @@
 
 [← 목록으로](../../README.ko.md) · [English](../en/isaac-manipulator.md)
 
-Isaac for Manipulation은 ROS 2에서 로봇팔의 인식·계획·실행을 연동하는 참조 아키텍처입니다. 각 패키지가 깊이, 물체 자세, 장애물 맵, 궤적을 생성하고 워크플로가 이를 연결해 집기·놓기 등의 작업을 수행합니다.
+Isaac for Manipulation은 ROS 2에서 로봇 팔의 인식·계획·실행을 연동하는 참조 아키텍처입니다. 각 패키지가 깊이, 물체 자세, 장애물 맵, 궤적을 생성하고 워크플로가 이를 연결해 집어 옮기기 등의 작업을 수행합니다.
 
 ## 아키텍처와 데이터 흐름
 
@@ -16,13 +16,13 @@ Isaac for Manipulation은 ROS 2에서 로봇팔의 인식·계획·실행을 연
 
 공식 참조 구성도는 인식 결과를 로봇 계획·실행에 연결합니다. 물체 자세와 장애물 지도는 플래너의 서로 다른 입력이므로 두 경로를 구분해 따라갑니다. [공식 그림 출처](https://nvidia-isaac-ros.github.io/v/release-4.2/reference_workflows/isaac_for_manipulation/reference_architecture.html)
 
-![RViz 예시에서는 워크플로에 사용되는 장면과 로봇 기하를 볼 수 있습니다. 로봇팔에 명령을 보내기 전에 좌표 변환을 점검하는 데 활용할 수 있습니다.](https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.2/resources/isaac_ros_docs/reference_workflows/isaac_for_manipulation/manipulator_RA_rviz.png)
+![RViz 예시에서는 워크플로에 사용되는 장면과 로봇 기하를 볼 수 있습니다. 로봇 팔에 명령을 보내기 전에 좌표 변환을 점검하는 데 활용할 수 있습니다.](https://media.githubusercontent.com/media/NVIDIA-ISAAC-ROS/.github/release-4.2/resources/isaac_ros_docs/reference_workflows/isaac_for_manipulation/manipulator_RA_rviz.png)
 
-RViz 예시에서는 워크플로에 사용되는 장면과 로봇 기하를 볼 수 있습니다. 로봇팔에 명령을 보내기 전에 좌표 변환을 점검하는 데 활용할 수 있습니다. [공식 그림 출처](https://nvidia-isaac-ros.github.io/v/release-4.2/reference_workflows/isaac_for_manipulation/reference_architecture.html)
+RViz 예시에서는 워크플로에 사용되는 장면과 로봇 기하를 볼 수 있습니다. 로봇 팔에 명령을 보내기 전에 좌표 변환을 점검하는 데 활용할 수 있습니다. [공식 그림 출처](https://nvidia-isaac-ros.github.io/v/release-4.2/reference_workflows/isaac_for_manipulation/reference_architecture.html)
 
 ## 적용 예시
 
-1. 지원되는 집기·놓기 참조 워크플로를 구성합니다. RViz에서 계획 좌표계로 변환된 물체 자세와 장애물 기하를 확인합니다.
+1. 지원되는 집어 옮기기 참조 워크플로를 구성합니다. RViz에서 계획 좌표계로 변환된 물체 자세와 장애물 기하를 확인합니다.
 2. 순서를 실행하기 전에 접근·파지·후퇴 동작을 계획합니다. 인식, 계획, 제어 단계에서 발생한 실패를 나누어 기록합니다.
 
 ## 검증할 항목
@@ -37,6 +37,6 @@ Isaac ROS 패키지와 모델 에셋은 각자의 조건에 따라 별도로 배
 - [공식 참조 아키텍처와 그림](https://nvidia-isaac-ros.github.io/v/release-4.2/reference_workflows/isaac_for_manipulation/reference_architecture.html)
 - [Isaac ROS Manipulator 저장소](https://github.com/NVIDIA-ISAAC-ROS/isaac_manipulator)
 
-## 연관 상세 페이지
+## 관련 가이드
 
 [FoundationPose](foundationpose.md) · [Isaac ROS Nvblox](isaac-ros-nvblox.md) · [cuRobo](curobo.md)

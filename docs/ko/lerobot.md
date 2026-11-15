@@ -38,6 +38,6 @@ Hugging Face는 저장소 코드를 Apache-2.0으로 공개합니다. 허브의 
 - [LeRobotDataset v3 설계](https://huggingface.co/docs/lerobot/en/lerobot-dataset-v3)
 - [학습 중 스트리밍](https://huggingface.co/docs/lerobot/main/training_dataset_streaming)
 
-## 연관 상세 페이지
+## 관련 가이드
 
 [Isaac Capture](isaac-capture.md) · [Isaac GR00T](isaac-gr00t.md)

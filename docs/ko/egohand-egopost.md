@@ -38,6 +38,6 @@ EgoPost는 OpenMDW-1.1을 적용합니다. EgoHand의 독립 라이선스는 미
 - [EgoHand 설치·입출력 문서](https://nvidia.github.io/IsaacCapture/main/ego_post_processing/egohand.html)
 - [Isaac Capture 소스와 구성 요소별 이용 조건](https://github.com/NVIDIA/IsaacCapture)
 
-## 연관 상세 페이지
+## 관련 가이드
 
 [Isaac Capture](isaac-capture.md) · [Video to Data](video-to-data.md)

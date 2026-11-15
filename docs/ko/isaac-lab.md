@@ -1,28 +1,28 @@
 # Isaac Lab
 
-[← 전체 목록](../../README.ko.md) · [English](../en/isaac-lab.md)
+[← 프로젝트 홈](../../README.ko.md) · [English](../en/isaac-lab.md)
 
 <p align="center">
   <img src="../../assets/project-marks/isaac-lab.jpg" width="384" alt="Isaac Lab의 가상 지형에서 이동하는 로봇"><br>
   <sub><a href="https://github.com/isaac-sim/IsaacLab">Isaac Lab 공식 저장소 대표 이미지</a></sub>
 </p>
 
-Isaac Lab은 배치 시뮬레이션을 로봇 학습 환경으로 묶는다. 관측, 행동, 보상, 리셋 인터페이스를 제공하고 물리 스텝, 관절체 상태, 센서 계산은 선택한 백엔드에서 수행한다.
+Isaac Lab은 로봇이 같은 작업을 여러 시뮬레이션 환경에서 동시에 연습할 수 있게 해 줍니다. 학습 환경에서 관측값, 행동, 보상, 초기화 조건을 정의합니다. 물리가 한 스텝 진행될 때마다 관절 상태와 센서 값은 선택한 백엔드에서 계산합니다.
 
 ## Isaac Lab 3.0
 
 **3.0.0 정식 릴리스**는 물리·렌더링·시각화 백엔드가 공통 작업 API를 쓰도록 구성합니다. 기본 설치에서는 지원되는 작업을 Omniverse Kit 없이 Newton으로 실행할 수 있습니다. 전체 PhysX·RTX 구성, ROS 브리지 또는 Kit 도구가 필요한 작업에는 Isaac Sim 6.2를 추가합니다. 호환되는 작업에서는 OvPhysX와 OVRTX도 별도 백엔드로 선택할 수 있습니다. [Isaac Lab 3.0.0 릴리스](https://github.com/isaac-sim/IsaacLab/releases/tag/v3.0.0) · [백엔드 프리셋](https://docs.nvidia.com/isaaclab/concepts/backends-and-presets)
 
-이 릴리스의 대상 환경은 Python 3.12, CUDA 13.0용 PyTorch 2.11, Newton 1.6.1, Warp 1.17.0입니다. 특히 Isaac Sim을 함께 설치할 때는 설치 안내에 있는 검증된 의존성 버전 지정을 사용합니다. [Isaac Lab 3.0 설치 가이드](https://docs.nvidia.com/isaaclab/isaac-lab/installation)
+이 릴리스의 대상 환경은 Python 3.12, CUDA 13.0용 PyTorch 2.11, Newton 1.6.1, Warp 1.17.0입니다. 특히 Isaac Sim을 함께 설치할 때는 설치 안내에 있는 검증된 버전의 의존성을 설치하세요. [Isaac Lab 3.0 설치 가이드](https://docs.nvidia.com/isaaclab/isaac-lab/installation)
 
 ## 아키텍처
 
-| 구성 요소 | 역할과 데이터 경계 |
+| 구성 요소 | 역할과 주고받는 데이터 |
 |---|---|
-| `InteractiveScene`과 백엔드 | 장면 설정으로 에셋과 센서를 선언하고 환경별 사본을 구성한다. 백엔드 프리셋으로 작업에 사용할 물리·렌더링·장면 도구를 선택한다. |
-| `ManagerBasedRLEnv` | 매니저는 작업 설정으로 행동을 구동 목표로 바꾸고 관측, 보상, 종료, 이벤트를 만든다. 전체 환경을 다시 작성하지 않고 항목을 재사용하거나 센서를 교체할 수 있다. |
-| `DirectRLEnv` | 작업 코드에서 행동 적용, 관측·보상 생성, 환경 리셋 루틴을 직접 구현해 실행 루프를 세밀하게 제어한다. |
-| 정책 러너 | 학습 스택은 배치 환경 인터페이스를 사용해 정책 체크포인트를 만든다. 시뮬레이터 하위 스텝과 정책 스텝의 주기는 다를 수 있다. |
+| `InteractiveScene`과 백엔드 | 장면 설정으로 에셋과 센서를 선언하고 환경별 사본을 구성합니다. 백엔드 프리셋으로 작업에 사용할 물리·렌더링·장면 도구를 선택합니다. |
+| `ManagerBasedRLEnv` | 매니저는 작업 설정으로 행동을 구동 목표로 바꾸고 관측, 보상, 종료, 이벤트를 만듭니다. 전체 환경을 다시 작성하지 않고 항목을 재사용하거나 센서를 교체할 수 있습니다. |
+| `DirectRLEnv` | 작업 코드에서 행동 적용, 관측·보상 생성, 환경 리셋 루틴을 직접 구현해 실행 루프를 세밀하게 제어합니다. |
+| 정책 러너 | 학습 스택은 배치 환경 인터페이스를 사용해 정책 체크포인트를 만듭니다. 시뮬레이터 하위 스텝과 정책 스텝의 주기는 다를 수 있습니다. |
 
 아래 공식 자료를 바탕으로 이 가이드에서 재구성한 그림입니다.
 
@@ -43,22 +43,22 @@ flowchart LR
 
 ### 공식 그림과 예시
 
-![Isaac Lab 공식 백엔드 구성도는 환경이 사용하는 인터페이스와 백엔드별 구현의 연결을 보여 준다.](https://raw.githubusercontent.com/isaac-sim/IsaacLab/main/docs/source/_static/concepts/backend-architecture-light.svg)
+![Isaac Lab 공식 백엔드 구성도는 환경이 사용하는 인터페이스와 백엔드별 구현의 연결을 보여 줍니다.](https://raw.githubusercontent.com/isaac-sim/IsaacLab/main/docs/source/_static/concepts/backend-architecture-light.svg)
 
-Isaac Lab 공식 백엔드 구성도는 환경이 사용하는 인터페이스와 백엔드별 구현의 연결을 보여 준다. [그림 출처와 원문 설명](https://isaac-sim.github.io/IsaacLab/develop/source/concepts/backends_and_presets.html)
+Isaac Lab 공식 백엔드 구성도는 환경이 사용하는 인터페이스와 백엔드별 구현의 연결을 보여 줍니다. [그림 출처와 원문 설명](https://isaac-sim.github.io/IsaacLab/develop/source/concepts/backends_and_presets.html)
 
 ## 워크플로 예시
 
-1. 매니저 기반 카트폴 예제에서 상태 관측과 구동기 행동의 연결을 확인한다. 환경을 하나만 실행해 리셋 동작과 관절 단위를 점검한다.
-2. 로봇팔 도달 작업에서는 장면을 바꾸고 목표 자세 관측, 관절 행동, 거리 보상을 정의한다. 환경 수를 늘리기 전에 종료 조건과 리셋 분포를 설정한다.
-3. 고정 시드로 체크포인트를 재생하고 목표 자세와 물리 매개변수를 바꿔 본다. 실제 로봇에 적용하기 전에 미사용 조건에서 성공률과 행동의 부드러움을 평가한다.
+1. 매니저 기반 카트폴 예제에서 상태 관측과 구동기 행동의 연결을 확인합니다. 환경을 하나만 실행해 리셋 동작과 관절 단위를 점검합니다.
+2. 로봇 팔 도달 작업에서는 장면을 바꾸고 목표 자세 관측, 관절 행동, 거리 보상을 정의합니다. 환경 수를 늘리기 전에 종료 조건과 리셋 분포를 설정합니다.
+3. 고정 시드로 체크포인트를 재생하고 목표 자세와 물리 매개변수를 바꿔 봅니다. 실제 로봇에 적용하기 전에 미사용 조건에서 성공률과 행동의 부드러움을 평가합니다.
 
-## 검증 포인트
+## 검증할 항목
 
-- PhysX, Newton 등의 프리셋을 바꾸기 전에 백엔드 지원 표를 확인한다. 센서, 구동기, 제약 지원은 백엔드와 릴리스에 따라 다르다.
-- 새 시뮬레이션이나 하드웨어 러너로 정책을 옮길 때 관측 순서, 정규화, 관절 규약과 제어 주기를 맞춘다.
+- PhysX, Newton 등의 프리셋을 바꾸기 전에 백엔드 지원 표를 확인합니다. 센서, 구동기, 제약 지원은 백엔드와 릴리스에 따라 다릅니다.
+- 새 시뮬레이션이나 하드웨어 러너로 정책을 옮길 때 관측 순서, 정규화, 관절 규약과 제어 주기를 맞춥니다.
 
-## 라이선스와 범위
+## 공개 범위와 라이선스
 
 Isaac Lab 코드는 BSD-3-Clause입니다. 백엔드, 정책 가중치, 에셋에는 별도 조건이 적용됩니다. [Isaac Lab 3.0 라이선스 원문](https://github.com/isaac-sim/IsaacLab/blob/v3.0.0/LICENSE)
 

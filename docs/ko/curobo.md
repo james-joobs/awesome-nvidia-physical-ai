@@ -39,6 +39,6 @@ cuRoboV2-Fast의 배포 그림은 장면 인식, 파지 제안, 토크 제한을
 - [cuRoboV2 구성과 평가](https://arxiv.org/abs/2603.05493)
 - [cuRobo 최신 공식 문서와 릴리스 노트](https://nvlabs.github.io/curobo/latest/)
 
-## 연관 상세 페이지
+## 관련 가이드
 
 [SkillGen](skillgen.md) · [Isaac Manipulator](isaac-manipulator.md)

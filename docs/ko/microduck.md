@@ -1,6 +1,6 @@
 # Microduck
 
-[← 전체 목록](../../README.ko.md) · [English](../en/microduck.md)
+[← 프로젝트 홈](../../README.ko.md) · [English](../en/microduck.md)
 
 <p align="center">
   <img src="../../assets/microduck/wordmark.svg" alt="Microduck" width="240">

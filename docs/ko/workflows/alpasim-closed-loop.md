@@ -2,7 +2,7 @@
 
 [English](../../en/workflows/alpasim-closed-loop.md) · **한국어** · [목표별 카탈로그](../../../README.ko.md#만들고-싶은-것부터-시작하세요)
 
-공식 AlpaSim 예제로 복원된 주행 장면 하나를 실행하고 결과를 살펴봅니다. 폐루프에서는 정책이 낸 궤적에 따라 시뮬레이션 속 자차 상태가 바뀌고, 그 상태에서 다음 관측을 렌더링합니다. 녹화 영상 재생은 기록된 시점을 그대로 사용합니다. 먼저 준비된 NuRec USDZ로 시뮬레이터를 확인한 뒤 자체 로그 복원으로 확장합니다. [AlpaSim 아키텍처](https://github.com/NVlabs/alpasim/blob/affc2eab209fa43bdfa2f26c0f8d437922d78a68/docs/DESIGN.md)
+AlpaSim 공식 예제로 자율주행 정책을 한 번 실행해 봅니다. 폐루프에서는 정책이 정한 궤적을 따라 차량이 움직이고, 그 위치에서 카메라의 다음 프레임을 렌더링합니다. 먼저 제공되는 NuRec USDZ 장면에서 충돌과 도로 이탈을 확인한 뒤, 직접 수집한 로그로 장면을 만드는 방법을 살펴봅니다. [AlpaSim 아키텍처](https://github.com/NVlabs/alpasim/blob/affc2eab209fa43bdfa2f26c0f8d437922d78a68/docs/DESIGN.md)
 
 ## 준비물
 
@@ -17,7 +17,7 @@
 
 ## 1. 공식 장면 하나 실행하기
 
-호스트를 준비하고 `HF_TOKEN`을 설정한 뒤, 공식 튜토리얼의 지정 리비전을 새로 받습니다. 초기 설정 스크립트는 추가 도구 설치를 요청할 수 있습니다. 다운로드 명령은 VaVAM 자산을 받고, 실행 도구는 필요할 때 장면을 내려받습니다.
+호스트를 준비하고 `HF_TOKEN`을 설정한 뒤, 공식 튜토리얼에서 지정한 커밋을 내려받습니다. 초기 설정 스크립트는 추가 도구 설치를 요청할 수 있습니다. 다운로드 명령은 VaVAM 자산을 받고, 실행 도구는 필요할 때 장면을 내려받습니다.
 
 ```bash
 git clone https://github.com/NVlabs/alpasim.git
@@ -40,7 +40,7 @@ uv run alpasim_wizard deploy=local topology=1gpu driver=vavam \
 | 자차는 무엇을 보고 어떻게 움직였나요? | 평가 영상이 켜져 있다면 `run-baseline/eval/videos/` 또는 집계 영상 폴더에서 영상을 엽니다. 문제 장면은 같은 에피소드의 주행 로그와 대조합니다. |
 | 어떤 지표부터 비교하나요? | `run-baseline/aggregate/metrics_results.txt`에서 자차 과실 충돌과 도로 이탈부터 봅니다. 한 번의 성공으로 설치와 기준 실행을 확인하고, 정책 성능을 판단할 때는 장면을 늘립니다. |
 
-정책을 비교할 때는 새 출력 폴더를 사용하고 장면 아티팩트 UUID, 렌더러·카메라, 차량·교통, 평가 설정을 고정합니다. 최종 적용된 실행 설정을 저장한 뒤 같은 카메라 구성에서 동작하는 다른 정책으로 바꿉니다. 같은 장면 ID가 여러 아티팩트를 가리킬 수 있으므로, 선택된 UUID와 Hugging Face 리비전도 결과에 함께 기록합니다. [AlpaSim 결과 구조](https://github.com/NVlabs/alpasim/blob/affc2eab209fa43bdfa2f26c0f8d437922d78a68/docs/TUTORIAL.md#results-structure) · [공식 평가 지표](https://github.com/NVlabs/alpasim/blob/affc2eab209fa43bdfa2f26c0f8d437922d78a68/docs/OPERATIONS.md#understanding-driving-quality-metrics)
+정책을 비교할 때는 새 출력 폴더를 사용하고 장면 파일의 UUID, 렌더러·카메라, 차량·교통, 평가 설정을 고정합니다. 최종 적용된 실행 설정을 저장한 뒤 같은 카메라 구성에서 동작하는 다른 정책으로 바꿉니다. 같은 장면 ID가 여러 장면 파일을 가리킬 수 있으므로, 선택된 UUID와 Hugging Face 리비전도 결과에 함께 기록합니다. [AlpaSim 결과 구조](https://github.com/NVlabs/alpasim/blob/affc2eab209fa43bdfa2f26c0f8d437922d78a68/docs/TUTORIAL.md#results-structure) · [공식 평가 지표](https://github.com/NVlabs/alpasim/blob/affc2eab209fa43bdfa2f26c0f8d437922d78a68/docs/OPERATIONS.md#understanding-driving-quality-metrics)
 
 ## 3. 자체 주행 로그로 확장하기
 
@@ -55,4 +55,4 @@ uv run alpasim_wizard deploy=local topology=1gpu driver=vavam \
 - **후학습** · [AlpaGym](../alpagym.md)은 지원되는 AlpaSim 워크플로에 강화학습을 연결합니다. [Alpamayo Recipes](https://github.com/NVlabs/alpamayo-recipes)는 모델 후학습과 배포 예제를 제공합니다.
 - **다른 렌더러** · [FlashDreams를 통한 OmniDreams](https://github.com/NVlabs/alpasim/blob/affc2eab209fa43bdfa2f26c0f8d437922d78a68/docs/VIDEO_MODEL.md)는 별도 렌더러 구성입니다. 지원 장면·카메라·체크포인트·GPU 조건을 확인합니다.
 - **라이선스** · AlpaSim 코드는 Apache-2.0입니다. VaVAM 자산, 접근 제한이 있는 NuRec 데이터·아티팩트, 컨테이너 구성 요소에는 별도 조건이 적용됩니다. [AlpaSim 라이선스](https://github.com/NVlabs/alpasim/blob/affc2eab209fa43bdfa2f26c0f8d437922d78a68/LICENSE) · [NuRec 데이터셋 카드](https://huggingface.co/datasets/nvidia/PhysicalAI-Autonomous-Vehicles-NuRec)
-- **검증 상태** · 지정 리비전의 공식 튜토리얼, 장면 항목, 출력 경로를 대조했습니다. 이 가이드를 작성하면서 GPU 롤아웃과 자체 로그 확장을 실행하지는 않았습니다.
+- **검증 상태** · 지정 리비전의 공식 튜토리얼, 장면 항목, 출력 경로를 대조했습니다. 검증 범위는 문서 대조까지입니다. GPU 주행과 직접 수집한 로그로 장면을 복원하는 실습은 실행 확인이 필요합니다.

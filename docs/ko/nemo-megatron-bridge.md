@@ -1,8 +1,8 @@
 # NeMo Megatron Bridge
 
-[← 전체 목록](../../README.ko.md) · [English](../en/nemo-megatron-bridge.md)
+[← 프로젝트 홈](../../README.ko.md) · [English](../en/nemo-megatron-bridge.md)
 
-Megatron Core 학습 레시피와 Hugging Face 체크포인트 양방향 변환.
+NeMo Megatron Bridge는 Hugging Face와 Megatron Core 사이에서 체크포인트를 변환합니다. Megatron Core에서 분산 학습을 시작하는 데 필요한 모델별 설정도 제공합니다.
 
 ![Megatron Bridge 프로젝트 개요](https://raw.githubusercontent.com/NVIDIA-NeMo/Megatron-Bridge/main/Repo-Mbridge.png)
 
@@ -10,11 +10,11 @@ Megatron Core 학습 레시피와 Hugging Face 체크포인트 양방향 변환.
 
 ## 아키텍처와 데이터 흐름
 
-Bridge는 지원 Hugging Face 모델의 가중치와 구성을 Megatron Core 표현에 매핑합니다. 학습 레시피에서 데이터, 병렬화, 옵티마이저와 학습 방식을 설정합니다. 지원 모델을 사전학습하거나 SFT·LoRA로 조정한 후 적합한 변환을 통해 Hugging Face 형식으로 내보낼 수 있습니다.
+Bridge는 지원 Hugging Face 모델의 가중치와 구성을 Megatron Core 표현에 매핑합니다. 학습 레시피에서 데이터, 병렬화, 옵티마이저와 학습 방식을 설정합니다. 지원 모델을 사전 학습하거나 SFT·LoRA로 조정한 후 적합한 변환을 통해 Hugging Face 형식으로 내보낼 수 있습니다.
 
-## 물리 AI 활용 예시
+## 피지컬 AI 활용 예시
 
-대형 VLM을 여러 GPU에서 지도 미세조정하기 전에 소량의 검사 이미지로 Hugging Face→Megatron 변환을 검증합니다. 학습 후 같은 영상과 문구로 학습 환경과 내보낸 모델의 출력을 비교합니다.
+대형 VLM을 여러 GPU에서 지도 파인튜닝하기 전에 소량의 검사 이미지로 Hugging Face→Megatron 변환을 검증합니다. 학습 후 같은 영상과 문구로 학습 환경과 내보낸 모델의 출력을 비교합니다.
 
 ## 검증할 항목
 

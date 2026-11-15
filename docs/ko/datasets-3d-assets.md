@@ -2,7 +2,7 @@
 
 [전체 목록](../../README.ko.md) · [English](../en/datasets-3d-assets.md)
 
-이 목록은 시뮬레이션에서 재사용할 기하 모델, 장면, 물체를 모았다. 창고 시나리오와 로봇이 집는 소품, MJCF 물체 라이브러리는 쓰는 시뮬레이터와 통합 과정이 다르다.
+시뮬레이션에 다시 쓸 수 있는 3D 모델, 장면, 소품을 모았습니다. 창고 장면, 로봇이 집을 물체, MJCF 라이브러리마다 지원하는 시뮬레이터와 불러오는 방법이 다릅니다.
 
 ## 카탈로그에서 사용할 장면까지
 
@@ -15,11 +15,11 @@
 
 ![강체를 추가할 에셋을 선택하는 NVIDIA Isaac Sim 공식 화면](https://huggingface.co/datasets/nvidia/PhysicalAI-SimReady-Warehouse-01/resolve/main/images/PhysicalAI_Dataset_02.png)
 
-창고 카드의 공식 가이드에서는 Stage에서 에셋 최상위 Xform을 선택한다. USD 장면은 개별 자산을 페이로드로 연결한다. 공식 장면에는 충돌체가 들어 있으며, 움직여야 하는 에셋에는 문서대로 강체를 설정할 수 있다. CSV 카탈로그에서 경로, 분류, 시맨틱 Q코드, 대략적인 질량을 확인할 수 있다. [공식 창고 카드와 설정 절차](https://huggingface.co/datasets/nvidia/PhysicalAI-SimReady-Warehouse-01#how-to-use)
+창고 카드의 공식 가이드에서는 Stage에서 에셋 최상위 Xform을 선택합니다. USD 장면은 개별 자산을 페이로드로 연결합니다. 공식 장면에는 충돌체가 들어 있으며, 움직여야 하는 에셋에는 문서대로 강체를 설정할 수 있습니다. CSV 카탈로그에서 경로, 분류, 시맨틱 Q코드, 대략적인 질량을 확인할 수 있습니다. [공식 창고 카드와 설정 절차](https://huggingface.co/datasets/nvidia/PhysicalAI-SimReady-Warehouse-01#how-to-use)
 
 ## 활용 예시 — 선반의 물체 집기
 
-카탈로그에서 창고 물체 몇 개를 고른다. USD 장면을 불러와 물체 하나에 대해 중력과 그리퍼 접촉을 시험한다. 그리퍼와 크기가 맞는지, 질량과 충돌체가 작업에 맞는지, 물체 배치를 무작위로 바꾸기 전에 카메라에서 보이는지 확인한다. MJCF 주방 벤치마크라면 호환되는 물체 패키지의 메시와 접촉 설정을 해당 실행 환경에서 검토한다. [주방 MJCF 데이터 카드](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Objects-Kitchen-MJCF) · [SimReady](simready.md)
+카탈로그에서 창고 물체 몇 개를 고릅니다. USD 장면을 불러와 물체 하나에 대해 중력과 그리퍼 접촉을 시험합니다. 그리퍼와 크기가 맞는지, 질량과 충돌체가 작업에 맞는지, 물체 배치를 무작위로 바꾸기 전에 카메라에서 보이는지 확인합니다. MJCF 주방 벤치마크라면 호환되는 물체 패키지의 메시와 접촉 설정을 해당 실행 환경에서 검토합니다. [주방 MJCF 데이터 카드](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Objects-Kitchen-MJCF) · [SimReady](simready.md)
 
 ## 데이터셋 상세
 

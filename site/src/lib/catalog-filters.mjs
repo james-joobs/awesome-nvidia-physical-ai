@@ -1,8 +1,8 @@
 export const catalogFields = [
-  ['simulation', 'code', 'Physics, 3D, and simulation', '물리, 3D 및 시뮬레이션'],
-  ['robotics', 'code', 'Robot learning, capture, and control', '로봇 학습, 수집 및 제어'],
+  ['simulation', 'code', 'Physics, 3D, and simulation', '물리·3D·시뮬레이션'],
+  ['robotics', 'code', 'Robot learning, capture, and control', '로봇 학습·시연 수집·제어'],
   ['data-tooling', 'code', 'Data generation, processing, and orchestration', '데이터 생성·처리 및 실행'],
-  ['nemo', 'code', 'NeMo and Physical AI tooling', 'NeMo와 물리 AI 도구'],
+  ['nemo', 'code', 'NeMo and Physical AI tooling', 'NeMo와 피지컬 AI 도구'],
   ['driving', 'code', 'Autonomous driving', '자율주행'],
   ['discovery', 'resource', 'Discovery platforms and tools', '검색 플랫폼과 도구'],
   ['3d-assets', 'dataset', '3D assets and environments', '3D 자산과 환경'],
@@ -12,7 +12,7 @@ export const catalogFields = [
   ['v2d-cosmos-data', 'dataset', 'V2D and Cosmos datasets', 'V2D 및 Cosmos 데이터셋'],
   ['models', 'model', 'Robot foundation models and VLAs', '로봇 파운데이션 모델과 VLA'],
   ['platforms', 'platform', 'Platforms, models, products, standards, and restricted code', '플랫폼·모델·제품·표준 및 제한적 공개 항목'],
-  ['external', 'external', 'External models and tools', '대화에서 함께 언급된 외부 모델·도구'],
+  ['external', 'external', 'External models and tools', '함께 쓰는 외부 모델과 도구'],
 ].map(([id, kind, en, ko]) => ({ id, kind, en, ko }));
 
 const licenseRules = [
@@ -85,8 +85,8 @@ export const catalogCopy = {
     },
   },
   ko: {
-    title: 'Physical AI 카탈로그',
-    description: '프로젝트, 모델 체크포인트, 데이터셋과 플랫폼을 검색하세요. 각 항목에서 공식 출처와 상세 가이드를 열 수 있습니다.',
+    title: '피지컬 AI 카탈로그',
+    description: '프로젝트, 모델 체크포인트, 데이터셋, 플랫폼을 검색할 수 있습니다. 검색 결과에서 공식 자료와 가이드를 확인하세요.',
     search: '카탈로그 검색',
     placeholder: 'Isaac Sim, GR00T, 3DGS 등',
     field: '분야',
@@ -96,20 +96,20 @@ export const catalogCopy = {
     access: '공개 상태',
     allAccess: '모든 상태',
     clear: '필터 초기화',
-    broader: '해당 버전과 일치하는 항목이 없어, 이름이 맞는 프로젝트를 표시합니다.',
+    broader: '입력한 버전의 자료가 없어 프로젝트 이름으로 검색했습니다.',
     none: '검색 결과가 없습니다. 검색어를 바꾸거나 필터를 해제해 보세요.',
     more: '결과 더 보기',
-    showing: '검색 결과 {matches}개 중 {visible}개 표시',
-    termsNote: '필터는 카탈로그에 기록된 정보를 사용합니다. 라이선스 적용 범위와 접근 조건은 각 항목의 원문을 확인하세요.',
+    showing: '검색 결과 {matches}개 중 {visible}개',
+    termsNote: '라이선스가 코드·가중치·데이터 중 어디에 적용되는지, 별도 사용 신청이 필요한지는 각 항목의 공식 자료를 확인하세요.',
     commit: '최근 커밋',
-    review: '혼합·별도 약관 또는 미확인',
+    review: '여러 조건·별도 약관·미확인',
     statuses: {
       public: '공개 또는 다운로드 가능',
-      restricted: '접근 절차 필요',
+      restricted: '신청 또는 동의 필요',
       announced: '발표 또는 프리뷰',
       archived: '보관된 저장소',
       documented: '제품 또는 공식 문서',
-      unverified: '공개 상태 미확인',
+      unverified: '공개 여부 미확인',
     },
   },
 };

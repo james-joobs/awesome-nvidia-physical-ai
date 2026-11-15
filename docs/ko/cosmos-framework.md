@@ -1,8 +1,8 @@
 # Cosmos Framework
 
-[← 전체 목록](../../README.ko.md) · [English](../en/cosmos-framework.md)
+[← 프로젝트 홈](../../README.ko.md) · [English](../en/cosmos-framework.md)
 
-Cosmos 3 학습·후학습·평가·서빙 레시피.
+Cosmos Framework에는 Cosmos 3 모델을 학습하고 평가한 뒤 추론 서비스로 띄우는 예제가 있습니다. Reasoner로 영상 질의응답을 하거나 Generator로 영상을 생성할 때 모델에 맞는 학습 설정을 선택합니다.
 
 ## 아키텍처와 데이터 흐름
 
@@ -15,7 +15,7 @@ flowchart LR
 
 아래 공식 자료를 바탕으로 정리한 개념도입니다.
 
-## 물리 AI 활용 예시
+## 피지컬 AI 활용 예시
 
 지원 Cosmos 3 Reasoner를 타임스탬프가 있는 산업 영상 질의응답에 적응시킵니다. 소량 데이터로 입력 목록과 프로세서를 검증하고 별도 장면에서 학습 전후 정확도를 비교합니다. 서빙 단계에서도 같은 전처리를 적용하는지 확인합니다.
 

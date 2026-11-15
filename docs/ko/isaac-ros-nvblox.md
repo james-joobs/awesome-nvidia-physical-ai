@@ -1,6 +1,6 @@
 # Isaac ROS Nvblox
 
-[← 전체 목록](../../README.ko.md) · [English](../en/isaac-ros-nvblox.md)
+[← 프로젝트 홈](../../README.ko.md) · [English](../en/isaac-ros-nvblox.md)
 
 Isaac ROS Nvblox는 GPU 복셀 매핑 라이브러리를 ROS 2에서 사용하고 Nav2에 비용 지도 계층을 제공하도록 연결합니다.
 
@@ -12,11 +12,11 @@ Isaac ROS Nvblox는 GPU 복셀 매핑 라이브러리를 ROS 2에서 사용하�
 
 *시뮬레이터의 지도에 사람이 등장하는 예입니다. 동적 장애물을 시험할 때 지도와 비용 지도를 함께 확인하세요.* [공식 그림 출처](https://nvidia-isaac-ros.github.io/v/release-5.0/repositories_and_packages/isaac_ros_nvblox/index.html)
 
-## 어떻게 동작하나
+## 작동 방식
 
 깊이와 카메라 내부 파라미터를 이용해 3D 측정값을 계산하고, 자세 또는 TF로 공통 지도 좌표계에 배치합니다. Nvblox는 측정값을 복셀에 통합하고 장애물까지의 거리를 계산합니다. Nav2는 2D 비용 지도 단면을 받습니다. 선택적으로 RGB를 시각화에 활용하며, 메시와 비용 지도는 별도의 출력입니다.
 
-## 실전 워크플로
+## 사용 순서
 
 작은 가상 통로에서 깊이와 TF를 먼저 연결합니다. 로봇이 피해야 할 장애물 높이에 맞춰 단면 범위를 설정한 뒤, 낮은 상자와 위로 돌출된 선반을 놓고 메시와 경로 계획기가 보는 장애물을 비교합니다.
 

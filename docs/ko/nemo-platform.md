@@ -1,13 +1,13 @@
 # NVIDIA NeMo Platform
 
-[← 전체 목록](../../README.ko.md) · [English](../en/nemo-platform.md)
+[← 프로젝트 홈](../../README.ko.md) · [English](../en/nemo-platform.md)
 
 <p align="center">
   <img src="../../assets/project-marks/nemo-launch.png" width="300" alt="초록색 신경망 모듈을 쌓은 NVIDIA NeMo 공개 이미지"><br>
   <sub><a href="https://developer.nvidia.com/blog/announcing-nemo-fast-development-of-speech-and-language-models/">NVIDIA NeMo 공식 공개 이미지</a></sub>
 </p>
 
-모델 맞춤 학습·평가·가드레일·추론 인프라.
+NeMo Platform은 모델을 작업에 맞게 학습시키고 평가한 뒤 추론 서비스로 운영하는 데 필요한 도구를 제공합니다. 응답과 도구 호출에 적용할 가드레일도 설정할 수 있습니다.
 
 ![NeMo 마이크로서비스 토폴로지](https://docs.nvidia.com/nemo/microservices/25.4.0/_images/architecture-topology.png)
 
@@ -17,7 +17,7 @@
 
 NeMo Platform은 데이터 준비, 모델 적응·평가와 추론 게이트웨이를 통한 서빙 서비스를 제공합니다. 이전 NeMo Microservices 문서에는 Kubernetes의 Customizer, Evaluator, Guardrails와 저장 서비스 구성이 설명되어 있습니다. 실제 릴리스에 맞춰 구성 요소를 확인하고 공개 라이브러리와 서비스 배포물을 구분합니다.
 
-## 물리 AI 활용 예시
+## 피지컬 AI 활용 예시
 
 산업 보고서 에이전트에서 검토된 예제를 모아 지원 모델을 맞춤 학습합니다. 고정된 사고 평가 세트에서 검증한 후 시험용 엔드포인트에서 이전·신규 경로를 비교합니다. 운영 결과에는 근거와 모델 버전을 함께 기록합니다.
 

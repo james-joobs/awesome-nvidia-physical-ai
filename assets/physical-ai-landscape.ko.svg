@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xml:lang="ko" width="1600" height="1500" viewBox="0 0 1600 1500" role="img" aria-labelledby="title desc">
 <title id="title">NVIDIA Physical AI 생태계와 개발 플라이휠</title>
-<desc id="desc">핵심 물리 AI 스택, NeMo와 Cosmos의 데이터 정제부터 서빙까지, Switchyard 선택 라우팅, 배포 결과를 다시 수집하는 플라이휠을 보여 주는 비공식 지도입니다.</desc>
+<desc id="desc">핵심 피지컬 AI 스택, NeMo와 Cosmos의 데이터 정제부터 서빙까지, Switchyard 선택 라우팅, 배포 결과를 다시 수집하는 플라이휠을 보여 주는 비공식 지도입니다.</desc>
 <defs>
   <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
     <stop stop-color="#151a18"/><stop offset="1" stop-color="#090c0b"/>
@@ -40,10 +40,10 @@
 <rect width="1600" height="1500" rx="20" fill="url(#grid)"/>
 <rect width="12" height="1500" fill="#76b900"/>
 <text x="64" y="62" class="eyebrow">비공식 커뮤니티 가이드  /  NVIDIA PHYSICAL AI</text>
-<text x="64" y="119" class="title">현실 데이터에서 지능형 행동까지</text>
-<text x="64" y="155" class="muted">시뮬레이션과 모델 개발, 그리고 배포된 모델을 애플리케이션에 연결하는 서비스</text>
+<text x="64" y="119" class="title">현실 데이터에서 로봇·차량 제어까지</text>
+<text x="64" y="155" class="muted">데이터 준비, 시뮬레이션, 모델 학습과 배포에 쓰는 도구</text>
 <!-- Core stack -->
-<text x="64" y="205" class="section">01  /  물리 AI 핵심 스택</text>
+<text x="64" y="205" class="section">01  /  피지컬 AI 핵심 스택</text>
 <rect x="64" y="226" width="356" height="223" rx="12" class="card"/>
 <rect x="64" y="226" width="356" height="4" rx="2" fill="#76b900"/>
 <text x="84" y="255" class="eyebrow">01 / 입력</text>
@@ -81,14 +81,14 @@
 <text x="1200" y="424" class="label">DeepStream · Metropolis VSS</text>
 <!-- Model lifecycle -->
 <text x="64" y="501" class="section">02  /  NeMo와 COSMOS 모델 워크플로</text>
-<text x="1536" y="501" class="small" text-anchor="end">초록 화살표는 데이터와 모델 산출물의 흐름을 나타냅니다.</text>
+<text x="1536" y="501" class="small" text-anchor="end">초록 화살표는 데이터와 체크포인트의 흐름을 나타냅니다.</text>
 <rect x="64" y="522" width="356" height="192" rx="12" class="card"/>
 <text x="84" y="554" class="card-title">데이터 정제</text>
 <text x="84" y="587" class="label">Cosmos Curator · NeMo Curator</text>
 <text x="84" y="614" class="label">NeMo Data Designer · NeMo Speech</text>
 <text x="84" y="641" class="label">Cosmos Xenna  /  처리 단계 실행</text>
 <path d="M84 655h316" stroke="#3d5743"/>
-<text x="84" y="684" class="artifact">정제 클립 · 라벨 · 데이터 목록</text>
+<text x="84" y="684" class="artifact">정제된 클립 · 라벨 · 데이터 목록</text>
 <rect x="436" y="522" width="356" height="192" rx="12" class="card"/>
 <text x="456" y="554" class="card-title">학습과 후학습</text>
 <text x="456" y="587" class="label">Cosmos Framework · Cosmos RL</text>
@@ -102,7 +102,7 @@
 <text x="828" y="614" class="label">NeMo Evaluator  /  벤치마크</text>
 <text x="828" y="641" class="label">NeMo Helix  /  에이전트 평가</text>
 <path d="M828 655h316" stroke="#3d5743"/>
-<text x="828" y="684" class="artifact">평가 점수와 배포 판단</text>
+<text x="828" y="684" class="artifact">평가 점수 · 배포할 모델 선택</text>
 <rect x="1180" y="522" width="356" height="192" rx="12" class="card"/>
 <text x="1200" y="554" class="card-title">모델 서빙</text>
 <text x="1200" y="587" class="label">NVIDIA NIM  /  모델 추론</text>
@@ -115,12 +115,12 @@
 <path d="M1165 616H1176" class="green-line"/>
 <!-- Optional inference request path -->
 <text x="64" y="766" class="section">03  /  추론 시점의 SWITCHYARD</text>
-<text x="1086" y="766" class="small" text-anchor="end">호스트에서 선택적으로 연동하는 요청 흐름 예시</text>
+<text x="1086" y="766" class="small" text-anchor="end">앱에서 요청을 받아 추론 모델에 전달하는 예</text>
 <rect x="64" y="788" width="1472" height="259" rx="12" class="route-band"/>
 <rect x="88" y="821" width="448" height="103" rx="12" class="route"/>
 <text x="106" y="854" class="card-title">애플리케이션 또는 에이전트</text>
 <text x="106" y="881" class="label">예시: 영상 분석 보고서 작성</text>
-<text x="106" y="905" class="small">VSS는 영상 근거 제공 · NemoClaw는 에이전트 실행</text>
+<text x="106" y="905" class="small">VSS는 영상에서 근거 검색 · NemoClaw는 에이전트 실행</text>
 <rect x="616" y="821" width="364" height="103" rx="12" class="switch"/>
 <text x="634" y="854" class="card-title blue">NeMo Switchyard</text>
 <text x="634" y="881" class="label">요청마다 사용할 모델 선택</text>
@@ -128,7 +128,7 @@
 <rect x="1060" y="821" width="452" height="103" rx="12" class="route"/>
 <text x="1078" y="854" class="card-title">호환 모델 API</text>
 <text x="1078" y="881" class="label">NIM 또는 설정된 다른 공급자</text>
-<text x="1078" y="905" class="small">선택된 엔드포인트에서 추론 실행</text>
+<text x="1078" y="905" class="small">선택한 엔드포인트에서 추론</text>
 <path d="M543 873H606" class="blue-line"/>
 <path d="M987 873H1050" class="blue-line"/>
 <path d="M1358 715V811" class="blue-line serve-line"/>
@@ -145,7 +145,7 @@
 <text x="864" y="1154" class="small">실행 관리 · OSMO</text>
 <text x="1174" y="1154" class="small">데이터·모델 · Hugging Face</text>
 <!-- Physical AI feedback loop -->
-<text x="64" y="1227" class="section">05  /  물리 AI 플라이휠</text>
+<text x="64" y="1227" class="section">05  /  피지컬 AI 플라이휠</text>
 <rect x="64" y="1248" width="1472" height="171" rx="12" class="band"/>
 <rect x="88" y="1270" width="214" height="70" rx="9" class="chip"/>
 <text x="101" y="1299" class="label">1. 수집</text>

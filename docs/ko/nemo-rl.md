@@ -1,8 +1,8 @@
 # NeMo RL
 
-[← 전체 목록](../../README.ko.md) · [English](../en/nemo-rl.md)
+[← 프로젝트 홈](../../README.ko.md) · [English](../en/nemo-rl.md)
 
-지원 LLM·VLM의 분산 지도 미세조정과 강화학습.
+NeMo RL은 지원하는 LLM과 VLM을 여러 GPU에서 지도 파인튜닝(SFT)하거나 강화학습할 수 있는 도구입니다.
 
 ![NeMo RL 아키텍처](https://raw.githubusercontent.com/NVIDIA-NeMo/RL/main/docs/assets/RL_diagram.png)
 
@@ -12,7 +12,7 @@
 
 롤아웃 워커가 응답 후보를 생성하고 환경 또는 채점 함수가 보상을 반환하면 학습 워커가 정책을 갱신합니다. Ray가 워커를 조정합니다. 레시피에 따라 AutoModel DTensor 또는 Megatron Bridge 경로를 사용하며, 저장소는 VLM의 SFT와 GRPO를 지원합니다.
 
-## 물리 AI 활용 예시
+## 피지컬 AI 활용 예시
 
 작업 셀 이미지 질문 세트를 만들고 실제 이벤트 라벨 또는 허용된 구조화 값으로 응답을 채점합니다. 분리한 장면에서 학습 전후 모델을 비교합니다. 자율주행 롤아웃은 해당되는 경우 AlpaGym과 Cosmos RL의 별도 구성을 참고합니다.
 

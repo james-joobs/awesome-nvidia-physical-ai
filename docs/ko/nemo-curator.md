@@ -1,8 +1,8 @@
 # NeMo Curator
 
-[← 전체 목록](../../README.ko.md) · [English](../en/nemo-curator.md)
+[← 프로젝트 홈](../../README.ko.md) · [English](../en/nemo-curator.md)
 
-텍스트·이미지·영상·오디오 데이터셋 분산 정제.
+NeMo Curator는 텍스트, 이미지, 영상, 오디오 데이터셋을 여러 워커에서 정제합니다. 모델 학습에 앞서 중복을 제거하거나 기준에 맞는 샘플을 고를 때 씁니다.
 
 ![NeMo Curator 파이프라인](https://raw.githubusercontent.com/NVIDIA-NeMo/Curator/main/fern/assets/images/architecture-diagram.png)
 
@@ -10,9 +10,9 @@
 
 ## 아키텍처와 데이터 흐름
 
-Curator는 전처리, 점수 계산과 필터링을 조합 가능한 단계로 구성합니다. 파이프라인은 데이터와 자원을 기술하고 실행기가 각 단계를 스케줄링합니다. 공식 Xenna 실행기는 처리 단계를 Ray 액터 작업으로 변환합니다. NeMo Curator와 Cosmos Curator는 별도 저장소입니다. Cosmos Curator의 레시피는 영상 등 물리 AI 데이터에 초점을 둡니다.
+Curator는 전처리, 점수 계산과 필터링을 조합 가능한 단계로 구성합니다. 파이프라인은 데이터와 자원을 기술하고 실행기가 각 단계를 스케줄링합니다. 공식 Xenna 실행기는 처리 단계를 Ray 액터 작업으로 변환합니다. NeMo Curator와 Cosmos Curator는 별도 저장소입니다. Cosmos Curator의 레시피는 영상 등 피지컬 AI 데이터에 초점을 둡니다.
 
-## 물리 AI 활용 예시
+## 피지컬 AI 활용 예시
 
 작업자 음성이 포함된 센서 기록에서 전사와 클립 메타데이터를 준비하고 품질이 낮은 샘플을 걸러 학습 목록을 만듭니다. 영상 분할과 품질 평가가 핵심이라면 Cosmos Curator의 영상 레시피를 확인합니다.
 

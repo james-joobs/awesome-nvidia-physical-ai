@@ -1,6 +1,6 @@
 # Isaac ROS Visual SLAM
 
-[← 전체 목록](../../README.ko.md) · [English](../en/isaac-ros-visual-slam.md)
+[← 프로젝트 홈](../../README.ko.md) · [English](../en/isaac-ros-visual-slam.md)
 
 Isaac ROS Visual SLAM은 카메라로 로봇의 움직임을 추정하는 cuVSLAM을 ROS 2 컴포넌트로 제공합니다.
 
@@ -12,11 +12,11 @@ Isaac ROS Visual SLAM은 카메라로 로봇의 움직임을 추정하는 cuVSLA
 
 *카메라 이동에 따라 추정 궤적이 갱신되는 모습을 보여줍니다.* [공식 그림 출처](https://nvidia-isaac-ros.github.io/v/release-5.0/repositories_and_packages/isaac_ros_visual_slam/index.html)
 
-## 어떻게 동작하나
+## 작동 방식
 
 **입력:** 보정하고 동기화한 카메라 스트림과 TF 카메라 프레임입니다. 지원 구성에서는 IMU 관측도 사용합니다. **추정:** cuVSLAM은 프레임 간 영상 특징을 추적하고 랜드마크를 삼각 측량해 움직임을 구합니다. SLAM 모드에서는 지도와 루프 클로저 보정이 추가됩니다. **출력:** 오도메트리와 자세를 내비게이션·매핑에서 사용합니다. 연속적인 로컬 오도메트리와 전역 보정이 적용되는 지도 좌표계를 구분합니다.
 
-## 실전 워크플로
+## 사용 순서
 
 창고 통로를 한 바퀴 돌아 영상을 기록합니다. 같은 데이터를 오도메트리 모드와 매핑 모드로 각각 재생해 종료 자세를 시작 자세와 비교합니다. 자세와 스테레오 깊이를 [Isaac ROS Nvblox](isaac-ros-nvblox.md)에 전달할 수 있습니다.
 

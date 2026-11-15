@@ -2,7 +2,7 @@
 
 [← 모델 목록](../../CATALOG.ko.md#로봇-파운데이션-모델과-vla) · [English](../en/robot-foundation-models.md)
 
-평가할 수 있는 로봇과 작업부터 정합니다. 사용할 카메라·그리퍼·벤치마크와 맞는 체크포인트를 고르면, 새 시연을 수집하거나 범용 모델을 파인튜닝하기 전에 재현 가능한 기준 결과를 얻을 수 있습니다.
+먼저 어떤 로봇으로 어떤 작업을 시험할지 정하세요. 카메라 구성과 그리퍼가 맞는 체크포인트나 벤치마크용 체크포인트로 공식 예제를 재현합니다. 처음 얻은 결과를 기준으로 삼으면 새 시연을 모으거나 파인튜닝한 뒤 얼마나 나아졌는지 비교할 수 있습니다.
 
 | 가지고 있는 것 | 시작점 | 처음 확인할 결과 |
 |---|---|---|
@@ -28,7 +28,7 @@
 
 - **OpenVLA**는 7B 조작 기준 모델과 추론·파인튜닝 코드를 제공합니다. 모델 카드에는 MIT가 표시되며, 저장소는 Llama 2 조건도 적용된다고 명시합니다. [모델 카드](https://huggingface.co/openvla/openvla-7b) · [원본 저장소 이용 조건](https://github.com/openvla/openvla#pretrained-vlas)
 - **MolmoAct 2**는 깊이 정보를 활용하며 베이스와 로봇별 체크포인트를 제공합니다. 사용할 로봇이나 평가 환경에 맞는 체크포인트를 고릅니다. [모델 카드](https://huggingface.co/allenai/MolmoAct2)
-- **X-VLA**는 로봇 형태별 소프트 프롬프트를 사용합니다. 실행할 구현이 지원하는 관측과 행동 방식을 확인합니다. [베이스 모델 카드](https://huggingface.co/2toINF/X-VLA-Pt) · [LeRobot 연동](https://huggingface.co/docs/lerobot/xvla)
+- **X-VLA**는 로봇 기종별 소프트 프롬프트를 사용합니다. 실행할 구현이 지원하는 관측과 행동 방식을 확인합니다. [베이스 모델 카드](https://huggingface.co/2toINF/X-VLA-Pt) · [LeRobot 연동](https://huggingface.co/docs/lerobot/xvla)
 ## 월드 액션 모델
 
 - **Praxis-1**은 미래 영상과 로봇 행동을 함께 예측합니다. 베이스와 DROID·YAM 체크포인트는 Apache-2.0이며 Hugging Face에서 접근 절차를 거쳐 받을 수 있습니다. [공식 공개 발표](https://runway.com/news/company-news/praxis-1-is-now-available) · [베이스 체크포인트](https://huggingface.co/runwayml/praxis-1-base)

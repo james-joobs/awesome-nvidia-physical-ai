@@ -1,6 +1,6 @@
 # Alpamayo
 
-[← 전체 목록](../../README.ko.md) · [English](../en/alpamayo.md)
+[← 프로젝트 홈](../../README.ko.md) · [English](../en/alpamayo.md)
 
 Alpamayo는 자율주행용 추론·행동 모델 계열입니다. R1 연구 아키텍처를 구체적인 예로 볼 수 있습니다. 다른 버전에 적용할 때는 모델 카드에서 구성과 입력 규약을 확인합니다.
 
@@ -21,11 +21,11 @@ Alpamayo는 자율주행용 추론·행동 모델 계열입니다. R1 연구 아
 | **Alpamayo 1.5** · 2026-03-19 | Cosmos-Reason2 기반의 100억 파라미터급 VLA입니다. 내비게이션 안내, 가변 카메라 수, 시각 질의응답을 지원합니다. | [모델 카드](https://huggingface.co/nvidia/Alpamayo-1.5-10B) · [GitHub](https://github.com/NVlabs/alpamayo1.5) |
 | **Alpamayo 1 (R1)** | 인과 추론과 궤적을 함께 출력하는 초기 100억 파라미터급 모델입니다. 위의 아키텍처 그림은 이 버전을 보여줍니다. | [모델 카드](https://huggingface.co/nvidia/Alpamayo-R1-10B) · [GitHub](https://github.com/NVlabs/alpamayo) |
 
-## 어떻게 동작하나
+## 작동 방식
 
 R1은 카메라 프레임과 자차 움직임 이력 등 관측을 바탕으로 추론과 궤적을 예측합니다. 비전 언어 백본에서 주행 근거를 생성하고 궤적 생성 구성 요소가 연속 웨이포인트를 출력합니다. 시뮬레이터 드라이버는 궤적을 받아 자차 상태를 진행할 수 있습니다. 추론 텍스트와 실제 움직임은 별도로 확인합니다.
 
-## 실전 워크플로
+## 사용 순서
 
 부분적으로 가려진 장애물이나 복잡한 합류가 있는 AlpaSim 장면에 Alpamayo 드라이버를 실행합니다. AlpaSim 변경 기록의 `driver=alpamayo2`는 **2 Super**용입니다. Edge는 별도 추론 저장소를 제공하며, NVIDIA 기술 문서는 AlpaGym에서 진행한 Edge의 폐루프 강화학습 후학습을 설명합니다. 추론 근거, 궤적, 롤아웃 지표를 같은 장면·경로의 기준 정책과 비교합니다. [AlpaSim 변경 기록](https://github.com/NVlabs/alpasim/blob/main/CHANGELOG.md) · [Edge 기술 개요](https://developer.nvidia.com/blog/running-av-reasoning-models-within-onboard-compute-and-latency-limits/)
 

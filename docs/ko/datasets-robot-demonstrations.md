@@ -2,7 +2,7 @@
 
 [전체 목록](../../README.ko.md) · [English](../en/datasets-robot-demonstrations.md)
 
-실물 원격 조작, 시뮬레이션 궤적, 파지 데이터와 벤치마크 작업을 모았다. 정책 학습에서는 로봇 형태와 작업에 연결된 관측·행동 시계열을 한 에피소드로 읽는 경우가 많다.
+실제 로봇을 원격 조작한 시연, 시뮬레이션 궤적, 물체를 잡는 동작(파지)과 벤치마크 작업을 모았습니다. 정책을 학습할 때는 로봇이 관측하고 행동한 시간 순서대로 각 작업의 기록을 한 에피소드로 읽는 경우가 많습니다.
 
 ## 공식 카드의 스키마 비교
 
@@ -15,18 +15,18 @@
 
 ![공식 시뮬레이션 주방의 월드 카메라 롤아웃](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Kitchen/resolve/main/assets/episode_000004_world.gif)
 
-공식 주방 예제의 외부 월드 뷰다. 카드의 머리와 손목 뷰도 비교할 수 있다. 손목 카메라를 입력받는 정책에서는 월드 뷰 평가 화면과 물체의 보이는 영역이나 움직임이 다르다. [공식 주방 카메라·스키마 예제](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Kitchen#dataset-format)
+공식 주방 예제의 외부 월드 뷰입니다. 카드의 머리와 손목 뷰도 비교할 수 있습니다. 손목 카메라를 입력받는 정책에서는 월드 뷰 평가 화면과 물체의 보이는 영역이나 움직임이 다릅니다. [공식 주방 카메라·스키마 예제](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Kitchen#dataset-format)
 
 ## 활용 예시 — 궤적 하나로 로더 검증
 
-G1의 물체 옮기기 궤적 하나를 읽고 대응하는 MP4를 디코딩한다. 접촉 프레임을 기준으로 주요 관절의 행동과 관측을 그려 보거나 재생한다. 차원, 관절 순서, 단위, 샘플링 시점과 제어기에 맞는 행동 표현인지 확인한다. 실측과 합성을 섞을 때는 로봇 형태와 출처를 남기고 원본 에피소드 또는 수집 세션 단위로 분할한다. [공식 G1 카드](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-Teleop-G1) · [GR00T 모델](groot-model.md)
+G1의 물체 옮기기 궤적 하나를 읽고 대응하는 MP4를 디코딩합니다. 접촉 프레임을 기준으로 주요 관절의 행동과 관측을 그려 보거나 재생합니다. 차원, 관절 순서, 단위, 샘플링 시점과 제어기에 맞는 행동 표현인지 확인합니다. 실측과 합성을 섞을 때는 로봇 기종와 출처를 남기고 원본 에피소드 또는 수집 세션 단위로 분할합니다. [공식 G1 카드](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-Teleop-G1) · [GR00T 모델](groot-model.md)
 
 ## 데이터셋 상세
 
 <a id="physicalai-robotics-gr00t-x-embodiment-sim"></a>
 ### PhysicalAI-Robotics-GR00T-X-Embodiment-Sim
 
-여러 로봇 형태의 GR00T 후학습용 시뮬레이션 궤적.
+여러 로봇 기종의 GR00T 후학습용 시뮬레이션 궤적.
 
 **라이선스·접근:** CC-BY-4.0; 공개.  
 **공식 데이터셋 카드:** [PhysicalAI-Robotics-GR00T-X-Embodiment-Sim](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-GR00T-X-Embodiment-Sim)
@@ -110,7 +110,7 @@ LeRobot 형식의 주방 조작 시뮬레이션 궤적.
 <a id="physicalai-robotics-manipulation-singlearm"></a>
 ### PhysicalAI-Robotics-Manipulation-SingleArm
 
-단일 로봇팔 조작 시뮬레이션 데이터.
+단일 로봇 팔 조작 시뮬레이션 데이터.
 
 **라이선스·접근:** CC-BY-4.0; 공개.  
 **공식 데이터셋 카드:** [PhysicalAI-Robotics-Manipulation-SingleArm](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-SingleArm)
@@ -118,7 +118,7 @@ LeRobot 형식의 주방 조작 시뮬레이션 궤적.
 <a id="physicalai-robotics-manipulation-objects"></a>
 ### PhysicalAI-Robotics-Manipulation-Objects
 
-물체 집기·놓기 시뮬레이션 궤적.
+물체 집어 옮기기 시뮬레이션 궤적.
 
 **라이선스·접근:** 라이선스 미확인; 공개.  
 **공식 데이터셋 카드:** [PhysicalAI-Robotics-Manipulation-Objects](https://huggingface.co/datasets/nvidia/PhysicalAI-Robotics-Manipulation-Objects)

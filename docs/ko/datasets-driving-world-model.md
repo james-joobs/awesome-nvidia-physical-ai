@@ -2,7 +2,7 @@
 
 [전체 목록](../../README.ko.md) · [English](../en/datasets-driving-world-model.md)
 
-실제 주행 센서 기록, 재구성 장면, 합성 물리 상호작용, 영상 추론 벤치마크가 섞여 있다. 데이터 종류에 따라 유효한 입력과 평가 방법을 구분한다.
+실제 주행에서 얻은 센서 기록, 센서 데이터로 복원한 3D 장면, 물리 상호작용을 합성한 영상, 영상 추론 벤치마크를 모았습니다. 주행 정책 평가, 장면 복원, 월드 모델 학습 중 무엇을 할지 정하고 데이터 형식과 평가 방법을 확인하세요.
 
 ## 작업 기준으로 선택하기
 
@@ -15,11 +15,11 @@
 
 ![VANTAGE-Bench의 공식 작업 분류](https://huggingface.co/datasets/nvidia/PhysicalAI-VANTAGE-Bench/resolve/main/assets/vantage_bench_tasks.png)
 
-공식 그림은 의미, 시간, 공간, 시공간 과제를 나눈다. 카드에는 시간 위치 추정의 구간 mIoU, 영상 질의응답의 정확도처럼 과제별 지표가 지정돼 있다. 공식 평가에 필요한 정답 주석은 서버에서 관리한다. [공식 VANTAGE 카드와 제출 정보](https://huggingface.co/datasets/nvidia/PhysicalAI-VANTAGE-Bench#evaluation)
+공식 그림은 의미, 시간, 공간, 시공간 과제를 나눕니다. 카드에는 시간 위치 추정의 구간 mIoU, 영상 질의응답의 정확도처럼 과제별 지표가 지정돼 있습니다. 공식 평가에 필요한 정답 주석은 서버에서 관리합니다. [공식 VANTAGE 카드와 제출 정보](https://huggingface.co/datasets/nvidia/PhysicalAI-VANTAGE-Bench#evaluation)
 
 ## 활용 예시 — 재생과 생성의 출처 보존
 
-원본 ID를 확인한 주행 클립 하나에서 시작한다. 재생할 때는 시간과 카메라 외부 파라미터를 확인하고, 새 시점을 요청하기 전에 원래 자세에서 먼저 렌더링한다. 영상을 변형할 때는 원본 ID, 생성 조건, 모델 버전과 시드를 기록한다. 파생 영상은 원본과 같은 분할에 둔다. 영상 이해 성능은 생성 라벨에 의존하기보다 별도 규약이 있는 벤치마크로 평가한다. [공식 NuRec 장면 가이드](https://docs.nvidia.com/nurec/nurec/model.html) · [NuRec](nurec.md) · [Human-1M Explorer](human-1m-explorer.md)
+원본 ID를 확인한 주행 클립 하나에서 시작합니다. 재생할 때는 시간과 카메라 외부 파라미터를 확인하고, 새 시점을 요청하기 전에 원래 자세에서 먼저 렌더링합니다. 영상을 변형할 때는 원본 ID, 생성 조건, 모델 버전과 시드를 기록합니다. 파생 영상은 원본과 같은 분할에 둡니다. 영상 이해 성능은 생성 라벨에 의존하기보다 별도 규약이 있는 벤치마크로 평가합니다. [공식 NuRec 장면 가이드](https://docs.nvidia.com/nurec/nurec/model.html) · [NuRec](nurec.md) · [Human-1M Explorer](human-1m-explorer.md)
 
 ## 데이터셋 상세
 

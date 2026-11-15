@@ -37,6 +37,6 @@ Unitree G1 예시는 실제 하드웨어에서 속도와 몸 높이를 추적하
 - [저장소·정책 그림·시연](https://github.com/nvidia-isaac/WBC-AGILE)
 - [AGILE 배포와 내보내기](https://nvidia-isaac.github.io/WBC-AGILE/deploy-policies.html)
 
-## 연관 상세 페이지
+## 관련 가이드
 
 [Isaac Lab](isaac-lab.md) · [LEAPP](leapp.md) · [Isaac ROS Deploy](isaac-ros-deploy.md)

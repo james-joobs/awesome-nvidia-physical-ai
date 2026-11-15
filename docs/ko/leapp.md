@@ -34,6 +34,6 @@ LEAPP 소스는 Apache-2.0입니다. 내보낸 가중치와 런타임 의존성�
 - [공식 추적 예제와 그래프](https://nvidia-isaac.github.io/leapp/getting_started.html)
 - [내보내기 옵션](https://nvidia-isaac.github.io/leapp/guides/export.html)
 
-## 연관 상세 페이지
+## 관련 가이드
 
 [Isaac ROS Deploy](isaac-ros-deploy.md) · [WBC-AGILE](wbc-agile.md)

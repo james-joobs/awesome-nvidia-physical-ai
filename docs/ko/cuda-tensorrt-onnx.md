@@ -1,6 +1,6 @@
 # CUDA / TensorRT / ONNX
 
-[← 전체 목록](../../README.ko.md) · [English](../en/cuda-tensorrt-onnx.md)
+[← 프로젝트 홈](../../README.ko.md) · [English](../en/cuda-tensorrt-onnx.md)
 
 CUDA, TensorRT와 ONNX는 배포의 서로 다른 계층입니다. CUDA는 가속 연산, TensorRT는 추론 엔진 빌드와 실행, ONNX는 이식 가능한 모델 그래프의 표현을 담당합니다.
 
@@ -8,11 +8,11 @@ CUDA, TensorRT와 ONNX는 배포의 서로 다른 계층입니다. CUDA는 가�
 
 *간단한 공식 예제로 입력, 상수, 연산자가 모델 계산을 정의하는 방식을 볼 수 있습니다.* [공식 그림 출처](https://onnx.ai/onnx/intro/concepts.html)
 
-## 어떻게 동작하나
+## 작동 방식
 
 ONNX 그래프에는 텐서, 연산자, 초기값과 연산자 집합 버전이 들어갑니다. 호환 TensorRT 파서가 네트워크를 만들고 빌더가 대상 구현을 선택해 엔진을 생성합니다. 실행에는 장치 버퍼와 CUDA 스트림을 사용합니다. 전처리와 출력 텐서의 해석은 애플리케이션에서 수행합니다.
 
-## 실전 워크플로
+## 사용 순서
 
 모델을 내보내고 고정 입출력 예제를 저장합니다. 호환 런타임에서 ONNX를 실행해 원래 프레임워크와 대조한 뒤 TensorRT 엔진 결과를 비교합니다. 불일치가 내보내기와 엔진 실행 중 어디서 시작했는지 구분할 수 있습니다.
 

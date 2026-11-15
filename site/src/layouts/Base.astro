@@ -48,8 +48,8 @@ const absolute = (path) => new URL(path, Astro.site);
             {languages.map((lang) => {
               const name = lang === 'en' ? 'English' : '한국어';
               return lang === locale
-                ? <span lang={lang} aria-current="page" aria-label={name}>{lang === 'en' ? 'EN' : '한국어'}</span>
-                : <a href={pageUrl(lang, page)} lang={lang} hreflang={lang} aria-label={name} data-language-switch>{lang === 'en' ? 'EN' : '한국어'}</a>;
+                ? <span lang={lang} aria-current="page" aria-label={name}>{name}</span>
+                : <a href={pageUrl(lang, page)} lang={lang} hreflang={lang} aria-label={name} data-language-switch>{name}</a>;
             })}
           </nav>
           <a class="header-github" href={repository} lang="en">GitHub <Icon name="external" size={16} /></a>

@@ -9,3 +9,5 @@ For a pull request, update both [English](CATALOG.md) and [한국어](CATALOG.ko
 오래된 링크, 잘못된 라이선스·릴리스 표기, 누락된 프로젝트는 [GitHub Issues](https://github.com/james-joobs/awesome-nvidia-physical-ai/issues)에 알려주세요. 해당 항목과 공식 저장소·릴리스·라이선스·모델 카드 링크를 함께 적어주시면 확인할 수 있습니다.
 
 PR에서 카탈로그 항목을 바꿀 때는 [English](CATALOG.md)와 [한국어](CATALOG.ko.md)를 함께 수정해 주세요. 원문 링크를 넣고 코드·모델 가중치·데이터 중 어디에 적용되는 조건인지 밝혀주세요. 오픈소스 코드 행을 추가할 때는 기존 형식에 맞춰 기본 브랜치 최근 커밋 날짜와 GitHub 소스 링크를 넣어주세요. 직접 실행한 경우에는 버전과 실행 환경도 적어주세요.
+
+한국어 문서에서는 피지컬 AI, 파인튜닝, 엔드 이펙터처럼 국내 기술 문서에서 널리 쓰는 표현을 사용해 주세요. 제품명, API, 설정 키는 공식 표기를 따르고, 롤아웃이나 리타기팅처럼 문맥이 필요한 용어는 처음 나올 때 동작이나 예시로 설명해 주세요.

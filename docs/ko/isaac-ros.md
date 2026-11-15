@@ -1,6 +1,6 @@
 # Isaac ROS
 
-[← 전체 목록](../../README.ko.md) · [English](../en/isaac-ros.md)
+[← 프로젝트 홈](../../README.ko.md) · [English](../en/isaac-ros.md)
 
 Isaac ROS는 가속 인식·위치 추정·조작 기능을 ROS 2에 연결하는 패키지 모음입니다. Perceptor 참조 워크플로에서는 개별 노드를 조합해 로봇 인식 시스템을 구성합니다.
 
@@ -8,7 +8,7 @@ Isaac ROS는 가속 인식·위치 추정·조작 기능을 ROS 2에 연결하�
 
 *스테레오 입력이 깊이와 오도메트리로 갈라진 뒤 Nvblox에서 합쳐지는 부분을 보세요. Perceptor 3.1 문서의 그림입니다.* [공식 그림 출처](https://nvidia-isaac-ros.github.io/v/release-3.1/reference_workflows/isaac_perceptor/technical_details.html)
 
-## 어떻게 동작하나
+## 작동 방식
 
 1. **센서 계층.** Nova 카메라, 기록 파일, Isaac Sim에서 동기화된 스테레오 프레임을 받아 영상 노드에서 정류합니다.
 2. **병렬 기하 처리.** 스테레오 깊이는 카메라 광선 방향의 거리를 구합니다. Visual SLAM은 연속 영상으로 로봇의 움직임과 자세를 추정합니다.
@@ -22,7 +22,7 @@ Isaac ROS는 가속 인식·위치 추정·조작 기능을 ROS 2에 연결하�
 | 기하 처리 | 스테레오 시차와 추적한 카메라 자세 | 깊이 영상과 월드·카메라 좌표 관계를 지도에 전달 |
 | 로컬 계획 | 복셀 재구성과 단면 높이 설정 | Nav2가 조회하는 비용 지도 계층 |
 
-## 실전 워크플로
+## 사용 순서
 
 창고 rosbag을 먼저 재생합니다. 정류 영상, 오도메트리, 깊이 영상을 각각 확인한 뒤 Nvblox를 연결합니다. 로봇이 움직여도 정지한 팔레트가 지도에서 같은 위치에 나타나는지 확인하고 Nav2를 연결합니다.
 

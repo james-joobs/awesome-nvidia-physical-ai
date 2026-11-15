@@ -45,6 +45,6 @@ Teleop 그림은 실시간 제어 경로를 확대해 보여줍니다. 장치 �
 - [Isaac Capture 공식 문서](https://nvidia.github.io/IsaacCapture/main/)
 - [소스와 라이선스](https://github.com/NVIDIA/IsaacCapture)
 
-## 연관 상세 페이지
+## 관련 가이드
 
 [EgoHand와 EgoPost](egohand-egopost.md) · [LeRobot](lerobot.md) · [AutoData](autodata.md)

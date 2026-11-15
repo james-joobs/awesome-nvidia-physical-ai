@@ -1,8 +1,8 @@
 # NeMo AutoModel
 
-[← 전체 목록](../../README.ko.md) · [English](../en/nemo-automodel.md)
+[← 프로젝트 홈](../../README.ko.md) · [English](../en/nemo-automodel.md)
 
-지원 언어·멀티모달 모델의 PyTorch 기반 분산 학습.
+NeMo Automodel은 언어 모델과 멀티모달 모델을 여러 GPU에서 학습할 수 있게 해 주는 PyTorch 기반 도구입니다. 사용할 모델의 아키텍처가 지원되는지 먼저 확인하세요.
 
 ![AutoModel 구성 개요](https://raw.githubusercontent.com/NVIDIA-NeMo/Automodel/main/docs/automodel_diagram.png)
 
@@ -12,7 +12,7 @@
 
 학습 레시피는 지원 Hugging Face 모델과 프로세서를 데이터셋, 손실, 학습 루프에 연결합니다. PyTorch DeviceMesh와 DTensor는 모델·옵티마이저 상태를 장치에 나누는 방식을 표현합니다. 학습 설정에서 지원 병렬화와 체크포인트 형식을 선택합니다.
 
-## 물리 AI 활용 예시
+## 피지컬 AI 활용 예시
 
 로봇 작업 셀에서 검증한 이미지·질문·답변으로 지원 VLM을 적응시킵니다. 작은 데이터로 영상 디코딩과 정답 토큰 마스킹을 확인한 뒤 장치를 늘립니다. 체크포인트를 내보내 별도 평가 데이터로 비교합니다.
 

@@ -38,6 +38,6 @@ Isaac Lab 구현과 의존성의 조건을 개별 확인합니다. 연구 페이
 - [Isaac Lab SkillGen 튜토리얼](https://isaac-sim.github.io/IsaacLab/v3.0.0/source/features/imitation-learning/skillgen.html)
 - [논문과 발표 정보](https://proceedings.mlr.press/v270/garrett25a.html)
 
-## 연관 상세 페이지
+## 관련 가이드
 
 [MimicGen](mimicgen.md) · [cuRobo](curobo.md) · [Isaac Lab](isaac-lab.md)

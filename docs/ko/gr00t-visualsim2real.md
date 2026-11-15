@@ -38,6 +38,6 @@ DoorMan 시연에서는 보행, 문과의 접촉, 열린 문 통과가 하나의
 - [VIRAL 아키텍처와 실험](https://viral-humanoid.github.io/)
 - [DoorMan 프로젝트와 논문](https://doorman-humanoid.github.io/)
 
-## 연관 상세 페이지
+## 관련 가이드
 
 [Isaac Lab](isaac-lab.md) · [WBC-AGILE](wbc-agile.md)

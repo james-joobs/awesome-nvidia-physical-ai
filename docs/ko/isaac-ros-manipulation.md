@@ -1,6 +1,6 @@
 # Isaac ROS Manipulation
 
-[← 전체 목록](../../README.ko.md) · [English](../en/isaac-ros-manipulation.md)
+[← 프로젝트 홈](../../README.ko.md) · [English](../en/isaac-ros-manipulation.md)
 
 Isaac ROS 조작 워크플로는 로봇 팔에 필요한 인식, 장면 재구성, 동작 계획을 연결합니다.
 
@@ -12,11 +12,11 @@ Isaac ROS 조작 워크플로는 로봇 팔에 필요한 인식, 장면 재구�
 
 *실행 전에 로봇 모델, 인식 장면과 계획을 대조할 수 있는 화면입니다.* [공식 그림 출처](https://nvidia-isaac-ros.github.io/v/release-4.6/reference_workflows/isaac_for_manipulation/reference_architecture.html)
 
-## 어떻게 동작하나
+## 작동 방식
 
 참조 아키텍처에는 인식 경로가 두 개 있습니다. 한쪽은 RGB-D와 Nvblox로 장애물 형상을 만들고, 다른 쪽은 탐지기 또는 분할 모델과 자세 추정기로 목표 물체 자세를 구합니다. MoveIt 또는 cuMotion 통합이 로봇 상태, 충돌 형상, 목표를 이용해 제어기로 보낼 궤적을 생성합니다.
 
-## 실전 워크플로
+## 사용 순서
 
 Isaac Sim에서 Franka 팔과 보정된 카메라를 실행합니다. RViz에서 장애물 형상, 목표 자세, 계획 궤적을 확인합니다. 통로를 막는 물체를 옮긴 뒤 다시 계획해 성공 여부와 최소 간격을 비교합니다.
 
