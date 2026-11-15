@@ -1,555 +1,1182 @@
 <?xml version='1.0' encoding='utf-8'?>
-<mxfile host="app.diagrams.net" type="device" compressed="false">
+<mxfile host="app.diagrams.net" version="26.0.4" type="device" compressed="false">
   <diagram id="physical-ai-en" name="English">
-    <mxGraphModel dx="900" dy="744" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="744" math="0" shadow="0">
+    <mxGraphModel dx="1054" dy="702" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1054" pageHeight="702" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="title-band" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#E8F4DE;strokeColor=#B6CDA9;" vertex="1" parent="1">
-          <mxGeometry x="20" y="14" width="838" height="55" as="geometry" />
+        <mxCell id="title-panel" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#16241B;strokeColor=none;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1054" height="67" as="geometry" />
         </mxCell>
-        <mxCell id="title" value="NVIDIA Physical AI ecosystem" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=23;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="35" y="16" width="806" height="27" as="geometry" />
+        <mxCell id="title" value="NVIDIA Physical AI ecosystem" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=27;fontColor=#F3F8EE;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="12" y="4" width="1030" height="34" as="geometry" />
         </mxCell>
-        <mxCell id="subtitle" value="Follow the artifacts from what you have to what you can build." style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=14;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="36" y="43" width="805" height="19" as="geometry" />
+        <mxCell id="subtitle" value="Three workflows from the data you have to a result you can test" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=16;fontColor=#D3E0D2;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="12" y="38" width="1030" height="22" as="geometry" />
         </mxCell>
-        <mxCell id="flow-0-0" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;rounded=1;arcSize=12;html=0;strokeColor=#2F6839;strokeWidth=1.8;endArrow=block;endFill=1;endSize=6;dashed=0;">
+        <mxCell id="column-panel-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=8;fillColor=#ECF1E9;strokeColor=#BFCDBE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="12" y="80" width="232" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="column-0" value="Start with" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=16;fontColor=#364C3D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="21" y="80" width="213" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="column-panel-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=8;fillColor=#ECF1E9;strokeColor=#BFCDBE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="278" y="80" width="232" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="column-1" value="Prepare" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=16;fontColor=#364C3D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="287" y="80" width="213" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="column-panel-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=8;fillColor=#ECF1E9;strokeColor=#BFCDBE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="544" y="80" width="232" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="column-2" value="Simulate or train" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=16;fontColor=#364C3D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="553" y="80" width="213" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="column-panel-3" value="" style="rounded=1;absoluteArcSize=1;arcSize=8;fillColor=#ECF1E9;strokeColor=#BFCDBE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="810" y="80" width="232" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="column-3" value="Check the result" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=16;fontColor=#364C3D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="819" y="80" width="213" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="route-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#E8F2DD;strokeColor=#AFC69C;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="116" width="1054" height="129" as="geometry" />
+        </mxCell>
+        <mxCell id="route-0-icon" value="" style="shape=image;imageAspect=1;image=data:image/svg+xml,PHN2ZwogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSItMyAtMyAzMCAzMCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iI2E3ZWQ1NiIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cmVjdCB4PSItMyIgeT0iLTMiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgcng9IjciIGZpbGw9IiMxNzIwMTYiIHN0cm9rZT0ibm9uZSIgLz4KICA8cGF0aCBkPSJNMyA3VjVhMiAyIDAgMCAxIDItMmgyIiAvPgogIDxwYXRoIGQ9Ik0xNyAzaDJhMiAyIDAgMCAxIDIgMnYyIiAvPgogIDxwYXRoIGQ9Ik0yMSAxN3YyYTIgMiAwIDAgMS0yIDJoLTIiIC8+CiAgPHBhdGggZD0iTTcgMjFINWEyIDIgMCAwIDEtMi0ydi0yIiAvPgogIDxwYXRoIGQ9Ik03IDEyaDEwIiAvPgo8L3N2Zz4K;" vertex="1" parent="1">
+          <mxGeometry x="10" y="123" width="26" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="route-0-title" value="Build a simulation scene" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=21;fontColor=#456A23;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="44" y="122" width="1000" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F4F9ED;strokeColor=#AFC69C;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="12" y="158" width="232" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-0-main" value="CAD or 3D assets" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=17;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="21" y="164" width="214" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-0-note-0" value="STEP files · SimReady assets" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="21" y="187" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-0-0" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#456A23;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="270" y="179" as="sourcePoint" />
-            <mxPoint x="270" y="211" as="targetPoint" />
+            <mxPoint x="248" y="196" as="sourcePoint" />
+            <mxPoint x="274" y="196" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="flow-1-0" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;rounded=1;arcSize=12;html=0;strokeColor=#2F6839;strokeWidth=1.8;endArrow=block;endFill=1;endSize=6;dashed=0;">
+        <mxCell id="card-0-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F4F9ED;strokeColor=#AFC69C;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="278" y="158" width="232" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-1-main" value="OpenUSD scene" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=17;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="287" y="164" width="214" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-1-note-0" value="AIF Pipeline Samples" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="287" y="187" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-1-note-1" value="Geometry · colliders · joints" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="287" y="204" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-0-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#456A23;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="270" y="310" as="sourcePoint" />
-            <mxPoint x="270" y="343" as="targetPoint" />
+            <mxPoint x="514" y="196" as="sourcePoint" />
+            <mxPoint x="540" y="196" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="flow-2-0" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;rounded=1;arcSize=12;html=0;strokeColor=#2F6839;strokeWidth=1.8;endArrow=block;endFill=1;endSize=6;dashed=0;">
+        <mxCell id="card-0-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F4F9ED;strokeColor=#AFC69C;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="544" y="158" width="232" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-2-main" value="Isaac Sim" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=17;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="553" y="164" width="214" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-2-note-0" value="PhysX · RTX · Replicator" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="553" y="187" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-0-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#456A23;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="270" y="455" as="sourcePoint" />
-            <mxPoint x="270" y="488" as="targetPoint" />
+            <mxPoint x="780" y="196" as="sourcePoint" />
+            <mxPoint x="806" y="196" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="flow-0-1" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;rounded=1;arcSize=12;html=0;strokeColor=#2F6839;strokeWidth=1.8;endArrow=block;endFill=1;endSize=6;dashed=0;">
+        <mxCell id="card-0-3" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F4F9ED;strokeColor=#AFC69C;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="810" y="158" width="232" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-3-main" value="Labeled sensor data" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=17;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="819" y="164" width="214" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-3-note-0" value="RGB · depth · masks" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="819" y="187" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-3-note-1" value="Scene for a digital twin" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="819" y="204" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="route-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#DFEDF9;strokeColor=#ACC9DF;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="255" width="1054" height="129" as="geometry" />
+        </mxCell>
+        <mxCell id="route-1-icon" value="" style="shape=image;imageAspect=1;image=data:image/svg+xml,PHN2ZwogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSItMyAtMyAzMCAzMCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iI2E3ZWQ1NiIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cmVjdCB4PSItMyIgeT0iLTMiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgcng9IjciIGZpbGw9IiMxNzIwMTYiIHN0cm9rZT0ibm9uZSIgLz4KICA8cGF0aCBkPSJtMjEgOC0yIDItMS41LTMuN0EyIDIgMCAwIDAgMTUuNjQ2IDVIOC40YTIgMiAwIDAgMC0xLjkwMyAxLjI1N0w1IDEwIDMgOCIgLz4KICA8cGF0aCBkPSJNNyAxNGguMDEiIC8+CiAgPHBhdGggZD0iTTE3IDE0aC4wMSIgLz4KICA8cmVjdCB3aWR0aD0iMTgiIGhlaWdodD0iOCIgeD0iMyIgeT0iMTAiIHJ4PSIyIiAvPgogIDxwYXRoIGQ9Ik01IDE4djIiIC8+CiAgPHBhdGggZD0iTTE5IDE4djIiIC8+Cjwvc3ZnPgo=;" vertex="1" parent="1">
+          <mxGeometry x="10" y="262" width="26" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="route-1-title" value="Test a driving policy" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=21;fontColor=#205C88;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="44" y="261" width="1000" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F0F6FD;strokeColor=#ACC9DF;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="12" y="297" width="232" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-0-main" value="Camera and driving logs" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=17;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="21" y="303" width="214" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-0-note-0" value="Frames · calibration · ego pose" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="21" y="326" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-1-0" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#205C88;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="556" y="179" as="sourcePoint" />
-            <mxPoint x="556" y="211" as="targetPoint" />
+            <mxPoint x="248" y="335" as="sourcePoint" />
+            <mxPoint x="274" y="335" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="flow-1-1" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;rounded=1;arcSize=12;html=0;strokeColor=#2F6839;strokeWidth=1.8;endArrow=block;endFill=1;endSize=6;dashed=0;">
+        <mxCell id="card-1-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F0F6FD;strokeColor=#ACC9DF;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="278" y="297" width="232" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-1-main" value="NuRec" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=17;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="287" y="303" width="214" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-1-note-0" value="3DGS reconstruction → USDZ" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="287" y="326" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-1-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#205C88;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="556" y="310" as="sourcePoint" />
-            <mxPoint x="556" y="343" as="targetPoint" />
+            <mxPoint x="514" y="335" as="sourcePoint" />
+            <mxPoint x="540" y="335" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="flow-2-1" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;rounded=1;arcSize=12;html=0;strokeColor=#2F6839;strokeWidth=1.8;endArrow=block;endFill=1;endSize=6;dashed=0;">
+        <mxCell id="card-1-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F0F6FD;strokeColor=#ACC9DF;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="544" y="297" width="232" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-2-main" value="AlpaSim" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=17;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="553" y="303" width="214" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-2-note-0" value="Alpamayo or another policy" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="553" y="326" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-2-note-1" value="Optional AlpaGym post-training" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="553" y="343" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-1-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#205C88;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="556" y="455" as="sourcePoint" />
-            <mxPoint x="556" y="488" as="targetPoint" />
+            <mxPoint x="780" y="335" as="sourcePoint" />
+            <mxPoint x="806" y="335" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="flow-0-2" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;rounded=1;arcSize=12;html=0;strokeColor=#2F6839;strokeWidth=1.8;endArrow=block;endFill=1;endSize=6;dashed=0;">
+        <mxCell id="card-1-3" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F0F6FD;strokeColor=#ACC9DF;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="810" y="297" width="232" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-3-main" value="Driving evaluation" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=17;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="819" y="303" width="214" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-3-note-0" value="Rollout video · collisions" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="819" y="326" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-3-note-1" value="Off-road events" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="819" y="343" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="route-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#ECE4F8;strokeColor=#C7B5DE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="394" width="1054" height="129" as="geometry" />
+        </mxCell>
+        <mxCell id="route-2-icon" value="" style="shape=image;imageAspect=1;image=data:image/svg+xml,PHN2ZwogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSItMyAtMyAzMCAzMCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iI2E3ZWQ1NiIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cmVjdCB4PSItMyIgeT0iLTMiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgcng9IjciIGZpbGw9IiMxNzIwMTYiIHN0cm9rZT0ibm9uZSIgLz4KICA8cGF0aCBkPSJNMTIgOFY0SDgiIC8+CiAgPHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjEyIiB4PSI0IiB5PSI4IiByeD0iMiIgLz4KICA8cGF0aCBkPSJNMiAxNGgyIiAvPgogIDxwYXRoIGQ9Ik0yMCAxNGgyIiAvPgogIDxwYXRoIGQ9Ik0xNSAxM3YyIiAvPgogIDxwYXRoIGQ9Ik05IDEzdjIiIC8+Cjwvc3ZnPgo=;" vertex="1" parent="1">
+          <mxGeometry x="10" y="401" width="26" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="route-2-title" value="Train a robot policy" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=21;fontColor=#65428E;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="44" y="400" width="1000" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F7F3FC;strokeColor=#C7B5DE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="12" y="436" width="232" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-0-main" value="Robot demos or video" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=17;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="21" y="442" width="214" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-0-note-0" value="Isaac Capture" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="21" y="465" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-2-0" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#65428E;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="842" y="179" as="sourcePoint" />
-            <mxPoint x="842" y="211" as="targetPoint" />
+            <mxPoint x="248" y="474" as="sourcePoint" />
+            <mxPoint x="274" y="474" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="flow-1-2" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;rounded=1;arcSize=12;html=0;strokeColor=#2F6839;strokeWidth=1.8;endArrow=block;endFill=1;endSize=6;dashed=0;">
+        <mxCell id="card-2-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F7F3FC;strokeColor=#C7B5DE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="278" y="436" width="232" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-1-main" value="Training dataset" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=17;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="287" y="442" width="214" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-1-note-0" value="V2D · AutoData" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="287" y="465" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-1-note-1" value="Observations and actions" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="287" y="482" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-2-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#65428E;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="842" y="310" as="sourcePoint" />
-            <mxPoint x="842" y="343" as="targetPoint" />
+            <mxPoint x="514" y="474" as="sourcePoint" />
+            <mxPoint x="540" y="474" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="flow-2-2" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;rounded=1;arcSize=12;html=0;strokeColor=#2F6839;strokeWidth=1.8;endArrow=block;endFill=1;endSize=6;dashed=0;">
+        <mxCell id="card-2-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F7F3FC;strokeColor=#C7B5DE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="544" y="436" width="232" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-2-main" value="Isaac Lab · GR00T" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=17;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="553" y="442" width="214" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-2-note-0" value="Newton or PhysX in Isaac Lab" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="553" y="465" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-2-note-1" value="Data augmentation with Cosmos" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="553" y="482" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-2-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#65428E;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="842" y="455" as="sourcePoint" />
-            <mxPoint x="842" y="488" as="targetPoint" />
+            <mxPoint x="780" y="474" as="sourcePoint" />
+            <mxPoint x="806" y="474" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="feedback-rail" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;rounded=1;arcSize=12;html=0;strokeColor=#7C9E79;strokeWidth=1.5;endArrow=block;endFill=1;endSize=6;dashed=1;">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="857" y="695" as="sourcePoint" />
-            <mxPoint x="860" y="102" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="880" y="695" />
-              <mxPoint x="880" y="89" />
-              <mxPoint x="860" y="89" />
-            </Array>
-          </mxGeometry>
+        <mxCell id="card-2-3" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F7F3FC;strokeColor=#C7B5DE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="810" y="436" width="232" height="76" as="geometry" />
         </mxCell>
-        <mxCell id="stage-bg-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=6;strokeWidth=1.25;fillColor=#E5EDE5;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="20" y="79" width="224" height="21" as="geometry" />
+        <mxCell id="card-2-3-main" value="Evaluation and deployment" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=17;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="819" y="442" width="214" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="stage-0" value="01  INPUTS" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=11;fontColor=#2F6839;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="28" y="79" width="212" height="21" as="geometry" />
+        <mxCell id="card-2-3-note-0" value="Lab-Arena · Isaac ROS · LEAPP" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="819" y="465" width="214" height="19" as="geometry" />
         </mxCell>
-        <mxCell id="card-0-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#F5FAEF;strokeColor=#AFC49D;" vertex="1" parent="1">
-          <mxGeometry x="20" y="105" width="266" height="70" as="geometry" />
+        <mxCell id="card-2-3-note-1" value="Sim and real-world success rates" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="819" y="482" width="214" height="19" as="geometry" />
         </mxCell>
-        <mxCell id="card-0-0-tab" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;strokeWidth=1.25;fillColor=#DDEDCB;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="33" y="117" width="5" height="17" as="geometry" />
+        <mxCell id="reuse-panel" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F1F5ED;strokeColor=#BFCDBE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="536" width="1054" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="card-0-0-title" value="CAD or 3D assets" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=17;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="44" y="113" width="232" height="24" as="geometry" />
+        <mxCell id="reuse" value="Reuse scenes and data" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=16;fontColor=#284921;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="12" y="545" width="230" height="22" as="geometry" />
         </mxCell>
-        <mxCell id="card-0-0-desc" value="STEP · meshes · SimReady assets" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="34" y="139" width="238" height="30" as="geometry" />
+        <mxCell id="reuse-a" value="OpenUSD scenes → robot training" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="253" y="545" width="330" height="22" as="geometry" />
         </mxCell>
-        <mxCell id="card-0-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#EFF7FA;strokeColor=#AAC7D2;" vertex="1" parent="1">
-          <mxGeometry x="306" y="105" width="266" height="70" as="geometry" />
+        <mxCell id="reuse-b" value="Rendered images and labels → training datasets" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="640" y="545" width="404" height="22" as="geometry" />
         </mxCell>
-        <mxCell id="card-0-1-tab" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;strokeWidth=1.25;fillColor=#DAEAF2;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="319" y="117" width="5" height="17" as="geometry" />
+        <mxCell id="shared-panel" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F1F5ED;strokeColor=#BFCDBE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="585" width="1054" height="54" as="geometry" />
         </mxCell>
-        <mxCell id="card-0-1-title" value="Camera or driving logs" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=17;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="330" y="113" width="232" height="24" as="geometry" />
+        <mxCell id="shared" value="Tools across workflows" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=16;fontColor=#284921;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="12" y="601" width="240" height="22" as="geometry" />
         </mxCell>
-        <mxCell id="card-0-1-desc" value="Frames · calibration · ego poses" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="320" y="139" width="238" height="30" as="geometry" />
+        <mxCell id="shared-label-0" value="Data processing" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#284921;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="236" y="590" width="286" height="19" as="geometry" />
         </mxCell>
-        <mxCell id="card-0-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#F6F2FB;strokeColor=#C7B5DA;" vertex="1" parent="1">
-          <mxGeometry x="592" y="105" width="266" height="70" as="geometry" />
+        <mxCell id="shared-tool-0" value="Cosmos Data Factory · NeMo Curator" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="236" y="610" width="286" height="19" as="geometry" />
         </mxCell>
-        <mxCell id="card-0-2-tab" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;strokeWidth=1.25;fillColor=#E9DFF3;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="605" y="117" width="5" height="17" as="geometry" />
+        <mxCell id="shared-label-1" value="Job scheduling" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#284921;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="521" y="590" width="134" height="19" as="geometry" />
         </mxCell>
-        <mxCell id="card-0-2-title" value="Robot demonstrations" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=17;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="616" y="113" width="232" height="24" as="geometry" />
+        <mxCell id="shared-tool-1" value="OSMO" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="521" y="610" width="134" height="19" as="geometry" />
         </mxCell>
-        <mxCell id="card-0-2-desc" value="Teleop · video · action trajectories" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="606" y="139" width="238" height="30" as="geometry" />
+        <mxCell id="shared-label-2" value="Inference routing" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#284921;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="590" width="175" height="19" as="geometry" />
         </mxCell>
-        <mxCell id="stage-bg-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=6;strokeWidth=1.25;fillColor=#E5EDE5;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="20" y="189" width="224" height="21" as="geometry" />
+        <mxCell id="shared-tool-2" value="NeMo Switchyard" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="660" y="610" width="175" height="19" as="geometry" />
         </mxCell>
-        <mxCell id="stage-1" value="02  PORTABLE ARTIFACTS" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=11;fontColor=#2F6839;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="28" y="189" width="212" height="21" as="geometry" />
+        <mxCell id="shared-label-3" value="App integration" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#284921;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="844" y="590" width="201" height="19" as="geometry" />
         </mxCell>
-        <mxCell id="card-1-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#F5FAEF;strokeColor=#AFC49D;" vertex="1" parent="1">
-          <mxGeometry x="20" y="215" width="266" height="91" as="geometry" />
+        <mxCell id="shared-tool-3" value="OVRTX · OvPhysX" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="844" y="610" width="201" height="19" as="geometry" />
         </mxCell>
-        <mxCell id="card-1-0-tab" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;strokeWidth=1.25;fillColor=#DDEDCB;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="33" y="227" width="5" height="17" as="geometry" />
+        <mxCell id="feedback-panel" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#16241B;strokeColor=none;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="649" width="1054" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="card-1-0-title" value="OpenUSD scene" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=17;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="44" y="223" width="232" height="24" as="geometry" />
+        <mxCell id="feedback" value="Use results to improve the next run" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=16;fontColor=#F3F8EE;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="12" y="657" width="335" height="22" as="geometry" />
         </mxCell>
-        <mxCell id="card-1-0-desc" value="AIF · Exchange SDK · SimFoundry&#10;Geometry, colliders and joints" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="34" y="249" width="238" height="51" as="geometry" />
-        </mxCell>
-        <mxCell id="card-1-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#EFF7FA;strokeColor=#AAC7D2;" vertex="1" parent="1">
-          <mxGeometry x="306" y="215" width="266" height="91" as="geometry" />
-        </mxCell>
-        <mxCell id="card-1-1-tab" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;strokeWidth=1.25;fillColor=#DAEAF2;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="319" y="227" width="5" height="17" as="geometry" />
-        </mxCell>
-        <mxCell id="card-1-1-title" value="Reconstructed scene" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=17;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="330" y="223" width="232" height="24" as="geometry" />
-        </mxCell>
-        <mxCell id="card-1-1-desc" value="NCore → NuRec → USDZ&#10;3DGS for camera appearance" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="320" y="249" width="238" height="51" as="geometry" />
-        </mxCell>
-        <mxCell id="card-1-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#F6F2FB;strokeColor=#C7B5DA;" vertex="1" parent="1">
-          <mxGeometry x="592" y="215" width="266" height="91" as="geometry" />
-        </mxCell>
-        <mxCell id="card-1-2-tab" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;strokeWidth=1.25;fillColor=#E9DFF3;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="605" y="227" width="5" height="17" as="geometry" />
-        </mxCell>
-        <mxCell id="card-1-2-title" value="Training dataset" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=17;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="616" y="223" width="232" height="24" as="geometry" />
-        </mxCell>
-        <mxCell id="card-1-2-desc" value="Isaac Capture · V2D · AutoData&#10;Observations and actions" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="606" y="249" width="238" height="51" as="geometry" />
-        </mxCell>
-        <mxCell id="stage-bg-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=6;strokeWidth=1.25;fillColor=#E5EDE5;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="20" y="321" width="224" height="21" as="geometry" />
-        </mxCell>
-        <mxCell id="stage-2" value="03  SIMULATE, RENDER &amp; TRAIN" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=11;fontColor=#2F6839;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="28" y="321" width="212" height="21" as="geometry" />
-        </mxCell>
-        <mxCell id="card-2-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#F5FAEF;strokeColor=#AFC49D;" vertex="1" parent="1">
-          <mxGeometry x="20" y="347" width="266" height="104" as="geometry" />
-        </mxCell>
-        <mxCell id="card-2-0-tab" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;strokeWidth=1.25;fillColor=#DDEDCB;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="33" y="359" width="5" height="17" as="geometry" />
-        </mxCell>
-        <mxCell id="card-2-0-title" value="Scene &amp; robot simulation" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=17;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="44" y="355" width="232" height="24" as="geometry" />
-        </mxCell>
-        <mxCell id="card-2-0-desc" value="Isaac Sim: PhysX + RTX&#10;Isaac Lab: Newton or PhysX paths&#10;App integration: OVRTX / OvPhysX" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="34" y="381" width="238" height="64" as="geometry" />
-        </mxCell>
-        <mxCell id="card-2-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#EFF7FA;strokeColor=#AAC7D2;" vertex="1" parent="1">
-          <mxGeometry x="306" y="347" width="266" height="104" as="geometry" />
-        </mxCell>
-        <mxCell id="card-2-1-tab" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;strokeWidth=1.25;fillColor=#DAEAF2;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="319" y="359" width="5" height="17" as="geometry" />
-        </mxCell>
-        <mxCell id="card-2-1-title" value="Closed-loop driving" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=17;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="330" y="355" width="232" height="24" as="geometry" />
-        </mxCell>
-        <mxCell id="card-2-1-desc" value="AlpaSim: driver + controller&#10;NuRec renderer + vehicle physics&#10;AlpaGym for optional post-training" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="320" y="381" width="238" height="64" as="geometry" />
-        </mxCell>
-        <mxCell id="card-2-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#F6F2FB;strokeColor=#C7B5DA;" vertex="1" parent="1">
-          <mxGeometry x="592" y="347" width="266" height="104" as="geometry" />
-        </mxCell>
-        <mxCell id="card-2-2-tab" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;strokeWidth=1.25;fillColor=#E9DFF3;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="605" y="359" width="5" height="17" as="geometry" />
-        </mxCell>
-        <mxCell id="card-2-2-title" value="Robot policy development" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=17;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="616" y="355" width="232" height="24" as="geometry" />
-        </mxCell>
-        <mxCell id="card-2-2-desc" value="Isaac Lab · Isaac GR00T&#10;Cosmos for optional augmentation&#10;Lab-Arena for supported tasks" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="606" y="381" width="238" height="64" as="geometry" />
-        </mxCell>
-        <mxCell id="stage-bg-3" value="" style="rounded=1;absoluteArcSize=1;arcSize=6;strokeWidth=1.25;fillColor=#E5EDE5;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="20" y="466" width="224" height="21" as="geometry" />
-        </mxCell>
-        <mxCell id="stage-3" value="04  FIRST RESULTS" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=11;fontColor=#2F6839;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="28" y="466" width="212" height="21" as="geometry" />
-        </mxCell>
-        <mxCell id="card-3-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#F5FAEF;strokeColor=#AFC49D;" vertex="1" parent="1">
-          <mxGeometry x="20" y="492" width="266" height="91" as="geometry" />
-        </mxCell>
-        <mxCell id="card-3-0-tab" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;strokeWidth=1.25;fillColor=#DDEDCB;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="33" y="504" width="5" height="17" as="geometry" />
-        </mxCell>
-        <mxCell id="card-3-0-title" value="Labels or simulation" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=17;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="44" y="500" width="232" height="24" as="geometry" />
-        </mxCell>
-        <mxCell id="card-3-0-desc" value="Replicator: RGB, depth and masks&#10;Robot pick-and-place · digital twin" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="34" y="526" width="238" height="51" as="geometry" />
-        </mxCell>
-        <mxCell id="card-3-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#EFF7FA;strokeColor=#AAC7D2;" vertex="1" parent="1">
-          <mxGeometry x="306" y="492" width="266" height="91" as="geometry" />
-        </mxCell>
-        <mxCell id="card-3-1-tab" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;strokeWidth=1.25;fillColor=#DAEAF2;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="319" y="504" width="5" height="17" as="geometry" />
-        </mxCell>
-        <mxCell id="card-3-1-title" value="Rollouts &amp; driving metrics" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=17;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="330" y="500" width="232" height="24" as="geometry" />
-        </mxCell>
-        <mxCell id="card-3-1-desc" value="Episode video · collisions · off-road&#10;Compare on the same scenarios" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="320" y="526" width="238" height="51" as="geometry" />
-        </mxCell>
-        <mxCell id="card-3-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#F6F2FB;strokeColor=#C7B5DA;" vertex="1" parent="1">
-          <mxGeometry x="592" y="492" width="266" height="91" as="geometry" />
-        </mxCell>
-        <mxCell id="card-3-2-tab" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;strokeWidth=1.25;fillColor=#E9DFF3;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="605" y="504" width="5" height="17" as="geometry" />
-        </mxCell>
-        <mxCell id="card-3-2-title" value="Policy &amp; evaluation" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=17;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="616" y="500" width="232" height="24" as="geometry" />
-        </mxCell>
-        <mxCell id="card-3-2-desc" value="Checkpoint · sim and real success&#10;LEAPP / Isaac ROS when supported" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="606" y="526" width="238" height="51" as="geometry" />
-        </mxCell>
-        <mxCell id="reuse-band" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#F0F3F1;strokeColor=#C9D4CC;" vertex="1" parent="1">
-          <mxGeometry x="20" y="599" width="838" height="32" as="geometry" />
-        </mxCell>
-        <mxCell id="reuse-heading" value="Across paths" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="32" y="602" width="124" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="reuse-copy" value="OpenUSD scenes → robot tasks  ·  Rendered frames + labels → training datasets" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=12;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="160" y="602" width="681" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="support-band" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#F0F3F1;strokeColor=#C9D4CC;" vertex="1" parent="1">
-          <mxGeometry x="20" y="639" width="838" height="32" as="geometry" />
-        </mxCell>
-        <mxCell id="support-heading" value="Optional at scale" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="32" y="642" width="124" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="support-copy" value="CDF / NeMo Curator for data  ·  OSMO for jobs  ·  Switchyard for app model requests" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=12;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="160" y="642" width="681" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="feedback-band" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#E8F4DE;strokeColor=#B6CDA9;" vertex="1" parent="1">
-          <mxGeometry x="20" y="679" width="838" height="33" as="geometry" />
-        </mxCell>
-        <mxCell id="feedback-heading" value="Next iteration" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="32" y="682" width="124" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="feedback-copy" value="Use evaluation results and field logs to choose the next scenes, demonstrations or tests." style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=12;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="160" y="682" width="681" height="26" as="geometry" />
+        <mxCell id="feedback-body" value="Use evaluation and field logs to choose what to collect or test next." style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#D3E0D2;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="362" y="657" width="676" height="22" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="physical-ai-ko" name="한국어">
-    <mxGraphModel dx="900" dy="744" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="744" math="0" shadow="0">
+    <mxGraphModel dx="1054" dy="702" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1054" pageHeight="702" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="title-band" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#E8F4DE;strokeColor=#B6CDA9;" vertex="1" parent="1">
-          <mxGeometry x="20" y="14" width="838" height="55" as="geometry" />
+        <mxCell id="title-panel" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#16241B;strokeColor=none;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1054" height="67" as="geometry" />
         </mxCell>
-        <mxCell id="title" value="NVIDIA Physical AI 생태계" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=23;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="35" y="16" width="806" height="27" as="geometry" />
+        <mxCell id="title" value="NVIDIA 피지컬 AI 생태계" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=27;fontColor=#F3F8EE;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="12" y="4" width="1030" height="34" as="geometry" />
         </mxCell>
-        <mxCell id="subtitle" value="CAD, 주행 로그, 로봇 시연 데이터를 어떻게 활용하는지 살펴보세요." style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=14;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="36" y="43" width="805" height="19" as="geometry" />
+        <mxCell id="subtitle" value="CAD, 주행 로그, 로봇 시연을 활용하는 세 가지 워크플로" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=16;fontColor=#D3E0D2;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="12" y="38" width="1030" height="22" as="geometry" />
         </mxCell>
-        <mxCell id="flow-0-0" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;rounded=1;arcSize=12;html=0;strokeColor=#2F6839;strokeWidth=1.8;endArrow=block;endFill=1;endSize=6;dashed=0;">
+        <mxCell id="column-panel-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=8;fillColor=#ECF1E9;strokeColor=#BFCDBE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="12" y="80" width="232" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="column-0" value="준비물" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=16;fontColor=#364C3D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="21" y="80" width="213" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="column-panel-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=8;fillColor=#ECF1E9;strokeColor=#BFCDBE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="278" y="80" width="232" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="column-1" value="장면·데이터 준비" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=16;fontColor=#364C3D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="287" y="80" width="213" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="column-panel-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=8;fillColor=#ECF1E9;strokeColor=#BFCDBE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="544" y="80" width="232" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="column-2" value="시뮬레이션·학습" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=16;fontColor=#364C3D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="553" y="80" width="213" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="column-panel-3" value="" style="rounded=1;absoluteArcSize=1;arcSize=8;fillColor=#ECF1E9;strokeColor=#BFCDBE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="810" y="80" width="232" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="column-3" value="결과 확인" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=16;fontColor=#364C3D;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="819" y="80" width="213" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="route-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#E8F2DD;strokeColor=#AFC69C;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="116" width="1054" height="129" as="geometry" />
+        </mxCell>
+        <mxCell id="route-0-icon" value="" style="shape=image;imageAspect=1;image=data:image/svg+xml,PHN2ZwogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSItMyAtMyAzMCAzMCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iI2E3ZWQ1NiIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cmVjdCB4PSItMyIgeT0iLTMiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgcng9IjciIGZpbGw9IiMxNzIwMTYiIHN0cm9rZT0ibm9uZSIgLz4KICA8cGF0aCBkPSJNMyA3VjVhMiAyIDAgMCAxIDItMmgyIiAvPgogIDxwYXRoIGQ9Ik0xNyAzaDJhMiAyIDAgMCAxIDIgMnYyIiAvPgogIDxwYXRoIGQ9Ik0yMSAxN3YyYTIgMiAwIDAgMS0yIDJoLTIiIC8+CiAgPHBhdGggZD0iTTcgMjFINWEyIDIgMCAwIDEtMi0ydi0yIiAvPgogIDxwYXRoIGQ9Ik03IDEyaDEwIiAvPgo8L3N2Zz4K;" vertex="1" parent="1">
+          <mxGeometry x="10" y="123" width="26" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="route-0-title" value="시뮬레이션 장면 만들기" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=21;fontColor=#456A23;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="44" y="122" width="1000" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F4F9ED;strokeColor=#AFC69C;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="12" y="158" width="232" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-0-main" value="CAD 또는 3D 에셋" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=17;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="21" y="164" width="214" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-0-note-0" value="STEP 파일 · SimReady 에셋" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="21" y="187" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-0-0" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#456A23;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="270" y="179" as="sourcePoint" />
-            <mxPoint x="270" y="211" as="targetPoint" />
+            <mxPoint x="248" y="196" as="sourcePoint" />
+            <mxPoint x="274" y="196" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="flow-1-0" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;rounded=1;arcSize=12;html=0;strokeColor=#2F6839;strokeWidth=1.8;endArrow=block;endFill=1;endSize=6;dashed=0;">
+        <mxCell id="card-0-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F4F9ED;strokeColor=#AFC69C;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="278" y="158" width="232" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-1-main" value="OpenUSD 장면" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=17;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="287" y="164" width="214" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-1-note-0" value="AIF Pipeline Samples" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="287" y="187" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-1-note-1" value="형상 · 충돌체 · 관절" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="287" y="204" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-0-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#456A23;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="270" y="310" as="sourcePoint" />
-            <mxPoint x="270" y="343" as="targetPoint" />
+            <mxPoint x="514" y="196" as="sourcePoint" />
+            <mxPoint x="540" y="196" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="flow-2-0" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;rounded=1;arcSize=12;html=0;strokeColor=#2F6839;strokeWidth=1.8;endArrow=block;endFill=1;endSize=6;dashed=0;">
+        <mxCell id="card-0-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F4F9ED;strokeColor=#AFC69C;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="544" y="158" width="232" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-2-main" value="Isaac Sim" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=17;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="553" y="164" width="214" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-2-note-0" value="PhysX · RTX · Replicator" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="553" y="187" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-0-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#456A23;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="270" y="455" as="sourcePoint" />
-            <mxPoint x="270" y="488" as="targetPoint" />
+            <mxPoint x="780" y="196" as="sourcePoint" />
+            <mxPoint x="806" y="196" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="flow-0-1" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;rounded=1;arcSize=12;html=0;strokeColor=#2F6839;strokeWidth=1.8;endArrow=block;endFill=1;endSize=6;dashed=0;">
+        <mxCell id="card-0-3" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F4F9ED;strokeColor=#AFC69C;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="810" y="158" width="232" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-3-main" value="라벨이 붙은 센서 데이터" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=17;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="819" y="164" width="214" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-3-note-0" value="RGB · 깊이 · 마스크" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="819" y="187" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-3-note-1" value="디지털 트윈에 쓸 장면" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="819" y="204" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="route-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#DFEDF9;strokeColor=#ACC9DF;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="255" width="1054" height="129" as="geometry" />
+        </mxCell>
+        <mxCell id="route-1-icon" value="" style="shape=image;imageAspect=1;image=data:image/svg+xml,PHN2ZwogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSItMyAtMyAzMCAzMCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iI2E3ZWQ1NiIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cmVjdCB4PSItMyIgeT0iLTMiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgcng9IjciIGZpbGw9IiMxNzIwMTYiIHN0cm9rZT0ibm9uZSIgLz4KICA8cGF0aCBkPSJtMjEgOC0yIDItMS41LTMuN0EyIDIgMCAwIDAgMTUuNjQ2IDVIOC40YTIgMiAwIDAgMC0xLjkwMyAxLjI1N0w1IDEwIDMgOCIgLz4KICA8cGF0aCBkPSJNNyAxNGguMDEiIC8+CiAgPHBhdGggZD0iTTE3IDE0aC4wMSIgLz4KICA8cmVjdCB3aWR0aD0iMTgiIGhlaWdodD0iOCIgeD0iMyIgeT0iMTAiIHJ4PSIyIiAvPgogIDxwYXRoIGQ9Ik01IDE4djIiIC8+CiAgPHBhdGggZD0iTTE5IDE4djIiIC8+Cjwvc3ZnPgo=;" vertex="1" parent="1">
+          <mxGeometry x="10" y="262" width="26" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="route-1-title" value="자율주행 정책 평가하기" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=21;fontColor=#205C88;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="44" y="261" width="1000" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F0F6FD;strokeColor=#ACC9DF;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="12" y="297" width="232" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-0-main" value="카메라 영상·주행 로그" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=17;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="21" y="303" width="214" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-0-note-0" value="프레임 · 보정값 · 자차 자세" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="21" y="326" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-1-0" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#205C88;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="556" y="179" as="sourcePoint" />
-            <mxPoint x="556" y="211" as="targetPoint" />
+            <mxPoint x="248" y="335" as="sourcePoint" />
+            <mxPoint x="274" y="335" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="flow-1-1" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;rounded=1;arcSize=12;html=0;strokeColor=#2F6839;strokeWidth=1.8;endArrow=block;endFill=1;endSize=6;dashed=0;">
+        <mxCell id="card-1-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F0F6FD;strokeColor=#ACC9DF;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="278" y="297" width="232" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-1-main" value="NuRec" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=17;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="287" y="303" width="214" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-1-note-0" value="3DGS로 장면 복원 → USDZ" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="287" y="326" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-1-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#205C88;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="556" y="310" as="sourcePoint" />
-            <mxPoint x="556" y="343" as="targetPoint" />
+            <mxPoint x="514" y="335" as="sourcePoint" />
+            <mxPoint x="540" y="335" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="flow-2-1" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;rounded=1;arcSize=12;html=0;strokeColor=#2F6839;strokeWidth=1.8;endArrow=block;endFill=1;endSize=6;dashed=0;">
+        <mxCell id="card-1-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F0F6FD;strokeColor=#ACC9DF;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="544" y="297" width="232" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-2-main" value="AlpaSim" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=17;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="553" y="303" width="214" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-2-note-0" value="Alpamayo 등의 주행 정책" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="553" y="326" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-2-note-1" value="필요하면 AlpaGym으로 후학습" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="553" y="343" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-1-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#205C88;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="556" y="455" as="sourcePoint" />
-            <mxPoint x="556" y="488" as="targetPoint" />
+            <mxPoint x="780" y="335" as="sourcePoint" />
+            <mxPoint x="806" y="335" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="flow-0-2" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;rounded=1;arcSize=12;html=0;strokeColor=#2F6839;strokeWidth=1.8;endArrow=block;endFill=1;endSize=6;dashed=0;">
+        <mxCell id="card-1-3" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F0F6FD;strokeColor=#ACC9DF;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="810" y="297" width="232" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-3-main" value="주행 평가 결과" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=17;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="819" y="303" width="214" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-3-note-0" value="주행 영상 · 충돌 · 도로 이탈" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="819" y="326" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="route-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#ECE4F8;strokeColor=#C7B5DE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="394" width="1054" height="129" as="geometry" />
+        </mxCell>
+        <mxCell id="route-2-icon" value="" style="shape=image;imageAspect=1;image=data:image/svg+xml,PHN2ZwogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSItMyAtMyAzMCAzMCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iI2E3ZWQ1NiIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cmVjdCB4PSItMyIgeT0iLTMiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgcng9IjciIGZpbGw9IiMxNzIwMTYiIHN0cm9rZT0ibm9uZSIgLz4KICA8cGF0aCBkPSJNMTIgOFY0SDgiIC8+CiAgPHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjEyIiB4PSI0IiB5PSI4IiByeD0iMiIgLz4KICA8cGF0aCBkPSJNMiAxNGgyIiAvPgogIDxwYXRoIGQ9Ik0yMCAxNGgyIiAvPgogIDxwYXRoIGQ9Ik0xNSAxM3YyIiAvPgogIDxwYXRoIGQ9Ik05IDEzdjIiIC8+Cjwvc3ZnPgo=;" vertex="1" parent="1">
+          <mxGeometry x="10" y="401" width="26" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="route-2-title" value="로봇 정책 학습하기" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=21;fontColor=#65428E;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="44" y="400" width="1000" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F7F3FC;strokeColor=#C7B5DE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="12" y="436" width="232" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-0-main" value="로봇 시연 또는 영상" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=17;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="21" y="442" width="214" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-0-note-0" value="Isaac Capture" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="21" y="465" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-2-0" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#65428E;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="842" y="179" as="sourcePoint" />
-            <mxPoint x="842" y="211" as="targetPoint" />
+            <mxPoint x="248" y="474" as="sourcePoint" />
+            <mxPoint x="274" y="474" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="flow-1-2" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;rounded=1;arcSize=12;html=0;strokeColor=#2F6839;strokeWidth=1.8;endArrow=block;endFill=1;endSize=6;dashed=0;">
+        <mxCell id="card-2-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F7F3FC;strokeColor=#C7B5DE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="278" y="436" width="232" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-1-main" value="학습용 데이터셋" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=17;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="287" y="442" width="214" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-1-note-0" value="V2D · AutoData" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="287" y="465" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-1-note-1" value="관측값과 행동" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="287" y="482" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-2-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#65428E;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="842" y="310" as="sourcePoint" />
-            <mxPoint x="842" y="343" as="targetPoint" />
+            <mxPoint x="514" y="474" as="sourcePoint" />
+            <mxPoint x="540" y="474" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="flow-2-2" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;rounded=1;arcSize=12;html=0;strokeColor=#2F6839;strokeWidth=1.8;endArrow=block;endFill=1;endSize=6;dashed=0;">
+        <mxCell id="card-2-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F7F3FC;strokeColor=#C7B5DE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="544" y="436" width="232" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-2-main" value="Isaac Lab · GR00T" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=17;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="553" y="442" width="214" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-2-note-0" value="Newton 또는 PhysX 선택" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="553" y="465" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-2-note-1" value="Cosmos로 데이터 증강" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="553" y="482" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-2-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#65428E;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="842" y="455" as="sourcePoint" />
-            <mxPoint x="842" y="488" as="targetPoint" />
+            <mxPoint x="780" y="474" as="sourcePoint" />
+            <mxPoint x="806" y="474" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="feedback-rail" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;rounded=1;arcSize=12;html=0;strokeColor=#7C9E79;strokeWidth=1.5;endArrow=block;endFill=1;endSize=6;dashed=1;">
+        <mxCell id="card-2-3" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F7F3FC;strokeColor=#C7B5DE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="810" y="436" width="232" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-3-main" value="정책 평가·배포" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=17;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="819" y="442" width="214" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-3-note-0" value="Lab-Arena · Isaac ROS · LEAPP" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="819" y="465" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-3-note-1" value="시뮬레이션·실물 로봇 성공률" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="819" y="482" width="214" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="reuse-panel" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F1F5ED;strokeColor=#BFCDBE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="536" width="1054" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="reuse" value="다른 작업에 활용" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=16;fontColor=#284921;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="12" y="545" width="230" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="reuse-a" value="OpenUSD 장면 → 로봇 학습 환경" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="253" y="545" width="330" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="reuse-b" value="렌더링 이미지와 라벨 → 학습용 데이터셋" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="640" y="545" width="404" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-panel" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F1F5ED;strokeColor=#BFCDBE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="585" width="1054" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="shared" value="여러 워크플로에서 쓰는 도구" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=16;fontColor=#284921;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="12" y="601" width="240" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-label-0" value="데이터 처리" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#284921;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="236" y="590" width="286" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-tool-0" value="Cosmos Data Factory · NeMo Curator" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="236" y="610" width="286" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-label-1" value="작업 스케줄링" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#284921;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="521" y="590" width="134" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-tool-1" value="OSMO" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="521" y="610" width="134" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-label-2" value="추론 요청 라우팅" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#284921;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="590" width="175" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-tool-2" value="NeMo Switchyard" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="660" y="610" width="175" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-label-3" value="앱에 시뮬레이션 통합" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#284921;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="844" y="590" width="201" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-tool-3" value="OVRTX · OvPhysX" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="844" y="610" width="201" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="feedback-panel" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#16241B;strokeColor=none;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="649" width="1054" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="feedback" value="다음 수집과 테스트에 반영" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=16;fontColor=#F3F8EE;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="12" y="657" width="335" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="feedback-body" value="평가 결과와 현장 로그를 보고 다음에 모을 데이터와 테스트할 조건을 정합니다." style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#D3E0D2;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="362" y="657" width="676" height="22" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="physical-ai-en-mobile" name="English · Mobile">
+    <mxGraphModel dx="378" dy="1129" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="378" pageHeight="1129" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title-panel" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#16241B;strokeColor=none;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="378" height="57" as="geometry" />
+        </mxCell>
+        <mxCell id="title" value="NVIDIA Physical AI ecosystem" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=21;fontColor=#F3F8EE;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="12" y="4" width="354" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Simulation · Driving evaluation · Robot learning" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=14;fontColor=#D3E0D2;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="12" y="30" width="354" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="route-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#E8F2DD;strokeColor=#AFC69C;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="70" width="378" height="253" as="geometry" />
+        </mxCell>
+        <mxCell id="route-0-icon" value="" style="shape=image;imageAspect=1;image=data:image/svg+xml,PHN2ZwogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSItMyAtMyAzMCAzMCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iI2E3ZWQ1NiIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cmVjdCB4PSItMyIgeT0iLTMiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgcng9IjciIGZpbGw9IiMxNzIwMTYiIHN0cm9rZT0ibm9uZSIgLz4KICA8cGF0aCBkPSJNMyA3VjVhMiAyIDAgMCAxIDItMmgyIiAvPgogIDxwYXRoIGQ9Ik0xNyAzaDJhMiAyIDAgMCAxIDIgMnYyIiAvPgogIDxwYXRoIGQ9Ik0yMSAxN3YyYTIgMiAwIDAgMS0yIDJoLTIiIC8+CiAgPHBhdGggZD0iTTcgMjFINWEyIDIgMCAwIDEtMi0ydi0yIiAvPgogIDxwYXRoIGQ9Ik03IDEyaDEwIiAvPgo8L3N2Zz4K;" vertex="1" parent="1">
+          <mxGeometry x="10" y="77" width="26" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="route-0-title" value="Build a simulation scene" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=18;fontColor=#456A23;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="44" y="76" width="324" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F4F9ED;strokeColor=#AFC69C;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="92" y="112" width="274" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-0-main" value="CAD or 3D assets" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="101" y="114" width="256" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-0-stage" value="Start with" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#456A23;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="11" y="116" width="81" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-0-0" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#456A23;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="857" y="695" as="sourcePoint" />
-            <mxPoint x="860" y="102" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="880" y="695" />
-              <mxPoint x="880" y="89" />
-              <mxPoint x="860" y="89" />
-            </Array>
+            <mxPoint x="48" y="143" as="sourcePoint" />
+            <mxPoint x="48" y="160" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="stage-bg-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=6;strokeWidth=1.25;fillColor=#E5EDE5;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="20" y="79" width="224" height="21" as="geometry" />
+        <mxCell id="card-0-0-note" value="STEP files · SimReady assets" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="101" y="134" width="256" height="17" as="geometry" />
         </mxCell>
-        <mxCell id="stage-0" value="01  입력" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=11;fontColor=#2F6839;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="28" y="79" width="212" height="21" as="geometry" />
+        <mxCell id="card-0-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F4F9ED;strokeColor=#AFC69C;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="92" y="163" width="274" height="45" as="geometry" />
         </mxCell>
-        <mxCell id="card-0-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#F5FAEF;strokeColor=#AFC49D;" vertex="1" parent="1">
-          <mxGeometry x="20" y="105" width="266" height="70" as="geometry" />
+        <mxCell id="card-0-1-main" value="OpenUSD scene" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="101" y="165" width="256" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="card-0-0-tab" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;strokeWidth=1.25;fillColor=#DDEDCB;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="33" y="117" width="5" height="17" as="geometry" />
+        <mxCell id="card-0-1-stage" value="Prepare" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#456A23;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="11" y="167" width="81" height="28" as="geometry" />
         </mxCell>
-        <mxCell id="card-0-0-title" value="CAD 또는 3D 에셋" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=17;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="44" y="113" width="232" height="24" as="geometry" />
+        <mxCell id="arrow-0-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#456A23;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="48" y="194" as="sourcePoint" />
+            <mxPoint x="48" y="211" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="card-0-0-desc" value="STEP · 메시 · SimReady 에셋" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="34" y="139" width="238" height="30" as="geometry" />
+        <mxCell id="card-0-1-note" value="AIF Pipeline Samples" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="101" y="185" width="256" height="17" as="geometry" />
         </mxCell>
-        <mxCell id="card-0-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#EFF7FA;strokeColor=#AAC7D2;" vertex="1" parent="1">
-          <mxGeometry x="306" y="105" width="266" height="70" as="geometry" />
+        <mxCell id="card-0-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F4F9ED;strokeColor=#AFC69C;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="92" y="214" width="274" height="45" as="geometry" />
         </mxCell>
-        <mxCell id="card-0-1-tab" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;strokeWidth=1.25;fillColor=#DAEAF2;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="319" y="117" width="5" height="17" as="geometry" />
+        <mxCell id="card-0-2-main" value="Isaac Sim" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="101" y="216" width="256" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="card-0-1-title" value="카메라 영상 또는 주행 로그" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=17;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="330" y="113" width="232" height="24" as="geometry" />
+        <mxCell id="card-0-2-stage" value="Run" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#456A23;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="11" y="218" width="81" height="28" as="geometry" />
         </mxCell>
-        <mxCell id="card-0-1-desc" value="프레임 · 보정값 · 자차 자세" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="320" y="139" width="238" height="30" as="geometry" />
+        <mxCell id="arrow-0-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#456A23;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="48" y="245" as="sourcePoint" />
+            <mxPoint x="48" y="262" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="card-0-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#F6F2FB;strokeColor=#C7B5DA;" vertex="1" parent="1">
-          <mxGeometry x="592" y="105" width="266" height="70" as="geometry" />
+        <mxCell id="card-0-2-note" value="PhysX · RTX · Replicator" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="101" y="236" width="256" height="17" as="geometry" />
         </mxCell>
-        <mxCell id="card-0-2-tab" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;strokeWidth=1.25;fillColor=#E9DFF3;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="605" y="117" width="5" height="17" as="geometry" />
+        <mxCell id="card-0-3" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F4F9ED;strokeColor=#AFC69C;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="92" y="265" width="274" height="45" as="geometry" />
         </mxCell>
-        <mxCell id="card-0-2-title" value="로봇 시연" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=17;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="616" y="113" width="232" height="24" as="geometry" />
+        <mxCell id="card-0-3-main" value="Labeled sensor data" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="101" y="267" width="256" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="card-0-2-desc" value="원격 조작 · 영상 · 행동 궤적" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="606" y="139" width="238" height="30" as="geometry" />
+        <mxCell id="card-0-3-stage" value="Result" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#456A23;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="11" y="269" width="81" height="28" as="geometry" />
         </mxCell>
-        <mxCell id="stage-bg-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=6;strokeWidth=1.25;fillColor=#E5EDE5;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="20" y="189" width="224" height="21" as="geometry" />
+        <mxCell id="card-0-3-note" value="RGB · depth · masks" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="101" y="287" width="256" height="17" as="geometry" />
         </mxCell>
-        <mxCell id="stage-1" value="02  준비할 장면과 데이터" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=11;fontColor=#2F6839;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="28" y="189" width="212" height="21" as="geometry" />
+        <mxCell id="route-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#DFEDF9;strokeColor=#ACC9DF;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="336" width="378" height="253" as="geometry" />
         </mxCell>
-        <mxCell id="card-1-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#F5FAEF;strokeColor=#AFC49D;" vertex="1" parent="1">
-          <mxGeometry x="20" y="215" width="266" height="91" as="geometry" />
+        <mxCell id="route-1-icon" value="" style="shape=image;imageAspect=1;image=data:image/svg+xml,PHN2ZwogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSItMyAtMyAzMCAzMCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iI2E3ZWQ1NiIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cmVjdCB4PSItMyIgeT0iLTMiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgcng9IjciIGZpbGw9IiMxNzIwMTYiIHN0cm9rZT0ibm9uZSIgLz4KICA8cGF0aCBkPSJtMjEgOC0yIDItMS41LTMuN0EyIDIgMCAwIDAgMTUuNjQ2IDVIOC40YTIgMiAwIDAgMC0xLjkwMyAxLjI1N0w1IDEwIDMgOCIgLz4KICA8cGF0aCBkPSJNNyAxNGguMDEiIC8+CiAgPHBhdGggZD0iTTE3IDE0aC4wMSIgLz4KICA8cmVjdCB3aWR0aD0iMTgiIGhlaWdodD0iOCIgeD0iMyIgeT0iMTAiIHJ4PSIyIiAvPgogIDxwYXRoIGQ9Ik01IDE4djIiIC8+CiAgPHBhdGggZD0iTTE5IDE4djIiIC8+Cjwvc3ZnPgo=;" vertex="1" parent="1">
+          <mxGeometry x="10" y="343" width="26" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="card-1-0-tab" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;strokeWidth=1.25;fillColor=#DDEDCB;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="33" y="227" width="5" height="17" as="geometry" />
+        <mxCell id="route-1-title" value="Test a driving policy" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=18;fontColor=#205C88;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="44" y="342" width="324" height="28" as="geometry" />
         </mxCell>
-        <mxCell id="card-1-0-title" value="OpenUSD 장면" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=17;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="44" y="223" width="232" height="24" as="geometry" />
+        <mxCell id="card-1-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F0F6FD;strokeColor=#ACC9DF;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="92" y="378" width="274" height="45" as="geometry" />
         </mxCell>
-        <mxCell id="card-1-0-desc" value="AIF · Exchange SDK · SimFoundry&#10;형상, 충돌체, 관절" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="34" y="249" width="238" height="51" as="geometry" />
+        <mxCell id="card-1-0-main" value="Camera and driving logs" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="101" y="380" width="256" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="card-1-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#EFF7FA;strokeColor=#AAC7D2;" vertex="1" parent="1">
-          <mxGeometry x="306" y="215" width="266" height="91" as="geometry" />
+        <mxCell id="card-1-0-stage" value="Start with" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#205C88;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="11" y="382" width="81" height="28" as="geometry" />
         </mxCell>
-        <mxCell id="card-1-1-tab" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;strokeWidth=1.25;fillColor=#DAEAF2;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="319" y="227" width="5" height="17" as="geometry" />
+        <mxCell id="arrow-1-0" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#205C88;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="48" y="409" as="sourcePoint" />
+            <mxPoint x="48" y="426" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="card-1-1-title" value="복원 장면" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=17;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="330" y="223" width="232" height="24" as="geometry" />
+        <mxCell id="card-1-0-note" value="Frames · calibration · ego pose" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="101" y="400" width="256" height="17" as="geometry" />
         </mxCell>
-        <mxCell id="card-1-1-desc" value="NCore → NuRec → USDZ&#10;3DGS로 장면 외형 복원" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="320" y="249" width="238" height="51" as="geometry" />
+        <mxCell id="card-1-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F0F6FD;strokeColor=#ACC9DF;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="92" y="429" width="274" height="45" as="geometry" />
         </mxCell>
-        <mxCell id="card-1-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#F6F2FB;strokeColor=#C7B5DA;" vertex="1" parent="1">
-          <mxGeometry x="592" y="215" width="266" height="91" as="geometry" />
+        <mxCell id="card-1-1-main" value="NuRec" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="101" y="431" width="256" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="card-1-2-tab" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;strokeWidth=1.25;fillColor=#E9DFF3;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="605" y="227" width="5" height="17" as="geometry" />
+        <mxCell id="card-1-1-stage" value="Prepare" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#205C88;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="11" y="433" width="81" height="28" as="geometry" />
         </mxCell>
-        <mxCell id="card-1-2-title" value="학습 데이터셋" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=17;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="616" y="223" width="232" height="24" as="geometry" />
+        <mxCell id="arrow-1-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#205C88;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="48" y="460" as="sourcePoint" />
+            <mxPoint x="48" y="477" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="card-1-2-desc" value="Isaac Capture · V2D · AutoData&#10;관측값과 행동" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="606" y="249" width="238" height="51" as="geometry" />
+        <mxCell id="card-1-1-note" value="3DGS reconstruction → USDZ" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="101" y="451" width="256" height="17" as="geometry" />
         </mxCell>
-        <mxCell id="stage-bg-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=6;strokeWidth=1.25;fillColor=#E5EDE5;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="20" y="321" width="224" height="21" as="geometry" />
+        <mxCell id="card-1-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F0F6FD;strokeColor=#ACC9DF;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="92" y="480" width="274" height="45" as="geometry" />
         </mxCell>
-        <mxCell id="stage-2" value="03  시뮬레이션·렌더링·학습" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=11;fontColor=#2F6839;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="28" y="321" width="212" height="21" as="geometry" />
+        <mxCell id="card-1-2-main" value="AlpaSim" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="101" y="482" width="256" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="card-2-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#F5FAEF;strokeColor=#AFC49D;" vertex="1" parent="1">
-          <mxGeometry x="20" y="347" width="266" height="104" as="geometry" />
+        <mxCell id="card-1-2-stage" value="Run" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#205C88;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="11" y="484" width="81" height="28" as="geometry" />
         </mxCell>
-        <mxCell id="card-2-0-tab" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;strokeWidth=1.25;fillColor=#DDEDCB;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="33" y="359" width="5" height="17" as="geometry" />
+        <mxCell id="arrow-1-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#205C88;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="48" y="511" as="sourcePoint" />
+            <mxPoint x="48" y="528" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="card-2-0-title" value="장면·로봇 시뮬레이션" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=17;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="44" y="355" width="232" height="24" as="geometry" />
+        <mxCell id="card-1-2-note" value="Alpamayo or another policy" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="101" y="502" width="256" height="17" as="geometry" />
         </mxCell>
-        <mxCell id="card-2-0-desc" value="Isaac Sim: PhysX + RTX&#10;Isaac Lab: Newton 또는 PhysX&#10;앱 통합: OVRTX / OvPhysX" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="34" y="381" width="238" height="64" as="geometry" />
+        <mxCell id="card-1-3" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F0F6FD;strokeColor=#ACC9DF;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="92" y="531" width="274" height="45" as="geometry" />
         </mxCell>
-        <mxCell id="card-2-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#EFF7FA;strokeColor=#AAC7D2;" vertex="1" parent="1">
-          <mxGeometry x="306" y="347" width="266" height="104" as="geometry" />
+        <mxCell id="card-1-3-main" value="Driving evaluation" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="101" y="533" width="256" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="card-2-1-tab" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;strokeWidth=1.25;fillColor=#DAEAF2;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="319" y="359" width="5" height="17" as="geometry" />
+        <mxCell id="card-1-3-stage" value="Result" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#205C88;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="11" y="535" width="81" height="28" as="geometry" />
         </mxCell>
-        <mxCell id="card-2-1-title" value="폐루프 주행" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=17;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="330" y="355" width="232" height="24" as="geometry" />
+        <mxCell id="card-1-3-note" value="Rollout video · collisions" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="101" y="553" width="256" height="17" as="geometry" />
         </mxCell>
-        <mxCell id="card-2-1-desc" value="AlpaSim: 드라이버 + 제어기&#10;NuRec 렌더러 + 차량 물리&#10;후학습이 필요하면 AlpaGym" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="320" y="381" width="238" height="64" as="geometry" />
+        <mxCell id="route-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#ECE4F8;strokeColor=#C7B5DE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="602" width="378" height="253" as="geometry" />
         </mxCell>
-        <mxCell id="card-2-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#F6F2FB;strokeColor=#C7B5DA;" vertex="1" parent="1">
-          <mxGeometry x="592" y="347" width="266" height="104" as="geometry" />
+        <mxCell id="route-2-icon" value="" style="shape=image;imageAspect=1;image=data:image/svg+xml,PHN2ZwogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSItMyAtMyAzMCAzMCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iI2E3ZWQ1NiIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cmVjdCB4PSItMyIgeT0iLTMiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgcng9IjciIGZpbGw9IiMxNzIwMTYiIHN0cm9rZT0ibm9uZSIgLz4KICA8cGF0aCBkPSJNMTIgOFY0SDgiIC8+CiAgPHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjEyIiB4PSI0IiB5PSI4IiByeD0iMiIgLz4KICA8cGF0aCBkPSJNMiAxNGgyIiAvPgogIDxwYXRoIGQ9Ik0yMCAxNGgyIiAvPgogIDxwYXRoIGQ9Ik0xNSAxM3YyIiAvPgogIDxwYXRoIGQ9Ik05IDEzdjIiIC8+Cjwvc3ZnPgo=;" vertex="1" parent="1">
+          <mxGeometry x="10" y="609" width="26" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="card-2-2-tab" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;strokeWidth=1.25;fillColor=#E9DFF3;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="605" y="359" width="5" height="17" as="geometry" />
+        <mxCell id="route-2-title" value="Train a robot policy" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=18;fontColor=#65428E;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="44" y="608" width="324" height="28" as="geometry" />
         </mxCell>
-        <mxCell id="card-2-2-title" value="로봇 정책 개발" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=17;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="616" y="355" width="232" height="24" as="geometry" />
+        <mxCell id="card-2-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F7F3FC;strokeColor=#C7B5DE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="92" y="644" width="274" height="45" as="geometry" />
         </mxCell>
-        <mxCell id="card-2-2-desc" value="Isaac Lab · Isaac GR00T&#10;증강이 필요하면 Cosmos&#10;Lab-Arena로 지원 작업 평가" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="606" y="381" width="238" height="64" as="geometry" />
+        <mxCell id="card-2-0-main" value="Robot demos or video" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="101" y="646" width="256" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="stage-bg-3" value="" style="rounded=1;absoluteArcSize=1;arcSize=6;strokeWidth=1.25;fillColor=#E5EDE5;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="20" y="466" width="224" height="21" as="geometry" />
+        <mxCell id="card-2-0-stage" value="Start with" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#65428E;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="11" y="648" width="81" height="28" as="geometry" />
         </mxCell>
-        <mxCell id="stage-3" value="04  실행 결과" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=11;fontColor=#2F6839;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="28" y="466" width="212" height="21" as="geometry" />
+        <mxCell id="arrow-2-0" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#65428E;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="48" y="675" as="sourcePoint" />
+            <mxPoint x="48" y="692" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="card-3-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#F5FAEF;strokeColor=#AFC49D;" vertex="1" parent="1">
-          <mxGeometry x="20" y="492" width="266" height="91" as="geometry" />
+        <mxCell id="card-2-0-note" value="Isaac Capture" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="101" y="666" width="256" height="17" as="geometry" />
         </mxCell>
-        <mxCell id="card-3-0-tab" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;strokeWidth=1.25;fillColor=#DDEDCB;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="33" y="504" width="5" height="17" as="geometry" />
+        <mxCell id="card-2-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F7F3FC;strokeColor=#C7B5DE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="92" y="695" width="274" height="45" as="geometry" />
         </mxCell>
-        <mxCell id="card-3-0-title" value="라벨링·시뮬레이션 결과" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=17;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="44" y="500" width="232" height="24" as="geometry" />
+        <mxCell id="card-2-1-main" value="Training dataset" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="101" y="697" width="256" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="card-3-0-desc" value="Replicator: RGB·깊이·마스크&#10;로봇 팔로 물체 집기 · 디지털 트윈" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="34" y="526" width="238" height="51" as="geometry" />
+        <mxCell id="card-2-1-stage" value="Prepare" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#65428E;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="11" y="699" width="81" height="28" as="geometry" />
         </mxCell>
-        <mxCell id="card-3-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#EFF7FA;strokeColor=#AAC7D2;" vertex="1" parent="1">
-          <mxGeometry x="306" y="492" width="266" height="91" as="geometry" />
+        <mxCell id="arrow-2-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#65428E;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="48" y="726" as="sourcePoint" />
+            <mxPoint x="48" y="743" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="card-3-1-tab" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;strokeWidth=1.25;fillColor=#DAEAF2;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="319" y="504" width="5" height="17" as="geometry" />
+        <mxCell id="card-2-1-note" value="V2D · AutoData" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="101" y="717" width="256" height="17" as="geometry" />
         </mxCell>
-        <mxCell id="card-3-1-title" value="주행 기록과 평가 지표" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=17;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="330" y="500" width="232" height="24" as="geometry" />
+        <mxCell id="card-2-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F7F3FC;strokeColor=#C7B5DE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="92" y="746" width="274" height="45" as="geometry" />
         </mxCell>
-        <mxCell id="card-3-1-desc" value="에피소드 영상 · 충돌 · 도로 이탈&#10;같은 시나리오에서 비교" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="320" y="526" width="238" height="51" as="geometry" />
+        <mxCell id="card-2-2-main" value="Isaac Lab · GR00T" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="101" y="748" width="256" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="card-3-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#F6F2FB;strokeColor=#C7B5DA;" vertex="1" parent="1">
-          <mxGeometry x="592" y="492" width="266" height="91" as="geometry" />
+        <mxCell id="card-2-2-stage" value="Run" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#65428E;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="11" y="750" width="81" height="28" as="geometry" />
         </mxCell>
-        <mxCell id="card-3-2-tab" value="" style="rounded=1;absoluteArcSize=1;arcSize=3;strokeWidth=1.25;fillColor=#E9DFF3;strokeColor=none;" vertex="1" parent="1">
-          <mxGeometry x="605" y="504" width="5" height="17" as="geometry" />
+        <mxCell id="arrow-2-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#65428E;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="48" y="777" as="sourcePoint" />
+            <mxPoint x="48" y="794" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="card-3-2-title" value="정책과 평가 결과" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=17;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="616" y="500" width="232" height="24" as="geometry" />
+        <mxCell id="card-2-2-note" value="Newton or PhysX in Isaac Lab" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="101" y="768" width="256" height="17" as="geometry" />
         </mxCell>
-        <mxCell id="card-3-2-desc" value="체크포인트 · 가상·실물 테스트 성공률&#10;배포: LEAPP / Isaac ROS" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="606" y="526" width="238" height="51" as="geometry" />
+        <mxCell id="card-2-3" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F7F3FC;strokeColor=#C7B5DE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="92" y="797" width="274" height="45" as="geometry" />
         </mxCell>
-        <mxCell id="reuse-band" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#F0F3F1;strokeColor=#C9D4CC;" vertex="1" parent="1">
-          <mxGeometry x="20" y="599" width="838" height="32" as="geometry" />
+        <mxCell id="card-2-3-main" value="Evaluation and deployment" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="101" y="799" width="256" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="reuse-heading" value="다른 작업에 활용" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="32" y="602" width="124" height="26" as="geometry" />
+        <mxCell id="card-2-3-stage" value="Result" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#65428E;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="11" y="801" width="81" height="28" as="geometry" />
         </mxCell>
-        <mxCell id="reuse-copy" value="OpenUSD 장면 → 로봇 시뮬레이션  ·  이미지와 라벨 → 학습 데이터셋" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=12;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="160" y="602" width="681" height="26" as="geometry" />
+        <mxCell id="card-2-3-note" value="Lab-Arena · Isaac ROS · LEAPP" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="101" y="819" width="256" height="17" as="geometry" />
         </mxCell>
-        <mxCell id="support-band" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#F0F3F1;strokeColor=#C9D4CC;" vertex="1" parent="1">
-          <mxGeometry x="20" y="639" width="838" height="32" as="geometry" />
+        <mxCell id="common-panel" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F1F5ED;strokeColor=#BFCDBE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="868" width="378" height="177" as="geometry" />
         </mxCell>
-        <mxCell id="support-heading" value="함께 쓰는 도구" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="32" y="642" width="124" height="26" as="geometry" />
+        <mxCell id="reuse" value="Reuse scenes and data" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#284921;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="12" y="874" width="354" height="21" as="geometry" />
         </mxCell>
-        <mxCell id="support-copy" value="데이터 처리: CDF / NeMo Curator  ·  작업 실행: OSMO  ·  모델 라우팅: Switchyard" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=12;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="160" y="642" width="681" height="26" as="geometry" />
+        <mxCell id="reuse-a" value="OpenUSD scenes → robot training" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="12" y="896" width="354" height="18" as="geometry" />
         </mxCell>
-        <mxCell id="feedback-band" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;strokeWidth=1.25;fillColor=#E8F4DE;strokeColor=#B6CDA9;" vertex="1" parent="1">
-          <mxGeometry x="20" y="679" width="838" height="33" as="geometry" />
+        <mxCell id="reuse-b" value="Rendered images and labels → training datasets" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="12" y="914" width="354" height="18" as="geometry" />
         </mxCell>
-        <mxCell id="feedback-heading" value="결과 반영" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=13;fontColor=#172321;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="32" y="682" width="124" height="26" as="geometry" />
+        <mxCell id="shared" value="Tools across workflows" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#284921;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="12" y="937" width="354" height="21" as="geometry" />
         </mxCell>
-        <mxCell id="feedback-copy" value="평가 결과와 현장 로그를 보고 다음에 추가할 장면·시연·테스트를 고릅니다." style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=system-ui;fontSize=12;fontColor=#3D514A;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="160" y="682" width="681" height="26" as="geometry" />
+        <mxCell id="shared-label-0" value="Data processing" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#284921;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="12" y="961" width="108" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-tool-0" value="Cosmos Data Factory · NeMo Curator" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="129" y="961" width="239" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-label-1" value="Job scheduling" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#284921;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="12" y="979" width="108" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-tool-1" value="OSMO" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="129" y="979" width="239" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-label-2" value="Inference routing" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#284921;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="12" y="997" width="108" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-tool-2" value="NeMo Switchyard" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="129" y="997" width="239" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-label-3" value="App integration" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#284921;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="12" y="1015" width="108" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-tool-3" value="OVRTX · OvPhysX" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="129" y="1015" width="239" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="feedback-panel" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#16241B;strokeColor=none;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="1055" width="378" height="63" as="geometry" />
+        </mxCell>
+        <mxCell id="feedback" value="Use results to improve the next run" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#F3F8EE;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="12" y="1061" width="354" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="feedback-body" value="Use evaluation and field logs to plan the next test." style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#D3E0D2;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="12" y="1085" width="354" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="physical-ai-ko-mobile" name="한국어 · 모바일">
+    <mxGraphModel dx="378" dy="1129" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="378" pageHeight="1129" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title-panel" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#16241B;strokeColor=none;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="378" height="57" as="geometry" />
+        </mxCell>
+        <mxCell id="title" value="NVIDIA 피지컬 AI 생태계" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=21;fontColor=#F3F8EE;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="12" y="4" width="354" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="장면 제작 · 자율주행 평가 · 로봇 정책 학습" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=14;fontColor=#D3E0D2;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="12" y="30" width="354" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="route-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#E8F2DD;strokeColor=#AFC69C;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="70" width="378" height="253" as="geometry" />
+        </mxCell>
+        <mxCell id="route-0-icon" value="" style="shape=image;imageAspect=1;image=data:image/svg+xml,PHN2ZwogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSItMyAtMyAzMCAzMCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iI2E3ZWQ1NiIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cmVjdCB4PSItMyIgeT0iLTMiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgcng9IjciIGZpbGw9IiMxNzIwMTYiIHN0cm9rZT0ibm9uZSIgLz4KICA8cGF0aCBkPSJNMyA3VjVhMiAyIDAgMCAxIDItMmgyIiAvPgogIDxwYXRoIGQ9Ik0xNyAzaDJhMiAyIDAgMCAxIDIgMnYyIiAvPgogIDxwYXRoIGQ9Ik0yMSAxN3YyYTIgMiAwIDAgMS0yIDJoLTIiIC8+CiAgPHBhdGggZD0iTTcgMjFINWEyIDIgMCAwIDEtMi0ydi0yIiAvPgogIDxwYXRoIGQ9Ik03IDEyaDEwIiAvPgo8L3N2Zz4K;" vertex="1" parent="1">
+          <mxGeometry x="10" y="77" width="26" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="route-0-title" value="시뮬레이션 장면 만들기" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=18;fontColor=#456A23;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="44" y="76" width="324" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F4F9ED;strokeColor=#AFC69C;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="92" y="112" width="274" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-0-main" value="CAD 또는 3D 에셋" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="101" y="114" width="256" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-0-stage" value="준비물" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#456A23;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="11" y="116" width="81" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-0-0" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#456A23;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="48" y="143" as="sourcePoint" />
+            <mxPoint x="48" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="card-0-0-note" value="STEP 파일 · SimReady 에셋" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="101" y="134" width="256" height="17" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F4F9ED;strokeColor=#AFC69C;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="92" y="163" width="274" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-1-main" value="OpenUSD 장면" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="101" y="165" width="256" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-1-stage" value="변환·가공" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#456A23;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="11" y="167" width="81" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-0-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#456A23;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="48" y="194" as="sourcePoint" />
+            <mxPoint x="48" y="211" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="card-0-1-note" value="AIF Pipeline Samples" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="101" y="185" width="256" height="17" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F4F9ED;strokeColor=#AFC69C;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="92" y="214" width="274" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-2-main" value="Isaac Sim" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="101" y="216" width="256" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-2-stage" value="실행" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#456A23;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="11" y="218" width="81" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-0-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#456A23;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="48" y="245" as="sourcePoint" />
+            <mxPoint x="48" y="262" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="card-0-2-note" value="PhysX · RTX · Replicator" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="101" y="236" width="256" height="17" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-3" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F4F9ED;strokeColor=#AFC69C;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="92" y="265" width="274" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-3-main" value="라벨이 붙은 센서 데이터" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="101" y="267" width="256" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-3-stage" value="결과" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#456A23;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="11" y="269" width="81" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="card-0-3-note" value="RGB · 깊이 · 마스크" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="101" y="287" width="256" height="17" as="geometry" />
+        </mxCell>
+        <mxCell id="route-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#DFEDF9;strokeColor=#ACC9DF;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="336" width="378" height="253" as="geometry" />
+        </mxCell>
+        <mxCell id="route-1-icon" value="" style="shape=image;imageAspect=1;image=data:image/svg+xml,PHN2ZwogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSItMyAtMyAzMCAzMCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iI2E3ZWQ1NiIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cmVjdCB4PSItMyIgeT0iLTMiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgcng9IjciIGZpbGw9IiMxNzIwMTYiIHN0cm9rZT0ibm9uZSIgLz4KICA8cGF0aCBkPSJtMjEgOC0yIDItMS41LTMuN0EyIDIgMCAwIDAgMTUuNjQ2IDVIOC40YTIgMiAwIDAgMC0xLjkwMyAxLjI1N0w1IDEwIDMgOCIgLz4KICA8cGF0aCBkPSJNNyAxNGguMDEiIC8+CiAgPHBhdGggZD0iTTE3IDE0aC4wMSIgLz4KICA8cmVjdCB3aWR0aD0iMTgiIGhlaWdodD0iOCIgeD0iMyIgeT0iMTAiIHJ4PSIyIiAvPgogIDxwYXRoIGQ9Ik01IDE4djIiIC8+CiAgPHBhdGggZD0iTTE5IDE4djIiIC8+Cjwvc3ZnPgo=;" vertex="1" parent="1">
+          <mxGeometry x="10" y="343" width="26" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="route-1-title" value="자율주행 정책 평가하기" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=18;fontColor=#205C88;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="44" y="342" width="324" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F0F6FD;strokeColor=#ACC9DF;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="92" y="378" width="274" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-0-main" value="카메라 영상·주행 로그" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="101" y="380" width="256" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-0-stage" value="준비물" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#205C88;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="11" y="382" width="81" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-1-0" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#205C88;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="48" y="409" as="sourcePoint" />
+            <mxPoint x="48" y="426" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="card-1-0-note" value="프레임 · 보정값 · 자차 자세" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="101" y="400" width="256" height="17" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F0F6FD;strokeColor=#ACC9DF;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="92" y="429" width="274" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-1-main" value="NuRec" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="101" y="431" width="256" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-1-stage" value="변환·가공" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#205C88;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="11" y="433" width="81" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-1-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#205C88;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="48" y="460" as="sourcePoint" />
+            <mxPoint x="48" y="477" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="card-1-1-note" value="3DGS로 장면 복원 → USDZ" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="101" y="451" width="256" height="17" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F0F6FD;strokeColor=#ACC9DF;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="92" y="480" width="274" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-2-main" value="AlpaSim" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="101" y="482" width="256" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-2-stage" value="실행" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#205C88;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="11" y="484" width="81" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-1-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#205C88;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="48" y="511" as="sourcePoint" />
+            <mxPoint x="48" y="528" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="card-1-2-note" value="Alpamayo 등의 주행 정책" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="101" y="502" width="256" height="17" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-3" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F0F6FD;strokeColor=#ACC9DF;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="92" y="531" width="274" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-3-main" value="주행 평가 결과" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="101" y="533" width="256" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-3-stage" value="결과" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#205C88;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="11" y="535" width="81" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="card-1-3-note" value="주행 영상 · 충돌 · 도로 이탈" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="101" y="553" width="256" height="17" as="geometry" />
+        </mxCell>
+        <mxCell id="route-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#ECE4F8;strokeColor=#C7B5DE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="602" width="378" height="253" as="geometry" />
+        </mxCell>
+        <mxCell id="route-2-icon" value="" style="shape=image;imageAspect=1;image=data:image/svg+xml,PHN2ZwogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSItMyAtMyAzMCAzMCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iI2E3ZWQ1NiIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cmVjdCB4PSItMyIgeT0iLTMiIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgcng9IjciIGZpbGw9IiMxNzIwMTYiIHN0cm9rZT0ibm9uZSIgLz4KICA8cGF0aCBkPSJNMTIgOFY0SDgiIC8+CiAgPHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjEyIiB4PSI0IiB5PSI4IiByeD0iMiIgLz4KICA8cGF0aCBkPSJNMiAxNGgyIiAvPgogIDxwYXRoIGQ9Ik0yMCAxNGgyIiAvPgogIDxwYXRoIGQ9Ik0xNSAxM3YyIiAvPgogIDxwYXRoIGQ9Ik05IDEzdjIiIC8+Cjwvc3ZnPgo=;" vertex="1" parent="1">
+          <mxGeometry x="10" y="609" width="26" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="route-2-title" value="로봇 정책 학습하기" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=18;fontColor=#65428E;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="44" y="608" width="324" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-0" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F7F3FC;strokeColor=#C7B5DE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="92" y="644" width="274" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-0-main" value="로봇 시연 또는 영상" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="101" y="646" width="256" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-0-stage" value="준비물" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#65428E;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="11" y="648" width="81" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-2-0" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#65428E;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="48" y="675" as="sourcePoint" />
+            <mxPoint x="48" y="692" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="card-2-0-note" value="Isaac Capture" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="101" y="666" width="256" height="17" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-1" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F7F3FC;strokeColor=#C7B5DE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="92" y="695" width="274" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-1-main" value="학습용 데이터셋" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="101" y="697" width="256" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-1-stage" value="변환·가공" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#65428E;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="11" y="699" width="81" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-2-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#65428E;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="48" y="726" as="sourcePoint" />
+            <mxPoint x="48" y="743" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="card-2-1-note" value="V2D · AutoData" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="101" y="717" width="256" height="17" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-2" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F7F3FC;strokeColor=#C7B5DE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="92" y="746" width="274" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-2-main" value="Isaac Lab · GR00T" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="101" y="748" width="256" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-2-stage" value="실행" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#65428E;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="11" y="750" width="81" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-2-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#65428E;strokeWidth=1.8;endArrow=block;endFill=1;endSize=5;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="48" y="777" as="sourcePoint" />
+            <mxPoint x="48" y="794" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="card-2-2-note" value="Newton 또는 PhysX 선택" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="101" y="768" width="256" height="17" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-3" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F7F3FC;strokeColor=#C7B5DE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="92" y="797" width="274" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-3-main" value="정책 평가·배포" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#16241B;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="101" y="799" width="256" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-3-stage" value="결과" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#65428E;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="11" y="801" width="81" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="card-2-3-note" value="Lab-Arena · Isaac ROS · LEAPP" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="101" y="819" width="256" height="17" as="geometry" />
+        </mxCell>
+        <mxCell id="common-panel" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#F1F5ED;strokeColor=#BFCDBE;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="868" width="378" height="177" as="geometry" />
+        </mxCell>
+        <mxCell id="reuse" value="다른 작업에 활용" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#284921;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="12" y="874" width="354" height="21" as="geometry" />
+        </mxCell>
+        <mxCell id="reuse-a" value="OpenUSD 장면 → 로봇 학습 환경" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="12" y="896" width="354" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="reuse-b" value="렌더링 이미지와 라벨 → 학습용 데이터셋" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="12" y="914" width="354" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="shared" value="여러 워크플로에서 쓰는 도구" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#284921;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="12" y="937" width="354" height="21" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-label-0" value="데이터 처리" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#284921;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="12" y="961" width="108" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-tool-0" value="Cosmos Data Factory · NeMo Curator" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="129" y="961" width="239" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-label-1" value="작업 스케줄링" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#284921;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="12" y="979" width="108" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-tool-1" value="OSMO" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="129" y="979" width="239" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-label-2" value="추론 요청 라우팅" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#284921;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="12" y="997" width="108" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-tool-2" value="NeMo Switchyard" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="129" y="997" width="239" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-label-3" value="앱에 시뮬레이션 통합" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#284921;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="12" y="1015" width="108" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="shared-tool-3" value="OVRTX · OvPhysX" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=12;fontColor=#24332C;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="129" y="1015" width="239" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="feedback-panel" value="" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#16241B;strokeColor=none;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="0" y="1055" width="378" height="63" as="geometry" />
+        </mxCell>
+        <mxCell id="feedback" value="다음 수집과 테스트에 반영" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#F3F8EE;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="12" y="1061" width="354" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="feedback-body" value="평가·현장 로그로 다음에 모을 데이터와 시험 조건을 정합니다." style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;spacing=0;fontFamily=Arial;fontSize=13;fontColor=#D3E0D2;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="12" y="1085" width="354" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

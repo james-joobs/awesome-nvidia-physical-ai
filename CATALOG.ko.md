@@ -35,7 +35,7 @@
 
 CAD가 있다면 OpenUSD 장면을 만들어 카메라 데이터에 라벨을 붙일 수 있습니다. 주행 로그로는 도로 장면을 복원해 자율주행 정책을 평가할 수 있고, 로봇 시연 데이터로는 정책을 학습한 뒤 시뮬레이션이나 실제 로봇에서 시험해 볼 수 있습니다.
 
-![NVIDIA Physical AI 생태계의 세 경로. CAD와 3D 자산은 시뮬레이션, 렌더링, 디지털 트윈에 쓰이는 OpenUSD 장면이 됩니다. 카메라 영상과 주행 로그는 폐루프 평가용으로 복원한 장면이 됩니다. 원격 조작 시연은 로봇 정책 학습용 데이터셋이 됩니다. 평가 결과는 다음 반복에 반영합니다.](assets/ecosystem/physical-ai-ecosystem.ko.svg)
+![NVIDIA 피지컬 AI 생태계 지도. CAD에서 OpenUSD와 Isaac Sim으로, 주행 로그에서 NuRec과 AlpaSim으로, 로봇 시연에서 학습용 데이터셋과 Isaac Lab·GR00T로 이어지는 세 가지 워크플로. 평가 결과와 현장 로그는 다음 수집과 테스트에 반영합니다.](assets/ecosystem/physical-ai-ecosystem.ko.svg)
 
 **장면 표현, 물리, 렌더링을 따로 선택합니다.** OpenUSD는 장면을 구성합니다. 3D Gaussian Splatting(3DGS)은 카메라에서 보이는 외형을 표현하고, 충돌체·질량·관절은 물리적 상호작용을 정의합니다. PhysX와 Newton은 시뮬레이션 상태를 계산하고, RTX 렌더링과 센서 시뮬레이션은 관측값을 만듭니다. 도구를 고를 때는 백엔드와 렌더러의 호환성을 확인하세요.
 

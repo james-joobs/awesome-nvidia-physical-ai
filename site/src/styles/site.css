@@ -295,6 +295,10 @@ html[lang="ko"] :is(h1, h2, h3) { word-break: keep-all; }
 .ecosystem-map img { margin-inline: auto; }
 .ecosystem-map:hover { border-color: var(--accent); }
 
+@media (max-width: 820px) {
+  .ecosystem-map img { width: min(100%, 387px); }
+}
+
 .guide { padding-block: 40px 56px; }
 .guide-header { padding-bottom: 23px; border-bottom: 1px solid var(--edge); }
 .breadcrumb { color: var(--route-color, var(--accent)); font-size: .875rem; font-weight: 620; }

@@ -8,6 +8,7 @@ import { renderModelList } from '../lib/markdown.mjs';
 const { locale } = Astro.props;
 const labels = copy[locale];
 const models = renderModelList(locale);
+const map = maps[locale];
 ---
 <Base locale={locale} description={labels.heroDescription}>
   <section class="hero shell" aria-labelledby="hero-title">
@@ -55,10 +56,13 @@ const models = renderModelList(locale);
         <h2 id="ecosystem-heading">{labels.ecosystemHeading}</h2>
         <p>{labels.ecosystemDescription}</p>
       </div>
-      <a class="plain-link" href={maps[locale]}>{labels.openMap} <Icon name="external" size={17} /></a>
+      <a class="plain-link" href={map.wide}>{labels.openMap} <Icon name="external" size={17} /></a>
     </div>
-    <a class="ecosystem-map" href={maps[locale]} aria-label={labels.openMap}>
-      <img src={maps[locale]} alt={labels.mapAlt} loading="lazy" width="907" height="737" />
+    <a class="ecosystem-map" href={map.wide}>
+      <picture>
+        <source media="(max-width: 820px)" srcset={map.mobile} width="387" height="1125" />
+        <img src={map.wide} alt={labels.mapAlt} loading="lazy" width="1063" height="696" />
+      </picture>
     </a>
   </section>
   <section class="section resources shell" id="models" aria-labelledby="models-heading">

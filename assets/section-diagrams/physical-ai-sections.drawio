@@ -844,7 +844,7 @@
         <mxCell id="lane-0" parent="1" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#3D7015;fontSize=14;fontStyle=1;" value="장면·센서·렌더링">
           <mxGeometry x="24" y="69" width="690" height="18" as="geometry" />
         </mxCell>
-        <mxCell id="lane-1" parent="1" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#3D7015;fontSize=14;fontStyle=1;" value="Warp 기반 로봇 학습 경로">
+        <mxCell id="lane-1" parent="1" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#3D7015;fontSize=14;fontStyle=1;" value="Warp 기반 로봇 학습">
           <mxGeometry x="24" y="186" width="690" height="18" as="geometry" />
         </mxCell>
         <mxCell id="scene" parent="1" vertex="1" style="group;" value="">
@@ -856,7 +856,7 @@
         <mxCell id="scene-image" parent="scene" vertex="1" style="shape=image;imageAspect=1;image=data:image/svg+xml,PHN2ZyB2aWV3Qm94PSIwIDAgMTIgMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik02Ljk0MDMxIDExLjM1ODJWNy40Nzc2NFYzLjY1Njc0TDAgMS4yNjg2OFY4Ljk4NTFMNi45NDAzMSAxMS4zNTgyWk0xLjI2ODY2IDguMDE0OTVWMy4xNzkxM0w1LjYxMTk1IDQuNjU2NzRWOS40OTI1N0wxLjI2ODY2IDguMDE0OTVaIiBmaWxsPSIjMjA4RUNEIi8+CjxwYXRoIGQ9Ik0xLjc3NjEyIDcuNTk3MDNMNS4wODk1NiA4LjczMTM2VjUuMDc0NjRMMS43NzYxMiAzLjk0MDMxVjcuNTk3MDNaIiBmaWxsPSIjN0REMUY2Ii8+CjxwYXRoIGQ9Ik04LjkyNTM0IDUuNTk3MDJMOS45OTk5NyA1Ljk3MDE2VjEuMzU4MjFMNi4wNDQ3NCAwVjEuMTY0MThMOC45MjUzNCAyLjE2NDE4VjUuNTk3MDJaIiBmaWxsPSIjN0REMUY2Ii8+CjxwYXRoIGQ9Ik0yLjk4NTExIDAuNTk3MDE1VjEuNzYxMkw3LjM3MzE3IDMuMjgzNTlWOC4yNTM3NEw4LjQ0NzggOC42MTE5NVYyLjQ3NzYxTDIuOTg1MTEgMC41OTcwMTVaIiBmaWxsPSIjMzVDM0YxIi8+Cjwvc3ZnPgo=;" value="">
           <mxGeometry x="11" y="18.5" width="39" height="39" as="geometry" />
         </mxCell>
-        <object id="scene-label" label="장면 기술" link="https://docs.omniverse.nvidia.com/simready/latest/index.html">
+        <object id="scene-label" label="3D 장면 구성" link="https://docs.omniverse.nvidia.com/simready/latest/index.html">
           <mxCell parent="scene" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15251C;fontSize=18;fontStyle=1;">
             <mxGeometry x="62" y="13" width="266" height="23" as="geometry" />
           </mxCell>
@@ -890,7 +890,7 @@
         <mxCell id="frames-image" parent="frames" vertex="1" style="shape=image;imageAspect=1;image=data:image/svg+xml,PHN2ZwogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSIwIDAgMjQgMjQiCiAgZmlsbD0ibm9uZSIKICBzdHJva2U9IiM2MDhEMjYiCiAgc3Ryb2tlLXdpZHRoPSIyIgogIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIKICBzdHJva2UtbGluZWpvaW49InJvdW5kIgo+CiAgPHBhdGggZD0iTTEzLjk5NyA0YTIgMiAwIDAgMSAxLjc2IDEuMDVsLjQ4Ni45QTIgMiAwIDAgMCAxOC4wMDMgN0gyMGEyIDIgMCAwIDEgMiAydjlhMiAyIDAgMCAxLTIgMkg0YTIgMiAwIDAgMS0yLTJWOWEyIDIgMCAwIDEgMi0yaDEuOTk3YTIgMiAwIDAgMCAxLjc1OS0xLjA0OGwuNDg5LS45MDRBMiAyIDAgMCAxIDEwLjAwNCA0eiIgLz4KICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEzIiByPSIzIiAvPgo8L3N2Zz4K;" value="">
           <mxGeometry x="11" y="18.5" width="39" height="39" as="geometry" />
         </mxCell>
-        <object id="frames-label" label="센서 출력" link="https://docs.isaacsim.omniverse.nvidia.com/latest/sensors/index.html">
+        <object id="frames-label" label="센서 데이터" link="https://docs.isaacsim.omniverse.nvidia.com/latest/sensors/index.html">
           <mxCell parent="frames" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15251C;fontSize=18;fontStyle=1;">
             <mxGeometry x="62" y="13" width="266" height="23" as="geometry" />
           </mxCell>
@@ -912,7 +912,7 @@
             <mxGeometry x="62" y="13" width="266" height="23" as="geometry" />
           </mxCell>
         </object>
-        <mxCell id="warp-subtitle" parent="warp" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#3D7015;fontSize=14;fontStyle=1;" value="Warp · 필요시 MJWarp">
+        <mxCell id="warp-subtitle" parent="warp" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#3D7015;fontSize=14;fontStyle=1;" value="Warp · 필요에 따라 MJWarp">
           <mxGeometry x="62" y="38" width="266" height="20" as="geometry" />
         </mxCell>
         <mxCell id="newton" parent="1" vertex="1" style="group;" value="">
@@ -972,10 +972,10 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="title" parent="1" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15251C;fontSize=29;fontStyle=1;" value="시연에서 검증된 로봇 정책까지">
+        <mxCell id="title" parent="1" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15251C;fontSize=29;fontStyle=1;" value="로봇 시연부터 정책 평가·배포까지">
           <mxGeometry x="24" y="15" width="1067" height="37" as="geometry" />
         </mxCell>
-        <mxCell id="lane-0" parent="1" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#3D7015;fontSize=14;fontStyle=1;" value="정책 개발 흐름 예시">
+        <mxCell id="lane-0" parent="1" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#3D7015;fontSize=14;fontStyle=1;" value="로봇 정책 개발">
           <mxGeometry x="24" y="67" width="690" height="18" as="geometry" />
         </mxCell>
         <mxCell id="capture" parent="1" vertex="1" style="group;" value="">
@@ -1004,7 +1004,7 @@
         <mxCell id="v2d-image" parent="v2d" vertex="1" style="shape=image;imageAspect=1;image=data:image/png,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;" value="">
           <mxGeometry x="11" y="19.5" width="34" height="34" as="geometry" />
         </mxCell>
-        <object id="v2d-label" label="영상 복원" link="https://nvidia-isaac.github.io/video_to_data/">
+        <object id="v2d-label" label="영상 속 동작 복원" link="https://nvidia-isaac.github.io/video_to_data/">
           <mxCell parent="v2d" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15251C;fontSize=18;fontStyle=1;">
             <mxGeometry x="57" y="13" width="115" height="23" as="geometry" />
           </mxCell>
@@ -1026,7 +1026,7 @@
             <mxGeometry x="57" y="8" width="125" height="23" as="geometry" />
           </mxCell>
         </object>
-        <mxCell id="prep-subtitle" parent="prep" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#3D7015;fontSize=14;fontStyle=1;" value="검증·리타기팅">
+        <mxCell id="prep-subtitle" parent="prep" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#3D7015;fontSize=14;fontStyle=1;" value="검증 · 동작 변환">
           <mxGeometry x="57" y="33" width="125" height="20" as="geometry" />
         </mxCell>
         <mxCell id="prep-note" parent="prep" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#47594D;fontSize=13;fontStyle=0;" value="AutoData (시뮬레이션)">
@@ -1075,7 +1075,7 @@
         <mxCell id="deploy-image" parent="deploy" vertex="1" style="shape=image;imageAspect=1;image=data:image/svg+xml,PHN2ZwogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSIwIDAgMjQgMjQiCiAgZmlsbD0ibm9uZSIKICBzdHJva2U9IiM2MDhEMjYiCiAgc3Ryb2tlLXdpZHRoPSIyIgogIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIKICBzdHJva2UtbGluZWpvaW49InJvdW5kIgo+CiAgPHBhdGggZD0iTTEwIDEyaDQiIC8+CiAgPHBhdGggZD0iTTEwIDE3aDQiIC8+CiAgPHBhdGggZD0iTTEwIDdoNCIgLz4KICA8cGF0aCBkPSJNMTggMTJoMiIgLz4KICA8cGF0aCBkPSJNMTggMThoMiIgLz4KICA8cGF0aCBkPSJNMTggNmgyIiAvPgogIDxwYXRoIGQ9Ik00IDEyaDIiIC8+CiAgPHBhdGggZD0iTTQgMThoMiIgLz4KICA8cGF0aCBkPSJNNCA2aDIiIC8+CiAgPHJlY3QgeD0iNiIgeT0iMiIgd2lkdGg9IjEyIiBoZWlnaHQ9IjIwIiByeD0iMiIgLz4KPC9zdmc+Cg==;" value="">
           <mxGeometry x="11" y="19.5" width="34" height="34" as="geometry" />
         </mxCell>
-        <object id="deploy-label" label="로봇 배포" link="https://docs.nvidia.com/isaaclab/resources/sim-2-real-deployment-of-policies-trained-in-isaac-lab/exporting-policies-with-leapp">
+        <object id="deploy-label" label="실물 로봇에 배포" link="https://docs.nvidia.com/isaaclab/resources/sim-2-real-deployment-of-policies-trained-in-isaac-lab/exporting-policies-with-leapp">
           <mxCell parent="deploy" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15251C;fontSize=18;fontStyle=1;">
             <mxGeometry x="57" y="13" width="125" height="23" as="geometry" />
           </mxCell>
@@ -1117,7 +1117,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="foot" parent="1" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#47594D;fontSize=15;fontStyle=0;" value="실제 로봇의 실행 결과와 실패 사례를 다음 데이터 수집과 시뮬레이션에 반영합니다.">
+        <mxCell id="foot" parent="1" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#47594D;fontSize=15;fontStyle=0;" value="실물 로봇에서 확인한 결과와 실패 사례를 다음 데이터 수집과 시뮬레이션에 반영합니다.">
           <mxGeometry x="24" y="301" width="1067" height="20" as="geometry" />
         </mxCell>
       </root>
@@ -1128,7 +1128,7 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="title" parent="1" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15251C;fontSize=29;fontStyle=1;" value="3D 장면·영상으로 라벨링 데이터 만들기">
+        <mxCell id="title" parent="1" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15251C;fontSize=29;fontStyle=1;" value="3D 장면·영상으로 라벨이 붙은 데이터 만들기">
           <mxGeometry x="24" y="15" width="1067" height="37" as="geometry" />
         </mxCell>
         <mxCell id="lane-0" parent="1" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#3D7015;fontSize=14;fontStyle=1;" value="Cosmos Data Factory 블루프린트 예시">
@@ -1222,7 +1222,7 @@
             <mxGeometry x="62" y="13" width="166" height="23" as="geometry" />
           </mxCell>
         </object>
-        <mxCell id="export-subtitle" parent="export" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#3D7015;fontSize=14;fontStyle=1;" value="미디어·라벨·메타데이터">
+        <mxCell id="export-subtitle" parent="export" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#3D7015;fontSize=14;fontStyle=1;" value="이미지·영상·라벨·메타데이터">
           <mxGeometry x="62" y="38" width="166" height="20" as="geometry" />
         </mxCell>
         <mxCell id="connection-0" edge="1" parent="1" source="sim" target="curate" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;strokeWidth=2.1;strokeColor=#3D7015;endArrow=block;endFill=1;endSize=7;jettySize=6;exitX=1;exitY=0.5;entryX=0;entryY=0.29;">
@@ -1261,7 +1261,7 @@
         <mxCell id="title" parent="1" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15251C;fontSize=29;fontStyle=1;" value="NeMo 모델 개발과 요청 라우팅">
           <mxGeometry x="24" y="15" width="1067" height="37" as="geometry" />
         </mxCell>
-        <mxCell id="lane-0" parent="1" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#3D7015;fontSize=14;fontStyle=1;" value="모델 개발 경로 예시">
+        <mxCell id="lane-0" parent="1" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#3D7015;fontSize=14;fontStyle=1;" value="모델 학습·평가·서빙">
           <mxGeometry x="24" y="69" width="690" height="18" as="geometry" />
         </mxCell>
         <mxCell id="lane-1" parent="1" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#17669B;fontSize=14;fontStyle=1;" value="요청 라우팅 예시">
@@ -1310,7 +1310,7 @@
         <mxCell id="bench-image" parent="bench" vertex="1" style="shape=image;imageAspect=1;image=data:image/svg+xml,PHN2ZwogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSIwIDAgMjQgMjQiCiAgZmlsbD0ibm9uZSIKICBzdHJva2U9IiM2MDhEMjYiCiAgc3Ryb2tlLXdpZHRoPSIyIgogIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIKICBzdHJva2UtbGluZWpvaW49InJvdW5kIgo+CiAgPHJlY3Qgd2lkdGg9IjgiIGhlaWdodD0iNCIgeD0iOCIgeT0iMiIgcng9IjEiIHJ5PSIxIiAvPgogIDxwYXRoIGQ9Ik0xNiA0aDJhMiAyIDAgMCAxIDIgMnYxNGEyIDIgMCAwIDEtMiAySDZhMiAyIDAgMCAxLTItMlY2YTIgMiAwIDAgMSAyLTJoMiIgLz4KICA8cGF0aCBkPSJtOSAxNCAyIDIgNC00IiAvPgo8L3N2Zz4K;" value="">
           <mxGeometry x="11" y="18.5" width="39" height="39" as="geometry" />
         </mxCell>
-        <object id="bench-label" label="엔드포인트 평가" link="https://docs.nvidia.com/nemo/evaluator/tutorials">
+        <object id="bench-label" label="모델 API로 평가" link="https://docs.nvidia.com/nemo/evaluator/tutorials">
           <mxCell parent="bench" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15251C;fontSize=18;fontStyle=1;">
             <mxGeometry x="62" y="13" width="266" height="23" as="geometry" />
           </mxCell>
@@ -1327,12 +1327,12 @@
         <mxCell id="host-image" parent="host" vertex="1" style="shape=image;imageAspect=1;image=data:image/svg+xml,PHN2ZwogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSIwIDAgMjQgMjQiCiAgZmlsbD0ibm9uZSIKICBzdHJva2U9IiM2MDhEMjYiCiAgc3Ryb2tlLXdpZHRoPSIyIgogIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIKICBzdHJva2UtbGluZWpvaW49InJvdW5kIgo+CiAgPHBhdGggZD0iTTEyIDhWNEg4IiAvPgogIDxyZWN0IHdpZHRoPSIxNiIgaGVpZ2h0PSIxMiIgeD0iNCIgeT0iOCIgcng9IjIiIC8+CiAgPHBhdGggZD0iTTIgMTRoMiIgLz4KICA8cGF0aCBkPSJNMjAgMTRoMiIgLz4KICA8cGF0aCBkPSJNMTUgMTN2MiIgLz4KICA8cGF0aCBkPSJNOSAxM3YyIiAvPgo8L3N2Zz4K;" value="">
           <mxGeometry x="11" y="18.5" width="39" height="39" as="geometry" />
         </mxCell>
-        <object id="host-label" label="에이전트·앱 호스트" link="https://github.com/NVIDIA/NeMo-Relay">
+        <object id="host-label" label="앱 또는 에이전트" link="https://github.com/NVIDIA/NeMo-Relay">
           <mxCell parent="host" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15251C;fontSize=18;fontStyle=1;">
             <mxGeometry x="62" y="13" width="266" height="23" as="geometry" />
           </mxCell>
         </object>
-        <mxCell id="host-subtitle" parent="host" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#3D7015;fontSize=14;fontStyle=1;" value="Relay 연동은 선택 사항">
+        <mxCell id="host-subtitle" parent="host" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#3D7015;fontSize=14;fontStyle=1;" value="필요하면 Relay 연동">
           <mxGeometry x="62" y="38" width="266" height="20" as="geometry" />
         </mxCell>
         <mxCell id="switch" parent="1" vertex="1" style="group;" value="">
@@ -1366,7 +1366,7 @@
             <mxGeometry x="62" y="13" width="266" height="23" as="geometry" />
           </mxCell>
         </object>
-        <mxCell id="serve-subtitle" parent="serve" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#3D7015;fontSize=14;fontStyle=1;" value="호환되는 모델 엔드포인트">
+        <mxCell id="serve-subtitle" parent="serve" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#3D7015;fontSize=14;fontStyle=1;" value="모델 추론 API">
           <mxGeometry x="62" y="38" width="266" height="20" as="geometry" />
         </mxCell>
         <mxCell id="connection-0" edge="1" parent="1" source="curate" target="train" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;strokeWidth=2.1;strokeColor=#3D7015;endArrow=block;endFill=1;endSize=7;jettySize=6;exitX=1;exitY=0.5;entryX=0;entryY=0.5;">
@@ -1395,7 +1395,7 @@
         <mxCell id="title" parent="1" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15251C;fontSize=29;fontStyle=1;" value="자율주행 폐루프 시뮬레이션과 후학습">
           <mxGeometry x="24" y="15" width="1067" height="37" as="geometry" />
         </mxCell>
-        <mxCell id="lane-0" parent="1" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#3D7015;fontSize=14;fontStyle=1;" value="AlpaSim 폐루프">
+        <mxCell id="lane-0" parent="1" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#3D7015;fontSize=14;fontStyle=1;" value="AlpaSim 폐루프 주행">
           <mxGeometry x="24" y="69" width="690" height="18" as="geometry" />
         </mxCell>
         <mxCell id="lane-1" parent="1" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#17669B;fontSize=14;fontStyle=1;" value="필요에 따라 후학습">
@@ -1413,7 +1413,7 @@
         <mxCell id="observe-image" parent="observe" vertex="1" style="shape=image;imageAspect=1;image=data:image/svg+xml,PHN2ZwogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSIwIDAgMjQgMjQiCiAgZmlsbD0ibm9uZSIKICBzdHJva2U9IiM2MDhEMjYiCiAgc3Ryb2tlLXdpZHRoPSIyIgogIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIKICBzdHJva2UtbGluZWpvaW49InJvdW5kIgo+CiAgPHBhdGggZD0iTTEzLjk5NyA0YTIgMiAwIDAgMSAxLjc2IDEuMDVsLjQ4Ni45QTIgMiAwIDAgMCAxOC4wMDMgN0gyMGEyIDIgMCAwIDEgMiAydjlhMiAyIDAgMCAxLTIgMkg0YTIgMiAwIDAgMS0yLTJWOWEyIDIgMCAwIDEgMi0yaDEuOTk3YTIgMiAwIDAgMCAxLjc1OS0xLjA0OGwuNDg5LS45MDRBMiAyIDAgMCAxIDEwLjAwNCA0eiIgLz4KICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEzIiByPSIzIiAvPgo8L3N2Zz4K;" value="">
           <mxGeometry x="11" y="18.5" width="39" height="39" as="geometry" />
         </mxCell>
-        <object id="observe-label" label="관측 생성" link="https://github.com/NVlabs/alpasim">
+        <object id="observe-label" label="센서 관측값 생성" link="https://github.com/NVlabs/alpasim">
           <mxCell parent="observe" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15251C;fontSize=18;fontStyle=1;">
             <mxGeometry x="62" y="13" width="266" height="23" as="geometry" />
           </mxCell>
@@ -1430,7 +1430,7 @@
         <mxCell id="plan-image" parent="plan" vertex="1" style="shape=image;imageAspect=1;image=data:image/svg+xml,PHN2ZwogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSIwIDAgMjQgMjQiCiAgZmlsbD0ibm9uZSIKICBzdHJva2U9IiM2MDhEMjYiCiAgc3Ryb2tlLXdpZHRoPSIyIgogIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIKICBzdHJva2UtbGluZWpvaW49InJvdW5kIgo+CiAgPHBhdGggZD0ibTIxIDgtMiAyLTEuNS0zLjdBMiAyIDAgMCAwIDE1LjY0NiA1SDguNGEyIDIgMCAwIDAtMS45MDMgMS4yNTdMNSAxMCAzIDgiIC8+CiAgPHBhdGggZD0iTTcgMTRoLjAxIiAvPgogIDxwYXRoIGQ9Ik0xNyAxNGguMDEiIC8+CiAgPHJlY3Qgd2lkdGg9IjE4IiBoZWlnaHQ9IjgiIHg9IjMiIHk9IjEwIiByeD0iMiIgLz4KICA8cGF0aCBkPSJNNSAxOHYyIiAvPgogIDxwYXRoIGQ9Ik0xOSAxOHYyIiAvPgo8L3N2Zz4K;" value="">
           <mxGeometry x="11" y="18.5" width="39" height="39" as="geometry" />
         </mxCell>
-        <object id="plan-label" label="다음 행동 계획" link="https://github.com/NVlabs/alpamayo-recipes">
+        <object id="plan-label" label="주행 궤적 계획" link="https://github.com/NVlabs/alpamayo-recipes">
           <mxCell parent="plan" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15251C;fontSize=18;fontStyle=1;">
             <mxGeometry x="62" y="13" width="266" height="23" as="geometry" />
           </mxCell>
@@ -1447,7 +1447,7 @@
         <mxCell id="advance-image" parent="advance" vertex="1" style="shape=image;imageAspect=1;image=data:image/svg+xml,PHN2ZwogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSIwIDAgMjQgMjQiCiAgZmlsbD0ibm9uZSIKICBzdHJva2U9IiM2MDhEMjYiCiAgc3Ryb2tlLXdpZHRoPSIyIgogIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIKICBzdHJva2UtbGluZWpvaW49InJvdW5kIgo+CiAgPHBhdGggZD0ibTEwLjU4NiA1LjQxNC01LjE3MiA1LjE3MiIgLz4KICA8cGF0aCBkPSJtMTguNTg2IDEzLjQxNC01LjE3MiA1LjE3MiIgLz4KICA8cGF0aCBkPSJNNiAxMmgxMiIgLz4KICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjIwIiByPSIyIiAvPgogIDxjaXJjbGUgY3g9IjEyIiBjeT0iNCIgcj0iMiIgLz4KICA8Y2lyY2xlIGN4PSIyMCIgY3k9IjEyIiByPSIyIiAvPgogIDxjaXJjbGUgY3g9IjQiIGN5PSIxMiIgcj0iMiIgLz4KPC9zdmc+Cg==;" value="">
           <mxGeometry x="11" y="18.5" width="39" height="39" as="geometry" />
         </mxCell>
-        <object id="advance-label" label="장면 상태 갱신" link="https://github.com/NVlabs/alpasim/blob/main/docs/DESIGN.md">
+        <object id="advance-label" label="차량·장면 상태 갱신" link="https://github.com/NVlabs/alpasim/blob/main/docs/DESIGN.md">
           <mxCell parent="advance" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15251C;fontSize=18;fontStyle=1;">
             <mxGeometry x="62" y="13" width="266" height="23" as="geometry" />
           </mxCell>
@@ -1481,7 +1481,7 @@
         <mxCell id="score-image" parent="score" vertex="1" style="shape=image;imageAspect=1;image=data:image/svg+xml,PHN2ZwogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSIwIDAgMjQgMjQiCiAgZmlsbD0ibm9uZSIKICBzdHJva2U9IiM2MDhEMjYiCiAgc3Ryb2tlLXdpZHRoPSIyIgogIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIKICBzdHJva2UtbGluZWpvaW49InJvdW5kIgo+CiAgPHJlY3Qgd2lkdGg9IjgiIGhlaWdodD0iNCIgeD0iOCIgeT0iMiIgcng9IjEiIHJ5PSIxIiAvPgogIDxwYXRoIGQ9Ik0xNiA0aDJhMiAyIDAgMCAxIDIgMnYxNGEyIDIgMCAwIDEtMiAySDZhMiAyIDAgMCAxLTItMlY2YTIgMiAwIDAgMSAyLTJoMiIgLz4KICA8cGF0aCBkPSJtOSAxNCAyIDIgNC00IiAvPgo8L3N2Zz4K;" value="">
           <mxGeometry x="11" y="18.5" width="39" height="39" as="geometry" />
         </mxCell>
-        <object id="score-label" label="에피소드 채점" link="https://github.com/NVlabs/alpagym">
+        <object id="score-label" label="주행 평가" link="https://github.com/NVlabs/alpagym">
           <mxCell parent="score" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15251C;fontSize=18;fontStyle=1;">
             <mxGeometry x="62" y="13" width="266" height="23" as="geometry" />
           </mxCell>
@@ -1526,7 +1526,7 @@
         <mxCell id="connection-4" edge="1" parent="1" source="score" target="update" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;strokeWidth=2.1;strokeColor=#17669B;endArrow=block;endFill=1;endSize=7;jettySize=6;exitX=1;exitY=0.5;entryX=0;entryY=0.5;">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="foot" parent="1" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#47594D;fontSize=15;fontStyle=0;" value="업데이트한 정책은 학습에 쓰지 않은 시나리오에서 다시 평가합니다.">
+        <mxCell id="foot" parent="1" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#47594D;fontSize=15;fontStyle=0;" value="학습에 쓰지 않은 시나리오에서 업데이트한 주행 정책을 평가합니다.">
           <mxGeometry x="24" y="349" width="1067" height="20" as="geometry" />
         </mxCell>
       </root>
@@ -1555,7 +1555,7 @@
         <mxCell id="central-image" parent="central" vertex="1" style="shape=image;imageAspect=1;image=data:image/svg+xml,PHN2ZwogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSIwIDAgMjQgMjQiCiAgZmlsbD0ibm9uZSIKICBzdHJva2U9IiM2MDhEMjYiCiAgc3Ryb2tlLXdpZHRoPSIyIgogIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIKICBzdHJva2UtbGluZWpvaW49InJvdW5kIgo+CiAgPHBhdGggZD0iTTIxIDhhMiAyIDAgMCAwLTEtMS43M2wtNy00YTIgMiAwIDAgMC0yIDBsLTcgNEEyIDIgMCAwIDAgMyA4djhhMiAyIDAgMCAwIDEgMS43M2w3IDRhMiAyIDAgMCAwIDIgMGw3LTRBMiAyIDAgMCAwIDIxIDE2WiIgLz4KICA8cGF0aCBkPSJtMy4zIDcgOC43IDUgOC43LTUiIC8+CiAgPHBhdGggZD0iTTEyIDIyVjEyIiAvPgo8L3N2Zz4K;" value="">
           <mxGeometry x="11" y="18.5" width="39" height="39" as="geometry" />
         </mxCell>
-        <object id="central-label" label="용도별 프로파일 찾기" link="https://docs.omniverse.nvidia.com/simready/latest/simready-central.html">
+        <object id="central-label" label="용도에 맞는 규격 찾기" link="https://docs.omniverse.nvidia.com/simready/latest/simready-central.html">
           <mxCell parent="central" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15251C;fontSize=18;fontStyle=1;">
             <mxGeometry x="62" y="13" width="266" height="23" as="geometry" />
           </mxCell>
@@ -1623,7 +1623,7 @@
         <mxCell id="data-image" parent="data" vertex="1" style="shape=image;imageAspect=1;image=data:image/svg+xml,PHN2ZwogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSIwIDAgMjQgMjQiCiAgZmlsbD0ibm9uZSIKICBzdHJva2U9IiM2MDhEMjYiCiAgc3Ryb2tlLXdpZHRoPSIyIgogIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIKICBzdHJva2UtbGluZWpvaW49InJvdW5kIgo+CiAgPHBhdGggZD0iTTEyLjgzIDIuMThhMiAyIDAgMCAwLTEuNjYgMEwyLjYgNi4wOGExIDEgMCAwIDAgMCAxLjgzbDguNTggMy45MWEyIDIgMCAwIDAgMS42NiAwbDguNTgtMy45YTEgMSAwIDAgMCAwLTEuODN6IiAvPgogIDxwYXRoIGQ9Ik0yIDEyYTEgMSAwIDAgMCAuNTguOTFsOC42IDMuOTFhMiAyIDAgMCAwIDEuNjUgMGw4LjU4LTMuOUExIDEgMCAwIDAgMjIgMTIiIC8+CiAgPHBhdGggZD0iTTIgMTdhMSAxIDAgMCAwIC41OC45MWw4LjYgMy45MWEyIDIgMCAwIDAgMS42NSAwbDguNTgtMy45QTEgMSAwIDAgMCAyMiAxNyIgLz4KPC9zdmc+Cg==;" value="">
           <mxGeometry x="11" y="18.5" width="39" height="39" as="geometry" />
         </mxCell>
-        <object id="data-label" label="목적에 맞는 데이터 선택" link="https://huggingface.co/nvidia/datasets">
+        <object id="data-label" label="작업에 맞는 데이터 선택" link="https://huggingface.co/nvidia/datasets">
           <mxCell parent="data" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15251C;fontSize=18;fontStyle=1;">
             <mxGeometry x="62" y="13" width="266" height="23" as="geometry" />
           </mxCell>
@@ -1640,12 +1640,12 @@
         <mxCell id="tasks-image" parent="tasks" vertex="1" style="shape=image;imageAspect=1;image=data:image/svg+xml,PHN2ZwogIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICB3aWR0aD0iMjQiCiAgaGVpZ2h0PSIyNCIKICB2aWV3Qm94PSIwIDAgMjQgMjQiCiAgZmlsbD0ibm9uZSIKICBzdHJva2U9IiM2MDhEMjYiCiAgc3Ryb2tlLXdpZHRoPSIyIgogIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIKICBzdHJva2UtbGluZWpvaW49InJvdW5kIgo+CiAgPHJlY3Qgd2lkdGg9IjgiIGhlaWdodD0iNCIgeD0iOCIgeT0iMiIgcng9IjEiIHJ5PSIxIiAvPgogIDxwYXRoIGQ9Ik0xNiA0aDJhMiAyIDAgMCAxIDIgMnYxNGEyIDIgMCAwIDEtMiAySDZhMiAyIDAgMCAxLTItMlY2YTIgMiAwIDAgMSAyLTJoMiIgLz4KICA8cGF0aCBkPSJtOSAxNCAyIDIgNC00IiAvPgo8L3N2Zz4K;" value="">
           <mxGeometry x="11" y="18.5" width="39" height="39" as="geometry" />
         </mxCell>
-        <object id="tasks-label" label="학습 또는 벤치마크" link="https://huggingface.co/docs/hub/datasets-cards">
+        <object id="tasks-label" label="학습 또는 성능 평가" link="https://huggingface.co/docs/hub/datasets-cards">
           <mxCell parent="tasks" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15251C;fontSize=18;fontStyle=1;">
             <mxGeometry x="62" y="13" width="266" height="23" as="geometry" />
           </mxCell>
         </object>
-        <mxCell id="tasks-subtitle" parent="tasks" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#3D7015;fontSize=14;fontStyle=1;" value="작업·형식·데이터 분할 기준">
+        <mxCell id="tasks-subtitle" parent="tasks" vertex="1" style="text;html=0;align=left;verticalAlign=middle;spacing=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#3D7015;fontSize=14;fontStyle=1;" value="작업·파일 형식·데이터 분할">
           <mxGeometry x="62" y="38" width="266" height="20" as="geometry" />
         </mxCell>
         <mxCell id="connection-0" edge="1" parent="1" source="central" target="props" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;strokeWidth=2.1;strokeColor=#3D7015;endArrow=block;endFill=1;endSize=7;jettySize=6;exitX=1;exitY=0.5;entryX=0;entryY=0.5;">

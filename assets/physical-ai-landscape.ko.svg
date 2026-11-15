@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xml:lang="ko" width="1600" height="1500" viewBox="0 0 1600 1500" role="img" aria-labelledby="title desc">
 <title id="title">NVIDIA Physical AI 생태계와 개발 플라이휠</title>
-<desc id="desc">핵심 피지컬 AI 스택, NeMo와 Cosmos의 데이터 정제부터 서빙까지, Switchyard 선택 라우팅, 배포 결과를 다시 수집하는 플라이휠을 보여 주는 비공식 지도입니다.</desc>
+<desc id="desc">피지컬 AI 도구와 NeMo·Cosmos의 데이터 정제, 모델 학습·평가·서빙, Switchyard의 요청 라우팅, 현장 결과를 데이터 수집에 반영하는 흐름을 보여 줍니다.</desc>
 <defs>
   <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
     <stop stop-color="#151a18"/><stop offset="1" stop-color="#090c0b"/>
@@ -47,14 +47,14 @@
 <rect x="64" y="226" width="356" height="223" rx="12" class="card"/>
 <rect x="64" y="226" width="356" height="4" rx="2" fill="#76b900"/>
 <text x="84" y="255" class="eyebrow">01 / 입력</text>
-<text x="84" y="287" class="card-title">데이터와 자산</text>
+<text x="84" y="287" class="card-title">데이터와 3D 에셋</text>
 <text x="84" y="314" class="muted">수집 · 복원 · 준비</text>
 <text x="84" y="346" class="label">Isaac Capture · Video-to-Data</text>
 <text x="84" y="372" class="label">AutoData · Physical AI 데이터셋</text>
 <text x="84" y="398" class="label">SimReady · OpenUSD</text>
 <rect x="436" y="226" width="356" height="223" rx="12" class="card"/>
 <rect x="436" y="226" width="356" height="4" rx="2" fill="#76b900"/>
-<text x="456" y="255" class="eyebrow">02 / 세계</text>
+<text x="456" y="255" class="eyebrow">02 / 시뮬레이션</text>
 <text x="456" y="287" class="card-title">시뮬레이션과 생성</text>
 <text x="456" y="314" class="muted">장면 구성 · 조건 변화</text>
 <text x="456" y="346" class="label">Isaac Sim · Omniverse</text>
@@ -63,7 +63,7 @@
 <text x="456" y="424" class="label">Cosmos Predict · Transfer</text>
 <rect x="808" y="226" width="356" height="223" rx="12" class="card"/>
 <rect x="808" y="226" width="356" height="4" rx="2" fill="#76b900"/>
-<text x="828" y="255" class="eyebrow">03 / 지능</text>
+<text x="828" y="255" class="eyebrow">03 / 모델</text>
 <text x="828" y="287" class="card-title">정책 학습과 검증</text>
 <text x="828" y="314" class="muted">정책 학습 · 행동 검증</text>
 <text x="828" y="346" class="label">Isaac Lab · Lab-Arena</text>
@@ -72,7 +72,7 @@
 <text x="828" y="424" class="label">Cosmos 3 · Cosmos Reason</text>
 <rect x="1180" y="226" width="356" height="223" rx="12" class="card"/>
 <rect x="1180" y="226" width="356" height="4" rx="2" fill="#76b900"/>
-<text x="1200" y="255" class="eyebrow">04 / 행동</text>
+<text x="1200" y="255" class="eyebrow">04 / 운영</text>
 <text x="1200" y="287" class="card-title">배포와 운영</text>
 <text x="1200" y="314" class="muted">로봇 · 차량 · 현장에 적용</text>
 <text x="1200" y="346" class="label">Isaac ROS · cuRobo · nvblox</text>
@@ -80,7 +80,7 @@
 <text x="1200" y="398" class="label">Jetson · DRIVE · Holoscan</text>
 <text x="1200" y="424" class="label">DeepStream · Metropolis VSS</text>
 <!-- Model lifecycle -->
-<text x="64" y="501" class="section">02  /  NeMo와 COSMOS 모델 워크플로</text>
+<text x="64" y="501" class="section">02  /  NeMo와 Cosmos 모델 개발</text>
 <text x="1536" y="501" class="small" text-anchor="end">초록 화살표는 데이터와 체크포인트의 흐름을 나타냅니다.</text>
 <rect x="64" y="522" width="356" height="192" rx="12" class="card"/>
 <text x="84" y="554" class="card-title">데이터 정제</text>
@@ -95,7 +95,7 @@
 <text x="456" y="614" class="label">NeMo AutoModel · Megatron Bridge</text>
 <text x="456" y="641" class="label">NeMo RL · NeMo Gym</text>
 <path d="M456 655h316" stroke="#3d5743"/>
-<text x="456" y="684" class="artifact">후보 모델 체크포인트</text>
+<text x="456" y="684" class="artifact">비교할 체크포인트</text>
 <rect x="808" y="522" width="356" height="192" rx="12" class="card"/>
 <text x="828" y="554" class="card-title">평가와 선택</text>
 <text x="828" y="587" class="label">Cosmos Evaluator  /  영상 품질</text>
@@ -107,14 +107,14 @@
 <text x="1200" y="554" class="card-title">모델 서빙</text>
 <text x="1200" y="587" class="label">NVIDIA NIM  /  모델 추론</text>
 <text x="1200" y="614" class="label">NeMo Platform  /  추론 게이트웨이</text>
-<text x="1200" y="641" class="label">Cosmos Framework  /  서빙 레시피</text>
+<text x="1200" y="641" class="label">Cosmos Framework  /  서빙 예제</text>
 <path d="M1200 655h316" stroke="#3d5743"/>
-<text x="1200" y="684" class="artifact">호환 추론 엔드포인트</text>
+<text x="1200" y="684" class="artifact">모델 추론 API</text>
 <path d="M421 616H432" class="green-line"/>
 <path d="M793 616H804" class="green-line"/>
 <path d="M1165 616H1176" class="green-line"/>
 <!-- Optional inference request path -->
-<text x="64" y="766" class="section">03  /  추론 시점의 SWITCHYARD</text>
+<text x="64" y="766" class="section">03  /  Switchyard 요청 라우팅</text>
 <text x="1086" y="766" class="small" text-anchor="end">앱에서 요청을 받아 추론 모델에 전달하는 예</text>
 <rect x="64" y="788" width="1472" height="259" rx="12" class="route-band"/>
 <rect x="88" y="821" width="448" height="103" rx="12" class="route"/>
@@ -124,23 +124,23 @@
 <rect x="616" y="821" width="364" height="103" rx="12" class="switch"/>
 <text x="634" y="854" class="card-title blue">NeMo Switchyard</text>
 <text x="634" y="881" class="label">요청마다 사용할 모델 선택</text>
-<text x="634" y="905" class="small">라우팅 라이브러리 또는 호스트 연동</text>
+<text x="634" y="905" class="small">라우팅 라이브러리 또는 앱 연동</text>
 <rect x="1060" y="821" width="452" height="103" rx="12" class="route"/>
-<text x="1078" y="854" class="card-title">호환 모델 API</text>
-<text x="1078" y="881" class="label">NIM 또는 설정된 다른 공급자</text>
+<text x="1078" y="854" class="card-title">모델 추론 API</text>
+<text x="1078" y="881" class="label">NIM 또는 설정한 모델 제공사</text>
 <text x="1078" y="905" class="small">선택한 엔드포인트에서 추론</text>
 <path d="M543 873H606" class="blue-line"/>
 <path d="M987 873H1050" class="blue-line"/>
 <path d="M1358 715V811" class="blue-line serve-line"/>
 <text x="1372" y="766" class="small blue">API 제공</text>
-<text x="88" y="963" class="small">문서 근거 · NeMo Retriever</text>
+<text x="88" y="963" class="small">문서 검색 · NeMo Retriever</text>
 <text x="554" y="963" class="small">실행과 추적 · NeMo Fabric / Relay</text>
-<text x="1034" y="963" class="small">애플리케이션 검사 · NeMo Guardrails</text>
+<text x="1034" y="963" class="small">입출력 규칙 검사 · NeMo Guardrails</text>
 <text x="88" y="1013" class="small">NeMo Agent Toolkit (지원 종료 예정)  →  기능에 따라 Relay · Fabric · Helix로 전환</text>
 <!-- Shared platforms -->
 <text x="64" y="1097" class="section">04  /  공통 플랫폼</text>
 <rect x="64" y="1118" width="1472" height="59" rx="12" class="band"/>
-<text x="88" y="1154" class="small">장면·자산 · Omniverse / OpenUSD</text>
+<text x="88" y="1154" class="small">장면·3D 에셋 · Omniverse / OpenUSD</text>
 <text x="463" y="1154" class="small">데이터 파이프라인 · Cosmos Data Factory</text>
 <text x="864" y="1154" class="small">실행 관리 · OSMO</text>
 <text x="1174" y="1154" class="small">데이터·모델 · Hugging Face</text>
@@ -164,14 +164,14 @@
 <text x="1069" y="1324" class="small">검증과 선택</text>
 <rect x="1298" y="1270" width="214" height="70" rx="9" class="chip"/>
 <text x="1311" y="1299" class="label">6. 배포</text>
-<text x="1311" y="1324" class="small">운영 및 관측</text>
+<text x="1311" y="1324" class="small">현장 운영·모니터링</text>
 <path d="M303 1305H324" class="green-line"/>
 <path d="M545 1305H566" class="green-line"/>
 <path d="M787 1305H808" class="green-line"/>
 <path d="M1029 1305H1050" class="green-line"/>
 <path d="M1271 1305H1292" class="green-line"/>
 <path d="M1405 1341V1377Q1405 1393 1389 1393H211Q195 1393 195 1377V1347" class="green-line"/>
-<text x="800" y="1382" class="small" text-anchor="middle">관측, 실패 사례와 실행 기록을 다음 데이터 수집과 평가에 반영</text>
+<text x="800" y="1382" class="small" text-anchor="middle">현장의 관측값과 실패 기록을 다음 데이터 수집과 평가에 반영</text>
 <text x="64" y="1469" class="small">개념도 · 작업에 맞는 도구 선택 · 모델·데이터·서비스별 이용 조건 확인</text>
 <text x="1536" y="1469" class="small" text-anchor="end">github.com/james-joobs/awesome-nvidia-physical-ai</text>
 </svg>
