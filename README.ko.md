@@ -6,6 +6,8 @@ NVIDIA 피지컬 AI 도구가 너무 많아 어디서 시작할지 막막할 때
 
 **[🌐 사이트 열기](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/)**
 
+[▶ 레포 활용 흐름 보기](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/#repo-tour) · 목표를 고르고 필요한 데이터와 도구를 찾아 실습한 뒤 결과를 확인하는 과정을 볼 수 있습니다.
+
 **[🔎 카탈로그 검색](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/catalog/)** · [🗺️ 생태계 지도](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/#ecosystem) · [🤖 로봇 파운데이션 모델](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/#models)
 
 ## 만들고 싶은 것부터 시작하세요

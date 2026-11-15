@@ -1,0 +1,322 @@
+---
+import Icon from './Icon.astro';
+import { pageUrl } from '../lib/catalog.mjs';
+import { tourCopy, tourPaths } from '../lib/repo-tour.mjs';
+
+const { locale } = Astro.props;
+const labels = tourCopy[locale];
+
+function stepUrl([page, filter]) {
+  const url = pageUrl(locale, page);
+  if (typeof filter === 'string') return url + filter;
+  return filter ? url + '?' + new URLSearchParams(filter) : url;
+}
+---
+<section id="repo-tour" class="section resources shell" aria-labelledby="repo-tour-heading">
+  <div class="section-head">
+    <div>
+      <h2 id="repo-tour-heading">{labels.title}</h2>
+      <p>{labels.description}</p>
+    </div>
+  </div>
+  <div class="tour"
+    data-repo-tour
+    data-play={labels.play}
+    data-pause={labels.pause}
+    data-replay={labels.replay}
+    data-next={labels.next}
+    data-reset={labels.reset}
+  >
+    <div class="tour-controls" data-tour-controls hidden>
+      <div class="tour-goals" role="group" aria-label={labels.goals}>
+        {tourPaths.map((path) => (
+          <button type="button" class={path.theme} data-tour-goal={path.id} aria-pressed="false" aria-controls={'tour-' + path.id}>
+            <Icon name={path.icon} size={18} />{path[locale].goal}
+          </button>
+        ))}
+      </div>
+      <div class="tour-actions">
+        <button type="button" class="tour-play" data-tour-play>{labels.play}</button>
+        <button type="button" data-tour-next>{labels.next}</button>
+      </div>
+    </div>
+
+    {tourPaths.map((path) => (
+      <div id={'tour-' + path.id} class:list={['tour-path', path.theme]} data-tour-path={path.id}>
+        <h3 class="tour-goal">{path[locale].goal}</h3>
+        <ol class="tour-steps" role="list">
+          {path[locale].steps.map(([title, description, action], index) => (
+            <li class="tour-step" data-tour-step>
+              <span class="tour-stop" aria-hidden="true"></span>
+              <div class="tour-card">
+                <p class="tour-stage">{labels.stages[index]}</p>
+                <h4>{title}</h4>
+                <p class="tour-description">{description}</p>
+                <a href={stepUrl(path.destinations[index])}>{action}<Icon name="right" size={15} /></a>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    ))}
+    <p class="tour-status" data-tour-status aria-live="polite"></p>
+  </div>
+</section>
+
+<script>
+  const stepDuration = 1750;
+
+  for (const tour of document.querySelectorAll<HTMLElement>('[data-repo-tour]')) {
+    const goals = [...tour.querySelectorAll('[data-tour-goal]')];
+    const paths = [...tour.querySelectorAll<HTMLElement>('[data-tour-path]')];
+    const controls = tour.querySelector<HTMLElement>('[data-tour-controls]')!;
+    const play = tour.querySelector<HTMLButtonElement>('[data-tour-play]')!;
+    const next = tour.querySelector<HTMLButtonElement>('[data-tour-next]')!;
+    const status = tour.querySelector<HTMLElement>('[data-tour-status]')!;
+
+    let pathIndex = 0;
+    let stepIndex = 0;
+    let timer: ReturnType<typeof setTimeout>;
+    let playing = false;
+
+    const steps = () => [...paths[pathIndex].querySelectorAll<HTMLElement>('[data-tour-step]')];
+
+    function update(announce = false) {
+      const currentSteps = steps();
+      const finished = stepIndex === currentSteps.length - 1;
+      currentSteps.forEach((step, index) => {
+        step.dataset.state = index === stepIndex ? 'current' : index < stepIndex ? 'done' : 'upcoming';
+        if (index === stepIndex) step.setAttribute('aria-current', 'step');
+        else step.removeAttribute('aria-current');
+      });
+      tour.toggleAttribute('data-playing', playing);
+      play.textContent = (playing ? tour.dataset.pause : finished ? tour.dataset.replay : tour.dataset.play)!;
+      next.textContent = (finished ? tour.dataset.reset : tour.dataset.next)!;
+      if (announce) status.textContent = currentSteps[stepIndex].querySelector('h4')!.textContent;
+    }
+
+    function stop() {
+      clearTimeout(timer);
+      playing = false;
+    }
+
+    function advance() {
+      stepIndex++;
+      if (stepIndex === steps().length - 1) stop();
+      update(!playing);
+      if (playing) timer = setTimeout(advance, stepDuration);
+    }
+
+    function select(index: number) {
+      stop();
+      pathIndex = index;
+      stepIndex = 0;
+      paths.forEach((path, i) => { path.hidden = i !== index; });
+      goals.forEach((goal, i) => { goal.setAttribute('aria-pressed', String(i === index)); });
+      status.textContent = '';
+      update();
+    }
+
+    for (const [index, goal] of goals.entries()) {
+      goal.addEventListener('click', () => select(index));
+    }
+
+    play.addEventListener('click', () => {
+      if (playing) {
+        stop();
+        update();
+        return;
+      }
+      if (stepIndex === steps().length - 1) stepIndex = 0;
+      playing = true;
+      update();
+      timer = setTimeout(advance, stepDuration);
+    });
+
+    next.addEventListener('click', () => {
+      stop();
+      stepIndex = (stepIndex + 1) % steps().length;
+      update(true);
+    });
+
+    tour.style.setProperty('--tour-step-duration', stepDuration + 'ms');
+    select(0);
+    controls.hidden = false;
+    tour.dataset.ready = '';
+  }
+</script>
+
+<style>
+  .tour {
+    padding: 18px;
+    border: 1px solid var(--edge);
+    border-radius: 14px;
+    background: var(--surface);
+  }
+  .tour-controls:not([hidden]) {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    margin-bottom: 18px;
+  }
+  .tour-goals, .tour-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .tour-controls button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 44px;
+    padding: 7px 12px;
+    border: 1px solid var(--edge);
+    border-radius: 8px;
+    background: var(--bg);
+    color: var(--text);
+    font: inherit;
+    font-size: .84rem;
+    font-weight: 620;
+    cursor: pointer;
+  }
+  .tour-goals [aria-pressed='true'] {
+    background: var(--route-tint);
+    border-color: var(--route-color);
+    color: var(--route-color);
+  }
+  .tour-goals button:hover, .tour-actions button:hover { border-color: var(--accent); }
+  .tour-actions .tour-play {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--ink);
+  }
+  .tour-actions .tour-play:hover { background: #d5fa9e; }
+  .tour-path + .tour-path { margin-top: 18px; }
+  [data-ready] .tour-path { margin-top: 0; }
+  .tour-goal { margin-bottom: 10px; font-size: 1rem; }
+
+  .tour-steps {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .tour-step {
+    position: relative;
+    display: grid;
+    padding-top: 20px;
+  }
+  .tour-step:not(:last-child)::before, .tour-step:not(:last-child)::after {
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    width: calc(100% + 12px);
+    height: 2px;
+    content: '';
+  }
+  .tour-step:not(:last-child)::before { background: var(--edge); }
+  .tour-step:not(:last-child)::after {
+    background: var(--route-color);
+    transform: scaleX(0);
+    transform-origin: left top;
+  }
+  .tour-step[data-state='done']:not(:last-child)::after { transform: scaleX(1); }
+  [data-playing] .tour-step[data-state='current']:not(:last-child)::after {
+    animation: trace-step var(--tour-step-duration) linear both;
+  }
+  @keyframes trace-step { to { transform: scaleX(1); } }
+  .tour-stop {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    z-index: 1;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #667263;
+    border-radius: 50%;
+    background: var(--surface);
+  }
+  [data-state='done'] .tour-stop, [data-state='current'] .tour-stop {
+    background: var(--route-color);
+    border-color: var(--route-color);
+  }
+  [data-state='current'] .tour-stop { box-shadow: 0 0 0 3px var(--route-tint); }
+
+  .tour-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px 14px 4px;
+    border: 1px solid var(--edge);
+    border-radius: 10px;
+    background: var(--bg);
+    overflow-wrap: anywhere;
+  }
+  [data-state='current'] .tour-card {
+    border-color: var(--route-color);
+    background: var(--route-tint);
+  }
+  .tour-stage {
+    color: var(--route-color);
+    font-size: .75rem;
+    font-weight: 650;
+  }
+  .tour-card h4 {
+    margin: 0;
+    font-family: var(--display);
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    line-height: 1.2;
+  }
+  .tour-description { color: var(--muted); font-size: .84rem; line-height: 1.48; }
+  .tour-card a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    min-height: 44px;
+    margin-top: auto;
+    color: var(--route-color);
+    font-size: .81rem;
+    font-weight: 620;
+    text-decoration: none;
+  }
+  .tour-card a:hover { text-decoration: underline; }
+  .tour-card a::after { position: absolute; inset: 0; content: ''; }
+  .tour-card a :global(svg) { flex: none; }
+  :global(html[lang='ko']) .tour-card { word-break: keep-all; }
+
+  [data-ready] .tour-goal, .tour-status {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  @media (max-width: 760px) {
+    .tour { padding: 12px; }
+    .tour-controls:not([hidden]) { margin-bottom: 14px; }
+    .tour-steps { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+    .tour-step { padding: 0 0 0 20px; }
+    .tour-step:not(:last-child)::before, .tour-step:not(:last-child)::after {
+      top: 13px;
+      left: 5px;
+      width: 2px;
+      height: calc(100% + 8px);
+    }
+    .tour-step:not(:last-child)::after { transform: scaleY(0); }
+    .tour-step[data-state='done']:not(:last-child)::after { transform: scaleY(1); }
+    [data-playing] .tour-step[data-state='current']:not(:last-child)::after { animation-name: trace-step-vertical; }
+    @keyframes trace-step-vertical { to { transform: scaleY(1); } }
+    .tour-stop { top: 8px; left: 0; }
+    .tour-card { gap: 4px; padding: 9px 10px 1px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-playing] .tour-step[data-state='current']:not(:last-child)::after { animation: none; }
+  }
+</style>

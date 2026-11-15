@@ -1,9 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
 import Icon from './Icon.astro';
+import RepoTour from './RepoTour.astro';
 import { heroImage, maps } from '../lib/assets.mjs';
 import { copy, modelGuide, pageUrl, workflows } from '../lib/catalog.mjs';
 import { renderModelList } from '../lib/markdown.mjs';
+import { tourCopy } from '../lib/repo-tour.mjs';
 
 const { locale } = Astro.props;
 const labels = copy[locale];
@@ -16,7 +18,10 @@ const map = maps[locale];
       <p class="eyebrow"><span></span>{labels.community}</p>
       <h1 id="hero-title">{labels.heroTitle}<br />{' '}<em>{labels.heroAccent}</em></h1>
       <p class="hero-description">{labels.heroDescription}</p>
-      <a href="#workflows" class="button button-primary">{labels.heroAction}<Icon name="down" size={18} /></a>
+      <div class="hero-actions">
+        <a href="#workflows" class="button button-primary">{labels.heroAction}<Icon name="down" size={18} /></a>
+        <a href="#repo-tour" class="plain-link">{tourCopy[locale].shortcut}<Icon name="right" size={18} /></a>
+      </div>
     </div>
     <div class="hero-visual" aria-hidden="true">
       <img src={heroImage} alt="" width="1280" height="640" fetchpriority="high" />
@@ -50,6 +55,7 @@ const map = maps[locale];
       })}
     </div>
   </section>
+  <RepoTour locale={locale} />
   <section class="section resources shell" id="ecosystem" aria-labelledby="ecosystem-heading">
     <div class="section-head">
       <div>
@@ -73,3 +79,8 @@ const map = maps[locale];
     <div class="prose model-list" set:html={models} />
   </section>
 </Base>
+
+<style>
+  .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 18px; }
+  .hero-actions .plain-link { min-height: 44px; }
+</style>
