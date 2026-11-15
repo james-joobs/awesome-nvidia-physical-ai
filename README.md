@@ -4,9 +4,9 @@
 
 Choose what to build, find the tools that work together, and follow a hands-on guide to your first result. An independent, bilingual community guide to NVIDIA Physical AI.
 
-**[🌐 Open the website](https://james-joobs.github.io/awesome-nvidia-physical-ai/)**
+[![Animated preview of the CAD-to-Isaac-Sim walkthrough. Open the interactive guide.](assets/repo-tour/preview.en.gif)](https://james-joobs.github.io/awesome-nvidia-physical-ai/#repo-tour)
 
-[▶ See the repo in action](https://james-joobs.github.io/awesome-nvidia-physical-ai/#repo-tour) · Choose a goal and follow the path from data and tools to a guide and a result check.
+**[🌐 Open the website](https://james-joobs.github.io/awesome-nvidia-physical-ai/)**
 
 **[🔎 Search the catalog](https://james-joobs.github.io/awesome-nvidia-physical-ai/catalog/)** · [🗺️ Ecosystem map](https://james-joobs.github.io/awesome-nvidia-physical-ai/#ecosystem) · [🤖 Robot models](https://james-joobs.github.io/awesome-nvidia-physical-ai/#models)
 

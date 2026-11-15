@@ -4,9 +4,9 @@
 
 NVIDIA 피지컬 AI 도구가 너무 많아 어디서 시작할지 막막할 때 참고할 수 있는 가이드입니다. 로봇 시뮬레이션, 데이터 제작, 자율주행 등 목표별로 도구를 고르고 첫 실습을 따라 해 보세요.
 
-**[🌐 사이트 열기](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/)**
+[![작업대 CAD를 Isaac Sim으로 가져오는 실습 미리보기. 눌러서 직접 체험하세요.](assets/repo-tour/preview.ko.gif)](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/#repo-tour)
 
-[▶ 레포 활용 흐름 보기](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/#repo-tour) · 목표를 고르고 필요한 데이터와 도구를 찾아 실습한 뒤 결과를 확인하는 과정을 볼 수 있습니다.
+**[🌐 사이트 열기](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/)**
 
 **[🔎 카탈로그 검색](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/catalog/)** · [🗺️ 생태계 지도](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/#ecosystem) · [🤖 로봇 파운데이션 모델](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/#models)
 
