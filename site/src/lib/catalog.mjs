@@ -11,9 +11,9 @@ export function repositoryFile(file) {
   return `${repository}/blob/main/${file}`;
 }
 
-export const readme = {
-  en: { file: 'README.md', modelHeading: 'Robot foundation models and VLAs' },
-  ko: { file: 'README.ko.md', modelHeading: '로봇 파운데이션 모델과 VLA' },
+export const catalogs = {
+  en: { file: 'CATALOG.md', modelHeading: 'Robot foundation models and VLAs' },
+  ko: { file: 'CATALOG.ko.md', modelHeading: '로봇 파운데이션 모델과 VLA' },
 };
 
 export const workflows = [

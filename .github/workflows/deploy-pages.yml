@@ -8,8 +8,8 @@ on:
       - 'site/**'
       - 'docs/**'
       - 'assets/**'
-      - 'README.md'
-      - 'README.ko.md'
+      - 'CATALOG.md'
+      - 'CATALOG.ko.md'
   workflow_dispatch:
 
 permissions: {}

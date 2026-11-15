@@ -1,6 +1,6 @@
 # Physical Intelligence π series and openpi
 
-[← Robot foundation model catalog](../../README.md#robot-foundation-models-and-vlas) · [한국어](../ko/physical-intelligence-pi.md)
+[← Robot foundation model catalog](../../CATALOG.md#robot-foundation-models-and-vlas) · [한국어](../ko/physical-intelligence-pi.md)
 
 Physical Intelligence’s π series uses camera observations, language instructions, and robot state to generate robot actions. The openpi repository publishes inference and fine-tuning code and checkpoints for three model variants. The Pi API beta offers hosted fine-tuning and inference. Release and access information was checked on November 13, 2026.
 

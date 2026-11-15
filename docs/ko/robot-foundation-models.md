@@ -1,6 +1,6 @@
 # 로봇 파운데이션 모델 선택과 평가
 
-[← 모델 목록](../../README.ko.md#로봇-파운데이션-모델과-vla) · [English](../en/robot-foundation-models.md)
+[← 모델 목록](../../CATALOG.ko.md#로봇-파운데이션-모델과-vla) · [English](../en/robot-foundation-models.md)
 
 평가할 수 있는 로봇과 작업부터 정합니다. 사용할 카메라·그리퍼·벤치마크와 맞는 체크포인트를 고르면, 새 시연을 수집하거나 범용 모델을 파인튜닝하기 전에 재현 가능한 기준 결과를 얻을 수 있습니다.
 

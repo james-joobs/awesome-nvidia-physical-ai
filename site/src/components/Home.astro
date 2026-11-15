@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Icon from './Icon.astro';
 import { heroImage, maps } from '../lib/assets.mjs';
-import { copy, modelGuide, pageUrl, readme, repositoryFile, workflows } from '../lib/catalog.mjs';
+import { copy, modelGuide, pageUrl, catalogs, repositoryFile, workflows } from '../lib/catalog.mjs';
 import { renderModelList } from '../lib/markdown.mjs';
 
 const { locale } = Astro.props;
@@ -24,7 +24,7 @@ const models = renderModelList(locale);
   <section class="section workflows-section shell" id="workflows" aria-labelledby="workflows-heading">
     <div class="section-head">
       <h2 id="workflows-heading">{labels.workflowHeading}</h2>
-      <a href={repositoryFile(readme[locale].file)} class="plain-link">
+      <a href={repositoryFile(catalogs[locale].file)} class="plain-link">
         {labels.catalog} <Icon name="external" size={17} />
       </a>
     </div>

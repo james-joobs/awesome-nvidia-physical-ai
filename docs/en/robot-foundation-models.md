@@ -1,6 +1,6 @@
 # Choose and evaluate a robot foundation model
 
-[← Model catalog](../../README.md#robot-foundation-models-and-vlas) · [한국어](../ko/robot-foundation-models.md)
+[← Model catalog](../../CATALOG.md#robot-foundation-models-and-vlas) · [한국어](../ko/robot-foundation-models.md)
 
 Start with the robot and task you can evaluate. A checkpoint for a specific camera setup, gripper, or benchmark gives you a reproducible baseline before you collect data or fine-tune a generalist model.
 

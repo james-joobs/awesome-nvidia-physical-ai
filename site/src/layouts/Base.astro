@@ -3,7 +3,7 @@ import '@fontsource-variable/inter';
 import '@fontsource-variable/space-grotesk';
 import '../styles/site.css';
 import Icon from '../components/Icon.astro';
-import { copy, languages, pageUrl, readme, repository, repositoryFile } from '../lib/catalog.mjs';
+import { copy, languages, pageUrl, catalogs, repository, repositoryFile } from '../lib/catalog.mjs';
 import { heroImage } from '../lib/assets.mjs';
 
 const { locale, page = '', title, description } = Astro.props;
@@ -17,6 +17,7 @@ const absolute = (path) => new URL(path, Astro.site);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href={`${pageUrl('en')}favicon.svg`} />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={absolute(pageUrl(locale, page))} />
@@ -59,7 +60,7 @@ const absolute = (path) => new URL(path, Astro.site);
       <div class="shell footer-inner">
         <div><span lang="en">{brand}</span><p>{labels.community}</p></div>
         <div class="footer-links">
-          <a href={repositoryFile(readme[locale].file)}>{labels.catalog} <Icon name="external" size={16} /></a>
+          <a href={repositoryFile(catalogs[locale].file)}>{labels.catalog} <Icon name="external" size={16} /></a>
           <a href={repositoryFile('NOTICE.md')}>{labels.license} <Icon name="external" size={16} /></a>
         </div>
       </div>

@@ -1,4 +1,4 @@
-# Astro Pages Preview
+# GitHub Pages site
 
 Use Node.js 24 LTS from a checkout of this repository.
 
@@ -15,4 +15,4 @@ Open the local URL printed by Astro and append `/awesome-nvidia-physical-ai/` fo
 - Open the ecosystem map at full size, check the model table and selection guide, and download `cube-drop.usda` from the cube lesson.
 - At a narrow viewport, check the stacked workflow cards and scroll the model table horizontally to reach the license and source columns.
 
-The site reads the workflow and model Markdown from the repository and bundles the existing diagrams and lesson asset. Update paired section IDs in `src/lib/catalog.mjs` if the top-level sections of a guide change. The static output in `site/dist/` is configured for a GitHub Pages project site. GitHub Pages publishing will be configured after review.
+The site reads workflow guides from `docs/` and the model table from `CATALOG.md` and `CATALOG.ko.md` and bundles the existing diagrams and lesson asset. Update paired section IDs in `src/lib/catalog.mjs` if the top-level sections of a guide change. The static output in `site/dist/` is configured for a GitHub Pages project site. The deploy workflow publishes the static build from `main`.

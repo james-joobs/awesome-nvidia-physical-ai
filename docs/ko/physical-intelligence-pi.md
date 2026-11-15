@@ -1,6 +1,6 @@
 # Physical Intelligence π 시리즈와 openpi
 
-[← 로봇 파운데이션 모델 목록](../../README.ko.md#로봇-파운데이션-모델과-vla) · [English](../en/physical-intelligence-pi.md)
+[← 로봇 파운데이션 모델 목록](../../CATALOG.ko.md#로봇-파운데이션-모델과-vla) · [English](../en/physical-intelligence-pi.md)
 
 Physical Intelligence의 π 시리즈는 카메라 영상, 언어 지시, 로봇 상태를 입력으로 받아 로봇의 행동을 생성합니다. openpi 저장소에서 세 모델의 추론·미세조정 코드와 체크포인트를 제공하고, Pi API 베타는 호스팅 환경에서 미세조정과 추론을 제공합니다. 공개 범위는 2026년 11월 13일 기준입니다.
 

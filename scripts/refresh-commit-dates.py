@@ -11,8 +11,8 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOGS = {
-    "README.md": ("## 1. Projects with confirmed open-source code", "Archived"),
-    "README.ko.md": ("## 1. 오픈소스 코드가 확인된 프로젝트", "보관됨"),
+    "CATALOG.md": ("## 1. Projects with confirmed open-source code", "Archived"),
+    "CATALOG.ko.md": ("## 1. 오픈소스 코드가 확인된 프로젝트", "보관됨"),
 }
 GITHUB_REPO = re.compile(r"https://github\.com/([\w.-]+/[\w.-]+)(?=[/)|#?\s]|$)")
 FIELDS = """
@@ -119,7 +119,7 @@ def main():
     if changed:
         print(("Needs refresh: " if args.check else "Updated: ") + ", ".join(changed))
     else:
-        print("Both README files are current.")
+        print("Both catalogs are current.")
     return int(args.check and bool(changed))
 
 

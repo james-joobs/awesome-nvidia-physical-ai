@@ -1,13 +1,13 @@
 import MarkdownIt from 'markdown-it';
 import { cubeScene } from './assets.mjs';
-import { copy, modelGuide, pageUrl, readme, repositoryFile, workflows } from './catalog.mjs';
+import { copy, modelGuide, pageUrl, catalogs, repositoryFile, workflows } from './catalog.mjs';
 
 const guides = import.meta.glob([
   '../../../docs/{en,ko}/workflows/*.md',
   '../../../docs/{en,ko}/robot-foundation-models.md',
 ], { query: '?raw', import: 'default', eager: true });
 
-const readmes = import.meta.glob('../../../README{,.ko}.md', {
+const catalogSources = import.meta.glob('../../../CATALOG{,.ko}.md', {
   query: '?raw', import: 'default', eager: true,
 });
 
@@ -79,9 +79,9 @@ export function renderGuide(locale, sourcePath, sectionIds) {
 }
 
 export function renderModelList(locale) {
-  const { file, modelHeading } = readme[locale];
+  const { file, modelHeading } = catalogs[locale];
   const env = { sourcePath: file, tableLabel: copy[locale].modelTable };
-  const tokens = markdown.parse(readmes[`../../../${file}`], env);
+  const tokens = markdown.parse(catalogSources[`../../../${file}`], env);
   const isSection = (token) => token.type === 'heading_open' && token.tag === 'h2';
   const start = tokens.findIndex((token, index) => isSection(token) && tokens[index + 1].content === modelHeading);
   if (start < 0) throw new Error(`Missing model catalog section in ${file}`);
