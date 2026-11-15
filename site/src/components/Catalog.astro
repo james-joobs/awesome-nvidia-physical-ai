@@ -57,6 +57,7 @@ const fields = new Map(catalogFields.map((field) => [field.id, field[locale]]));
 
     <p class="catalog-note">{labels.termsNote}</p>
     <p class="catalog-count" role="status" aria-live="polite" data-count={labels.showing} hidden></p>
+    <p class="catalog-note" data-broader hidden>{labels.broader}</p>
     <p class="catalog-empty" data-empty hidden>{labels.none}</p>
     <ul class="catalog-results" data-results>
       {entries.map((entry) => (
@@ -80,10 +81,13 @@ const fields = new Map(catalogFields.map((field) => [field.id, field[locale]]));
 </Base>
 
 <script>
+  import { prepareCatalogSearch, searchCatalog } from '../lib/catalog-search.mjs';
+
   const catalog = document.querySelector<HTMLElement>('[data-catalog]')!;
   const form = catalog.querySelector<HTMLFormElement>('[data-filters]')!;
   const list = catalog.querySelector<HTMLUListElement>('[data-results]')!;
   const count = catalog.querySelector<HTMLElement>('[data-count]')!;
+  const broader = catalog.querySelector<HTMLElement>('[data-broader]')!;
   const empty = catalog.querySelector<HTMLElement>('[data-empty]')!;
   const more = catalog.querySelector<HTMLButtonElement>('[data-more]')!;
   const switchLink = document.querySelector<HTMLAnchorElement>('[data-language-switch]');
@@ -91,14 +95,11 @@ const fields = new Map(catalogFields.map((field) => [field.id, field[locale]]));
   const pageSize = 24;
   let visible = pageSize;
 
-  function normalize(text: string) {
-    return text.normalize('NFKC').toLowerCase().replace(/π/g, 'pi').replace(/gr00t/g, 'groot').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
-  }
+  let urlTimer: number | undefined;
 
   const entries = Array.from(list.querySelectorAll<HTMLLIElement>('[data-entry]'), (element) => ({
     element,
-    title: normalize(element.dataset.title!),
-    search: normalize(element.dataset.search!),
+    ...prepareCatalogSearch(element.dataset.title!, element.dataset.search!),
   }));
 
   function readUrl() {
@@ -106,45 +107,52 @@ const fields = new Map(catalogFields.map((field) => [field.id, field[locale]]));
     for (const control of controls) control.value = params.get(control.name) ?? '';
   }
 
-  function writeUrl() {
+  function writeUrl(defer: boolean) {
     const url = new URL(location.href);
     for (const { name, value } of controls) {
       if (value.trim()) url.searchParams.set(name, value.trim());
       else url.searchParams.delete(name);
     }
-    if (url.href !== location.href) history.replaceState(null, '', url);
     if (switchLink) switchLink.search = url.search;
+    window.clearTimeout(urlTimer);
+    const replace = () => {
+      if (url.href !== location.href) history.replaceState(history.state, '', url);
+    };
+    if (defer) urlTimer = window.setTimeout(replace, 350);
+    else replace();
   }
 
-  function update() {
+  function update(deferUrl = false) {
     const { q, field, license, access } = Object.fromEntries(controls.map(({ name, value }) => [name, value]));
-    const query = normalize(q);
-    const terms = query ? query.split(' ') : [];
-    const matching = entries.filter(({ element, search }) =>
+    const filtered = entries.filter(({ element }) =>
       (!field || element.dataset.field === field) &&
       (!license || element.dataset.license === license) &&
-      (!access || element.dataset.access === access) &&
-      terms.every((term) => search.includes(term))
+      (!access || element.dataset.access === access)
     );
-    if (terms.length) {
-      const rank = (title: string) => title === query ? 0 : terms.every((term) => title.includes(term)) ? 1 : 2;
-      matching.sort((a, b) => rank(a.title) - rank(b.title));
-    }
+    const { matches: matching, broader: usingBroaderMatch } = searchCatalog(filtered, q);
     const shown = matching.slice(0, visible);
     list.replaceChildren(...shown.map(({ element }) => element));
     count.textContent = count.dataset.count!.replace('{visible}', String(shown.length)).replace('{matches}', String(matching.length));
+    broader.hidden = !usingBroaderMatch;
     empty.hidden = matching.length !== 0;
     more.hidden = matching.length <= visible;
-    writeUrl();
+    writeUrl(deferUrl);
   }
 
-  function resetLimit() {
+  function resetLimit(deferUrl = false) {
     visible = pageSize;
-    update();
+    update(deferUrl);
   }
 
-  form.addEventListener('input', resetLimit);
-  form.addEventListener('submit', (event) => event.preventDefault());
+  form.addEventListener('input', (event) => {
+    if (event instanceof InputEvent && event.isComposing) return;
+    resetLimit(event.target instanceof HTMLInputElement);
+  });
+  form.addEventListener('compositionend', () => resetLimit(true));
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    writeUrl(false);
+  });
   form.addEventListener('reset', (event) => {
     event.preventDefault();
     for (const control of controls) control.value = '';
