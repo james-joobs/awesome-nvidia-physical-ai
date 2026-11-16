@@ -1,0 +1,10 @@
+{
+  "warp": "1.17.0",
+  "device": "NVIDIA GeForce RTX 5090",
+  "particles": 65536,
+  "displayed_particles": 16384,
+  "frames": 200,
+  "simulated_seconds": 3.333,
+  "median_step_ms_after_first_frame": 12.131,
+  "mean_particle_displacement_m": 17.05
+}

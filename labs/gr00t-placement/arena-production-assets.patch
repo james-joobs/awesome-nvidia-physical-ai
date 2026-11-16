@@ -1,0 +1,7 @@
+diff --git a/isaaclab_arena/assets/nucleus.py b/isaaclab_arena/assets/nucleus.py
+index a7da76a..7d8ac2c 100644
+--- a/isaaclab_arena/assets/nucleus.py
++++ b/isaaclab_arena/assets/nucleus.py
+@@ -14 +14 @@ ARENA_STAGING_NUCLEUS_DIR: str = "omniverse://isaac-dev.ov.nvidia.com/Isaac/Isaa
+-ARENA_NUCLEUS_DIR: str = ISAACLAB_NUCLEUS_DIR.replace("omniverse-content-production", "omniverse-content-staging")
++ARENA_NUCLEUS_DIR: str = ISAACLAB_NUCLEUS_DIR

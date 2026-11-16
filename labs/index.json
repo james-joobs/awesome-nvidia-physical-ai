@@ -1,0 +1,71 @@
+{
+  "labs": [
+    {
+      "id": "robot-motion",
+      "tags": ["Isaac Sim", "cuRobo", "AutoData", "MimicGen", "GR00T", "Isaac Lab", "Newton"],
+      "code": ["plan.py", "autodata.sh", "audit.py"],
+      "evidence": "recorded.json"
+    },
+    {
+      "id": "physics",
+      "tags": ["Isaac Sim", "PhysX", "OpenUSD", "SimReady"],
+      "code": ["takes.json", "capture_gui.py", "scene.json", "run_physx.py", "run_newton.py"],
+      "evidence": "recorded.json"
+    },
+    {
+      "id": "scene-to-data",
+      "tags": ["CadQuery", "OpenUSD", "Isaac Sim", "PhysX", "Replicator"],
+      "code": ["make_step.py", "workbench_final_take.py", "backproject.py"],
+      "evidence": "recorded.json"
+    },
+    {
+      "id": "everyday-robots",
+      "tags": ["Isaac Sim", "PhysX", "OpenUSD", "OpenCV"],
+      "code": ["run_story_demos.py", "physics.py", "desk_cleanup.py", "aisle.py"],
+      "evidence": "recorded.json"
+    },
+    {
+      "id": "gr00t-placement",
+      "tags": ["GR00T N1.6-DROID", "Isaac Lab-Arena", "Isaac Sim"],
+      "code": ["droid-70s.yaml", "droid-24s.yaml", "run_arena.sh", "check_result.py", "arena-production-assets.patch"],
+      "evidence": "recorded-70s.jsonl"
+    },
+    {
+      "id": "replicator-outputs",
+      "tags": ["Isaac Sim", "Replicator", "OpenUSD"],
+      "code": ["capture.py", "preview_dataset.py", "check_capture.py"],
+      "evidence": "recorded.json"
+    },
+    {
+      "id": "microduck",
+      "tags": ["Isaac Lab", "Newton", "RSL-RL", "Microduck"],
+      "code": ["train.sh", "play.sh", "read_training.py"],
+      "evidence": "recorded.json"
+    },
+    {
+      "id": "warp-particles",
+      "tags": ["NVIDIA Warp", "CUDA", "OpenGL"],
+      "code": ["run_dem.py"],
+      "evidence": "recorded.json"
+    }
+  ],
+  "heroTags": ["Isaac Sim", "PhysX", "Newton", "GR00T", "cuRobo", "AutoData", "Replicator", "SimReady", "OpenUSD", "CadQuery", "OpenCV"],
+  "scenes": [
+    ["gr00t-placement", ["GR00T", "Isaac Lab-Arena"]],
+    ["gr00t-placement", ["GR00T", "Isaac Lab-Arena"]],
+    ["robot-motion", ["cuRobo"]],
+    ["robot-motion", ["AutoData", "MimicGen"]],
+    ["physics", ["SimReady", "PhysX"]],
+    ["physics", ["OpenUSD", "PhysX"]],
+    ["physics", ["PhysX"]],
+    ["physics", ["PhysX"]],
+    ["scene-to-data", ["CadQuery", "OpenUSD", "PhysX"]],
+    ["replicator-outputs", ["Replicator"]],
+    ["scene-to-data", ["OpenUSD", "Replicator"]],
+    ["physics", ["PhysX", "Newton"]],
+    ["everyday-robots", ["OpenUSD"]],
+    ["everyday-robots", ["PhysX"]],
+    ["everyday-robots", ["OpenCV", "PhysX"]],
+    ["everyday-robots", ["PhysX"]]
+  ]
+}

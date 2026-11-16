@@ -1,0 +1,1500 @@
+Learning iteration 0/500
+Mean reward: -0.10
+Mean episode length: 21.52
+Learning iteration 1/500
+Mean reward: 0.08
+Mean episode length: 37.75
+Learning iteration 2/500
+Mean reward: 0.04
+Mean episode length: 33.62
+Learning iteration 3/500
+Mean reward: 0.04
+Mean episode length: 32.76
+Learning iteration 4/500
+Mean reward: 0.00
+Mean episode length: 33.68
+Learning iteration 5/500
+Mean reward: 0.08
+Mean episode length: 33.00
+Learning iteration 6/500
+Mean reward: 0.19
+Mean episode length: 31.87
+Learning iteration 7/500
+Mean reward: 0.27
+Mean episode length: 33.83
+Learning iteration 8/500
+Mean reward: 0.27
+Mean episode length: 31.90
+Learning iteration 9/500
+Mean reward: 0.27
+Mean episode length: 34.15
+Learning iteration 10/500
+Mean reward: 0.25
+Mean episode length: 32.97
+Learning iteration 11/500
+Mean reward: 0.33
+Mean episode length: 31.85
+Learning iteration 12/500
+Mean reward: 0.35
+Mean episode length: 34.41
+Learning iteration 13/500
+Mean reward: 0.35
+Mean episode length: 33.58
+Learning iteration 14/500
+Mean reward: 0.47
+Mean episode length: 34.43
+Learning iteration 15/500
+Mean reward: 0.47
+Mean episode length: 33.87
+Learning iteration 16/500
+Mean reward: 0.47
+Mean episode length: 34.43
+Learning iteration 17/500
+Mean reward: 0.52
+Mean episode length: 35.12
+Learning iteration 18/500
+Mean reward: 0.58
+Mean episode length: 35.50
+Learning iteration 19/500
+Mean reward: 0.55
+Mean episode length: 34.70
+Learning iteration 20/500
+Mean reward: 0.65
+Mean episode length: 35.51
+Learning iteration 21/500
+Mean reward: 0.63
+Mean episode length: 35.74
+Learning iteration 22/500
+Mean reward: 0.70
+Mean episode length: 35.87
+Learning iteration 23/500
+Mean reward: 0.69
+Mean episode length: 36.93
+Learning iteration 24/500
+Mean reward: 0.64
+Mean episode length: 33.51
+Learning iteration 25/500
+Mean reward: 0.65
+Mean episode length: 35.66
+Learning iteration 26/500
+Mean reward: 0.74
+Mean episode length: 36.51
+Learning iteration 27/500
+Mean reward: 0.71
+Mean episode length: 35.48
+Learning iteration 28/500
+Mean reward: 0.82
+Mean episode length: 36.77
+Learning iteration 29/500
+Mean reward: 0.77
+Mean episode length: 36.11
+Learning iteration 30/500
+Mean reward: 0.87
+Mean episode length: 36.21
+Learning iteration 31/500
+Mean reward: 0.91
+Mean episode length: 37.16
+Learning iteration 32/500
+Mean reward: 0.81
+Mean episode length: 35.82
+Learning iteration 33/500
+Mean reward: 0.88
+Mean episode length: 37.25
+Learning iteration 34/500
+Mean reward: 0.84
+Mean episode length: 36.16
+Learning iteration 35/500
+Mean reward: 0.88
+Mean episode length: 36.14
+Learning iteration 36/500
+Mean reward: 0.96
+Mean episode length: 36.61
+Learning iteration 37/500
+Mean reward: 0.96
+Mean episode length: 37.13
+Learning iteration 38/500
+Mean reward: 1.04
+Mean episode length: 38.38
+Learning iteration 39/500
+Mean reward: 0.97
+Mean episode length: 37.06
+Learning iteration 40/500
+Mean reward: 1.01
+Mean episode length: 38.91
+Learning iteration 41/500
+Mean reward: 1.06
+Mean episode length: 37.95
+Learning iteration 42/500
+Mean reward: 1.05
+Mean episode length: 37.56
+Learning iteration 43/500
+Mean reward: 1.04
+Mean episode length: 38.13
+Learning iteration 44/500
+Mean reward: 1.08
+Mean episode length: 38.36
+Learning iteration 45/500
+Mean reward: 1.25
+Mean episode length: 38.97
+Learning iteration 46/500
+Mean reward: 1.18
+Mean episode length: 39.29
+Learning iteration 47/500
+Mean reward: 1.06
+Mean episode length: 39.74
+Learning iteration 48/500
+Mean reward: 1.00
+Mean episode length: 36.92
+Learning iteration 49/500
+Mean reward: 1.16
+Mean episode length: 38.23
+Learning iteration 50/500
+Mean reward: 1.09
+Mean episode length: 37.95
+Learning iteration 51/500
+Mean reward: 1.19
+Mean episode length: 38.82
+Learning iteration 52/500
+Mean reward: 1.20
+Mean episode length: 38.80
+Learning iteration 53/500
+Mean reward: 1.15
+Mean episode length: 38.88
+Learning iteration 54/500
+Mean reward: 1.20
+Mean episode length: 39.59
+Learning iteration 55/500
+Mean reward: 1.13
+Mean episode length: 38.00
+Learning iteration 56/500
+Mean reward: 1.19
+Mean episode length: 38.57
+Learning iteration 57/500
+Mean reward: 1.27
+Mean episode length: 40.55
+Learning iteration 58/500
+Mean reward: 1.23
+Mean episode length: 39.54
+Learning iteration 59/500
+Mean reward: 1.35
+Mean episode length: 40.54
+Learning iteration 60/500
+Mean reward: 1.31
+Mean episode length: 39.43
+Learning iteration 61/500
+Mean reward: 1.14
+Mean episode length: 37.69
+Learning iteration 62/500
+Mean reward: 1.12
+Mean episode length: 39.04
+Learning iteration 63/500
+Mean reward: 1.29
+Mean episode length: 40.80
+Learning iteration 64/500
+Mean reward: 1.22
+Mean episode length: 37.67
+Learning iteration 65/500
+Mean reward: 1.37
+Mean episode length: 40.01
+Learning iteration 66/500
+Mean reward: 1.30
+Mean episode length: 38.83
+Learning iteration 67/500
+Mean reward: 1.35
+Mean episode length: 40.20
+Learning iteration 68/500
+Mean reward: 1.31
+Mean episode length: 38.70
+Learning iteration 69/500
+Mean reward: 1.33
+Mean episode length: 38.73
+Learning iteration 70/500
+Mean reward: 1.33
+Mean episode length: 39.79
+Learning iteration 71/500
+Mean reward: 1.41
+Mean episode length: 40.66
+Learning iteration 72/500
+Mean reward: 1.32
+Mean episode length: 38.75
+Learning iteration 73/500
+Mean reward: 1.37
+Mean episode length: 39.97
+Learning iteration 74/500
+Mean reward: 1.38
+Mean episode length: 39.29
+Learning iteration 75/500
+Mean reward: 1.41
+Mean episode length: 38.88
+Learning iteration 76/500
+Mean reward: 1.39
+Mean episode length: 39.06
+Learning iteration 77/500
+Mean reward: 1.54
+Mean episode length: 40.96
+Learning iteration 78/500
+Mean reward: 1.47
+Mean episode length: 40.05
+Learning iteration 79/500
+Mean reward: 1.42
+Mean episode length: 38.49
+Learning iteration 80/500
+Mean reward: 1.39
+Mean episode length: 40.27
+Learning iteration 81/500
+Mean reward: 1.54
+Mean episode length: 40.54
+Learning iteration 82/500
+Mean reward: 1.51
+Mean episode length: 39.73
+Learning iteration 83/500
+Mean reward: 1.47
+Mean episode length: 40.78
+Learning iteration 84/500
+Mean reward: 1.50
+Mean episode length: 40.55
+Learning iteration 85/500
+Mean reward: 1.61
+Mean episode length: 43.28
+Learning iteration 86/500
+Mean reward: 1.51
+Mean episode length: 41.07
+Learning iteration 87/500
+Mean reward: 1.48
+Mean episode length: 39.58
+Learning iteration 88/500
+Mean reward: 1.53
+Mean episode length: 40.36
+Learning iteration 89/500
+Mean reward: 1.62
+Mean episode length: 41.31
+Learning iteration 90/500
+Mean reward: 1.46
+Mean episode length: 40.66
+Learning iteration 91/500
+Mean reward: 1.68
+Mean episode length: 43.00
+Learning iteration 92/500
+Mean reward: 1.42
+Mean episode length: 40.31
+Learning iteration 93/500
+Mean reward: 1.59
+Mean episode length: 41.05
+Learning iteration 94/500
+Mean reward: 1.61
+Mean episode length: 41.39
+Learning iteration 95/500
+Mean reward: 1.61
+Mean episode length: 40.61
+Learning iteration 96/500
+Mean reward: 1.63
+Mean episode length: 41.13
+Learning iteration 97/500
+Mean reward: 1.59
+Mean episode length: 41.47
+Learning iteration 98/500
+Mean reward: 1.86
+Mean episode length: 42.87
+Learning iteration 99/500
+Mean reward: 1.69
+Mean episode length: 43.02
+Learning iteration 100/500
+Mean reward: 1.72
+Mean episode length: 42.51
+Learning iteration 101/500
+Mean reward: 1.60
+Mean episode length: 40.98
+Learning iteration 102/500
+Mean reward: 1.63
+Mean episode length: 41.53
+Learning iteration 103/500
+Mean reward: 1.71
+Mean episode length: 41.33
+Learning iteration 104/500
+Mean reward: 1.67
+Mean episode length: 41.94
+Learning iteration 105/500
+Mean reward: 1.74
+Mean episode length: 42.63
+Learning iteration 106/500
+Mean reward: 1.64
+Mean episode length: 40.78
+Learning iteration 107/500
+Mean reward: 1.65
+Mean episode length: 43.79
+Learning iteration 108/500
+Mean reward: 1.75
+Mean episode length: 42.86
+Learning iteration 109/500
+Mean reward: 1.59
+Mean episode length: 40.86
+Learning iteration 110/500
+Mean reward: 1.84
+Mean episode length: 44.02
+Learning iteration 111/500
+Mean reward: 1.81
+Mean episode length: 43.57
+Learning iteration 112/500
+Mean reward: 1.76
+Mean episode length: 42.35
+Learning iteration 113/500
+Mean reward: 1.77
+Mean episode length: 43.27
+Learning iteration 114/500
+Mean reward: 1.83
+Mean episode length: 44.82
+Learning iteration 115/500
+Mean reward: 1.80
+Mean episode length: 44.47
+Learning iteration 116/500
+Mean reward: 1.79
+Mean episode length: 42.69
+Learning iteration 117/500
+Mean reward: 1.77
+Mean episode length: 42.81
+Learning iteration 118/500
+Mean reward: 1.70
+Mean episode length: 41.90
+Learning iteration 119/500
+Mean reward: 1.98
+Mean episode length: 45.01
+Learning iteration 120/500
+Mean reward: 1.78
+Mean episode length: 43.12
+Learning iteration 121/500
+Mean reward: 1.96
+Mean episode length: 44.32
+Learning iteration 122/500
+Mean reward: 1.71
+Mean episode length: 41.65
+Learning iteration 123/500
+Mean reward: 1.85
+Mean episode length: 42.29
+Learning iteration 124/500
+Mean reward: 1.70
+Mean episode length: 40.97
+Learning iteration 125/500
+Mean reward: 1.78
+Mean episode length: 44.00
+Learning iteration 126/500
+Mean reward: 2.08
+Mean episode length: 45.76
+Learning iteration 127/500
+Mean reward: 1.93
+Mean episode length: 43.40
+Learning iteration 128/500
+Mean reward: 1.84
+Mean episode length: 43.30
+Learning iteration 129/500
+Mean reward: 1.97
+Mean episode length: 43.95
+Learning iteration 130/500
+Mean reward: 1.99
+Mean episode length: 44.71
+Learning iteration 131/500
+Mean reward: 1.88
+Mean episode length: 44.39
+Learning iteration 132/500
+Mean reward: 1.93
+Mean episode length: 44.08
+Learning iteration 133/500
+Mean reward: 1.96
+Mean episode length: 44.11
+Learning iteration 134/500
+Mean reward: 2.03
+Mean episode length: 44.60
+Learning iteration 135/500
+Mean reward: 1.94
+Mean episode length: 43.67
+Learning iteration 136/500
+Mean reward: 2.08
+Mean episode length: 45.52
+Learning iteration 137/500
+Mean reward: 1.92
+Mean episode length: 41.93
+Learning iteration 138/500
+Mean reward: 1.77
+Mean episode length: 41.77
+Learning iteration 139/500
+Mean reward: 2.02
+Mean episode length: 45.42
+Learning iteration 140/500
+Mean reward: 1.99
+Mean episode length: 44.49
+Learning iteration 141/500
+Mean reward: 2.18
+Mean episode length: 45.87
+Learning iteration 142/500
+Mean reward: 2.15
+Mean episode length: 46.83
+Learning iteration 143/500
+Mean reward: 2.02
+Mean episode length: 45.19
+Learning iteration 144/500
+Mean reward: 1.92
+Mean episode length: 43.96
+Learning iteration 145/500
+Mean reward: 1.94
+Mean episode length: 46.18
+Learning iteration 146/500
+Mean reward: 2.00
+Mean episode length: 45.73
+Learning iteration 147/500
+Mean reward: 2.11
+Mean episode length: 46.04
+Learning iteration 148/500
+Mean reward: 2.04
+Mean episode length: 44.05
+Learning iteration 149/500
+Mean reward: 2.22
+Mean episode length: 46.57
+Learning iteration 150/500
+Mean reward: 2.01
+Mean episode length: 45.51
+Learning iteration 151/500
+Mean reward: 1.96
+Mean episode length: 43.31
+Learning iteration 152/500
+Mean reward: 2.37
+Mean episode length: 48.74
+Learning iteration 153/500
+Mean reward: 2.17
+Mean episode length: 47.13
+Learning iteration 154/500
+Mean reward: 2.15
+Mean episode length: 46.60
+Learning iteration 155/500
+Mean reward: 2.07
+Mean episode length: 44.60
+Learning iteration 156/500
+Mean reward: 2.15
+Mean episode length: 45.89
+Learning iteration 157/500
+Mean reward: 2.19
+Mean episode length: 47.42
+Learning iteration 158/500
+Mean reward: 2.17
+Mean episode length: 47.19
+Learning iteration 159/500
+Mean reward: 2.10
+Mean episode length: 46.56
+Learning iteration 160/500
+Mean reward: 2.17
+Mean episode length: 46.23
+Learning iteration 161/500
+Mean reward: 2.27
+Mean episode length: 48.68
+Learning iteration 162/500
+Mean reward: 2.30
+Mean episode length: 47.87
+Learning iteration 163/500
+Mean reward: 2.21
+Mean episode length: 45.27
+Learning iteration 164/500
+Mean reward: 2.15
+Mean episode length: 47.11
+Learning iteration 165/500
+Mean reward: 2.16
+Mean episode length: 46.27
+Learning iteration 166/500
+Mean reward: 2.25
+Mean episode length: 47.01
+Learning iteration 167/500
+Mean reward: 2.27
+Mean episode length: 46.13
+Learning iteration 168/500
+Mean reward: 2.27
+Mean episode length: 47.65
+Learning iteration 169/500
+Mean reward: 2.29
+Mean episode length: 46.98
+Learning iteration 170/500
+Mean reward: 2.32
+Mean episode length: 47.16
+Learning iteration 171/500
+Mean reward: 2.30
+Mean episode length: 47.13
+Learning iteration 172/500
+Mean reward: 2.31
+Mean episode length: 48.25
+Learning iteration 173/500
+Mean reward: 2.16
+Mean episode length: 47.11
+Learning iteration 174/500
+Mean reward: 2.54
+Mean episode length: 50.93
+Learning iteration 175/500
+Mean reward: 2.35
+Mean episode length: 47.55
+Learning iteration 176/500
+Mean reward: 2.40
+Mean episode length: 49.37
+Learning iteration 177/500
+Mean reward: 2.26
+Mean episode length: 47.89
+Learning iteration 178/500
+Mean reward: 2.54
+Mean episode length: 50.82
+Learning iteration 179/500
+Mean reward: 2.36
+Mean episode length: 48.57
+Learning iteration 180/500
+Mean reward: 2.55
+Mean episode length: 50.75
+Learning iteration 181/500
+Mean reward: 2.54
+Mean episode length: 50.99
+Learning iteration 182/500
+Mean reward: 2.56
+Mean episode length: 52.26
+Learning iteration 183/500
+Mean reward: 2.58
+Mean episode length: 51.79
+Learning iteration 184/500
+Mean reward: 2.46
+Mean episode length: 50.70
+Learning iteration 185/500
+Mean reward: 2.50
+Mean episode length: 50.56
+Learning iteration 186/500
+Mean reward: 2.43
+Mean episode length: 49.29
+Learning iteration 187/500
+Mean reward: 2.54
+Mean episode length: 50.83
+Learning iteration 188/500
+Mean reward: 2.45
+Mean episode length: 49.73
+Learning iteration 189/500
+Mean reward: 2.27
+Mean episode length: 46.96
+Learning iteration 190/500
+Mean reward: 2.54
+Mean episode length: 50.81
+Learning iteration 191/500
+Mean reward: 2.47
+Mean episode length: 50.29
+Learning iteration 192/500
+Mean reward: 2.46
+Mean episode length: 49.96
+Learning iteration 193/500
+Mean reward: 2.48
+Mean episode length: 50.03
+Learning iteration 194/500
+Mean reward: 2.67
+Mean episode length: 52.14
+Learning iteration 195/500
+Mean reward: 2.95
+Mean episode length: 55.90
+Learning iteration 196/500
+Mean reward: 2.60
+Mean episode length: 51.65
+Learning iteration 197/500
+Mean reward: 2.77
+Mean episode length: 52.63
+Learning iteration 198/500
+Mean reward: 2.67
+Mean episode length: 51.56
+Learning iteration 199/500
+Mean reward: 2.65
+Mean episode length: 51.01
+Learning iteration 200/500
+Mean reward: 2.49
+Mean episode length: 50.90
+Learning iteration 201/500
+Mean reward: 2.52
+Mean episode length: 50.08
+Learning iteration 202/500
+Mean reward: 2.56
+Mean episode length: 51.41
+Learning iteration 203/500
+Mean reward: 2.72
+Mean episode length: 54.09
+Learning iteration 204/500
+Mean reward: 2.68
+Mean episode length: 52.44
+Learning iteration 205/500
+Mean reward: 2.47
+Mean episode length: 50.06
+Learning iteration 206/500
+Mean reward: 2.59
+Mean episode length: 51.73
+Learning iteration 207/500
+Mean reward: 2.71
+Mean episode length: 52.68
+Learning iteration 208/500
+Mean reward: 2.59
+Mean episode length: 52.84
+Learning iteration 209/500
+Mean reward: 2.61
+Mean episode length: 51.73
+Learning iteration 210/500
+Mean reward: 2.73
+Mean episode length: 53.49
+Learning iteration 211/500
+Mean reward: 2.33
+Mean episode length: 47.78
+Learning iteration 212/500
+Mean reward: 2.66
+Mean episode length: 50.93
+Learning iteration 213/500
+Mean reward: 2.80
+Mean episode length: 52.71
+Learning iteration 214/500
+Mean reward: 2.79
+Mean episode length: 50.68
+Learning iteration 215/500
+Mean reward: 2.83
+Mean episode length: 54.25
+Learning iteration 216/500
+Mean reward: 2.78
+Mean episode length: 51.96
+Learning iteration 217/500
+Mean reward: 2.65
+Mean episode length: 51.19
+Learning iteration 218/500
+Mean reward: 2.84
+Mean episode length: 53.70
+Learning iteration 219/500
+Mean reward: 2.71
+Mean episode length: 52.45
+Learning iteration 220/500
+Mean reward: 2.69
+Mean episode length: 51.92
+Learning iteration 221/500
+Mean reward: 2.73
+Mean episode length: 52.77
+Learning iteration 222/500
+Mean reward: 2.85
+Mean episode length: 54.76
+Learning iteration 223/500
+Mean reward: 2.69
+Mean episode length: 52.30
+Learning iteration 224/500
+Mean reward: 2.87
+Mean episode length: 52.81
+Learning iteration 225/500
+Mean reward: 2.86
+Mean episode length: 52.90
+Learning iteration 226/500
+Mean reward: 2.94
+Mean episode length: 54.65
+Learning iteration 227/500
+Mean reward: 3.03
+Mean episode length: 55.28
+Learning iteration 228/500
+Mean reward: 2.91
+Mean episode length: 54.67
+Learning iteration 229/500
+Mean reward: 2.95
+Mean episode length: 53.89
+Learning iteration 230/500
+Mean reward: 2.82
+Mean episode length: 54.05
+Learning iteration 231/500
+Mean reward: 2.90
+Mean episode length: 53.72
+Learning iteration 232/500
+Mean reward: 2.79
+Mean episode length: 53.12
+Learning iteration 233/500
+Mean reward: 2.80
+Mean episode length: 53.89
+Learning iteration 234/500
+Mean reward: 3.28
+Mean episode length: 57.22
+Learning iteration 235/500
+Mean reward: 3.08
+Mean episode length: 55.34
+Learning iteration 236/500
+Mean reward: 2.93
+Mean episode length: 52.60
+Learning iteration 237/500
+Mean reward: 2.98
+Mean episode length: 53.87
+Learning iteration 238/500
+Mean reward: 3.24
+Mean episode length: 57.91
+Learning iteration 239/500
+Mean reward: 3.11
+Mean episode length: 56.54
+Learning iteration 240/500
+Mean reward: 2.77
+Mean episode length: 53.52
+Learning iteration 241/500
+Mean reward: 2.92
+Mean episode length: 53.78
+Learning iteration 242/500
+Mean reward: 3.08
+Mean episode length: 56.22
+Learning iteration 243/500
+Mean reward: 3.23
+Mean episode length: 58.30
+Learning iteration 244/500
+Mean reward: 2.92
+Mean episode length: 53.83
+Learning iteration 245/500
+Mean reward: 3.20
+Mean episode length: 56.21
+Learning iteration 246/500
+Mean reward: 2.84
+Mean episode length: 52.34
+Learning iteration 247/500
+Mean reward: 3.28
+Mean episode length: 58.89
+Learning iteration 248/500
+Mean reward: 3.36
+Mean episode length: 58.20
+Learning iteration 249/500
+Mean reward: 2.97
+Mean episode length: 55.58
+Learning iteration 250/500
+Mean reward: 2.88
+Mean episode length: 54.19
+Learning iteration 251/500
+Mean reward: 3.04
+Mean episode length: 54.64
+Learning iteration 252/500
+Mean reward: 3.09
+Mean episode length: 55.32
+Learning iteration 253/500
+Mean reward: 2.97
+Mean episode length: 56.05
+Learning iteration 254/500
+Mean reward: 3.38
+Mean episode length: 57.67
+Learning iteration 255/500
+Mean reward: 2.91
+Mean episode length: 53.12
+Learning iteration 256/500
+Mean reward: 3.25
+Mean episode length: 58.83
+Learning iteration 257/500
+Mean reward: 3.14
+Mean episode length: 56.12
+Learning iteration 258/500
+Mean reward: 3.25
+Mean episode length: 57.16
+Learning iteration 259/500
+Mean reward: 3.20
+Mean episode length: 58.98
+Learning iteration 260/500
+Mean reward: 3.57
+Mean episode length: 60.45
+Learning iteration 261/500
+Mean reward: 3.40
+Mean episode length: 58.86
+Learning iteration 262/500
+Mean reward: 3.24
+Mean episode length: 56.36
+Learning iteration 263/500
+Mean reward: 3.32
+Mean episode length: 58.04
+Learning iteration 264/500
+Mean reward: 3.55
+Mean episode length: 62.03
+Learning iteration 265/500
+Mean reward: 3.44
+Mean episode length: 59.36
+Learning iteration 266/500
+Mean reward: 3.19
+Mean episode length: 58.24
+Learning iteration 267/500
+Mean reward: 3.31
+Mean episode length: 61.29
+Learning iteration 268/500
+Mean reward: 3.20
+Mean episode length: 58.37
+Learning iteration 269/500
+Mean reward: 3.45
+Mean episode length: 60.54
+Learning iteration 270/500
+Mean reward: 3.33
+Mean episode length: 59.42
+Learning iteration 271/500
+Mean reward: 3.46
+Mean episode length: 61.78
+Learning iteration 272/500
+Mean reward: 3.39
+Mean episode length: 59.61
+Learning iteration 273/500
+Mean reward: 3.22
+Mean episode length: 58.52
+Learning iteration 274/500
+Mean reward: 3.69
+Mean episode length: 66.95
+Learning iteration 275/500
+Mean reward: 3.61
+Mean episode length: 63.97
+Learning iteration 276/500
+Mean reward: 3.10
+Mean episode length: 55.75
+Learning iteration 277/500
+Mean reward: 3.67
+Mean episode length: 62.58
+Learning iteration 278/500
+Mean reward: 3.32
+Mean episode length: 59.35
+Learning iteration 279/500
+Mean reward: 3.60
+Mean episode length: 60.21
+Learning iteration 280/500
+Mean reward: 3.47
+Mean episode length: 60.13
+Learning iteration 281/500
+Mean reward: 3.92
+Mean episode length: 67.18
+Learning iteration 282/500
+Mean reward: 3.92
+Mean episode length: 65.49
+Learning iteration 283/500
+Mean reward: 3.58
+Mean episode length: 62.69
+Learning iteration 284/500
+Mean reward: 3.85
+Mean episode length: 66.13
+Learning iteration 285/500
+Mean reward: 3.94
+Mean episode length: 66.92
+Learning iteration 286/500
+Mean reward: 3.53
+Mean episode length: 62.39
+Learning iteration 287/500
+Mean reward: 3.28
+Mean episode length: 57.90
+Learning iteration 288/500
+Mean reward: 3.78
+Mean episode length: 63.40
+Learning iteration 289/500
+Mean reward: 3.46
+Mean episode length: 61.53
+Learning iteration 290/500
+Mean reward: 3.75
+Mean episode length: 63.35
+Learning iteration 291/500
+Mean reward: 3.70
+Mean episode length: 63.89
+Learning iteration 292/500
+Mean reward: 3.57
+Mean episode length: 62.95
+Learning iteration 293/500
+Mean reward: 3.58
+Mean episode length: 62.69
+Learning iteration 294/500
+Mean reward: 3.74
+Mean episode length: 63.40
+Learning iteration 295/500
+Mean reward: 4.14
+Mean episode length: 67.03
+Learning iteration 296/500
+Mean reward: 3.79
+Mean episode length: 64.61
+Learning iteration 297/500
+Mean reward: 3.78
+Mean episode length: 64.48
+Learning iteration 298/500
+Mean reward: 4.25
+Mean episode length: 69.44
+Learning iteration 299/500
+Mean reward: 3.91
+Mean episode length: 67.78
+Learning iteration 300/500
+Mean reward: 4.10
+Mean episode length: 69.23
+Learning iteration 301/500
+Mean reward: 3.75
+Mean episode length: 65.36
+Learning iteration 302/500
+Mean reward: 3.86
+Mean episode length: 67.86
+Learning iteration 303/500
+Mean reward: 3.81
+Mean episode length: 67.38
+Learning iteration 304/500
+Mean reward: 3.91
+Mean episode length: 67.26
+Learning iteration 305/500
+Mean reward: 4.13
+Mean episode length: 70.29
+Learning iteration 306/500
+Mean reward: 3.67
+Mean episode length: 64.48
+Learning iteration 307/500
+Mean reward: 4.28
+Mean episode length: 70.47
+Learning iteration 308/500
+Mean reward: 4.50
+Mean episode length: 74.10
+Learning iteration 309/500
+Mean reward: 3.85
+Mean episode length: 65.97
+Learning iteration 310/500
+Mean reward: 4.26
+Mean episode length: 69.88
+Learning iteration 311/500
+Mean reward: 4.07
+Mean episode length: 66.97
+Learning iteration 312/500
+Mean reward: 3.84
+Mean episode length: 66.53
+Learning iteration 313/500
+Mean reward: 4.24
+Mean episode length: 69.83
+Learning iteration 314/500
+Mean reward: 4.08
+Mean episode length: 66.76
+Learning iteration 315/500
+Mean reward: 4.11
+Mean episode length: 70.84
+Learning iteration 316/500
+Mean reward: 4.10
+Mean episode length: 67.44
+Learning iteration 317/500
+Mean reward: 4.54
+Mean episode length: 73.51
+Learning iteration 318/500
+Mean reward: 4.04
+Mean episode length: 69.49
+Learning iteration 319/500
+Mean reward: 4.69
+Mean episode length: 74.79
+Learning iteration 320/500
+Mean reward: 4.21
+Mean episode length: 68.24
+Learning iteration 321/500
+Mean reward: 4.34
+Mean episode length: 71.02
+Learning iteration 322/500
+Mean reward: 4.67
+Mean episode length: 74.21
+Learning iteration 323/500
+Mean reward: 4.51
+Mean episode length: 75.38
+Learning iteration 324/500
+Mean reward: 4.36
+Mean episode length: 72.82
+Learning iteration 325/500
+Mean reward: 4.08
+Mean episode length: 67.76
+Learning iteration 326/500
+Mean reward: 4.15
+Mean episode length: 68.55
+Learning iteration 327/500
+Mean reward: 4.54
+Mean episode length: 74.86
+Learning iteration 328/500
+Mean reward: 4.52
+Mean episode length: 74.13
+Learning iteration 329/500
+Mean reward: 4.86
+Mean episode length: 78.75
+Learning iteration 330/500
+Mean reward: 4.48
+Mean episode length: 73.86
+Learning iteration 331/500
+Mean reward: 4.25
+Mean episode length: 69.05
+Learning iteration 332/500
+Mean reward: 4.66
+Mean episode length: 74.56
+Learning iteration 333/500
+Mean reward: 4.60
+Mean episode length: 74.81
+Learning iteration 334/500
+Mean reward: 4.76
+Mean episode length: 75.53
+Learning iteration 335/500
+Mean reward: 4.74
+Mean episode length: 74.93
+Learning iteration 336/500
+Mean reward: 4.72
+Mean episode length: 75.25
+Learning iteration 337/500
+Mean reward: 4.78
+Mean episode length: 78.02
+Learning iteration 338/500
+Mean reward: 4.84
+Mean episode length: 76.25
+Learning iteration 339/500
+Mean reward: 4.71
+Mean episode length: 76.39
+Learning iteration 340/500
+Mean reward: 4.43
+Mean episode length: 71.32
+Learning iteration 341/500
+Mean reward: 4.45
+Mean episode length: 73.63
+Learning iteration 342/500
+Mean reward: 4.92
+Mean episode length: 78.81
+Learning iteration 343/500
+Mean reward: 5.05
+Mean episode length: 79.83
+Learning iteration 344/500
+Mean reward: 4.83
+Mean episode length: 75.60
+Learning iteration 345/500
+Mean reward: 5.34
+Mean episode length: 84.97
+Learning iteration 346/500
+Mean reward: 5.22
+Mean episode length: 82.69
+Learning iteration 347/500
+Mean reward: 5.33
+Mean episode length: 83.50
+Learning iteration 348/500
+Mean reward: 5.31
+Mean episode length: 85.87
+Learning iteration 349/500
+Mean reward: 4.94
+Mean episode length: 79.20
+Learning iteration 350/500
+Mean reward: 5.29
+Mean episode length: 82.32
+Learning iteration 351/500
+Mean reward: 4.98
+Mean episode length: 79.66
+Learning iteration 352/500
+Mean reward: 5.07
+Mean episode length: 77.55
+Learning iteration 353/500
+Mean reward: 4.76
+Mean episode length: 75.90
+Learning iteration 354/500
+Mean reward: 5.22
+Mean episode length: 82.54
+Learning iteration 355/500
+Mean reward: 5.56
+Mean episode length: 85.84
+Learning iteration 356/500
+Mean reward: 5.43
+Mean episode length: 83.85
+Learning iteration 357/500
+Mean reward: 5.58
+Mean episode length: 86.77
+Learning iteration 358/500
+Mean reward: 5.50
+Mean episode length: 84.15
+Learning iteration 359/500
+Mean reward: 4.84
+Mean episode length: 77.76
+Learning iteration 360/500
+Mean reward: 5.37
+Mean episode length: 82.70
+Learning iteration 361/500
+Mean reward: 5.36
+Mean episode length: 82.33
+Learning iteration 362/500
+Mean reward: 5.52
+Mean episode length: 87.20
+Learning iteration 363/500
+Mean reward: 5.74
+Mean episode length: 89.12
+Learning iteration 364/500
+Mean reward: 5.88
+Mean episode length: 90.77
+Learning iteration 365/500
+Mean reward: 6.01
+Mean episode length: 90.50
+Learning iteration 366/500
+Mean reward: 6.26
+Mean episode length: 94.99
+Learning iteration 367/500
+Mean reward: 5.55
+Mean episode length: 86.43
+Learning iteration 368/500
+Mean reward: 5.76
+Mean episode length: 92.28
+Learning iteration 369/500
+Mean reward: 5.11
+Mean episode length: 82.97
+Learning iteration 370/500
+Mean reward: 5.30
+Mean episode length: 82.86
+Learning iteration 371/500
+Mean reward: 6.18
+Mean episode length: 93.82
+Learning iteration 372/500
+Mean reward: 5.90
+Mean episode length: 93.07
+Learning iteration 373/500
+Mean reward: 5.40
+Mean episode length: 84.94
+Learning iteration 374/500
+Mean reward: 6.09
+Mean episode length: 93.59
+Learning iteration 375/500
+Mean reward: 6.61
+Mean episode length: 100.81
+Learning iteration 376/500
+Mean reward: 6.33
+Mean episode length: 94.64
+Learning iteration 377/500
+Mean reward: 6.43
+Mean episode length: 97.15
+Learning iteration 378/500
+Mean reward: 6.16
+Mean episode length: 97.22
+Learning iteration 379/500
+Mean reward: 6.26
+Mean episode length: 96.00
+Learning iteration 380/500
+Mean reward: 5.38
+Mean episode length: 86.66
+Learning iteration 381/500
+Mean reward: 6.62
+Mean episode length: 101.93
+Learning iteration 382/500
+Mean reward: 7.41
+Mean episode length: 109.68
+Learning iteration 383/500
+Mean reward: 5.88
+Mean episode length: 93.98
+Learning iteration 384/500
+Mean reward: 6.09
+Mean episode length: 95.15
+Learning iteration 385/500
+Mean reward: 6.59
+Mean episode length: 99.00
+Learning iteration 386/500
+Mean reward: 7.01
+Mean episode length: 103.52
+Learning iteration 387/500
+Mean reward: 7.30
+Mean episode length: 107.19
+Learning iteration 388/500
+Mean reward: 6.31
+Mean episode length: 97.47
+Learning iteration 389/500
+Mean reward: 6.18
+Mean episode length: 95.83
+Learning iteration 390/500
+Mean reward: 6.80
+Mean episode length: 104.28
+Learning iteration 391/500
+Mean reward: 7.39
+Mean episode length: 111.40
+Learning iteration 392/500
+Mean reward: 7.02
+Mean episode length: 105.63
+Learning iteration 393/500
+Mean reward: 7.27
+Mean episode length: 106.58
+Learning iteration 394/500
+Mean reward: 7.09
+Mean episode length: 107.60
+Learning iteration 395/500
+Mean reward: 6.56
+Mean episode length: 99.76
+Learning iteration 396/500
+Mean reward: 7.25
+Mean episode length: 106.23
+Learning iteration 397/500
+Mean reward: 7.34
+Mean episode length: 108.47
+Learning iteration 398/500
+Mean reward: 7.88
+Mean episode length: 113.10
+Learning iteration 399/500
+Mean reward: 7.52
+Mean episode length: 110.58
+Learning iteration 400/500
+Mean reward: 8.39
+Mean episode length: 119.43
+Learning iteration 401/500
+Mean reward: 6.41
+Mean episode length: 98.78
+Learning iteration 402/500
+Mean reward: 7.80
+Mean episode length: 111.42
+Learning iteration 403/500
+Mean reward: 7.08
+Mean episode length: 105.17
+Learning iteration 404/500
+Mean reward: 8.08
+Mean episode length: 118.41
+Learning iteration 405/500
+Mean reward: 8.87
+Mean episode length: 127.36
+Learning iteration 406/500
+Mean reward: 8.95
+Mean episode length: 128.08
+Learning iteration 407/500
+Mean reward: 8.28
+Mean episode length: 120.98
+Learning iteration 408/500
+Mean reward: 8.37
+Mean episode length: 122.20
+Learning iteration 409/500
+Mean reward: 9.94
+Mean episode length: 142.66
+Learning iteration 410/500
+Mean reward: 9.34
+Mean episode length: 136.29
+Learning iteration 411/500
+Mean reward: 7.58
+Mean episode length: 113.91
+Learning iteration 412/500
+Mean reward: 8.87
+Mean episode length: 130.05
+Learning iteration 413/500
+Mean reward: 8.61
+Mean episode length: 124.60
+Learning iteration 414/500
+Mean reward: 8.15
+Mean episode length: 118.02
+Learning iteration 415/500
+Mean reward: 8.40
+Mean episode length: 127.93
+Learning iteration 416/500
+Mean reward: 9.10
+Mean episode length: 134.84
+Learning iteration 417/500
+Mean reward: 8.58
+Mean episode length: 129.03
+Learning iteration 418/500
+Mean reward: 10.10
+Mean episode length: 144.52
+Learning iteration 419/500
+Mean reward: 10.13
+Mean episode length: 143.19
+Learning iteration 420/500
+Mean reward: 10.83
+Mean episode length: 155.33
+Learning iteration 421/500
+Mean reward: 9.62
+Mean episode length: 143.90
+Learning iteration 422/500
+Mean reward: 9.99
+Mean episode length: 147.05
+Learning iteration 423/500
+Mean reward: 9.37
+Mean episode length: 142.92
+Learning iteration 424/500
+Mean reward: 10.26
+Mean episode length: 152.54
+Learning iteration 425/500
+Mean reward: 9.83
+Mean episode length: 142.79
+Learning iteration 426/500
+Mean reward: 10.18
+Mean episode length: 147.20
+Learning iteration 427/500
+Mean reward: 9.18
+Mean episode length: 137.43
+Learning iteration 428/500
+Mean reward: 9.85
+Mean episode length: 145.51
+Learning iteration 429/500
+Mean reward: 11.15
+Mean episode length: 163.01
+Learning iteration 430/500
+Mean reward: 11.96
+Mean episode length: 176.09
+Learning iteration 431/500
+Mean reward: 12.09
+Mean episode length: 175.90
+Learning iteration 432/500
+Mean reward: 11.17
+Mean episode length: 160.76
+Learning iteration 433/500
+Mean reward: 11.37
+Mean episode length: 165.60
+Learning iteration 434/500
+Mean reward: 13.42
+Mean episode length: 189.04
+Learning iteration 435/500
+Mean reward: 13.42
+Mean episode length: 189.80
+Learning iteration 436/500
+Mean reward: 12.71
+Mean episode length: 181.45
+Learning iteration 437/500
+Mean reward: 12.13
+Mean episode length: 178.65
+Learning iteration 438/500
+Mean reward: 13.30
+Mean episode length: 189.55
+Learning iteration 439/500
+Mean reward: 13.45
+Mean episode length: 191.94
+Learning iteration 440/500
+Mean reward: 13.49
+Mean episode length: 198.75
+Learning iteration 441/500
+Mean reward: 13.00
+Mean episode length: 188.88
+Learning iteration 442/500
+Mean reward: 12.28
+Mean episode length: 179.09
+Learning iteration 443/500
+Mean reward: 14.34
+Mean episode length: 207.44
+Learning iteration 444/500
+Mean reward: 14.99
+Mean episode length: 213.20
+Learning iteration 445/500
+Mean reward: 15.51
+Mean episode length: 213.99
+Learning iteration 446/500
+Mean reward: 15.28
+Mean episode length: 213.20
+Learning iteration 447/500
+Mean reward: 14.69
+Mean episode length: 208.49
+Learning iteration 448/500
+Mean reward: 14.66
+Mean episode length: 207.81
+Learning iteration 449/500
+Mean reward: 15.02
+Mean episode length: 209.69
+Learning iteration 450/500
+Mean reward: 15.27
+Mean episode length: 213.41
+Learning iteration 451/500
+Mean reward: 15.71
+Mean episode length: 223.05
+Learning iteration 452/500
+Mean reward: 15.88
+Mean episode length: 220.30
+Learning iteration 453/500
+Mean reward: 15.61
+Mean episode length: 211.05
+Learning iteration 454/500
+Mean reward: 14.21
+Mean episode length: 200.34
+Learning iteration 455/500
+Mean reward: 17.06
+Mean episode length: 239.58
+Learning iteration 456/500
+Mean reward: 17.62
+Mean episode length: 249.31
+Learning iteration 457/500
+Mean reward: 18.69
+Mean episode length: 262.61
+Learning iteration 458/500
+Mean reward: 20.27
+Mean episode length: 283.06
+Learning iteration 459/500
+Mean reward: 20.90
+Mean episode length: 290.43
+Learning iteration 460/500
+Mean reward: 19.26
+Mean episode length: 269.50
+Learning iteration 461/500
+Mean reward: 19.61
+Mean episode length: 272.44
+Learning iteration 462/500
+Mean reward: 16.87
+Mean episode length: 240.25
+Learning iteration 463/500
+Mean reward: 17.35
+Mean episode length: 242.26
+Learning iteration 464/500
+Mean reward: 18.32
+Mean episode length: 254.68
+Learning iteration 465/500
+Mean reward: 19.83
+Mean episode length: 273.18
+Learning iteration 466/500
+Mean reward: 20.42
+Mean episode length: 281.36
+Learning iteration 467/500
+Mean reward: 21.09
+Mean episode length: 288.47
+Learning iteration 468/500
+Mean reward: 22.48
+Mean episode length: 307.50
+Learning iteration 469/500
+Mean reward: 21.73
+Mean episode length: 298.34
+Learning iteration 470/500
+Mean reward: 21.33
+Mean episode length: 293.85
+Learning iteration 471/500
+Mean reward: 21.86
+Mean episode length: 300.91
+Learning iteration 472/500
+Mean reward: 22.78
+Mean episode length: 314.91
+Learning iteration 473/500
+Mean reward: 25.67
+Mean episode length: 345.25
+Learning iteration 474/500
+Mean reward: 21.88
+Mean episode length: 300.05
+Learning iteration 475/500
+Mean reward: 22.77
+Mean episode length: 314.33
+Learning iteration 476/500
+Mean reward: 19.90
+Mean episode length: 283.36
+Learning iteration 477/500
+Mean reward: 21.98
+Mean episode length: 311.95
+Learning iteration 478/500
+Mean reward: 21.22
+Mean episode length: 300.43
+Learning iteration 479/500
+Mean reward: 26.11
+Mean episode length: 363.30
+Learning iteration 480/500
+Mean reward: 24.52
+Mean episode length: 344.39
+Learning iteration 481/500
+Mean reward: 26.74
+Mean episode length: 368.28
+Learning iteration 482/500
+Mean reward: 25.14
+Mean episode length: 345.36
+Learning iteration 483/500
+Mean reward: 24.90
+Mean episode length: 340.23
+Learning iteration 484/500
+Mean reward: 26.58
+Mean episode length: 363.01
+Learning iteration 485/500
+Mean reward: 29.76
+Mean episode length: 402.71
+Learning iteration 486/500
+Mean reward: 32.89
+Mean episode length: 441.69
+Learning iteration 487/500
+Mean reward: 29.05
+Mean episode length: 393.71
+Learning iteration 488/500
+Mean reward: 29.56
+Mean episode length: 401.34
+Learning iteration 489/500
+Mean reward: 29.32
+Mean episode length: 393.77
+Learning iteration 490/500
+Mean reward: 28.11
+Mean episode length: 373.57
+Learning iteration 491/500
+Mean reward: 28.77
+Mean episode length: 382.07
+Learning iteration 492/500
+Mean reward: 29.30
+Mean episode length: 393.15
+Learning iteration 493/500
+Mean reward: 28.73
+Mean episode length: 390.96
+Learning iteration 494/500
+Mean reward: 28.92
+Mean episode length: 393.45
+Learning iteration 495/500
+Mean reward: 29.69
+Mean episode length: 398.19
+Learning iteration 496/500
+Mean reward: 30.61
+Mean episode length: 407.86
+Learning iteration 497/500
+Mean reward: 32.77
+Mean episode length: 431.81
+Learning iteration 498/500
+Mean reward: 31.16
+Mean episode length: 410.66
+Learning iteration 499/500
+Mean reward: 32.69
+Mean episode length: 421.18

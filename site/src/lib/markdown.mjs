@@ -6,6 +6,7 @@ import { availability, catalogFields, licenseLabel } from './catalog-filters.mjs
 
 const guides = import.meta.glob([
   '../../../docs/{en,ko}/workflows/*.md',
+  '../../../docs/{en,ko}/labs/*.md',
   '../../../docs/{en,ko}/robot-foundation-models.md',
 ], { query: '?raw', import: 'default', eager: true });
 
@@ -29,6 +30,8 @@ function resolveLink(link, sourcePath) {
 
   const model = file.match(/^docs\/(en|ko)\/robot-foundation-models\.md$/);
   if (model) return pageUrl(model[1], modelGuide.route);
+  const lab = file.match(/^docs\/(en|ko)\/labs\/([\w-]+)\.md$/);
+  if (lab) return pageUrl(lab[1], `labs/${lab[2]}`) + target.hash;
   if (file === 'assets/lessons/isaac-sim-first-cube/cube-drop.usda') return cubeScene;
 
   return repositoryFile(file) + target.search + target.hash;

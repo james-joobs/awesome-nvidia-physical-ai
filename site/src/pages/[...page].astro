@@ -1,6 +1,8 @@
 ---
 import Guide from '../components/Guide.astro';
+import VideoLab from '../components/VideoLab.astro';
 import { languages, modelGuide, workflows } from '../lib/catalog.mjs';
+import { labs } from '../lib/labs.mjs';
 
 export function getStaticPaths() {
   return languages.flatMap((locale) => {
@@ -17,11 +19,14 @@ export function getStaticPaths() {
       guide: modelGuide,
       parent: 'models',
     });
-    return entries.map((entry) => ({
+    return [...entries.map((entry) => ({
       params: { page: prefix + entry.page },
       props: { locale, ...entry },
-    }));
+    })), ...labs.map((lab) => ({
+      params: { page: `${prefix}labs/${lab.id}` },
+      props: { locale, lab },
+    }))];
   });
 }
 ---
-<Guide {...Astro.props} />
+{Astro.props.lab ? <VideoLab {...Astro.props} /> : <Guide {...Astro.props} />}
