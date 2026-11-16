@@ -1,0 +1,113 @@
+{
+  "alarm_controller": [
+    {
+      "mode": "stationary",
+      "fall_s": null,
+      "pressed_s": 1.2,
+      "minimum_footprint_clearance_m": 0.22499999999999998
+    },
+    {
+      "mode": "reverse_only",
+      "fall_s": 2.2666666666666666,
+      "pressed_s": null,
+      "minimum_footprint_clearance_m": -0.08500000000000045
+    },
+    {
+      "mode": "edge_aware",
+      "fall_s": null,
+      "pressed_s": null,
+      "minimum_footprint_clearance_m": 0.05391112862761456
+    }
+  ],
+  "drawer_final_m": [
+    0.30499881505966187,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "cart": [
+    {
+      "variant": "narrow",
+      "clear_m": 0.55,
+      "fits_demo_cart": false
+    },
+    {
+      "variant": "borderline",
+      "clear_m": 0.75,
+      "fits_demo_cart": false
+    },
+    {
+      "variant": "wide",
+      "clear_m": 0.95,
+      "fits_demo_cart": true
+    }
+  ],
+  "cleanup": {
+    "ClearEverything": {
+      "objects": {
+        "snack": {
+          "xyz_m": [
+            -1.1807856559753418,
+            0.950638473033905,
+            0.4699998199939728
+          ],
+          "on_desk": false,
+          "in_bin": true
+        },
+        "cup": {
+          "xyz_m": [
+            -0.8017453551292419,
+            1.0786229372024536,
+            0.49500009417533875
+          ],
+          "on_desk": false,
+          "in_bin": true
+        },
+        "mouse": {
+          "xyz_m": [
+            -0.46152758598327637,
+            0.9507529139518738,
+            0.47499972581863403
+          ],
+          "on_desk": false,
+          "in_bin": true
+        }
+      },
+      "remaining_on_desk": 0,
+      "task_passed": false
+    },
+    "SortTrashOnly": {
+      "objects": {
+        "snack": {
+          "xyz_m": [
+            0.45919814705848694,
+            0.950633704662323,
+            0.4699998199939728
+          ],
+          "on_desk": false,
+          "in_bin": true
+        },
+        "cup": {
+          "xyz_m": [
+            0.8200018405914307,
+            -0.0650007575750351,
+            0.8649999499320984
+          ],
+          "on_desk": true,
+          "in_bin": false
+        },
+        "mouse": {
+          "xyz_m": [
+            1.1799992322921753,
+            -0.06499997526407242,
+            0.8249998092651367
+          ],
+          "on_desk": true,
+          "in_bin": false
+        }
+      },
+      "remaining_on_desk": 2,
+      "task_passed": true
+    }
+  }
+}

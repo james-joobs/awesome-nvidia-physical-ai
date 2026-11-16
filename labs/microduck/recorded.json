@@ -1,0 +1,2517 @@
+{
+  "scope": "training statistics logged by RSL-RL for one run",
+  "environments": 512,
+  "iteration_count": 500,
+  "windows": {
+    "first_50": {
+      "mean_reward": 0.6498,
+      "mean_episode_length": 35.5002
+    },
+    "last_50": {
+      "mean_reward": 23.4578,
+      "mean_episode_length": 320.937
+    }
+  },
+  "iterations": [
+    {
+      "iteration": 0,
+      "mean_reward": -0.1,
+      "mean_episode_length": 21.52
+    },
+    {
+      "iteration": 1,
+      "mean_reward": 0.08,
+      "mean_episode_length": 37.75
+    },
+    {
+      "iteration": 2,
+      "mean_reward": 0.04,
+      "mean_episode_length": 33.62
+    },
+    {
+      "iteration": 3,
+      "mean_reward": 0.04,
+      "mean_episode_length": 32.76
+    },
+    {
+      "iteration": 4,
+      "mean_reward": 0.0,
+      "mean_episode_length": 33.68
+    },
+    {
+      "iteration": 5,
+      "mean_reward": 0.08,
+      "mean_episode_length": 33.0
+    },
+    {
+      "iteration": 6,
+      "mean_reward": 0.19,
+      "mean_episode_length": 31.87
+    },
+    {
+      "iteration": 7,
+      "mean_reward": 0.27,
+      "mean_episode_length": 33.83
+    },
+    {
+      "iteration": 8,
+      "mean_reward": 0.27,
+      "mean_episode_length": 31.9
+    },
+    {
+      "iteration": 9,
+      "mean_reward": 0.27,
+      "mean_episode_length": 34.15
+    },
+    {
+      "iteration": 10,
+      "mean_reward": 0.25,
+      "mean_episode_length": 32.97
+    },
+    {
+      "iteration": 11,
+      "mean_reward": 0.33,
+      "mean_episode_length": 31.85
+    },
+    {
+      "iteration": 12,
+      "mean_reward": 0.35,
+      "mean_episode_length": 34.41
+    },
+    {
+      "iteration": 13,
+      "mean_reward": 0.35,
+      "mean_episode_length": 33.58
+    },
+    {
+      "iteration": 14,
+      "mean_reward": 0.47,
+      "mean_episode_length": 34.43
+    },
+    {
+      "iteration": 15,
+      "mean_reward": 0.47,
+      "mean_episode_length": 33.87
+    },
+    {
+      "iteration": 16,
+      "mean_reward": 0.47,
+      "mean_episode_length": 34.43
+    },
+    {
+      "iteration": 17,
+      "mean_reward": 0.52,
+      "mean_episode_length": 35.12
+    },
+    {
+      "iteration": 18,
+      "mean_reward": 0.58,
+      "mean_episode_length": 35.5
+    },
+    {
+      "iteration": 19,
+      "mean_reward": 0.55,
+      "mean_episode_length": 34.7
+    },
+    {
+      "iteration": 20,
+      "mean_reward": 0.65,
+      "mean_episode_length": 35.51
+    },
+    {
+      "iteration": 21,
+      "mean_reward": 0.63,
+      "mean_episode_length": 35.74
+    },
+    {
+      "iteration": 22,
+      "mean_reward": 0.7,
+      "mean_episode_length": 35.87
+    },
+    {
+      "iteration": 23,
+      "mean_reward": 0.69,
+      "mean_episode_length": 36.93
+    },
+    {
+      "iteration": 24,
+      "mean_reward": 0.64,
+      "mean_episode_length": 33.51
+    },
+    {
+      "iteration": 25,
+      "mean_reward": 0.65,
+      "mean_episode_length": 35.66
+    },
+    {
+      "iteration": 26,
+      "mean_reward": 0.74,
+      "mean_episode_length": 36.51
+    },
+    {
+      "iteration": 27,
+      "mean_reward": 0.71,
+      "mean_episode_length": 35.48
+    },
+    {
+      "iteration": 28,
+      "mean_reward": 0.82,
+      "mean_episode_length": 36.77
+    },
+    {
+      "iteration": 29,
+      "mean_reward": 0.77,
+      "mean_episode_length": 36.11
+    },
+    {
+      "iteration": 30,
+      "mean_reward": 0.87,
+      "mean_episode_length": 36.21
+    },
+    {
+      "iteration": 31,
+      "mean_reward": 0.91,
+      "mean_episode_length": 37.16
+    },
+    {
+      "iteration": 32,
+      "mean_reward": 0.81,
+      "mean_episode_length": 35.82
+    },
+    {
+      "iteration": 33,
+      "mean_reward": 0.88,
+      "mean_episode_length": 37.25
+    },
+    {
+      "iteration": 34,
+      "mean_reward": 0.84,
+      "mean_episode_length": 36.16
+    },
+    {
+      "iteration": 35,
+      "mean_reward": 0.88,
+      "mean_episode_length": 36.14
+    },
+    {
+      "iteration": 36,
+      "mean_reward": 0.96,
+      "mean_episode_length": 36.61
+    },
+    {
+      "iteration": 37,
+      "mean_reward": 0.96,
+      "mean_episode_length": 37.13
+    },
+    {
+      "iteration": 38,
+      "mean_reward": 1.04,
+      "mean_episode_length": 38.38
+    },
+    {
+      "iteration": 39,
+      "mean_reward": 0.97,
+      "mean_episode_length": 37.06
+    },
+    {
+      "iteration": 40,
+      "mean_reward": 1.01,
+      "mean_episode_length": 38.91
+    },
+    {
+      "iteration": 41,
+      "mean_reward": 1.06,
+      "mean_episode_length": 37.95
+    },
+    {
+      "iteration": 42,
+      "mean_reward": 1.05,
+      "mean_episode_length": 37.56
+    },
+    {
+      "iteration": 43,
+      "mean_reward": 1.04,
+      "mean_episode_length": 38.13
+    },
+    {
+      "iteration": 44,
+      "mean_reward": 1.08,
+      "mean_episode_length": 38.36
+    },
+    {
+      "iteration": 45,
+      "mean_reward": 1.25,
+      "mean_episode_length": 38.97
+    },
+    {
+      "iteration": 46,
+      "mean_reward": 1.18,
+      "mean_episode_length": 39.29
+    },
+    {
+      "iteration": 47,
+      "mean_reward": 1.06,
+      "mean_episode_length": 39.74
+    },
+    {
+      "iteration": 48,
+      "mean_reward": 1.0,
+      "mean_episode_length": 36.92
+    },
+    {
+      "iteration": 49,
+      "mean_reward": 1.16,
+      "mean_episode_length": 38.23
+    },
+    {
+      "iteration": 50,
+      "mean_reward": 1.09,
+      "mean_episode_length": 37.95
+    },
+    {
+      "iteration": 51,
+      "mean_reward": 1.19,
+      "mean_episode_length": 38.82
+    },
+    {
+      "iteration": 52,
+      "mean_reward": 1.2,
+      "mean_episode_length": 38.8
+    },
+    {
+      "iteration": 53,
+      "mean_reward": 1.15,
+      "mean_episode_length": 38.88
+    },
+    {
+      "iteration": 54,
+      "mean_reward": 1.2,
+      "mean_episode_length": 39.59
+    },
+    {
+      "iteration": 55,
+      "mean_reward": 1.13,
+      "mean_episode_length": 38.0
+    },
+    {
+      "iteration": 56,
+      "mean_reward": 1.19,
+      "mean_episode_length": 38.57
+    },
+    {
+      "iteration": 57,
+      "mean_reward": 1.27,
+      "mean_episode_length": 40.55
+    },
+    {
+      "iteration": 58,
+      "mean_reward": 1.23,
+      "mean_episode_length": 39.54
+    },
+    {
+      "iteration": 59,
+      "mean_reward": 1.35,
+      "mean_episode_length": 40.54
+    },
+    {
+      "iteration": 60,
+      "mean_reward": 1.31,
+      "mean_episode_length": 39.43
+    },
+    {
+      "iteration": 61,
+      "mean_reward": 1.14,
+      "mean_episode_length": 37.69
+    },
+    {
+      "iteration": 62,
+      "mean_reward": 1.12,
+      "mean_episode_length": 39.04
+    },
+    {
+      "iteration": 63,
+      "mean_reward": 1.29,
+      "mean_episode_length": 40.8
+    },
+    {
+      "iteration": 64,
+      "mean_reward": 1.22,
+      "mean_episode_length": 37.67
+    },
+    {
+      "iteration": 65,
+      "mean_reward": 1.37,
+      "mean_episode_length": 40.01
+    },
+    {
+      "iteration": 66,
+      "mean_reward": 1.3,
+      "mean_episode_length": 38.83
+    },
+    {
+      "iteration": 67,
+      "mean_reward": 1.35,
+      "mean_episode_length": 40.2
+    },
+    {
+      "iteration": 68,
+      "mean_reward": 1.31,
+      "mean_episode_length": 38.7
+    },
+    {
+      "iteration": 69,
+      "mean_reward": 1.33,
+      "mean_episode_length": 38.73
+    },
+    {
+      "iteration": 70,
+      "mean_reward": 1.33,
+      "mean_episode_length": 39.79
+    },
+    {
+      "iteration": 71,
+      "mean_reward": 1.41,
+      "mean_episode_length": 40.66
+    },
+    {
+      "iteration": 72,
+      "mean_reward": 1.32,
+      "mean_episode_length": 38.75
+    },
+    {
+      "iteration": 73,
+      "mean_reward": 1.37,
+      "mean_episode_length": 39.97
+    },
+    {
+      "iteration": 74,
+      "mean_reward": 1.38,
+      "mean_episode_length": 39.29
+    },
+    {
+      "iteration": 75,
+      "mean_reward": 1.41,
+      "mean_episode_length": 38.88
+    },
+    {
+      "iteration": 76,
+      "mean_reward": 1.39,
+      "mean_episode_length": 39.06
+    },
+    {
+      "iteration": 77,
+      "mean_reward": 1.54,
+      "mean_episode_length": 40.96
+    },
+    {
+      "iteration": 78,
+      "mean_reward": 1.47,
+      "mean_episode_length": 40.05
+    },
+    {
+      "iteration": 79,
+      "mean_reward": 1.42,
+      "mean_episode_length": 38.49
+    },
+    {
+      "iteration": 80,
+      "mean_reward": 1.39,
+      "mean_episode_length": 40.27
+    },
+    {
+      "iteration": 81,
+      "mean_reward": 1.54,
+      "mean_episode_length": 40.54
+    },
+    {
+      "iteration": 82,
+      "mean_reward": 1.51,
+      "mean_episode_length": 39.73
+    },
+    {
+      "iteration": 83,
+      "mean_reward": 1.47,
+      "mean_episode_length": 40.78
+    },
+    {
+      "iteration": 84,
+      "mean_reward": 1.5,
+      "mean_episode_length": 40.55
+    },
+    {
+      "iteration": 85,
+      "mean_reward": 1.61,
+      "mean_episode_length": 43.28
+    },
+    {
+      "iteration": 86,
+      "mean_reward": 1.51,
+      "mean_episode_length": 41.07
+    },
+    {
+      "iteration": 87,
+      "mean_reward": 1.48,
+      "mean_episode_length": 39.58
+    },
+    {
+      "iteration": 88,
+      "mean_reward": 1.53,
+      "mean_episode_length": 40.36
+    },
+    {
+      "iteration": 89,
+      "mean_reward": 1.62,
+      "mean_episode_length": 41.31
+    },
+    {
+      "iteration": 90,
+      "mean_reward": 1.46,
+      "mean_episode_length": 40.66
+    },
+    {
+      "iteration": 91,
+      "mean_reward": 1.68,
+      "mean_episode_length": 43.0
+    },
+    {
+      "iteration": 92,
+      "mean_reward": 1.42,
+      "mean_episode_length": 40.31
+    },
+    {
+      "iteration": 93,
+      "mean_reward": 1.59,
+      "mean_episode_length": 41.05
+    },
+    {
+      "iteration": 94,
+      "mean_reward": 1.61,
+      "mean_episode_length": 41.39
+    },
+    {
+      "iteration": 95,
+      "mean_reward": 1.61,
+      "mean_episode_length": 40.61
+    },
+    {
+      "iteration": 96,
+      "mean_reward": 1.63,
+      "mean_episode_length": 41.13
+    },
+    {
+      "iteration": 97,
+      "mean_reward": 1.59,
+      "mean_episode_length": 41.47
+    },
+    {
+      "iteration": 98,
+      "mean_reward": 1.86,
+      "mean_episode_length": 42.87
+    },
+    {
+      "iteration": 99,
+      "mean_reward": 1.69,
+      "mean_episode_length": 43.02
+    },
+    {
+      "iteration": 100,
+      "mean_reward": 1.72,
+      "mean_episode_length": 42.51
+    },
+    {
+      "iteration": 101,
+      "mean_reward": 1.6,
+      "mean_episode_length": 40.98
+    },
+    {
+      "iteration": 102,
+      "mean_reward": 1.63,
+      "mean_episode_length": 41.53
+    },
+    {
+      "iteration": 103,
+      "mean_reward": 1.71,
+      "mean_episode_length": 41.33
+    },
+    {
+      "iteration": 104,
+      "mean_reward": 1.67,
+      "mean_episode_length": 41.94
+    },
+    {
+      "iteration": 105,
+      "mean_reward": 1.74,
+      "mean_episode_length": 42.63
+    },
+    {
+      "iteration": 106,
+      "mean_reward": 1.64,
+      "mean_episode_length": 40.78
+    },
+    {
+      "iteration": 107,
+      "mean_reward": 1.65,
+      "mean_episode_length": 43.79
+    },
+    {
+      "iteration": 108,
+      "mean_reward": 1.75,
+      "mean_episode_length": 42.86
+    },
+    {
+      "iteration": 109,
+      "mean_reward": 1.59,
+      "mean_episode_length": 40.86
+    },
+    {
+      "iteration": 110,
+      "mean_reward": 1.84,
+      "mean_episode_length": 44.02
+    },
+    {
+      "iteration": 111,
+      "mean_reward": 1.81,
+      "mean_episode_length": 43.57
+    },
+    {
+      "iteration": 112,
+      "mean_reward": 1.76,
+      "mean_episode_length": 42.35
+    },
+    {
+      "iteration": 113,
+      "mean_reward": 1.77,
+      "mean_episode_length": 43.27
+    },
+    {
+      "iteration": 114,
+      "mean_reward": 1.83,
+      "mean_episode_length": 44.82
+    },
+    {
+      "iteration": 115,
+      "mean_reward": 1.8,
+      "mean_episode_length": 44.47
+    },
+    {
+      "iteration": 116,
+      "mean_reward": 1.79,
+      "mean_episode_length": 42.69
+    },
+    {
+      "iteration": 117,
+      "mean_reward": 1.77,
+      "mean_episode_length": 42.81
+    },
+    {
+      "iteration": 118,
+      "mean_reward": 1.7,
+      "mean_episode_length": 41.9
+    },
+    {
+      "iteration": 119,
+      "mean_reward": 1.98,
+      "mean_episode_length": 45.01
+    },
+    {
+      "iteration": 120,
+      "mean_reward": 1.78,
+      "mean_episode_length": 43.12
+    },
+    {
+      "iteration": 121,
+      "mean_reward": 1.96,
+      "mean_episode_length": 44.32
+    },
+    {
+      "iteration": 122,
+      "mean_reward": 1.71,
+      "mean_episode_length": 41.65
+    },
+    {
+      "iteration": 123,
+      "mean_reward": 1.85,
+      "mean_episode_length": 42.29
+    },
+    {
+      "iteration": 124,
+      "mean_reward": 1.7,
+      "mean_episode_length": 40.97
+    },
+    {
+      "iteration": 125,
+      "mean_reward": 1.78,
+      "mean_episode_length": 44.0
+    },
+    {
+      "iteration": 126,
+      "mean_reward": 2.08,
+      "mean_episode_length": 45.76
+    },
+    {
+      "iteration": 127,
+      "mean_reward": 1.93,
+      "mean_episode_length": 43.4
+    },
+    {
+      "iteration": 128,
+      "mean_reward": 1.84,
+      "mean_episode_length": 43.3
+    },
+    {
+      "iteration": 129,
+      "mean_reward": 1.97,
+      "mean_episode_length": 43.95
+    },
+    {
+      "iteration": 130,
+      "mean_reward": 1.99,
+      "mean_episode_length": 44.71
+    },
+    {
+      "iteration": 131,
+      "mean_reward": 1.88,
+      "mean_episode_length": 44.39
+    },
+    {
+      "iteration": 132,
+      "mean_reward": 1.93,
+      "mean_episode_length": 44.08
+    },
+    {
+      "iteration": 133,
+      "mean_reward": 1.96,
+      "mean_episode_length": 44.11
+    },
+    {
+      "iteration": 134,
+      "mean_reward": 2.03,
+      "mean_episode_length": 44.6
+    },
+    {
+      "iteration": 135,
+      "mean_reward": 1.94,
+      "mean_episode_length": 43.67
+    },
+    {
+      "iteration": 136,
+      "mean_reward": 2.08,
+      "mean_episode_length": 45.52
+    },
+    {
+      "iteration": 137,
+      "mean_reward": 1.92,
+      "mean_episode_length": 41.93
+    },
+    {
+      "iteration": 138,
+      "mean_reward": 1.77,
+      "mean_episode_length": 41.77
+    },
+    {
+      "iteration": 139,
+      "mean_reward": 2.02,
+      "mean_episode_length": 45.42
+    },
+    {
+      "iteration": 140,
+      "mean_reward": 1.99,
+      "mean_episode_length": 44.49
+    },
+    {
+      "iteration": 141,
+      "mean_reward": 2.18,
+      "mean_episode_length": 45.87
+    },
+    {
+      "iteration": 142,
+      "mean_reward": 2.15,
+      "mean_episode_length": 46.83
+    },
+    {
+      "iteration": 143,
+      "mean_reward": 2.02,
+      "mean_episode_length": 45.19
+    },
+    {
+      "iteration": 144,
+      "mean_reward": 1.92,
+      "mean_episode_length": 43.96
+    },
+    {
+      "iteration": 145,
+      "mean_reward": 1.94,
+      "mean_episode_length": 46.18
+    },
+    {
+      "iteration": 146,
+      "mean_reward": 2.0,
+      "mean_episode_length": 45.73
+    },
+    {
+      "iteration": 147,
+      "mean_reward": 2.11,
+      "mean_episode_length": 46.04
+    },
+    {
+      "iteration": 148,
+      "mean_reward": 2.04,
+      "mean_episode_length": 44.05
+    },
+    {
+      "iteration": 149,
+      "mean_reward": 2.22,
+      "mean_episode_length": 46.57
+    },
+    {
+      "iteration": 150,
+      "mean_reward": 2.01,
+      "mean_episode_length": 45.51
+    },
+    {
+      "iteration": 151,
+      "mean_reward": 1.96,
+      "mean_episode_length": 43.31
+    },
+    {
+      "iteration": 152,
+      "mean_reward": 2.37,
+      "mean_episode_length": 48.74
+    },
+    {
+      "iteration": 153,
+      "mean_reward": 2.17,
+      "mean_episode_length": 47.13
+    },
+    {
+      "iteration": 154,
+      "mean_reward": 2.15,
+      "mean_episode_length": 46.6
+    },
+    {
+      "iteration": 155,
+      "mean_reward": 2.07,
+      "mean_episode_length": 44.6
+    },
+    {
+      "iteration": 156,
+      "mean_reward": 2.15,
+      "mean_episode_length": 45.89
+    },
+    {
+      "iteration": 157,
+      "mean_reward": 2.19,
+      "mean_episode_length": 47.42
+    },
+    {
+      "iteration": 158,
+      "mean_reward": 2.17,
+      "mean_episode_length": 47.19
+    },
+    {
+      "iteration": 159,
+      "mean_reward": 2.1,
+      "mean_episode_length": 46.56
+    },
+    {
+      "iteration": 160,
+      "mean_reward": 2.17,
+      "mean_episode_length": 46.23
+    },
+    {
+      "iteration": 161,
+      "mean_reward": 2.27,
+      "mean_episode_length": 48.68
+    },
+    {
+      "iteration": 162,
+      "mean_reward": 2.3,
+      "mean_episode_length": 47.87
+    },
+    {
+      "iteration": 163,
+      "mean_reward": 2.21,
+      "mean_episode_length": 45.27
+    },
+    {
+      "iteration": 164,
+      "mean_reward": 2.15,
+      "mean_episode_length": 47.11
+    },
+    {
+      "iteration": 165,
+      "mean_reward": 2.16,
+      "mean_episode_length": 46.27
+    },
+    {
+      "iteration": 166,
+      "mean_reward": 2.25,
+      "mean_episode_length": 47.01
+    },
+    {
+      "iteration": 167,
+      "mean_reward": 2.27,
+      "mean_episode_length": 46.13
+    },
+    {
+      "iteration": 168,
+      "mean_reward": 2.27,
+      "mean_episode_length": 47.65
+    },
+    {
+      "iteration": 169,
+      "mean_reward": 2.29,
+      "mean_episode_length": 46.98
+    },
+    {
+      "iteration": 170,
+      "mean_reward": 2.32,
+      "mean_episode_length": 47.16
+    },
+    {
+      "iteration": 171,
+      "mean_reward": 2.3,
+      "mean_episode_length": 47.13
+    },
+    {
+      "iteration": 172,
+      "mean_reward": 2.31,
+      "mean_episode_length": 48.25
+    },
+    {
+      "iteration": 173,
+      "mean_reward": 2.16,
+      "mean_episode_length": 47.11
+    },
+    {
+      "iteration": 174,
+      "mean_reward": 2.54,
+      "mean_episode_length": 50.93
+    },
+    {
+      "iteration": 175,
+      "mean_reward": 2.35,
+      "mean_episode_length": 47.55
+    },
+    {
+      "iteration": 176,
+      "mean_reward": 2.4,
+      "mean_episode_length": 49.37
+    },
+    {
+      "iteration": 177,
+      "mean_reward": 2.26,
+      "mean_episode_length": 47.89
+    },
+    {
+      "iteration": 178,
+      "mean_reward": 2.54,
+      "mean_episode_length": 50.82
+    },
+    {
+      "iteration": 179,
+      "mean_reward": 2.36,
+      "mean_episode_length": 48.57
+    },
+    {
+      "iteration": 180,
+      "mean_reward": 2.55,
+      "mean_episode_length": 50.75
+    },
+    {
+      "iteration": 181,
+      "mean_reward": 2.54,
+      "mean_episode_length": 50.99
+    },
+    {
+      "iteration": 182,
+      "mean_reward": 2.56,
+      "mean_episode_length": 52.26
+    },
+    {
+      "iteration": 183,
+      "mean_reward": 2.58,
+      "mean_episode_length": 51.79
+    },
+    {
+      "iteration": 184,
+      "mean_reward": 2.46,
+      "mean_episode_length": 50.7
+    },
+    {
+      "iteration": 185,
+      "mean_reward": 2.5,
+      "mean_episode_length": 50.56
+    },
+    {
+      "iteration": 186,
+      "mean_reward": 2.43,
+      "mean_episode_length": 49.29
+    },
+    {
+      "iteration": 187,
+      "mean_reward": 2.54,
+      "mean_episode_length": 50.83
+    },
+    {
+      "iteration": 188,
+      "mean_reward": 2.45,
+      "mean_episode_length": 49.73
+    },
+    {
+      "iteration": 189,
+      "mean_reward": 2.27,
+      "mean_episode_length": 46.96
+    },
+    {
+      "iteration": 190,
+      "mean_reward": 2.54,
+      "mean_episode_length": 50.81
+    },
+    {
+      "iteration": 191,
+      "mean_reward": 2.47,
+      "mean_episode_length": 50.29
+    },
+    {
+      "iteration": 192,
+      "mean_reward": 2.46,
+      "mean_episode_length": 49.96
+    },
+    {
+      "iteration": 193,
+      "mean_reward": 2.48,
+      "mean_episode_length": 50.03
+    },
+    {
+      "iteration": 194,
+      "mean_reward": 2.67,
+      "mean_episode_length": 52.14
+    },
+    {
+      "iteration": 195,
+      "mean_reward": 2.95,
+      "mean_episode_length": 55.9
+    },
+    {
+      "iteration": 196,
+      "mean_reward": 2.6,
+      "mean_episode_length": 51.65
+    },
+    {
+      "iteration": 197,
+      "mean_reward": 2.77,
+      "mean_episode_length": 52.63
+    },
+    {
+      "iteration": 198,
+      "mean_reward": 2.67,
+      "mean_episode_length": 51.56
+    },
+    {
+      "iteration": 199,
+      "mean_reward": 2.65,
+      "mean_episode_length": 51.01
+    },
+    {
+      "iteration": 200,
+      "mean_reward": 2.49,
+      "mean_episode_length": 50.9
+    },
+    {
+      "iteration": 201,
+      "mean_reward": 2.52,
+      "mean_episode_length": 50.08
+    },
+    {
+      "iteration": 202,
+      "mean_reward": 2.56,
+      "mean_episode_length": 51.41
+    },
+    {
+      "iteration": 203,
+      "mean_reward": 2.72,
+      "mean_episode_length": 54.09
+    },
+    {
+      "iteration": 204,
+      "mean_reward": 2.68,
+      "mean_episode_length": 52.44
+    },
+    {
+      "iteration": 205,
+      "mean_reward": 2.47,
+      "mean_episode_length": 50.06
+    },
+    {
+      "iteration": 206,
+      "mean_reward": 2.59,
+      "mean_episode_length": 51.73
+    },
+    {
+      "iteration": 207,
+      "mean_reward": 2.71,
+      "mean_episode_length": 52.68
+    },
+    {
+      "iteration": 208,
+      "mean_reward": 2.59,
+      "mean_episode_length": 52.84
+    },
+    {
+      "iteration": 209,
+      "mean_reward": 2.61,
+      "mean_episode_length": 51.73
+    },
+    {
+      "iteration": 210,
+      "mean_reward": 2.73,
+      "mean_episode_length": 53.49
+    },
+    {
+      "iteration": 211,
+      "mean_reward": 2.33,
+      "mean_episode_length": 47.78
+    },
+    {
+      "iteration": 212,
+      "mean_reward": 2.66,
+      "mean_episode_length": 50.93
+    },
+    {
+      "iteration": 213,
+      "mean_reward": 2.8,
+      "mean_episode_length": 52.71
+    },
+    {
+      "iteration": 214,
+      "mean_reward": 2.79,
+      "mean_episode_length": 50.68
+    },
+    {
+      "iteration": 215,
+      "mean_reward": 2.83,
+      "mean_episode_length": 54.25
+    },
+    {
+      "iteration": 216,
+      "mean_reward": 2.78,
+      "mean_episode_length": 51.96
+    },
+    {
+      "iteration": 217,
+      "mean_reward": 2.65,
+      "mean_episode_length": 51.19
+    },
+    {
+      "iteration": 218,
+      "mean_reward": 2.84,
+      "mean_episode_length": 53.7
+    },
+    {
+      "iteration": 219,
+      "mean_reward": 2.71,
+      "mean_episode_length": 52.45
+    },
+    {
+      "iteration": 220,
+      "mean_reward": 2.69,
+      "mean_episode_length": 51.92
+    },
+    {
+      "iteration": 221,
+      "mean_reward": 2.73,
+      "mean_episode_length": 52.77
+    },
+    {
+      "iteration": 222,
+      "mean_reward": 2.85,
+      "mean_episode_length": 54.76
+    },
+    {
+      "iteration": 223,
+      "mean_reward": 2.69,
+      "mean_episode_length": 52.3
+    },
+    {
+      "iteration": 224,
+      "mean_reward": 2.87,
+      "mean_episode_length": 52.81
+    },
+    {
+      "iteration": 225,
+      "mean_reward": 2.86,
+      "mean_episode_length": 52.9
+    },
+    {
+      "iteration": 226,
+      "mean_reward": 2.94,
+      "mean_episode_length": 54.65
+    },
+    {
+      "iteration": 227,
+      "mean_reward": 3.03,
+      "mean_episode_length": 55.28
+    },
+    {
+      "iteration": 228,
+      "mean_reward": 2.91,
+      "mean_episode_length": 54.67
+    },
+    {
+      "iteration": 229,
+      "mean_reward": 2.95,
+      "mean_episode_length": 53.89
+    },
+    {
+      "iteration": 230,
+      "mean_reward": 2.82,
+      "mean_episode_length": 54.05
+    },
+    {
+      "iteration": 231,
+      "mean_reward": 2.9,
+      "mean_episode_length": 53.72
+    },
+    {
+      "iteration": 232,
+      "mean_reward": 2.79,
+      "mean_episode_length": 53.12
+    },
+    {
+      "iteration": 233,
+      "mean_reward": 2.8,
+      "mean_episode_length": 53.89
+    },
+    {
+      "iteration": 234,
+      "mean_reward": 3.28,
+      "mean_episode_length": 57.22
+    },
+    {
+      "iteration": 235,
+      "mean_reward": 3.08,
+      "mean_episode_length": 55.34
+    },
+    {
+      "iteration": 236,
+      "mean_reward": 2.93,
+      "mean_episode_length": 52.6
+    },
+    {
+      "iteration": 237,
+      "mean_reward": 2.98,
+      "mean_episode_length": 53.87
+    },
+    {
+      "iteration": 238,
+      "mean_reward": 3.24,
+      "mean_episode_length": 57.91
+    },
+    {
+      "iteration": 239,
+      "mean_reward": 3.11,
+      "mean_episode_length": 56.54
+    },
+    {
+      "iteration": 240,
+      "mean_reward": 2.77,
+      "mean_episode_length": 53.52
+    },
+    {
+      "iteration": 241,
+      "mean_reward": 2.92,
+      "mean_episode_length": 53.78
+    },
+    {
+      "iteration": 242,
+      "mean_reward": 3.08,
+      "mean_episode_length": 56.22
+    },
+    {
+      "iteration": 243,
+      "mean_reward": 3.23,
+      "mean_episode_length": 58.3
+    },
+    {
+      "iteration": 244,
+      "mean_reward": 2.92,
+      "mean_episode_length": 53.83
+    },
+    {
+      "iteration": 245,
+      "mean_reward": 3.2,
+      "mean_episode_length": 56.21
+    },
+    {
+      "iteration": 246,
+      "mean_reward": 2.84,
+      "mean_episode_length": 52.34
+    },
+    {
+      "iteration": 247,
+      "mean_reward": 3.28,
+      "mean_episode_length": 58.89
+    },
+    {
+      "iteration": 248,
+      "mean_reward": 3.36,
+      "mean_episode_length": 58.2
+    },
+    {
+      "iteration": 249,
+      "mean_reward": 2.97,
+      "mean_episode_length": 55.58
+    },
+    {
+      "iteration": 250,
+      "mean_reward": 2.88,
+      "mean_episode_length": 54.19
+    },
+    {
+      "iteration": 251,
+      "mean_reward": 3.04,
+      "mean_episode_length": 54.64
+    },
+    {
+      "iteration": 252,
+      "mean_reward": 3.09,
+      "mean_episode_length": 55.32
+    },
+    {
+      "iteration": 253,
+      "mean_reward": 2.97,
+      "mean_episode_length": 56.05
+    },
+    {
+      "iteration": 254,
+      "mean_reward": 3.38,
+      "mean_episode_length": 57.67
+    },
+    {
+      "iteration": 255,
+      "mean_reward": 2.91,
+      "mean_episode_length": 53.12
+    },
+    {
+      "iteration": 256,
+      "mean_reward": 3.25,
+      "mean_episode_length": 58.83
+    },
+    {
+      "iteration": 257,
+      "mean_reward": 3.14,
+      "mean_episode_length": 56.12
+    },
+    {
+      "iteration": 258,
+      "mean_reward": 3.25,
+      "mean_episode_length": 57.16
+    },
+    {
+      "iteration": 259,
+      "mean_reward": 3.2,
+      "mean_episode_length": 58.98
+    },
+    {
+      "iteration": 260,
+      "mean_reward": 3.57,
+      "mean_episode_length": 60.45
+    },
+    {
+      "iteration": 261,
+      "mean_reward": 3.4,
+      "mean_episode_length": 58.86
+    },
+    {
+      "iteration": 262,
+      "mean_reward": 3.24,
+      "mean_episode_length": 56.36
+    },
+    {
+      "iteration": 263,
+      "mean_reward": 3.32,
+      "mean_episode_length": 58.04
+    },
+    {
+      "iteration": 264,
+      "mean_reward": 3.55,
+      "mean_episode_length": 62.03
+    },
+    {
+      "iteration": 265,
+      "mean_reward": 3.44,
+      "mean_episode_length": 59.36
+    },
+    {
+      "iteration": 266,
+      "mean_reward": 3.19,
+      "mean_episode_length": 58.24
+    },
+    {
+      "iteration": 267,
+      "mean_reward": 3.31,
+      "mean_episode_length": 61.29
+    },
+    {
+      "iteration": 268,
+      "mean_reward": 3.2,
+      "mean_episode_length": 58.37
+    },
+    {
+      "iteration": 269,
+      "mean_reward": 3.45,
+      "mean_episode_length": 60.54
+    },
+    {
+      "iteration": 270,
+      "mean_reward": 3.33,
+      "mean_episode_length": 59.42
+    },
+    {
+      "iteration": 271,
+      "mean_reward": 3.46,
+      "mean_episode_length": 61.78
+    },
+    {
+      "iteration": 272,
+      "mean_reward": 3.39,
+      "mean_episode_length": 59.61
+    },
+    {
+      "iteration": 273,
+      "mean_reward": 3.22,
+      "mean_episode_length": 58.52
+    },
+    {
+      "iteration": 274,
+      "mean_reward": 3.69,
+      "mean_episode_length": 66.95
+    },
+    {
+      "iteration": 275,
+      "mean_reward": 3.61,
+      "mean_episode_length": 63.97
+    },
+    {
+      "iteration": 276,
+      "mean_reward": 3.1,
+      "mean_episode_length": 55.75
+    },
+    {
+      "iteration": 277,
+      "mean_reward": 3.67,
+      "mean_episode_length": 62.58
+    },
+    {
+      "iteration": 278,
+      "mean_reward": 3.32,
+      "mean_episode_length": 59.35
+    },
+    {
+      "iteration": 279,
+      "mean_reward": 3.6,
+      "mean_episode_length": 60.21
+    },
+    {
+      "iteration": 280,
+      "mean_reward": 3.47,
+      "mean_episode_length": 60.13
+    },
+    {
+      "iteration": 281,
+      "mean_reward": 3.92,
+      "mean_episode_length": 67.18
+    },
+    {
+      "iteration": 282,
+      "mean_reward": 3.92,
+      "mean_episode_length": 65.49
+    },
+    {
+      "iteration": 283,
+      "mean_reward": 3.58,
+      "mean_episode_length": 62.69
+    },
+    {
+      "iteration": 284,
+      "mean_reward": 3.85,
+      "mean_episode_length": 66.13
+    },
+    {
+      "iteration": 285,
+      "mean_reward": 3.94,
+      "mean_episode_length": 66.92
+    },
+    {
+      "iteration": 286,
+      "mean_reward": 3.53,
+      "mean_episode_length": 62.39
+    },
+    {
+      "iteration": 287,
+      "mean_reward": 3.28,
+      "mean_episode_length": 57.9
+    },
+    {
+      "iteration": 288,
+      "mean_reward": 3.78,
+      "mean_episode_length": 63.4
+    },
+    {
+      "iteration": 289,
+      "mean_reward": 3.46,
+      "mean_episode_length": 61.53
+    },
+    {
+      "iteration": 290,
+      "mean_reward": 3.75,
+      "mean_episode_length": 63.35
+    },
+    {
+      "iteration": 291,
+      "mean_reward": 3.7,
+      "mean_episode_length": 63.89
+    },
+    {
+      "iteration": 292,
+      "mean_reward": 3.57,
+      "mean_episode_length": 62.95
+    },
+    {
+      "iteration": 293,
+      "mean_reward": 3.58,
+      "mean_episode_length": 62.69
+    },
+    {
+      "iteration": 294,
+      "mean_reward": 3.74,
+      "mean_episode_length": 63.4
+    },
+    {
+      "iteration": 295,
+      "mean_reward": 4.14,
+      "mean_episode_length": 67.03
+    },
+    {
+      "iteration": 296,
+      "mean_reward": 3.79,
+      "mean_episode_length": 64.61
+    },
+    {
+      "iteration": 297,
+      "mean_reward": 3.78,
+      "mean_episode_length": 64.48
+    },
+    {
+      "iteration": 298,
+      "mean_reward": 4.25,
+      "mean_episode_length": 69.44
+    },
+    {
+      "iteration": 299,
+      "mean_reward": 3.91,
+      "mean_episode_length": 67.78
+    },
+    {
+      "iteration": 300,
+      "mean_reward": 4.1,
+      "mean_episode_length": 69.23
+    },
+    {
+      "iteration": 301,
+      "mean_reward": 3.75,
+      "mean_episode_length": 65.36
+    },
+    {
+      "iteration": 302,
+      "mean_reward": 3.86,
+      "mean_episode_length": 67.86
+    },
+    {
+      "iteration": 303,
+      "mean_reward": 3.81,
+      "mean_episode_length": 67.38
+    },
+    {
+      "iteration": 304,
+      "mean_reward": 3.91,
+      "mean_episode_length": 67.26
+    },
+    {
+      "iteration": 305,
+      "mean_reward": 4.13,
+      "mean_episode_length": 70.29
+    },
+    {
+      "iteration": 306,
+      "mean_reward": 3.67,
+      "mean_episode_length": 64.48
+    },
+    {
+      "iteration": 307,
+      "mean_reward": 4.28,
+      "mean_episode_length": 70.47
+    },
+    {
+      "iteration": 308,
+      "mean_reward": 4.5,
+      "mean_episode_length": 74.1
+    },
+    {
+      "iteration": 309,
+      "mean_reward": 3.85,
+      "mean_episode_length": 65.97
+    },
+    {
+      "iteration": 310,
+      "mean_reward": 4.26,
+      "mean_episode_length": 69.88
+    },
+    {
+      "iteration": 311,
+      "mean_reward": 4.07,
+      "mean_episode_length": 66.97
+    },
+    {
+      "iteration": 312,
+      "mean_reward": 3.84,
+      "mean_episode_length": 66.53
+    },
+    {
+      "iteration": 313,
+      "mean_reward": 4.24,
+      "mean_episode_length": 69.83
+    },
+    {
+      "iteration": 314,
+      "mean_reward": 4.08,
+      "mean_episode_length": 66.76
+    },
+    {
+      "iteration": 315,
+      "mean_reward": 4.11,
+      "mean_episode_length": 70.84
+    },
+    {
+      "iteration": 316,
+      "mean_reward": 4.1,
+      "mean_episode_length": 67.44
+    },
+    {
+      "iteration": 317,
+      "mean_reward": 4.54,
+      "mean_episode_length": 73.51
+    },
+    {
+      "iteration": 318,
+      "mean_reward": 4.04,
+      "mean_episode_length": 69.49
+    },
+    {
+      "iteration": 319,
+      "mean_reward": 4.69,
+      "mean_episode_length": 74.79
+    },
+    {
+      "iteration": 320,
+      "mean_reward": 4.21,
+      "mean_episode_length": 68.24
+    },
+    {
+      "iteration": 321,
+      "mean_reward": 4.34,
+      "mean_episode_length": 71.02
+    },
+    {
+      "iteration": 322,
+      "mean_reward": 4.67,
+      "mean_episode_length": 74.21
+    },
+    {
+      "iteration": 323,
+      "mean_reward": 4.51,
+      "mean_episode_length": 75.38
+    },
+    {
+      "iteration": 324,
+      "mean_reward": 4.36,
+      "mean_episode_length": 72.82
+    },
+    {
+      "iteration": 325,
+      "mean_reward": 4.08,
+      "mean_episode_length": 67.76
+    },
+    {
+      "iteration": 326,
+      "mean_reward": 4.15,
+      "mean_episode_length": 68.55
+    },
+    {
+      "iteration": 327,
+      "mean_reward": 4.54,
+      "mean_episode_length": 74.86
+    },
+    {
+      "iteration": 328,
+      "mean_reward": 4.52,
+      "mean_episode_length": 74.13
+    },
+    {
+      "iteration": 329,
+      "mean_reward": 4.86,
+      "mean_episode_length": 78.75
+    },
+    {
+      "iteration": 330,
+      "mean_reward": 4.48,
+      "mean_episode_length": 73.86
+    },
+    {
+      "iteration": 331,
+      "mean_reward": 4.25,
+      "mean_episode_length": 69.05
+    },
+    {
+      "iteration": 332,
+      "mean_reward": 4.66,
+      "mean_episode_length": 74.56
+    },
+    {
+      "iteration": 333,
+      "mean_reward": 4.6,
+      "mean_episode_length": 74.81
+    },
+    {
+      "iteration": 334,
+      "mean_reward": 4.76,
+      "mean_episode_length": 75.53
+    },
+    {
+      "iteration": 335,
+      "mean_reward": 4.74,
+      "mean_episode_length": 74.93
+    },
+    {
+      "iteration": 336,
+      "mean_reward": 4.72,
+      "mean_episode_length": 75.25
+    },
+    {
+      "iteration": 337,
+      "mean_reward": 4.78,
+      "mean_episode_length": 78.02
+    },
+    {
+      "iteration": 338,
+      "mean_reward": 4.84,
+      "mean_episode_length": 76.25
+    },
+    {
+      "iteration": 339,
+      "mean_reward": 4.71,
+      "mean_episode_length": 76.39
+    },
+    {
+      "iteration": 340,
+      "mean_reward": 4.43,
+      "mean_episode_length": 71.32
+    },
+    {
+      "iteration": 341,
+      "mean_reward": 4.45,
+      "mean_episode_length": 73.63
+    },
+    {
+      "iteration": 342,
+      "mean_reward": 4.92,
+      "mean_episode_length": 78.81
+    },
+    {
+      "iteration": 343,
+      "mean_reward": 5.05,
+      "mean_episode_length": 79.83
+    },
+    {
+      "iteration": 344,
+      "mean_reward": 4.83,
+      "mean_episode_length": 75.6
+    },
+    {
+      "iteration": 345,
+      "mean_reward": 5.34,
+      "mean_episode_length": 84.97
+    },
+    {
+      "iteration": 346,
+      "mean_reward": 5.22,
+      "mean_episode_length": 82.69
+    },
+    {
+      "iteration": 347,
+      "mean_reward": 5.33,
+      "mean_episode_length": 83.5
+    },
+    {
+      "iteration": 348,
+      "mean_reward": 5.31,
+      "mean_episode_length": 85.87
+    },
+    {
+      "iteration": 349,
+      "mean_reward": 4.94,
+      "mean_episode_length": 79.2
+    },
+    {
+      "iteration": 350,
+      "mean_reward": 5.29,
+      "mean_episode_length": 82.32
+    },
+    {
+      "iteration": 351,
+      "mean_reward": 4.98,
+      "mean_episode_length": 79.66
+    },
+    {
+      "iteration": 352,
+      "mean_reward": 5.07,
+      "mean_episode_length": 77.55
+    },
+    {
+      "iteration": 353,
+      "mean_reward": 4.76,
+      "mean_episode_length": 75.9
+    },
+    {
+      "iteration": 354,
+      "mean_reward": 5.22,
+      "mean_episode_length": 82.54
+    },
+    {
+      "iteration": 355,
+      "mean_reward": 5.56,
+      "mean_episode_length": 85.84
+    },
+    {
+      "iteration": 356,
+      "mean_reward": 5.43,
+      "mean_episode_length": 83.85
+    },
+    {
+      "iteration": 357,
+      "mean_reward": 5.58,
+      "mean_episode_length": 86.77
+    },
+    {
+      "iteration": 358,
+      "mean_reward": 5.5,
+      "mean_episode_length": 84.15
+    },
+    {
+      "iteration": 359,
+      "mean_reward": 4.84,
+      "mean_episode_length": 77.76
+    },
+    {
+      "iteration": 360,
+      "mean_reward": 5.37,
+      "mean_episode_length": 82.7
+    },
+    {
+      "iteration": 361,
+      "mean_reward": 5.36,
+      "mean_episode_length": 82.33
+    },
+    {
+      "iteration": 362,
+      "mean_reward": 5.52,
+      "mean_episode_length": 87.2
+    },
+    {
+      "iteration": 363,
+      "mean_reward": 5.74,
+      "mean_episode_length": 89.12
+    },
+    {
+      "iteration": 364,
+      "mean_reward": 5.88,
+      "mean_episode_length": 90.77
+    },
+    {
+      "iteration": 365,
+      "mean_reward": 6.01,
+      "mean_episode_length": 90.5
+    },
+    {
+      "iteration": 366,
+      "mean_reward": 6.26,
+      "mean_episode_length": 94.99
+    },
+    {
+      "iteration": 367,
+      "mean_reward": 5.55,
+      "mean_episode_length": 86.43
+    },
+    {
+      "iteration": 368,
+      "mean_reward": 5.76,
+      "mean_episode_length": 92.28
+    },
+    {
+      "iteration": 369,
+      "mean_reward": 5.11,
+      "mean_episode_length": 82.97
+    },
+    {
+      "iteration": 370,
+      "mean_reward": 5.3,
+      "mean_episode_length": 82.86
+    },
+    {
+      "iteration": 371,
+      "mean_reward": 6.18,
+      "mean_episode_length": 93.82
+    },
+    {
+      "iteration": 372,
+      "mean_reward": 5.9,
+      "mean_episode_length": 93.07
+    },
+    {
+      "iteration": 373,
+      "mean_reward": 5.4,
+      "mean_episode_length": 84.94
+    },
+    {
+      "iteration": 374,
+      "mean_reward": 6.09,
+      "mean_episode_length": 93.59
+    },
+    {
+      "iteration": 375,
+      "mean_reward": 6.61,
+      "mean_episode_length": 100.81
+    },
+    {
+      "iteration": 376,
+      "mean_reward": 6.33,
+      "mean_episode_length": 94.64
+    },
+    {
+      "iteration": 377,
+      "mean_reward": 6.43,
+      "mean_episode_length": 97.15
+    },
+    {
+      "iteration": 378,
+      "mean_reward": 6.16,
+      "mean_episode_length": 97.22
+    },
+    {
+      "iteration": 379,
+      "mean_reward": 6.26,
+      "mean_episode_length": 96.0
+    },
+    {
+      "iteration": 380,
+      "mean_reward": 5.38,
+      "mean_episode_length": 86.66
+    },
+    {
+      "iteration": 381,
+      "mean_reward": 6.62,
+      "mean_episode_length": 101.93
+    },
+    {
+      "iteration": 382,
+      "mean_reward": 7.41,
+      "mean_episode_length": 109.68
+    },
+    {
+      "iteration": 383,
+      "mean_reward": 5.88,
+      "mean_episode_length": 93.98
+    },
+    {
+      "iteration": 384,
+      "mean_reward": 6.09,
+      "mean_episode_length": 95.15
+    },
+    {
+      "iteration": 385,
+      "mean_reward": 6.59,
+      "mean_episode_length": 99.0
+    },
+    {
+      "iteration": 386,
+      "mean_reward": 7.01,
+      "mean_episode_length": 103.52
+    },
+    {
+      "iteration": 387,
+      "mean_reward": 7.3,
+      "mean_episode_length": 107.19
+    },
+    {
+      "iteration": 388,
+      "mean_reward": 6.31,
+      "mean_episode_length": 97.47
+    },
+    {
+      "iteration": 389,
+      "mean_reward": 6.18,
+      "mean_episode_length": 95.83
+    },
+    {
+      "iteration": 390,
+      "mean_reward": 6.8,
+      "mean_episode_length": 104.28
+    },
+    {
+      "iteration": 391,
+      "mean_reward": 7.39,
+      "mean_episode_length": 111.4
+    },
+    {
+      "iteration": 392,
+      "mean_reward": 7.02,
+      "mean_episode_length": 105.63
+    },
+    {
+      "iteration": 393,
+      "mean_reward": 7.27,
+      "mean_episode_length": 106.58
+    },
+    {
+      "iteration": 394,
+      "mean_reward": 7.09,
+      "mean_episode_length": 107.6
+    },
+    {
+      "iteration": 395,
+      "mean_reward": 6.56,
+      "mean_episode_length": 99.76
+    },
+    {
+      "iteration": 396,
+      "mean_reward": 7.25,
+      "mean_episode_length": 106.23
+    },
+    {
+      "iteration": 397,
+      "mean_reward": 7.34,
+      "mean_episode_length": 108.47
+    },
+    {
+      "iteration": 398,
+      "mean_reward": 7.88,
+      "mean_episode_length": 113.1
+    },
+    {
+      "iteration": 399,
+      "mean_reward": 7.52,
+      "mean_episode_length": 110.58
+    },
+    {
+      "iteration": 400,
+      "mean_reward": 8.39,
+      "mean_episode_length": 119.43
+    },
+    {
+      "iteration": 401,
+      "mean_reward": 6.41,
+      "mean_episode_length": 98.78
+    },
+    {
+      "iteration": 402,
+      "mean_reward": 7.8,
+      "mean_episode_length": 111.42
+    },
+    {
+      "iteration": 403,
+      "mean_reward": 7.08,
+      "mean_episode_length": 105.17
+    },
+    {
+      "iteration": 404,
+      "mean_reward": 8.08,
+      "mean_episode_length": 118.41
+    },
+    {
+      "iteration": 405,
+      "mean_reward": 8.87,
+      "mean_episode_length": 127.36
+    },
+    {
+      "iteration": 406,
+      "mean_reward": 8.95,
+      "mean_episode_length": 128.08
+    },
+    {
+      "iteration": 407,
+      "mean_reward": 8.28,
+      "mean_episode_length": 120.98
+    },
+    {
+      "iteration": 408,
+      "mean_reward": 8.37,
+      "mean_episode_length": 122.2
+    },
+    {
+      "iteration": 409,
+      "mean_reward": 9.94,
+      "mean_episode_length": 142.66
+    },
+    {
+      "iteration": 410,
+      "mean_reward": 9.34,
+      "mean_episode_length": 136.29
+    },
+    {
+      "iteration": 411,
+      "mean_reward": 7.58,
+      "mean_episode_length": 113.91
+    },
+    {
+      "iteration": 412,
+      "mean_reward": 8.87,
+      "mean_episode_length": 130.05
+    },
+    {
+      "iteration": 413,
+      "mean_reward": 8.61,
+      "mean_episode_length": 124.6
+    },
+    {
+      "iteration": 414,
+      "mean_reward": 8.15,
+      "mean_episode_length": 118.02
+    },
+    {
+      "iteration": 415,
+      "mean_reward": 8.4,
+      "mean_episode_length": 127.93
+    },
+    {
+      "iteration": 416,
+      "mean_reward": 9.1,
+      "mean_episode_length": 134.84
+    },
+    {
+      "iteration": 417,
+      "mean_reward": 8.58,
+      "mean_episode_length": 129.03
+    },
+    {
+      "iteration": 418,
+      "mean_reward": 10.1,
+      "mean_episode_length": 144.52
+    },
+    {
+      "iteration": 419,
+      "mean_reward": 10.13,
+      "mean_episode_length": 143.19
+    },
+    {
+      "iteration": 420,
+      "mean_reward": 10.83,
+      "mean_episode_length": 155.33
+    },
+    {
+      "iteration": 421,
+      "mean_reward": 9.62,
+      "mean_episode_length": 143.9
+    },
+    {
+      "iteration": 422,
+      "mean_reward": 9.99,
+      "mean_episode_length": 147.05
+    },
+    {
+      "iteration": 423,
+      "mean_reward": 9.37,
+      "mean_episode_length": 142.92
+    },
+    {
+      "iteration": 424,
+      "mean_reward": 10.26,
+      "mean_episode_length": 152.54
+    },
+    {
+      "iteration": 425,
+      "mean_reward": 9.83,
+      "mean_episode_length": 142.79
+    },
+    {
+      "iteration": 426,
+      "mean_reward": 10.18,
+      "mean_episode_length": 147.2
+    },
+    {
+      "iteration": 427,
+      "mean_reward": 9.18,
+      "mean_episode_length": 137.43
+    },
+    {
+      "iteration": 428,
+      "mean_reward": 9.85,
+      "mean_episode_length": 145.51
+    },
+    {
+      "iteration": 429,
+      "mean_reward": 11.15,
+      "mean_episode_length": 163.01
+    },
+    {
+      "iteration": 430,
+      "mean_reward": 11.96,
+      "mean_episode_length": 176.09
+    },
+    {
+      "iteration": 431,
+      "mean_reward": 12.09,
+      "mean_episode_length": 175.9
+    },
+    {
+      "iteration": 432,
+      "mean_reward": 11.17,
+      "mean_episode_length": 160.76
+    },
+    {
+      "iteration": 433,
+      "mean_reward": 11.37,
+      "mean_episode_length": 165.6
+    },
+    {
+      "iteration": 434,
+      "mean_reward": 13.42,
+      "mean_episode_length": 189.04
+    },
+    {
+      "iteration": 435,
+      "mean_reward": 13.42,
+      "mean_episode_length": 189.8
+    },
+    {
+      "iteration": 436,
+      "mean_reward": 12.71,
+      "mean_episode_length": 181.45
+    },
+    {
+      "iteration": 437,
+      "mean_reward": 12.13,
+      "mean_episode_length": 178.65
+    },
+    {
+      "iteration": 438,
+      "mean_reward": 13.3,
+      "mean_episode_length": 189.55
+    },
+    {
+      "iteration": 439,
+      "mean_reward": 13.45,
+      "mean_episode_length": 191.94
+    },
+    {
+      "iteration": 440,
+      "mean_reward": 13.49,
+      "mean_episode_length": 198.75
+    },
+    {
+      "iteration": 441,
+      "mean_reward": 13.0,
+      "mean_episode_length": 188.88
+    },
+    {
+      "iteration": 442,
+      "mean_reward": 12.28,
+      "mean_episode_length": 179.09
+    },
+    {
+      "iteration": 443,
+      "mean_reward": 14.34,
+      "mean_episode_length": 207.44
+    },
+    {
+      "iteration": 444,
+      "mean_reward": 14.99,
+      "mean_episode_length": 213.2
+    },
+    {
+      "iteration": 445,
+      "mean_reward": 15.51,
+      "mean_episode_length": 213.99
+    },
+    {
+      "iteration": 446,
+      "mean_reward": 15.28,
+      "mean_episode_length": 213.2
+    },
+    {
+      "iteration": 447,
+      "mean_reward": 14.69,
+      "mean_episode_length": 208.49
+    },
+    {
+      "iteration": 448,
+      "mean_reward": 14.66,
+      "mean_episode_length": 207.81
+    },
+    {
+      "iteration": 449,
+      "mean_reward": 15.02,
+      "mean_episode_length": 209.69
+    },
+    {
+      "iteration": 450,
+      "mean_reward": 15.27,
+      "mean_episode_length": 213.41
+    },
+    {
+      "iteration": 451,
+      "mean_reward": 15.71,
+      "mean_episode_length": 223.05
+    },
+    {
+      "iteration": 452,
+      "mean_reward": 15.88,
+      "mean_episode_length": 220.3
+    },
+    {
+      "iteration": 453,
+      "mean_reward": 15.61,
+      "mean_episode_length": 211.05
+    },
+    {
+      "iteration": 454,
+      "mean_reward": 14.21,
+      "mean_episode_length": 200.34
+    },
+    {
+      "iteration": 455,
+      "mean_reward": 17.06,
+      "mean_episode_length": 239.58
+    },
+    {
+      "iteration": 456,
+      "mean_reward": 17.62,
+      "mean_episode_length": 249.31
+    },
+    {
+      "iteration": 457,
+      "mean_reward": 18.69,
+      "mean_episode_length": 262.61
+    },
+    {
+      "iteration": 458,
+      "mean_reward": 20.27,
+      "mean_episode_length": 283.06
+    },
+    {
+      "iteration": 459,
+      "mean_reward": 20.9,
+      "mean_episode_length": 290.43
+    },
+    {
+      "iteration": 460,
+      "mean_reward": 19.26,
+      "mean_episode_length": 269.5
+    },
+    {
+      "iteration": 461,
+      "mean_reward": 19.61,
+      "mean_episode_length": 272.44
+    },
+    {
+      "iteration": 462,
+      "mean_reward": 16.87,
+      "mean_episode_length": 240.25
+    },
+    {
+      "iteration": 463,
+      "mean_reward": 17.35,
+      "mean_episode_length": 242.26
+    },
+    {
+      "iteration": 464,
+      "mean_reward": 18.32,
+      "mean_episode_length": 254.68
+    },
+    {
+      "iteration": 465,
+      "mean_reward": 19.83,
+      "mean_episode_length": 273.18
+    },
+    {
+      "iteration": 466,
+      "mean_reward": 20.42,
+      "mean_episode_length": 281.36
+    },
+    {
+      "iteration": 467,
+      "mean_reward": 21.09,
+      "mean_episode_length": 288.47
+    },
+    {
+      "iteration": 468,
+      "mean_reward": 22.48,
+      "mean_episode_length": 307.5
+    },
+    {
+      "iteration": 469,
+      "mean_reward": 21.73,
+      "mean_episode_length": 298.34
+    },
+    {
+      "iteration": 470,
+      "mean_reward": 21.33,
+      "mean_episode_length": 293.85
+    },
+    {
+      "iteration": 471,
+      "mean_reward": 21.86,
+      "mean_episode_length": 300.91
+    },
+    {
+      "iteration": 472,
+      "mean_reward": 22.78,
+      "mean_episode_length": 314.91
+    },
+    {
+      "iteration": 473,
+      "mean_reward": 25.67,
+      "mean_episode_length": 345.25
+    },
+    {
+      "iteration": 474,
+      "mean_reward": 21.88,
+      "mean_episode_length": 300.05
+    },
+    {
+      "iteration": 475,
+      "mean_reward": 22.77,
+      "mean_episode_length": 314.33
+    },
+    {
+      "iteration": 476,
+      "mean_reward": 19.9,
+      "mean_episode_length": 283.36
+    },
+    {
+      "iteration": 477,
+      "mean_reward": 21.98,
+      "mean_episode_length": 311.95
+    },
+    {
+      "iteration": 478,
+      "mean_reward": 21.22,
+      "mean_episode_length": 300.43
+    },
+    {
+      "iteration": 479,
+      "mean_reward": 26.11,
+      "mean_episode_length": 363.3
+    },
+    {
+      "iteration": 480,
+      "mean_reward": 24.52,
+      "mean_episode_length": 344.39
+    },
+    {
+      "iteration": 481,
+      "mean_reward": 26.74,
+      "mean_episode_length": 368.28
+    },
+    {
+      "iteration": 482,
+      "mean_reward": 25.14,
+      "mean_episode_length": 345.36
+    },
+    {
+      "iteration": 483,
+      "mean_reward": 24.9,
+      "mean_episode_length": 340.23
+    },
+    {
+      "iteration": 484,
+      "mean_reward": 26.58,
+      "mean_episode_length": 363.01
+    },
+    {
+      "iteration": 485,
+      "mean_reward": 29.76,
+      "mean_episode_length": 402.71
+    },
+    {
+      "iteration": 486,
+      "mean_reward": 32.89,
+      "mean_episode_length": 441.69
+    },
+    {
+      "iteration": 487,
+      "mean_reward": 29.05,
+      "mean_episode_length": 393.71
+    },
+    {
+      "iteration": 488,
+      "mean_reward": 29.56,
+      "mean_episode_length": 401.34
+    },
+    {
+      "iteration": 489,
+      "mean_reward": 29.32,
+      "mean_episode_length": 393.77
+    },
+    {
+      "iteration": 490,
+      "mean_reward": 28.11,
+      "mean_episode_length": 373.57
+    },
+    {
+      "iteration": 491,
+      "mean_reward": 28.77,
+      "mean_episode_length": 382.07
+    },
+    {
+      "iteration": 492,
+      "mean_reward": 29.3,
+      "mean_episode_length": 393.15
+    },
+    {
+      "iteration": 493,
+      "mean_reward": 28.73,
+      "mean_episode_length": 390.96
+    },
+    {
+      "iteration": 494,
+      "mean_reward": 28.92,
+      "mean_episode_length": 393.45
+    },
+    {
+      "iteration": 495,
+      "mean_reward": 29.69,
+      "mean_episode_length": 398.19
+    },
+    {
+      "iteration": 496,
+      "mean_reward": 30.61,
+      "mean_episode_length": 407.86
+    },
+    {
+      "iteration": 497,
+      "mean_reward": 32.77,
+      "mean_episode_length": 431.81
+    },
+    {
+      "iteration": 498,
+      "mean_reward": 31.16,
+      "mean_episode_length": 410.66
+    },
+    {
+      "iteration": 499,
+      "mean_reward": 32.69,
+      "mean_episode_length": 421.18
+    }
+  ]
+}

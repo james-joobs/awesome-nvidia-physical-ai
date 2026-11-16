@@ -2,11 +2,15 @@
 import Base from '../layouts/Base.astro';
 import Icon from './Icon.astro';
 import ShowcaseVideo from './ShowcaseVideo.astro';
+import ToolTags from './ToolTags.astro';
 import { pageUrl, repositoryFile } from '../lib/catalog.mjs';
+import { findLab, heroTags, labCopy, scenes } from '../lib/labs.mjs';
 import { clips, featured, grids, sceneLabels, showcaseCopy, showcaseMedia } from '../lib/showcase.mjs';
 
 const { locale } = Astro.props;
 const labels = showcaseCopy[locale];
+const labLabels = labCopy[locale];
+const labUrl = (id) => pageUrl(locale, `labs/${id}`);
 const sections = [
   { id: 'by-topic', title: labels.grids, items: grids },
   { id: 'single-clips', title: labels.clips, items: clips },
@@ -27,9 +31,16 @@ const sections = [
       <ShowcaseVideo locale={locale} clip={featured} title={labels.featured} eager autoplay />
     </div>
     <p>{labels.featuredDetail}</p>
+    <div class="featured-tools">
+      <ToolTags tags={heroTags} label={labLabels.tools} />
+      <a class="plain-link" href="#by-topic">{labLabels.action} <Icon name="down" size={16} /></a>
+    </div>
     <details class="scene-list">
       <summary>{labels.scenes}</summary>
-      <ol>{sceneLabels[locale].map((scene) => <li>{scene}</li>)}</ol>
+      <ol>{sceneLabels[locale].map((scene, index) => {
+        const [labId, tags] = scenes[index];
+        return <li><a href={labUrl(labId)}>{scene}</a><ToolTags tags={tags} /></li>;
+      })}</ol>
       <p>{labels.editNote}</p>
     </details>
   </section>
@@ -39,14 +50,19 @@ const sections = [
       <div class:list={['showcase-grid', id]}>
         {items.map((item) => {
           const entry = item[locale];
+          const lab = findLab(item.id);
           const guide = item.route ? pageUrl(locale, item.route) : repositoryFile(`docs/${locale}/${item.guide}.md`);
           return (
             <article class="showcase-card" id={item.id}>
               <ShowcaseVideo locale={locale} clip={item} title={entry.title} />
               <div class="showcase-caption">
                 <h3>{entry.title}</h3>
+                <ToolTags tags={lab.tags} label={labLabels.tools} />
                 <p>{entry.description}</p>
-                <a class="plain-link" href={guide}>{labels.guide} <Icon name="right" size={16} /></a>
+                <div class="card-links">
+                  <a class="lab-link" href={labUrl(lab.id)}>{labLabels.action} <Icon name="right" size={16} /></a>
+                  <a class="plain-link" href={guide}>{labels.guide}</a>
+                </div>
               </div>
             </article>
           );
@@ -55,6 +71,8 @@ const sections = [
     </section>
   ))}
   <div class="shell credits">
+    <a href={repositoryFile(locale === 'ko' ? 'labs/README.ko.md' : 'labs/README.md')}
+      class="plain-link">{labLabels.index} <Icon name="external" size={16} /></a>
     <a href={repositoryFile('NOTICE.md')} class="plain-link">{labels.source} <Icon name="external" size={16} /></a>
   </div>
 </Base>
@@ -72,10 +90,12 @@ const sections = [
   .feature-title h2 { font-size: clamp(1.22rem, 2.6vw, 1.85rem); letter-spacing: -.03em; }
   .hero-video { border-radius: 9px; overflow: clip; }
   .featured > p { margin-top: 14px; line-height: 1.55; }
+  .featured-tools { margin-top: .75rem; }
   .scene-list { margin-top: 12px; border-top: 1px solid var(--edge); }
   .scene-list summary { padding: 12px 0 0; cursor: pointer; font-size: .875rem; color: var(--accent); }
   .scene-list ol { columns: 2; padding-left: 23px; color: var(--muted); font-size: .88rem; line-height: 1.55; }
-  .scene-list li { break-inside: avoid; margin-bottom: 4px; }
+  .scene-list ol > li { break-inside: avoid; margin-bottom: .65rem; }
+  .scene-list ol > li > a { display: inline-block; margin-bottom: .23rem; text-underline-offset: 3px; }
   .scene-list p { color: var(--muted); font-size: .83rem; line-height: 1.6; }
   .showcase-section { padding-top: 42px; padding-bottom: 9px; }
   .showcase-grid { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -86,10 +106,16 @@ const sections = [
   }
   .showcase-card:focus-within { border-color: #607744; }
   .showcase-caption { flex: 1; display: flex; flex-direction: column; padding: 15px 17px 9px; }
-  .showcase-caption h3 { font-size: 1.16rem; letter-spacing: -.021em; }
+  .showcase-caption h3 { margin-bottom: .45rem; font-size: 1.16rem; letter-spacing: -.021em; }
   .showcase-caption p { margin: 7px 0 8px; color: var(--muted); font-size: .86rem; line-height: 1.58; }
-  .showcase-caption a { align-self: flex-start; margin-top: auto; }
-  .credits { padding-block: 19px 30px; }
+  .card-links { display: flex; flex-wrap: wrap; align-items: center; gap: 0 10px; margin-top: auto; }
+  .lab-link {
+    display: inline-flex; align-items: center; gap: .45rem; min-height: 40px;
+    color: var(--accent); font-weight: 750; font-size: .87rem; text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .card-links .plain-link { color: var(--muted); font-size: .8rem; }
+  .credits { display: flex; flex-wrap: wrap; gap: 0 1rem; padding-block: 19px 30px; }
   @media (max-width: 990px) {
     .single-clips { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }

@@ -1,0 +1,7 @@
+[
+  ["simready", "simready-live", "FilmCamera", 0, 1, 7.4],
+  ["offset", "collider-live", "FilmCamera", 0, 1, 7],
+  ["friction", "friction-live", "FilmCamera", 0, 1, 6],
+  ["bounce", "bounce-live", "FilmCamera", 0, 1, 7],
+  ["solver-replay", "physics-solvers", "FilmCamera", 0, 1, 7]
+]

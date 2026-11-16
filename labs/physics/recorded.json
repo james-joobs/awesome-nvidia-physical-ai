@@ -1,0 +1,50 @@
+{
+  "live": {
+    "collider-live": {
+      "aligned": 0.7999999547004699,
+      "raised": 0.9199999594688415,
+      "disabled": -8.791685102149671e-09
+    },
+    "friction-live": {
+      "coefficients": [
+        0.16,
+        0.35,
+        0.75
+      ],
+      "distances_m": [
+        0.5696987241506577,
+        0.25500981807708745,
+        0.1143120408058167
+      ]
+    },
+    "bounce-live": {
+      "coefficient_of_restitution": [
+        0,
+        0.55,
+        0.85
+      ],
+      "peak_center_z_m_after_initial_contact": [
+        0.8819999694824219,
+        1.1411012411117554,
+        1.5261365175247192
+      ]
+    },
+    "simready-live": {
+      "probe_center_z_m": [
+        0.843999981880188,
+        0.984000027179718
+      ],
+      "height_difference_m": 0.14000004529953003
+    }
+  },
+  "comparison": {
+    "box_count": 6,
+    "step_hz": 120,
+    "integration_steps": 240,
+    "simulated_seconds": 2.0,
+    "same_initial_poses": true,
+    "physx_top_box_final_z_m": 0.086,
+    "newton_top_box_final_z_m": 0.0859,
+    "mean_final_body_position_delta_m": 0.5452
+  }
+}
