@@ -133,9 +133,9 @@ const description = topic?.[locale].description ?? labels.intro;
   .extra-guide { margin-top: 12px; }
   .topic-theory { margin-top: 26px; }
   .topic-theory :is(h2, h3) { margin-bottom: 10px; font-size: 1.25rem; }
-  .topic-theory ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
-  .topic-theory a { display: flex; align-items: center; justify-content: space-between; gap: 8px; height: 100%; padding: 11px 13px; border: 1px solid var(--edge); border-radius: 7px; background: var(--surface); text-decoration: none; }
-  .topic-theory a:hover { border-color: var(--route-color); }
+  .topic-theory ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; margin: 0; padding: 0; border-top: 1px solid var(--edge); list-style: none; }
+  .topic-theory a { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; height: 100%; min-height: 44px; padding-block: 12px; border-bottom: 1px solid var(--edge); text-decoration: none; }
+  .topic-theory a:hover strong { color: var(--route-color); text-decoration: underline; text-underline-offset: 3px; }
   .topic-theory a :global(svg) { flex: none; color: var(--route-color); }
   .topic-theory a strong + span { display: block; margin-top: 4px; color: var(--muted); font-size: .83rem; line-height: 1.5; }
   .topic-links { margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--edge); }

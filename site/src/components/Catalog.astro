@@ -2,20 +2,28 @@
 import Base from '../layouts/Base.astro';
 import Icon from './Icon.astro';
 import { catalogCopy, catalogFields } from '../lib/catalog-filters.mjs';
-import { catalogs, copy, repositoryFile } from '../lib/catalog.mjs';
+import { catalogs, copy, pageUrl, repositoryFile } from '../lib/catalog.mjs';
 import { catalogEntries } from '../lib/markdown.mjs';
+import { toolGuides } from '../lib/tool-guides.mjs';
+import { topicGuides } from '../lib/topics.mjs';
 import '../styles/catalog.css';
 
 const { locale } = Astro.props;
 const labels = catalogCopy[locale];
 const entries = catalogEntries(locale);
 const licenses = [...new Set(entries.map((entry) => entry.license))].sort();
-const distinctLicenses = licenses.filter((license) => license !== 'review');
 const fields = new Map(catalogFields.map((field) => [field.id, field[locale]]));
+const facets = [
+  { name: 'field', label: labels.field, all: labels.allFields, options: [...fields] },
+  { name: 'license', label: labels.license, all: labels.allLicenses, options: licenses.map((id) => [id, id === 'review' ? labels.review : id]) },
+  { name: 'access', label: labels.access, all: labels.allAccess, options: Object.entries(labels.statuses) },
+];
+const featured = ['isaac-sim', 'isaac-lab', 'newton', 'nvidia-warp', 'openusd', 'replicator', 'alpamayo', 'cosmos']
+  .map((source) => [...toolGuides, ...topicGuides].find((guide) => guide.source === source));
 ---
 <Base locale={locale} page="catalog" title={labels.title} description={labels.description}>
-  <div class="shell catalog" data-catalog>
-    <header class="catalog-header">
+  <div class="catalog" data-catalog>
+    <header class="shell catalog-header">
       <h1>{labels.title}</h1>
       <p>{labels.description}</p>
       <a class="plain-link" href={repositoryFile(catalogs[locale].file)}>
@@ -23,60 +31,90 @@ const fields = new Map(catalogFields.map((field) => [field.id, field[locale]]));
       </a>
     </header>
 
-    <form class="catalog-controls" data-filters role="search" hidden>
-      <div class="catalog-search">
-        <label for="catalog-query">{labels.search}</label>
-        <input id="catalog-query" name="q" type="search" placeholder={labels.placeholder} />
-      </div>
-      <div class="catalog-facets">
-        <div>
-          <label for="catalog-field">{labels.field}</label>
-          <select id="catalog-field" name="field">
-            <option value="">{labels.allFields}</option>
-            {catalogFields.map((field) => <option value={field.id}>{field[locale]}</option>)}
-          </select>
-        </div>
-        <div>
-          <label for="catalog-license">{labels.license}</label>
-          <select id="catalog-license" name="license">
-            <option value="">{labels.allLicenses}</option>
-            {distinctLicenses.map((license) => <option value={license}>{license}</option>)}
-            {licenses.includes('review') && <option value="review">{labels.review}</option>}
-          </select>
-        </div>
-        <div>
-          <label for="catalog-access">{labels.access}</label>
-          <select id="catalog-access" name="access">
-            <option value="">{labels.allAccess}</option>
-            {Object.entries(labels.statuses).map(([key, caption]) => <option value={key}>{caption}</option>)}
-          </select>
-        </div>
-      </div>
-      <button class="catalog-reset" type="reset">{labels.clear}</button>
-    </form>
-
-    <p class="catalog-note">{labels.termsNote}</p>
-    <p class="catalog-count" role="status" aria-live="polite" data-count={labels.showing} hidden></p>
-    <p class="catalog-note" data-broader hidden>{labels.broader}</p>
-    <p class="catalog-empty" data-empty hidden>{labels.none}</p>
-    <ul class="catalog-results" data-results>
-      {entries.map((entry) => (
-        <li class="catalog-card" data-entry data-title={entry.title} data-field={entry.field}
-          data-access={entry.access} data-license={entry.license}
-          data-search={entry.search}>
-          <div class="catalog-badges">
-            <span>{fields.get(entry.field)}</span>
-            <span data-status={entry.access}>{labels.statuses[entry.access]}</span>
+    <form data-filters>
+      <div class="catalog-browse">
+        <div class="shell catalog-browse-inner">
+          <h2>{labels.browse}</h2>
+          <div class="catalog-search" role="search" data-catalog-controls hidden>
+            <label class="visually-hidden" for="catalog-query">{labels.search}</label>
+            <input id="catalog-query" name="q" type="search" placeholder={labels.placeholder} />
+            <button type="submit" aria-label={labels.search}><Icon name="search" size={19} /></button>
           </div>
-          <h2 set:html={entry.name} />
-          <p class="catalog-role" set:html={entry.role} />
-          <p class="catalog-terms" set:html={entry.terms} />
-          {entry.commit && <p class="catalog-commit">{labels.commit} <span set:html={entry.commit} /></p>}
-          {entry.links && <p class="catalog-links" set:html={entry.links} />}
-        </li>
-      ))}
-    </ul>
-    <button class="catalog-more" data-more type="button" hidden>{labels.more}</button>
+          <nav class="catalog-views" aria-label={labels.browse}>
+            <a href="#featured">{labels.featured}</a>
+            <a href="#projects">{labels.allProjects}</a>
+          </nav>
+        </div>
+      </div>
+
+      <section class="shell catalog-featured" id="featured" aria-labelledby="featured-title">
+        <h2 id="featured-title">{labels.featuredTitle}</h2>
+        <ul class="featured-grid" role="list">
+          {featured.map((guide) => (
+            <li>
+              <h3><a href={pageUrl(locale, guide.page)}>{guide[locale].title}</a></h3>
+              <p>{guide[locale].description}</p>
+              <a class="plain-link" href={pageUrl(locale, guide.page)} aria-label={labels.guide + ' · ' + guide[locale].title}>
+                {labels.guide}<Icon name="right" size={16} />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="shell catalog-layout" id="projects" aria-label={labels.allProjects}>
+        <aside class="catalog-sidebar" id="catalog-facets" aria-label={labels.filters} data-catalog-controls hidden>
+          <h2>{labels.filters}</h2>
+          {facets.map(({ name, label, all, options }) => (
+            <details class="catalog-facet">
+              <summary>{label}</summary>
+              <fieldset>
+                <legend class="visually-hidden">{label}</legend>
+                {[['', all], ...options].map(([value, text]) => (
+                  <label><input type="radio" name={name} value={value} checked={value === ''} />{text}</label>
+                ))}
+              </fieldset>
+            </details>
+          ))}
+          <button class="catalog-reset" data-reset type="button" disabled>{labels.clear}</button>
+        </aside>
+        <div class="catalog-tools" data-catalog-controls hidden>
+          <button class="catalog-filter-toggle" type="button" data-filter-toggle aria-expanded="false" aria-controls="catalog-facets">
+            {labels.filters}<span class="catalog-filter-count" data-filter-count hidden></span><Icon name="chevron" size={16} />
+          </button>
+          <label class="catalog-sort" for="catalog-sort">{labels.sort}
+            <select id="catalog-sort" name="sort">
+              <option value="">{labels.sortDefault}</option>
+              <option value="az">{labels.sortAscending}</option>
+              <option value="za">{labels.sortDescending}</option>
+            </select>
+          </label>
+          <p class="catalog-count" role="status" data-count={labels.showing}></p>
+        </div>
+        <div class="catalog-content">
+          <p class="catalog-note" data-broader hidden>{labels.broader}</p>
+          <p class="catalog-empty" data-empty hidden>{labels.none}</p>
+          <ul class="catalog-results" data-results role="list">
+            {entries.map((entry) => (
+              <li class="catalog-card" data-entry data-title={entry.title} data-field={entry.field}
+                data-access={entry.access} data-license={entry.license} data-search={entry.search}>
+                <h2 set:html={entry.name} />
+                <p class="catalog-role" set:html={entry.role} />
+                <div class="catalog-badges">
+                  <span>{fields.get(entry.field)}</span>
+                  <span data-status={entry.access}>{labels.statuses[entry.access]}</span>
+                </div>
+                <p class="catalog-terms" set:html={entry.terms} />
+                {entry.commit && <p class="catalog-commit">{labels.commit} <span set:html={entry.commit} /></p>}
+                {entry.links && <p class="catalog-links" set:html={entry.links} />}
+              </li>
+            ))}
+          </ul>
+          <button class="catalog-more" data-more type="button" hidden>{labels.more}</button>
+          <p class="catalog-note">{labels.termsNote}</p>
+        </div>
+      </section>
+    </form>
   </div>
 </Base>
 
@@ -90,11 +128,20 @@ const fields = new Map(catalogFields.map((field) => [field.id, field[locale]]));
   const broader = catalog.querySelector<HTMLElement>('[data-broader]')!;
   const empty = catalog.querySelector<HTMLElement>('[data-empty]')!;
   const more = catalog.querySelector<HTMLButtonElement>('[data-more]')!;
+  const reset = catalog.querySelector<HTMLButtonElement>('[data-reset]')!;
   const switchLink = document.querySelector<HTMLAnchorElement>('[data-language-switch]');
-  const controls = Array.from(form.querySelectorAll<HTMLInputElement | HTMLSelectElement>('input, select'));
+  const search = form.querySelector<HTMLInputElement>('input[name="q"]')!;
+  const sort = form.querySelector<HTMLSelectElement>('select[name="sort"]')!;
+  const filterToggle = form.querySelector<HTMLButtonElement>('[data-filter-toggle]')!;
+  const filterCount = form.querySelector<HTMLElement>('[data-filter-count]')!;
+  const sidebar = form.querySelector<HTMLElement>('.catalog-sidebar')!;
+  const featured = form.querySelector<HTMLElement>('#featured')!;
+  const projects = form.querySelector<HTMLElement>('#projects')!;
+  const viewLinks = [...form.querySelectorAll<HTMLAnchorElement>('.catalog-views a')];
+  const facetNames = ['field', 'license', 'access'];
+  const collator = new Intl.Collator(document.documentElement.lang, { numeric: true, sensitivity: 'base' });
   const pageSize = 24;
   let visible = pageSize;
-
   let urlTimer: number | undefined;
 
   const entries = Array.from(list.querySelectorAll<HTMLLIElement>('[data-entry]'), (element) => ({
@@ -102,18 +149,34 @@ const fields = new Map(catalogFields.map((field) => [field.id, field[locale]]));
     ...prepareCatalogSearch(element.dataset.title!, element.dataset.search!),
   }));
 
+  function setFacet(name: string, value: string) {
+    const options = [...form.querySelectorAll<HTMLInputElement>(`input[name="${name}"]`)];
+    const selected = options.find((option) => option.value === value) ?? options[0];
+    selected.checked = true;
+  }
+
   function readUrl() {
     const params = new URLSearchParams(location.search);
-    for (const control of controls) control.value = params.get(control.name) ?? '';
+    search.value = params.get('q') ?? '';
+    sort.value = params.get('sort') ?? '';
+    if (sort.selectedIndex === -1) sort.value = '';
+    for (const name of facetNames) setFacet(name, params.get(name) ?? '');
+    for (const radio of sidebar.querySelectorAll<HTMLInputElement>('input:checked')) {
+      if (radio.value) radio.closest('details')!.open = true;
+    }
   }
 
   function writeUrl(defer: boolean) {
     const url = new URL(location.href);
-    for (const { name, value } of controls) {
-      if (value.trim()) url.searchParams.set(name, value.trim());
+    for (const [name, value] of new FormData(form)) {
+      const text = String(value).trim();
+      if (text) url.searchParams.set(name, text);
       else url.searchParams.delete(name);
     }
-    if (switchLink) switchLink.search = url.search;
+    if (switchLink) {
+      switchLink.search = url.search;
+      switchLink.hash = url.hash;
+    }
     window.clearTimeout(urlTimer);
     const replace = () => {
       if (url.href !== location.href) history.replaceState(history.state, '', url);
@@ -122,17 +185,35 @@ const fields = new Map(catalogFields.map((field) => [field.id, field[locale]]));
     else replace();
   }
 
+  function showView() {
+    const showFeatured = location.hash === '#featured';
+    featured.hidden = !showFeatured;
+    projects.hidden = showFeatured;
+    for (const link of viewLinks) {
+      if ((link.hash === '#featured') === showFeatured) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    }
+  }
+
   function update(deferUrl = false) {
-    const { q, field, license, access } = Object.fromEntries(controls.map(({ name, value }) => [name, value]));
+    const { q, field, license, access, sort: order } = Object.fromEntries(new FormData(form)) as Record<string, string>;
     const filtered = entries.filter(({ element }) =>
       (!field || element.dataset.field === field) &&
       (!license || element.dataset.license === license) &&
       (!access || element.dataset.access === access)
     );
     const { matches: matching, broader: usingBroaderMatch } = searchCatalog(filtered, q);
+    if (order) {
+      const direction = order === 'az' ? 1 : -1;
+      matching.sort((a, b) => direction * collator.compare(a.element.dataset.title!, b.element.dataset.title!));
+    }
     const shown = matching.slice(0, visible);
     list.replaceChildren(...shown.map(({ element }) => element));
     count.textContent = count.dataset.count!.replace('{visible}', String(shown.length)).replace('{matches}', String(matching.length));
+    const selected = [field, license, access].filter(Boolean).length;
+    reset.disabled = selected === 0;
+    filterCount.hidden = selected === 0;
+    filterCount.textContent = String(selected);
     broader.hidden = !usingBroaderMatch;
     empty.hidden = matching.length !== 0;
     more.hidden = matching.length <= visible;
@@ -144,19 +225,47 @@ const fields = new Map(catalogFields.map((field) => [field.id, field[locale]]));
     update(deferUrl);
   }
 
-  form.addEventListener('input', (event) => {
-    if (event instanceof InputEvent && event.isComposing) return;
-    resetLimit(event.target instanceof HTMLInputElement);
-  });
-  form.addEventListener('compositionend', () => resetLimit(true));
-  form.addEventListener('submit', (event) => {
+  function showSearchResults() {
+    if (projects.hidden) {
+      history.replaceState(history.state, '', '#projects');
+      showView();
+    }
+  }
+
+  function searchChanged() {
+    showSearchResults();
+    resetLimit(true);
+  }
+
+  for (const link of viewLinks) link.addEventListener('click', (event) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
     writeUrl(false);
+    if (link.hash !== location.hash) history.pushState(history.state, '', link.hash);
+    showView();
+    writeUrl(false);
   });
-  form.addEventListener('reset', (event) => {
+  search.addEventListener('input', (event) => {
+    if (!(event instanceof InputEvent && event.isComposing)) searchChanged();
+  });
+  search.addEventListener('compositionend', searchChanged);
+  form.addEventListener('change', (event) => {
+    if (event.target !== search) resetLimit();
+  });
+  form.addEventListener('submit', (event) => {
     event.preventDefault();
-    for (const control of controls) control.value = '';
+    showSearchResults();
+    writeUrl(false);
+  });
+  reset.addEventListener('click', () => {
+    for (const name of facetNames) setFacet(name, '');
     resetLimit();
+    // The reset button becomes disabled after clearing the final active facet.
+    sidebar.querySelector('summary')?.focus();
+  });
+  filterToggle.addEventListener('click', () => {
+    const open = sidebar.toggleAttribute('data-open');
+    filterToggle.setAttribute('aria-expanded', String(open));
   });
   more.addEventListener('click', () => {
     const previous = list.children.length;
@@ -168,13 +277,15 @@ const fields = new Map(catalogFields.map((field) => [field.id, field[locale]]));
       next.focus();
     }
   });
+  window.addEventListener('hashchange', showView);
   window.addEventListener('popstate', () => {
     readUrl();
+    showView();
     resetLimit();
   });
 
   readUrl();
+  showView();
   update();
-  form.hidden = false;
-  count.hidden = false;
+  for (const control of catalog.querySelectorAll<HTMLElement>('[data-catalog-controls]')) control.hidden = false;
 </script>
