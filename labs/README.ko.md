@@ -4,6 +4,8 @@
 
 관심 있는 영상에서 시작하세요. 실습마다 구현 방법과 실행 명령, 소스 코드, 촬영 당시 테스트 결과를 함께 볼 수 있습니다.
 
+**처음부터 끝까지 한 번에 실습하기.** [CAD 작업대 → Isaac Sim → Replicator](../docs/ko/labs/workbench-capstone.md)에서 설치와 캡처부터 GPU 없는 결과 검사까지 따라 할 수 있습니다.
+
 ```sh
 git clone https://github.com/james-joobs/awesome-nvidia-physical-ai.git
 cd awesome-nvidia-physical-ai

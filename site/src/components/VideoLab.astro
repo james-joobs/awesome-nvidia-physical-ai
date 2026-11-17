@@ -1,12 +1,20 @@
 ---
 import Base from '../layouts/Base.astro';
+import GuideCommands from './GuideCommands.astro';
 import Icon from './Icon.astro';
+import LessonFlow from './LessonFlow.astro';
+import LessonLanding from './LessonLanding.astro';
+import LessonPreview from './LessonPreview.astro';
+import PlacementExercise from './PlacementExercise.astro';
 import ShowcaseVideo from './ShowcaseVideo.astro';
 import ToolTags from './ToolTags.astro';
-import { pageUrl, repositoryFile } from '../lib/catalog.mjs';
+import { catalogSearchUrl, pageUrl, repositoryFile } from '../lib/catalog.mjs';
 import { labCode, labCopy } from '../lib/labs.mjs';
+import { courseRoute, courses, firstExerciseRoute, learningCopy } from '../lib/learning.mjs';
+import { lessonFlows } from '../lib/lesson-flows.mjs';
 import { renderGuide } from '../lib/markdown.mjs';
-import { clips, grids } from '../lib/showcase.mjs';
+import { clips, grids, showcaseMedia } from '../lib/showcase.mjs';
+import { topicForPage, topicsCopy } from '../lib/topics.mjs';
 
 const { locale, lab } = Astro.props;
 const { id, tags, evidence } = lab;
@@ -14,50 +22,83 @@ const labels = labCopy[locale];
 const path = `docs/${locale}/labs/${id}.md`;
 const clip = [...grids, ...clips].find((item) => item.id === id);
 const entry = clip[locale];
-const { headings, html } = renderGuide(locale, path, ['implementation', 'run', 'verify']);
+const { title = entry.title, headings, html } = renderGuide(locale, path, ['implementation', 'run', 'verify']);
 const code = labCode(lab);
+const course = courses.find(({ lessons, advanced }) =>
+  advanced?.route === `labs/${id}` ||
+  lessons.some(({ route }) => route !== firstExerciseRoute && route.split('#')[0] === `labs/${id}`)
+);
+const isPlacement = id === 'gr00t-placement';
+const startLabel = learningCopy[locale].firstExercise;
+const exampleLabel = locale === 'ko' ? '실행 영상과 기록' : 'Example run and recording';
+const topic = topicForPage(`labs/${id}`);
+const topicLabels = topicsCopy[locale];
+const ko = locale === 'ko';
+const preparation = {
+  'gr00t-placement': ko ? '브라우저에서 시작합니다. 정책을 직접 실행하려면 RTX Linux 환경이 필요합니다.'
+    : 'Start in the browser. Running the policy requires RTX on Linux.',
+  'replicator-outputs': ko ? '심화 실습 · RTX GPU, Isaac Sim 6.1, Isaac Lab 필요.'
+    : 'Advanced lab · RTX GPU, Isaac Sim 6.1, and Isaac Lab.',
+  'scene-to-data': ko ? '동봉한 데이터로 점군을 만들 때는 Python 3.12만 있으면 됩니다.'
+    : 'Reconstruct the bundled point cloud with Python 3.12.',
+}[id];
+const steps = [
+  ...(isPlacement ? [{ id: 'first-exercise', label: startLabel }] : []),
+  ...headings,
+  { id: 'example-run', label: exampleLabel },
+  { id: 'code', label: labels.code },
+];
 ---
-<Base locale={locale} page={`labs/${id}`} title={entry.title} description={entry.description}>
-  <div class="shell guide">
-    <header class="guide-header">
-      <a class="breadcrumb" href={`${pageUrl(locale, 'showcase')}#${id}`}>{labels.back}</a>
-      <h1>{entry.title}</h1>
-      <ToolTags tags={tags} label={labels.tools} />
-      <div class="guide-actions">
-        <a class="button button-primary" href="#run">{labels.run}<Icon name="down" size={16} /></a>
-        <a class="plain-link" href="#code">{labels.code} <Icon name="down" size={16} /></a>
-        <a class="plain-link" href={repositoryFile(path)}>{labels.github} <Icon name="external" size={16} /></a>
-      </div>
-    </header>
-    <div class="guide-body">
-      <nav class="toc" aria-label={labels.run}>
-        <ul>
-          {headings.map(({ id, label }) => <li><a href={`#${id}`}>{label}</a></li>)}
-          <li><a href="#code">{labels.code}</a></li>
-        </ul>
-      </nav>
-      <article class="guide-content">
-        <div class="lab-video"><ShowcaseVideo locale={locale} clip={clip} title={entry.title} eager /></div>
-        <div class="prose" set:html={html} />
+<Base locale={locale} page={`labs/${id}`} title={title} description={entry.description}>
+  <LessonLanding locale={locale} title={title} description={entry.description} theme={topic.theme} steps={steps} preparation={preparation}>
+    <Fragment slot="breadcrumbs">
+      <a class="breadcrumb" href={pageUrl(locale, `topics/${topic.slug}`)}>{topic[locale].title}</a>
+      {course && <a class="breadcrumb" href={pageUrl(locale, courseRoute(course.slug))}>{course[locale].title}</a>}
+    </Fragment>
+    <ToolTags slot="facts" tags={tags} label={labels.tools} />
+    <Fragment slot="actions">
+      {isPlacement && <a class="button button-primary" href="#first-exercise">{startLabel}<Icon name="down" size={16} /></a>}
+      <a class:list={isPlacement ? 'plain-link' : ['button', 'button-primary']} href="#run">{labels.run}<Icon name="down" size={16} /></a>
+      {tags.includes('Replicator') && (
+        <a class="plain-link" href={catalogSearchUrl(locale, 'Replicator')}>
+          {ko ? '카탈로그에서 Replicator 보기' : 'Replicator in the catalog'} <Icon name="right" size={17} />
+        </a>
+      )}
+      <a class="plain-link" href="#code">{labels.code} <Icon name="down" size={16} /></a>
+      <a class="plain-link" href={repositoryFile(path)}>{labels.github} <Icon name="external" size={16} /></a>
+    </Fragment>
+    <LessonPreview slot="preview" image={showcaseMedia(`${id}.jpg`)} alt={entry.title} caption={topicLabels.recording}
+      href="#example-run" label={exampleLabel} />
+    {isPlacement && <PlacementExercise locale={locale} />}
+    <LessonFlow locale={locale} flow={lessonFlows[id]} />
+    <GuideCommands locale={locale} setup />
+    <div class="prose" set:html={html} />
+    <section class="lab-video" id="example-run" aria-labelledby="example-run-title">
+      <h2 id="example-run-title">{exampleLabel}</h2>
+      <div class="video-preview"><ShowcaseVideo locale={locale} clip={clip} title={entry.title} /></div>
+      <div class="lab-video-links">
         <a class="plain-link" href={repositoryFile(`labs/${id}/${evidence}`)}>{labels.evidence}<Icon name="external" size={16} /></a>
-        <section class="lab-code" id="code" aria-labelledby="code-title">
-          <h2 id="code-title">{labels.code}</h2>
-          {code.map(({ name, path, source }) => (
-            <details>
-              <summary><code>{name}</code></summary>
-              <a class="plain-link" href={repositoryFile(path)}>{labels.github}<Icon name="external" size={16} /></a>
-              <div class="prose"><pre tabindex="0"><code>{source}</code></pre></div>
-            </details>
-          ))}
-        </section>
-      </article>
-    </div>
-  </div>
+        <a class="plain-link" href={`${pageUrl(locale, 'showcase')}#${id}`}>{labels.back}<Icon name="right" size={16} /></a>
+      </div>
+    </section>
+    <section class="lab-code" id="code" aria-labelledby="code-title">
+      <h2 id="code-title">{labels.code}</h2>
+      {code.map(({ name, path, source }) => (
+        <details>
+          <summary><code>{name}</code></summary>
+          <a class="plain-link" href={repositoryFile(path)}>{labels.github}<Icon name="external" size={16} /></a>
+          <div class="prose"><pre tabindex="0"><code>{source}</code></pre></div>
+        </details>
+      ))}
+    </section>
+  </LessonLanding>
 </Base>
 
 <style>
-  .guide-header h1 { margin-bottom: .9rem; }
-  .lab-video { overflow: hidden; border-radius: .7rem; margin-bottom: 1.5rem; }
+  .lab-video { margin-block: 1.6rem; }
+  .lab-video h2 { font-size: 1.35rem; margin-bottom: 10px; }
+  .lab-video-links { display: flex; flex-wrap: wrap; gap: 0 16px; }
+  .video-preview { overflow: hidden; border-radius: .7rem; }
   .lab-code { padding-top: 1.8rem; }
   .lab-code h2 { margin-bottom: .9rem; }
   .lab-code details {

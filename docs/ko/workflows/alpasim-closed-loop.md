@@ -17,14 +17,30 @@ AlpaSim 공식 예제로 자율주행 정책을 한 번 실행해 봅니다. 폐
 
 ## 1. 공식 장면 하나 실행하기
 
-호스트를 준비하고 `HF_TOKEN`을 설정한 뒤, 공식 튜토리얼에서 지정한 커밋을 내려받습니다. 초기 설정 스크립트는 추가 도구 설치를 요청할 수 있습니다. 다운로드 명령은 VaVAM 자산을 받고, 실행 도구는 필요할 때 장면을 내려받습니다.
+### 1. GPU 머신에서 예제 폴더 준비하기
+
+[GPU 환경 점검](../onboarding/nvidia-linux.md)을 마친 Linux 머신의 터미널을 엽니다. NuRec 접근이 승인됐다면 이 터미널에 읽기 토큰을 `HF_TOKEN`으로 설정합니다. 아래 명령으로 공식 코드의 같은 버전을 받아 그 폴더로 이동합니다.
 
 ```bash
 git clone https://github.com/NVlabs/alpasim.git
 cd alpasim
 git checkout affc2eab209fa43bdfa2f26c0f8d437922d78a68
+```
+
+### 2. 실행 환경과 기준 정책 받기
+
+같은 터미널에서 아래 두 줄을 실행합니다. 첫 줄은 현재 셸에 실행 환경을 준비합니다. 두 번째 줄은 예제 차량의 기준 정책인 VaVAM 파일을 내려받습니다.
+
+```bash
 source setup_local_env.sh
 bash data/download_vavam_assets.sh --model vavam-b
+```
+
+### 3. 장면 하나만 주행하기
+
+준비가 끝나면 아래 블록을 한 번에 붙여 넣습니다. `topology=1gpu`는 GPU 한 대를 쓰고, `scenes.scene_ids`는 실행할 장면을 고릅니다. `wizard.log_dir`는 주행 결과가 생길 폴더입니다.
+
+```bash
 uv run alpasim_wizard deploy=local topology=1gpu driver=vavam \
   'scenes.scene_ids=[clipgt-02eadd92-02f1-46d8-86fe-a9e338fed0b6]' \
   "wizard.log_dir=$PWD/run-baseline"

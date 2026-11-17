@@ -2,18 +2,32 @@
 
 ## How it works
 
-Warp's discrete element method example uses a spatial hash grid to find nearby particles and computes contacts on CUDA. The lab wrapper steps the scene, synchronizes the GPU before timing, checks finite positions, and draws one in four particles with the OpenGL viewer.
+Checking every pair of particles gets expensive as the number of particles grows. Warp divides space into cells to look for nearby particles. When particles touch, Warp computes the force between them and updates their positions for the next frame.
 
 ## Run it
 
-Use an NVIDIA GPU and install Warp 1.17.0 with the examples dependencies. Run the published wrapper from the repository root. Add `--headless` when you only want to run the computation and save the report.
+**Before you start** · On an NVIDIA GPU machine, [check that Linux sees the GPU](../onboarding/nvidia-linux.md). Enter this repository in a terminal.
+
+### 1. Install Warp in an isolated Python environment
+
+Run these three lines in the same terminal. The `examples` extra installs the dependencies for the example and viewer.
 
 ```sh
+python3 -m venv .venv-warp
+source .venv-warp/bin/activate
 python -m pip install "warp-lang[examples]==1.17.0"
-python labs/warp-particles/run_dem.py ./runs/warp
 ```
 
-[NVIDIA Warp DEM source](https://github.com/NVIDIA/warp/blob/main/warp/examples/core/example_dem.py)
+### 2. Move the particles and read the report
+
+Run the first command below on a machine with a display. If you connected without a desktop, add `--headless` to the first line. The GPU still computes the simulation. When it finishes, run the second command to format the report in your terminal.
+
+```sh
+python labs/warp-particles/run_dem.py ./runs/warp
+python -m json.tool ./runs/warp/result.json
+```
+
+`frames` is how many frames Warp computed. The same report gives the number of particles and their mean displacement. [NVIDIA Warp particle example](https://github.com/NVIDIA/warp/blob/main/warp/examples/core/example_dem.py)
 
 ## Check the result
 

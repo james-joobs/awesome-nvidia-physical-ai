@@ -1,0 +1,103 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from './Icon.astro';
+import LessonLanding from './LessonLanding.astro';
+import LessonPreview from './LessonPreview.astro';
+import { pageUrl, repositoryFile } from '../lib/catalog.mjs';
+import { courseRoute, learningCopy, lessonUrl } from '../lib/learning.mjs';
+import { topicForPage, topicsCopy } from '../lib/topics.mjs';
+
+const { locale, course } = Astro.props;
+const { title, description, setup, result, scope } = course[locale];
+const advanced = course.advanced?.[locale];
+const labels = learningCopy[locale];
+const labIndex = locale === 'ko' ? 'labs/README.ko.md' : 'labs/README.md';
+const route = courseRoute(course.slug);
+const topic = topicForPage(route);
+const media = topic.entries[0];
+const topicLabels = topicsCopy[locale];
+const steps = course.lessons.map((lesson, index) => ({ id: `lesson-${index + 1}`, label: lesson[locale][0] }));
+if (advanced) steps.push({ id: 'advanced-lab', label: labels.advanced });
+---
+<Base locale={locale} page={route} title={title} description={description}>
+  <LessonLanding locale={locale} title={title} description={description} steps={steps} theme={course.theme}>
+    <Fragment slot="breadcrumbs">
+      <a class="breadcrumb" href={`${pageUrl(locale)}#workflows`}>{labels.paths}</a>
+      <a class="breadcrumb" href={pageUrl(locale, `topics/${topic.slug}`)}>{topic[locale].title}</a>
+    </Fragment>
+    <Fragment slot="facts">
+      <dl class="path-facts">
+        <div><dt>{labels.setup}</dt><dd>{setup}</dd></div>
+        <div><dt>{labels.result}</dt><dd>{result}</dd></div>
+      </dl>
+      {scope && <p class="path-scope">{scope}</p>}
+    </Fragment>
+    <Fragment slot="actions">
+        <a class="button button-primary" href={lessonUrl(locale, course.lessons[0].route)}>
+          {course.lessons[0][locale][0]} <Icon name="right" size={16} />
+        </a>
+        <a class="plain-link" href={repositoryFile(labIndex)}>{labels.code} <Icon name="external" size={16} /></a>
+    </Fragment>
+    <LessonPreview slot="preview" image={media.image} alt={media[locale].alt ?? media[locale].title}
+      caption={topicLabels[media.credit ? 'officialMedia' : media.clip ? 'recording' : 'capturedMedia']}
+      href={media.credit?.url} label={media.credit?.label} external />
+    <section class="path-lessons" aria-labelledby="lesson-list-title">
+      <div class="section-head"><h2 id="lesson-list-title">{labels.lessons}</h2></div>
+      <ol class="lesson-list">
+        {course.lessons.map((lesson, index) => {
+          const [name, check] = lesson[locale];
+          return (
+            <li id={`lesson-${index + 1}`}>
+              <a href={lessonUrl(locale, lesson.route)} class="lesson">
+                <div class="lesson-name">
+                  <span class="lesson-mode">{labels.modes[lesson.mode]}</span>
+                  <h3>{name}</h3>
+                  <p>{check}</p>
+                </div>
+                <Icon name="right" size={19} />
+              </a>
+            </li>
+          );
+        })}
+      </ol>
+    </section>
+    {advanced && (
+      <aside class="advanced-lab" id="advanced-lab" aria-labelledby="advanced-lab-title">
+        <h2 id="advanced-lab-title">{labels.advanced}</h2>
+        <a class="plain-link" href={lessonUrl(locale, course.advanced.route)}>
+          {advanced[0]} <Icon name="right" size={17} />
+        </a>
+        <p>{advanced[1]}</p>
+      </aside>
+    )}
+  </LessonLanding>
+</Base>
+
+<style>
+  .path-lessons { margin-bottom: 24px; }
+  .path-facts { display: grid; gap: 8px; max-width: 54rem; margin-block: 18px; font-size: .9rem; }
+  .path-facts div { display: grid; grid-template-columns: 9rem minmax(0,1fr); gap: 10px; }
+  .path-facts dt { font-weight: 660; }
+  .path-facts dd { margin: 0; color: var(--muted); line-height: 1.5; }
+  .path-scope { max-width: 62ch; margin-bottom: 14px; font-size: .9rem; color: var(--route-color); }
+  .lesson-list { max-width: 54rem; margin: 0; padding-left: 2rem; }
+  .lesson-list li { padding-inline-start: 8px; border-bottom: 1px solid var(--edge); }
+  .lesson-list li::marker { color: var(--route-color); font-variant-numeric: tabular-nums; }
+  .lesson {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding-block: 14px; text-decoration: none;
+  }
+  .lesson svg { flex: none; color: var(--route-color); }
+  .lesson:hover h3 { text-decoration: underline; text-underline-offset: 4px; }
+  .lesson-name { min-width: 0; }
+  .lesson-mode { color: var(--route-color); font-size: .78rem; font-weight: 650; }
+  .lesson h3 { margin-top: 3px; font-size: 1.25rem; }
+  .lesson p { margin-top: 5px; color: var(--muted); line-height: 1.55; font-size: .9rem; }
+  .advanced-lab { max-width: 54rem; padding: 15px 18px; border: 1px solid var(--edge); border-radius: 8px; background: var(--surface); }
+  .advanced-lab h2 { font-size: 1.05rem; }
+  .advanced-lab p { color: var(--muted); font-size: .9rem; line-height: 1.55; }
+  @media (max-width: 540px) {
+    .path-facts div { grid-template-columns: 1fr; gap: 3px; }
+    .lesson-list { padding-inline-start: 1.4rem; }
+  }
+</style>

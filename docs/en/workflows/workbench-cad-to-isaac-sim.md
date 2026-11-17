@@ -2,7 +2,7 @@
 
 **English** · [한국어](../../ko/workflows/workbench-cad-to-isaac-sim.md) · [Catalog](../../../README.md#start-with-what-you-want-to-build)
 
-Use one workbench model for two tasks. First convert a STEP file to OpenUSD and check the scene's size and collision geometry. Then either capture labeled camera frames or run a simulated pick-and-place. The conversion and both Isaac Sim baselines are documented upstream. The workbench adaptation below is a community recipe.
+Start with a STEP file. Convert it into a shape Isaac Sim can open, then give the tabletop a collision shape so a cube can land on it. If you want to start with included code and data, use the [workbench capstone](../labs/workbench-capstone.md). This guide shows the AIF and HOOPS route for a STEP file of your own.
 
 ## What you need
 
@@ -17,7 +17,7 @@ Use one workbench model for two tasks. First convert a STEP file to OpenUSD and 
 
 ## 1. Convert and validate the USD
 
-Check out the sample revision below, then follow the [setup and Kit configuration](https://github.com/NVIDIA-Omniverse/aif-pipeline-samples/blob/41038967ef0a2459b128a225161f8d59beb3b424/docs/get-started/quickstart.md) for your machine.
+Open a terminal on the machine where you will run the converter. Clone the AIF sample and enter its folder. The version below matches the [setup and Kit configuration](https://github.com/NVIDIA-Omniverse/aif-pipeline-samples/blob/41038967ef0a2459b128a225161f8d59beb3b424/docs/get-started/quickstart.md).
 
 ```bash
 git clone https://github.com/NVIDIA-Omniverse/aif-pipeline-samples.git
@@ -25,7 +25,7 @@ cd aif-pipeline-samples
 git checkout 41038967ef0a2459b128a225161f8d59beb3b424
 ```
 
-From the sample repository root, put the input at `cad_source/workbench.step` and run the converter. The bundled HOOPS preset supports STEP.
+After the sample setup, stay in `aif-pipeline-samples` and place your STEP at `cad_source/workbench.step`. The converter reads that file and writes `usd_converted/workbench.usdc`. Validation puts a separate report in `validation_reports`. The bundled HOOPS preset selects the STEP conversion.
 
 ```bash
 mkdir -p usd_converted validation_reports

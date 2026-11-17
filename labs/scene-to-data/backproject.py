@@ -10,13 +10,9 @@ from pxr import Usd, UsdGeom
 TRUE_CUBE_X = [.125, -.18, .23, .03]
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("capture", type=Path)
-    parser.add_argument("output", type=Path)
-    args = parser.parse_args()
-    args.output.mkdir(parents=True, exist_ok=True)
-    stage = Usd.Stage.Open(str(args.capture / "workbench_scene.usda"))
+def reconstruct(capture, output):
+    output.mkdir(parents=True, exist_ok=True)
+    stage = Usd.Stage.Open(str(capture / "workbench_scene.usda"))
     camera = UsdGeom.Camera.Get(stage, "/World/InspectionCamera")
     assert camera
     view = np.array(UsdGeom.XformCache().GetLocalToWorldTransform(camera.GetPrim()), dtype=np.float64)
@@ -24,13 +20,14 @@ def main():
     aperture = camera.GetHorizontalApertureAttr().Get()
     assert focal > 0 and aperture > 0
     rows = []
-    depths = args.capture / "replicator"
+    depths = capture / "replicator"
     for i, x_ref in enumerate(TRUE_CUBE_X):
         d = np.load(depths / f"distance_to_image_plane_{i:04}.npy", allow_pickle=False)
         seg = np.load(depths / f"semantic_segmentation_{i:04}.npy", allow_pickle=False)
         labels = json.loads((depths / f"semantic_segmentation_labels_{i:04}.json").read_text())
-        mask_id = next(int(key) for key, value in labels.items() if value["class"] == "part")
-        y, x = np.nonzero((seg == mask_id) & np.isfinite(d) & (d > 0))
+        part_ids = [int(key) for key, value in labels.items()
+                    if (value.get("class") if isinstance(value, dict) else value) == "part"]
+        y, x = np.nonzero(np.isin(seg, part_ids) & np.isfinite(d) & (d > 0))
         height, width = d.shape
         fx = focal / aperture * width
         z = d[y, x]
@@ -38,7 +35,7 @@ def main():
         world = (local @ view)[:, :3]
         assert world.shape[0] >= 1000 and np.isfinite(world).all()
         midpoint = np.median(world, axis=0)
-        np.save(args.output / f"surface-{i:02}.npy", world[::8].astype(np.float32))
+        np.save(output / f"surface-{i:02}.npy", world[::8].astype(np.float32))
         rows.append({"frame": i, "authored_center_x_m": x_ref, "visible_surface_median_xyz_m": midpoint.tolist(),
                      "valid_surface_pixels": len(world)})
     initial = rows[0]["visible_surface_median_xyz_m"][0]
@@ -48,13 +45,23 @@ def main():
         row.update({"estimated_relative_x_m": estimate, "authored_relative_x_m": reference,
                     "absolute_displacement_error_mm": abs(estimate-reference)*1000})
         print(f"frame {row['frame']} | measured dx {estimate:+.3f} m | authored {reference:+.3f} m", flush=True)
-    (args.output / "result.json").write_text(json.dumps({
+    result = {
         "camera": "/World/InspectionCamera", "depth_channel": "distance_to_image_plane",
         "projection_assumption": "centered camera with horizontal aperture preserved and square pixels",
         "baseline": "frame 0 surface median; used only for displacement, not absolute center estimation",
         "authored_cube_x_source": "workbench_final_take.py",
         "frames": rows,
-    }, indent=2) + "\n")
+    }
+    (output / "result.json").write_text(json.dumps(result, indent=2) + "\n")
+    return result
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("capture", type=Path)
+    parser.add_argument("output", type=Path)
+    args = parser.parse_args()
+    reconstruct(args.capture, args.output)
 
 
 if __name__ == "__main__":

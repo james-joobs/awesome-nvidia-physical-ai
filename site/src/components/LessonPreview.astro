@@ -1,0 +1,23 @@
+---
+import Icon from './Icon.astro';
+
+const { image, alt = '', href, caption, label, fit, external = false } = Astro.props;
+---
+<figure class:list={['lesson-preview', fit]}>
+  <img src={image} alt={alt} fetchpriority="high" />
+  {(caption || href) && (
+    <figcaption>
+      {caption && <span>{caption}</span>}
+      {href && <a href={href}>{label}<Icon name={external ? 'external' : 'down'} size={15} /></a>}
+    </figcaption>
+  )}
+</figure>
+
+<style>
+  .lesson-preview { margin: 0; overflow: clip; border: 1px solid var(--edge); border-radius: 12px; background: var(--surface); }
+  img { width: 100%; aspect-ratio: 16 / 9; object-fit: contain; background: #0d110d; }
+  .contain img { padding: 12% 18%; }
+  figcaption { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 10px; padding: 2px 12px; font-size: .82rem; color: var(--muted); }
+  figcaption span { padding-block: 8px; }
+  a { display: inline-flex; align-items: center; gap: 5px; min-height: 44px; color: var(--route-color); text-underline-offset: 3px; }
+</style>

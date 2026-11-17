@@ -17,14 +17,30 @@ Run the official AlpaSim baseline on one reconstructed driving scene and inspect
 
 ## 1. Run one official scene
 
-Once the host is ready and `HF_TOKEN` is set, use a fresh checkout of the official tutorial revision. The setup script may prompt for tooling. The download step fetches the VaVAM assets, and the wizard fetches the scene when needed.
+### 1. Prepare the example folder on the GPU machine
+
+Open a terminal on the Linux host after [checking GPU access](../onboarding/nvidia-linux.md). Once NuRec access is approved, set the read token as `HF_TOKEN` in this terminal. The commands below fetch the tutorial revision and enter its folder.
 
 ```bash
 git clone https://github.com/NVlabs/alpasim.git
 cd alpasim
 git checkout affc2eab209fa43bdfa2f26c0f8d437922d78a68
+```
+
+### 2. Prepare the environment and get the baseline policy
+
+Run these two lines in the same terminal. The first prepares your current shell. The second downloads VaVAM, the baseline policy used to drive through the example scene.
+
+```bash
 source setup_local_env.sh
 bash data/download_vavam_assets.sh --model vavam-b
+```
+
+### 3. Run one driving scene
+
+When the setup finishes, paste the following block as a whole. The `topology` option uses one GPU. The `scene_ids` option picks the input scene, and `wizard.log_dir` chooses where outputs go.
+
+```bash
 uv run alpasim_wizard deploy=local topology=1gpu driver=vavam \
   'scenes.scene_ids=[clipgt-02eadd92-02f1-46d8-86fe-a9e338fed0b6]' \
   "wizard.log_dir=$PWD/run-baseline"

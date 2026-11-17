@@ -1,0 +1,79 @@
+---
+import { copy } from '../lib/catalog.mjs';
+
+const { locale, title, description, steps, theme = 'lime', reference = false, preparation } = Astro.props;
+const ko = locale === 'ko';
+const panelTitle = reference ? copy[locale].onThisPage : ko ? '실습 순서' : 'Follow along';
+---
+<div class:list={['lesson-landing', theme]}>
+  <header class="lesson-hero">
+    <div class:list={['shell lesson-hero-inner', { 'with-preview': Astro.slots.has('preview') }]}>
+      <div class="lesson-heading">
+        <div class="lesson-breadcrumbs"><slot name="breadcrumbs" /></div>
+        <h1>{title}</h1>
+        <p class="lesson-intro">{description}</p>
+        <slot name="facts" />
+        <div class="guide-actions"><slot name="actions" /></div>
+      </div>
+      <slot name="preview" />
+    </div>
+  </header>
+  <div class="shell lesson-layout">
+    <aside class="lesson-panel" aria-labelledby="lesson-panel-title">
+      <h2 id="lesson-panel-title">{panelTitle}</h2>
+      {preparation && <p class="lesson-preparation">{preparation}</p>}
+      <nav aria-labelledby="lesson-panel-title">
+        <ol>
+          {steps.map(({ id, label }) => (
+            <li><a href={`#${id}`}>{label}</a></li>
+          ))}
+        </ol>
+      </nav>
+    </aside>
+    <article class="guide-content"><slot /></article>
+  </div>
+  {Astro.slots.has('related') && <div class="shell lesson-related"><slot name="related" /></div>}
+</div>
+
+<script>
+  const links = document.querySelectorAll<HTMLAnchorElement>('.lesson-panel a[href^="#"]');
+  const highlightStep = () => {
+    for (const link of links) {
+      if (link.hash === window.location.hash) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    }
+  };
+  highlightStep();
+  window.addEventListener('hashchange', highlightStep);
+</script>
+
+<style>
+  .lesson-hero { background: linear-gradient(125deg, var(--route-tint), var(--bg) 68%); border-bottom: 1px solid var(--edge); }
+  .lesson-hero-inner { display: grid; gap: clamp(16px, 4vw, 54px); align-items: center; padding-block: clamp(26px, 5vw, 64px); }
+  .lesson-hero-inner.with-preview { grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr); }
+  .lesson-heading { min-width: 0; }
+  .lesson-breadcrumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 5px 15px; }
+  h1 { max-width: 27ch; margin-block: 14px; font-size: clamp(2.1rem, 4.4vw, 4rem); letter-spacing: -.045em; line-height: 1.08; }
+  .lesson-intro { max-width: 62ch; margin-block: 0 17px; color: var(--muted); font-size: clamp(.95rem, 2vw, 1.08rem); line-height: 1.58; }
+  .guide-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px; margin-top: 16px; }
+  .guide-actions :global(a) { min-height: 44px; }
+  .lesson-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(15rem, 19rem); gap: clamp(22px, 5vw, 72px); align-items: start; padding-block: 30px clamp(38px, 6vw, 70px); }
+  .guide-content { grid-area: 1 / 1; min-width: 0; }
+  .lesson-panel { position: sticky; top: 20px; grid-column: 2; grid-row: 1; max-height: calc(100dvh - 40px); overflow: auto; padding: 16px; border: 1px solid var(--edge); border-top: 2px solid var(--route-color); border-radius: 10px; background: var(--surface); }
+  .lesson-panel h2 { margin: 1px 0 8px; font-size: 1.24rem; }
+  .lesson-preparation { color: var(--muted); margin-bottom: 8px; font-size: .83rem; line-height: 1.5; }
+  .lesson-panel ol { margin: 0; padding: 0 0 0 1.45rem; }
+  .lesson-panel li { padding-inline-start: 2px; color: var(--muted); font-size: .88rem; }
+  .lesson-panel li + li { border-top: 1px solid var(--edge); }
+  .lesson-panel li::marker { color: var(--route-color); font-variant-numeric: tabular-nums; }
+  .lesson-panel ol a { display: flex; align-items: center; min-height: 44px; padding-block: 7px; line-height: 1.44; text-decoration: none; }
+  .lesson-panel ol a:is(:hover, :focus-visible, [aria-current]) { color: var(--route-color); text-decoration: underline; text-underline-offset: 3px; }
+  .lesson-related { padding-bottom: 38px; }
+  :lang(ko) :is(.lesson-intro, .lesson-preparation, .lesson-panel li) { word-break: keep-all; overflow-wrap: anywhere; }
+  @media (max-width: 780px) {
+    .lesson-hero-inner.with-preview, .lesson-layout { grid-template-columns: 1fr; }
+    .lesson-layout { padding-top: 21px; }
+    .lesson-panel, .lesson-layout .guide-content { position: static; grid-area: auto; max-height: none; overflow: visible; }
+    .lesson-panel { padding: 13px 14px; }
+  }
+</style>

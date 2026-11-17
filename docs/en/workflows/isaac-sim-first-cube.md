@@ -2,18 +2,20 @@
 
 **English** · [한국어](../../ko/workflows/isaac-sim-first-cube.md) · [Isaac Sim guide](../isaac-sim.md)
 
-Drop the same cube twice. A rigid body falls under gravity. Adding a collider lets it make contact with the floor. This exercise uses built-in geometry and the default PhysX workflow.
+Drop the same cube twice to find out **what makes it move and what lets it touch the floor**. Start with the prepared scene, then build the same setup yourself.
+
+## Choose an execution environment
+
+If you have never launched the app, start with [Isaac Sim GUI and CLI setup](../onboarding/isaac-sim-tools.md). Check the [system requirements](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/installation/requirements.html) for an RTX workstation or the [WebRTC setup](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/installation/manual_livestream_clients.html) for a Mac with a remote GPU machine. The [Isaac Launchable](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/installation/install_advanced_cloud_setup_launchable.html) runs in a browser on a remote GPU. Check the provided version and [GPU charges](https://docs.nvidia.com/brev/concepts/gpu-instances) first.
 
 ## Open the practice scene
 
-1. Download [`cube-drop.usda`](../../../assets/lessons/isaac-sim-first-cube/cube-drop.usda) using GitHub’s **Raw** or download button. The scene is a single file with no external assets.
-2. Open it in Isaac Sim. For a fixed comparison view, select **LessonCamera** from the viewport camera menu.
-3. Select **World** in the Stage panel and find the `collider` variant set in Properties. While stopped, choose **WithoutCollider** and press **Play**. The green cube falls through the gray floor.
-4. Stop, change the variant to **WithCollider**, and press **Play** again. The cube settles on the floor. If the scene has retained the previous pose, reopen the file and select the variant before playing.
+1. Download [`cube-drop.usda`](../../../assets/lessons/isaac-sim-first-cube/cube-drop.usda). The file contains the shapes the example needs.
+2. In Isaac Sim, choose **File → Open**. Select **LessonCamera** from the viewport camera menu so both runs share the same view.
+3. Select **World** in **Stage** and find the `collider` variant in **Property**. While stopped, choose **WithoutCollider** and press **Play**. Watch for whether the cube crosses the floor height.
+4. Press **Stop**, choose **WithCollider**, and press **Play** again. Compare where the cube stops. If the scene retains the previous pose, reopen the file and select the variant before playing.
 
 The two variants use the same starting height, floor, camera, and gravity. Only the cube’s collider changes.
-
-**Verified on RTX 5090 with Isaac Sim 6.2.0.** After 2.5 seconds of headless PhysX simulation, the cube passed below the floor without a collider. With the collider enabled, its center settled at 0.50 m above the floor.
 
 ## Build the scene yourself
 
@@ -24,10 +26,8 @@ The two variants use the same starting height, floor, camera, and gravity. Only 
 
 [Isaac Sim 6.2 physics fundamentals](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/physics/simulation_fundamentals.html#simulation-components)
 
-## Choose an execution environment
+## Compare the two runs
 
-- **RTX workstation:** Run Isaac Sim on a supported Windows or Linux host. [System requirements](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/installation/requirements.html)
-- **Mac with a remote RTX server:** Run Isaac Sim on the server and use the macOS WebRTC client or a privately deployed browser viewer. [Livestream clients](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/installation/manual_livestream_clients.html)
-- **No local GPU:** The official Isaac Launchable runs on a billed Brev GPU instance and streams to a browser. Its preconfigured Isaac Sim version can differ from the version in this guide. [Isaac Launchable](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/installation/install_advanced_cloud_setup_launchable.html) · [Brev instance costs](https://docs.nvidia.com/brev/concepts/gpu-instances)
+The cube should pass through the floor with **WithoutCollider** and come to rest on it with **WithCollider**. On the RTX 5090 test in Isaac Sim 6.2.0, the enabled cube’s center settled at 0.50 m above the floor after 2.5 simulated seconds.
 
 Next, replace the plane with a measured workbench asset. [Workbench CAD to Isaac Sim](workbench-cad-to-isaac-sim.md)

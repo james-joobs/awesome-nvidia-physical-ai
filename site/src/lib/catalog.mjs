@@ -7,6 +7,10 @@ export function pageUrl(locale, page = '') {
   return `${base}/${language}${page ? `${page}/` : ''}`;
 }
 
+export function catalogSearchUrl(locale, query) {
+  return `${pageUrl(locale, 'catalog')}?q=${encodeURIComponent(query)}`;
+}
+
 export function repositoryFile(file) {
   return `${repository}/blob/main/${file}`;
 }
@@ -22,7 +26,7 @@ export const workflows = [
     theme: 'lime',
     icon: 'cube',
     tools: ['Isaac Sim', 'PhysX'],
-    sections: ['open-the-scene', 'build-the-scene', 'execution-environment'],
+    sections: ['execution-environment', 'open-the-scene', 'build-the-scene', 'verify'],
     en: {
       goal: 'Learn simulation basics',
       title: 'Drop your first cube',
@@ -100,19 +104,14 @@ export const copy = {
     skip: 'Skip to content',
     navigation: 'Main navigation',
     language: 'Language',
-    workflows: 'Workflows',
+    workflows: 'Learning paths',
     ecosystem: 'Ecosystem map',
     models: 'Models',
     browseCatalog: 'Catalog',
     catalog: 'Full catalog on GitHub',
     community: 'Independent community guide',
-    heroTitle: 'Build your first',
-    heroAccent: 'Physical AI workflow.',
-    heroDescription: 'Pick a goal, find the tools you need, and follow a hands-on guide to your first result.',
-    heroAction: 'Choose a workflow',
-    workflowHeading: 'What do you want to build?',
-    toolLabel: 'Tools',
-    resultLabel: 'First result',
+    heroTitle: 'Learn NVIDIA',
+    heroAccent: 'Physical AI by doing.',
     ecosystemHeading: 'How the ecosystem fits together',
     ecosystemDescription: 'Start with the input you have. The map traces how 3D assets, driving logs, and robot demonstrations each lead to a result you can evaluate.',
     mapAlt: 'Three workflows. Build an OpenUSD scene from CAD and generate labeled data in Isaac Sim. Reconstruct driving logs with NuRec and evaluate a policy in AlpaSim. Turn demonstrations into training data for Isaac Lab or GR00T, then evaluate and deploy the policy.',
@@ -132,19 +131,14 @@ export const copy = {
     skip: '본문으로 건너뛰기',
     navigation: '메인 메뉴',
     language: '언어',
-    workflows: '실습',
+    workflows: '학습 경로',
     ecosystem: '생태계 지도',
     models: '로봇 모델',
     browseCatalog: '카탈로그',
     catalog: 'GitHub에서 전체 목록 보기',
-    community: '커뮤니티 가이드',
-    heroTitle: '내 프로젝트에 맞는',
-    heroAccent: '피지컬 AI 도구 찾기',
-    heroDescription: 'NVIDIA 도구가 어디에 쓰이는지 살펴보고, 목표에 맞는 실습을 따라 해 보세요.',
-    heroAction: '첫 실습 고르기',
-    workflowHeading: '무엇을 만들고 싶나요?',
-    toolLabel: '필요한 도구',
-    resultLabel: '첫 실습 결과',
+    community: '독립 커뮤니티 가이드',
+    heroTitle: 'NVIDIA 피지컬 AI,',
+    heroAccent: '실습으로 배우기',
     ecosystemHeading: '도구를 어떻게 연결해 쓰나요?',
     ecosystemDescription: 'CAD, 주행 로그, 로봇 시연 데이터가 있다면 어떤 도구를 거쳐 시뮬레이션, 주행 평가, 정책 학습에 쓸 수 있는지 살펴보세요.',
     mapAlt: '세 가지 작업 흐름. CAD를 OpenUSD 장면으로 변환해 Isaac Sim에서 라벨이 붙은 데이터를 만듭니다. NuRec으로 주행 장면을 복원해 AlpaSim에서 정책을 평가합니다. 로봇 시연을 데이터셋으로 만들어 Isaac Lab이나 GR00T로 학습한 뒤 정책을 평가하고 배포합니다.',

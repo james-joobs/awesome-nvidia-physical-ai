@@ -12,7 +12,7 @@ function stepUrl([page, filter]) {
   return filter ? url + '?' + new URLSearchParams(filter) : url;
 }
 ---
-<section id="repo-tour" class="section resources shell" aria-labelledby="repo-tour-heading">
+<section id="repo-tour" class="tour-section shell" aria-labelledby="repo-tour-heading">
   <div class="section-head">
     <div>
       <h2 id="repo-tour-heading">{labels.title}</h2>
@@ -147,6 +147,8 @@ function stepUrl([page, filter]) {
 </script>
 
 <style>
+  .tour-section { padding-block: 12px clamp(36px, 5vw, 60px); }
+  .tour-section h2 { font-size: clamp(1.4rem, 2.5vw, 1.9rem); }
   .tour {
     padding: 18px;
     border: 1px solid var(--edge);

@@ -7,8 +7,13 @@ import { availability, catalogFields, licenseLabel } from './catalog-filters.mjs
 const guides = import.meta.glob([
   '../../../docs/{en,ko}/workflows/*.md',
   '../../../docs/{en,ko}/labs/*.md',
+  '../../../docs/{en,ko}/onboarding/*.md',
   '../../../docs/{en,ko}/robot-foundation-models.md',
+  '../../../docs/{en,ko}/{cosmos,nemo-switchyard}.md',
 ], { query: '?raw', import: 'default', eager: true });
+
+const lessonImages = import.meta.glob('../../../assets/lessons/workbench/*.webp',
+  { query: '?url&no-inline', import: 'default', eager: true });
 
 const catalogSources = import.meta.glob('../../../CATALOG{,.ko}.md', {
   query: '?raw', import: 'default', eager: true,
@@ -23,6 +28,8 @@ function resolveLink(link, sourcePath) {
 
   const target = new URL(link, `https://repository.invalid/${sourcePath}`);
   const file = decodeURIComponent(target.pathname.slice(1));
+  const lessonImage = lessonImages[`../../../${file}`];
+  if (lessonImage) return lessonImage;
   const guide = file.match(/^docs\/(en|ko)\/workflows\/(.+)\.md$/);
   if (guide && workflows.some(({ slug }) => slug === guide[2])) {
     return pageUrl(guide[1], `workflows/${guide[2]}`);
@@ -30,8 +37,10 @@ function resolveLink(link, sourcePath) {
 
   const model = file.match(/^docs\/(en|ko)\/robot-foundation-models\.md$/);
   if (model) return pageUrl(model[1], modelGuide.route);
-  const lab = file.match(/^docs\/(en|ko)\/labs\/([\w-]+)\.md$/);
-  if (lab) return pageUrl(lab[1], `labs/${lab[2]}`) + target.hash;
+  const tool = file.match(/^docs\/(en|ko)\/(cosmos|nemo-switchyard)\.md$/);
+  if (tool && !target.hash) return pageUrl(tool[1], `tools/${tool[2]}`);
+  const lesson = file.match(/^docs\/(en|ko)\/((?:labs|onboarding)\/[\w-]+)\.md$/);
+  if (lesson) return pageUrl(lesson[1], lesson[2]) + target.hash;
   if (file === 'assets/lessons/isaac-sim-first-cube/cube-drop.usda') return cubeScene;
 
   return repositoryFile(file) + target.search + target.hash;
@@ -40,9 +49,26 @@ function resolveLink(link, sourcePath) {
 markdown.renderer.rules.link_open = (tokens, index, options, env, renderer) => {
   const token = tokens[index];
   const href = resolveLink(token.attrGet('href'), env.sourcePath);
-  token.attrSet('href', href);
+  token.attrSet('href', env.sectionLinks?.get(href) ?? href);
   if (href === cubeScene) token.attrSet('download', 'cube-drop.usda');
   return renderToken(tokens, index, options, env, renderer);
+};
+
+const renderImage = markdown.renderer.rules.image;
+markdown.renderer.rules.image = (tokens, index, options, env, renderer) => {
+  const token = tokens[index];
+  const src = token.attrGet('src');
+  if (src.startsWith('.')) {
+    const target = new URL(src, `https://repository.invalid/${env.sourcePath}`);
+    const file = `../../..${target.pathname}`;
+    if (file.startsWith('../../../assets/lessons/workbench/')) {
+      if (!lessonImages[file]) throw new Error(`Missing lesson image: ${src}`);
+      token.attrSet('src', lessonImages[file]);
+      token.attrSet('loading', 'lazy');
+      token.attrSet('decoding', 'async');
+    }
+  }
+  return renderImage(tokens, index, options, env, renderer);
 };
 
 markdown.renderer.rules.table_open = (tokens, index, options, env, renderer) => {
@@ -58,11 +84,17 @@ export function renderGuide(locale, sourcePath, sectionIds) {
   const source = guides[`../../../${sourcePath}`];
   if (!source) throw new Error(`Missing guide: ${sourcePath}`);
 
-  const env = { sourcePath, tableLabel: copy[locale].referenceTable };
-  const tokens = markdown.parse(source, env);
+  const env = { sourcePath, tableLabel: copy[locale].referenceTable, sectionLinks: new Map() };
+  // The lesson hero renders the repository's credited cover separately.
+  const content = source.replace(/^(# [^\n]+\n\n[^\n]+\n\n)<p align="center">[\s\S]*?<\/p>\n\n/, '$1');
+  const tokens = markdown.parse(content, env);
+  let title;
 
   // The site layout supplies the title, language switch, and navigation.
-  if (tokens[0]?.type === 'heading_open' && tokens[0].tag === 'h1') tokens.splice(0, 3);
+  if (tokens[0]?.type === 'heading_open' && tokens[0].tag === 'h1') {
+    title = tokens[1].content;
+    tokens.splice(0, 3);
+  }
   if (tokens[0]?.type === 'paragraph_open' && /\]\(\.\.\/(?:\.\.\/)?(?:en|ko)\//.test(tokens[1]?.content)) {
     tokens.splice(0, 3);
   }
@@ -74,13 +106,16 @@ export function renderGuide(locale, sourcePath, sectionIds) {
     const id = sectionIds[headings.length];
     const label = tokens[index + 1].content;
     token.attrSet('id', id ?? `section-${headings.length + 1}`);
+    // Keep same-page Markdown links working with the language-neutral site IDs.
+    const markdownAnchor = markdown.normalizeLink('#' + label.toLowerCase().replace(/\s+/g, '-'));
+    env.sectionLinks.set(markdownAnchor, '#' + token.attrGet('id'));
     headings.push({ id: token.attrGet('id'), label });
   }
   if (headings.length !== sectionIds.length) {
     throw new Error(`Update the paired section links for ${sourcePath}`);
   }
 
-  return { headings, html: markdown.renderer.render(tokens, markdown.options, env) };
+  return { title, headings, html: markdown.renderer.render(tokens, markdown.options, env) };
 }
 
 function parseCatalog(locale) {

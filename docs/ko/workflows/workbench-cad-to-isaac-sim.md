@@ -2,7 +2,7 @@
 
 [English](../../en/workflows/workbench-cad-to-isaac-sim.md) · **한국어** · [목표별 카탈로그](../../../README.ko.md#만들고-싶은-것부터-시작하세요)
 
-STEP 파일을 OpenUSD로 변환해 Isaac Sim에 작업대를 배치합니다. 실제 치수와 충돌체를 확인한 뒤 같은 장면에서 카메라 데이터에 라벨을 붙이거나 로봇 팔로 큐브를 집어 옮길 수 있습니다. NVIDIA의 공식 변환·시뮬레이션 예제를 작업대 하나에 적용하는 실습입니다.
+STEP 파일을 Isaac Sim이 읽는 형상으로 변환한 뒤, 큐브가 상판에 닿을 수 있게 충돌체를 붙입니다. 준비된 파일과 코드부터 써 보고 싶다면 [작업대 완주 과제](../labs/workbench-capstone.md)로 시작하세요. 여기서는 내 STEP 파일을 AIF와 HOOPS로 변환합니다.
 
 ## 준비물
 
@@ -17,7 +17,7 @@ STEP 파일을 OpenUSD로 변환해 Isaac Sim에 작업대를 배치합니다. �
 
 ## 1. USD로 변환하고 검증하기
 
-아래 샘플 리비전을 받은 뒤 환경에 맞게 [설치와 Kit 경로 설정](https://github.com/NVIDIA-Omniverse/aif-pipeline-samples/blob/41038967ef0a2459b128a225161f8d59beb3b424/docs/get-started/quickstart.md)을 마칩니다.
+변환기를 실행할 머신에서 터미널을 엽니다. 아래 명령으로 AIF 샘플을 받고 그 폴더로 이동합니다. 여기서 사용하는 버전에 맞춰 [설치와 Kit 경로 설정](https://github.com/NVIDIA-Omniverse/aif-pipeline-samples/blob/41038967ef0a2459b128a225161f8d59beb3b424/docs/get-started/quickstart.md)을 마칩니다.
 
 ```bash
 git clone https://github.com/NVIDIA-Omniverse/aif-pipeline-samples.git
@@ -25,7 +25,7 @@ cd aif-pipeline-samples
 git checkout 41038967ef0a2459b128a225161f8d59beb3b424
 ```
 
-샘플 저장소에서 입력을 `cad_source/workbench.step`에 두고 변환을 실행합니다. 기본 제공 HOOPS 프리셋은 STEP을 지원합니다.
+`aif-pipeline-samples` 폴더에 둔 상태에서 `cad_source/workbench.step`에 내 STEP 파일을 넣습니다. 변환 결과는 `usd_converted/workbench.usdc`에, 검사 보고서는 `validation_reports`에 생깁니다. 기본 HOOPS 설정이 STEP 파일을 읽습니다.
 
 ```bash
 mkdir -p usd_converted validation_reports
