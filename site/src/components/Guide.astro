@@ -70,7 +70,7 @@ const preparation = isWorkbench
     </Fragment>
     {media && <LessonPreview slot="preview" image={media.image} alt={media[locale].alt} fit={media.fit}
       caption={caption} href={media.credit?.url} label={media.credit?.label} external />}
-    {theory && <LessonTheory locale={locale} flow={flow} theory={theory} showPixels={isWorkbench} />}
+    {theory && <LessonTheory locale={locale} page={page} flow={flow} theory={theory} showPixels={isWorkbench} />}
     <GuideCommands locale={locale} />
     <div class="prose" set:html={html} />
     {models && (

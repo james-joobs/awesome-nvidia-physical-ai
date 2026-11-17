@@ -70,7 +70,7 @@ const steps = [
     <LessonPreview slot="preview" image={showcaseMedia(`${id}.jpg`)} alt={entry.title} caption={topicLabels.recording}
       href="#example-run" label={exampleLabel} />
     {isPlacement && <PlacementExercise locale={locale} />}
-    <LessonTheory locale={locale} flow={lessonFlows[id]} theory={theory} showPixels={id === 'scene-to-data'} />
+    <LessonTheory locale={locale} page={`labs/${id}`} flow={lessonFlows[id]} theory={theory} showPixels={id === 'scene-to-data'} />
     <GuideCommands locale={locale} setup />
     <div class="prose" set:html={html} />
     <section class="lab-video" id="example-run" aria-labelledby="example-run-title">
