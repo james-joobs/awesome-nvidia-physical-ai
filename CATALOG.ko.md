@@ -140,6 +140,9 @@ CAD가 있다면 OpenUSD 장면을 만들어 카메라 데이터에 라벨을 �
 | **X-VLA code** | 로봇 기종별 소프트 프롬프트를 사용하는 로봇 정책 | [Apache-2.0](https://github.com/2toinf/X-VLA/blob/6c4ecfb8be458ae7c0c96094e4b0add4174f4fe2/LICENSE) | [2026-10-20](https://github.com/2toinf/X-VLA/commit/6c4ecfb8be458ae7c0c96094e4b0add4174f4fe2) | [저장소](https://github.com/2toinf/X-VLA) | [가이드](docs/ko/robot-foundation-models.md#다른-vla) |
 | **Praxis-1 code** | 미래 영상·행동 공동 예측과 추론·파인튜닝 코드 | [Apache-2.0](https://github.com/runwayml/praxis-1-oss/blob/afef2e18a0af22b2e9926e9f743dc4694ab8b6b5/LICENSE). 가중치는 Hugging Face 접근 절차 필요 | [2026-11-12](https://github.com/runwayml/praxis-1-oss/commit/afef2e18a0af22b2e9926e9f743dc4694ab8b6b5) | [저장소](https://github.com/runwayml/praxis-1-oss) | [가이드](docs/ko/robot-foundation-models.md#월드-액션-모델) |
 | **FLUX 3 Action code** | 영상·행동을 함께 예측하는 모델의 추론·파인튜닝 | [Apache-2.0](https://github.com/black-forest-labs/flux-action/blob/aea7863fbbbda1e282fa7bde2054e290bf09b3f8/LICENSE). 가중치는 별도 이용 조건 | [2026-11-10](https://github.com/black-forest-labs/flux-action/commit/aea7863fbbbda1e282fa7bde2054e290bf09b3f8) | [저장소](https://github.com/black-forest-labs/flux-action) | [가이드](docs/ko/robot-foundation-models.md#월드-액션-모델) |
+| **mimic-video code** | Cosmos Predict2의 영상 특징을 이용하는 행동 모듈의 학습·평가 | [Apache-2.0](https://github.com/mimic-video/mimic-video/blob/a38dbfeee312d50d42e001d2539282ab72b69c24/LICENSE). 체크포인트별 조건 확인 | [2026-10-19](https://github.com/mimic-video/mimic-video/commit/a38dbfeee312d50d42e001d2539282ab72b69c24) | [저장소](https://github.com/mimic-video/mimic-video) | [가이드](docs/ko/robot-foundation-models.md#월드-액션-모델) |
+| **DreamZero code** | 영상과 행동을 예측하는 정책의 학습·추론·평가용 NVIDIA GEAR 참조 코드 | [Apache-2.0](https://github.com/dreamzero0/dreamzero/blob/ab790c198fbce33503358efbbd4187ce9a89adf3/LICENSE). 가중치는 별도 이용 조건 | [2026-04-19](https://github.com/dreamzero0/dreamzero/commit/ab790c198fbce33503358efbbd4187ce9a89adf3) | [저장소](https://github.com/dreamzero0/dreamzero) | [가이드](docs/ko/robot-foundation-models.md#월드-액션-모델) |
+| **FlashRT** | GR00T N1.7, Cosmos3-Edge 등을 지원하는 외부 추론 런타임 | [Apache-2.0](https://github.com/flashrt-project/FlashRT/blob/f4fb66355a2c6fd43a67e02f7dc93ed70fa58c9d/LICENSE). 모델별 이용 조건 확인 | [2026-11-14](https://github.com/flashrt-project/FlashRT/commit/f4fb66355a2c6fd43a67e02f7dc93ed70fa58c9d) | [저장소](https://github.com/flashrt-project/FlashRT) | [가이드](docs/ko/robot-foundation-models.md#최근-월드-액션-연구) |
 
 ### 데이터 생성·처리 및 실행
 
@@ -318,6 +321,8 @@ NeMo 도구는 데이터 준비, 모델 후학습과 에이전트 운영에 쓰�
 
 로봇 파운데이션 모델(RFM)은 여러 작업이나 로봇 데이터로 사전 학습한 뒤, 사용할 로봇에 맞춰 적용하는 모델입니다. VLA(시각·언어·행동) 모델은 카메라 관측, 지시문, 필요에 따라 로봇 상태를 받아 행동을 출력합니다. 월드 액션 모델은 행동과 미래 관측을 함께 예측할 수 있습니다. 먼저 대상 로봇이나 벤치마크를 정한 뒤 체크포인트와 이용 조건을 확인하세요. [모델 선택과 평가](docs/ko/robot-foundation-models.md)
 
+[월드 액션 연구 아카이브](docs/ko/robot-foundation-models.md#최근-월드-액션-연구)에서 시연 데이터 생성, 정책 후학습, 후보 행동 선택, 로봇에서의 추론을 다룹니다. FLUX와 NVIDIA 월드 액션 모델의 공개 범위는 2026년 11월 17일에 확인했습니다.
+
 | 모델 | 개발팀과 역할 | 체크포인트 공개 여부 및 조건 | 공식 자료 |
 |---|---|---|---|
 | **GR00T N1.7** | NVIDIA · 휴머노이드·로봇 팔 VLA | 3B 체크포인트 다운로드 · [NVIDIA Open Model License](https://huggingface.co/nvidia/GR00T-N1.7-3B/blob/main/LICENSE) | [모델 카드](https://huggingface.co/nvidia/GR00T-N1.7-3B) · [가이드](docs/ko/groot-model.md) |
@@ -332,7 +337,10 @@ NeMo 도구는 데이터 준비, 모델 후학습과 에이전트 운영에 쓰�
 | **MolmoAct 2** | Ai2 · 깊이 정보를 활용한 행동 추론·조작 | 베이스·작업별 체크포인트 다운로드 · [Ai2가 명시한 Apache-2.0](https://github.com/allenai/molmoact2#7-license) | [모델 카드](https://huggingface.co/allenai/MolmoAct2) · [공식 프로젝트](https://allenai.org/blog/molmoact2) |
 | **X-VLA** | 2toINF · 로봇 기종별 소프트 프롬프트를 쓰는 VLA | 베이스 체크포인트 다운로드 · 모델 카드에 Apache-2.0 표기 | [모델 카드](https://huggingface.co/2toINF/X-VLA-Pt) · [LeRobot 가이드](https://huggingface.co/docs/lerobot/xvla) |
 | **Praxis-1** | Runway · 영상과 로봇 행동을 함께 예측하는 월드 액션 모델 | 11월 11일 공개 · 가중치 Apache-2.0 · Hugging Face 접근 절차 필요 | [베이스](https://huggingface.co/runwayml/praxis-1-base) · [DROID](https://huggingface.co/runwayml/praxis-1-droid) · [YAM](https://huggingface.co/runwayml/praxis-1-yam) · [공식 발표](https://runway.com/news/company-news/praxis-1-is-now-available) |
-| **FLUX 3 Action** | Black Forest Labs · SO-101과 DROID용 변형을 제공하는 7B 월드 액션 모델 | Hugging Face 접근 절차 필요 · [FLUX Kommunity License v1.0](https://huggingface.co/black-forest-labs/flux-3-action-so101/blob/main/LICENSE.md) | [SO-101 체크포인트](https://huggingface.co/black-forest-labs/flux-3-action-so101) · [공식 프로젝트](https://bfl.ai/models/flux-3-action) |
+| **FLUX 3 Action** | Black Forest Labs · SO-101과 DROID용 변형을 제공하는 7B 월드 액션 모델 | Hugging Face 접근 절차 필요 · [FLUX Kommunity License v1.0](https://huggingface.co/black-forest-labs/flux-3-action-so101/blob/main/LICENSE.md) | [SO-101](https://huggingface.co/black-forest-labs/flux-3-action-so101) · [DROID](https://huggingface.co/black-forest-labs/flux-3-action-droid) · [공식 프로젝트](https://bfl.ai/models/flux-3-action) |
+| **FLUX-mimic-x** | mimic robotics · Black Forest Labs의 FLUX 3 기반 7B 실시간 비디오 액션 모델 프리뷰 | 11월 16일(UTC) 발표 · 공개 코드·체크포인트·이용 조건 미확인 | [개발팀 발표](https://x.com/mimicrobotics/status/2122343940653224018) · [가이드](docs/ko/robot-foundation-models.md#월드-액션-모델) |
+| **FLUX-mimic** | mimic robotics와 Black Forest Labs · 산업용 로봇 조작을 위한 비디오 액션 연구 모델 | 연구 자료와 시연 공개 · 공개 코드·체크포인트·이용 조건 미확인 | [산업 조작 연구](https://arxiv.org/abs/2611.15974) · [프로젝트](https://www.mimicrobotics.com/blog/video-action-models-for-data-efficient-industrial-manipulation) |
+| **DreamZero-DROID** | NVIDIA GEAR · 영상과 로봇 행동을 함께 예측하는 14B 체크포인트 | 다운로드 가능 · [모델 카드에 CC BY-NC 4.0 표기](https://huggingface.co/GEAR-Dreams/DreamZero-DROID) | [공식 연구 페이지](https://dreamzero0.github.io/) · [모델 카드](https://huggingface.co/GEAR-Dreams/DreamZero-DROID) |
 | **Gemini Robotics 2.5** | Google DeepMind · 정밀 조작과 여러 단계 작업을 위한 VLA | 11월 10일 발표 · 파트너 제공 중 · 공개 체크포인트와 가중치 조건 미확인 | [공식 발표](https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/) |
 
 차량 궤적과 주행 추론에는 [Alpamayo 가이드](docs/ko/alpamayo.md)와 [AlpaSim 평가 가이드](docs/ko/workflows/alpasim-closed-loop.md)를 참고하세요.

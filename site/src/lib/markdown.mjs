@@ -46,7 +46,12 @@ function resolveLink(link, sourcePath) {
   }
 
   const model = file.match(/^docs\/(en|ko)\/robot-foundation-models\.md$/);
-  if (model) return pageUrl(model[1], modelGuide.route);
+  if (model) {
+    const anchor = decodeURIComponent(target.hash.slice(1));
+    const section = modelGuide.koreanAnchors[anchor] ?? anchor;
+    const hash = modelGuide.sections.includes(section) ? `#${section}` : '';
+    return pageUrl(model[1], modelGuide.route) + hash;
+  }
   const tool = file.match(/^docs\/(en|ko)\/([\w-]+)\.md$/);
   if (tool && toolSources.has(tool[2]) && !target.hash) return pageUrl(tool[1], `tools/${tool[2]}`);
   const lesson = file.match(/^docs\/(en|ko)\/((?:labs|onboarding)\/[\w-]+)\.md$/);

@@ -88,7 +88,11 @@ export const workflows = [
 
 export const modelGuide = {
   route: 'models/selection',
-  sections: ['evaluate-actions', 'cosmos-policy', 'other-vlas', 'world-action-models'],
+  sections: ['evaluate-actions', 'cosmos-policy', 'other-vlas', 'world-action-models', 'recent-world-action-research'],
+  koreanAnchors: {
+    '월드-액션-모델': 'world-action-models',
+    '최근-월드-액션-연구': 'recent-world-action-research',
+  },
   en: {
     title: 'Choose and evaluate a robot foundation model',
     description: 'Match the checkpoint to your robot or benchmark, then verify one rollout.',
