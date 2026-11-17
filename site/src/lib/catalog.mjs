@@ -122,6 +122,10 @@ export const copy = {
     modelTable: 'Model comparison',
     modelEvaluation: 'Choose and evaluate',
     modelTableHint: 'Scroll the table sideways to see checkpoint terms and official sources.',
+    toolSections: {
+      implementation: 'How it works', architecture: 'Architecture', example: 'Example', outputs: 'Outputs',
+      access: 'Availability', distribution: 'Distribution', 'official-sources': 'Official sources',
+    },
     referenceTable: 'Reference table',
     source: 'Read the Markdown on GitHub',
     download: 'Download cube-drop.usda',
@@ -152,6 +156,10 @@ export const copy = {
     modelTable: '모델 비교표',
     modelEvaluation: '모델 선택·평가',
     modelTableHint: '표를 옆으로 밀면 체크포인트 이용 조건과 공식 링크를 볼 수 있습니다.',
+    toolSections: {
+      implementation: '동작 원리', architecture: '아키텍처', example: '예제', outputs: '출력 데이터',
+      access: '공개 범위', distribution: '배포', 'official-sources': '공식 자료',
+    },
     referenceTable: '참고 자료',
     source: 'GitHub에서 Markdown 원문 보기',
     download: 'cube-drop.usda 다운로드',

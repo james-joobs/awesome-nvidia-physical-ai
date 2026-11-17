@@ -5,13 +5,14 @@ import { principleProgress, principlesRoute, principlesCopy } from '../lib/princ
 
 const { locale, page } = Astro.props;
 const progress = principleProgress(page);
+const toolGuide = page.startsWith('tools/');
 const ko = locale === 'ko';
 const previousLabel = ko ? '이전 가이드' : 'Previous guide';
 const nextLabel = ko ? '다음 가이드' : 'Next guide';
 const practiceLabel = principlesCopy[locale].practice;
 ---
 {progress && (
-  <nav class:list={['principle-navigation', progress.track.theme]} aria-label={ko ? '학습 순서와 실습' : 'Reading order and practice'}>
+  <nav class:list={['principle-navigation', progress.track.theme, { 'tool-guide-nav': toolGuide }]} aria-label={ko ? '학습 순서와 실습' : 'Reading order and practice'}>
     <div class="track-status">
       <a class="track-index" href={lessonUrl(locale, `${principlesRoute}#${progress.track.id}`)}>
         <Icon name={progress.track.icon} size={18} />{progress.track[locale].title}
@@ -51,6 +52,13 @@ const practiceLabel = principlesCopy[locale].practice;
   .principle-navigation strong { color: var(--text); font-size: .88rem; line-height: 1.34; overflow-wrap: anywhere; }
   .practice-link { background: var(--route-tint); }
   .practice-link small { color: var(--route-color); }
+  .tool-guide-nav { --route-color: var(--accent); --route-tint: var(--accent-tint); }
+  .tool-guide-nav .track-position { border: 0; background: transparent; color: var(--muted); }
+  .tool-guide-nav .guide-switch { gap: 0; border-block: 1px solid var(--edge); }
+  .tool-guide-nav .guide-switch a { border: 0; border-radius: 0; background: transparent; padding-block: 10px; }
+  .tool-guide-nav .guide-switch a + a { border-inline-start: 1px solid var(--edge); }
+  .tool-guide-nav .practice-link { border: 0; border-inline-start: 2px solid var(--brand-green); border-radius: 0; }
+  .tool-guide-nav :is(.guide-switch a, .practice-link):hover strong { text-decoration: underline; text-underline-offset: 3px; }
   :lang(ko) .principle-navigation strong { word-break: keep-all; }
   @media (max-width: 360px) {
     .guide-switch a, .practice-link { padding-inline: 8px; }
