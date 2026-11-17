@@ -58,7 +58,7 @@ const long = summary(episodes(longRun));
     <h2 id="exercise-title">{labels.title}</h2>
     <p>{labels.prompt}</p>
   </header>
-  <table>
+  <table class="doc-table">
     <caption>{labels.caption}</caption>
     <thead><tr><th scope="col">{labels.trial}</th><th scope="col">{labels.lift}</th><th scope="col">{labels.place}</th></tr></thead>
     <tbody>
@@ -119,14 +119,13 @@ const long = summary(episodes(longRun));
   h2 { margin-block: 6px 8px; font-size: clamp(1.4rem, 3.2vw, 2rem); line-height: 1.2; }
   .exercise-format { color: var(--accent); font-size: .8rem; font-weight: 650; }
   header p:last-child, details p { color: var(--muted); line-height: 1.6; font-size: .9rem; }
-  table { width: min(100%, 29rem); margin-block: 16px; border-collapse: collapse; text-align: start; font-size: .875rem; }
+  table { width: min(100%, 29rem); margin-block: 16px; }
   caption { padding-block: 0 6px; text-align: start; color: var(--muted); }
-  th, td { padding: 7px 8px; border-bottom: 1px solid var(--edge); text-align: start; }
   fieldset { padding: 0; margin: 0 0 8px; border: 0; min-width: 0; }
   legend { padding: 0; font-size: .92rem; font-weight: 650; }
   .answer-choices { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 6px; }
   label { display: flex; align-items: center; gap: 7px; min-height: 44px; min-width: 44px; padding-inline: 7px; }
-  input { margin: 0; accent-color: var(--accent); }
+  input { margin: 0; accent-color: var(--accent-fill); }
   .button { border: 0; cursor: pointer; }
   .answer { margin-top: 8px; color: var(--accent); font-size: .9rem; }
   .answer:empty { margin: 0; }

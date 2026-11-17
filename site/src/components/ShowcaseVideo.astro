@@ -48,7 +48,7 @@ const playLabel = locale === 'ko' ? `${title} ${labels.play}` : `${labels.play} 
 
 <style>
   .video-frame {
-    background: #0d110d;
+    background: var(--media-bg);
     aspect-ratio: 16 / 9;
     width: 100%;
     overflow: clip;
@@ -61,15 +61,15 @@ const playLabel = locale === 'ko' ? `${title} ${labels.play}` : `${labels.play} 
   .video-play {
     position: absolute; top: 50%; left: 50%; translate: -50% -50%;
     display: grid; place-items: center; width: 54px; height: 54px; border-radius: 50%;
-    color: var(--ink); background: var(--accent);
+    color: var(--ink); background: var(--accent-fill);
     box-shadow: 0 0 0 4px #121a125c, 0 4px 20px #0009;
     transition: background-color 120ms ease, scale 120ms ease;
   }
-  .video-cover:is(:hover, :focus-visible) .video-play { background: #ddffad; scale: 1.06; }
+  .video-cover:is(:hover, :focus-visible) .video-play { background: var(--accent-fill-hover); scale: 1.06; }
   .video-duration {
     position: absolute; right: 10px; bottom: 10px;
     padding: 3px 7px; border-radius: 4px;
-    color: #fff; background: #141a14e8;
+    color: #fff; background: var(--media-overlay);
     font-size: .78rem; font-variant-numeric: tabular-nums;
   }
   @media (prefers-reduced-motion: reduce) {

@@ -4,6 +4,7 @@ The [MIT License](LICENSE) covers original documentation, scripts, examples, and
 
 - **Logos, trademarks, screenshots, and source illustrations.** See the source credits beside the images in the [English guides](docs/en) and [한국어 가이드](docs/ko). The repository license grants no rights to third-party trademarks.
 - **Lucide icons.** See the [icon credits](assets/icons/README.md) and the [ISC License](assets/icons/LICENSE).
+- **GitHub Pages fonts.** Inter and Roboto Mono are distributed under the [SIL Open Font License 1.1](site/public/font-licenses.txt).
 - **Microduck wordmark.** See the [Pollen Robotics press-kit credit](assets/microduck/README.md).
 - **Video showcase.** The clips combine original screen recordings with upstream scenes and visualizations from [Isaac Lab-Arena](https://github.com/isaac-sim/IsaacLab-Arena), [Isaac Sim](https://github.com/isaac-sim/IsaacSim), [Pollen Robotics Microduck](https://huggingface.co/blog/nvidia/microduck-isaac-lab-sim-to-real), and [NVIDIA Warp](https://github.com/NVIDIA/warp).
 - **Video labs.** The GR00T experiment configurations adapt the upstream Isaac Lab-Arena example and retain its [Apache 2.0 license](labs/gr00t-placement/LICENSE.md). The [lab guides](labs/README.md) link to source project setup and asset downloads.

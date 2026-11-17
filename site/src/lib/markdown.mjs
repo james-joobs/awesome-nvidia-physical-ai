@@ -3,6 +3,7 @@ import { cubeScene } from './assets.mjs';
 import { copy, modelGuide, pageUrl, catalogs, repositoryFile, workflows } from './catalog.mjs';
 import { clips, grids, showcaseMedia } from './showcase.mjs';
 import { toolGuides } from './tool-guides.mjs';
+import { renderCodeBlock } from './code-blocks.mjs';
 
 import { availability, catalogFields, licenseLabel } from './catalog-filters.mjs';
 
@@ -25,6 +26,12 @@ const catalogSources = import.meta.glob('../../../CATALOG{,.ko}.md', {
 const markdown = new MarkdownIt({ linkify: true });
 const renderToken = (tokens, index, options, _env, renderer) =>
   renderer.renderToken(tokens, index, options);
+
+markdown.renderer.rules.fence = (tokens, index, _options, env) => {
+  const token = tokens[index];
+  const format = token.info.trim().split(/\s+/, 1)[0];
+  return renderCodeBlock(token.content, format, env.locale);
+};
 
 function resolveLink(link, sourcePath) {
   if (/^(?:[a-z][a-z\d+.-]*:|\/\/|#)/i.test(link)) return link;
@@ -97,7 +104,7 @@ export function renderGuide(locale, sourcePath, sectionIds, theoryId) {
   const source = guides[`../../../${sourcePath}`];
   if (!source) throw new Error(`Missing guide: ${sourcePath}`);
 
-  const env = { sourcePath, tableLabel: copy[locale].referenceTable, sectionLinks: new Map() };
+  const env = { locale, sourcePath, tableLabel: copy[locale].referenceTable, sectionLinks: new Map() };
   // The lesson hero renders the repository's credited cover separately.
   const content = source.replace(/^(# [^\n]+\n\n[^\n]+\n\n)<p align="center">[\s\S]*?<\/p>\n\n/, '$1');
   const tokens = markdown.parse(content, env);
@@ -154,7 +161,7 @@ export function renderGuide(locale, sourcePath, sectionIds, theoryId) {
 
 function parseCatalog(locale) {
   const { file } = catalogs[locale];
-  const env = { sourcePath: file, tableLabel: copy[locale].modelTable };
+  const env = { locale, sourcePath: file, tableLabel: copy[locale].modelTable };
   return { env, tokens: markdown.parse(catalogSources[`../../../${file}`], env) };
 }
 

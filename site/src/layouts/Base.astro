@@ -1,8 +1,10 @@
 ---
 import '@fontsource-variable/inter';
-import '@fontsource-variable/space-grotesk';
+import '@fontsource-variable/roboto-mono/wght.css';
+import '../styles/theme.css';
 import '../styles/site.css';
 import Icon from '../components/Icon.astro';
+import ThemeSelect from '../components/ThemeSelect.astro';
 import TopicMenu from '../components/TopicMenu.astro';
 import { copy, languages, pageUrl, catalogs, repository, repositoryFile } from '../lib/catalog.mjs';
 import { heroImage } from '../lib/assets.mjs';
@@ -31,7 +33,41 @@ const activeTopic = page.startsWith('topics/') || Boolean(topicForPage(page));
     <meta property="og:description" content={description} />
     <meta property="og:image" content={absolute(socialImage)} />
     <meta property="og:type" content="website" />
-    <meta name="theme-color" content="#101310" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#ffffff" />
+    <script is:inline>
+      (() => {
+        const key = 'physical-ai-theme';
+        const root = document.documentElement;
+        const device = window.matchMedia('(prefers-color-scheme: dark)');
+        const themeColor = document.querySelector('meta[name="theme-color"]');
+        const updateColor = () => {
+          const theme = root.dataset.theme;
+          const dark = theme === 'dark' || (theme === 'system' && device.matches);
+          themeColor.content = dark ? '#000000' : '#ffffff';
+        };
+        const apply = (theme) => {
+          root.dataset.theme = theme === 'light' || theme === 'dark' ? theme : 'system';
+          updateColor();
+        };
+        try { apply(localStorage.getItem(key)); } catch { apply('system'); }
+        device.addEventListener('change', updateColor);
+        document.addEventListener('DOMContentLoaded', () => {
+          const select = document.querySelector('[data-theme-select]');
+          select.value = root.dataset.theme;
+          select.parentElement.hidden = false;
+          select.addEventListener('change', () => {
+            apply(select.value);
+            try { localStorage.setItem(key, root.dataset.theme); } catch {}
+          });
+          window.addEventListener('storage', (event) => {
+            if (event.key !== key && event.key !== null) return;
+            apply(event.newValue);
+            select.value = root.dataset.theme;
+          });
+        });
+      })();
+    </script>
   </head>
   <body>
     <a href="#main-content" class="skip-link">{labels.skip}</a>
@@ -56,6 +92,7 @@ const activeTopic = page.startsWith('topics/') || Boolean(topicForPage(page));
                 : <a href={pageUrl(lang, page)} lang={lang} hreflang={lang} aria-label={name} data-language-switch>{name}</a>;
             })}
           </nav>
+          <ThemeSelect locale={locale} />
           <a class="header-github" href={repository} lang="en">GitHub <Icon name="external" size={16} /></a>
         </div>
       </div>
@@ -81,6 +118,26 @@ const activeTopic = page.startsWith('topics/') || Boolean(topicForPage(page));
         };
         updateLanguageLink();
         window.addEventListener('hashchange', updateLanguageLink);
+      }
+      if (navigator.clipboard?.writeText) {
+        for (const button of document.querySelectorAll<HTMLButtonElement>('[data-copy-code]')) {
+          const code = button.closest('.code-block')?.querySelector('pre code');
+          const status = button.querySelector('span');
+          if (!code || !status) continue;
+          const label = status.textContent;
+          let reset: number;
+          button.hidden = false;
+          button.addEventListener('click', async () => {
+            clearTimeout(reset);
+            try {
+              await navigator.clipboard.writeText(code.textContent ?? '');
+              status.textContent = button.dataset.copied ?? label;
+            } catch {
+              status.textContent = button.dataset.copyFailed ?? label;
+            }
+            reset = window.setTimeout(() => { status.textContent = label; }, 2400);
+          });
+        }
       }
     </script>
   </body>

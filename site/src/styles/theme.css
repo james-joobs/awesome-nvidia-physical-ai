@@ -1,0 +1,36 @@
+:root {
+  color-scheme: light dark;
+  --bg: light-dark(#fff, #000);
+  --surface: light-dark(#f8faf8, #111311);
+  --surface-hover: light-dark(#eef1ee, #1a1d1a);
+  --edge: light-dark(#dfe2df, #242824);
+  --field-edge: light-dark(#aeb5ae, #5f665f);
+  --text: light-dark(#2a2a2a, #fff);
+  --prose-text: light-dark(#1a1a1a, #eee);
+  --muted: light-dark(#5f685f, #adb4ad);
+  --brand-green: #76b900;
+  --accent: light-dark(#426f00, #8cce37);
+  --accent-hover: light-dark(#305500, #a4de60);
+  --accent-fill: #76b900;
+  --accent-fill-hover: #8bd020;
+  --accent-tint: light-dark(#f6fbf1, #141b0e);
+  --ink: #101410;
+  --info: light-dark(#0969a9, #70b8ff);
+  --info-tint: light-dark(#f0f7ff, #0b1622);
+  --teal: light-dark(#126c58, #75d6b8);
+  --teal-tint: light-dark(#f0f9f5, #0b1a15);
+  --warning: light-dark(#835200, #ffca59);
+  --code-bg: light-dark(#f8faf8, #121412);
+  --code-text: light-dark(#24292e, #e6edf3);
+  --table-head: light-dark(#f8faf8, #101210);
+  --inline-code-bg: light-dark(#f1f4f1, #161916);
+  --media-bg: #101210;
+  --media-overlay: #121412eb;
+  --shadow: light-dark(#1720171f, #000b);
+  --display: "Inter Variable", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans CJK KR", sans-serif;
+  --body: var(--display);
+  --mono: "Roboto Mono Variable", ui-monospace, monospace;
+}
+
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
