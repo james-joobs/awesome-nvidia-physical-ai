@@ -16,28 +16,29 @@ if [[ "$(uname -s)" != Darwin || "$mirror" != /* ]]; then
   exit 2
 fi
 launchctl print "$domain" >/dev/null
+git_path=$(command -v git)
 mkdir -p "$agents" "$HOME/Library/Logs" "$(dirname "$mirror")"
 export GIT_TERMINAL_PROMPT=0
 
 if [[ ! -e "$mirror" ]]; then
-  /usr/bin/git -c credential.helper= clone --single-branch --branch "$branch" "$remote" "$mirror"
-elif [[ "$(/usr/bin/git -C "$mirror" remote get-url origin)" != "$remote" ||
-        "$(/usr/bin/git -C "$mirror" branch --show-current)" != "$branch" ]]; then
+  "$git_path" -c credential.helper= clone --single-branch --branch "$branch" "$remote" "$mirror"
+elif [[ "$("$git_path" -C "$mirror" remote get-url origin)" != "$remote" ||
+        "$("$git_path" -C "$mirror" branch --show-current)" != "$branch" ]]; then
   echo "The destination is not the dedicated research-reports checkout." >&2
   exit 2
 fi
 
 pending=$(mktemp "$agents/$label.XXXXXX")
 trap 'rm -f "$pending"' EXIT
-python3 - "$pending" "$label" "$mirror" "$logs" <<'PY'
+python3 - "$pending" "$label" "$mirror" "$logs" "$git_path" <<'PY'
 import plistlib
 import sys
 
-path, label, mirror, log_path = sys.argv[1:]
+path, label, mirror, log_path, git_path = sys.argv[1:]
 job = {
     "Label": label,
     "ProgramArguments": [
-        "/usr/bin/git", "-c", "credential.helper=", "-c", "http.lowSpeedLimit=1000",
+        git_path, "-c", "credential.helper=", "-c", "http.lowSpeedLimit=1000",
         "-c", "http.lowSpeedTime=30", "-C", mirror, "pull", "--ff-only", "--no-rebase",
         "origin", "research-reports",
     ],
