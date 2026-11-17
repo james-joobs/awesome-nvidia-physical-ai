@@ -12,7 +12,7 @@
 
 [🧪 **첫 실습**](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/gr00t-placement/#first-exercise) · [📖 **학습 경로**](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/#workflows) · [**동작 원리**](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/learn/principles/) · [🎬 **분야별 갤러리**](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/topics/)
 
-[GitHub Pages](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/) · [실습 코드](labs/README.ko.md) · [도구 카탈로그](CATALOG.ko.md)
+[GitHub Pages](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/) · [사이트 둘러보기 영상](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/tour/) · [실습 코드](labs/README.ko.md) · [도구 카탈로그](CATALOG.ko.md)
 
 </div>
 

@@ -1,6 +1,8 @@
 export const homeCopy = {
   en: {
     description: 'Start with a robot exercise in your browser. Then use the included code, scenes, and saved data to check results and run your own experiments.',
+    siteTour: 'Site tour video',
+    tourDescription: 'An 89-second walkthrough of the browser labs, learning paths, theory guides, and searchable Physical AI catalog.',
     journey: 'Start at your level',
     stages: {
       browser: ['Start in the browser', 'Judge a GR00T trial without installing anything.'],
@@ -31,6 +33,8 @@ export const homeCopy = {
   },
   ko: {
     description: '브라우저에서 로봇 실험부터 해 보세요. 실습 코드와 장면, 저장된 데이터로 결과를 확인하고 내 환경에서 새 실험을 실행할 수 있습니다.',
+    siteTour: '사이트 둘러보기 영상',
+    tourDescription: '브라우저 실습, 학습 경로, 동작 원리 가이드와 카탈로그 검색을 1분 29초 영상으로 둘러봅니다.',
     journey: '지금 환경에서 시작하기',
     stages: {
       browser: ['브라우저에서 시작하기', 'GR00T가 물체를 제대로 옮겼는지 판정합니다.'],
