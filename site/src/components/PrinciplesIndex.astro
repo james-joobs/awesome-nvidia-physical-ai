@@ -4,88 +4,138 @@ import Icon from './Icon.astro';
 import { pageUrl } from '../lib/catalog.mjs';
 import { lessonUrl } from '../lib/learning.mjs';
 import { principleGuideCount, principlesCopy, principlesRoute, readingTracks } from '../lib/principles.mjs';
+import { topicsCopy } from '../lib/topics.mjs';
 
 const { locale } = Astro.props;
 const labels = principlesCopy[locale];
+const home = pageUrl(locale);
 ---
 <Base locale={locale} page={principlesRoute} title={labels.title} description={labels.intro}>
-  <header class="principles-header">
-    <div class="shell">
-      <a class="breadcrumb" href={pageUrl(locale)}>{labels.home}</a>
-      <h1>{labels.title}</h1>
-      <p>{labels.intro}</p>
-      <nav aria-label={labels.choose}>
+  <header class="shell principles-header">
+    <a class="breadcrumb" href={home}>{labels.home}</a>
+    <h1>{labels.title}</h1>
+    <p>{labels.intro}</p>
+  </header>
+  <div class="hub-band">
+    <nav class="shell hub-views" aria-label={topicsCopy[locale].topicNav}>
+      <a href={home + '#topics'}>{topicsCopy[locale].nav}</a>
+      <a href={pageUrl(locale, principlesRoute)} aria-current="page">{labels.nav}</a>
+    </nav>
+  </div>
+  <div class="shell principles-layout">
+    <aside class="principles-fields">
+      <h2>{labels.choose}</h2>
+      <button class="field-toggle" type="button" aria-expanded="false" aria-controls="principles-fields" hidden>
+        {labels.choose}<Icon name="chevron" size={16} />
+      </button>
+      <nav id="principles-fields" aria-label={labels.choose}>
         {readingTracks.map((track) => (
-          <a href={`#${track.id}`} class={track.theme}>
-            <Icon name={track.icon} size={18} />{track[locale].title}
-          </a>
+          <a href={`#${track.id}`}><Icon name={track.icon} size={18} />{track[locale].title}</a>
         ))}
       </nav>
-    </div>
-  </header>
-  <div class="shell principles-list">
-    <p class="guide-count">{labels.count(principleGuideCount)}</p>
-    {readingTracks.map((track) => (
-      <section id={track.id} class:list={['reading-track', track.theme]} aria-labelledby={`${track.id}-title`}>
-        <header class="track-intro">
-          <h2 id={`${track.id}-title`}><Icon name={track.icon} size={22} />{track[locale].title}</h2>
-          <p>{track[locale].description}</p>
-        </header>
-        <ol class="reading-order" aria-labelledby={`${track.id}-title`}>
-          {track.read.map((guide) => (
-            <li>
-              <a href={lessonUrl(locale, guide.route)}>
-                <span><strong>{guide[locale].title}</strong><span>{guide[locale].description}</span></span>
-                <Icon name="right" size={17} />
-              </a>
-            </li>
-          ))}
-        </ol>
-        <div class="next-practice">
-          <h3>{labels.practice}</h3>
-          <ul role="list">
-            {track.practice.map((item) => (
-              <li><a class="plain-link" href={lessonUrl(locale, item.route)}>{item[locale]}<Icon name="right" size={16} /></a></li>
+    </aside>
+    <div class="principles-list">
+      <p class="guide-count">{labels.count(principleGuideCount)}</p>
+      {readingTracks.map((track) => (
+        <section id={track.id} class="reading-track" aria-labelledby={`${track.id}-title`} tabindex="-1">
+          <header class="track-intro">
+            <h2 id={`${track.id}-title`}>{track[locale].title}</h2>
+            <p>{track[locale].description}</p>
+          </header>
+          <ol class="reading-order" aria-labelledby={`${track.id}-title`}>
+            {track.read.map((guide) => (
+              <li>
+                <a class="hub-entry" href={lessonUrl(locale, guide.route)}>
+                  <span><strong>{guide[locale].title}</strong><span class="hub-summary">{guide[locale].description}</span></span>
+                  <Icon name="right" size={17} />
+                </a>
+              </li>
             ))}
-          </ul>
-        </div>
-      </section>
-    ))}
+          </ol>
+          <div class="next-practice">
+            <h3>{labels.practice}</h3>
+            <ul role="list">
+              {track.practice.map((item) => (
+                <li><a class="plain-link" href={lessonUrl(locale, item.route)}>{item[locale]}<Icon name="right" size={16} /></a></li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ))}
+    </div>
   </div>
 </Base>
 
-<style>
-  .principles-header { padding-block: clamp(26px, 5vw, 56px) 24px; border-bottom: 1px solid var(--edge); }
-  h1 { margin-top: 10px; font-size: clamp(2.1rem, 5vw, 3.8rem); line-height: 1.1; letter-spacing: -.043em; }
-  .principles-header p, .track-intro p { color: var(--muted); line-height: 1.55; }
-  .principles-header p { margin-block: 12px 18px; max-width: 64ch; }
-  nav { display: flex; flex-wrap: wrap; gap: 7px; }
-  nav a { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding-inline: 11px; border: 1px solid var(--edge); border-radius: 6px; text-decoration: none; font-size: .85rem; font-weight: 620; }
-  nav a:hover { color: var(--route-color); border-color: var(--route-color); background: var(--route-tint); }
-  nav a :global(svg) { color: var(--route-color); flex: none; }
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.field-toggle');
+  const fieldLinks = document.querySelectorAll<HTMLAnchorElement>('#principles-fields a');
+  if (toggle) {
+    toggle.hidden = false;
+    toggle.addEventListener('click', () => {
+      toggle.setAttribute('aria-expanded', String(toggle.getAttribute('aria-expanded') === 'false'));
+    });
+    for (const link of fieldLinks) link.addEventListener('click', () => toggle.setAttribute('aria-expanded', 'false'));
+  }
+  const updateField = () => {
+    for (const link of fieldLinks) {
+      if (link.hash === window.location.hash) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    }
+  };
+  updateField();
+  window.addEventListener('hashchange', updateField);
+</script>
 
-  .principles-list { padding-block: 19px 54px; }
-  .guide-count { padding-bottom: 12px; color: var(--muted); font-size: .88rem; }
-  .reading-track { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.75fr); grid-template-rows: auto 1fr; align-items: start; gap: 15px clamp(22px, 5vw, 62px); padding-block: clamp(24px, 4vw, 42px); border-top: 1px solid var(--edge); }
-  .track-intro h2 { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; font-size: clamp(1.3rem, 2.8vw, 2rem); line-height: 1.22; }
-  .track-intro h2 :global(svg) { color: var(--route-color); flex: none; }
-  .track-intro p { font-size: .92rem; }
-  .reading-order { grid-area: 1 / 2 / span 2; min-width: 0; margin: 0; padding: 0 10px 0 2.2rem; border: 1px solid var(--edge); border-radius: 9px; background: var(--surface); }
-  .reading-order li::marker { color: var(--route-color); font-weight: 700; font-variant-numeric: tabular-nums; }
-  .reading-order li + li { border-top: 1px solid var(--edge); }
-  .reading-order a { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 44px; padding: 8px; text-decoration: none; }
-  .reading-order a:hover strong { color: var(--route-color); text-decoration: underline; text-underline-offset: 3px; }
-  .reading-order a :global(svg) { flex: none; color: var(--route-color); }
-  .reading-order strong + span { display: block; margin-top: 3px; color: var(--muted); font-size: .85rem; line-height: 1.43; }
-  .next-practice { grid-area: 2 / 1; padding: 12px 13px 5px; border-left: 2px solid var(--route-color); border-radius: 0 7px 7px 0; background: var(--route-tint); }
+<style>
+  .principles-header { padding-block: clamp(28px, 4vw, 55px) 26px; }
+  h1 { margin-block: 8px 12px; font-size: clamp(1.875rem, 4vw, 2.5rem); line-height: 1.2; }
+  .principles-header p { max-width: 46rem; color: var(--prose-text); line-height: 1.75; }
+  .principles-layout {
+    display: grid; grid-template-columns: minmax(11rem, 17rem) minmax(0, 1fr); align-items: start;
+    gap: clamp(25px, 5vw, 72px); padding-block: clamp(27px, 5vw, 60px);
+  }
+  .principles-fields { position: sticky; top: 1.25rem; min-width: 0; }
+  .principles-fields h2 { padding-block: 7px 17px; font-size: 1.1rem; line-height: 1.35; }
+  .principles-fields nav { display: grid; }
+  .principles-fields a {
+    display: flex; align-items: center; gap: 8px; min-height: 46px; padding: 6px 8px 6px 3px;
+    border-top: 1px solid var(--edge); font-size: .9rem; line-height: 1.4; font-weight: 600; text-decoration: none;
+  }
+  .principles-fields a:last-child { border-bottom: 1px solid var(--edge); }
+  .principles-fields a :global(svg) { flex: none; color: var(--muted); }
+  .principles-fields a:is(:hover, [aria-current]) { color: var(--accent); }
+  .principles-fields a[aria-current] { background: var(--accent-tint); box-shadow: inset 3px 0 var(--brand-green); padding-inline-start: 10px; }
+  .field-toggle { display: none; }
+  .principles-list { min-width: 0; }
+  .guide-count { min-height: 42px; padding-block: 7px 13px; color: var(--muted); font-size: .88rem; }
+  .reading-track { padding-block: clamp(20px, 3.5vw, 32px); border-top: 1px solid var(--edge); }
+  .reading-track:focus-visible { outline: none; }
+  .reading-track:focus-visible .track-intro { border-inline-start: 3px solid var(--brand-green); padding-inline-start: 10px; }
+  .track-intro h2 { margin-bottom: 8px; font-size: clamp(1.3rem, 2.8vw, 1.65rem); line-height: 1.22; }
+  .track-intro p { max-width: 72ch; color: var(--muted); font-size: .94rem; line-height: 1.6; }
+  .reading-order {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(24px, 5vw, 58px);
+    min-width: 0; margin: 15px 0 16px; padding-inline-start: 1.65rem;
+  }
+  .reading-order li { min-width: 0; border-bottom: 1px solid var(--edge); }
+  .reading-order li::marker { color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; }
+  .next-practice { padding: 12px 14px 5px; border-inline-start: 2px solid var(--brand-green); background: var(--accent-tint); }
   .next-practice h3 { font-size: 1.02rem; }
   .next-practice ul { margin: 0; padding: 0; list-style: none; }
   .next-practice li + li { border-top: 1px solid var(--edge); }
-  .next-practice a { color: var(--route-color); min-height: 44px; }
+  .next-practice a { min-height: 44px; }
   :lang(ko) :is(.principles-header p, .track-intro p, .reading-order, .next-practice) { word-break: keep-all; overflow-wrap: anywhere; }
   @media (max-width: 760px) {
-    .reading-track { grid-template-columns: 1fr; grid-template-rows: auto; }
-    .reading-order, .next-practice { grid-area: auto; }
-    .reading-order { padding-left: 1.9rem; }
+    .principles-layout { grid-template-columns: minmax(0, 1fr); gap: 10px; padding-block-start: 12px; }
+    .principles-fields { position: static; }
+    .principles-fields:has(.field-toggle:not([hidden])) h2 { display: none; }
+    .field-toggle:not([hidden]) {
+      display: flex; align-items: center; gap: 6px; min-height: 44px; padding: 0;
+      border: 0; color: var(--text); background: transparent; font: inherit; font-size: .9375rem; font-weight: 650; cursor: pointer;
+    }
+    .field-toggle[aria-expanded="true"] :global(svg) { rotate: 180deg; }
+    .field-toggle[aria-expanded="false"]:not([hidden]) + nav { display: none; }
+    .guide-count { min-height: auto; padding-block: 0 12px; }
+    .reading-order { grid-template-columns: minmax(0, 1fr); }
   }
 </style>
