@@ -32,7 +32,7 @@ const featured = ['isaac-sim', 'isaac-lab', 'newton', 'nvidia-warp', 'openusd', 
     </header>
 
     <form data-filters>
-      <div class="catalog-browse">
+      <div class="hub-band catalog-browse">
         <div class="shell catalog-browse-inner">
           <h2>{labels.browse}</h2>
           <div class="catalog-search" role="search" data-catalog-controls hidden>
@@ -40,7 +40,7 @@ const featured = ['isaac-sim', 'isaac-lab', 'newton', 'nvidia-warp', 'openusd', 
             <input id="catalog-query" name="q" type="search" placeholder={labels.placeholder} />
             <button type="submit" aria-label={labels.search}><Icon name="search" size={19} /></button>
           </div>
-          <nav class="catalog-views" aria-label={labels.browse}>
+          <nav class="hub-views catalog-views" aria-label={labels.browse}>
             <a href="#featured">{labels.featured}</a>
             <a href="#projects">{labels.allProjects}</a>
           </nav>

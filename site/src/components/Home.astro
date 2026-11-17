@@ -9,7 +9,7 @@ import { homeCopy } from '../lib/home.mjs';
 import { courses, courseRoute, firstExerciseRoute, learningCopy, lessonUrl, onboardingGuides, workbenchRecordingRoute } from '../lib/learning.mjs';
 import { principleGuideCount, principlesCopy, principlesRoute } from '../lib/principles.mjs';
 import { clips, featured } from '../lib/showcase.mjs';
-import { topicForPage, topics } from '../lib/topics.mjs';
+import { topicForPage, topics, topicsCopy } from '../lib/topics.mjs';
 
 const { locale } = Astro.props;
 const labels = copy[locale];
@@ -97,31 +97,40 @@ const showcase = pageUrl(locale, 'showcase');
     </div>
   </section>
 
-  <section class="landing-band" id="topics" aria-labelledby="topics-heading">
-    <div class="shell landing-section">
-      <div class="section-head landing-heading">
-        <div><h2 id="topics-heading">{home.exploreTitle}</h2><p>{home.exploreIntro}</p></div>
+  <section class="home-discovery" id="topics" aria-labelledby="topics-heading">
+    <div class="hub-band">
+      <div class="shell">
+        <div class="section-head discovery-heading">
+          <div><h2 id="topics-heading">{home.exploreTitle}</h2><p>{home.exploreIntro}</p></div>
+        </div>
+        <nav class="hub-views" aria-label={home.exploreTitle}>
+          <a href="#topics" aria-current="location">{topicsCopy[locale].nav}</a>
+          <a href={theoryUrl}>{principles.nav}</a>
+        </nav>
       </div>
-      <div class="discovery-grid">
-        <figure class="home-video discovery-video">
-          <ShowcaseVideo locale={locale} clip={featured} title={learning.galleryTitle} />
-          <figcaption>
-            <a href={showcase}>{learning.galleryLink}<Icon name="right" size={16} /></a>
-            <span>{locale === 'ko' ? '16개 장면' : '16 Isaac Sim scenes'}</span>
-          </figcaption>
-        </figure>
-        <ul class="topic-list" role="list">
-          {topics.map((topic) => (
-            <li class={topic.theme}>
-              <a href={pageUrl(locale, 'topics/' + topic.slug)}>
-                <span class="topic-icon"><Icon name={topic.icon} size={21} /></span>
-                <span><strong>{topic[locale].title}</strong><span>{topic.stacks.slice(0, 3).join(' · ')}</span></span>
-                <Icon name="right" size={17} />
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
+    </div>
+    <div class="shell discovery-grid">
+      <ul class="topic-list" role="list">
+        {topics.map((topic) => (
+          <li>
+            <a class="hub-entry" href={pageUrl(locale, 'topics/' + topic.slug)}>
+              <span class="topic-copy">
+                <strong>{topic[locale].title}</strong>
+                <span class="hub-summary">{topic[locale].description}</span>
+                <span class="topic-tags">{topic.stacks.slice(0, 3).map((stack) => <span>{stack}</span>)}</span>
+              </span>
+              <Icon name="right" size={17} />
+            </a>
+          </li>
+        ))}
+      </ul>
+      <figure class="home-video discovery-video">
+        <ShowcaseVideo locale={locale} clip={featured} title={learning.galleryTitle} />
+        <figcaption>
+          <a href={showcase}>{learning.galleryLink}<Icon name="right" size={16} /></a>
+          <span>{locale === 'ko' ? '16개 장면' : '16 Isaac Sim scenes'}</span>
+        </figcaption>
+      </figure>
     </div>
   </section>
 
@@ -265,16 +274,19 @@ const showcase = pageUrl(locale, 'showcase');
   .path-action { display: flex; align-items: center; justify-content: space-between; gap: 6px; width: 100%; min-height: 44px; border-top: 1px solid var(--edge); color: var(--route-color); font-size: .87rem; font-weight: 650; text-decoration: none; }
   .path-action:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-  .discovery-grid { display: grid; grid-template-columns: minmax(0, 1.23fr) minmax(0, 1fr); gap: clamp(18px, 4vw, 50px); align-items: start; }
+  .discovery-heading { padding-block: clamp(20px, 4vw, 35px) 0; margin-bottom: 14px; }
+  .discovery-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(18px, 5vw, 64px); align-items: start; padding-block: clamp(22px, 4vw, 42px); }
   .topic-list, .resource-list { margin: 0; padding: 0; list-style: none; }
-  .topic-list li + li { border-top: 1px solid var(--edge); }
-  :is(.topic-list, .resource-list) a { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 11px 10px; min-height: 58px; text-decoration: none; }
-  :is(.topic-list, .resource-list) a:hover { background: var(--surface-hover); }
-  :is(.topic-list, .resource-list) a > span { min-width: 0; }
-  :is(.topic-list, .resource-list) strong { display: block; line-height: 1.36; }
-  :is(.topic-list, .resource-list) strong + span { display: block; margin-top: 4px; color: var(--muted); font-size: .83rem; line-height: 1.45; }
-  .topic-icon { display: grid; place-items: center; width: 35px; height: 35px; border-radius: 7px; background: var(--route-tint); color: var(--route-color); }
-  .topic-list a > :global(svg) { color: var(--route-color); }
+  .topic-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; border-top: 1px solid var(--edge); }
+  .topic-list li { border-bottom: 1px solid var(--edge); }
+  .topic-copy { min-width: 0; }
+  .topic-tags { display: flex; flex-wrap: wrap; gap: 4px 7px; margin-top: 8px; }
+  .topic-tags span { padding: 2px 8px; border: 1px solid var(--field-edge); border-radius: 999px; color: var(--muted); font-size: .73rem; line-height: 1.4; }
+  .resource-list a { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 11px 10px; min-height: 58px; text-decoration: none; }
+  .resource-list a:hover { background: var(--surface-hover); }
+  .resource-list a > span { min-width: 0; }
+  .resource-list strong { display: block; line-height: 1.36; }
+  .resource-list strong + span { display: block; margin-top: 4px; color: var(--muted); font-size: .83rem; line-height: 1.45; }
   .resource-list a > :global(svg) { color: var(--accent); }
 
   .resource-columns, .reference-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; }
@@ -298,6 +310,10 @@ const showcase = pageUrl(locale, 'showcase');
     word-break: keep-all; overflow-wrap: anywhere;
   }
 
+  @media (max-width: 980px) {
+    .discovery-grid { grid-template-columns: minmax(0, 1fr) minmax(0, .92fr); }
+    .topic-list { grid-template-columns: minmax(0, 1fr); }
+  }
   @media (max-width: 870px) {
     .hero { gap: 22px; }
     .path-cover img { aspect-ratio: 16 / 9; }
