@@ -30,9 +30,9 @@ const labels = ko ? ['입력', '처리', '출력'] : ['Input', 'Process', 'Outpu
     padding: 12px; border: 1px solid var(--edge); border-top: 2px solid var(--step-color);
     border-radius: 8px; background: var(--surface);
   }
-  .flow-step:nth-child(1) { --step-color: #a5c7ff; }
-  .flow-step:nth-child(2) { --step-color: #c3f477; }
-  .flow-step:nth-child(3) { --step-color: #77e5bf; }
+  .flow-step:nth-child(1) { --step-color: var(--info); }
+  .flow-step:nth-child(2) { --step-color: var(--accent); }
+  .flow-step:nth-child(3) { --step-color: var(--teal); }
   .step-role { color: var(--step-color); font-size: .75rem; font-weight: 660; }
   strong { line-height: 1.35; }
   code {

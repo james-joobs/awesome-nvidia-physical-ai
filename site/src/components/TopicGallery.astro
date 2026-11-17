@@ -92,8 +92,8 @@ const description = topic?.[locale].description ?? labels.intro;
 </Base>
 
 <style>
-  .gallery-header { padding-block: clamp(28px, 5vw, 60px) 22px; border-bottom: 1px solid var(--edge); background: linear-gradient(125deg, var(--route-tint), var(--bg) 65%); }
-  .gallery-icon { display: grid; place-items: center; width: 50px; height: 50px; margin-bottom: 15px; color: var(--route-color); border: 1px solid #657a5866; border-radius: 9px; }
+  .gallery-header { padding-block: clamp(28px, 5vw, 60px) 22px; border-bottom: 1px solid var(--edge); }
+  .gallery-icon { display: grid; place-items: center; width: 50px; height: 50px; margin-bottom: 15px; color: var(--route-color); border: 1px solid var(--edge); border-radius: 9px; }
   .gallery-header h1 { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.08; letter-spacing: -.045em; }
   .gallery-header p { max-width: 64ch; margin-block: 12px 24px; color: var(--muted); line-height: 1.58; }
   .course-link { color: var(--route-color); min-height: 44px; margin: -14px 0 10px; }
@@ -116,7 +116,7 @@ const description = topic?.[locale].description ?? labels.intro;
   }
   .example-card:focus-within { border-color: var(--route-color); }
   .example-media { border-bottom: 1px solid var(--edge); }
-  .example-image { display: block; aspect-ratio: 16 / 9; background: #0d110d; }
+  .example-image { display: block; aspect-ratio: 16 / 9; background: var(--media-bg); }
   .example-image:focus-visible { outline-offset: -4px; }
   .example-image img { width: 100%; height: 100%; object-fit: cover; }
   .example-image.contain img { object-fit: contain; padding: 12%; }

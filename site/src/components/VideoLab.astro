@@ -9,6 +9,7 @@ import PlacementExercise from './PlacementExercise.astro';
 import ShowcaseVideo from './ShowcaseVideo.astro';
 import ToolTags from './ToolTags.astro';
 import { catalogSearchUrl, pageUrl, repositoryFile } from '../lib/catalog.mjs';
+import { renderCodeBlock } from '../lib/code-blocks.mjs';
 import { labCode, labCopy } from '../lib/labs.mjs';
 import { courseRoute, courses, firstExerciseRoute, learningCopy } from '../lib/learning.mjs';
 import { lessonFlows } from '../lib/lesson-flows.mjs';
@@ -71,7 +72,7 @@ const steps = [
       href="#example-run" label={exampleLabel} />
     {isPlacement && <PlacementExercise locale={locale} />}
     <LessonTheory locale={locale} page={`labs/${id}`} flow={lessonFlows[id]} theory={theory} showPixels={id === 'scene-to-data'} />
-    <GuideCommands locale={locale} setup />
+    <GuideCommands locale={locale} />
     <div class="prose" set:html={html} />
     <section class="lab-video" id="example-run" aria-labelledby="example-run-title">
       <h2 id="example-run-title">{exampleLabel}</h2>
@@ -87,7 +88,7 @@ const steps = [
         <details>
           <summary><code>{name}</code></summary>
           <a class="plain-link" href={repositoryFile(path)}>{labels.github}<Icon name="external" size={16} /></a>
-          <div class="prose"><pre tabindex="0"><code>{source}</code></pre></div>
+          <Fragment set:html={renderCodeBlock(source, path.split('.').at(-1), locale)} />
         </details>
       ))}
     </section>
@@ -106,5 +107,5 @@ const steps = [
     border-radius: .55rem; background: var(--surface);
   }
   .lab-code summary { min-height: 2.1rem; padding: .35rem 0; cursor: pointer; color: var(--accent); }
-  .lab-code pre { max-height: 32rem; margin-top: .2rem; padding: .75rem; }
+  .lab-code :global(.code-block pre) { max-height: 32rem; }
 </style>

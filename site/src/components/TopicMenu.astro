@@ -56,12 +56,12 @@ const labels = topicsCopy[locale];
     font-size: .875rem; font-weight: 650; cursor: pointer; list-style: none; white-space: nowrap;
   }
   summary::-webkit-details-marker { display: none; }
-  summary:hover, summary.topic-active, details[open] > summary { color: var(--accent); border-color: #526641; }
+  summary:hover, summary.topic-active, details[open] > summary { color: var(--accent); border-color: var(--accent); }
   details[open] > summary svg:last-child { rotate: 180deg; }
   .topic-dropdown {
     position: absolute; z-index: 6; inset: 100% 0 auto; max-height: min(72dvh, 38rem);
     overflow: auto; overscroll-behavior: contain;
-    background: #171c16; border-bottom: 1px solid #3d4b37; box-shadow: 0 22px 34px #050805b3;
+    background: var(--bg); border-bottom: 1px solid var(--edge); box-shadow: 0 14px 28px var(--shadow);
   }
   .topic-menu-content { padding-block: 12px 22px; }
   .topic-dropdown .topic-all { color: var(--accent); font-weight: 680; gap: 8px; }

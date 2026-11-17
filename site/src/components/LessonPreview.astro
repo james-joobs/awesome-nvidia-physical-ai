@@ -15,7 +15,7 @@ const { image, alt = '', href, caption, label, fit, external = false } = Astro.p
 
 <style>
   .lesson-preview { margin: 0; overflow: clip; border: 1px solid var(--edge); border-radius: 12px; background: var(--surface); }
-  img { width: 100%; aspect-ratio: 16 / 9; object-fit: contain; background: #0d110d; }
+  img { width: 100%; aspect-ratio: 16 / 9; object-fit: contain; background: var(--media-bg); }
   .contain img { padding: 12% 18%; }
   figcaption { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 10px; padding: 2px 12px; font-size: .82rem; color: var(--muted); }
   figcaption span { padding-block: 8px; }
