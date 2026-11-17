@@ -6,11 +6,13 @@
 
 <img src="assets/social-preview.jpg" alt="Awesome NVIDIA Physical AI · Simulation, robotics, and world models" width="460">
 
-**Find the NVIDIA Physical AI tools for your project and see how they work together.**
+**Free, hands-on NVIDIA Physical AI learning for developers.**
 
-An independent community guide to simulation, robot learning, autonomous driving, and the data they share.
+Start with a robot exercise in your browser. Use the included code, USD scenes, and saved data to check results with Python or run your own experiments in Isaac Sim.
 
-[🧪 Start with a workflow](#start-with-what-you-want-to-build) · [🗺️ Ecosystem map](#ecosystem-at-a-glance) · [📚 Tool catalog](CATALOG.md) · [🌐 GitHub Pages](https://james-joobs.github.io/awesome-nvidia-physical-ai/)
+[🧪 **First exercise**](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/gr00t-placement/#first-exercise) · [📖 **Learning paths**](https://james-joobs.github.io/awesome-nvidia-physical-ai/#workflows) · [🎬 **Lab gallery by topic**](https://james-joobs.github.io/awesome-nvidia-physical-ai/topics/)
+
+[GitHub Pages](https://james-joobs.github.io/awesome-nvidia-physical-ai/) · [Lab code](labs/README.md) · [Tool catalog](CATALOG.md)
 
 </div>
 
@@ -20,9 +22,23 @@ An independent community guide to simulation, robot learning, autonomous driving
 
 `Isaac Sim` · `PhysX` · `GR00T` · `Replicator` · `cuRobo` · `AutoData`
 
-[View more videos](https://james-joobs.github.io/awesome-nvidia-physical-ai/showcase/) · [Run the hands-on labs](labs/README.md) · [Try the interactive walkthrough](https://james-joobs.github.io/awesome-nvidia-physical-ai/#repo-tour)
+[Watch the full video gallery](https://james-joobs.github.io/awesome-nvidia-physical-ai/showcase/) · [Try the interactive walkthrough](https://james-joobs.github.io/awesome-nvidia-physical-ai/#repo-tour)
+
+## Quick start
+
+Replay the GR00T result check with Python. It reads the bundled Arena report and prints when each trial lifted the cube and whether it ended up in the bowl. No GPU or Isaac Sim installation is needed to read the logs.
+
+```sh
+git clone https://github.com/james-joobs/awesome-nvidia-physical-ai.git
+cd awesome-nvidia-physical-ai
+python3 labs/gr00t-placement/check_result.py labs/gr00t-placement/recorded-24s.jsonl
+```
+
+All three episodes should print `placed no`. Run the same checker on [the second recording](labs/gr00t-placement/recorded-70s.jsonl) to compare. [Lab guide](docs/en/labs/gr00t-placement.md)
 
 ## Start with what you want to build
+
+**Setting up your first GPU machine?** [NVIDIA Linux setup](docs/en/onboarding/nvidia-linux.md) · [Isaac Sim GUI and CLI](docs/en/onboarding/isaac-sim-tools.md) · [Workbench capstone with a GPU-free result check](docs/en/labs/workbench-capstone.md)
 
 | Your goal | Where to start | What to check first |
 | --- | --- | --- |
