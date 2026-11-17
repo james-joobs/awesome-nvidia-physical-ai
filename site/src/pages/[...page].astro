@@ -7,6 +7,7 @@ import { languages, modelGuide, workflows } from '../lib/catalog.mjs';
 import { labs } from '../lib/labs.mjs';
 import { courses, courseRoute, onboardingGuides, workbenchProject } from '../lib/learning.mjs';
 import { topics, topicGuides } from '../lib/topics.mjs';
+import { toolGuides } from '../lib/tool-guides.mjs';
 
 export function getStaticPaths() {
   return languages.flatMap((locale) => {
@@ -29,7 +30,7 @@ export function getStaticPaths() {
       guide,
       parent: 'workflows',
     })));
-    entries.push(...topicGuides.map((guide) => ({
+    entries.push(...[...topicGuides, ...toolGuides].map((guide) => ({
       page: guide.page,
       sourcePath: `docs/${locale}/${guide.source}.md`,
       guide,

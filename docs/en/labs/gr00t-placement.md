@@ -2,7 +2,35 @@
 
 ## How it works
 
-Give a robot the instruction to place a cube in a bowl. **GR00T** chooses what the arm does next. **Isaac Sim** applies the motion to a simulated robot. **Isaac Lab-Arena** connects them and records a lift separately from a placement. Use two terminals so the simulator can keep asking the model for actions.
+### How does a camera image become a robot action?
+
+Isaac Sim produces the virtual camera views and robot state. Arena packages them in the format expected by the GR00T N1.6-DROID checkpoint and adds the instruction to put the cube in the bowl.
+
+| Data passed along | What it tells the next stage | Consumer |
+| --- | --- | --- |
+| Camera views | Where the hand, cube, and bowl appear relative to each other. | GR00T vision input |
+| Robot state and instruction | How the arm is posed and what task it should complete. | DROID state and language inputs |
+| Predicted action sequence | Arm-joint and gripper targets for several future control steps. | Isaac Sim controller through the Arena adapter |
+
+### What happens inside GR00T?
+
+The lab uses the DROID checkpoint, a version of GR00T N1.6-3B fine-tuned on DROID. A vision-language model first turns the camera views and instruction into numeric representations. Conditioned on those representations and the robot state, the action head starts with sampled noise and updates it iteratively to produce a sequence of continuous commands. The training method for learning that transformation is called **flow matching**. Those internal updates produce one action prediction. The steps in the log below count actions applied in the simulated control loop. [NVIDIA N1.6 architecture](https://huggingface.co/nvidia/GR00T-N1.6-3B#model-architecture) · [DROID checkpoint](https://huggingface.co/nvidia/GR00T-N1.6-DROID)
+
+The policy proposes a sequence of actions. The runner applies a configured portion, reads a fresh observation, and queries the policy again. The camera views and joint state change after the arm moves, so subsequent actions can respond to that change. Match the arm’s joint order and normalization to the checkpoint and adapter. [Arena GR00T walkthrough](https://isaac-sim.github.io/IsaacLab-Arena/release/0.3.1/pages/quickstart/running_a_real_policy/gr00t.html) · [GR00T modality configuration](https://github.com/NVIDIA/Isaac-GR00T/blob/main/getting_started/data_config.md)
+
+### Read “lift” and “placement” in a saved episode
+
+Here is a projection of a few fields from the [first 70-second trial](../../../labs/gr00t-placement/recorded-70s.jsonl). JSONL stores one complete trial per line. Within the trial, `progress.events` records which checks passed and at which control steps.
+
+```json
+{
+  "success": true,
+  "episode_length": 521,
+  "progress": { "events": [{ "step": 1 }, { "step": 442 }, { "step": 521 }] }
+}
+```
+
+Step 1 marks the objects settling, step 442 marks the cube reaching the lift height, and step 521 marks placement on the destination. Convert steps to time using the control rate. The checker uses 15 Hz, so `442 ÷ 15 ≈ 29.47 seconds`. In the shorter 24-second runs, a successful lift could still end without a placement. Check for `object_on_destination` and the final outcome when you replay your own episode. [Result checker](../../../labs/gr00t-placement/check_result.py)
 
 ## Run it
 

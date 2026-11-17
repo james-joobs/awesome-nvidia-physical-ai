@@ -4,6 +4,28 @@
 
 Run the official AlpaSim baseline on one reconstructed driving scene and inspect the resulting episode. In closed loop, the policy's trajectory affects the simulated ego vehicle, and the next observation is rendered from the updated state. A recorded-video replay keeps the recorded viewpoint. Start with the existing NuRec USDZ so you can check the simulator before attempting your own reconstruction. [AlpaSim architecture](https://github.com/NVlabs/alpasim/blob/affc2eab209fa43bdfa2f26c0f8d437922d78a68/docs/DESIGN.md)
 
+## How does one frame change the next driving decision?
+
+### The next camera observation changes in a closed loop
+
+The renderer uses the NuRec scene and current ego pose to produce a camera observation. The policy reads observations and proposes a **time-ordered trajectory**. AlpaSim advances the ego state, so the next image can show a different lane position or following distance. That new image feeds back into the policy. [Design at the pinned AlpaSim revision](https://github.com/NVlabs/alpasim/blob/affc2eab209fa43bdfa2f26c0f8d437922d78a68/docs/DESIGN.md)
+
+```text
+Reconstructed scene + ego state → camera observation → policy trajectory
+                     ↑                                        ↓
+                     └─────────── updated ego state ──────────┘
+```
+
+### Which files can you use to compare policies?
+
+| File | Meaning |
+| --- | --- |
+| Scene `.usdz` | Input for the chosen NuRec scene. Fix the scene ID and renderer across a comparison. |
+| Episode `metrics.parquet` | Tabular evaluation data. Check metric definitions and whether the run completed. |
+| `aggregate/metrics_results.txt` | Evaluation summary across episodes. |
+
+To compare collision metrics for two policies, hold the scene, renderer, and evaluation settings fixed and change the policy. This table describes the official example's output locations. [Tutorial at the pinned revision](https://github.com/NVlabs/alpasim/blob/affc2eab209fa43bdfa2f26c0f8d437922d78a68/docs/TUTORIAL.md)
+
 ## What you need
 
 | Item | Start with |

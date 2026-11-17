@@ -4,6 +4,16 @@
 
 Cosmos Curator turns source footage into selected, annotated clips for dataset construction. A curation recipe defines the stages, and Cosmos-Xenna executes them over Ray workers.
 
+## How does a long recording become useful training clips?
+
+### Keep each clip tied to its source
+
+Choose stages such as splitting, quality filtering, and annotation. In an illustrative manifest, `source_id=demo07`, `start_s=12.4`, and `end_s=17.8` point to a 5.4-second interval. A quality flag or task annotation helps explain why it was retained. Use the selected stage’s documented output fields.
+
+### Inspect what the filters retain
+
+A filter intended to remove shaky or duplicate footage may also discard useful demonstrations with fast hand movements. Compare the pass rate and a sample of rejected clips when tuning thresholds. Split by source recording so nearby clips from the same video stay in the same dataset split. [Cosmos Curator project](https://github.com/NVIDIA/cosmos-curator)
+
 ## Logical and physical views
 
 ![Cosmos Curator official logical architecture](https://raw.githubusercontent.com/NVIDIA/cosmos-curator/main/docs/assets/cosmos-curator-logical-view.png)

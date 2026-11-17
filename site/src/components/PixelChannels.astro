@@ -1,0 +1,82 @@
+---
+import { repositoryFile } from '../lib/catalog.mjs';
+
+const { locale } = Astro.props;
+const ko = locale === 'ko';
+// Workbench archive, frame 0000, columns 612–614 and rows 230–232.
+const pixels = [
+  [[153, 102, 61], 3.380, 3], [[155, 63, 14], 3.163, 2], [[158, 64, 12], 3.162, 2],
+  [[153, 103, 61], 3.376, 3], [[155, 63, 14], 3.164, 2], [[158, 64, 12], 3.163, 2],
+  [[153, 102, 60], 3.371, 3], [[155, 63, 13], 3.165, 2], [[158, 64, 12], 3.163, 2],
+];
+const selected = 4;
+const coordinate = (index) => `u=${612 + index % 3}, v=${230 + Math.floor(index / 3)}`;
+const channels = ['RGB', ko ? '깊이 (m)' : 'Depth (m)', ko ? '의미 분할 ID' : 'Semantic ID'];
+const sampleText = ([rgb, depth, id], index) =>
+  `${coordinate(index)} · RGB [${rgb.join(', ')}] · ${depth.toFixed(3)} m · ${id} (${id === 2 ? 'part' : 'workbench'})`;
+const depthColor = (depth) => {
+  const lightness = 20 + (3.38 - depth) / .22 * 60;
+  return `hsl(205 25% ${lightness}%)`;
+};
+---
+<figure class="pixel-sample" data-pixel-sample>
+  <figcaption>{ko ? '픽셀 하나로 읽는 RGB·깊이·라벨' : 'Read RGB, depth, and a label at one pixel'}</figcaption>
+  <p>{ko ? '저장된 작업대의 첫 프레임에서 큐브와 상판 경계의 3 × 3 픽셀을 확대했습니다. RGB 칸을 눌러 같은 좌표를 비교하세요.'
+    : 'This is a 3 × 3 crop across the cube and tabletop in the first saved workbench frame. Select an RGB cell to compare the same coordinates.'}</p>
+  <div class="channels">
+    {channels.map((channel, type) => (
+      <div>
+        <p class="channel-name">{channel}</p>
+        <div class="pixel-grid" aria-hidden={type ? 'true' : undefined}>
+          {pixels.map(([rgb, depth, id], index) => type === 0 ? (
+            <button type="button" data-select-pixel={index} data-pixel={index} data-sample={sampleText(pixels[index], index)}
+              aria-pressed={index === selected ? 'true' : 'false'} aria-label={coordinate(index)}
+              class:list={['cell', { selected: index === selected }]} style={`background: rgb(${rgb.join(',')})`}>
+            </button>
+          ) : (
+            <span class:list={['cell', { selected: index === selected }]}
+              data-pixel={index} style={`background: ${type === 1 ? depthColor(depth) : id === 2 ? '#93c769' : '#52647c'}`}>
+              {type === 2 && id}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+  <p class="readout" role="status">{sampleText(pixels[selected], selected)}</p>
+  <p class="sample-note">{ko ? '이 영역에서는 가까운 픽셀일수록 깊이 칸이 밝습니다. 라벨 ID는 이 프레임의 JSON에서 읽었습니다.'
+    : 'Brighter depth cells are nearer within this crop. The IDs come from this frame’s label JSON.'}
+    <a href={repositoryFile('labs/scene-to-data/replicator-data.zip')}>{ko ? '원본 데이터' : 'Source data'}</a>
+  </p>
+</figure>
+
+<script>
+  for (const sample of document.querySelectorAll<HTMLElement>('[data-pixel-sample]')) {
+    const buttons = sample.querySelectorAll<HTMLButtonElement>('[data-select-pixel]');
+    const cells = sample.querySelectorAll<HTMLElement>('[data-pixel]');
+    const readout = sample.querySelector('[role="status"]');
+    for (const button of buttons) {
+      button.addEventListener('click', () => {
+        for (const other of buttons) other.setAttribute('aria-pressed', String(other === button));
+        for (const cell of cells) cell.classList.toggle('selected', cell.dataset.pixel === button.dataset.pixel);
+        if (readout) readout.textContent = button.dataset.sample ?? '';
+      });
+    }
+  }
+</script>
+
+<style>
+  .pixel-sample { margin: 20px 0 0; padding: clamp(10px, 2.5vw, 17px); border: 1px solid var(--edge); border-radius: 10px; background: var(--surface); }
+  figcaption { margin-bottom: 7px; color: var(--text); font-weight: 700; font-size: 1.05rem; }
+  p { color: var(--muted); font-size: .86rem; line-height: 1.55; }
+  .channels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(5px, 2vw, 17px); max-width: 30rem; margin-block: 12px; }
+  .channel-name { margin-bottom: 4px; font-weight: 650; }
+  .pixel-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; }
+  .cell { display: grid; width: 100%; aspect-ratio: 1; place-items: center; border: 1px solid transparent; border-radius: 2px; font: inherit; font-size: .82rem; color: #0b1010; }
+  button.cell { appearance: none; cursor: pointer; }
+  .cell.selected { border: 2px solid white; }
+  button.cell:focus-visible { outline-offset: 1px; z-index: 1; }
+  .readout { color: var(--text); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+  .sample-note { margin-top: 5px; }
+  .sample-note a { color: var(--accent); text-underline-offset: 3px; }
+</style>

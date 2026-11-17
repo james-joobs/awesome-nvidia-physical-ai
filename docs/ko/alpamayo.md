@@ -12,6 +12,31 @@ Alpamayo는 자율주행용 추론·행동 모델 계열입니다. R1 연구 아
 
 *주행 클립이 구체적인 판단과 연결된 라벨 데이터가 되는 과정을 보여줍니다. 추론과는 별도인 학습 데이터 흐름입니다.* [공식 그림 출처](https://arxiv.org/html/2511.00088v2#S3)
 
+## 카메라 영상과 자차 기록이 어떻게 주행 궤적으로 바뀔까요?
+
+### 실제 검증 목록에서 기준 시점 읽기
+
+아래는 NVIDIA가 제공하는 **Alpamayo 2 Super** 검증 목록 첫 항목에서 두 필드를 발췌한 것입니다.
+
+```json
+{
+  "clip_id": "003e17f1-7c44-4d82-9f32-d4cd82f6a8e8",
+  "t0_us": 2000000
+}
+```
+
+`clip_id`는 PhysicalAI-AV의 영상 구간, `t0_us`는 그 구간 시작 후 **2초**를 뜻합니다. 로더는 이 시점에 맞춰 영상과 자차 위치·회전을 읽습니다. 공식 궤적 예제는 6대 카메라에서 각 4프레임을 사용합니다. 10Hz에서 요청하는 카메라 시점은 1.7, 1.8, 1.9, 2.0초입니다. 디코딩된 실제 타임스탬프는 따로 보관합니다. [고정 리비전의 검증 목록](https://github.com/NVlabs/alpamayo2/blob/59776920bbd981f2c989213bba5ee8594e71ed1d/examples/public_golden_validation_samples.json) · [데이터 로더](https://github.com/NVlabs/alpamayo2/blob/59776920bbd981f2c989213bba5ee8594e71ed1d/src/alpamayo2_super/load_physical_aiavdataset.py)
+
+### 입력 배열과 예측 결과 구분하기
+
+| 데이터 | 공식 궤적 예제의 형식 | 무엇을 담나요? |
+|---|---|---|
+| `image_frames` | `[6, 4, 3, H, W]` | 궤적 프로파일이 고른 카메라·프레임·RGB 채널·세로·가로입니다. |
+| `ego_history_xyz` | `[1, 1, 16, 3]` | 기준 시점까지의 자차 위치를 자차 좌표계의 XYZ로 나타냅니다. 회전 배열도 따로 읽습니다. |
+| 예측 궤적 한 개 | 위치 `[64, 3]`, 회전 `[64, 3, 3]` | 기준 시점 후 0.1~6.4초에 해당하는 경유점의 위치와 회전입니다. |
+
+시각·언어 모델이 영상과 문맥을 표현하고, 궤적 생성 모듈이 조건에 맞는 미래 움직임을 샘플링합니다. 공식 실행 예제는 판단의 근거를 설명하는 텍스트와 궤적을 각각 출력합니다. `minADE`는 각 후보의 XY 경로와 실제 주행 경로 사이의 평균 거리를 구한 뒤 가장 작은 값을 고른 지표입니다. 폐루프 주행에서 충돌·도로 이탈을 보는 방법은 [AlpaSim 평가 실습](workflows/alpasim-closed-loop.md)으로 이어집니다. 이 예시의 수치는 공식 데이터 계약과 검증 목록에 근거합니다. [2 Super 모델 카드](https://huggingface.co/nvidia/Alpamayo2-Super) · [공식 추론 스크립트](https://github.com/NVlabs/alpamayo2/blob/59776920bbd981f2c989213bba5ee8594e71ed1d/src/alpamayo2_super/inference_smoke.py)
+
 ## 공개 체크포인트
 
 | 모델 | 주요 기능 | 모델과 추론 코드 |

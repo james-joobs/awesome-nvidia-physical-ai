@@ -12,6 +12,14 @@ Metropolis is NVIDIA’s video AI ecosystem. Its Video Search and Summarization 
 
 *Follow a file upload to VLM events and the aggregated summary. The timestamps connect each event back to the source media.* [Official figure source](https://docs.nvidia.com/vss/system-components/vision-microservices/video-summarization)
 
+## How does video evidence become part of an answer?
+
+### Align a clip’s time with the source video
+
+Splitting a long recording into intervals lets you retrieve footage for a question like “When did the part stop on the conveyor?” Depending on the pipeline, use indexed clip descriptions or a model that analyzes the retrieved frames. A source file and time range let a reviewer replay the evidence.
+
+If a clip starts 32 seconds into the source and the event appears 2.4 seconds into that clip, the illustrative source timestamp is 34.4 seconds. Try several questions and replay the cited interval to check that the timestamp supports the answer. For routing downstream text requests, see the [Switchyard guide](nemo-switchyard.md). [Official VSS documentation](https://docs.nvidia.com/vss/)
+
 ## How it works
 
 VSS separates real-time extraction, downstream analytics and agent/offline processing. DeepStream can emit detections and tracks, while a real-time VLM can produce captions or event candidates. Consumers retrieve records and video clips using timestamps. In the file summarization profile, a service chunks the file, calls the VLM, stores timestamped events and aggregates them with a summarization model. The streaming profile can add message-bus components.

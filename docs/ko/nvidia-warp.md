@@ -9,6 +9,16 @@
 
 Warp는 Python으로 작성한 수치 계산 커널을 CPU 또는 CUDA GPU에서 병렬 실행할 코드로 컴파일합니다. 배열, 기하 연산과 자동 미분을 제공해 시뮬레이션 프로젝트가 필요한 계산을 직접 구현할 수 있게 합니다.
 
+## Python 코드가 어떻게 GPU에서 입자를 한꺼번에 움직일까요?
+
+### Python에서 커널을 실행하기
+
+Python은 데이터 배열과 함수를 준비하고, Warp의 **커널**이 각 입자의 계산을 병렬로 실행합니다. 입자 DEM 예제는 공간 격자에서 이웃을 찾고 접촉 힘을 계산해 위치와 속도를 갱신합니다. 화면에 보낼 좌표와 검사용 통계를 계산하는 좌표는 목적이 다릅니다.
+
+### 전체 배열과 표시용 표본 읽기
+
+[저장된 GPU 실행](../../labs/warp-particles/recorded.json)은 입자 `65536`개를 계산하고 `16384`개를 화면에 표시했습니다. 전체 위치 배열을 읽으면 `[65536, 3]`이며, 뷰어는 `points[::4]`로 네 개 중 하나를 선택합니다. 따라서 표시 개수를 줄여도 계산한 입자 수는 65,536개입니다. [Warp DEM 공식 코드](https://github.com/NVIDIA/warp/blob/main/warp/examples/core/example_dem.py) · [입자 실습](labs/warp-particles.md)
+
 ## Warp 1.19
 
 **Warp 1.19.0**은 희소 행렬 조립 구조 재사용, 새 희소 전처리기, Surface Nets 메시 추출과 실험적 텍스처 샘플링 미분을 추가합니다. 유한요소 해석에서 희소 구조는 그대로 두고 계수만 반복해 갱신할 때 조립 구조를 재사용할 수 있습니다. Isaac Lab 3.0과 Isaac Sim 6.2의 대상 버전은 Warp 1.17.0입니다. [Warp 1.19.0 릴리스](https://github.com/NVIDIA/warp/releases/tag/v1.19.0) · [Isaac Lab 3.0 릴리스](https://github.com/isaac-sim/IsaacLab/releases/tag/v3.0.0) · [Isaac Sim 6.2 릴리스 노트](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/overview/release_notes.html)

@@ -9,6 +9,21 @@
 
 OpenUSD defines a scene description and composition system. A stage presents the composed scene as prims while opinions about each prim can remain in independent files or in-memory layers.
 
+## How do multiple files become one USD scene?
+
+### Reference an asset and author separate scene edits
+
+A **layer** stores authored properties. A **stage** composes layers and references into the scene the simulator sees. For example, keep reusable geometry in `workbench.usdc` and author that asset’s placement and the camera in `workbench_scene.usd`.
+
+```text
+workbench.usdc       ─┐
+placement and camera ─┴→ composed stage → Isaac Sim
+```
+
+### Check paths and units
+
+`/World/Workbench/Tabletop` is a prim path in the composed scene. If several layers author the same property, the composition rules determine which value applies. A tabletop width of `1.2` in a stage with `metersPerUnit = 1` means 1.2 meters. When referencing it in another stage, verify units, up axis, and the resolved prim path. [Workbench conversion lab](workflows/workbench-cad-to-isaac-sim.md) · [OpenUSD reference tutorial](https://openusd.org/release/tut_referencing_layers.html)
+
 ## Architecture
 
 | Component | Responsibility and data boundary |

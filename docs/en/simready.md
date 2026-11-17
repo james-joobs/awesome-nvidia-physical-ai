@@ -9,6 +9,22 @@
 
 SimReady describes what an OpenUSD asset must provide for a specific simulation use. A robot arm may need correct articulation and joint limits, a manipulation prop needs usable collision and mass data, and a perception asset may need semantic labels.
 
+## When is a good-looking asset ready to simulate?
+
+### What do the renderer, solver, and camera read?
+
+| Property | Consumer | Role in a workbench scene |
+| --- | --- | --- |
+| Mesh and visual material | Renderer | Draw the tabletop's shape and color. |
+| Collision shape | Physics engine | Determine where a falling object contacts the table. |
+| Class label | Semantic annotator | Mark the corresponding camera pixels as workbench or another authored class. |
+
+SimReady specifies how simulation properties are authored and validated for a use case. A short contact test reveals whether the physics geometry lines up with the rendered asset.
+
+### Measure the difference in a recorded run
+
+The [recorded comparison](../../labs/physics/recorded.json) shows final probe-center heights of about 0.844 m and 0.984 m. Compare the world coordinates and inspect the collision overlay to explain the 0.14 m gap. If you will generate a labeled dataset, check that the expected class also lands on the correct pixels. [Collider lab](labs/physics.md) · [NVIDIA SimReady specification](https://docs.omniverse.nvidia.com/simready/latest/)
+
 ## Architecture
 
 | Component | Responsibility and data boundary |

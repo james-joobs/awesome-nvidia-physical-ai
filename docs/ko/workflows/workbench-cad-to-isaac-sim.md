@@ -4,6 +4,20 @@
 
 STEP 파일을 Isaac Sim이 읽는 형상으로 변환한 뒤, 큐브가 상판에 닿을 수 있게 충돌체를 붙입니다. 준비된 파일과 코드부터 써 보고 싶다면 [작업대 완주 과제](../labs/workbench-capstone.md)로 시작하세요. 여기서는 내 STEP 파일을 AIF와 HOOPS로 변환합니다.
 
+## CAD가 시뮬레이션용 에셋이 되려면 무엇이 필요할까요?
+
+### 변환과 장면 구성을 따로 하기
+
+STEP에는 CAD 형상과 부품 구조가 있고, HOOPS 변환기를 거치면 USD에서 쓸 형상이 만들어집니다. 변환한 작업대 에셋을 참조하는 별도 장면에 배치 좌표, 충돌체, 카메라를 추가합니다. 여러 실험이 작업대 에셋의 형상은 공유하면서 조명이나 로봇 자세를 따로 설정할 수 있습니다. [AIF Pipeline Samples](https://github.com/NVIDIA-Omniverse/aif-pipeline-samples) · [OpenUSD 참조 예제](https://openusd.org/release/tut_referencing_layers.html)
+
+| 단계 | 파일 | 확인할 정보 |
+| --- | --- | --- |
+| 치수를 아는 입력 | `workbench.step` | 상판이 1,200 × 600 × 40mm인지 확인합니다. |
+| 참조할 에셋 | `workbench.usdc` | 단위와 위쪽 축을 읽습니다. 상판을 미터로 환산하면 1.2 × 0.6 × 0.04m입니다. |
+| 시뮬레이션 장면 | `workbench_scene.usd` | 참조가 해결되고, 상판 충돌체가 보이는 면과 정렬되는지 확인합니다. |
+
+아래 HOOPS 경로와 [CadQuery를 쓰는 작업대 완주 과제](../labs/workbench-capstone.md)는 변환 도구가 다릅니다. 두 경로 모두 치수·축·접촉을 확인한 뒤 카메라나 로봇을 연결합니다.
+
 ## 준비물
 
 | 항목 | 시작 기준 |

@@ -4,6 +4,16 @@
 
 Replicator generates labeled synthetic datasets from simulated scenes. The application defines what changes between captures, which cameras render the scene, which labels to compute and how to write the records.
 
+## How does a camera view become RGB and label files?
+
+### Render products, annotators, and writers
+
+The advanced lab pairs `/World/SensorCamera` with a 960 × 540 resolution to create a render product. RGB, camera-plane depth, and semantic annotators read different information from that same frame. You can delegate persistence to a writer or, as in this lab, save the results with Python as PNG, NumPy, and JSON files.
+
+### Match scene state to each output
+
+In folder `03/`, `rgb.png` stores color, `depth_m.npy` stores per-pixel depth in meters, and `semantic_ids.npy` stores class IDs. Use `semantic_labels.json` to identify which IDs belong to the cube. When varying the camera, light, or object pose, retain the configuration alongside the frame index. It gives you a way to investigate why the visible area changed. [Advanced 12-frame lab](labs/replicator-outputs.md) · [Official Replicator examples](https://docs.isaacsim.omniverse.nvidia.com/latest/replicator_tutorials/tutorial_replicator_isaac_snippets.html)
+
 ## Architecture
 
 | Component | Responsibility and data boundary |

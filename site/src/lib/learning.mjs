@@ -33,7 +33,7 @@ export const onboardingGuides = [
 
 export const workbenchProject = {
   page: workbenchRoute,
-  sections: ['check-recording', 'build-cad', 'capture', 'verify'],
+  sections: ['implementation', 'check-recording', 'build-cad', 'capture', 'verify'],
   en: {
     title: 'Build and verify a workbench camera dataset',
     description: 'Turn CAD into an Isaac Sim scene, capture RGB, depth and masks, then check the result on a CPU.',

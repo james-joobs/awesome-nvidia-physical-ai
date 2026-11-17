@@ -2,6 +2,23 @@
 
 Turn a STEP workbench into an OpenUSD scene, drop a test cube onto it in Isaac Sim, and capture four RGB, depth, and semantic-mask frames with Replicator. Finish by checking the scene dimensions, the cube's resting height, and how far it moved between captures.
 
+## How does a workbench model become a camera dataset?
+
+### Carry STEP dimensions into USD
+
+STEP stores the CAD shapes of the workbench parts. The CadQuery script divides their surfaces into triangles, converts the vertices from millimeters to meters, and saves the vertices and face indices in `cad_meshes.json`. The simulator builds the USD scene from those coordinates. For example, a tabletop length of 1,200 mm becomes `1.2` in this meter-based scene. Check dimensions even when the asset looks plausible in the viewport. [CAD source](../../../labs/scene-to-data/make_step.py) · [OpenUSD linear units](https://openusd.org/release/api/group___usd_geom_linear_units__group.html)
+
+| Component | Input → output | What to check in this lab |
+| --- | --- | --- |
+| Scene geometry | Triangular meshes → USD prims and coordinates | A tabletop measuring 1.2 × 0.6 × 0.04 m. |
+| PhysX | Rigid body, colliders, and gravity → cube poses | The tabletop is at Z = 0.8 m. Add half the cube’s height (0.0615 m) to predict a center at 0.8615 m. |
+| Replicator | Scene and camera → aligned color, depth, and class IDs | RGB shape is `[720, 1280, 3]`. Depth and labels each have shape `[720, 1280]`. |
+| CPU checker | USD and captures → `check/report.json` | Scene units, channel alignment, cube pixels, and relative X displacement. |
+
+### Read three values at the same pixel
+
+In the [first saved frame](../../../labs/scene-to-data/replicator-data.zip), `u=613, v=231` has RGB `[155, 63, 14]`, depth rounded to `3.164 m`, and ID `2`. The pixel to its left, `u=612, v=231`, has RGB `[153, 103, 61]`, depth `3.376 m`, and ID `3`. The frame’s JSON maps `2 → part` and `3 → workbench`. These neighboring pixels cross the boundary between the tabletop and the cube.
+
 ## Check the bundled recording without a GPU
 
 Look at the bundled captures first so you know what you will make. You can do this part on your own computer. Open a terminal and run the first two lines to get the files and enter the folder. If you already cloned the repo, just enter its folder. Install missing Ubuntu 24.04 prerequisites with `sudo apt install git python3.12-venv`.

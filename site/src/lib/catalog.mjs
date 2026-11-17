@@ -26,7 +26,7 @@ export const workflows = [
     theme: 'lime',
     icon: 'cube',
     tools: ['Isaac Sim', 'PhysX'],
-    sections: ['execution-environment', 'open-the-scene', 'build-the-scene', 'verify'],
+    sections: ['implementation', 'execution-environment', 'open-the-scene', 'build-the-scene', 'verify'],
     en: {
       goal: 'Learn simulation basics',
       title: 'Drop your first cube',
@@ -47,7 +47,7 @@ export const workflows = [
     theme: 'mint',
     icon: 'workbench',
     tools: ['AIF Pipeline Samples', 'OpenUSD', 'Isaac Sim'],
-    sections: ['requirements', 'convert-to-usd', 'compose-the-scene', 'camera-data', 'pick-and-place', 'verification'],
+    sections: ['implementation', 'requirements', 'convert-to-usd', 'compose-the-scene', 'camera-data', 'pick-and-place', 'verification'],
     en: {
       goal: 'Build a simulation scene',
       title: 'Workbench CAD to Isaac Sim',
@@ -68,7 +68,7 @@ export const workflows = [
     theme: 'blue',
     icon: 'car',
     tools: ['AlpaSim', 'NuRec'],
-    sections: ['requirements', 'run-the-scene', 'inspect-the-results', 'use-your-own-logs', 'verification'],
+    sections: ['implementation', 'requirements', 'run-the-scene', 'inspect-the-results', 'use-your-own-logs', 'verification'],
     en: {
       goal: 'Evaluate a driving policy',
       title: 'AlpaSim closed-loop evaluation',

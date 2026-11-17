@@ -28,6 +28,12 @@ Reasoner와 Generator는 표현을 공유하며 함께 학습하는 두 Transfor
 
 체크포인트마다 프레임 수, 입력 매체, 행동 차원을 확인합니다. Super, Nano, Edge는 계열 아키텍처를 공유하며 지원 작업과 추론 통합 방식에는 차이가 있습니다. [공식 모델 레퍼런스](https://docs.nvidia.com/cosmos/latest/cosmos3/model_reference.html)
 
+### 같은 주행 영상이라도 과제에 따라 출력이 달라집니다
+
+“차선을 바꾼 시점은 언제인가요?”라고 묻는다면 영상에 대한 설명을 기대합니다. 비가 오는 장면으로 바꾸고 싶다면, 선택한 생성 체크포인트가 지원하는 장면 조건과 프롬프트를 넣고 카메라 경로와 차선 배치가 유지됐는지 봅니다. 행동을 조건으로 주는 실험이라면 행동 순서를 바꿔 예측 영상이 어떻게 달라지는지 살펴봅니다.
+
+실험 기록에는 **원본 클립 ID, 체크포인트, 작업 유형, 조건 또는 질문, 출력 파일**을 함께 적습니다. API 입력 형식은 선택한 체크포인트 문서를 확인하세요. 생성 영상에서 조건을 따랐는지 먼저 평가하고, 충돌 같은 물리 사건은 시뮬레이션 상태나 별도 관측 기록에서 확인합니다. [Cosmos 3 모델 레퍼런스](https://docs.nvidia.com/cosmos/latest/cosmos3/model_reference.html)
+
 ## 활용 예시 — 자율주행 장면 변형
 
 ![Cosmos 3의 주행 장면 제어 예제](https://raw.githubusercontent.com/NVIDIA/cosmos/main/assets/demos/transfer_worldscenario.gif)

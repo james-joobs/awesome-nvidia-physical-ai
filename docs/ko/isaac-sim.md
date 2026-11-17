@@ -11,6 +11,16 @@ Isaac Sim에서는 OpenUSD로 장면을 만들고 로봇과 물체의 움직임�
 
 처음이라면 [큐브 낙하 실습](workflows/isaac-sim-first-cube.md)에서 강체와 충돌체를 적용해 보세요.
 
+## 같은 장면에서 물리 계산과 카메라가 어떻게 연결될까요?
+
+### 장면에서 화면까지
+
+USD 스테이지에는 로봇과 물체, 충돌체, 카메라가 각각 프림으로 들어 있습니다. 재생하면 PhysX가 충돌과 관절 운동을 계산하고, 그 상태를 RTX가 카메라 시점에서 렌더링합니다. Replicator 어노테이터는 같은 화면에서 색, 깊이, 분할 라벨을 읽을 수 있습니다.
+
+### 저장된 상태와 카메라 데이터 읽기
+
+작업대 예제의 [USD 파일](../../labs/scene-to-data/workbench_scene.usda)에는 상판 `/World/Workbench/Tabletop`과 촬영용 `/World/InspectionCamera`가 있습니다. [저장된 기록](../../labs/scene-to-data/recorded.json)에서 큐브 중심 높이는 약 1.154m에서 0.862m로 바뀌었습니다. 물리 좌표는 3D 장면 기준 미터이고, 촬영한 RGB의 배열은 `[720, 1280, 3]`인 이미지 좌표입니다. 물체가 실제로 떨어졌는지 확인할 때는 영상과 높이 기록을 대조합니다. [Isaac Sim 공식 문서](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/index.html) · [작업대 실습](labs/workbench-capstone.md)
+
 ## 릴리스 구분
 
 **Isaac Sim 6.2.0**은 2026년 11월 13일 기준 최신 정식 버전이자 Isaac Lab 3.0의 대상 버전입니다. Newton 1.6.1과 Warp 1.17.0을 포함하고, 에셋 서버 확인에 시간 제한을 추가했습니다. Newton의 물리 서브스텝과 구동기 동작을 수정했고 Cortex는 제거했습니다. 이 가이드의 실습을 재현할 때는 6.2.0 정식 태그를 기준으로 삼습니다. [GitHub 릴리스](https://github.com/isaac-sim/IsaacSim/releases/tag/v6.2.0) · [6.2 릴리스 노트](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/overview/release_notes.html)

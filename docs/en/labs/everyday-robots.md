@@ -2,7 +2,21 @@
 
 ## How it works
 
-The snack drawer **sees, decides, then moves**. A synthetic camera captures the area in front of the drawer. OpenCV looks for colors in specific parts of the image to detect the card and an obstruction. Its decision drives a joint that slides in one direction. The alarm and cart use similar rules with different inputs, such as hand distance or aisle width.
+### Turn a camera frame into three checks
+
+The script draws the hand, card, and obstruction into a color array that acts as the camera input. OpenCV checks three cropped regions of interest for those features. Within each crop it produces a mask of pixels inside a given BGR (blue, green, red) range. If more than 160 pixels in the card crop match the selected green range, the script sets `badge_seen` to true. [Camera input and control code](../../../labs/everyday-robots/run_story_demos.py) · [OpenCV color range masks](https://github.com/opencv/opencv/blob/4.x/doc/tutorials/imgproc/threshold_inRange/threshold_inRange.markdown)
+
+### Connect the decision to motion
+
+Detecting a hand activates the control rule. A visible green card or an obstruction at the slot keeps the target closure at 0. With neither condition, the target becomes 1, and the drawer moves toward it a little on each frame.
+
+| Trace field | How to interpret it |
+| --- | --- |
+| `badge_seen`, `slot_occupied` | Card and obstruction decisions from the image. The same green card yields the same decision for different people. |
+| `drawer_closed_fraction` | Closure from 0 (open) to 1 (closed). |
+| `drawer_final_m` | Final slide distance in the [saved scene results](../../../labs/everyday-robots/recorded.json). The run with no card and a clear slot moves about 0.305 m. |
+
+The same pattern appears elsewhere in the collection. The cart uses passage width as input, and the desk cleanup uses a rule for what to keep or discard. Change one relevant input and observe which decision changes.
 
 ## Run it
 

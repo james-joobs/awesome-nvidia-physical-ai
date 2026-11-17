@@ -10,6 +10,16 @@ Distributed reinforcement learning infrastructure used by AlpaGym.
 
 The figure separates rollout production, policy updates and controller messages. [Official figure source](https://github.com/nvidia-cosmos/cosmos-rl)
 
+## Which process collects experience and which updates the policy?
+
+### Separate collection and training
+
+In distributed reinforcement learning, rollout workers run the policy and collect experience. The trainer uses that experience and its scores to update weights. In AlpaGym, a rollout is a closed-loop drive in AlpaSim. After selecting the task and algorithm, track collection throughput separately from learning and evaluation metrics.
+
+### Read rollout settings in a real preset
+
+The [published training preset](https://github.com/NVlabs/alpagym/blob/972d160eed0e23d388497851504a3a233fec5879/packages/host/src/alpagym_host/conf/run/public_2507_1epoch.yaml) sets `rollout.n_generation=2`, `rollout.batch_size=1`, and `train.num_epochs=1`. These specify generation requests, the rollout batch setting, and training epochs. Inspect [AlpaGym rewards and metrics](alpagym.md) for driving behavior. [Cosmos RL project](https://github.com/nvidia-cosmos/cosmos-rl)
+
 ## Architecture and data flow
 
 A controller coordinates policy workers and rollout workers. Rollout replicas produce experiences and policy replicas consume them to train. The documented control messages include rollout, evaluation and weight synchronization. AlpaGym uses the framework for autonomous-driving post-training in AlpaSim.

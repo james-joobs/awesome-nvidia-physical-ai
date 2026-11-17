@@ -12,6 +12,31 @@ Alpamayo is a family of reasoning and action models for autonomous driving. The 
 
 *This training-data diagram shows how driving clips become labeled examples linked to specific decisions. It is separate from inference.* [Official figure source](https://arxiv.org/html/2511.00088v2#S3)
 
+## How do camera views and ego motion become a driving trajectory?
+
+### Read the anchor time from a real validation manifest
+
+These two fields come from the first entry in NVIDIA’s **Alpamayo 2 Super** public validation manifest.
+
+```json
+{
+  "clip_id": "003e17f1-7c44-4d82-9f32-d4cd82f6a8e8",
+  "t0_us": 2000000
+}
+```
+
+The ID identifies a PhysicalAI-AV clip. The anchor `t0_us` is **2 seconds** from the start of that clip. The loader aligns images and ego position and rotation to that time. The trajectory profile uses six cameras and four frames per camera. At 10 Hz, the requested image times here are 1.7, 1.8, 1.9, and 2.0 seconds. The loader also retains the timestamps returned by decoding. [Pinned validation manifest](https://github.com/NVlabs/alpamayo2/blob/59776920bbd981f2c989213bba5ee8594e71ed1d/examples/public_golden_validation_samples.json) · [Data loader](https://github.com/NVlabs/alpamayo2/blob/59776920bbd981f2c989213bba5ee8594e71ed1d/src/alpamayo2_super/load_physical_aiavdataset.py)
+
+### Read input arrays and predicted outputs
+
+| Data | Official trajectory example | Meaning |
+|---|---|---|
+| `image_frames` | `[6, 4, 3, H, W]` | Selected cameras, frames, RGB channels, height, and width. |
+| `ego_history_xyz` | `[1, 1, 16, 3]` | Sixteen ego-frame XYZ positions up to the anchor. Rotation is a separate array. |
+| One predicted trajectory | Positions `[64, 3]` and rotations `[64, 3, 3]` | Waypoints from 0.1 to 6.4 seconds after the anchor. |
+
+The vision-language backbone encodes the observations and the action expert samples a conditioned future trajectory. The official example reports reasoning text and a trajectory. For `minADE`, it computes mean XY error against the recorded future for each candidate, then takes the smallest mean. Follow the [AlpaSim lab](workflows/alpasim-closed-loop.md) to inspect collisions or off-road events in closed loop. The numbers above come from NVIDIA’s manifest and documented data contract. [2 Super model card](https://huggingface.co/nvidia/Alpamayo2-Super) · [Official inference script](https://github.com/NVlabs/alpamayo2/blob/59776920bbd981f2c989213bba5ee8594e71ed1d/src/alpamayo2_super/inference_smoke.py)
+
 ## Released checkpoints
 
 | Model | What it adds | Model and inference code |

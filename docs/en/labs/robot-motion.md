@@ -2,7 +2,19 @@
 
 ## How it works
 
-An arm may need a different path to reach the same goal once a box blocks its way. **cuRobo** computes a sequence of joint positions that avoids the obstacle. Demonstration generation is a separate exercise. **AutoData** uses a recorded example to generate more demonstrations under changed starting conditions.
+### Turn a tool pose into a path for every joint
+
+The goal specifies the tool’s position and orientation, and the starting state specifies the arm joints. The robot model maps joint values to the tool and link positions. cuRobo finds joint configurations that reach the goal and a path that avoids collision along the way. Adding an obstacle changes which intermediate configurations are feasible even when the goal stays fixed. [cuRobo documentation](https://curobo.org/) · [Lab planner](../../../labs/robot-motion/plan.py)
+
+| Output | How to read it |
+| --- | --- |
+| `baseline_q` and `obstacle_q` in `motion.npz` | Each row is a waypoint. Columns are joint values in the robot model’s order. |
+| `baseline_tool` and `obstacle_tool` | Each row contains tool position `[x, y, z]`. The recorded paths have 24 and 26 rows. |
+| `replanned_tool_enters_obstacle` in `result.json` | Checks sampled tool positions against the new box. The planner separately checks the arm’s collision geometry. |
+
+### How does this differ from generating demonstrations?
+
+AutoData runs as a separate exercise. MimicGen reuses segments of a successful demonstration, such as picking up and putting down an object, and adapts them to a changed object arrangement. The simulation checks the resulting attempts before saving successful examples. In the [recorded result](../../../labs/robot-motion/recorded.json), `num_attempts: 6` and `num_success: 3` count attempts and successful demonstrations. `first_success_frame: 243` for `demo_0` marks the first successful frame in that demonstration. [MimicGen project](https://github.com/NVlabs/mimicgen)
 
 ## Run it
 

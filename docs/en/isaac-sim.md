@@ -11,6 +11,16 @@ Isaac Sim is a robotics simulation application that composes OpenUSD scenes, adv
 
 New to Isaac Sim? [Try the falling-cube exercise](workflows/isaac-sim-first-cube.md) to see how a rigid body and a collider work together.
 
+## How do physics and a camera share one scene?
+
+### From stage to rendered view
+
+A USD stage contains the robot, objects, colliders, and cameras as prims. When the simulation runs, PhysX advances contacts and joint motion. RTX renders that state from the camera, and Replicator can read color, depth, and labels for the same view.
+
+### Read the saved state and camera data
+
+The [workbench USD](../../labs/scene-to-data/workbench_scene.usda) contains `/World/Workbench/Tabletop` and `/World/InspectionCamera`. In the [recorded run](../../labs/scene-to-data/recorded.json), the cube center moves from about 1.154 m to 0.862 m in Z. Physics positions are measured in world-space meters, while the captured RGB array has image-space shape `[720, 1280, 3]`. Check the visual result alongside the saved Z positions to confirm the drop. [Official Isaac Sim documentation](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/index.html) · [Workbench lab](labs/workbench-capstone.md)
+
 ## Release tracks
 
 **Isaac Sim 6.2.0** is the latest general-availability release as of November 13, 2026 and the Isaac Sim version targeted by Isaac Lab 3.0. It bundles Newton 1.6.1 and Warp 1.17.0, adds a startup timeout for asset-server checks, fixes Newton substep and actuator behavior, and removes Cortex. The general-availability tag is the reproducible reference for this guide and its exercises. [GitHub release](https://github.com/isaac-sim/IsaacSim/releases/tag/v6.2.0) · [6.2 release notes](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/overview/release_notes.html)

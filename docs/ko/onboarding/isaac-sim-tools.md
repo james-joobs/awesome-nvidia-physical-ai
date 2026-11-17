@@ -37,6 +37,12 @@ python -m pip install 'isaacsim[all,extscache]==6.2.0.0' --extra-index-url https
 isaacsim
 ```
 
+### GUI로 보던 장면을 스크립트에서 어떻게 재현하나요?
+
+GUI의 **Stage**는 USD 프림의 계층을, **Property**는 선택한 프림의 속성을 보여줍니다. **Play**를 누르면 물리가 상태를 갱신합니다. 스크립트는 같은 장면을 열어 카메라나 충돌체를 지정하고, 반복 실행에서 이미지와 검사 로그를 남깁니다.
+
+헤드리스 캡처는 창을 띄우지 않고 RTX로 카메라 데이터를 렌더링합니다. 이미 저장한 배열을 읽는 CPU 검사는 렌더링 없이 할 수 있습니다. 예를 들어 뷰포트에서 확인한 USD와 카메라 경로를 사용해 헤드리스로 캡처한 뒤, 데이터 폴더를 복사해 다른 컴퓨터에서 검사할 수 있습니다. [Isaac Sim Python 실행 환경](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/installation/install_python.html)
+
 ## GUI에서 작업대 열고 조작하기
 
 1. **File → Open**에서 레포에 있는 [`workbench_scene.usda`](../../../labs/scene-to-data/workbench_scene.usda)를 엽니다.

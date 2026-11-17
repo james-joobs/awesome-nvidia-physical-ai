@@ -6,6 +6,16 @@ Isaac Lab-Arena assembles robot-policy evaluation environments from reusable pie
 
 NVIDIA announced **0.4 as a developer preview** at CoRL 2026. The preview builds on Arena's composable, parallel evaluation workflows. [NVIDIA announcement](https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/)
 
+## How can the same task evaluate different robot policies?
+
+### Task criteria and the policy adapter
+
+Arena composes a scene, embodiment, instruction, and success criteria. A policy adapter matches simulated observations and actions to the model contract. Arena logs one episode per JSONL line and records completed milestones in `progress.events`.
+
+### Read the lift and placement events
+
+The [lab configuration](../../labs/gr00t-placement/droid-70s.yaml) selects the `droid_abs_joint_pos` embodiment, a cube and bowl, and a 70-second limit. In the [first recorded trial](../../labs/gr00t-placement/recorded-70s.jsonl), lift occurs at step 442 and placement at step 521, giving `success: true`. Keep the scene and scoring conditions fixed when comparing policies and inspect the intermediate milestones too. [Arena repository](https://github.com/isaac-sim/IsaacLab-Arena) · [GR00T lab](labs/gr00t-placement.md)
+
 ## Architecture
 
 | Component | Responsibility and data boundary |

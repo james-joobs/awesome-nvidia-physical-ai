@@ -4,6 +4,16 @@
 
 Cosmos Data Factory(CDF)는 참조 파이프라인과 조합 가능한 스킬을 제공합니다. 선택한 블루프린트에 따라 검색, 시뮬레이션, 증강, 라벨링, 평가 도구 중 어떤 것을 쓸지 결정됩니다.
 
+## 영상 생성 모델과 데이터 생성 워크플로의 역할
+
+### 무엇을 고정하고 무엇을 바꿀지 정하기
+
+야간 주행 사례가 부족하다면 같은 원본 장면에서 조명 조건을 바꾼 예시를 만들 수 있습니다. 블루프린트는 원본 선택, 조건에 맞춘 생성, 검사 결과 내보내기를 단계별로 묶습니다. 예를 들어 원본 권장 조건을 충족하는 클립을 고르고, 같은 카메라 경로에서 조명만 바꾸는 지시를 준 뒤, 생성 영상에 차선과 물체 배치가 유지되는지 확인합니다.
+
+### 생성 데이터의 출처 보존하기
+
+검토용 기록에 원본 ID, 프롬프트나 제어 조건, 모델 버전, 생성물 파일, 검사 결과를 함께 남기면 기준을 바꿔 다시 비교할 수 있습니다. 생성 변형 여러 개를 사용하더라도 학습·검증 분할에서는 같은 원본 그룹으로 다룹니다. [공식 Cosmos Data Factory 블루프린트](https://github.com/NVIDIA/cosmos-data-factory) · [Cosmos 월드 모델](cosmos.md)
+
 ## 블루프린트 구성
 
 ![CDF 공식 영상 증강 워크플로](https://raw.githubusercontent.com/NVIDIA/cosmos-data-factory/main/docs/workflows/physical-ai-video-data-augmentation/media/main_workflow.png)

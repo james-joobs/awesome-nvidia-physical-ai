@@ -10,6 +10,16 @@ Cosmos-RL은 여러 GPU에 작업을 나눠 강화학습을 돌리는 프레임�
 
 롤아웃 생성, 정책 갱신과 컨트롤러 메시지를 구분해 볼 수 있습니다. [공식 그림 출처](https://github.com/nvidia-cosmos/cosmos-rl)
 
+## 경험을 모으는 프로세스와 정책을 갱신하는 프로세스
+
+### 수집과 학습을 나누는 이유
+
+분산 강화학습에서는 롤아웃 워커가 모델을 실행해 경험을 모으고, 학습 프로세스는 그 경험과 점수로 정책 가중치를 갱신합니다. AlpaGym 경로에서 롤아웃은 AlpaSim이 만든 폐루프 주행 기록입니다. 학습 대상과 학습 알고리즘을 설정한 뒤, 경험 수집 속도와 학습 지표를 따로 확인합니다.
+
+### 실제 설정에서 롤아웃 배치 읽기
+
+[AlpaGym의 실제 학습 설정](https://github.com/NVlabs/alpagym/blob/972d160eed0e23d388497851504a3a233fec5879/packages/host/src/alpagym_host/conf/run/public_2507_1epoch.yaml)은 `rollout.n_generation=2`, `rollout.batch_size=1`, `train.num_epochs=1`을 지정합니다. 이 값은 각각 생성 요청 수, 롤아웃 배치 설정, 학습 에포크 수입니다. 차량 성능은 [AlpaGym의 보상과 지표](alpagym.md)에서 확인합니다. [Cosmos RL 공식 프로젝트](https://github.com/nvidia-cosmos/cosmos-rl)
+
 ## 아키텍처와 데이터 흐름
 
 컨트롤러가 정책 워커와 롤아웃 워커를 조정합니다. 롤아웃 복제본이 경험을 생성하고 정책 복제본이 이를 학습에 사용합니다. 공식 제어 메시지에는 롤아웃, 평가와 가중치 동기화가 포함됩니다. AlpaGym은 AlpaSim 자율주행 후학습에 이 프레임워크를 사용합니다.

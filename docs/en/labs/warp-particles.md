@@ -2,7 +2,15 @@
 
 ## How it works
 
-Checking every pair of particles gets expensive as the number of particles grows. Warp divides space into cells to look for nearby particles. When particles touch, Warp computes the force between them and updates their positions for the next frame.
+### Why search only the nearby particles?
+
+Each particle has a position `[x, y, z]` and a velocity. Warp’s DEM example bins the particles into a spatial grid, then searches nearby bins for each particle’s potential contacts. It computes contact forces from the relative positions and motion. GPU kernels compute the forces across particles, then integrate velocity and position over a time step. [Official Warp DEM source](https://github.com/NVIDIA/warp/blob/main/warp/examples/core/example_dem.py)
+
+### Compare the simulation array with the viewer
+
+After copying positions for inspection, the array shape is `[65536, 3]`. One row is one particle, with columns for scene X, Y, and Z. The viewer draws `points[::4]`. Accordingly, the [record](../../../labs/warp-particles/recorded.json) shows `particles: 65536` and `displayed_particles: 16384`.
+
+The script calculates `mean_particle_displacement_m` by finding each particle’s straight-line displacement from its starting position, then averaging. It does not accumulate distance along the full paths. The same calculation runs with the viewer disabled. [Reporting code](../../../labs/warp-particles/run_dem.py)
 
 ## Run it
 

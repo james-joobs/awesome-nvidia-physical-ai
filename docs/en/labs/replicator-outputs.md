@@ -4,7 +4,30 @@
 
 ## How it works
 
-A photo shows the cube's color. Depth gives its distance from the camera plane, and segmentation says which pixels belong to it. Replicator knows the simulated scene, so it can export all three for one capture. The mask is an array of class IDs, one per pixel.
+### Read color, depth, and labels from the same view
+
+A Replicator **render product** pairs a USD camera with its capture resolution. The script attaches three **annotators** to read color, camera-plane depth, and semantic labels. The lab varies cube position, lighting, camera settings, and occlusion, then reads all three outputs from the same render. Semantic IDs come from class labels authored on the USD prims. [Isaac Sim capture examples](https://docs.isaacsim.omniverse.nvidia.com/latest/replicator_tutorials/tutorial_replicator_isaac_snippets.html) · [Lab capture code](../../../labs/replicator-outputs/capture.py)
+
+### Look up the same pixel in the frame directory
+
+| File | Shape and type in this lab | Meaning |
+| --- | --- | --- |
+| `rgb.png` | `[540, 960, 3]` when decoded as `uint8` | Red, green, and blue in the range 0–255. |
+| `depth_m.npy` | `[540, 960]`, `float32` | Depth in meters along the camera’s forward axis. A pixel’s straight-line distance to the camera can differ. |
+| `semantic_ids.npy` | `[540, 960]`, `uint32` | A class ID for each pixel. |
+| `semantic_labels.json` | ID → label | Look up the IDs named `target` to select the visible cube pixels. |
+
+Image coordinates `(u, v)` increase right and down from the top-left corner. NumPy indexes the row first, so read the same point with `rgb[v, u]`, `depth[v, u]`, and `ids[v, u]`. Multiple objects can share one semantic class. To distinguish them as individual objects, use instance segmentation.
+
+### How does a mask turn into a box?
+
+Select all pixels labeled `target` and take their left, top, right, and bottom extremes. In the [recorded frame 0](../../../labs/replicator-outputs/recorded.json), the box is `[264, 159, 401, 292]` with `15121` target pixels. The extrema are inclusive, so the rectangle is 138 × 134 pixels. It also contains background pixels, so use the mask count for visible area.
+
+The occluded example at frame 3 has `4102` target pixels. The cube also moved between these frames, so that difference alone does not isolate occlusion. To test occlusion independently, fix the camera and cube and change only the blocker.
+
+![Recorded frame 3 showing RGB, camera-plane depth, and semantic labels. The yellow box encloses the visible sliver of the cube to the left of the blocker.](../../../site/public/showcase/replicator-outputs.jpg)
+
+The box encloses the visible cube pixels in frame 3. The rest of the cube is behind the blocker. [Preview script](../../../labs/replicator-outputs/preview_dataset.py)
 
 ## Run it
 

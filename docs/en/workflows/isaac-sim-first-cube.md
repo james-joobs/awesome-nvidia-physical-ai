@@ -4,6 +4,22 @@
 
 Drop the same cube twice to find out **what makes it move and what lets it touch the floor**. Start with the prepared scene, then build the same setup yourself.
 
+## Why does the same cube pass through the floor in one run?
+
+### USD supplies the starting state and PhysX advances it
+
+In `cube-drop.usda`, `/World/DropBody` is a rigid body. Its translation `(0, 0, 3.5)` sets the initial cube center. With `metersPerUnit = 1`, one coordinate unit equals a meter. `upAxis = "Z"` makes the third coordinate the height. [Lab USD file](../../../assets/lessons/isaac-sim-first-cube/cube-drop.usda)
+
+| Role | Where it is defined |
+| --- | --- |
+| Visible cube | Size `1` on the child prim `/World/DropBody/Cube`. |
+| Moving body | The parent’s `PhysicsRigidBodyAPI`, mass, and initial pose. |
+| Contact geometry | The floor collider and the child’s `PhysicsCollisionAPI` in `WithCollider`. |
+
+### Predict its resting height before playing
+
+The top of the floor is at Z=0. A cube one meter tall has its center half a meter above its bottom face. With the collider enabled, expect its center to settle at about **0.5 m**. Gravity still acts when the cube’s collider is disabled, but there is no cube-to-floor contact to resolve. Test that prediction by playing the two variants. [Official simulation components](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/physics/simulation_fundamentals.html#simulation-components)
+
 ## Choose an execution environment
 
 If you have never launched the app, start with [Isaac Sim GUI and CLI setup](../onboarding/isaac-sim-tools.md). Check the [system requirements](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/installation/requirements.html) for an RTX workstation or the [WebRTC setup](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/installation/manual_livestream_clients.html) for a Mac with a remote GPU machine. The [Isaac Launchable](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/installation/install_advanced_cloud_setup_launchable.html) runs in a browser on a remote GPU. Check the provided version and [GPU charges](https://docs.nvidia.com/brev/concepts/gpu-instances) first.

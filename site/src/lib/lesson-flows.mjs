@@ -2,13 +2,13 @@
 export const lessonFlows = {
   'gr00t-placement': {
     en: [
-      ['What the robot sees', 'camera image + joint positions + instruction', 'Arena sends an image, the arm’s current joint positions, and the instruction to put the cube in the bowl.'],
-      ['What the policy decides', 'joint and gripper targets', 'GR00T uses that observation to choose where the joints and gripper should move.'],
+      ['What the robot sees', 'camera views + joint state + instruction', 'Arena packages the simulated observations for the GR00T DROID checkpoint.'],
+      ['What the policy predicts', 'sequence of joint and gripper targets', 'The runner executes a portion of the prediction before requesting a new one.'],
       ['What the simulator records', 'episode_results_*.jsonl', 'Isaac Sim applies the targets. Arena writes one trial per line, with separate lift and placement events.'],
     ],
     ko: [
-      ['로봇이 보는 것', '카메라 영상 + 관절 위치 + 지시문', 'Arena가 카메라 영상, 팔의 현재 관절 위치, 큐브를 그릇에 놓으라는 지시를 보냅니다.'],
-      ['모델이 정하는 동작', '관절과 그리퍼의 목표 위치', 'GR00T가 입력을 보고 관절을 어디로 움직이고 그리퍼를 얼마나 열지 정합니다.'],
+      ['로봇이 보는 것', '카메라 영상 + 관절 상태 + 지시문', 'Arena가 가상 로봇의 관측을 DROID 체크포인트가 읽을 수 있는 형태로 묶습니다.'],
+      ['모델이 제안하는 동작', '관절·그리퍼 목표의 시퀀스', '동작 예측의 일부를 실행한 뒤 새 관측으로 다시 예측합니다.'],
       ['시뮬레이터가 남기는 기록', 'episode_results_*.jsonl', 'Isaac Sim이 팔을 움직입니다. Arena는 시도마다 한 줄을 쓰고, 들기와 놓기를 따로 기록합니다.'],
     ],
     loop: { en: 'The robot moves, the cameras see the new scene, and the policy gets a new observation.', ko: '팔이 움직이면 카메라 영상과 관절 위치가 바뀝니다. 그 정보로 다음 동작을 정합니다.' },
@@ -76,12 +76,12 @@ export const lessonFlows = {
   },
   'everyday-robots': {
     en: [
-      ['A camera view of the drawer', 'color image of card, hand, and slot', 'Start with the snack drawer. A synthetic camera image shows what is near the drawer.'],
+      ['A camera view of the drawer', 'BGR image of card, hand, and slot', 'The lab draws a synthetic camera frame to test the control rule.'],
       ['Make a decision from the image', 'card seen? · slot occupied?', 'OpenCV checks color in specific image regions. Those checks decide whether the drawer should move.'],
       ['Move one joint and keep a trace', 'slide position · result.json', 'The simulation applies motion to the drawer’s sliding joint. The trace tells you when it moved.'],
     ],
     ko: [
-      ['서랍 앞 카메라 영상', '카드·손·서랍 입구가 보이는 컬러 영상', '과자 서랍 예제부터 봅니다. 가상 카메라가 서랍 앞에 있는 것을 보여줍니다.'],
+      ['서랍 앞 카메라 입력', '카드·손·서랍 입구가 보이는 BGR 배열', '실습은 카메라가 볼 법한 이미지를 코드로 그려 제어 규칙을 시험합니다.'],
       ['영상에서 움직일 조건 판단', '카드가 보이나? · 입구가 막혔나?', 'OpenCV가 지정한 영역의 색을 확인합니다. 그 결과로 서랍을 움직일지 정합니다.'],
       ['서랍을 움직이고 기록 남기기', '슬라이드 위치 · result.json', '시뮬레이터가 서랍이 미끄러지는 방향으로 관절을 움직입니다. 로그에서 언제 움직였는지 볼 수 있습니다.'],
     ],
@@ -146,5 +146,65 @@ export const lessonFlows = {
       ['주행 중 일어난 일 기록', 'metrics.parquet · metrics_results.txt', '차량이 충돌했는지, 도로를 벗어났는지 기록합니다.'],
     ],
     loop: { en: 'Moving the vehicle changes the next camera image. That image is the next policy input.', ko: '차량이 움직이면 다음 카메라 영상도 달라집니다. 그 영상으로 다시 경로를 정합니다.' },
+  },
+  selection: {
+    en: [
+      ['Observe and specify the task', 'camera views + task + robot state', 'Match these inputs to the checkpoint and robot.'],
+      ['Predict commands', 'VLA → action sequence', 'Translate each action to the controller’s joint order, units, and coordinates.'],
+      ['Score the episode', 'task success + event log', 'Check what actually happened after the robot applied the actions.'],
+    ],
+    ko: [
+      ['현재 상태와 할 일 전달', '카메라 + 작업 지시 + 로봇 상태', '선택한 체크포인트와 로봇에 맞는 입력을 준비합니다.'],
+      ['행동 예측', 'VLA → 행동 시퀀스', '관절 순서, 단위, 좌표계를 제어기 규약에 맞춥니다.'],
+      ['작업 결과 판정', '성공 여부 + 이벤트 로그', '예측한 동작을 적용하고 나서 실제로 일어난 일을 확인합니다.'],
+    ],
+  },
+  cosmos: {
+    en: [
+      ['Choose the conditioning', 'clip + question or scene controls', 'Select inputs for the task your checkpoint supports.'],
+      ['Choose the task', 'reasoning · generation · prediction', 'Each task uses the video or conditioning in a different way.'],
+      ['Evaluate the output', 'text, video, or a predicted rollout', 'Use checks suited to what the checkpoint produced.'],
+    ],
+    ko: [
+      ['사용할 조건 고르기', '영상 + 질문 또는 장면 조건', '체크포인트가 지원하는 과제의 입력을 준비합니다.'],
+      ['수행할 과제 고르기', '추론 · 생성 · 예측', '과제에 따라 영상이나 조건을 쓰는 방식이 달라집니다.'],
+      ['출력 확인하기', '텍스트 · 영상 · 예측 롤아웃', '출력에 맞춰 조건을 따랐는지 평가합니다.'],
+    ],
+  },
+  'nemo-switchyard': {
+    en: [
+      ['Prepare an app request', 'observation → summary request', 'The app turns a video observation into a text task.'],
+      ['Select a model', 'request + model pool + routing strategy', 'Switchyard helps the host select the model for the request.'],
+      ['Call the endpoint', 'model selection → response', 'The host calls the selected provider and the app uses its response.'],
+    ],
+    ko: [
+      ['앱 요청 만들기', '영상 관찰 → 요약 요청', '영상에서 관찰한 내용을 텍스트 과제로 바꿉니다.'],
+      ['호출할 모델 고르기', '요청 + 모델 목록 + 선택 전략', 'Switchyard가 호스트의 모델 선택을 돕습니다.'],
+      ['엔드포인트 호출하기', '선택된 모델 → 응답', '호스트가 해당 모델을 호출하면 앱이 응답을 사용합니다.'],
+    ],
+  },
+  'nvidia-linux': {
+    en: [
+      ['Start with the machine', 'Linux + NVIDIA GPU', 'Check the device and operating system on the host.'],
+      ['Check access from the lab', 'driver → runtime or container', 'Check GPU visibility in the environment that will run the lab.'],
+      ['Run a workload', 'Python or simulator process', 'Start the application to confirm it can perform GPU work.'],
+    ],
+    ko: [
+      ['머신부터 확인', 'Linux + NVIDIA GPU', '호스트에서 운영체제와 GPU를 확인합니다.'],
+      ['실습 환경에서 접근 확인', '드라이버 → 런타임 또는 컨테이너', '실습을 실제로 실행할 환경에서 GPU가 보이는지 확인합니다.'],
+      ['실제 연산 실행', 'Python 또는 시뮬레이터', '애플리케이션을 실행해 GPU 연산이 시작되는지 확인합니다.'],
+    ],
+  },
+  'isaac-sim-tools': {
+    en: [
+      ['Open one scene', 'USD → Stage and Property', 'Find the scene objects and inspect their settings in the GUI.'],
+      ['Repeat the run', 'script + camera path', 'Use those same scene settings for a scripted capture.'],
+      ['Read the output', 'RGB · depth · masks · result report', 'Inspect generated files with the CPU checker.'],
+    ],
+    ko: [
+      ['장면 하나 열기', 'USD → Stage와 Property', 'GUI에서 물체를 찾고 설정을 읽습니다.'],
+      ['같은 조건으로 실행', '스크립트 + 카메라 경로', '확인한 장면 설정으로 스크립트 촬영을 실행합니다.'],
+      ['출력 파일 읽기', 'RGB · 깊이 · 마스크 · 검사 보고서', '저장된 파일을 CPU 검사 코드로 확인합니다.'],
+    ],
   },
 };

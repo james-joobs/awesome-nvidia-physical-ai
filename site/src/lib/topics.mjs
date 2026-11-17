@@ -5,6 +5,7 @@ import switchyardImage from '../../../assets/project-marks/switchyard-logo.webp?
 import { modelGuide, workflows } from './catalog.mjs';
 import { courseRoute, workbenchProject } from './learning.mjs';
 import { clips, grids, showcaseMedia } from './showcase.mjs';
+import { toolGuides } from './tool-guides.mjs';
 
 const workbench = {
   ...workbenchProject,
@@ -85,25 +86,29 @@ export const topics = [
     ko: { title: '영상 데이터·월드 모델', description: '영상을 정제하고 새 장면을 생성하는 도구부터 앱의 요청을 모델 서버에 보내는 도구까지 살펴봅니다.' },
     entries: topicGuides,
   },
-];
+].map((topic) => ({
+  ...topic,
+  guides: toolGuides.filter((guide) => guide.topic === topic.slug || topic.stacks.includes(guide.en.title)),
+}));
 
 export function topicForPage(page) {
-  return topics.find(({ entries, resources, course }) => (course && courseRoute(course) === page) ||
-    entries.some((entry) => entry.page === page) || resources?.some(([route]) => route === page));
+  return topics.find(({ entries, guides, resources, course }) => (course && courseRoute(course) === page) ||
+    entries.some((entry) => entry.page === page) || guides.some((guide) => guide.page === page) ||
+    resources?.some(([route]) => route === page));
 }
 
 export const topicsCopy = {
   en: {
     nav: 'Lab topics', browse: 'Explore lab topics', all: 'All topics', topicNav: 'Browse by topic',
     intro: 'See what each stack can do, then open the lab for the commands, scene files, and checks.',
-    tools: 'Tools in this topic', openLab: 'Open lab', openGuide: 'Read the guide',
+    tools: 'Tools in this topic', principles: 'How these tools work', openLab: 'Open lab', openGuide: 'Read the guide',
     recording: 'Recorded run', screenshot: 'Lab capture', advanced: 'Advanced lab', official: 'Reference guide',
     officialMedia: 'Official visual', capturedMedia: 'Captured in Isaac Sim',
   },
   ko: {
     nav: '실습 분야', browse: '분야별 실습 둘러보기', all: '전체 분야', topicNav: '분야 선택',
     intro: '도구별로 어떤 결과를 만들 수 있는지 먼저 살펴보세요. 실습 페이지에서 실행 명령과 장면 파일, 결과 검사 방법을 확인할 수 있습니다.',
-    tools: '이 분야의 도구', openLab: '실습 보기', openGuide: '가이드 보기',
+    tools: '이 분야의 도구', principles: '도구별 동작 원리', openLab: '실습 보기', openGuide: '가이드 보기',
     recording: '실행 영상', screenshot: '실습 화면', advanced: '심화 실습', official: '참고 가이드',
     officialMedia: '공식 이미지', capturedMedia: 'Isaac Sim 실습 화면',
   },

@@ -4,6 +4,20 @@
 
 Start with a STEP file. Convert it into a shape Isaac Sim can open, then give the tabletop a collision shape so a cube can land on it. If you want to start with included code and data, use the [workbench capstone](../labs/workbench-capstone.md). This guide shows the AIF and HOOPS route for a STEP file of your own.
 
+## What turns CAD geometry into a reusable simulation asset?
+
+### Separate conversion from scene composition
+
+STEP stores CAD shapes and assemblies. The HOOPS converter makes that geometry available in USD. Keep the converted workbench as a reference asset, and place it with its colliders and cameras in a separate simulation scene. Multiple experiments can share one asset and set their own lighting and robot poses. [AIF Pipeline Samples](https://github.com/NVIDIA-Omniverse/aif-pipeline-samples) · [OpenUSD reference tutorial](https://openusd.org/release/tut_referencing_layers.html)
+
+| Stage | File | What to check |
+| --- | --- | --- |
+| Measured input | `workbench.step` | The tabletop measures 1,200 × 600 × 40 mm. |
+| Reference asset | `workbench.usdc` | Check units and the up axis. The dimensions are 1.2 × 0.6 × 0.04 in meters. |
+| Simulation scene | `workbench_scene.usd` | Check that the reference resolves and top collider aligns with the visible surface. |
+
+The HOOPS route below and the [CadQuery capstone](../labs/workbench-capstone.md) use different converters. Both verify scale, axis, and contact before attaching a camera or adding a robot.
+
 ## What you need
 
 | Item | Start with |

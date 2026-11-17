@@ -6,6 +6,16 @@ Isaac Lab-Arena는 재사용 가능한 요소를 조합해 로봇 정책 평가 
 
 NVIDIA는 CoRL 2026에서 **0.4 개발자 프리뷰**를 발표했습니다. Arena의 재사용 가능한 평가 구성 요소와 병렬 실행을 기반으로 합니다. [NVIDIA 공식 발표](https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/)
 
+## 같은 과제로 다른 로봇 정책을 어떻게 비교할까요?
+
+### 과제 조건과 정책 어댑터
+
+Arena에서는 장면·로봇·작업 지시와 성공 조건을 조합합니다. 정책 어댑터는 카메라·상태 입력과 모델 행동을 시뮬레이터 규약에 맞춥니다. 실행 뒤 Arena가 쓰는 JSONL의 한 줄은 시도 한 건입니다. 어떤 조건을 통과했는지는 `progress.events`로 따로 볼 수 있습니다.
+
+### 들기와 놓기가 기록된 시점 읽기
+
+[우리 예제의 실제 설정](../../labs/gr00t-placement/droid-70s.yaml)은 `droid_abs_joint_pos` 로봇 표현, 큐브, 그릇과 70초 상한을 지정합니다. [기록된 첫 시도](../../labs/gr00t-placement/recorded-70s.jsonl)에서는 스텝 442에 들기, 521에 놓기를 판정해 `success: true`를 남겼습니다. 다른 모델과 비교할 때 장면과 판정 조건을 맞추고, 조작이 도중에 어디까지 갔는지도 함께 기록합니다. [Arena 공식 저장소](https://github.com/isaac-sim/IsaacLab-Arena) · [GR00T 실습](labs/gr00t-placement.md)
+
 ## 아키텍처
 
 | 구성 요소 | 역할과 주고받는 데이터 |

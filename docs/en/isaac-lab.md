@@ -9,6 +9,16 @@
 
 Isaac Lab organizes batched simulation into robot learning environments. It provides task interfaces for observations, actions, rewards and resets, and delegates stepping, articulation state and sensors to the selected backend.
 
+## How does one policy learn from 512 simulated robots?
+
+### Connect the environment and policy one step at a time
+
+The task defines what counts as an **observation** and how to apply an **action**. The policy outputs a joint action and physics advances the state. The environment returns a new observation, a reward, and termination information. The training algorithm updates the policy using sequences collected across many environments.
+
+### Read the first array dimension
+
+Microduck uses 512 environments. If observations are stacked by row, one step can be read as `[512, observation features]`. If environment 7 times out, its episode resets while the others continue their own rollouts. The checkpoint holds the learned policy state. Follow the Isaac Lab task, Newton simulation, and RSL-RL update separately to find the relevant logs. [Microduck lab](labs/microduck.md) · [Isaac Lab documentation](https://isaac-sim.github.io/IsaacLab/main/)
+
 ## Isaac Lab 3.0
 
 The **3.0.0 general-availability release** targets one task API across interchangeable physics, rendering, and visualization backends. The base installation can run supported tasks with Newton without Omniverse Kit. Add the Isaac Sim 6.2 extra for workflows that need the full PhysX and RTX stack, the ROS bridge, or Kit tooling. OvPhysX and OVRTX are separate backend options for compatible tasks. [Isaac Lab 3.0.0 release](https://github.com/isaac-sim/IsaacLab/releases/tag/v3.0.0) · [Backend presets](https://docs.nvidia.com/isaaclab/concepts/backends-and-presets)
