@@ -1,0 +1,103 @@
+name: Collect Physical AI research
+
+on:
+  schedule:
+    - cron: '17 9 * * *'
+      timezone: Asia/Seoul
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: collect-physical-ai-research
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Load the last published state
+        run: |
+          set -euo pipefail
+          report_ref=refs/heads/research-reports
+          existing_ref=$(git ls-remote --heads origin "$report_ref")
+          if [[ -n "$existing_ref" ]]; then
+            git fetch --no-tags --depth=1 origin "$report_ref"
+            git show FETCH_HEAD:state.json > "$RUNNER_TEMP/research-previous.json"
+          fi
+      - name: Check official upstream sources
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 scripts/collect-research.py \
+            --previous "$RUNNER_TEMP/research-previous.json" \
+            --output "$RUNNER_TEMP/research-output"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: research-report
+          path: ${{ runner.temp }}/research-output/
+          if-no-files-found: error
+          retention-days: 7
+
+  publish:
+    needs: collect
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: research-report
+          path: ${{ runner.temp }}/research-output
+      - name: Save reports to the research-reports branch
+        run: |
+          set -euo pipefail
+          report_ref=refs/heads/research-reports
+          existing_ref=$(git ls-remote --heads origin "$report_ref")
+          if [[ -n "$existing_ref" ]]; then
+            git fetch --no-tags --depth=1 origin "$report_ref"
+            git switch --detach FETCH_HEAD
+          else
+            git switch --orphan research-reports
+          fi
+          output="$RUNNER_TEMP/research-output"
+          cp "$output/latest.md" "$output/state.json" .
+          git add -- latest.md state.json
+          if [[ -f "$output/weekly.md" ]]; then
+            cp "$output/weekly.md" .
+            git add -- weekly.md
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "Save research report for $(TZ=Asia/Seoul date +%F)"
+          git push origin "HEAD:$report_ref"
+      - name: Summarize source health
+        run: |
+          cat latest.md >> "$GITHUB_STEP_SUMMARY"
+          python3 - <<'PY'
+          import json
+          from datetime import datetime, timedelta
+
+          with open("state.json") as stream:
+              state = json.load(stream)
+          checked = datetime.fromisoformat(state["checked"])
+          failed = [name for name, source in state["sources"].items() if source["error"]]
+          for name in failed:
+              print(f"::warning::Source check failed for {name}. Prior records preserved.")
+          stale = [
+              name for name, source in state["sources"].items()
+              if source["error"]
+              and checked - datetime.fromisoformat(source["first_failure"]) >= timedelta(days=3)
+          ]
+          if len(failed) == len(state["sources"]) or stale:
+              raise SystemExit("All sources failed or one or more sources failed for three days.")
+          PY
