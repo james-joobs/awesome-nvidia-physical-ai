@@ -1,5 +1,6 @@
 ---
 import { copy } from '../lib/catalog.mjs';
+import Icon from './Icon.astro';
 
 const { locale, title, description, steps, theme = 'lime', reference = false, preparation } = Astro.props;
 const ko = locale === 'ko';
@@ -21,8 +22,11 @@ const panelTitle = reference ? copy[locale].onThisPage : ko ? '실습 순서' : 
   <div class="shell lesson-layout">
     <aside class="lesson-panel" aria-labelledby="lesson-panel-title">
       <h2 id="lesson-panel-title">{panelTitle}</h2>
+      <button class="lesson-panel-toggle" type="button" aria-expanded="false" aria-controls="lesson-steps" hidden>
+        {panelTitle}<Icon name="chevron" size={16} />
+      </button>
       {preparation && <p class="lesson-preparation">{preparation}</p>}
-      <nav aria-labelledby="lesson-panel-title">
+      <nav id="lesson-steps" aria-labelledby="lesson-panel-title">
         <ol>
           {steps.map(({ id, label }) => (
             <li><a href={`#${id}`}>{label}</a></li>
@@ -36,7 +40,15 @@ const panelTitle = reference ? copy[locale].onThisPage : ko ? '실습 순서' : 
 </div>
 
 <script>
-  const links = document.querySelectorAll<HTMLAnchorElement>('.lesson-panel a[href^="#"]');
+  const toggle = document.querySelector<HTMLButtonElement>('.lesson-panel-toggle');
+  const links = document.querySelectorAll<HTMLAnchorElement>('#lesson-steps a');
+  if (toggle) {
+    toggle.hidden = false;
+    toggle.addEventListener('click', () => {
+      toggle.setAttribute('aria-expanded', String(toggle.getAttribute('aria-expanded') === 'false'));
+    });
+    for (const link of links) link.addEventListener('click', () => toggle.setAttribute('aria-expanded', 'false'));
+  }
   const highlightStep = () => {
     for (const link of links) {
       if (link.hash === window.location.hash) link.setAttribute('aria-current', 'location');
@@ -49,38 +61,48 @@ const panelTitle = reference ? copy[locale].onThisPage : ko ? '실습 순서' : 
 
 <style>
   .lesson-hero { border-bottom: 1px solid var(--edge); }
-  .lesson-hero-inner { display: grid; gap: clamp(16px, 4vw, 54px); align-items: center; padding-block: clamp(26px, 5vw, 64px); }
-  .lesson-hero-inner.with-preview { grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr); }
+  .lesson-hero-inner { display: grid; gap: clamp(16px, 4vw, 54px); align-items: center; padding-block: clamp(28px, 4vw, 55px) 30px; }
+  .lesson-hero-inner.with-preview { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
   .lesson-heading { min-width: 0; }
   .lesson-breadcrumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 5px 15px; }
-  h1 { max-width: 33ch; margin-block: 12px; font-size: clamp(1.85rem, 3.5vw, 2.25rem); font-weight: 700; line-height: 1.25; }
+  h1 { max-width: 33ch; margin-block: 8px 12px; font-size: clamp(1.875rem, 4vw, 2.5rem); font-weight: 700; line-height: 1.2; }
   .lesson-intro { max-width: 74ch; margin-block: 0 17px; color: var(--prose-text); font-size: 1rem; line-height: 1.75; }
   .guide-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px; margin-top: 16px; }
   .guide-actions :global(a) { min-height: 44px; }
-  .lesson-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(15rem, 19rem); gap: clamp(22px, 5vw, 72px); align-items: start; padding-block: 30px clamp(38px, 6vw, 70px); }
+  .lesson-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(14rem, 17rem); gap: clamp(22px, 5vw, 72px); align-items: start; padding-block: 30px clamp(38px, 6vw, 70px); }
   .guide-content { grid-area: 1 / 1; min-width: 0; }
-  .lesson-panel { position: sticky; top: 20px; grid-column: 2; grid-row: 1; max-height: calc(100dvh - 40px); overflow: auto; padding: 16px; border: 1px solid var(--edge); border-radius: 10px; background: var(--surface); }
-  .lesson-panel h2 { margin: 1px 0 8px; font-size: 1rem; font-weight: 650; }
-  .lesson-preparation { color: var(--muted); margin-bottom: 8px; font-size: .83rem; line-height: 1.5; }
+  .lesson-panel { position: sticky; top: 20px; grid-column: 2; grid-row: 1; max-height: calc(100dvh - 40px); min-width: 0; overflow: auto; padding: 4px 3px; }
+  .lesson-panel h2 { margin-bottom: 10px; font-size: .9375rem; font-weight: 650; }
+  .lesson-panel-toggle { display: none; }
+  .lesson-preparation { color: var(--muted); margin-bottom: 12px; font-size: .875rem; line-height: 1.55; }
   .lesson-panel ol { margin: 0; padding: 0 0 0 1.45rem; }
-  .lesson-panel li { padding-inline-start: 2px; color: var(--muted); font-size: .88rem; }
-  .lesson-panel li + li { border-top: 1px solid var(--edge); }
-  .lesson-panel li::marker { color: var(--route-color); font-variant-numeric: tabular-nums; }
-  .lesson-panel ol a { display: flex; align-items: center; min-height: 44px; padding-block: 7px; line-height: 1.44; text-decoration: none; }
-  .lesson-panel ol a:is(:hover, :focus-visible, [aria-current]) { color: var(--route-color); text-decoration: underline; text-underline-offset: 3px; }
-  @media (min-width: 781px) {
-    .reference .lesson-panel { border: 0; border-radius: 0; padding: 0; background: transparent; }
-    .reference .lesson-panel ol { padding: 0; list-style: none; }
-    .reference .lesson-panel li { border: 0; padding: 0; }
-    .reference .lesson-panel ol a { min-height: 30px; padding: 4px 12px; border-inline-start: 2px solid var(--edge); }
-    .reference .lesson-panel ol a[aria-current] { border-inline-start-color: var(--brand-green); color: var(--accent); text-decoration: none; }
+  .lesson-panel li { color: var(--muted); font-size: .875rem; }
+  .lesson-panel li::marker { font-variant-numeric: tabular-nums; }
+  .lesson-panel li:has(a[aria-current])::marker { color: var(--accent); }
+  .lesson-panel ol a {
+    display: flex; align-items: center; min-height: 34px; padding: 5px 10px;
+    border-inline-start: 2px solid var(--edge); line-height: 1.45; text-decoration: none; overflow-wrap: anywhere;
   }
+  .lesson-panel ol a:is(:hover, :focus-visible) { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .lesson-panel ol a[aria-current] { border-inline-start-color: var(--brand-green); color: var(--accent); font-weight: 620; }
+  .lesson-panel ol a:focus-visible { outline-offset: -2px; }
+  .reference .lesson-panel ol { padding: 0; list-style: none; }
   .lesson-related { padding-bottom: 38px; }
   :lang(ko) :is(.lesson-intro, .lesson-preparation, .lesson-panel li) { word-break: keep-all; overflow-wrap: anywhere; }
   @media (max-width: 780px) {
     .lesson-hero-inner.with-preview, .lesson-layout { grid-template-columns: 1fr; }
-    .lesson-layout { padding-top: 21px; }
+    .lesson-layout { padding-top: 15px; gap: 17px; }
     .lesson-panel, .lesson-layout .guide-content { position: static; grid-area: auto; max-height: none; overflow: visible; }
-    .lesson-panel { padding: 13px 14px; }
+    .lesson-panel { padding: 0; border-block: 1px solid var(--edge); }
+    .lesson-panel h2 { margin-block: 10px; }
+    .lesson-panel:has(.lesson-panel-toggle:not([hidden])) h2 { display: none; }
+    .lesson-panel-toggle:not([hidden]) {
+      display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%; min-height: 48px;
+      padding: 5px 2px; border: 0; background: transparent; color: var(--text); font: inherit; font-size: .9375rem; font-weight: 650; cursor: pointer;
+    }
+    .lesson-panel-toggle[aria-expanded="true"] :global(svg) { rotate: 180deg; }
+    .lesson-panel-toggle[aria-expanded="false"]:not([hidden]) ~ nav { display: none; }
+    .lesson-panel nav { margin-bottom: 10px; }
+    .lesson-panel ol a { min-height: 44px; }
   }
 </style>
