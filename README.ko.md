@@ -6,11 +6,13 @@
 
 <img src="assets/social-preview.jpg" alt="Awesome NVIDIA Physical AI · 시뮬레이션, 로보틱스, 월드 모델" width="460">
 
-**NVIDIA 피지컬 AI 도구를 한곳에서 찾고, 어떻게 연결해 쓰는지 살펴보세요.**
+**개발자를 위한 무료 NVIDIA 피지컬 AI 실습.**
 
-시뮬레이션, 로봇 학습, 자율주행에 필요한 도구와 데이터를 목표별로 정리한 커뮤니티 가이드입니다.
+브라우저에서 로봇 실험부터 해 보세요. 실습 코드와 USD 장면, 저장된 데이터를 받아 Python으로 결과를 확인하거나 Isaac Sim에서 직접 실험할 수 있습니다.
 
-[🧪 목표별 실습](#만들고-싶은-것부터-시작하세요) · [🗺️ 생태계 지도](#생태계-한눈에-보기) · [📚 전체 카탈로그](CATALOG.ko.md) · [🌐 GitHub Pages](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/)
+[🧪 **첫 실습**](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/gr00t-placement/#first-exercise) · [📖 **학습 경로**](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/#workflows) · [🎬 **분야별 갤러리**](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/topics/)
+
+[GitHub Pages](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/) · [실습 코드](labs/README.ko.md) · [도구 카탈로그](CATALOG.ko.md)
 
 </div>
 
@@ -20,9 +22,23 @@
 
 `Isaac Sim` · `PhysX` · `GR00T` · `Replicator` · `cuRobo` · `AutoData`
 
-[자세히 보기](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/showcase/) · [실습 코드와 테스트 결과](labs/README.ko.md) · [실습 흐름 직접 체험하기](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/#repo-tour)
+[전체 영상 보기](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/showcase/) · [실습 흐름 직접 체험하기](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/#repo-tour)
+
+## 터미널에서 시작하기
+
+Python으로 GR00T의 실행 결과를 확인할 수 있습니다. 저장된 Arena 기록을 읽어 큐브를 들어 올린 시점과 그릇에 놓았는지를 출력합니다. 기록을 확인하는 데 GPU와 Isaac Sim은 필요 없습니다.
+
+```sh
+git clone https://github.com/james-joobs/awesome-nvidia-physical-ai.git
+cd awesome-nvidia-physical-ai
+python3 labs/gr00t-placement/check_result.py labs/gr00t-placement/recorded-24s.jsonl
+```
+
+세 시도 모두 `placed no`가 나옵니다. 같은 코드로 [두 번째 기록](labs/gr00t-placement/recorded-70s.jsonl)을 읽어 비교해 보세요. [실습 가이드](docs/ko/labs/gr00t-placement.md)
 
 ## 만들고 싶은 것부터 시작하세요
+
+**GPU 환경이 처음이라면** [NVIDIA Linux 환경 준비](docs/ko/onboarding/nvidia-linux.md) · [Isaac Sim GUI·CLI 시작하기](docs/ko/onboarding/isaac-sim-tools.md) · [작업대 완주 과제와 GPU 없는 결과 검사](docs/ko/labs/workbench-capstone.md)
 
 | 목표 | 시작할 가이드 | 먼저 확인할 내용 |
 | --- | --- | --- |
