@@ -1,0 +1,138 @@
+---
+import shortRun from '../../../labs/gr00t-placement/recorded-24s.jsonl?raw';
+import longRun from '../../../labs/gr00t-placement/recorded-70s.jsonl?raw';
+import Icon from './Icon.astro';
+import { lessonUrl, workbenchRecordingRoute } from '../lib/learning.mjs';
+
+const { locale } = Astro.props;
+const copy = {
+  en: {
+    format: 'Browser exercise · No setup',
+    title: 'Did the robot complete the task?',
+    prompt: 'Read the first three Arena trials. A lift is an intermediate milestone. The task succeeds only when the cube is left in the bowl.',
+    caption: 'Recorded trials with a 24-second limit',
+    trial: 'Trial', lift: 'Lifted', place: 'Placed in bowl', yes: 'Yes', no: 'No',
+    question: 'How many trials completed the full task?',
+    submit: 'Check my answer',
+    pass: 'Correct. Lifting the cube and leaving it in the bowl are separate outcomes.',
+    retry: 'Look at the last column. Count only the trials that ended with the cube in the bowl.',
+    compare: (short, long) => `Placement succeeded in ${short.placed} of ${short.total} trials with the 24-second settings and ${long.placed} of ${long.total} with the 70-second settings. The starting layouts also differed, so these runs do not isolate the effect of time.`,
+    verify: 'Check the logs with Python',
+    run: 'Run the policy on an RTX GPU',
+    next: 'Next lab · Check camera data without a GPU',
+  },
+  ko: {
+    format: '브라우저 실습 · 설치 필요 없음',
+    title: '로봇은 과제를 끝냈을까요?',
+    prompt: 'Arena 실행 기록 세 건을 읽어 보세요. 큐브를 들어 올리는 건 중간 단계입니다. 그릇에 안정적으로 놓아야 과제가 끝납니다.',
+    caption: '24초 설정에서 기록한 실행',
+    trial: '시도', lift: '들기', place: '그릇에 놓기', yes: '성공', no: '실패',
+    question: '과제를 끝까지 완료한 시도는 몇 건인가요?',
+    submit: '정답 확인',
+    pass: '맞았습니다. 큐브를 드는 것과 그릇에 놓는 것은 별도로 판정합니다.',
+    retry: '마지막 열에서 큐브를 그릇에 놓은 시도만 세어 보세요.',
+    compare: (short, long) => `24초 설정에서는 ${short.total}건 중 ${short.placed}건, 70초 설정에서는 ${long.total}건 중 ${long.placed}건이 놓기에 성공했습니다. 시작 배치도 달랐기 때문에 시간 제한만의 영향은 이 기록으로 판단하기 어렵습니다.`,
+    verify: 'Python으로 결과 다시 확인하기',
+    run: 'RTX에서 정책 실행하기',
+    next: '다음 실습 · GPU 없이 작업대 데이터 검사하기',
+  },
+};
+
+const labels = copy[locale];
+const episodes = (report) => report.trim().split('\n').map((line) => {
+  const row = JSON.parse(line);
+  const events = row.progress.events;
+  return {
+    lift: events.some(({ predicate_name }) => predicate_name.includes('object_is_above_height')),
+    placed: row.success,
+  };
+});
+const summary = (rows) => ({ total: rows.length, placed: rows.filter(({ placed }) => placed).length });
+const trials = episodes(shortRun);
+const short = summary(trials);
+const long = summary(episodes(longRun));
+---
+<section class="placement-exercise" id="first-exercise" aria-labelledby="exercise-title">
+  <header>
+    <p class="exercise-format">{labels.format}</p>
+    <h2 id="exercise-title">{labels.title}</h2>
+    <p>{labels.prompt}</p>
+  </header>
+  <table>
+    <caption>{labels.caption}</caption>
+    <thead><tr><th scope="col">{labels.trial}</th><th scope="col">{labels.lift}</th><th scope="col">{labels.place}</th></tr></thead>
+    <tbody>
+      {trials.map(({ lift, placed }, index) => (
+        <tr>
+          <th scope="row">{index + 1}</th>
+          <td>{lift ? labels.yes : labels.no}</td>
+          <td>{placed ? labels.yes : labels.no}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+  <form data-placement-quiz data-answer={short.placed} data-pass={labels.pass} data-retry={labels.retry} hidden>
+    <fieldset>
+      <legend>{labels.question}</legend>
+      <div class="answer-choices">
+        {Array.from({ length: trials.length + 1 }, (_, number) => (
+          <label><input type="radio" name="placements" value={number} required />{number}</label>
+        ))}
+      </div>
+    </fieldset>
+    <button class="button button-primary" type="submit">{labels.submit}</button>
+    <p class="answer" role="status"></p>
+  </form>
+  <details>
+    <summary>{locale === 'ko' ? '다른 설정에서 나온 결과' : 'Compare with the other recording'}</summary>
+    <p>{labels.compare(short, long)}</p>
+  </details>
+  <a class="button button-primary workbench-next" href={lessonUrl(locale, workbenchRecordingRoute)}>
+    {labels.next} <Icon name="right" size={16} />
+  </a>
+  <div class="exercise-next">
+    <a class="plain-link" href="#verify">{labels.verify} ↓</a>
+    <a class="plain-link" href="#run">{labels.run} ↓</a>
+  </div>
+</section>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-placement-quiz]');
+  if (form) {
+    const result = form.querySelector('.answer');
+    if (result) {
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const submitted = new FormData(form).get('placements');
+        result.textContent = (submitted === form.dataset.answer ? form.dataset.pass : form.dataset.retry) ?? '';
+      });
+      form.hidden = false;
+    }
+  }
+</script>
+
+<style>
+  .placement-exercise {
+    margin-bottom: 1.5rem; padding: clamp(14px, 3vw, 26px);
+    border: 1px solid var(--edge); border-radius: 10px; background: var(--surface);
+  }
+  h2 { margin-block: 6px 8px; font-size: clamp(1.4rem, 3.2vw, 2rem); line-height: 1.2; }
+  .exercise-format { color: var(--accent); font-size: .8rem; font-weight: 650; }
+  header p:last-child, details p { color: var(--muted); line-height: 1.6; font-size: .9rem; }
+  table { width: min(100%, 29rem); margin-block: 16px; border-collapse: collapse; text-align: start; font-size: .875rem; }
+  caption { padding-block: 0 6px; text-align: start; color: var(--muted); }
+  th, td { padding: 7px 8px; border-bottom: 1px solid var(--edge); text-align: start; }
+  fieldset { padding: 0; margin: 0 0 8px; border: 0; min-width: 0; }
+  legend { padding: 0; font-size: .92rem; font-weight: 650; }
+  .answer-choices { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 6px; }
+  label { display: flex; align-items: center; gap: 7px; min-height: 44px; min-width: 44px; padding-inline: 7px; }
+  input { margin: 0; accent-color: var(--accent); }
+  .button { border: 0; cursor: pointer; }
+  .answer { margin-top: 8px; color: var(--accent); font-size: .9rem; }
+  .answer:empty { margin: 0; }
+  details { margin-top: 12px; font-size: .9rem; }
+  summary { width: fit-content; padding-block: 6px; cursor: pointer; }
+  details p { margin-top: 6px; }
+  .workbench-next { margin-top: 12px; }
+  .exercise-next { display: flex; flex-wrap: wrap; gap: 0 14px; margin-top: 6px; }
+</style>

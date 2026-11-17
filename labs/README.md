@@ -4,6 +4,8 @@
 
 Start with the video that interests you. Each lab explains what ran, gives the commands and code, and shows the measurements recorded for the video.
 
+**Start here for an end-to-end project.** [Workbench CAD → Isaac Sim → Replicator](../docs/en/labs/workbench-capstone.md) includes the setup, capture code, and CPU-only replay check.
+
 ```sh
 git clone https://github.com/james-joobs/awesome-nvidia-physical-ai.git
 cd awesome-nvidia-physical-ai

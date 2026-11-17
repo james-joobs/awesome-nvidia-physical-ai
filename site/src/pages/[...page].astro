@@ -1,8 +1,12 @@
 ---
 import Guide from '../components/Guide.astro';
+import LearningPath from '../components/LearningPath.astro';
+import TopicGallery from '../components/TopicGallery.astro';
 import VideoLab from '../components/VideoLab.astro';
 import { languages, modelGuide, workflows } from '../lib/catalog.mjs';
 import { labs } from '../lib/labs.mjs';
+import { courses, courseRoute, onboardingGuides, workbenchProject } from '../lib/learning.mjs';
+import { topics, topicGuides } from '../lib/topics.mjs';
 
 export function getStaticPaths() {
   return languages.flatMap((locale) => {
@@ -19,14 +23,37 @@ export function getStaticPaths() {
       guide: modelGuide,
       parent: 'models',
     });
+    entries.push(...[...onboardingGuides, workbenchProject].map((guide) => ({
+      page: guide.page,
+      sourcePath: `docs/${locale}/${guide.page}.md`,
+      guide,
+      parent: 'workflows',
+    })));
+    entries.push(...topicGuides.map((guide) => ({
+      page: guide.page,
+      sourcePath: `docs/${locale}/${guide.source}.md`,
+      guide,
+    })));
     return [...entries.map((entry) => ({
       params: { page: prefix + entry.page },
       props: { locale, ...entry },
     })), ...labs.map((lab) => ({
       params: { page: `${prefix}labs/${lab.id}` },
       props: { locale, lab },
+    })), ...courses.map((course) => ({
+      params: { page: prefix + courseRoute(course.slug) },
+      props: { locale, course },
+    })), {
+      params: { page: `${prefix}topics` },
+      props: { locale, gallery: true },
+    }, ...topics.map((topic) => ({
+      params: { page: `${prefix}topics/${topic.slug}` },
+      props: { locale, gallery: true, topic },
     }))];
   });
 }
 ---
-{Astro.props.lab ? <VideoLab {...Astro.props} /> : <Guide {...Astro.props} />}
+{Astro.props.gallery ? <TopicGallery {...Astro.props} />
+  : Astro.props.course ? <LearningPath {...Astro.props} />
+  : Astro.props.lab ? <VideoLab {...Astro.props} />
+  : <Guide {...Astro.props} />}

@@ -2,21 +2,34 @@
 
 ## 동작 원리
 
-cuRobo로 Franka 팔의 경로를 두 번 계산했습니다. 시작 자세와 목표는 같고, 두 번째는 기존 팔 경로가 지나던 곳에 직육면체 장애물을 추가했습니다. 화면의 구체는 경로를 계산할 때 사용한 로봇 충돌 형상입니다. AutoData는 동작 구간이 표시된 시연에 MimicGen을 적용해 새 큐브 쌓기 시연을 만들고, 성공한 시연을 Isaac Lab에서 재생합니다. [GR00T 집기·놓기 실습](gr00t-placement.md) · [Microduck 보행 실습](microduck.md)
+팔의 시작과 목표는 같은데 중간에 상자가 생겼다면 갈 수 있는 길이 달라집니다. **cuRobo**는 팔이 장애물에 닿지 않도록 관절 위치의 순서를 계산합니다. 시연 생성은 별도 실습입니다. **AutoData**는 사람이나 로봇이 한 번 보여준 동작을 바탕으로 다른 시작 조건에서 쓸 시연 데이터를 만듭니다.
 
 ## 따라 하기
 
-Isaac Sim에서 [cuRobo 경로 씬](../../../labs/robot-motion/curobo-clearance.usda)이나 [AutoData 재생 씬](../../../labs/robot-motion/autodata-stack.usda)을 열고 `/World/FilmCamera`로 바꾼 뒤 **Play**를 누릅니다.
+### 1. Isaac Sim에서 이미 만든 두 경로 보기
 
-경로를 다시 계산하려면 cuRobo V2 `71ce172`의 CUDA 환경을 사용합니다. AutoData `4a3d1f3`의 Isaac Lab 서브모듈을 포함해 설치하고 공식 실습의 주석이 붙은 Franka HDF5를 준비합니다.
+[cuRobo 경로 장면](../../../labs/robot-motion/curobo-clearance.usda)을 **File → Open**으로 엽니다. 카메라를 **FilmCamera**로 바꾸고 **Play**를 누릅니다. 같은 목표를 향하는 두 경로 중 장애물을 비켜 가는 쪽을 찾아보세요. 이 단계는 경로 계산 환경 없이도 장면을 열 수 있습니다.
+
+### 2. 터미널에서 새 경로 계산하기
+
+RTX 머신에 [cuRobo V2](https://nvlabs.github.io/curobo/latest/getting-started/motion_planning.html) `71ce172` 환경을 준비합니다. 그 Python이 활성화된 터미널에서 이 레포로 이동하고 아래를 실행합니다. `motion.npz`에는 경로 좌표 배열이, `result.json`에는 비교 결과가 남습니다.
 
 ```sh
 python labs/robot-motion/plan.py ./runs/curobo
-bash labs/robot-motion/autodata.sh /path/to/AutoData /path/to/dataset_franka_annotated.hdf5 ./runs/autodata
+```
+
+### 3. 새 시연 데이터가 필요하면 AutoData 실행하기
+
+먼저 [AutoData 공식 예제](https://github.com/isaac-sim/AutoData/blob/main/docs/pages/quickstart/first_data_generation.rst)에서 `4a3d1f3`과 Isaac Lab 서브모듈, 동작 구간을 표시한 Franka HDF5를 준비합니다. HDF5는 여러 시도의 관절 값과 물체 위치를 한 파일에 담습니다. AutoData 환경을 켠 터미널에서 첫 두 줄을 내 경로로 바꾸고 실행하세요.
+
+```sh
+AUTODATA_DIR="$HOME/AutoData"
+DEMO_FILE="$HOME/dataset_franka_annotated.hdf5"
+bash labs/robot-motion/autodata.sh "$AUTODATA_DIR" "$DEMO_FILE" ./runs/autodata
 python labs/robot-motion/audit.py ./runs/autodata/franka-generated.hdf5 ./runs/autodata-audit
 ```
 
-[cuRobo 경로 계획](https://nvlabs.github.io/curobo/latest/getting-started/motion_planning.html) · [AutoData 첫 데이터셋 실습](https://github.com/isaac-sim/AutoData/blob/main/docs/pages/quickstart/first_data_generation.rst)
+[AutoData 재생 장면](../../../labs/robot-motion/autodata-stack.usda)으로 시연을 먼저 살펴봐도 됩니다. [GR00T 집기·놓기](gr00t-placement.md) · [Microduck 보행](microduck.md)
 
 ## 테스트 결과
 

@@ -2,28 +2,31 @@
 
 ## How it works
 
-CadQuery creates and reopens a STEP assembly. The re-imported solids are tessellated in meters and used to author an OpenUSD workbench. PhysX drops a cube onto the tabletop. Replicator produces color, depth and segmentation from the inspection camera. The point-cloud code back-projects depth from the masked cube pixels into world coordinates. [Workstation stage](../../../labs/scene-to-data/workbench_scene.usda) · [Point-cloud replay](../../../labs/scene-to-data/rgbd-surface.usda)
+A photo can show which way a cube moved, but it is hard to measure how many meters it moved from the photo alone. Use the **mask** to select cube pixels. Then use **depth** and the **camera pose** to put those pixels in the 3D scene. The collection of 3D points is a **point cloud**.
 
 ## Run it
 
-You can run the point-cloud measurement anywhere with Python, NumPy and `usd-core`. Download the [four camera captures](../../../labs/scene-to-data/replicator-data.zip) and extract them beside `workbench_scene.usda` in your run directory.
+**Before you start** · Open a terminal on any computer with Python 3.12. This part uses saved captures, so it runs without a GPU.
+
+### 1. Prepare Python for the point cloud
+
+Enter this repository’s folder. A separate virtual environment keeps these libraries apart from other Python projects.
 
 ```sh
-mkdir -p ./runs/cad
-cp labs/scene-to-data/workbench_scene.usda ./runs/cad/
-unzip labs/scene-to-data/replicator-data.zip -d ./runs/cad
-python labs/scene-to-data/backproject.py ./runs/cad ./runs/point-cloud
+python3.12 -m venv .venv-workbench
+source .venv-workbench/bin/activate
+python -m pip install -r labs/scene-to-data/requirements-check.txt
 ```
 
-For new renders, run the first line in a CadQuery environment and the second with Isaac Sim 6.2 on a machine with an RTX GPU and a display. The third line checks the new captures.
+### 2. Read four saved camera frames
+
+In the same terminal, run the command below. `--recorded` uses the bundled USD and [camera captures](../../../labs/scene-to-data/replicator-data.zip). The checker saves the files and results under `runs/workbench-replay`.
 
 ```sh
-python labs/scene-to-data/make_step.py ./runs/cad-new
-python labs/scene-to-data/workbench_final_take.py ./runs/cad-new/cad_meshes.json ./runs/cad-new
-python labs/scene-to-data/backproject.py ./runs/cad-new ./runs/point-cloud-new
+python labs/scene-to-data/check_workbench.py runs/workbench-replay --recorded
 ```
 
-The [Replicator lab](replicator-outputs.md) covers the separate twelve-frame randomization shown in this grid.
+Open `check/frame-00.png` in that folder to see the photo, depth, and mask side by side. In `check/point-cloud/result.json`, `estimated_relative_x_m` shows the X movement in meters. To make new captures, continue to the [workbench capstone](workbench-capstone.md). [Workbench USD](../../../labs/scene-to-data/workbench_scene.usda) · [Point-cloud replay](../../../labs/scene-to-data/rgbd-surface.usda) · [12-frame Replicator lab](replicator-outputs.md)
 
 ## Check the result
 

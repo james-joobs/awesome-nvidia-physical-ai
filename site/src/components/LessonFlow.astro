@@ -1,0 +1,51 @@
+---
+import Icon from './Icon.astro';
+
+const { locale, flow } = Astro.props;
+const ko = locale === 'ko';
+const labels = ko ? ['입력', '처리', '출력'] : ['Input', 'Process', 'Output'];
+---
+<figure class="lesson-flow" aria-labelledby="lesson-flow-title">
+  <figcaption id="lesson-flow-title">{ko ? '데이터는 어떻게 흐를까요?' : 'How the data moves'}</figcaption>
+  <ol class="flow-sequence">
+    {flow[locale].map(([title, sample, explanation], index) => (
+      <li class="flow-step">
+        <span class="step-role">{labels[index]}</span>
+        <strong>{title}</strong>
+        <code>{sample}</code>
+        <p>{explanation}</p>
+        {index < labels.length - 1 && <span class="step-arrow"><Icon name="right" size={17} /></span>}
+      </li>
+    ))}
+  </ol>
+  {flow.loop && <p class="flow-loop"><span aria-hidden="true">↺</span>{flow.loop[locale]}</p>}
+</figure>
+
+<style>
+  .lesson-flow { margin: 0 0 1.6rem; min-width: 0; }
+  figcaption { font-family: var(--display); font-size: 1.2rem; font-weight: 670; margin-bottom: 12px; }
+  .flow-sequence { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 21px; margin: 0; padding: 0; list-style: none; }
+  .flow-step {
+    position: relative; min-width: 0; display: grid; align-content: start; gap: 6px;
+    padding: 12px; border: 1px solid var(--edge); border-top: 2px solid var(--step-color);
+    border-radius: 8px; background: var(--surface);
+  }
+  .flow-step:nth-child(1) { --step-color: #a5c7ff; }
+  .flow-step:nth-child(2) { --step-color: #c3f477; }
+  .flow-step:nth-child(3) { --step-color: #77e5bf; }
+  .step-role { color: var(--step-color); font-size: .75rem; font-weight: 660; }
+  strong { line-height: 1.35; }
+  code {
+    display: block; border-radius: 4px; padding: 5px 6px; background: var(--bg);
+    color: var(--text); overflow-wrap: anywhere; font-size: .75rem; line-height: 1.4;
+  }
+  .flow-step p, .flow-loop { color: var(--muted); font-size: .83rem; line-height: 1.5; }
+  :lang(ko) .flow-step p, :lang(ko) .flow-loop { word-break: keep-all; overflow-wrap: anywhere; }
+  .step-arrow { position: absolute; left: calc(100% + 2px); top: calc(50% - 8px); display: flex; color: var(--muted); }
+  .flow-loop { margin-top: 10px; display: flex; align-items: baseline; gap: 8px; }
+  .flow-loop span { color: var(--accent); font-size: 1.05rem; }
+  @media (max-width: 1000px) and (min-width: 761px), (max-width: 625px) {
+    .flow-sequence { grid-template-columns: 1fr; gap: 20px; }
+    .step-arrow { left: 14px; top: calc(100% + 2px); transform: rotate(90deg); }
+  }
+</style>

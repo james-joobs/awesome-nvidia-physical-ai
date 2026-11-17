@@ -1,0 +1,82 @@
+---
+import Icon from './Icon.astro';
+import { catalogSearchUrl, pageUrl } from '../lib/catalog.mjs';
+import { topics, topicsCopy } from '../lib/topics.mjs';
+
+const { locale, page, activeTopic } = Astro.props;
+const labels = topicsCopy[locale];
+---
+<details class="topic-menu">
+  <summary class:list={[{ 'topic-active': page === 'topics' || activeTopic }]}>
+    <Icon name="menu" size={16} /><span>{labels.nav}</span><Icon name="chevron" size={14} />
+  </summary>
+  <div class="topic-dropdown">
+    <div class="shell topic-menu-content">
+      <a class="topic-all" href={pageUrl(locale, 'topics')} aria-current={page === 'topics' ? 'page' : undefined}>
+        {labels.browse}<Icon name="right" size={17} />
+      </a>
+      <ul class="topic-columns">
+        {topics.map((topic) => (
+          <li>
+            <a class:list={['topic-title', topic.theme]} href={pageUrl(locale, `topics/${topic.slug}`)}
+              aria-current={page === `topics/${topic.slug}` ? 'page' : undefined}>
+              <Icon name={topic.icon} size={18} /><span>{topic[locale].title}</span><Icon name="right" size={15} />
+            </a>
+            <ul class="topic-stacks">
+              {topic.stacks.map((stack) => <li><a href={catalogSearchUrl(locale, stack)}>{stack}</a></li>)}
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</details>
+
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>('.topic-menu');
+  if (menu) {
+    document.addEventListener('pointerdown', (event) => {
+      if (menu.open && event.target instanceof Node && !menu.contains(event.target)) menu.open = false;
+    });
+    document.addEventListener('focusin', (event) => {
+      if (menu.open && event.target instanceof Node && !menu.contains(event.target)) menu.open = false;
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape' || !menu.open) return;
+      menu.open = false;
+      menu.querySelector('summary')?.focus();
+    });
+  }
+</script>
+
+<style>
+  summary {
+    display: flex; align-items: center; gap: 6px; min-height: 40px; padding-inline: 10px;
+    border: 1px solid var(--edge); border-radius: 6px; background: var(--surface);
+    font-size: .875rem; font-weight: 650; cursor: pointer; list-style: none; white-space: nowrap;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary:hover, summary.topic-active, details[open] > summary { color: var(--accent); border-color: #526641; }
+  details[open] > summary svg:last-child { rotate: 180deg; }
+  .topic-dropdown {
+    position: absolute; z-index: 6; inset: 100% 0 auto; max-height: min(72dvh, 38rem);
+    overflow: auto; overscroll-behavior: contain;
+    background: #171c16; border-bottom: 1px solid #3d4b37; box-shadow: 0 22px 34px #050805b3;
+  }
+  .topic-menu-content { padding-block: 12px 22px; }
+  .topic-dropdown .topic-all { color: var(--accent); font-weight: 680; gap: 8px; }
+  .topic-columns, .topic-stacks { list-style: none; margin: 0; padding: 0; }
+  .topic-columns { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px 18px; }
+  .topic-columns > li { min-width: 0; border-top: 1px solid var(--edge); padding-top: 5px; }
+  .topic-dropdown .topic-title { display: flex; min-height: 48px; gap: 7px; color: var(--text); font-weight: 690; line-height: 1.3; white-space: normal; }
+  .topic-title span { flex: 1; }
+  .topic-title svg { flex: none; color: var(--route-color); }
+  .topic-dropdown .topic-stacks a { min-height: 38px; white-space: normal; }
+  @media (max-width: 1100px) { .topic-columns { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (max-width: 650px) {
+    .topic-columns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .topic-dropdown .topic-stacks a { min-height: 44px; }
+    summary { min-height: 44px; font-size: .825rem; padding-inline: 6px; gap: 4px; }
+    summary svg:first-child { display: none; }
+  }
+</style>

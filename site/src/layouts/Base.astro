@@ -3,15 +3,18 @@ import '@fontsource-variable/inter';
 import '@fontsource-variable/space-grotesk';
 import '../styles/site.css';
 import Icon from '../components/Icon.astro';
+import TopicMenu from '../components/TopicMenu.astro';
 import { copy, languages, pageUrl, catalogs, repository, repositoryFile } from '../lib/catalog.mjs';
 import { heroImage } from '../lib/assets.mjs';
 import { showcaseCopy } from '../lib/showcase.mjs';
+import { topicForPage } from '../lib/topics.mjs';
 
 const { locale, page = '', title, description, socialImage = heroImage } = Astro.props;
 const labels = copy[locale];
 const brand = 'Awesome NVIDIA Physical AI';
 const fullTitle = title ? `${title} · ${brand}` : brand;
 const absolute = (path) => new URL(path, Astro.site);
+const activeTopic = page.startsWith('topics/') || Boolean(topicForPage(page));
 ---
 <!doctype html>
 <html lang={locale}>
@@ -39,10 +42,9 @@ const absolute = (path) => new URL(path, Astro.site);
           <span>Awesome <strong>NVIDIA Physical AI</strong></span>
         </a>
         <nav class="main-nav" aria-label={labels.navigation}>
-          {['workflows', 'ecosystem', 'models'].map((id) =>
-            <a href={`${pageUrl(locale)}#${id}`}>{labels[id]}</a>
-          )}
-          <a href={pageUrl(locale, 'showcase')} aria-current={page === 'showcase' ? 'page' : undefined}>{showcaseCopy[locale].nav}</a>
+          <TopicMenu locale={locale} page={page} activeTopic={activeTopic} />
+          <a href={`${pageUrl(locale)}#workflows`}>{labels.workflows}</a>
+          <a href={`${pageUrl(locale)}#onboarding`}>{locale === 'ko' ? '환경 설정' : 'Setup'}</a>
           <a href={pageUrl(locale, 'catalog')} aria-current={page === 'catalog' ? 'page' : undefined}>{labels.browseCatalog}</a>
         </nav>
         <div class="header-actions">
@@ -63,6 +65,9 @@ const absolute = (path) => new URL(path, Astro.site);
       <div class="shell footer-inner">
         <div><span lang="en">{brand}</span><p>{labels.community}</p></div>
         <div class="footer-links">
+          <a href={pageUrl(locale, 'showcase')}>{showcaseCopy[locale].nav}</a>
+          <a href={`${pageUrl(locale)}#ecosystem`}>{labels.ecosystem}</a>
+          <a href={`${pageUrl(locale)}#models`}>{labels.models}</a>
           <a href={repositoryFile(catalogs[locale].file)}>{labels.catalog} <Icon name="external" size={16} /></a>
           <a href={repositoryFile('NOTICE.md')}>{labels.license} <Icon name="external" size={16} /></a>
         </div>

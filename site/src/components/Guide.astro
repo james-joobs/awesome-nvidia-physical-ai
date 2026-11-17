@@ -1,46 +1,85 @@
 ---
 import Base from '../layouts/Base.astro';
+import GuideCommands from './GuideCommands.astro';
 import Icon from './Icon.astro';
+import LessonFlow from './LessonFlow.astro';
+import LessonLanding from './LessonLanding.astro';
+import LessonPreview from './LessonPreview.astro';
 import { cubeScene } from '../lib/assets.mjs';
-import { copy, pageUrl, repositoryFile, workflows } from '../lib/catalog.mjs';
-import { renderGuide } from '../lib/markdown.mjs';
+import { catalogSearchUrl, copy, modelGuide, pageUrl, repositoryFile, workflows } from '../lib/catalog.mjs';
+import { courseRoute, workbenchRoute } from '../lib/learning.mjs';
+import { lessonFlows } from '../lib/lesson-flows.mjs';
+import { renderGuide, renderModelList } from '../lib/markdown.mjs';
+import { topicForPage, topicsCopy } from '../lib/topics.mjs';
 
 const { locale, page, guide, sourcePath, parent } = Astro.props;
 const labels = copy[locale];
 const entry = guide[locale];
 const { headings, html } = renderGuide(locale, sourcePath, guide.sections);
 const isCube = guide.slug === 'isaac-sim-first-cube';
+const isWorkbench = page === workbenchRoute;
+const isModels = page === modelGuide.route;
+const models = isModels ? renderModelList(locale) : undefined;
+const steps = isModels ? [...headings, { id: 'comparison-table', label: labels.modelTable }] : headings;
+const flow = lessonFlows[page.split('/').at(-1)];
+const topic = topicForPage(page);
+const media = topic?.entries.find((item) => item.page === page);
+const isReference = Boolean(guide.source) || isModels;
+const topicLabels = topicsCopy[locale];
+const ko = locale === 'ko';
+const caption = media?.credit ? topicLabels.officialMedia : topicLabels.capturedMedia;
+const startLabel = isWorkbench ? (ko ? 'GPU 없이 시작하기' : 'Start without a GPU') : headings[0].label;
+const preparation = isWorkbench
+  ? (ko ? '저장된 데이터는 Python 3.12로 검사합니다. 새 촬영에는 RTX GPU와 Isaac Sim 6.2가 필요합니다.'
+    : 'Use Python 3.12 to check the saved data. For a new capture, use an RTX GPU and Isaac Sim 6.2.')
+  : guide.slug === 'alpasim-closed-loop'
+    ? (ko ? '공식 예제 기준. Linux, NVIDIA GPU, Docker, NuRec 접근 권한이 필요합니다.'
+      : 'Official example. Requires Linux, an NVIDIA GPU, Docker, and NuRec access.')
+    : undefined;
 ---
 <Base locale={locale} page={page} title={entry.title} description={entry.description}>
-  <div class:list={['guide shell', guide.theme]}>
-    <header class="guide-header">
-      <a class="breadcrumb" href={`${pageUrl(locale)}#${parent}`}>{labels[parent]}</a>
-      <h1>{entry.title}</h1>
-      <div class="guide-actions">
-        {isCube && (
-          <a class="button button-primary" href={cubeScene} download="cube-drop.usda">
-            {labels.download} <Icon name="download" size={18} />
-          </a>
-        )}
-        <a class="plain-link" href={repositoryFile(sourcePath)}>{labels.source} <Icon name="external" size={17} /></a>
-        {isCube && (
-          <a class="plain-link" href={repositoryFile(`docs/${locale}/isaac-sim.md`)}>
-            {labels.isaacSimGuide} <Icon name="external" size={17} />
-          </a>
-        )}
-      </div>
-    </header>
-    <div class="guide-body">
-      <nav class="toc" aria-label={labels.onThisPage}>
-        <p>{labels.onThisPage}</p>
-        <ul>
-          {headings.map(({ id, label }) => <li><a href={`#${id}`}>{label}</a></li>)}
-        </ul>
-      </nav>
-      <article class="prose guide-content" set:html={html} />
-    </div>
+  <LessonLanding locale={locale} title={entry.title} description={entry.description}
+    theme={guide.theme ?? topic?.theme} steps={steps} reference={isReference} preparation={preparation}>
+    <Fragment slot="breadcrumbs">
+      {topic ? <a class="breadcrumb" href={pageUrl(locale, `topics/${topic.slug}`)}>{topic[locale].title}</a>
+        : <a class="breadcrumb" href={`${pageUrl(locale)}#${parent}`}>{labels[parent]}</a>}
+      {isWorkbench && <a class="breadcrumb" href={pageUrl(locale, courseRoute('simulation-data'))}>{labels.workflows}</a>}
+    </Fragment>
+    <Fragment slot="actions">
+      {isCube ? (
+        <a class="button button-primary" href={cubeScene} download="cube-drop.usda">
+          {labels.download} <Icon name="download" size={18} />
+        </a>
+      ) : (
+        <a class="button button-primary" href={`#${headings[0].id}`}>
+          {startLabel} <Icon name="down" size={16} />
+        </a>
+      )}
+      <a class="plain-link" href={repositoryFile(sourcePath)}>{labels.source} <Icon name="external" size={17} /></a>
+      {isWorkbench && (
+        <a class="plain-link" href={catalogSearchUrl(locale, 'Replicator')}>
+          {ko ? '카탈로그에서 Replicator 보기' : 'Replicator in the catalog'} <Icon name="right" size={17} />
+        </a>
+      )}
+      {isCube && (
+        <a class="plain-link" href={repositoryFile(`docs/${locale}/isaac-sim.md`)}>
+          {labels.isaacSimGuide} <Icon name="external" size={17} />
+        </a>
+      )}
+    </Fragment>
+    {media && <LessonPreview slot="preview" image={media.image} alt={media[locale].alt} fit={media.fit}
+      caption={caption} href={media.credit?.url} label={media.credit?.label} external />}
+    {flow && <LessonFlow locale={locale} flow={flow} />}
+    <GuideCommands locale={locale} />
+    <div class="prose" set:html={html} />
+    {models && (
+      <section class="prose model-list" id="comparison-table" aria-labelledby="comparison-heading">
+        <h2 id="comparison-heading">{labels.modelTable}</h2>
+        <Fragment set:html={models} />
+      </section>
+    )}
     {guide.slug && (
-      <nav class="related-workflows" aria-label={labels.otherWorkflows}>
+      <nav slot="related" class="related-workflows" aria-label={labels.otherWorkflows}>
         <h2>{labels.otherWorkflows}</h2>
         {workflows.filter(({ slug }) => slug !== guide.slug).map((workflow) =>
           <a class="plain-link" href={pageUrl(locale, `workflows/${workflow.slug}`)}>
@@ -49,5 +88,5 @@ const isCube = guide.slug === 'isaac-sim-first-cube';
         )}
       </nav>
     )}
-  </div>
+  </LessonLanding>
 </Base>

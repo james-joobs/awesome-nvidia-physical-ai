@@ -1,6 +1,6 @@
 export const tourCopy = {
   en: {
-    title: 'Follow a workflow through the repo',
+    title: 'See how the tools fit together',
     description: 'Choose a goal and trace it through the datasets, catalog, guides, and result checks.',
     shortcut: 'See the repo in action',
     goals: 'Choose a goal',
@@ -12,7 +12,7 @@ export const tourCopy = {
     reset: 'Back to start',
   },
   ko: {
-    title: '이 레포로 어떻게 시작하나요?',
+    title: '예제로 도구 연결 살펴보기',
     description: '목표를 고르면 필요한 데이터와 도구를 찾아 실습하고, 결과를 확인하기까지의 흐름을 볼 수 있습니다.',
     shortcut: '레포 활용 흐름 보기',
     goals: '목표 고르기',

@@ -363,7 +363,7 @@ NeMo 도구는 데이터 준비, 모델 후학습과 에이전트 운영에 쓰�
 | **Isaac ROS cuMotion** | GPU 가속 로봇 모션 플래닝용 ROS 2 패키지 | 저장소 공개. 현재 main 브랜치는 NVIDIA Isaac ROS Software License 적용 | [저장소](https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_cumotion) | [관련 가이드](docs/ko/isaac-manipulator.md) |
 | **Isaac OS** | 결정론적 센싱·제어·AI 추론을 위한 NVIDIA Edge 로보틱스 스택 | 베타 플랫폼, 문서 공개. 배포물과 구성 요소별 약관 확인 | [공식 문서](https://docs.nvidia.com/isaac-os/overview) | — |
 | **Isaac RLPT** | 사전 학습 정책을 강화학습으로 개선하는 워크플로 | 독립 저장소와 라이선스 미확인 | [Isaac Lab](https://github.com/isaac-sim/IsaacLab) | [상세 보기](docs/ko/isaac-rlpt.md) |
-| **Replicator** | Omniverse/Isaac Sim의 합성 데이터 생성 도구 | 제품 구성 요소; 전체 코드 공개 및 독립 라이선스 미확인 | [Isaac Sim 문서](https://docs.isaacsim.omniverse.nvidia.com/latest/replicator_tutorials/index.html) | [상세 보기](docs/ko/replicator.md) |
+| **Replicator** | Omniverse/Isaac Sim의 합성 데이터 생성 도구 | 제품 구성 요소; 전체 코드 공개 및 독립 라이선스 미확인 | [Isaac Sim 문서](https://docs.isaacsim.omniverse.nvidia.com/latest/replicator_tutorials/index.html) | [상세 보기](docs/ko/replicator.md) · [작업대 완주 과제](docs/ko/labs/workbench-capstone.md) · [12프레임 심화 실습](docs/ko/labs/replicator-outputs.md) |
 | **EgoHand / EgoPost** | Capture의 1인칭 손·카메라 동작 관련 구성 요소 | EgoPost는 OpenMDW-1.1; EgoHand의 독립 라이선스 미확인. 상위 패키지 기본 라이선스를 일괄 적용하지 않음 | [Isaac Capture](https://github.com/NVIDIA/IsaacCapture) | [상세 보기](docs/ko/egohand-egopost.md) |
 | **MimicGen** | 시연으로 다양한 로봇 행동 데이터 생성 | 소스 공개; NVIDIA Source Code License 조건을 확인해야 하며 오픈소스로 단정하지 않음 | [저장소](https://github.com/NVlabs/mimicgen) | [상세 보기](docs/ko/mimicgen.md) |
 | **DexMimicGen** | 양손·다중 조작 시연 데이터 생성 연구 | 코드 NVIDIA Source Code License; 데이터 CC-BY-4.0, 코드 이용 제한 확인 | [저장소](https://github.com/NVlabs/dexmimicgen) | [상세 보기](docs/ko/dexmimicgen.md) |

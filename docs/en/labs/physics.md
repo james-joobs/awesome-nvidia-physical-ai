@@ -2,18 +2,28 @@
 
 ## How it works
 
-Four OpenUSD stages isolate one change at a time. SimReady adds a convex-hull collider to the same crate mesh. The offset test shifts a collider 12 cm or disables it. The friction and bounce stages bind different PhysX contact materials to otherwise identical setups. The PhysX/Newton tile replays two pose streams from six boxes with the same initial poses and 240 steps at 120 Hz. [USD scenes](../../../labs/physics/scenes) · [Shared solver scene](../../../labs/physics/scene.json)
+A **collider** is the shape the physics engine uses to detect contact. Two crates may look the same, yet an object can stop at different heights depending on where their colliders are. Start by keeping the visible shape and camera fixed and comparing just the colliders.
 
 ## Run it
 
-Open any of the [live stages](../../../labs/physics/scenes) in Isaac Sim 6.1, select `/World/FilmCamera` in the viewport, then press **Play**. Keep the two SimReady crate layers beside `simready-live.usda`. To record the same four tests on Linux, use an Isaac Lab environment with Isaac Sim, X11 and FFmpeg.
+**Before you start** · Use Isaac Sim 6.1 and keep the files in the [scene folder](../../../labs/physics/scenes) together. See [how to open a USD scene](../onboarding/isaac-sim-tools.md) if you are new to the GUI.
+
+### 1. Compare collision shapes in the GUI
+
+1. In Isaac Sim, choose **File → Open** and open `labs/physics/scenes/simready-live.usda`. Keep `simready-before.usda` and `simready-after.usda` next to it, as the scene references both.
+2. Choose **FilmCamera** from the viewport’s camera menu and press **Play**. Look for whether the two objects stop at the same height.
+3. Press **Stop** to reset. Open `collider-live.usda` to compare an aligned, raised, and disabled collider.
+
+### 2. Write the measurements to disk
+
+To record on Linux X11, activate the Isaac Lab Python environment and enter this repository in the terminal. Check that `command -v ffmpeg` returns a path. Paste the following block. The `--takes simready offset` option selects the two scenes you just viewed.
 
 ```sh
 python labs/physics/capture_gui.py labs/physics/scenes ./runs/physics "$(command -v ffmpeg)" \
-  --plan labs/physics/takes.json --takes simready offset friction bounce --viz kit
+  --plan labs/physics/takes.json --takes simready offset --viz kit
 ```
 
-With each solver's Python environment, run `python labs/physics/run_physx.py ./runs/solvers` and `python labs/physics/run_newton.py ./runs/solvers`. They write separate pose arrays. [SimReady validation](https://github.com/NVIDIA/simready-foundation/blob/main/nv_core/sr_specs/docs/guides/validate_workflow.md) · [PhysX simulation control](https://docs.omniverse.nvidia.com/kit/docs/omni_physics/latest/dev_guide/simulation_control/simulation_control.html) · [Newton XPBD](https://newton-physics.github.io/newton/latest/api/_generated/newton.solvers.SolverXPBD.html)
+To compare the two solvers numerically, run the [PhysX](../../../labs/physics/run_physx.py) and [Newton](../../../labs/physics/run_newton.py) scripts in their respective Python environments. Both accept an output folder, read the same [`scene.json`](../../../labs/physics/scene.json), and write position arrays. [SimReady validation](https://github.com/NVIDIA/simready-foundation/blob/main/nv_core/sr_specs/docs/guides/validate_workflow.md) · [PhysX](https://docs.omniverse.nvidia.com/kit/docs/omni_physics/latest/dev_guide/simulation_control/simulation_control.html) · [Newton XPBD](https://newton-physics.github.io/newton/latest/api/_generated/newton.solvers.SolverXPBD.html)
 
 ## Check the result
 

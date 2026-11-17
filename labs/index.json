@@ -15,7 +15,7 @@
     {
       "id": "scene-to-data",
       "tags": ["CadQuery", "OpenUSD", "Isaac Sim", "PhysX", "Replicator"],
-      "code": ["make_step.py", "workbench_final_take.py", "backproject.py"],
+      "code": ["make_step.py", "workbench_final_take.py", "backproject.py", "check_workbench.py"],
       "evidence": "recorded.json"
     },
     {

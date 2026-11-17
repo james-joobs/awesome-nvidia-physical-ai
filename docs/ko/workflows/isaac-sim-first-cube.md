@@ -2,18 +2,20 @@
 
 [English](../../en/workflows/isaac-sim-first-cube.md) · **한국어** · [Isaac Sim 가이드](../isaac-sim.md)
 
-같은 큐브를 두 번 떨어뜨려 봅니다. 강체만 설정하면 큐브는 중력에 따라 떨어지고 바닥을 통과합니다. 충돌체를 추가하면 바닥에 닿은 큐브가 멈춥니다. Isaac Sim의 기본 도형과 PhysX만 있으면 됩니다.
+같은 큐브를 두 번 떨어뜨리면서 **무엇이 물체를 움직이게 하고, 무엇이 바닥에 닿게 하는지** 확인합니다. 처음에는 예제 장면을 그대로 열고, 두 번째에는 같은 조건을 직접 만듭니다.
+
+## 실행 환경 고르기
+
+Isaac Sim을 아직 열어 본 적이 없다면 [GUI·CLI 시작하기](../onboarding/isaac-sim-tools.md)에서 설치와 첫 실행을 먼저 합니다. RTX 워크스테이션은 [시스템 요구사항](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/installation/requirements.html)을, Mac에서 원격 RTX를 쓸 때는 [WebRTC 접속 방법](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/installation/manual_livestream_clients.html)을 확인하세요. 브라우저로 원격 GPU를 쓰려면 [Isaac Launchable](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/installation/install_advanced_cloud_setup_launchable.html)도 있으며 [GPU 사용료](https://docs.nvidia.com/brev/concepts/gpu-instances)와 제공 버전을 확인해야 합니다.
 
 ## 예제 장면 열기
 
-1. [`cube-drop.usda`](../../../assets/lessons/isaac-sim-first-cube/cube-drop.usda)를 GitHub의 **Raw** 또는 다운로드 버튼으로 받습니다. 외부 자산 없이 이 파일 하나로 열 수 있습니다.
-2. Isaac Sim에서 파일을 엽니다. 같은 각도에서 비교하려면 뷰포트의 카메라 메뉴에서 **LessonCamera**를 선택합니다.
-3. Stage 패널에서 **World**를 선택하고 속성 패널에서 `collider` 변형 세트를 찾습니다. 정지 상태에서 **WithoutCollider**를 선택하고 **Play**를 누릅니다. 초록색 큐브가 회색 바닥을 통과합니다.
-4. 정지하고 **WithCollider**로 바꾼 뒤 다시 **Play**를 누릅니다. 이번에는 큐브가 바닥 위에 멈춥니다. 이전 위치가 남아 있다면 파일을 다시 열고 재생 전에 변형을 선택합니다.
+1. [`cube-drop.usda` 받기](../../../assets/lessons/isaac-sim-first-cube/cube-drop.usda)를 누릅니다. 장면에 필요한 도형이 이 파일에 들어 있습니다.
+2. Isaac Sim에서 **File → Open**으로 파일을 선택합니다. 뷰포트의 카메라 메뉴에서 **LessonCamera**를 고르면 두 실행을 같은 각도로 볼 수 있습니다.
+3. **Stage → World**를 선택하고 **Property**에서 `collider` 변형 세트를 찾습니다. 정지 상태에서 **WithoutCollider → Play** 순으로 고릅니다. 큐브가 바닥 높이를 지나가는지 살펴보세요.
+4. **Stop**을 누른 뒤 **WithCollider → Play**로 반복합니다. 두 번째 큐브가 어디에 멈추는지 비교합니다. 이전 위치가 남아 있다면 파일을 다시 열고 재생 전에 변형을 선택합니다.
 
 두 변형의 시작 높이, 바닥, 카메라, 중력은 같습니다. 큐브의 충돌체만 바뀝니다.
-
-**RTX 5090과 Isaac Sim 6.2.0에서 검증했습니다.** 화면 없이 PhysX 시뮬레이션을 2.5초 실행했을 때 충돌체가 없는 큐브는 바닥을 통과했습니다. 충돌체를 켜면 큐브의 중심이 바닥에서 0.50m 높이에 멈췄습니다.
 
 ## 빈 화면에서 직접 만들기
 
@@ -24,10 +26,8 @@
 
 [Isaac Sim 6.2 공식 물리 실습](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/physics/simulation_fundamentals.html#simulation-components)
 
-## 실행 환경 고르기
+## 두 실행 비교하기
 
-- **RTX 워크스테이션** · 지원되는 Windows 또는 Linux에서 Isaac Sim을 실행합니다. [시스템 요구사항](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/installation/requirements.html)
-- **맥과 원격 RTX 서버** · 서버에서 Isaac Sim을 실행하고 맥용 WebRTC 클라이언트나 비공개로 구성한 브라우저 뷰어로 접속합니다. [원격 화면 접속](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/installation/manual_livestream_clients.html)
-- **로컬 GPU가 없는 경우** · NVIDIA Brev의 Isaac Launchable을 브라우저에서 이용할 수 있습니다. GPU 사용료가 있으며 제공되는 Isaac Sim 버전이 이 가이드와 다를 수 있습니다. [Isaac Launchable](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/installation/install_advanced_cloud_setup_launchable.html) · [Brev 인스턴스 비용](https://docs.nvidia.com/brev/concepts/gpu-instances)
+**WithoutCollider**에서는 큐브가 바닥을 지나가고, **WithCollider**에서는 바닥에 멈추면 됩니다. RTX 5090과 Isaac Sim 6.2.0에서 PhysX를 2.5초 실행했을 때, 충돌체를 켠 큐브의 중심이 바닥 위 0.50m에 멈췄습니다.
 
 다음 실습에서는 바닥을 치수를 아는 작업대 자산으로 바꿔 봅니다. [작업대 CAD를 Isaac Sim 장면으로 만들기](workbench-cad-to-isaac-sim.md)

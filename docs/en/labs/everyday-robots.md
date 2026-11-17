@@ -1,21 +1,31 @@
-# Experiments around a desk
+# Control a snack drawer with a virtual camera
 
 ## How it works
 
-The alarm controller compares stopping, reversing, and turning before the desk edge. The drawer reads a green card or an obstruction using color rules on synthetic RGB frames, then drives a PhysX prismatic joint. The cleanup experiment gives selected objects an initial push. The cart compares its required clearance against three OpenUSD layouts.
+The snack drawer **sees, decides, then moves**. A synthetic camera captures the area in front of the drawer. OpenCV looks for colors in specific parts of the image to detect the card and an obstruction. Its decision drives a joint that slides in one direction. The alarm and cart use similar rules with different inputs, such as hand distance or aisle width.
 
 ## Run it
 
-Open the [alarm](../../../labs/everyday-robots/runaway-alarm.usda), [drawer](../../../labs/everyday-robots/snack-guard.usda), [cleanup](../../../labs/everyday-robots/desk-cleanup.usda) or [cart](../../../labs/everyday-robots/cart-clearance.usda) scene in Isaac Sim, choose `/World/FilmCamera` and press **Play**. Try `/World/FallCamera` for the alarm close-up. Keep `workbench-asset.usda` next to the cart.
+### 1. Watch the drawer in Isaac Sim
 
-Use Python with NumPy, OpenCV and FFmpeg for the first command. Use the Isaac Sim Python environment for the next two commands, and Python with `usd-core` for the last.
+Open the [snack drawer USD](../../../labs/everyday-robots/snack-guard.usda) via **File → Open**. Switch to **FilmCamera** and press **Play**. Watch how the drawer moves when a card is present or an object blocks the slot.
+
+### 2. Generate a decision log on your computer
+
+From this repository in a terminal, prepare Python and FFmpeg. Check that `command -v ffmpeg` prints a path, then run the block. This step runs on a CPU.
 
 ```sh
+python3 -m venv .venv-desk
+source .venv-desk/bin/activate
+python -m pip install numpy opencv-python-headless
 python labs/everyday-robots/run_story_demos.py ./runs/stories "$(command -v ffmpeg)"
-python labs/everyday-robots/physics.py ./runs/stories/physics ./runs/stories/28-snack-guard/result/result.json
-python labs/everyday-robots/desk_cleanup.py ./runs/cleanup
-python labs/everyday-robots/aisle.py labs/scene-to-data/workbench_scene.usda ./runs/aisle
 ```
+
+Open `runs/stories/28-snack-guard/result/result.json` in a text editor. `badge_seen` means the card was visible, `slot_occupied` means the slot was blocked, and `drawer_closed_fraction` tells you how far it closed.
+
+### 3. Try another scene
+
+Open the [alarm](../../../labs/everyday-robots/runaway-alarm.usda), [cleanup](../../../labs/everyday-robots/desk-cleanup.usda), or [cart](../../../labs/everyday-robots/cart-clearance.usda) the same way. Keep the cart’s `workbench-asset.usda` beside its stage. To regenerate stages, use Isaac Sim Python for [drawer physics](../../../labs/everyday-robots/physics.py) and [cleanup](../../../labs/everyday-robots/desk_cleanup.py), or Python with `usd-core` for the [aisle check](../../../labs/everyday-robots/aisle.py).
 
 ## Check the result
 

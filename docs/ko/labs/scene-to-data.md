@@ -2,28 +2,31 @@
 
 ## 동작 원리
 
-CadQuery로 작업대 STEP을 저장한 뒤 다시 읽습니다. 읽어 온 솔리드를 미터 단위 삼각형 메시로 만들어 OpenUSD에 배치합니다. PhysX로 상판 위에 큐브를 떨어뜨리고, Replicator로 검사 카메라의 RGB·깊이·의미 분할을 저장합니다. 큐브 마스크 안의 깊이값을 카메라 좌표에서 월드 좌표로 옮기면 화면과 같은 점군이 나옵니다. [작업대 USD](../../../labs/scene-to-data/workbench_scene.usda) · [점군 재생 씬](../../../labs/scene-to-data/rgbd-surface.usda)
+사진 속 큐브가 왼쪽으로 움직여도 몇 미터 움직였는지는 사진만으로 알기 어렵습니다. **분할 마스크**로 큐브 픽셀만 고르고, **깊이**와 **카메라 위치**로 그 픽셀을 장면 속 3D 점으로 바꿉니다. 이렇게 모은 점을 **점군**이라고 부릅니다.
 
 ## 따라 하기
 
-Python, NumPy, `usd-core`만으로 저장된 카메라 데이터에서 점군과 이동량을 다시 계산할 수 있습니다. [카메라 데이터 네 세트](../../../labs/scene-to-data/replicator-data.zip)를 작업대 USD 옆에 풉니다.
+**준비물** · 일반 컴퓨터에서 Python 3.12와 터미널을 엽니다. 이 단계는 저장된 카메라 데이터로 계산하므로 GPU 없이 할 수 있습니다.
+
+### 1. 점군을 계산할 Python 준비하기
+
+이 레포의 폴더에서 아래를 실행합니다. 가상환경을 따로 만들면 다른 Python 프로젝트의 패키지와 섞이지 않습니다.
 
 ```sh
-mkdir -p ./runs/cad
-cp labs/scene-to-data/workbench_scene.usda ./runs/cad/
-unzip labs/scene-to-data/replicator-data.zip -d ./runs/cad
-python labs/scene-to-data/backproject.py ./runs/cad ./runs/point-cloud
+python3.12 -m venv .venv-workbench
+source .venv-workbench/bin/activate
+python -m pip install -r labs/scene-to-data/requirements-check.txt
 ```
 
-데이터를 새로 만들려면 첫 줄은 CadQuery 환경에서, 둘째 줄은 RTX GPU와 화면이 연결된 Isaac Sim 6.2 환경에서 실행합니다.
+### 2. 카메라 데이터 네 세트를 읽기
+
+같은 터미널에서 아래 명령을 실행합니다. `--recorded`는 동봉한 USD와 [카메라 데이터](../../../labs/scene-to-data/replicator-data.zip)를 읽으라는 뜻입니다. `runs/workbench-replay`에 파일과 결과를 저장합니다.
 
 ```sh
-python labs/scene-to-data/make_step.py ./runs/cad-new
-python labs/scene-to-data/workbench_final_take.py ./runs/cad-new/cad_meshes.json ./runs/cad-new
-python labs/scene-to-data/backproject.py ./runs/cad-new ./runs/point-cloud-new
+python labs/scene-to-data/check_workbench.py runs/workbench-replay --recorded
 ```
 
-4×4 영상에 나온 장면 무작위화와 12프레임 생성은 [Replicator 실습](replicator-outputs.md)에서 따라 할 수 있습니다.
+`check/frame-00.png`에서 사진과 깊이, 큐브 마스크를 나란히 봅니다. 이동량은 `check/point-cloud/result.json`의 `estimated_relative_x_m`에 미터 단위로 나옵니다. 새 카메라 데이터를 만들고 싶다면 [작업대 완주 과제](workbench-capstone.md)로 이어가세요. [작업대 USD](../../../labs/scene-to-data/workbench_scene.usda) · [점군 재생 장면](../../../labs/scene-to-data/rgbd-surface.usda) · [12프레임 Replicator 실습](replicator-outputs.md)
 
 ## 테스트 결과
 

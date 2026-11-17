@@ -9,11 +9,12 @@ from isaacsim import SimulationApp
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("mesh", type=Path)
 parser.add_argument("output", type=Path)
+parser.add_argument("--headless", action="store_true", help="Capture without opening a viewport")
 args = parser.parse_args()
 cap = args.output.resolve()
 cap.mkdir(parents=True, exist_ok=True)
 app = SimulationApp({
-    "headless": False, "width": 1440, "height": 900, "window_width": 1440, "window_height": 900,
+    "headless": args.headless, "width": 1440, "height": 900, "window_width": 1440, "window_height": 900,
     "renderer": "RaytracedLighting", "anti_aliasing": 2, "fast_shutdown": True,
 })
 
@@ -127,7 +128,7 @@ cap.mkdir(exist_ok=True)
 stage.Export(str(cap/"workbench_scene.usda"))
 for _ in range(12):
     app.update()
-viewport = get_active_viewport()
+viewport = None if args.headless else get_active_viewport()
 if viewport:
     viewport.camera_path = camera.GetPath()
 for _ in range(10):
@@ -150,10 +151,11 @@ for _ in range(12):
 else:
     raise RuntimeError("RTX camera did not produce an initialized RGB frame")
 print("STAGE_READY: CAD-derived OpenUSD scene, Replicator camera 1280x720", flush=True)
-(cap/"viewport-ready").touch()
-until = time.monotonic() + 4
-while time.monotonic() < until:
-    app.update()
+if viewport:
+    (cap/"viewport-ready").touch()
+    until = time.monotonic() + 4
+    while time.monotonic() < until:
+        app.update()
 
 def cube_position():
     value = omni.physx.get_physx_interface().get_rigidbody_transformation(str(body.GetPath()))
@@ -196,9 +198,10 @@ for frame, x in enumerate((.125, -.18, .23, .03)):
     approx_part_depth = float(np.median(depth[part]))
     focus_values.append({"frame":frame, "part_pixels":int(part.sum()), "part_depth_m":approx_part_depth})
     print(f"CAPTURE_FRAME {frame:02d} | part pixels {part.sum()} | median depth {approx_part_depth:.3f} m",flush=True)
-    until=time.monotonic()+1.1
-    while time.monotonic()<until:
-        app.update()
+    if viewport:
+        until=time.monotonic()+1.1
+        while time.monotonic()<until:
+            app.update()
 
 valid = [point[2] for point in positions if point is not None]
 expected = .8 + .123/2
@@ -208,8 +211,9 @@ summary = {"physics_frames":len(positions),"tabletop_top_m":.8,"expected_rest_ce
            "replicator_frames":focus_values}
 (cap/"workbench-result.json").write_text(json.dumps(summary,indent=2))
 print("RESULT",json.dumps(summary),flush=True)
-(cap/"viewport-result").touch()
-until = time.monotonic() + 10
-while time.monotonic() < until:
-    app.update()
+if viewport:
+    (cap/"viewport-result").touch()
+    until = time.monotonic() + 10
+    while time.monotonic() < until:
+        app.update()
 app.close()
