@@ -13,31 +13,37 @@ const group = topic ? [topic] : topics;
 const route = topic ? `topics/${topic.slug}` : 'topics';
 const heading = topic?.[locale].title ?? labels.browse;
 const description = topic?.[locale].description ?? labels.intro;
+const topicLinks = [
+  { page: 'topics', title: labels.all },
+  ...topics.map((item) => ({ page: `topics/${item.slug}`, title: item[locale].title })),
+];
 ---
 <Base locale={locale} page={route} title={heading} description={description}>
-  <header class:list={['gallery-header', topic?.theme ?? 'lime']}>
-    <div class="shell">
-      {topic && <span class="gallery-icon"><Icon name={topic.icon} size={30} /></span>}
-      <h1>{heading}</h1>
-      <p>{description}</p>
-      {topic?.course && <a class="plain-link course-link" href={pageUrl(locale, courseRoute(topic.course))}>{learningCopy[locale].openPath}<Icon name="right" size={18} /></a>}
-      <nav class="topic-switcher" aria-label={labels.topicNav}>
-        <a href={pageUrl(locale, 'topics')} aria-current={topic ? undefined : 'page'}>{labels.all}</a>
-        {topics.map((section) => (
-          <a href={pageUrl(locale, `topics/${section.slug}`)} aria-current={section.slug === topic?.slug ? 'page' : undefined}>
-            {section[locale].title}
-          </a>
-        ))}
-      </nav>
-    </div>
+  <header class="shell gallery-header">
+    <a class="breadcrumb" href={`${pageUrl(locale)}#topics`}>{labels.nav}</a>
+    <h1>{heading}</h1>
+    <p>{description}</p>
+    {topic?.course && <a class="plain-link course-link" href={pageUrl(locale, courseRoute(topic.course))}>{learningCopy[locale].openPath}<Icon name="right" size={18} /></a>}
   </header>
+  <div class="hub-band">
+    <nav class="shell hub-views topic-switcher" aria-label={labels.topicNav}>
+      {topicLinks.map(({ page, title }) => <a href={pageUrl(locale, page)} aria-current={page === route ? 'page' : undefined}>{title}</a>)}
+    </nav>
+    <details class="shell topic-picker">
+      <summary><span>{labels.topicNav}</span><strong>{topic ? heading : labels.all}</strong><Icon name="chevron" size={16} /></summary>
+      <nav aria-label={labels.topicNav}>
+        {topicLinks.map(({ page, title }) => <a href={pageUrl(locale, page)} aria-current={page === route ? 'page' : undefined}>{title}</a>)}
+      </nav>
+    </details>
+  </div>
   <div class="shell topic-gallery">
     {group.map((section) => (
-      <section class:list={['topic-group', section.theme]} aria-label={section[locale].title}>
-        {!topic && (
-          <h2><a href={pageUrl(locale, `topics/${section.slug}`)}>{section[locale].title}<Icon name="right" size={20} /></a></h2>
-        )}
-        <div class:list={['example-grid', { 'four-across': section.entries.length >= 4, 'single-example': topic && section.entries.length === 1 }]}>
+      <section class="topic-group" aria-labelledby={`gallery-${section.slug}`}>
+        <h2 id={`gallery-${section.slug}`}>
+          {topic ? labels.examples
+            : <a href={pageUrl(locale, `topics/${section.slug}`)}>{section[locale].title}<Icon name="right" size={20} /></a>}
+        </h2>
+        <div class:list={['example-grid', { 'single-example': topic && section.entries.length === 1 }]}>
           {section.entries.map((item) => {
             const { title, description, alt } = item[locale];
             const url = pageUrl(locale, item.page);
@@ -52,7 +58,7 @@ const description = topic?.[locale].description ?? labels.intro;
                 </div>
                 <div class="example-copy">
                   <p class="example-kind">{labels[item.kind]}</p>
-                  {topic ? <h2><a href={url}>{title}</a></h2> : <h3><a href={url}>{title}</a></h3>}
+                  <h3><a href={url}>{title}</a></h3>
                   <p class="example-description">{description}</p>
                   <ToolTags tags={item.tools} label={labels.tools} />
                   <div class="example-actions">
@@ -73,8 +79,8 @@ const description = topic?.[locale].description ?? labels.intro;
           {topic ? <h2>{labels.principles}</h2> : <h3>{labels.principles}</h3>}
           <ul role="list">
             {section.guides.map((guide) => (
-              <li><a href={pageUrl(locale, guide.page)}>
-                <span><strong>{guide[locale].title}</strong><span>{guide[locale].description}</span></span>
+              <li><a class="hub-entry" href={pageUrl(locale, guide.page)}>
+                <span><strong>{guide[locale].title}</strong><span class="hub-summary">{guide[locale].description}</span></span>
                 <Icon name="right" size={17} />
               </a></li>
             ))}
@@ -83,7 +89,7 @@ const description = topic?.[locale].description ?? labels.intro;
         {topic && (
           <nav class="topic-links" aria-label={labels.tools}>
             <h2>{labels.tools}</h2>
-            <div>{section.stacks.map((stack) => <a href={catalogSearchUrl(locale, stack)}>{stack}<Icon name="right" size={15} /></a>)}</div>
+            <div>{section.stacks.map((stack) => <a class="plain-link" href={catalogSearchUrl(locale, stack)}>{stack}<Icon name="right" size={15} /></a>)}</div>
           </nav>
         )}
       </section>
@@ -92,55 +98,71 @@ const description = topic?.[locale].description ?? labels.intro;
 </Base>
 
 <style>
-  .gallery-header { padding-block: clamp(28px, 5vw, 60px) 22px; border-bottom: 1px solid var(--edge); }
-  .gallery-icon { display: grid; place-items: center; width: 50px; height: 50px; margin-bottom: 15px; color: var(--route-color); border: 1px solid var(--edge); border-radius: 9px; }
-  .gallery-header h1 { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.08; letter-spacing: -.045em; }
-  .gallery-header p { max-width: 64ch; margin-block: 12px 24px; color: var(--muted); line-height: 1.58; }
-  .course-link { color: var(--route-color); min-height: 44px; margin: -14px 0 10px; }
-  .topic-switcher, .topic-links div { display: flex; flex-wrap: wrap; gap: 7px; }
-  :is(.topic-switcher, .topic-links) a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding-inline: 12px; border: 1px solid var(--edge); border-radius: 6px; font-size: .86rem; text-decoration: none; }
-  :is(.topic-switcher, .topic-links) a:hover, .topic-switcher a[aria-current] { border-color: var(--route-color); color: var(--route-color); background: var(--route-tint); }
-  .topic-gallery { padding-block: 30px clamp(42px, 6vw, 78px); }
-  .topic-group + .topic-group { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--edge); }
-  .topic-group > h2 { margin-bottom: 16px; }
-  .topic-group > h2 a { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
-  .topic-group > h2 a:is(:hover, :focus-visible) { color: var(--route-color); }
-  .example-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
-  @media (min-width: 1200px) { .example-grid.four-across { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-  .example-card { display: flex; flex-direction: column; min-width: 0; overflow: clip; border: 1px solid var(--edge); border-radius: 11px; background: var(--surface); }
+  .gallery-header { padding-block: clamp(28px, 4vw, 55px) 26px; }
+  .gallery-header h1 { margin-block: 8px 12px; font-size: clamp(1.875rem, 4vw, 2.5rem); line-height: 1.2; }
+  .gallery-header p { max-width: 46rem; color: var(--prose-text); line-height: 1.75; }
+  .course-link { min-height: 44px; margin-top: 5px; }
+  .topic-picker { display: none; }
+  .topic-gallery { padding-block: clamp(27px, 5vw, 60px) clamp(40px, 6vw, 72px); }
+  .topic-group + .topic-group { margin-top: 42px; padding-top: 26px; border-top: 1px solid var(--edge); }
+  .topic-group > h2 { margin-bottom: 20px; padding-bottom: 9px; border-bottom: 1px solid var(--edge); font-size: 1.45rem; line-height: 1.25; }
+  .topic-group > h2 a { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+  .topic-group > h2 a :global(svg), .topic-group > h2 a:hover { color: var(--accent); }
+  .example-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
   .example-grid.single-example { grid-template-columns: minmax(0, 64rem); }
-  @media (min-width: 761px) {
-    .single-example .example-card { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: center; }
-    .single-example .example-media { border-right: 1px solid var(--edge); border-bottom: 0; }
-    .single-example .example-copy { padding: 20px 24px; }
+  .example-card {
+    display: flex; flex-direction: column; min-width: 0; border: 1px solid var(--edge);
+    background: var(--bg); box-shadow: 0 2px 6px var(--shadow);
   }
-  .example-card:focus-within { border-color: var(--route-color); }
-  .example-media { border-bottom: 1px solid var(--edge); }
+  .example-card:focus-within { border-color: var(--accent); }
+  .example-media { border-bottom: 1px solid var(--edge); min-width: 0; }
   .example-image { display: block; aspect-ratio: 16 / 9; background: var(--media-bg); }
   .example-image:focus-visible { outline-offset: -4px; }
   .example-image img { width: 100%; height: 100%; object-fit: cover; }
   .example-image.contain img { object-fit: contain; padding: 12%; }
-  .example-copy { flex: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 9px; padding: 15px 16px 12px; }
-  .example-kind { color: var(--route-color); font-size: .76rem; font-weight: 650; }
-  .example-copy :is(h2, h3) { font-size: clamp(1.15rem, 2vw, 1.36rem); line-height: 1.3; text-wrap: pretty; }
-  .example-copy :is(h2, h3) a { text-decoration: none; }
-  .example-copy :is(h2, h3) a:hover { text-decoration: underline; text-underline-offset: 3px; }
-  .example-description { margin-bottom: 4px; color: var(--muted); font-size: .9rem; line-height: 1.55; overflow-wrap: anywhere; }
-  .example-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0 10px; width: 100%; margin-top: auto; }
-  .example-actions .plain-link { color: var(--route-color); margin: 0; min-height: 44px; }
-  .credit { display: inline-flex; align-items: center; gap: 3px; min-height: 36px; color: var(--muted); font-size: .76rem; text-underline-offset: 3px; }
-  .credit svg { flex: none; }
-  .extra-guide { margin-top: 12px; }
-  .topic-theory { margin-top: 26px; }
-  .topic-theory :is(h2, h3) { margin-bottom: 10px; font-size: 1.25rem; }
+  .example-copy { flex: 1; display: flex; flex-direction: column; align-items: start; gap: 8px; padding: 16px 18px 12px; }
+  .example-kind { color: var(--muted); font-size: .78rem; font-weight: 620; }
+  .example-copy h3 { font-size: clamp(1.1rem, 2vw, 1.28rem); line-height: 1.35; overflow-wrap: anywhere; }
+  .example-copy h3 a { text-decoration-color: var(--brand-green); text-underline-offset: 3px; }
+  .example-copy h3 a:hover { color: var(--accent); }
+  .example-description { color: var(--prose-text); font-size: .9375rem; line-height: 1.6; overflow-wrap: anywhere; }
+  .example-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0 14px; width: 100%; margin-top: auto; }
+  .example-actions a { min-height: 44px; }
+  .credit { display: inline-flex; align-items: center; gap: 4px; color: var(--muted); font-size: .78rem; text-underline-offset: 3px; }
+  .credit :global(svg) { flex: none; }
+  .extra-guide { min-height: 44px; margin-top: 8px; }
+  .topic-theory, .topic-links { margin-top: 28px; }
+  .topic-theory :is(h2, h3), .topic-links h2 { margin-bottom: 10px; font-size: 1.25rem; }
   .topic-theory ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; margin: 0; padding: 0; border-top: 1px solid var(--edge); list-style: none; }
-  .topic-theory a { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; height: 100%; min-height: 44px; padding-block: 12px; border-bottom: 1px solid var(--edge); text-decoration: none; }
-  .topic-theory a:hover strong { color: var(--route-color); text-decoration: underline; text-underline-offset: 3px; }
-  .topic-theory a :global(svg) { flex: none; color: var(--route-color); }
-  .topic-theory a strong + span { display: block; margin-top: 4px; color: var(--muted); font-size: .83rem; line-height: 1.5; }
-  .topic-links { margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--edge); }
-  .topic-links h2 { margin-bottom: 12px; font-size: 1.25rem; }
+  .topic-theory li { min-width: 0; border-bottom: 1px solid var(--edge); }
+  .topic-links { padding-top: 20px; border-top: 1px solid var(--edge); }
+  .topic-links div { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+  .topic-links a { min-height: 44px; }
   :lang(ko) :is(.gallery-header p, .example-description) { word-break: keep-all; }
-  @media (max-width: 960px) { .example-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; } }
-  @media (max-width: 575px) { .example-grid, .topic-theory ul { grid-template-columns: 1fr; } }
+  @media (min-width: 761px) {
+    .single-example .example-card { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: center; }
+    .single-example .example-media { border-inline-end: 1px solid var(--edge); border-bottom: 0; }
+    .single-example .example-copy { padding: 20px 24px; }
+  }
+  @media (max-width: 1040px) {
+    .topic-switcher { display: none; }
+    .topic-picker { display: block; }
+    .topic-picker > summary {
+      display: flex; align-items: center; gap: 6px 10px; min-height: 54px;
+      padding-block: 7px; list-style: none; cursor: pointer; font-size: .875rem;
+    }
+    .topic-picker > summary::-webkit-details-marker { display: none; }
+    .topic-picker > summary span { flex: none; color: var(--muted); }
+    .topic-picker > summary strong { color: var(--accent); overflow-wrap: anywhere; }
+    .topic-picker > summary :global(svg) { flex: none; margin-inline-start: auto; }
+    .topic-picker[open] > summary :global(svg) { rotate: 180deg; }
+    .topic-picker nav { display: grid; padding-block-end: 10px; }
+    .topic-picker nav a { display: flex; align-items: center; min-height: 44px; padding: 5px 9px; border-top: 1px solid var(--edge); font-size: .9rem; text-decoration: none; }
+    .topic-picker nav a[aria-current] { background: var(--bg); color: var(--accent); box-shadow: inset 3px 0 var(--brand-green); font-weight: 620; }
+    .topic-picker nav a:hover { color: var(--accent); }
+  }
+  @media (max-width: 575px) {
+    .example-grid, .topic-theory ul { grid-template-columns: minmax(0, 1fr); }
+    .example-copy { padding-inline: 14px; }
+  }
 </style>

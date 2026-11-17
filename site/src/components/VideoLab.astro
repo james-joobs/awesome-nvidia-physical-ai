@@ -86,7 +86,7 @@ const steps = [
       <h2 id="code-title">{labels.code}</h2>
       {code.map(({ name, path, source }) => (
         <details>
-          <summary><code>{name}</code></summary>
+          <summary><code>{name}</code><Icon name="chevron" size={16} /></summary>
           <a class="plain-link" href={repositoryFile(path)}>{labels.github}<Icon name="external" size={16} /></a>
           <Fragment set:html={renderCodeBlock(source, path.split('.').at(-1), locale)} />
         </details>
@@ -96,16 +96,22 @@ const steps = [
 </Base>
 
 <style>
-  .lab-video { margin-block: 1.6rem; }
-  .lab-video h2 { font-size: 1.35rem; margin-bottom: 10px; }
+  .lab-video, .lab-code { margin-block: 2rem; }
+  :is(.lab-video, .lab-code) h2 { margin-bottom: 12px; font-size: clamp(1.5rem, 2.6vw, 1.75rem); line-height: 1.25; letter-spacing: -.02em; }
   .lab-video-links { display: flex; flex-wrap: wrap; gap: 0 16px; }
-  .video-preview { overflow: hidden; border-radius: .7rem; }
-  .lab-code { padding-top: 1.8rem; }
-  .lab-code h2 { margin-bottom: .9rem; }
-  .lab-code details {
-    margin-bottom: .65rem; padding: .5rem .8rem; border: 1px solid var(--edge);
-    border-radius: .55rem; background: var(--surface);
+  .lab-video-links a { min-height: 44px; }
+  .video-preview { overflow: clip; border: 1px solid var(--edge); border-radius: 8px; }
+  .lab-code details { border-block-start: 1px solid var(--edge); }
+  .lab-code details:last-child { border-block-end: 1px solid var(--edge); }
+  .lab-code details[open] { padding-bottom: 13px; }
+  .lab-code summary {
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    min-height: 44px; padding-block: 7px; color: var(--text); list-style: none; cursor: pointer;
   }
-  .lab-code summary { min-height: 2.1rem; padding: .35rem 0; cursor: pointer; color: var(--accent); }
+  .lab-code summary:hover, .lab-code details[open] summary { color: var(--accent); }
+  .lab-code summary::-webkit-details-marker { display: none; }
+  .lab-code summary code { font-size: .875rem; overflow-wrap: anywhere; min-width: 0; }
+  .lab-code summary :global(svg) { flex: none; }
+  .lab-code details[open] summary :global(svg) { rotate: 180deg; }
   .lab-code :global(.code-block pre) { max-height: 32rem; }
 </style>
