@@ -244,10 +244,6 @@ html[lang="ko"] :is(h1, h2, h3) { word-break: keep-all; }
 :is(.doc-table, .prose table) :is(th, td) { padding: 8px; text-align: start; vertical-align: top; }
 :is(.doc-table, .prose table) thead th { background: var(--table-head); color: var(--text); }
 :is(.doc-table, .prose table) tbody tr { border-top: 1px solid var(--edge); }
-.model-list table { min-width: 740px; }
-.model-list td:nth-child(1) { width: 18%; }
-.model-list td:nth-child(2) { width: 24%; }
-.model-list td:nth-child(3) { width: 32%; }
 
 .site-footer { border-top: 1px solid var(--edge); }
 .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; padding-block: 24px; }
