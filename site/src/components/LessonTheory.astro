@@ -1,11 +1,13 @@
 ---
 import LessonFlow from './LessonFlow.astro';
 import PixelChannels from './PixelChannels.astro';
+import PrincipleNavigation from './PrincipleNavigation.astro';
 
-const { locale, flow, theory, showPixels = false } = Astro.props;
+const { locale, page, flow, theory, showPixels = false } = Astro.props;
 ---
 <div class="lesson-theory">
   <div class="prose" set:html={theory.lead} />
+  <PrincipleNavigation locale={locale} page={page} />
   <LessonFlow locale={locale} flow={flow} />
   <div class="prose" set:html={theory.body} />
   {showPixels && <PixelChannels locale={locale} />}

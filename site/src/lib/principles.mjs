@@ -110,6 +110,47 @@ export const readingTracks = tracks.map((track) => {
   };
 });
 
+const labByPage = new Map([
+  [lab('labs/physics#run', 'Compare colliders, friction, and bounce', '충돌체·마찰·반발 비교하기'),
+    'tools/nvidia-physx', 'tools/simready', 'labs/physics', 'tools/newton'],
+  [lab('labs/warp-particles#run', 'Run the Warp particle experiment', 'Warp 입자 실험 실행하기'),
+    'tools/nvidia-warp', 'labs/warp-particles'],
+  [lab('workflows/workbench-cad-to-isaac-sim#convert-to-usd', 'Convert the CAD workbench to USD', '작업대 CAD를 USD로 변환하기'),
+    'tools/openusd', 'workflows/workbench-cad-to-isaac-sim'],
+  [lab('labs/scene-to-data#run', 'Reconstruct a point cloud from saved data', '저장된 데이터로 점군 복원하기'), 'labs/scene-to-data'],
+  [lab('labs/replicator-outputs#run', 'Capture the 12-frame Replicator dataset', 'Replicator로 12프레임 촬영하기'), 'labs/replicator-outputs'],
+  [lab('https://github.com/openvdb/fvdb-reality-capture/blob/7b3264827e782959f55a6536acb2db1d5e8b2ce1/docs/tutorials/radiance_field_and_mesh_reconstruction.md',
+    'Official fVDB reconstruction tutorial', 'fVDB 공식 장면 복원 예제'), 'tools/fvdb-reality-capture'],
+  [lab('labs/microduck#run', 'Train Microduck to walk', 'Microduck 보행 정책 학습하기'), 'tools/isaac-lab', 'labs/microduck'],
+  [lab('labs/everyday-robots#run', 'Try the camera-controlled drawer', '카메라로 과자 서랍 제어하기'), 'labs/everyday-robots'],
+  [lab('labs/robot-motion#run', 'Plan a path around an obstacle', '장애물을 우회하는 로봇 팔 경로 계산하기'), 'tools/curobo', 'labs/robot-motion'],
+  [lab('labs/robot-motion#run', 'Generate demonstrations with AutoData', 'AutoData로 로봇 시연 생성하기'), 'tools/autodata'],
+  [lab('https://nvidia.github.io/IsaacCapture/main/teleop/quick_start.html',
+    'Official Isaac Capture teleoperation quickstart', 'Isaac Capture 공식 원격조작 실습'), 'tools/isaac-capture'],
+  [lab('tools/video-to-data#example', 'Follow the Video-to-Data example', 'Video-to-Data 적용 예시 따라가기'), 'tools/video-to-data'],
+  [lab('https://github.com/NVlabs/alpamayo2/blob/59776920bbd981f2c989213bba5ee8594e71ed1d/README.md#cli-inference',
+    'Official Alpamayo 2 Super inference example', 'Alpamayo 2 Super 공식 추론 예제'), 'tools/alpamayo'],
+  [lab('https://github.com/NVlabs/alpagym/blob/972d160eed0e23d388497851504a3a233fec5879/docs/ONBOARDING.md',
+    'Official AlpaGym training walkthrough', 'AlpaGym 공식 학습 예제'), 'tools/alpagym', 'tools/cosmos-rl'],
+  [lab('tools/cosmos-curator#example', 'Curate a manipulation video archive', '로봇 조작 영상 선별 예시 보기'), 'tools/cosmos-curator'],
+  [lab('tools/cosmos#example', 'Follow the driving scene generation example', '주행 장면 변형 예시 따라가기'), 'tools/cosmos'],
+  [lab('tools/cosmos-data-factory#example', 'Follow a driving video augmentation recipe', '주행 영상 증강 예시 따라가기'), 'tools/cosmos-data-factory'],
+  [lab('tools/nemo-switchyard#example', 'Trace how a video summary request is routed', '영상 요약 요청의 모델 연결 예시 보기'), 'tools/nemo-switchyard'],
+].flatMap(([practice, ...pages]) => pages.map((page) => [page, practice])));
+
+export function principleProgress(page) {
+  const track = readingTracks.find(({ read }) => read.some((guide) => guide.page === page));
+  if (!track) return;
+  const index = track.read.findIndex((guide) => guide.page === page);
+  return {
+    track,
+    position: index + 1,
+    previous: track.read[index - 1],
+    next: track.read[index + 1],
+    practice: labByPage.get(page) ?? track.practice[0],
+  };
+}
+
 export const principlesCopy = {
   en: {
     nav: 'How the tools work', title: 'How Physical AI tools work',
