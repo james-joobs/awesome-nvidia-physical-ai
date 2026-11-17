@@ -10,7 +10,7 @@
 
 Start with a robot exercise in your browser. Use the included code, USD scenes, and saved data to check results with Python or run your own experiments in Isaac Sim.
 
-[🧪 **First exercise**](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/gr00t-placement/#first-exercise) · [📖 **Learning paths**](https://james-joobs.github.io/awesome-nvidia-physical-ai/#workflows) · [🎬 **Lab gallery by topic**](https://james-joobs.github.io/awesome-nvidia-physical-ai/topics/)
+[🧪 **First exercise**](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/gr00t-placement/#first-exercise) · [📖 **Learning paths**](https://james-joobs.github.io/awesome-nvidia-physical-ai/#workflows) · [**How the tools work**](https://james-joobs.github.io/awesome-nvidia-physical-ai/learn/principles/) · [🎬 **Lab gallery by topic**](https://james-joobs.github.io/awesome-nvidia-physical-ai/topics/)
 
 [GitHub Pages](https://james-joobs.github.io/awesome-nvidia-physical-ai/) · [Lab code](labs/README.md) · [Tool catalog](CATALOG.md)
 
@@ -23,6 +23,17 @@ Start with a robot exercise in your browser. Use the included code, USD scenes, 
 `Isaac Sim` · `PhysX` · `GR00T` · `Replicator` · `cuRobo` · `AutoData`
 
 [Watch the full video gallery](https://james-joobs.github.io/awesome-nvidia-physical-ai/showcase/) · [Try the interactive walkthrough](https://james-joobs.github.io/awesome-nvidia-physical-ai/#repo-tour)
+
+## From tool concepts to labs
+
+The [38 theory guides](https://james-joobs.github.io/awesome-nvidia-physical-ai/learn/principles/) include diagrams and data examples. Pick a field for its full reading order, then try the linked exercise.
+
+- **[Setup](https://james-joobs.github.io/awesome-nvidia-physical-ai/learn/principles/#setup)** — NVIDIA Linux → Isaac Sim GUI and CLI. Then [open and play a USD scene](https://james-joobs.github.io/awesome-nvidia-physical-ai/workflows/isaac-sim-first-cube/#open-the-scene).
+- **[Physics and simulation](https://james-joobs.github.io/awesome-nvidia-physical-ai/learn/principles/#simulation)** — Isaac Sim and a cube drop → PhysX and SimReady → Newton and Warp. Then [compare colliders, friction, and bounce](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/physics/#run).
+- **[3D assets and synthetic data](https://james-joobs.github.io/awesome-nvidia-physical-ai/learn/principles/#synthetic-data)** — OpenUSD and CAD → Replicator → RGB-D reconstruction. Then [check a saved camera dataset without a GPU](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/workbench-capstone/#check-recording).
+- **[Robotics and control](https://james-joobs.github.io/awesome-nvidia-physical-ai/learn/principles/#robotics)** — Isaac Lab and Arena → GR00T → motion planning, demonstrations, and learning. Then [score a GR00T trial in your browser](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/gr00t-placement/#first-exercise).
+- **[Autonomous driving](https://james-joobs.github.io/awesome-nvidia-physical-ai/learn/principles/#autonomous-driving)** — NuRec → Alpamayo → AlpaSim → AlpaGym and Cosmos RL. Then [try the official AlpaSim example](https://james-joobs.github.io/awesome-nvidia-physical-ai/workflows/alpasim-closed-loop/#requirements).
+- **[Video data and world models](https://james-joobs.github.io/awesome-nvidia-physical-ai/learn/principles/#world-models)** — Cosmos Curator → Cosmos and Data Factory → VSS and Switchyard. Then [follow the VSS walkthrough to find timestamped evidence](https://james-joobs.github.io/awesome-nvidia-physical-ai/tools/metropolis-vss/#example).
 
 ## Quick start
 

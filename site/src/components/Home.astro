@@ -7,6 +7,7 @@ import { maps } from '../lib/assets.mjs';
 import { copy, modelGuide, pageUrl, repositoryFile } from '../lib/catalog.mjs';
 import { homeCopy } from '../lib/home.mjs';
 import { courses, courseRoute, firstExerciseRoute, learningCopy, lessonUrl, onboardingGuides, workbenchRecordingRoute } from '../lib/learning.mjs';
+import { principleGuideCount, principlesCopy, principlesRoute } from '../lib/principles.mjs';
 import { clips, featured } from '../lib/showcase.mjs';
 import { topicForPage, topics } from '../lib/topics.mjs';
 
@@ -14,6 +15,8 @@ const { locale } = Astro.props;
 const labels = copy[locale];
 const home = homeCopy[locale];
 const learning = learningCopy[locale];
+const principles = principlesCopy[locale];
+const theoryUrl = pageUrl(locale, principlesRoute);
 const map = maps[locale];
 const demo = clips.find(({ id }) => id === 'gr00t-placement');
 const browserLab = lessonUrl(locale, firstExerciseRoute);
@@ -36,6 +39,7 @@ const showcase = pageUrl(locale, 'showcase');
           <a href={browserLab} class="button button-primary">{learning.firstExercise}<Icon name="right" size={18} /></a>
           <a href="#workflows" class="button button-secondary">{learning.paths}<Icon name="down" size={17} /></a>
         </div>
+        <a href={theoryUrl} class="plain-link hero-principles">{principles.all(principleGuideCount)}<Icon name="right" size={17} /></a>
       </div>
       <figure class="home-video">
         <ShowcaseVideo locale={locale} clip={demo} title={demo[locale].title} eager />
@@ -66,6 +70,7 @@ const showcase = pageUrl(locale, 'showcase');
   <section class="shell landing-section" id="workflows" aria-labelledby="workflows-heading">
     <div class="section-head landing-heading">
       <div><h2 id="workflows-heading">{home.pathsTitle}</h2><p>{home.pathsIntro}</p></div>
+      <a href={theoryUrl} class="plain-link">{principles.nav}<Icon name="right" size={17} /></a>
     </div>
     <div class="path-grid">
       {courses.map((course) => {
@@ -216,6 +221,7 @@ const showcase = pageUrl(locale, 'showcase');
   :lang(ko) .hero h1 { letter-spacing: -.042em; }
   .hero-description { max-width: 49ch; margin-block: 16px 22px; color: var(--muted); font-size: clamp(.95rem, 2vw, 1.08rem); line-height: 1.64; }
   .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; }
+  .hero-principles { min-height: 44px; margin-top: 4px; }
   .hero-actions :global(svg) { flex: none; }
   .button-secondary { border: 1px solid #53634c; background: #1c2419; }
   .button-secondary:hover { border-color: var(--accent); }
