@@ -43,12 +43,12 @@ const topicLinks = [
           {topic ? labels.examples
             : <a href={pageUrl(locale, `topics/${section.slug}`)}>{section[locale].title}<Icon name="right" size={20} /></a>}
         </h2>
-        <div class:list={['example-grid', { 'single-example': topic && section.entries.length === 1 }]}>
+        <div class:list={['hub-media-grid example-grid', { 'single-example': topic && section.entries.length === 1 }]}>
           {section.entries.map((item) => {
             const { title, description, alt } = item[locale];
             const url = pageUrl(locale, item.page);
             return (
-              <article class="example-card">
+              <article class="hub-media-card example-card">
                 <div class="example-media">
                   {item.clip ? <ShowcaseVideo locale={locale} clip={item.clip} title={title} /> : (
                     <a class:list={['example-image', item.fit]} href={url} aria-label={title}>
@@ -108,13 +108,7 @@ const topicLinks = [
   .topic-group > h2 { margin-bottom: 20px; padding-bottom: 9px; border-bottom: 1px solid var(--edge); font-size: 1.45rem; line-height: 1.25; }
   .topic-group > h2 a { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
   .topic-group > h2 a :global(svg), .topic-group > h2 a:hover { color: var(--accent); }
-  .example-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
   .example-grid.single-example { grid-template-columns: minmax(0, 64rem); }
-  .example-card {
-    display: flex; flex-direction: column; min-width: 0; border: 1px solid var(--edge);
-    background: var(--bg); box-shadow: 0 2px 6px var(--shadow);
-  }
-  .example-card:focus-within { border-color: var(--accent); }
   .example-media { border-bottom: 1px solid var(--edge); min-width: 0; }
   .example-image { display: block; aspect-ratio: 16 / 9; background: var(--media-bg); }
   .example-image:focus-visible { outline-offset: -4px; }
@@ -162,7 +156,7 @@ const topicLinks = [
     .topic-picker nav a:hover { color: var(--accent); }
   }
   @media (max-width: 575px) {
-    .example-grid, .topic-theory ul { grid-template-columns: minmax(0, 1fr); }
+    .topic-theory ul { grid-template-columns: minmax(0, 1fr); }
     .example-copy { padding-inline: 14px; }
   }
 </style>
