@@ -6,7 +6,7 @@ import LessonPreview from './LessonPreview.astro';
 import LessonTheory from './LessonTheory.astro';
 import { cubeScene } from '../lib/assets.mjs';
 import { catalogSearchUrl, copy, modelGuide, pageUrl, repositoryFile, workflows } from '../lib/catalog.mjs';
-import { courseRoute, workbenchRoute } from '../lib/learning.mjs';
+import { courseRoute, onboardingGuides, workbenchRoute } from '../lib/learning.mjs';
 import { lessonFlows } from '../lib/lesson-flows.mjs';
 import { renderGuide, renderModelList } from '../lib/markdown.mjs';
 import { topicForPage, topicsCopy } from '../lib/topics.mjs';
@@ -18,6 +18,7 @@ const flow = guide.flow ?? lessonFlows[page.split('/').at(-1)];
 const { headings, html, theory } = renderGuide(locale, sourcePath, guide.sections, flow && guide.sections[0]);
 const isCube = guide.slug === 'isaac-sim-first-cube';
 const isWorkbench = page === workbenchRoute;
+const isSetup = page.startsWith('onboarding/');
 const isModels = page === modelGuide.route;
 const models = isModels ? renderModelList(locale) : undefined;
 const steps = isModels ? [...headings, { id: 'comparison-table', label: labels.modelTable }] : headings;
@@ -41,7 +42,8 @@ const preparation = isWorkbench
   <LessonLanding locale={locale} title={entry.title} description={entry.description}
     theme={guide.theme ?? topic?.theme} steps={steps} reference={isReference} preparation={preparation}>
     <Fragment slot="breadcrumbs">
-      {topic ? <a class="breadcrumb" href={pageUrl(locale, `topics/${topic.slug}`)}>{topic[locale].title}</a>
+      {isSetup ? <a class="breadcrumb" href={`${pageUrl(locale)}#onboarding`}>{labels.setup}</a>
+        : topic ? <a class="breadcrumb" href={pageUrl(locale, `topics/${topic.slug}`)}>{topic[locale].title}</a>
         : <a class="breadcrumb" href={`${pageUrl(locale)}#${parent}`}>{labels[parent]}</a>}
       {isWorkbench && <a class="breadcrumb" href={pageUrl(locale, courseRoute('simulation-data'))}>{labels.workflows}</a>}
     </Fragment>
@@ -50,6 +52,8 @@ const preparation = isWorkbench
         <a class="button button-primary" href={cubeScene} download="cube-drop.usda">
           {labels.download} <Icon name="download" size={18} />
         </a>
+      ) : isModels ? (
+        <a class="button button-primary" href="#comparison-table">{labels.modelTable}<Icon name="down" size={16} /></a>
       ) : (
         <a class="button button-primary" href={`#${start.id}`}>
           {startLabel} <Icon name="down" size={16} />
@@ -69,11 +73,28 @@ const preparation = isWorkbench
     </Fragment>
     {media && <LessonPreview slot="preview" image={media.image} alt={media[locale].alt} fit={media.fit}
       caption={caption} href={media.credit?.url} label={media.credit?.label} external />}
+    {(isSetup || isModels) && (
+      <div slot="navigation" class="hub-band">
+        {isSetup ? (
+          <nav class="shell hub-views guide-views" aria-label={labels.setup}>
+            {onboardingGuides.map((item) => (
+              <a href={pageUrl(locale, item.page)} aria-current={item.page === page ? 'page' : undefined}>{item[locale].title}</a>
+            ))}
+          </nav>
+        ) : (
+          <nav class="shell hub-views guide-views model-views" aria-label={labels.models}>
+            <a href={`#${start.id}`} aria-current="location">{labels.modelEvaluation}</a>
+            <a href="#comparison-table">{labels.modelTable}</a>
+          </nav>
+        )}
+      </div>
+    )}
     {theory && <LessonTheory locale={locale} page={page} flow={flow} theory={theory} showPixels={isWorkbench} />}
-    <div class="prose" set:html={html} />
+    <div class:list={['prose', { 'setup-steps': isSetup }]} set:html={html} />
     {models && (
       <section class="prose model-list" id="comparison-table" aria-labelledby="comparison-heading">
         <h2 id="comparison-heading">{labels.modelTable}</h2>
+        <p class="model-table-hint">{labels.modelTableHint}</p>
         <Fragment set:html={models} />
       </section>
     )}
@@ -89,3 +110,41 @@ const preparation = isWorkbench
     )}
   </LessonLanding>
 </Base>
+
+<script>
+  const views = document.querySelectorAll<HTMLAnchorElement>('.model-views a');
+  if (views.length) {
+    const updateView = () => {
+      const index = window.location.hash === '#comparison-table' ? 1 : 0;
+      views.forEach((link, position) => {
+        if (index === position) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    };
+    updateView();
+    window.addEventListener('hashchange', updateView);
+  }
+</script>
+
+<style>
+  .guide-views a { min-width: 0; overflow-wrap: anywhere; }
+  .setup-steps > :global(h2), .model-list > h2 { padding-bottom: 9px; border-bottom: 1px solid var(--edge); }
+  .model-list { container: model-comparison / inline-size; --model-name-width: clamp(7rem, 19vw, 9rem); }
+  .model-list > h2 { margin-top: 46px; }
+  .model-table-hint { color: var(--muted); font-size: .875rem; line-height: 1.55; }
+  .model-list :global(table) { min-width: 48rem; table-layout: fixed; border-collapse: separate; border-spacing: 0; }
+  .model-list :global(:is(th, td)) { padding: 10px 11px; line-height: 1.55; }
+  .model-list :global(thead th:first-child) { width: var(--model-name-width); }
+  .model-list :global(thead th:nth-child(2)) { width: 25%; }
+  .model-list :global(thead th:last-child) { width: clamp(7rem, calc(100cqw - var(--model-name-width) - .5rem), 12rem); }
+  .model-list :global(tbody tr > *) { border-top: 1px solid var(--edge); }
+  .model-list :global(tr > :first-child) { position: sticky; inset-inline-start: 0; z-index: 1; border-inline-end: 1px solid var(--edge); background: var(--bg); }
+  .model-list :global(thead tr > :first-child) { background: var(--table-head); }
+  @container model-comparison (width >= 48rem) {
+    .model-table-hint { display: none; }
+  }
+  :lang(ko) :is(.guide-views a, .model-table-hint) { word-break: keep-all; overflow-wrap: anywhere; }
+  @media (max-width: 570px) {
+    .guide-views a { font-size: .875rem; }
+  }
+</style>

@@ -173,6 +173,16 @@ export function renderModelList(locale) {
   if (start < 0) throw new Error(`Missing model catalog section in ${file}`);
   const end = tokens.findIndex((token, index) => index > start && isSection(token));
   const section = tokens.slice(start + 3, end < 0 ? undefined : end);
+  for (const [index, token] of section.entries()) {
+    if (token.type === 'th_open') token.attrSet('scope', 'col');
+    if (token.type === 'tr_open' && section[index + 1]?.type === 'td_open') {
+      const firstCell = section[index + 1];
+      firstCell.tag = 'th';
+      firstCell.attrSet('scope', 'row');
+      // The opening and closing cell tags surround a single inline token.
+      section[index + 3].tag = 'th';
+    }
+  }
   return markdown.renderer.render(section, markdown.options, env);
 }
 

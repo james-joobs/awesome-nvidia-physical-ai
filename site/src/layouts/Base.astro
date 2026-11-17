@@ -80,7 +80,7 @@ const activeTopic = page.startsWith('topics/') || Boolean(topicForPage(page));
         <nav class="main-nav" aria-label={labels.navigation}>
           <TopicMenu locale={locale} page={page} activeTopic={activeTopic} />
           <a href={`${pageUrl(locale)}#workflows`}>{labels.workflows}</a>
-          <a href={`${pageUrl(locale)}#onboarding`}>{locale === 'ko' ? '환경 설정' : 'Setup'}</a>
+          <a href={`${pageUrl(locale)}#onboarding`}>{labels.setup}</a>
           <a href={pageUrl(locale, 'catalog')} aria-current={page === 'catalog' ? 'page' : undefined}>{labels.browseCatalog}</a>
         </nav>
         <div class="header-actions">
