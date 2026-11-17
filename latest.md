@@ -1,6 +1,6 @@
 # NVIDIA Physical AI 연구 수집 결과
 
-확인 시각 2026-11-18 07:23 KST · 새로 발견하거나 변경된 항목 86건
+확인 시각 2026-11-18 07:24 KST · 새로 발견하거나 변경된 항목 0건
 
 아래 항목은 검토 후보입니다. 날짜는 출처의 발표 또는 수정 시각입니다. 코드·모델·데이터셋의 실제 공개 여부와 이용 조건은 각 원문에서 확인합니다.
 
@@ -97,51 +97,51 @@
 
 확인 성공 48개 · 실패 0개
 
-- GitHub 릴리스 · isaac-sim/IsaacSim · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 라이선스 · isaac-sim/IsaacSim · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 릴리스 · isaac-sim/IsaacLab · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 라이선스 · isaac-sim/IsaacLab · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 릴리스 · newton-physics/newton · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 라이선스 · newton-physics/newton · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 릴리스 · NVIDIA/warp · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 라이선스 · NVIDIA/warp · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 릴리스 · NVIDIA/Isaac-GR00T · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 라이선스 · NVIDIA/Isaac-GR00T · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 릴리스 · NVIDIA/cosmos · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 라이선스 · NVIDIA/cosmos · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 릴리스 · NVIDIA/cosmos-framework · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 라이선스 · NVIDIA/cosmos-framework · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 릴리스 · NVlabs/alpasim · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 라이선스 · NVlabs/alpasim · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 릴리스 · NVlabs/alpamayo2 · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 라이선스 · NVlabs/alpamayo2 · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 릴리스 · NVlabs/alpamayo2-edge · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 라이선스 · NVlabs/alpamayo2-edge · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 릴리스 · NVlabs/RoboLab · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 라이선스 · NVlabs/RoboLab · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 릴리스 · black-forest-labs/flux-action · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 라이선스 · black-forest-labs/flux-action · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 릴리스 · runwayml/praxis-1-oss · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 라이선스 · runwayml/praxis-1-oss · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 릴리스 · mimic-video/mimic-video · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 라이선스 · mimic-video/mimic-video · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 신규 저장소 · NVIDIA · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 신규 저장소 · NVlabs · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 신규 저장소 · isaac-sim · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 신규 저장소 · NVIDIA-Omniverse · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 신규 저장소 · NVIDIA-NeMo · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- GitHub 신규 저장소 · nvidia-cosmos · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- Hugging Face models · nvidia/Cosmos · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- Hugging Face models · nvidia/GR00T · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- Hugging Face models · nvidia/Alpamayo · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- Hugging Face models · nvidia/PhysicalAI · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- Hugging Face datasets · nvidia/Cosmos · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- Hugging Face datasets · nvidia/GR00T · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- Hugging Face datasets · nvidia/Alpamayo · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- Hugging Face datasets · nvidia/PhysicalAI · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- Hugging Face models · black-forest-labs/action · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- Hugging Face models · runwayml/praxis · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- Hugging Face models · GEAR-Dreams/dreamzero · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- NVIDIA Robotics Atom · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- NVIDIA Research 사이트맵 · 성공 · 마지막 성공 2026-11-18 07:23 KST
-- arXiv cs.RO · 성공 · 마지막 성공 2026-11-18 07:23 KST
+- GitHub 릴리스 · isaac-sim/IsaacSim · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 라이선스 · isaac-sim/IsaacSim · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 릴리스 · isaac-sim/IsaacLab · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 라이선스 · isaac-sim/IsaacLab · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 릴리스 · newton-physics/newton · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 라이선스 · newton-physics/newton · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 릴리스 · NVIDIA/warp · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 라이선스 · NVIDIA/warp · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 릴리스 · NVIDIA/Isaac-GR00T · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 라이선스 · NVIDIA/Isaac-GR00T · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 릴리스 · NVIDIA/cosmos · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 라이선스 · NVIDIA/cosmos · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 릴리스 · NVIDIA/cosmos-framework · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 라이선스 · NVIDIA/cosmos-framework · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 릴리스 · NVlabs/alpasim · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 라이선스 · NVlabs/alpasim · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 릴리스 · NVlabs/alpamayo2 · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 라이선스 · NVlabs/alpamayo2 · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 릴리스 · NVlabs/alpamayo2-edge · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 라이선스 · NVlabs/alpamayo2-edge · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 릴리스 · NVlabs/RoboLab · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 라이선스 · NVlabs/RoboLab · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 릴리스 · black-forest-labs/flux-action · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 라이선스 · black-forest-labs/flux-action · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 릴리스 · runwayml/praxis-1-oss · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 라이선스 · runwayml/praxis-1-oss · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 릴리스 · mimic-video/mimic-video · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 라이선스 · mimic-video/mimic-video · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 신규 저장소 · NVIDIA · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 신규 저장소 · NVlabs · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 신규 저장소 · isaac-sim · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 신규 저장소 · NVIDIA-Omniverse · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 신규 저장소 · NVIDIA-NeMo · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- GitHub 신규 저장소 · nvidia-cosmos · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- Hugging Face models · nvidia/Cosmos · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- Hugging Face models · nvidia/GR00T · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- Hugging Face models · nvidia/Alpamayo · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- Hugging Face models · nvidia/PhysicalAI · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- Hugging Face datasets · nvidia/Cosmos · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- Hugging Face datasets · nvidia/GR00T · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- Hugging Face datasets · nvidia/Alpamayo · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- Hugging Face datasets · nvidia/PhysicalAI · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- Hugging Face models · black-forest-labs/action · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- Hugging Face models · runwayml/praxis · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- Hugging Face models · GEAR-Dreams/dreamzero · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- NVIDIA Robotics Atom · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- NVIDIA Research 사이트맵 · 성공 · 마지막 성공 2026-11-18 07:24 KST
+- arXiv cs.RO · 성공 · 마지막 성공 2026-11-18 07:24 KST

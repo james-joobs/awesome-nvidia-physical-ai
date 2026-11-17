@@ -1,13 +1,13 @@
 {
-  "checked": "2026-11-17T22:23:13.729386+00:00",
+  "checked": "2026-11-17T22:24:37.945269+00:00",
   "sources": {
     "GitHub 릴리스 · isaac-sim/IsaacSim": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 라이선스 · isaac-sim/IsaacSim": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {
         "isaac-sim/IsaacSim": {
@@ -21,12 +21,12 @@
       }
     },
     "GitHub 릴리스 · isaac-sim/IsaacLab": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 라이선스 · isaac-sim/IsaacLab": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {
         "isaac-sim/IsaacLab": {
@@ -40,7 +40,7 @@
       }
     },
     "GitHub 릴리스 · newton-physics/newton": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {
         "441894382": {
@@ -54,7 +54,7 @@
       }
     },
     "GitHub 라이선스 · newton-physics/newton": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {
         "newton-physics/newton": {
@@ -68,12 +68,12 @@
       }
     },
     "GitHub 릴리스 · NVIDIA/warp": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 라이선스 · NVIDIA/warp": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {
         "NVIDIA/warp": {
@@ -87,12 +87,12 @@
       }
     },
     "GitHub 릴리스 · NVIDIA/Isaac-GR00T": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 라이선스 · NVIDIA/Isaac-GR00T": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {
         "NVIDIA/Isaac-GR00T": {
@@ -106,12 +106,12 @@
       }
     },
     "GitHub 릴리스 · NVIDIA/cosmos": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 라이선스 · NVIDIA/cosmos": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {
         "NVIDIA/cosmos": {
@@ -125,12 +125,12 @@
       }
     },
     "GitHub 릴리스 · NVIDIA/cosmos-framework": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 라이선스 · NVIDIA/cosmos-framework": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {
         "NVIDIA/cosmos-framework": {
@@ -144,12 +144,12 @@
       }
     },
     "GitHub 릴리스 · NVlabs/alpasim": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 라이선스 · NVlabs/alpasim": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {
         "NVlabs/alpasim": {
@@ -163,12 +163,12 @@
       }
     },
     "GitHub 릴리스 · NVlabs/alpamayo2": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 라이선스 · NVlabs/alpamayo2": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {
         "NVlabs/alpamayo2": {
@@ -182,12 +182,12 @@
       }
     },
     "GitHub 릴리스 · NVlabs/alpamayo2-edge": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 라이선스 · NVlabs/alpamayo2-edge": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {
         "NVlabs/alpamayo2-edge": {
@@ -201,7 +201,7 @@
       }
     },
     "GitHub 릴리스 · NVlabs/RoboLab": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {
         "446454272": {
@@ -215,7 +215,7 @@
       }
     },
     "GitHub 라이선스 · NVlabs/RoboLab": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {
         "NVlabs/RoboLab": {
@@ -229,12 +229,12 @@
       }
     },
     "GitHub 릴리스 · black-forest-labs/flux-action": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 라이선스 · black-forest-labs/flux-action": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {
         "black-forest-labs/flux-action": {
@@ -248,12 +248,12 @@
       }
     },
     "GitHub 릴리스 · runwayml/praxis-1-oss": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 라이선스 · runwayml/praxis-1-oss": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {
         "runwayml/praxis-1-oss": {
@@ -267,12 +267,12 @@
       }
     },
     "GitHub 릴리스 · mimic-video/mimic-video": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 라이선스 · mimic-video/mimic-video": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {
         "mimic-video/mimic-video": {
@@ -286,37 +286,37 @@
       }
     },
     "GitHub 신규 저장소 · NVIDIA": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 신규 저장소 · NVlabs": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 신규 저장소 · isaac-sim": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 신규 저장소 · NVIDIA-Omniverse": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 신규 저장소 · NVIDIA-NeMo": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 신규 저장소 · nvidia-cosmos": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {}
     },
     "Hugging Face models · nvidia/Cosmos": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {
         "nvidia/Cosmos3-Edge-FP8": {
@@ -378,7 +378,7 @@
       }
     },
     "Hugging Face models · nvidia/GR00T": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {
         "nvidia/GR00T-E2E-Reference-Workflow-SIM-G1-N1.7-AppletoPlate-Model": {
@@ -400,22 +400,22 @@
       }
     },
     "Hugging Face models · nvidia/Alpamayo": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {}
     },
     "Hugging Face models · nvidia/PhysicalAI": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {}
     },
     "Hugging Face datasets · nvidia/Cosmos": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {}
     },
     "Hugging Face datasets · nvidia/GR00T": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {
         "nvidia/GR00T-E2E-Reference-Workflow-SIM-G1-N1.7-AppletoPlate-Dataset": {
@@ -437,12 +437,12 @@
       }
     },
     "Hugging Face datasets · nvidia/Alpamayo": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {}
     },
     "Hugging Face datasets · nvidia/PhysicalAI": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {
         "nvidia/PhysicalAI-Robotics-NuRec": {
@@ -464,12 +464,12 @@
       }
     },
     "Hugging Face models · black-forest-labs/action": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {}
     },
     "Hugging Face models · runwayml/praxis": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {
         "runwayml/praxis-1-so101-nvfp4": {
@@ -531,12 +531,12 @@
       }
     },
     "Hugging Face models · GEAR-Dreams/dreamzero": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {}
     },
     "NVIDIA Robotics Atom": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {
         "https://developer.nvidia.com/blog/?p=121180": {
@@ -574,7 +574,7 @@
       }
     },
     "NVIDIA Research 사이트맵": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {
         "https://research.nvidia.com/publication/2026-11_fovi-dex-foveation-enables-efficient-perceptive-learning-dexterous-manipulation": {
@@ -588,7 +588,7 @@
       }
     },
     "arXiv cs.RO": {
-      "last_success": "2026-11-17T22:23:13.729386+00:00",
+      "last_success": "2026-11-17T22:24:37.945269+00:00",
       "error": null,
       "items": {
         "2611.21607": {
@@ -1928,5 +1928,5 @@
       "detected": "2026-11-17T22:23:13.729386+00:00"
     }
   ],
-  "changes": 86
+  "changes": 0
 }
