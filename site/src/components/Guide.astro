@@ -2,9 +2,9 @@
 import Base from '../layouts/Base.astro';
 import GuideCommands from './GuideCommands.astro';
 import Icon from './Icon.astro';
-import LessonFlow from './LessonFlow.astro';
 import LessonLanding from './LessonLanding.astro';
 import LessonPreview from './LessonPreview.astro';
+import LessonTheory from './LessonTheory.astro';
 import { cubeScene } from '../lib/assets.mjs';
 import { catalogSearchUrl, copy, modelGuide, pageUrl, repositoryFile, workflows } from '../lib/catalog.mjs';
 import { courseRoute, workbenchRoute } from '../lib/learning.mjs';
@@ -15,20 +15,21 @@ import { topicForPage, topicsCopy } from '../lib/topics.mjs';
 const { locale, page, guide, sourcePath, parent } = Astro.props;
 const labels = copy[locale];
 const entry = guide[locale];
-const { headings, html } = renderGuide(locale, sourcePath, guide.sections);
+const flow = guide.flow ?? lessonFlows[page.split('/').at(-1)];
+const { headings, html, theory } = renderGuide(locale, sourcePath, guide.sections, flow && guide.sections[0]);
 const isCube = guide.slug === 'isaac-sim-first-cube';
 const isWorkbench = page === workbenchRoute;
 const isModels = page === modelGuide.route;
 const models = isModels ? renderModelList(locale) : undefined;
 const steps = isModels ? [...headings, { id: 'comparison-table', label: labels.modelTable }] : headings;
-const flow = lessonFlows[page.split('/').at(-1)];
 const topic = topicForPage(page);
 const media = topic?.entries.find((item) => item.page === page);
 const isReference = Boolean(guide.source) || isModels;
 const topicLabels = topicsCopy[locale];
 const ko = locale === 'ko';
 const caption = media?.credit ? topicLabels.officialMedia : topicLabels.capturedMedia;
-const startLabel = isWorkbench ? (ko ? 'GPU 없이 시작하기' : 'Start without a GPU') : headings[0].label;
+const start = guide.flow ? headings[0] : headings.find(({ id }) => id !== 'implementation');
+const startLabel = isWorkbench ? (ko ? 'GPU 없이 시작하기' : 'Start without a GPU') : start.label;
 const preparation = isWorkbench
   ? (ko ? '저장된 데이터는 Python 3.12로 검사합니다. 새 촬영에는 RTX GPU와 Isaac Sim 6.2가 필요합니다.'
     : 'Use Python 3.12 to check the saved data. For a new capture, use an RTX GPU and Isaac Sim 6.2.')
@@ -51,7 +52,7 @@ const preparation = isWorkbench
           {labels.download} <Icon name="download" size={18} />
         </a>
       ) : (
-        <a class="button button-primary" href={`#${headings[0].id}`}>
+        <a class="button button-primary" href={`#${start.id}`}>
           {startLabel} <Icon name="down" size={16} />
         </a>
       )}
@@ -69,7 +70,7 @@ const preparation = isWorkbench
     </Fragment>
     {media && <LessonPreview slot="preview" image={media.image} alt={media[locale].alt} fit={media.fit}
       caption={caption} href={media.credit?.url} label={media.credit?.label} external />}
-    {flow && <LessonFlow locale={locale} flow={flow} />}
+    {theory && <LessonTheory locale={locale} flow={flow} theory={theory} showPixels={isWorkbench} />}
     <GuideCommands locale={locale} />
     <div class="prose" set:html={html} />
     {models && (

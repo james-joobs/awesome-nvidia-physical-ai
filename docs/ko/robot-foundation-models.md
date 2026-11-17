@@ -18,6 +18,12 @@
 3. **공식 예제를 재현해 기준 결과를 남깁니다.** 체크포인트 버전, 대상 로봇, 행동 주기, 추론 지연, 성공 기준과 초기화 조건을 저장합니다. 이후 물체 위치나 조명처럼 작업 조건을 하나씩 바꿔 같은 절차로 평가합니다.
 4. **접근 방법과 이용 조건을 확인합니다.** 코드 라이선스와 사용할 체크포인트의 모델 카드를 각각 읽고, 해당할 경우 백본과 데이터 조건도 확인합니다. 공개 연구 페이지, 호스팅 API, 다운로드 가능한 가중치는 재현 방법이 각각 다릅니다.
 
+### 같은 지시를 받은 다른 로봇도 바로 움직일 수 있을까요?
+
+VLA는 보통 카메라 영상, 작업 지시, 체크포인트가 요구하는 로봇 상태를 받아 행동을 예측합니다. 여러 시점의 행동을 묶어 예측하면 **액션 청크**라고 부릅니다. 설명용 배열 `[8, 7]`은 여덟 시점마다 일곱 값이 있다는 뜻입니다. 어느 열이 어떤 축이나 관절인지, 절대 목표인지 변화량인지, 실제 단위인지 정규화된 값인지는 모델과 로봇의 설정으로 확인합니다.
+
+GR00T N1.6-DROID는 DROID에 맞춘 제어 규약을 쓰고, π 계열도 과제에 맞는 체크포인트와 관측 어댑터를 씁니다. 같은 모양의 배열도 제어 규약이 다르면 다른 동작을 만들 수 있습니다. 저장된 관측 하나로 입력 키와 배열 모양을 확인한 뒤 시뮬레이션에서 작업 성공 조건을 검사합니다. [GR00T 데이터 설정](https://github.com/NVIDIA/Isaac-GR00T/blob/main/getting_started/data_config.md) · [Physical Intelligence openpi](https://github.com/Physical-Intelligence/openpi)
+
 ## Cosmos Policy
 
 초기 [Cosmos Policy](https://github.com/NVlabs/cosmos-policy)는 Cosmos-Predict2를 로봇 조작에 맞게 후학습한 정책입니다. ALOHA 플래닝 경로는 미래 관측과 가치 추정치를 이용해 후보 행동을 비교합니다. [LIBERO 체크포인트](https://huggingface.co/nvidia/Cosmos-Policy-LIBERO-Predict2-2B#license)에는 NVIDIA One-Way Noncommercial License가 적용되고, 코드는 [Apache-2.0](https://github.com/NVlabs/cosmos-policy/blob/18a2accadf4e7a3531e56754102af5a24d2316da/LICENSE)입니다.

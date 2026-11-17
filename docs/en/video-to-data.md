@@ -9,6 +9,16 @@
 
 Video to Data (V2D) turns a human demonstration video into inspectable 3D artifacts and a robot-learning workflow. Each stage writes intermediate results, so a clip can be reselected, reconstructed or retargeted without rerunning unrelated stages.
 
+## How does a human video become robot training data?
+
+### Select the clip, recover motion, and adapt it to a robot
+
+Start by finding a clip that shows the target task. Reconstruction estimates where the person and objects were in 3D. Retargeting converts the motion into a form the robot can execute. The official reconstruction-based workflow can use the recovered motion as a tracking reference to train a policy in simulation.
+
+### Follow an event through the intermediate artifacts
+
+If frame 180 of a constant-30-fps clip shows a cup grasp, it occurs about six seconds after frame 0. At that time, compare the decoded frame, reconstructed object pose, and corresponding robot motion. Depth behind an occluding object is estimated. Review those intervals and check physical contact when the trajectory runs in simulation. [Video-to-Data project](https://github.com/nvidia-isaac/video_to_data)
+
 ## Architecture and data flow
 
 | Component | Inputs, processing and outputs |

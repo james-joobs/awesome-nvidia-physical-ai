@@ -37,6 +37,12 @@ python -m pip install 'isaacsim[all,extscache]==6.2.0.0' --extra-index-url https
 isaacsim
 ```
 
+### Reproduce in a script what you inspected in the GUI
+
+**Stage** displays the USD prim hierarchy and **Property** shows the selected prim's properties. **Play** lets physics advance the scene state. A script can open the same scene, select a camera or collider, and save images and reports.
+
+Headless capture runs without opening a window and still uses RTX to render the camera. The CPU check reads saved arrays and needs no rendering. You can confirm the USD and camera path in the viewport, run the capture headlessly, then copy the results to another computer for inspection. [Isaac Sim Python installation](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/installation/install_python.html)
+
 ## Open and inspect the workbench in the GUI
 
 1. Use **File → Open** and select [`workbench_scene.usda`](../../../labs/scene-to-data/workbench_scene.usda) from your checkout.

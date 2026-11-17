@@ -4,6 +4,16 @@
 
 cuRobo generates motions for a robot to reach a target pose under geometric and robot constraints. It takes a robot model, a description of the environment and a start state, and returns a planned trajectory for a separate controller to execute. The cuRobo and cuRoboV2 publications describe different planner designs.
 
+## How can one obstacle change a joint trajectory?
+
+### From tool pose to joint trajectory
+
+The target is a tool position and orientation. Control runs through a sequence of joint values. Robot kinematics maps those values to the tool and link positions. cuRobo searches for intermediate joint states that reach the target without colliding with the specified geometry.
+
+### Read the effect of adding an obstacle
+
+The [recorded example](../../labs/robot-motion/recorded.json) adds a 4 × 4 × 8 cm box. The baseline has 24 waypoints and the replanned trajectory has 26. The three columns of `obstacle_tool` in `motion.npz` are tool XYZ. `obstacle_q` holds the joint values for that trajectory. The lab checks whether sampled tool positions enter the box, while the planner also uses the arm’s link geometry. [Planner source](../../labs/robot-motion/plan.py) · [cuRobo repository](https://github.com/NVlabs/curobo) · [Robot motion lab](labs/robot-motion.md)
+
 ## Architecture and data flow
 
 | Component | Inputs, processing and outputs |

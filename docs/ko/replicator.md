@@ -4,6 +4,16 @@
 
 Replicator는 시뮬레이션 장면에서 라벨이 붙은 합성 데이터셋을 만듭니다. 캡처 사이에 바뀌는 요소, 장면을 렌더링할 카메라, 계산할 라벨과 저장 형식을 설정합니다.
 
+## 카메라 화면에서 RGB와 라벨 파일이 나오는 과정
+
+### 렌더 프로덕트, 어노테이터, 라이터
+
+`/World/SensorCamera`와 해상도 960 × 540를 묶어 렌더 프로덕트를 만듭니다. 여기에 RGB·카메라 평면 기준 깊이·의미 분할 어노테이터를 연결합니다. 어노테이터마다 같은 프레임을 다르게 읽습니다. 파일 기록은 라이터에 맡기거나, 이 심화 실습처럼 Python에서 직접 PNG·NumPy·JSON으로 저장할 수 있습니다.
+
+### 장면 상태와 출력 파일 짝짓기
+
+예를 들어 프레임 폴더 `03/`에서 `rgb.png`는 색, `depth_m.npy`는 각 픽셀의 깊이(m), `semantic_ids.npy`는 클래스 번호입니다. `semantic_labels.json`을 같이 읽어야 어떤 번호가 큐브인지 알 수 있습니다. 카메라·조명·물체의 위치를 바꿀 때는 설정과 프레임 번호도 함께 남깁니다. 그래야 마스크 면적이 줄어든 이유를 원래 장면과 대조할 수 있습니다. [12프레임 심화 실습](labs/replicator-outputs.md) · [Replicator 공식 캡처 예제](https://docs.isaacsim.omniverse.nvidia.com/latest/replicator_tutorials/tutorial_replicator_isaac_snippets.html)
+
 ## 아키텍처
 
 | 구성 요소 | 역할과 주고받는 데이터 |

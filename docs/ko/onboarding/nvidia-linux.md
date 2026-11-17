@@ -15,6 +15,19 @@ nvidia-smi --query-gpu=index,name,driver_version,memory.used,memory.total,utiliz
 
 ![Linux 터미널에서 OS, RTX GPU, NVIDIA 드라이버, CUDA 컴파일러를 확인한 화면](../../../assets/lessons/workbench/gpu-terminal.webp)
 
+### 어떤 명령이 어느 층을 확인하나요?
+
+시뮬레이션 스크립트는 실행 환경의 라이브러리와 호스트 드라이버를 거쳐 GPU에 접근합니다. Docker를 쓰면 호스트의 장치를 컨테이너에 전달하는 단계가 추가됩니다.
+
+| 확인 | 확인할 수 있는 것 |
+| --- | --- |
+| 호스트의 `nvidia-smi` | 드라이버가 GPU를 인식합니다. 표의 CUDA 버전은 드라이버가 지원하는 버전입니다. |
+| `nvcc --version` | 현재 셸에서 쓸 수 있는 CUDA 컴파일러 버전입니다. |
+| 컨테이너 안의 `nvidia-smi` | 해당 컨테이너에 장치와 드라이버가 전달됐는지 확인합니다. |
+| 실습 Python으로 실행 | 프로젝트에 설치된 패키지가 그 환경에서 실제 연산을 시작하는지 확인합니다. |
+
+호스트에서 GPU가 보이고 컨테이너에서는 안 보인다면 컨테이너의 GPU 전달 설정부터 확인합니다. [CUDA 공식 설치 가이드](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/) · [NVIDIA Container Toolkit 샘플](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/sample-workload.html)
+
 ## 드라이버·CUDA·컨테이너 도구 구분하기
 
 | 구성 요소 | 무슨 일을 하나요? | 어떻게 확인하나요? |

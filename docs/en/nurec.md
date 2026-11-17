@@ -4,6 +4,14 @@
 
 Omniverse NuRec reconstructs a captured scene as a neural representation so a simulator can render sensor observations from new viewpoints. An AV pipeline typically converts driving logs into NCore, trains or initializes a Gaussian representation and exports a USDZ artifact for rendering.
 
+## How can we render a drive from a new camera position?
+
+### Calibration and 3D Gaussian splatting
+
+**Intrinsics**, such as focal length and the image center, determine where a 3D point projects into the image. **Extrinsics** describe where the camera sits and points relative to the vehicle or world. Known viewpoints let the reconstruction fit a scene to observations from several frames.
+
+3D Gaussian splatting represents a scene with many ellipsoid-like Gaussians with positions, shapes, color, and opacity. Rendering projects them into the requested view and composites the image. To study a camera moved 0.2 m upward, first check that the reconstructed view matches the original footage at its original pose. Then compare the lane markings and objects in the two rendered views. [NuRec documentation](https://docs.nvidia.com/nurec/) · [AlpaSim closed-loop guide](workflows/alpasim-closed-loop.md)
+
 ## Reconstruction from sensor logs
 
 ![NVIDIA NuRec workflow from driving logs to reconstructed USDZ](https://docs.nvidia.com/nurec/_images/nurec-pipeline-overview.png)

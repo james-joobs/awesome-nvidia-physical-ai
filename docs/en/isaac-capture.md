@@ -9,6 +9,16 @@
 
 Isaac Capture offers two collection routes for robot learning. Isaac Teleop captures what a robot actually observes and executes while an operator drives it. The ego pipeline records what a person sees and reconstructs the person’s motion for downstream processing. The routes share device and data utilities but produce different training inputs.
 
+## How does a person’s hand become a robot demonstration?
+
+### Retarget the motion into the robot’s controls
+
+A tracking device reports hand or controller position, orientation, and a timestamp. **Retargeting** converts that motion into robot joint targets or tool poses. If a person moves a hand 3 cm to the right in the tracking frame, first identify the corresponding direction in the robot frame and check whether the target fits its joint limits.
+
+### Synchronize video and actions
+
+An illustrative sample might record `image_time_s=1.200`, `state_time_s=1.199`, and `command_time_s=1.200`. These are teaching fields. A shared array index can still pair an image of an open gripper with later joint state if the streams use different clocks. Replay the demonstration and check that the visual observation, state, and command line up. [Isaac Capture project](https://github.com/NVIDIA/IsaacCapture)
+
 ## Architecture and data flow
 
 | Component | Inputs, processing and outputs |

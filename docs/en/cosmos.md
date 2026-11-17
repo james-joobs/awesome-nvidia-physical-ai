@@ -28,6 +28,12 @@ In the attention mask on the right, the purple region is causal. The Reasoner re
 
 Check frame limits, media modes and action dimensions for the chosen checkpoint. Super, Nano and Edge share the model family architecture while their supported tasks and inference integrations vary. [Official model reference](https://docs.nvidia.com/cosmos/latest/cosmos3/model_reference.html)
 
+### The same driving clip can lead to different outputs
+
+Given a driving clip and the question “When did the car change lanes?”, a reasoning task produces a description. To generate a rainy variant, pass the scene conditions and prompt supported by the checkpoint, then check track and lane consistency. When conditioning on actions, vary their sequence and compare the predicted videos.
+
+Record the **source clip ID, checkpoint, task, condition or question, and output file**. Use the selected checkpoint's documentation for the actual API schema. Evaluate adherence to the supplied conditions in the video and use simulator state or observation logs to confirm physical events such as collisions. [Cosmos 3 model reference](https://docs.nvidia.com/cosmos/latest/cosmos3/model_reference.html)
+
 ## Worked example — generate driving scene variants
 
 ![Cosmos 3 world scenario transfer example](https://raw.githubusercontent.com/NVIDIA/cosmos/main/assets/demos/transfer_worldscenario.gif)

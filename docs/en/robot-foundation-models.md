@@ -18,6 +18,12 @@ Start with the robot and task you can evaluate. A checkpoint for a specific came
 3. **Run the official example and keep a baseline.** Record checkpoint revision, embodiment, action rate, inference latency, success criteria, and reset conditions. Then vary one task condition, such as object pose or lighting, while keeping the evaluation procedure fixed.
 4. **Compare access and terms.** Read the license for the code and the exact model card for the checkpoint, along with its backbone and data terms when applicable. A public research page, a hosted API, and downloadable weights offer different ways to reproduce a result.
 
+### Can a different robot act on the same instruction?
+
+A VLA typically takes camera observations, an instruction, and any robot state the checkpoint expects. An **action chunk** covers several future steps. An illustrative `[8, 7]` array contains seven values per step for eight steps. The configuration defines the order, units, normalization, and whether each command is an absolute target or a delta.
+
+GR00T N1.6-DROID follows the DROID interface. The π family also uses checkpoints and observation adapters matched to the task. Two arrays with the same shape can command different motions under different conventions. Check the observation keys and shapes on one saved sample, then verify task success in simulation. [GR00T data configuration](https://github.com/NVIDIA/Isaac-GR00T/blob/main/getting_started/data_config.md) · [Physical Intelligence openpi](https://github.com/Physical-Intelligence/openpi)
+
 ## Cosmos Policy
 
 The original [Cosmos Policy](https://github.com/NVlabs/cosmos-policy) post-trains Cosmos-Predict2 for visuomotor control. Its ALOHA planning path uses future observations and value estimates to compare candidate actions. The [LIBERO checkpoint](https://huggingface.co/nvidia/Cosmos-Policy-LIBERO-Predict2-2B#license) uses the NVIDIA One-Way Noncommercial License. The source code has its own [Apache-2.0 license](https://github.com/NVlabs/cosmos-policy/blob/18a2accadf4e7a3531e56754102af5a24d2316da/LICENSE).

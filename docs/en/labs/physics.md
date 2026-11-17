@@ -2,7 +2,19 @@
 
 ## How it works
 
-A **collider** is the shape the physics engine uses to detect contact. Two crates may look the same, yet an object can stop at different heights depending on where their colliders are. Start by keeping the visible shape and camera fixed and comparing just the colliders.
+### Visible geometry and contact geometry
+
+A **mesh** describes what the renderer draws. A **collider** is the geometry the physics engine uses to calculate distances and contacts. A simple box collider can save work, but its position and dimensions have to match the object closely enough for the task. A **rigid body** has state including position, orientation, and velocity. At each step, the engine advances motion under gravity and resolves contacts when shapes meet. Friction affects sliding along the surface, while restitution affects how the body bounces after impact. [Isaac Sim physics components](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/physics/simulation_fundamentals.html#simulation-components)
+
+### Where does a collider offset show up?
+
+| Collider setting | Value in the [recorded run](../../../labs/physics/recorded.json) | What to look for |
+| --- | --- | --- |
+| Aligned with the visible table | `aligned ≈ 0.80 m` | The probe meets the visible tabletop. |
+| Collider raised by 12 cm | `raised ≈ 0.92 m` | The probe appears to stop in midair. |
+| Table collider disabled | `disabled ≈ 0 m` | The probe passes the table and reaches the floor. |
+
+These values are the final world Z coordinates at each probe’s **bottom face**. For friction, compare **distance traveled** before stopping. For restitution, compare **peak center height** after the first contact. The separate PhysX/Newton experiment runs for 240 steps at 120 Hz, or two simulated seconds. A similar final height can still accompany different horizontal positions. [Shared initial conditions](../../../labs/physics/scene.json)
 
 ## Run it
 

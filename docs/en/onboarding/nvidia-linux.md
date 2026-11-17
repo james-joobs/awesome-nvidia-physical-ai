@@ -15,6 +15,19 @@ Look for the expected GPU and driver, then note the VRAM already in use. `x86_64
 
 ![Linux terminal checking the OS, RTX GPU, NVIDIA driver, and CUDA compiler](../../../assets/lessons/workbench/gpu-terminal.webp)
 
+### What layer does each command check?
+
+Application libraries reach the GPU through the host driver. Docker adds a step that exposes the GPU device to the container.
+
+| Check | What it establishes |
+| --- | --- |
+| Host `nvidia-smi` | The driver sees the GPU. Its CUDA field describes driver support. |
+| `nvcc --version` | The CUDA compiler version available in this shell. |
+| Container `nvidia-smi` | The container can access the device and driver. |
+| Run a lab with its own Python | The installed runtime and packages can start the actual workload. |
+
+If the host sees the GPU and the container does not, start with how the GPU is passed into the container. [CUDA Linux installation guide](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/) · [NVIDIA Container Toolkit sample](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/sample-workload.html)
+
 ## Install only the layers your workflow needs
 
 | Layer | What it does | How to check it |

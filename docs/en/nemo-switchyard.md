@@ -17,6 +17,10 @@ The official diagram separates the host or gateway from model selection and upst
 
 Switchyard separates model choice from the application’s task logic. A host gives the routing library a request, a pool of available models and a strategy. Task routing can ask a model to classify the request, and stage routing can take recent tool activity into account. The host handles requested upstream calls and consumes the routing outcome. Gateway integrations can translate OpenAI and Anthropic request, response and streaming formats.
 
+### Where does a request go after video analysis?
+
+Suppose a video service detects a maintenance event at 00:12. The app turns that observation into a text summary request. The host uses Switchyard with the request, available models, and routing strategy to choose a model. The app uses the selected endpoint's text to finish the report. Record the clip ID, selected model, response time, and report completion together to see which stage needs attention. [Official Switchyard repository](https://github.com/NVIDIA-NeMo/Switchyard)
+
 ## Physical AI example
 
 For an inspection assistant, keep image and video analysis in a vision-capable service such as VSS. Route its downstream text summarization and report drafting across a model pool. Compare a fixed single-model baseline with the routed setup on the same clips and prompts.

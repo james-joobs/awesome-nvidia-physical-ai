@@ -9,6 +9,16 @@
 
 AutoData expands a small set of successful robot demonstrations into simulated trajectories. A task definition tells the generator how to reset a scene, identify the reference object and judge success. The generated dataset contains robot actions and observations from replay in the simulator.
 
+## How does a source demonstration become a new one?
+
+### Break the task into reusable segments
+
+A stacking demonstration can contain approach, grasp, carry, and placement segments. MimicGen can express a grasp segment relative to the cube and adapt it to a new cube pose. The simulator executes the adapted sequence and checks task success. The resulting episode stores observations and actions in order, with success information recorded according to the task.
+
+### Read attempted and retained episodes together
+
+The [recorded run](../../labs/robot-motion/recorded.json) has `num_attempts=6`, `num_success=3`, and `num_failures=3`. For `demo_0`, `recorded_frames=253` is the stored length and `first_success_frame=243` marks the first successful frame. Compare initial conditions and rejected attempts alongside the retained examples to see which layouts are underrepresented. [Robot motion and demonstrations lab](labs/robot-motion.md) · [AutoData project](https://github.com/isaac-sim/AutoData)
+
 ## Architecture and data flow
 
 | Component | Inputs, processing and outputs |

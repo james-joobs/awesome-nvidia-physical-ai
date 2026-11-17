@@ -2,7 +2,19 @@
 
 ## How it works
 
-The walking policy starts out without knowing how to follow a speed command. Isaac Lab runs many copies of the exercise, **Newton** computes foot contact, and **RSL-RL** updates the policy using a score for how well it does. A **checkpoint** saves what the policy learned.
+### What does the policy observe before it moves a foot?
+
+The Isaac Lab task supplies a velocity command and observations about the robot’s pose and motion. The policy maps those numeric observations to joint actions. Newton simulates the contact between feet and ground and the robot’s resulting motion. That new state becomes the next observation. [Isaac Lab Microduck setup](https://isaac-sim.github.io/IsaacLab/main/source/how-to/train_microduck.html)
+
+### How one policy learns across 512 environments
+
+The lab runs one shared policy across 512 environments and collects observations, actions, and rewards. A **reward** measures how the simulated movement meets task objectives such as following the requested speed. RSL-RL uses the collected experience to update the policy. The task resets an episode when it terminates or reaches its time limit. [NVIDIA’s Microduck training workflow](https://huggingface.co/blog/nvidia/microduck-isaac-lab-sim-to-real)
+
+```json
+{ "iteration": 499, "mean_reward": 32.69, "mean_episode_length": 421.18 }
+```
+
+These are selected fields from the last iteration in the [training record](../../../labs/microduck/recorded.json). `mean_reward` is the task’s reward score and `mean_episode_length` is a mean in steps. Neither gives a speed or a time in seconds. Replay loads the learned weights from `model_499.pt` to choose new actions, and the ONNX file is an exported policy. The replay evaluates simulated walking.
 
 ## Run it
 

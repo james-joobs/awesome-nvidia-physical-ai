@@ -4,6 +4,16 @@
 
 Cosmos Data Factory (CDF) packages reference pipelines and composable skills. The selected blueprint determines which tools retrieve, simulate, augment, label and evaluate the data.
 
+## What does a workflow add to a video generation model?
+
+### Decide what stays fixed and what changes
+
+To expand a rare nighttime case, choose a source scene and vary the lighting. A blueprint joins source selection, conditional generation, and evaluation. For example, select a suitable source clip, generate a variant with changed lighting while retaining the camera path, and inspect whether lanes and objects stayed in place.
+
+### Make generated samples traceable
+
+Record the source ID, prompt or controls, model version, generated file, and review checks so you can compare runs after changing the criteria. Keep generated variants from the same source in one data split. [Official Cosmos Data Factory blueprints](https://github.com/NVIDIA/cosmos-data-factory) · [Cosmos world models](cosmos.md)
+
 ## How the blueprints fit together
 
 ![Official CDF video augmentation workflow](https://raw.githubusercontent.com/NVIDIA/cosmos-data-factory/main/docs/workflows/physical-ai-video-data-augmentation/media/main_workflow.png)

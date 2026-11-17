@@ -69,6 +69,17 @@ const description = topic?.[locale].description ?? labels.intro;
         {section.resources?.map(([target, en, ko]) => (
           <a class="plain-link extra-guide" href={pageUrl(locale, target)}>{locale === 'ko' ? ko : en}<Icon name="right" size={18} /></a>
         ))}
+        <div class="topic-theory">
+          {topic ? <h2>{labels.principles}</h2> : <h3>{labels.principles}</h3>}
+          <ul role="list">
+            {section.guides.map((guide) => (
+              <li><a href={pageUrl(locale, guide.page)}>
+                <span><strong>{guide[locale].title}</strong><span>{guide[locale].description}</span></span>
+                <Icon name="right" size={17} />
+              </a></li>
+            ))}
+          </ul>
+        </div>
         {topic && (
           <nav class="topic-links" aria-label={labels.tools}>
             <h2>{labels.tools}</h2>
@@ -120,9 +131,16 @@ const description = topic?.[locale].description ?? labels.intro;
   .credit { display: inline-flex; align-items: center; gap: 3px; min-height: 36px; color: var(--muted); font-size: .76rem; text-underline-offset: 3px; }
   .credit svg { flex: none; }
   .extra-guide { margin-top: 12px; }
+  .topic-theory { margin-top: 26px; }
+  .topic-theory :is(h2, h3) { margin-bottom: 10px; font-size: 1.25rem; }
+  .topic-theory ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .topic-theory a { display: flex; align-items: center; justify-content: space-between; gap: 8px; height: 100%; padding: 11px 13px; border: 1px solid var(--edge); border-radius: 7px; background: var(--surface); text-decoration: none; }
+  .topic-theory a:hover { border-color: var(--route-color); }
+  .topic-theory a :global(svg) { flex: none; color: var(--route-color); }
+  .topic-theory a strong + span { display: block; margin-top: 4px; color: var(--muted); font-size: .83rem; line-height: 1.5; }
   .topic-links { margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--edge); }
   .topic-links h2 { margin-bottom: 12px; font-size: 1.25rem; }
   :lang(ko) :is(.gallery-header p, .example-description) { word-break: keep-all; }
   @media (max-width: 960px) { .example-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; } }
-  @media (max-width: 575px) { .example-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 575px) { .example-grid, .topic-theory ul { grid-template-columns: 1fr; } }
 </style>

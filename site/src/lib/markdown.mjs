@@ -1,6 +1,8 @@
 import MarkdownIt from 'markdown-it';
 import { cubeScene } from './assets.mjs';
 import { copy, modelGuide, pageUrl, catalogs, repositoryFile, workflows } from './catalog.mjs';
+import { clips, grids, showcaseMedia } from './showcase.mjs';
+import { toolGuides } from './tool-guides.mjs';
 
 import { availability, catalogFields, licenseLabel } from './catalog-filters.mjs';
 
@@ -8,9 +10,10 @@ const guides = import.meta.glob([
   '../../../docs/{en,ko}/workflows/*.md',
   '../../../docs/{en,ko}/labs/*.md',
   '../../../docs/{en,ko}/onboarding/*.md',
-  '../../../docs/{en,ko}/robot-foundation-models.md',
-  '../../../docs/{en,ko}/{cosmos,nemo-switchyard}.md',
+  '../../../docs/{en,ko}/*.md',
 ], { query: '?raw', import: 'default', eager: true });
+
+const toolSources = new Set(['cosmos', 'nemo-switchyard', ...toolGuides.map(({ source }) => source)]);
 
 const lessonImages = import.meta.glob('../../../assets/lessons/workbench/*.webp',
   { query: '?url&no-inline', import: 'default', eager: true });
@@ -37,8 +40,8 @@ function resolveLink(link, sourcePath) {
 
   const model = file.match(/^docs\/(en|ko)\/robot-foundation-models\.md$/);
   if (model) return pageUrl(model[1], modelGuide.route);
-  const tool = file.match(/^docs\/(en|ko)\/(cosmos|nemo-switchyard)\.md$/);
-  if (tool && !target.hash) return pageUrl(tool[1], `tools/${tool[2]}`);
+  const tool = file.match(/^docs\/(en|ko)\/([\w-]+)\.md$/);
+  if (tool && toolSources.has(tool[2]) && !target.hash) return pageUrl(tool[1], `tools/${tool[2]}`);
   const lesson = file.match(/^docs\/(en|ko)\/((?:labs|onboarding)\/[\w-]+)\.md$/);
   if (lesson) return pageUrl(lesson[1], lesson[2]) + target.hash;
   if (file === 'assets/lessons/isaac-sim-first-cube/cube-drop.usda') return cubeScene;
@@ -61,9 +64,19 @@ markdown.renderer.rules.image = (tokens, index, options, env, renderer) => {
   if (src.startsWith('.')) {
     const target = new URL(src, `https://repository.invalid/${env.sourcePath}`);
     const file = `../../..${target.pathname}`;
+    let asset;
     if (file.startsWith('../../../assets/lessons/workbench/')) {
-      if (!lessonImages[file]) throw new Error(`Missing lesson image: ${src}`);
-      token.attrSet('src', lessonImages[file]);
+      asset = lessonImages[file];
+      if (!asset) throw new Error(`Missing lesson image: ${src}`);
+    } else if (file.startsWith('../../../site/public/showcase/')) {
+      const frame = [...clips, ...grids].find(({ id }) => file === `../../../site/public/showcase/${id}.jpg`);
+      if (!frame) throw new Error(`Missing showcase frame: ${src}`);
+      asset = showcaseMedia(`${frame.id}.jpg`);
+      token.attrSet('width', String(frame.width));
+      token.attrSet('height', String(frame.height));
+    }
+    if (asset) {
+      token.attrSet('src', asset);
       token.attrSet('loading', 'lazy');
       token.attrSet('decoding', 'async');
     }
@@ -80,7 +93,7 @@ markdown.renderer.rules.table_open = (tokens, index, options, env, renderer) => 
 markdown.renderer.rules.table_close = (tokens, index, options, env, renderer) =>
   renderToken(tokens, index, options, env, renderer) + '</div>\n';
 
-export function renderGuide(locale, sourcePath, sectionIds) {
+export function renderGuide(locale, sourcePath, sectionIds, theoryId) {
   const source = guides[`../../../${sourcePath}`];
   if (!source) throw new Error(`Missing guide: ${sourcePath}`);
 
@@ -100,11 +113,13 @@ export function renderGuide(locale, sourcePath, sectionIds) {
   }
 
   const headings = [];
+  const sectionStarts = [];
   for (const [index, token] of tokens.entries()) {
     if (token.type !== 'heading_open' || token.tag !== 'h2') continue;
 
     const id = sectionIds[headings.length];
     const label = tokens[index + 1].content;
+    sectionStarts.push(index);
     token.attrSet('id', id ?? `section-${headings.length + 1}`);
     // Keep same-page Markdown links working with the language-neutral site IDs.
     const markdownAnchor = markdown.normalizeLink('#' + label.toLowerCase().replace(/\s+/g, '-'));
@@ -115,7 +130,26 @@ export function renderGuide(locale, sourcePath, sectionIds) {
     throw new Error(`Update the paired section links for ${sourcePath}`);
   }
 
-  return { title, headings, html: markdown.renderer.render(tokens, markdown.options, env) };
+  const render = (blocks) => markdown.renderer.render(blocks, markdown.options, env);
+  if (!theoryId) return { title, headings, html: render(tokens) };
+
+  const position = headings.findIndex(({ id }) => id === theoryId);
+  if (position === -1) throw new Error(`Missing theory section in ${sourcePath}`);
+  const afterHeading = sectionStarts[position] + 3;
+  const afterTheory = sectionStarts[position + 1] ?? tokens.length;
+  const remaining = tokens.slice(afterTheory);
+  // GitHub renders AlpaGym's Mermaid diagram. Pages shows the localized lesson flow instead.
+  const body = sourcePath.endsWith('/alpagym.md')
+    ? remaining.filter((token) => token.type !== 'fence' || token.info.trim() !== 'mermaid')
+    : remaining;
+  return {
+    title, headings,
+    theory: {
+      lead: render(tokens.slice(0, afterHeading)),
+      body: render(tokens.slice(afterHeading, afterTheory)),
+    },
+    html: render(body),
+  };
 }
 
 function parseCatalog(locale) {

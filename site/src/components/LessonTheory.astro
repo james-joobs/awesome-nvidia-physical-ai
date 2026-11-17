@@ -1,0 +1,19 @@
+---
+import LessonFlow from './LessonFlow.astro';
+import PixelChannels from './PixelChannels.astro';
+
+const { locale, flow, theory, showPixels = false } = Astro.props;
+---
+<div class="lesson-theory">
+  <div class="prose" set:html={theory.lead} />
+  <LessonFlow locale={locale} flow={flow} />
+  <div class="prose" set:html={theory.body} />
+  {showPixels && <PixelChannels locale={locale} />}
+</div>
+
+<style>
+  .lesson-theory { margin-bottom: 24px; }
+  .lesson-theory :global(.lesson-flow) { margin-top: 14px; }
+  .lesson-theory :global(.prose > h3) { margin-block-start: 24px; }
+  .lesson-theory :global(.prose > h3:first-child) { margin-top: 0; }
+</style>

@@ -12,6 +12,16 @@
 
 Newton is a Warp-based physics engine for robotics. It owns the numerical world state and advances it through a selected solver. In a robot learning stack, the environment still defines observations, actions, rewards, and episode resets.
 
+## What does a Newton step write out?
+
+### Contact detection and solving
+
+The physics model contains bodies, colliders, joints, and initial state. This lab detects contacts at the current pose and passes the state, contacts, and time step to the XPBD solver. The solver computes the next state, which becomes the input to the next step. [Newton repository](https://github.com/newton-physics/newton) · [Lab step loop](../../labs/physics/run_newton.py)
+
+### Read a step and a position
+
+In `newton-poses.npy`, `poses[120, 0, :3]` gives the first box’s position `[x, y, z]`. Index 0 is the initial pose, so index 120 is one second at 120 Hz. In the [saved comparison](../../labs/physics/recorded.json), after two seconds the top box is at 0.0860 m in PhysX and 0.0859 m in Newton. Match the body and timestamp, then inspect horizontal position as well as height. [Physics lab](labs/physics.md)
+
 ## Newton 1.8
 
 **Newton 1.8.0** adds the experimental Steel solver for articulated rigid bodies and contact-rich reinforcement learning, routed tendons for XPBD and VBD, and more detailed deformable contacts and rendering. The release also changes VBD defaults and imported joint damping behavior, so compare contacts and trajectories when migrating a tuned scene. [Newton 1.8.0 release and migration notes](https://github.com/newton-physics/newton/releases/tag/v1.8.0)

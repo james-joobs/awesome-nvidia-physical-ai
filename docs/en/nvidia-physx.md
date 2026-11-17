@@ -4,6 +4,16 @@
 
 PhysX provides scene queries and physical simulation for collision shapes, rigid bodies, and articulated mechanisms. In Isaac Sim, authored USD physics settings become objects managed by the physics backend.
 
+## Where do friction and contact show up in the data?
+
+### What the physics properties do
+
+A rigid body has position, rotation, and velocity. The collider supplies the boundary used to test contact. Friction affects sliding along the contact surface, while restitution affects the bounce after a collision.
+
+### Compare friction and measured displacement
+
+The [recorded friction runs](../../labs/physics/recorded.json) use coefficients `[0.16, 0.35, 0.75]` and move about `[0.570, 0.255, 0.114]` meters in the same order. These are measured distances in those cases. The separate rigid-body comparison stores poses in `physx-poses.npy` by time and body. Read `poses[t, i, :3]` to select the XYZ location of body `i` at time index `t`. [PhysX source](https://github.com/NVIDIA-Omniverse/PhysX) · [Physics lab](labs/physics.md)
+
 ## Architecture
 
 | Component | Responsibility and data boundary |
