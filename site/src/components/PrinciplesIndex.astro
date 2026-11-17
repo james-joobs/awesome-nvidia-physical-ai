@@ -1,0 +1,91 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from './Icon.astro';
+import { pageUrl } from '../lib/catalog.mjs';
+import { lessonUrl } from '../lib/learning.mjs';
+import { principleGuideCount, principlesCopy, principlesRoute, readingTracks } from '../lib/principles.mjs';
+
+const { locale } = Astro.props;
+const labels = principlesCopy[locale];
+---
+<Base locale={locale} page={principlesRoute} title={labels.title} description={labels.intro}>
+  <header class="principles-header">
+    <div class="shell">
+      <a class="breadcrumb" href={pageUrl(locale)}>{labels.home}</a>
+      <h1>{labels.title}</h1>
+      <p>{labels.intro}</p>
+      <nav aria-label={labels.choose}>
+        {readingTracks.map((track) => (
+          <a href={`#${track.id}`} class={track.theme}>
+            <Icon name={track.icon} size={18} />{track[locale].title}
+          </a>
+        ))}
+      </nav>
+    </div>
+  </header>
+  <div class="shell principles-list">
+    <p class="guide-count">{labels.count(principleGuideCount)}</p>
+    {readingTracks.map((track) => (
+      <section id={track.id} class:list={['reading-track', track.theme]} aria-labelledby={`${track.id}-title`}>
+        <header class="track-intro">
+          <h2 id={`${track.id}-title`}><Icon name={track.icon} size={22} />{track[locale].title}</h2>
+          <p>{track[locale].description}</p>
+        </header>
+        <ol class="reading-order" aria-labelledby={`${track.id}-title`}>
+          {track.read.map((guide) => (
+            <li>
+              <a href={lessonUrl(locale, guide.route)}>
+                <span><strong>{guide[locale].title}</strong><span>{guide[locale].description}</span></span>
+                <Icon name="right" size={17} />
+              </a>
+            </li>
+          ))}
+        </ol>
+        <div class="next-practice">
+          <h3>{labels.practice}</h3>
+          <ul role="list">
+            {track.practice.map((item) => (
+              <li><a class="plain-link" href={lessonUrl(locale, item.route)}>{item[locale]}<Icon name="right" size={16} /></a></li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    ))}
+  </div>
+</Base>
+
+<style>
+  .principles-header { padding-block: clamp(26px, 5vw, 56px) 24px; border-bottom: 1px solid var(--edge); background: linear-gradient(125deg, #283422, var(--bg) 70%); }
+  h1 { margin-top: 10px; font-size: clamp(2.1rem, 5vw, 3.8rem); line-height: 1.1; letter-spacing: -.043em; }
+  .principles-header p, .track-intro p { color: var(--muted); line-height: 1.55; }
+  .principles-header p { margin-block: 12px 18px; max-width: 64ch; }
+  nav { display: flex; flex-wrap: wrap; gap: 7px; }
+  nav a { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding-inline: 11px; border: 1px solid var(--edge); border-radius: 6px; text-decoration: none; font-size: .85rem; font-weight: 620; }
+  nav a:hover { color: var(--route-color); border-color: var(--route-color); background: var(--route-tint); }
+  nav a :global(svg) { color: var(--route-color); flex: none; }
+
+  .principles-list { padding-block: 19px 54px; }
+  .guide-count { padding-bottom: 12px; color: var(--muted); font-size: .88rem; }
+  .reading-track { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.75fr); grid-template-rows: auto 1fr; align-items: start; gap: 15px clamp(22px, 5vw, 62px); padding-block: clamp(24px, 4vw, 42px); border-top: 1px solid var(--edge); }
+  .track-intro h2 { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; font-size: clamp(1.3rem, 2.8vw, 2rem); line-height: 1.22; }
+  .track-intro h2 :global(svg) { color: var(--route-color); flex: none; }
+  .track-intro p { font-size: .92rem; }
+  .reading-order { grid-area: 1 / 2 / span 2; min-width: 0; margin: 0; padding: 0 10px 0 2.2rem; border: 1px solid var(--edge); border-radius: 9px; background: var(--surface); }
+  .reading-order li::marker { color: var(--route-color); font-weight: 700; font-variant-numeric: tabular-nums; }
+  .reading-order li + li { border-top: 1px solid var(--edge); }
+  .reading-order a { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 44px; padding: 8px; text-decoration: none; }
+  .reading-order a:hover strong { color: var(--route-color); text-decoration: underline; text-underline-offset: 3px; }
+  .reading-order a :global(svg) { flex: none; color: var(--route-color); }
+  .reading-order strong + span { display: block; margin-top: 3px; color: var(--muted); font-size: .85rem; line-height: 1.43; }
+  .next-practice { grid-area: 2 / 1; padding: 12px 13px 5px; border-left: 2px solid var(--route-color); border-radius: 0 7px 7px 0; background: var(--route-tint); }
+  .next-practice h3 { font-size: 1.02rem; }
+  .next-practice ul { margin: 0; padding: 0; list-style: none; }
+  .next-practice li + li { border-top: 1px solid var(--edge); }
+  .next-practice a { color: var(--route-color); min-height: 44px; }
+  :lang(ko) :is(.principles-header p, .track-intro p, .reading-order, .next-practice) { word-break: keep-all; overflow-wrap: anywhere; }
+  @media (max-width: 760px) {
+    .reading-track { grid-template-columns: 1fr; grid-template-rows: auto; }
+    .reading-order, .next-practice { grid-area: auto; }
+    .reading-order { padding-left: 1.9rem; }
+  }
+</style>
