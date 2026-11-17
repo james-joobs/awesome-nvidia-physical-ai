@@ -9,6 +9,7 @@ import { catalogSearchUrl, copy, modelGuide, pageUrl, repositoryFile, workflows 
 import { courseRoute, onboardingGuides, workbenchRoute } from '../lib/learning.mjs';
 import { lessonFlows } from '../lib/lesson-flows.mjs';
 import { renderGuide, renderModelList } from '../lib/markdown.mjs';
+import { principlesCopy, principlesRoute } from '../lib/principles.mjs';
 import { topicForPage, topicsCopy } from '../lib/topics.mjs';
 
 const { locale, page, guide, sourcePath, parent } = Astro.props;
@@ -20,6 +21,7 @@ const isCube = guide.slug === 'isaac-sim-first-cube';
 const isWorkbench = page === workbenchRoute;
 const isSetup = page.startsWith('onboarding/');
 const isModels = page === modelGuide.route;
+const isTool = page.startsWith('tools/');
 const models = isModels ? renderModelList(locale) : undefined;
 const steps = isModels ? [...headings, { id: 'comparison-table', label: labels.modelTable }] : headings;
 const topic = topicForPage(page);
@@ -30,6 +32,11 @@ const ko = locale === 'ko';
 const caption = media?.credit ? topicLabels.officialMedia : topicLabels.capturedMedia;
 const start = guide.flow ? headings[0] : headings.find(({ id }) => id !== 'implementation');
 const startLabel = isWorkbench ? (ko ? 'GPU 없이 시작하기' : 'Start without a GPU') : start.label;
+const sectionViews = isModels ? [
+  { id: start.id, label: labels.modelEvaluation },
+  { id: 'comparison-table', label: labels.modelTable },
+] : isTool ? headings.filter(({ id }) => labels.toolSections[id])
+  .map(({ id }) => ({ id, label: labels.toolSections[id] })) : [];
 const preparation = isWorkbench
   ? (ko ? '저장된 데이터는 Python 3.12로 검사합니다. 새 촬영에는 RTX GPU와 Isaac Sim 6.2가 필요합니다.'
     : 'Use Python 3.12 to check the saved data. For a new capture, use an RTX GPU and Isaac Sim 6.2.')
@@ -40,8 +47,12 @@ const preparation = isWorkbench
 ---
 <Base locale={locale} page={page} title={entry.title} description={entry.description}>
   <LessonLanding locale={locale} title={entry.title} description={entry.description}
-    theme={guide.theme ?? topic?.theme} steps={steps} reference={isReference} preparation={preparation}>
+    theme={guide.theme ?? topic?.theme} steps={steps} reference={isReference} toolGuide={isTool} preparation={preparation}>
     <Fragment slot="breadcrumbs">
+      {isTool && <>
+        <a class="breadcrumb" href={pageUrl(locale, principlesRoute)}>{principlesCopy[locale].nav}</a>
+        <Icon name="right" size={14} />
+      </>}
       {isSetup ? <a class="breadcrumb" href={`${pageUrl(locale)}#onboarding`}>{labels.setup}</a>
         : topic ? <a class="breadcrumb" href={pageUrl(locale, `topics/${topic.slug}`)}>{topic[locale].title}</a>
         : <a class="breadcrumb" href={`${pageUrl(locale)}#${parent}`}>{labels[parent]}</a>}
@@ -73,7 +84,7 @@ const preparation = isWorkbench
     </Fragment>
     {media && <LessonPreview slot="preview" image={media.image} alt={media[locale].alt} fit={media.fit}
       caption={caption} href={media.credit?.url} label={media.credit?.label} external />}
-    {(isSetup || isModels) && (
+    {(isSetup || sectionViews.length > 0) && (
       <div slot="navigation" class="hub-band">
         {isSetup ? (
           <nav class="shell hub-views guide-views" aria-label={labels.setup}>
@@ -82,9 +93,11 @@ const preparation = isWorkbench
             ))}
           </nav>
         ) : (
-          <nav class="shell hub-views guide-views model-views" aria-label={labels.models}>
-            <a href={`#${start.id}`} aria-current="location">{labels.modelEvaluation}</a>
-            <a href="#comparison-table">{labels.modelTable}</a>
+          <nav class:list={['shell hub-views guide-views section-views', { 'model-views': isModels, 'tool-views': isTool }]}
+            aria-label={isModels ? labels.models : labels.onThisPage}>
+            {sectionViews.map(({ id, label }, index) => (
+              <a href={`#${id}`} aria-current={index === 0 ? 'location' : undefined}>{label}</a>
+            ))}
           </nav>
         )}
       </div>
@@ -112,12 +125,15 @@ const preparation = isWorkbench
 </Base>
 
 <script>
-  const views = document.querySelectorAll<HTMLAnchorElement>('.model-views a');
+  const views = [...document.querySelectorAll<HTMLAnchorElement>('.section-views a')];
   if (views.length) {
+    const sections = [...document.querySelectorAll<HTMLAnchorElement>('#lesson-steps a')].map(link => link.hash);
+    const viewHashes = new Set(views.map(link => link.hash));
     const updateView = () => {
-      const index = window.location.hash === '#comparison-table' ? 1 : 0;
-      views.forEach((link, position) => {
-        if (index === position) link.setAttribute('aria-current', 'location');
+      const position = sections.indexOf(window.location.hash);
+      const active = sections.slice(0, position + 1).findLast(hash => viewHashes.has(hash)) ?? views[0].hash;
+      views.forEach(link => {
+        if (link.hash === active) link.setAttribute('aria-current', 'location');
         else link.removeAttribute('aria-current');
       });
     };
@@ -146,5 +162,6 @@ const preparation = isWorkbench
   :lang(ko) :is(.guide-views a, .model-table-hint) { word-break: keep-all; overflow-wrap: anywhere; }
   @media (max-width: 570px) {
     .guide-views a { font-size: .875rem; }
+    .tool-views:has(> a:nth-child(4)) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 </style>

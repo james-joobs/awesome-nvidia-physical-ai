@@ -2,7 +2,7 @@
 import { copy } from '../lib/catalog.mjs';
 import Icon from './Icon.astro';
 
-const { locale, title, description, steps, theme = 'lime', reference = false, preparation } = Astro.props;
+const { locale, title, description, steps, theme = 'lime', reference = false, toolGuide = false, preparation } = Astro.props;
 const ko = locale === 'ko';
 const panelTitle = reference ? copy[locale].onThisPage : ko ? '실습 순서' : 'Follow along';
 ---
@@ -35,7 +35,7 @@ const panelTitle = reference ? copy[locale].onThisPage : ko ? '실습 순서' : 
         </ol>
       </nav>
     </aside>
-    <article class="guide-content"><slot /></article>
+    <article class="guide-content" data-tool-guide={toolGuide ? '' : undefined}><slot /></article>
   </div>
   {Astro.slots.has('related') && <div class="shell lesson-related"><slot name="related" /></div>}
 </div>
@@ -66,12 +66,21 @@ const panelTitle = reference ? copy[locale].onThisPage : ko ? '실습 순서' : 
   .lesson-hero-inner.with-preview { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
   .lesson-heading { min-width: 0; }
   .lesson-breadcrumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 5px 15px; }
+  .lesson-breadcrumbs > :global(svg) { flex: none; color: var(--muted); }
   h1 { max-width: 33ch; margin-block: 8px 12px; font-size: clamp(1.875rem, 4vw, 2.5rem); font-weight: 700; line-height: 1.2; }
   .lesson-intro { max-width: 74ch; margin-block: 0 17px; color: var(--prose-text); font-size: 1rem; line-height: 1.75; }
   .guide-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px; margin-top: 16px; }
   .guide-actions :global(a) { min-height: 44px; }
   .lesson-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(14rem, 17rem); gap: clamp(22px, 5vw, 72px); align-items: start; padding-block: 30px clamp(38px, 6vw, 70px); }
   .guide-content { grid-area: 1 / 1; min-width: 0; }
+  .guide-content[data-tool-guide] :global(.prose > h2) { padding-block-end: 9px; border-block-end: 1px solid var(--edge); }
+  .guide-content[data-tool-guide] :global(.prose > p:has(> img:only-child)) {
+    overflow: clip; border: 1px solid var(--edge); border-radius: 8px; background: var(--surface);
+  }
+  .guide-content[data-tool-guide] :global(.prose > p > img:only-child) { margin-inline: auto; }
+  .guide-content[data-tool-guide] :global(#official-sources + ul) { padding-inline-start: 0; list-style: none; }
+  .guide-content[data-tool-guide] :global(#official-sources + ul > li) { max-width: none; margin: 0; border-block-end: 1px solid var(--edge); }
+  .guide-content[data-tool-guide] :global(#official-sources + ul > li > a) { display: inline-flex; align-items: center; min-height: 44px; padding-block: 4px; }
   .lesson-panel { position: sticky; top: 20px; grid-column: 2; grid-row: 1; max-height: calc(100dvh - 40px); min-width: 0; overflow: auto; padding: 4px 3px; }
   .lesson-panel h2 { margin-bottom: 10px; font-size: .9375rem; font-weight: 650; }
   .lesson-panel-toggle { display: none; }
