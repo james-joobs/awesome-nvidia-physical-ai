@@ -39,7 +39,10 @@ const showcase = pageUrl(locale, 'showcase');
           <a href={browserLab} class="button button-primary">{learning.firstExercise}<Icon name="right" size={18} /></a>
           <a href="#workflows" class="button button-secondary">{learning.paths}<Icon name="down" size={17} /></a>
         </div>
-        <a href={theoryUrl} class="plain-link hero-principles">{principles.all(principleGuideCount)}<Icon name="right" size={17} /></a>
+        <div class="hero-links">
+          <a href={theoryUrl} class="plain-link">{principles.all(principleGuideCount)}<Icon name="right" size={17} /></a>
+          <a href={pageUrl(locale, 'tour')} class="plain-link">{home.siteTour}<Icon name="right" size={17} /></a>
+        </div>
       </div>
       <figure class="home-video">
         <ShowcaseVideo locale={locale} clip={demo} title={demo[locale].title} eager />
@@ -230,7 +233,8 @@ const showcase = pageUrl(locale, 'showcase');
   :lang(ko) .hero h1 { letter-spacing: -.042em; }
   .hero-description { max-width: 49ch; margin-block: 16px 22px; color: var(--prose-text); font-size: 1rem; line-height: 1.75; }
   .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; }
-  .hero-principles { min-height: 44px; margin-top: 4px; }
+  .hero-links { display: flex; flex-wrap: wrap; gap: 0 18px; margin-top: 4px; }
+  .hero-links a { min-height: 44px; }
   .hero-actions :global(svg) { flex: none; }
   .button-secondary { border: 1px solid var(--edge); background: var(--surface); }
   .button-secondary:hover { border-color: var(--accent); }

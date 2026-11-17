@@ -12,7 +12,7 @@ Start with a robot exercise in your browser. Use the included code, USD scenes, 
 
 [🧪 **First exercise**](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/gr00t-placement/#first-exercise) · [📖 **Learning paths**](https://james-joobs.github.io/awesome-nvidia-physical-ai/#workflows) · [**How the tools work**](https://james-joobs.github.io/awesome-nvidia-physical-ai/learn/principles/) · [🎬 **Lab gallery by topic**](https://james-joobs.github.io/awesome-nvidia-physical-ai/topics/)
 
-[GitHub Pages](https://james-joobs.github.io/awesome-nvidia-physical-ai/) · [Lab code](labs/README.md) · [Tool catalog](CATALOG.md)
+[GitHub Pages](https://james-joobs.github.io/awesome-nvidia-physical-ai/) · [Site tour video](https://james-joobs.github.io/awesome-nvidia-physical-ai/tour/) · [Lab code](labs/README.md) · [Tool catalog](CATALOG.md)
 
 </div>
 
