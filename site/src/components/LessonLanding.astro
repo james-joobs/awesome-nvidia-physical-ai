@@ -19,6 +19,7 @@ const panelTitle = reference ? copy[locale].onThisPage : ko ? '실습 순서' : 
       <slot name="preview" />
     </div>
   </header>
+  <slot name="navigation" />
   <div class="shell lesson-layout">
     <aside class="lesson-panel" aria-labelledby="lesson-panel-title">
       <h2 id="lesson-panel-title">{panelTitle}</h2>

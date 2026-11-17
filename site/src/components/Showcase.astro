@@ -18,25 +18,33 @@ const sections = [
 ---
 <Base locale={locale} page="showcase" title={labels.title} description={labels.intro}
   socialImage={showcaseMedia(`${featured.id}.jpg`)}>
-  <section class="shell showcase-header" aria-labelledby="showcase-title">
+  <header class="shell showcase-header" aria-labelledby="showcase-title">
     <h1 id="showcase-title">{labels.title}</h1>
     <p>{labels.intro}</p>
-  </section>
-  <section class="shell featured" aria-labelledby="featured-title">
+  </header>
+  <div class="hub-band">
+    <nav class="shell hub-views showcase-views" aria-label={labels.nav}>
+      <a href="#featured" aria-current="location">{labels.overview}</a>
+      {sections.map(({ id, title }) => <a href={`#${id}`}>{title}</a>)}
+    </nav>
+  </div>
+  <section class="shell featured" id="featured" aria-labelledby="featured-title" data-video-section>
     <div class="feature-title">
       <h2 id="featured-title">{labels.featured}</h2>
       <a class="plain-link" href={showcaseMedia(`${featured.id}.mp4`)}>{labels.open} <Icon name="external" size={16} /></a>
     </div>
-    <div class="hero-video">
-      <ShowcaseVideo locale={locale} clip={featured} title={labels.featured} eager autoplay />
-    </div>
-    <p>{labels.featuredDetail}</p>
-    <div class="featured-tools">
-      <ToolTags tags={heroTags} label={labLabels.tools} />
-      <a class="plain-link" href="#by-topic">{labLabels.action} <Icon name="down" size={16} /></a>
+    <div class="feature-layout">
+      <div class="hero-video">
+        <ShowcaseVideo locale={locale} clip={featured} title={labels.featured} eager autoplay />
+      </div>
+      <div class="feature-context">
+        <p>{labels.featuredDetail}</p>
+        <ToolTags tags={heroTags} label={labLabels.tools} />
+        <a class="plain-link" href="#by-topic">{labLabels.action} <Icon name="down" size={16} /></a>
+      </div>
     </div>
     <details class="scene-list">
-      <summary>{labels.scenes}</summary>
+      <summary>{labels.scenes}<Icon name="chevron" size={16} /></summary>
       <ol>{sceneLabels[locale].map((scene, index) => {
         const [labId, tags] = scenes[index];
         return <li><a href={labUrl(labId)}>{scene}</a><ToolTags tags={tags} /></li>;
@@ -45,22 +53,22 @@ const sections = [
     </details>
   </section>
   {sections.map(({ id, title, items }) => (
-    <section class="section shell showcase-section" id={id} aria-labelledby={`${id}-heading`}>
-      <div class="section-head"><h2 id={`${id}-heading`}>{title}</h2></div>
-      <div class:list={['showcase-grid', id]}>
+    <section class="shell showcase-section" id={id} aria-labelledby={`${id}-heading`} data-video-section>
+      <h2 id={`${id}-heading`}>{title}</h2>
+      <div class="hub-media-grid showcase-grid">
         {items.map((item) => {
           const entry = item[locale];
           const lab = findLab(item.id);
           const guide = item.route ? pageUrl(locale, item.route) : repositoryFile(`docs/${locale}/${item.guide}.md`);
           return (
-            <article class="showcase-card" id={item.id}>
+            <article class="hub-media-card showcase-card" id={item.id}>
               <ShowcaseVideo locale={locale} clip={item} title={entry.title} />
               <div class="showcase-caption">
                 <h3>{entry.title}</h3>
-                <ToolTags tags={lab.tags} label={labLabels.tools} />
                 <p>{entry.description}</p>
+                <ToolTags tags={lab.tags} label={labLabels.tools} />
                 <div class="card-links">
-                  <a class="lab-link" href={labUrl(lab.id)}>{labLabels.action} <Icon name="right" size={16} /></a>
+                  <a class="plain-link lab-link" href={labUrl(lab.id)}>{labLabels.action} <Icon name="right" size={16} /></a>
                   <a class="plain-link" href={guide}>{labels.guide}</a>
                 </div>
               </div>
@@ -77,53 +85,66 @@ const sections = [
   </div>
 </Base>
 
+<script>
+  const views = document.querySelectorAll<HTMLAnchorElement>('.showcase-views a');
+  const updateView = () => {
+    const target = document.getElementById(window.location.hash.slice(1));
+    const current = target?.closest<HTMLElement>('[data-video-section]')?.id ?? 'featured';
+    for (const link of views) {
+      if (link.hash === `#${current}`) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    }
+  };
+  updateView();
+  window.addEventListener('hashchange', updateView);
+</script>
+
 <style>
-  .showcase-header { padding-block: 44px 30px; }
-  .showcase-header h1 {
-    font-size: clamp(2.55rem, 6.2vw, 5rem);
-    line-height: 1.05;
-    letter-spacing: -.055em;
+  .showcase-header { padding-block: clamp(28px, 4vw, 55px) 26px; }
+  .showcase-header h1 { font-size: clamp(1.875rem, 4vw, 2.5rem); line-height: 1.2; }
+  .showcase-header p { margin-top: 12px; max-width: 46rem; color: var(--prose-text); line-height: 1.75; }
+  .showcase-views a { min-width: 0; overflow-wrap: anywhere; }
+  .featured, .showcase-section { padding-block-start: clamp(26px, 5vw, 58px); }
+  .feature-title, .showcase-section > h2 { margin-bottom: 18px; padding-bottom: 8px; border-bottom: 1px solid var(--edge); }
+  .feature-title { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 16px; }
+  .feature-title h2, .showcase-section > h2 { font-size: 1.45rem; line-height: 1.25; }
+  .feature-title a { min-height: 44px; }
+  .feature-layout { display: grid; grid-template-columns: minmax(0, 3.4fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+  .hero-video { min-width: 0; overflow: clip; border: 1px solid var(--edge); border-radius: 8px; }
+  .feature-context { min-width: 0; padding-inline-start: 14px; border-inline-start: 2px solid var(--edge); }
+  .feature-context p { margin-bottom: 12px; color: var(--prose-text); line-height: 1.65; }
+  .feature-context a { min-height: 44px; margin-top: 7px; }
+  .scene-list { margin-top: 18px; border-block: 1px solid var(--edge); }
+  .scene-list summary {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 46px;
+    cursor: pointer; list-style: none; font-size: .9375rem; font-weight: 650;
   }
-  .showcase-header p { margin-top: 15px; max-width: 61ch; color: var(--muted); line-height: 1.65; }
-  .featured { padding: 20px; border: 1px solid var(--edge); border-radius: 16px; background: var(--surface); }
-  .feature-title { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 18px; margin-bottom: 10px; }
-  .feature-title h2 { font-size: clamp(1.22rem, 2.6vw, 1.85rem); letter-spacing: -.03em; }
-  .hero-video { border-radius: 9px; overflow: clip; }
-  .featured > p { margin-top: 14px; line-height: 1.55; }
-  .featured-tools { margin-top: .75rem; }
-  .scene-list { margin-top: 12px; border-top: 1px solid var(--edge); }
-  .scene-list summary { padding: 12px 0 0; cursor: pointer; font-size: .875rem; color: var(--accent); }
-  .scene-list ol { columns: 2; padding-left: 23px; color: var(--muted); font-size: .88rem; line-height: 1.55; }
-  .scene-list ol > li { break-inside: avoid; margin-bottom: .65rem; }
-  .scene-list ol > li > a { display: inline-block; margin-bottom: .23rem; text-underline-offset: 3px; }
-  .scene-list p { color: var(--muted); font-size: .83rem; line-height: 1.6; }
-  .showcase-section { padding-top: 42px; padding-bottom: 9px; }
-  .showcase-grid { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .single-clips { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .showcase-card {
-    min-width: 0; display: flex; flex-direction: column; overflow: clip;
-    border: 1px solid var(--edge); border-radius: 12px; background: var(--surface);
+  .scene-list summary:hover { color: var(--accent); }
+  .scene-list summary::-webkit-details-marker { display: none; }
+  .scene-list summary :global(svg) { flex: none; color: var(--accent); }
+  .scene-list[open] summary :global(svg) { rotate: 180deg; }
+  .scene-list ol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 35px; margin: 3px 0 10px; padding-inline-start: 1.65rem; }
+  .scene-list ol > li { min-width: 0; padding-block: 0 10px; border-top: 1px solid var(--edge); font-size: .9rem; }
+  .scene-list ol > li::marker { color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; }
+  .scene-list ol > li > a { display: inline-flex; align-items: center; min-height: 44px; line-height: 1.45; text-decoration-color: var(--brand-green); text-underline-offset: 3px; }
+  .scene-list ol > li > a:hover { color: var(--accent); }
+  .scene-list p { padding-bottom: 12px; color: var(--muted); font-size: .875rem; line-height: 1.6; }
+  .showcase-card > :global(.video-frame) { border-bottom: 1px solid var(--edge); }
+  .showcase-caption { flex: 1; display: flex; flex-direction: column; gap: 8px; min-width: 0; padding: 16px 18px 12px; }
+  .showcase-caption h3 { font-size: clamp(1.1rem, 2vw, 1.28rem); line-height: 1.35; }
+  .showcase-caption p { color: var(--prose-text); font-size: .9375rem; line-height: 1.6; }
+  .card-links { display: flex; flex-wrap: wrap; align-items: center; gap: 0 14px; margin-top: auto; }
+  .card-links a { min-height: 44px; }
+  .card-links a:not(.lab-link) { color: var(--muted); }
+  .credits { display: flex; flex-wrap: wrap; gap: 0 1rem; padding-block: 22px 30px; }
+  :lang(ko) :is(.showcase-header p, .feature-context, .showcase-caption, .scene-list, .showcase-views a) { word-break: keep-all; overflow-wrap: anywhere; }
+  @media (max-width: 900px) {
+    .feature-layout { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+    .feature-context { padding: 0; border: 0; }
   }
-  .showcase-card:focus-within { border-color: var(--accent); }
-  .showcase-caption { flex: 1; display: flex; flex-direction: column; padding: 15px 17px 9px; }
-  .showcase-caption h3 { margin-bottom: .45rem; font-size: 1.16rem; letter-spacing: -.021em; }
-  .showcase-caption p { margin: 7px 0 8px; color: var(--muted); font-size: .86rem; line-height: 1.58; }
-  .card-links { display: flex; flex-wrap: wrap; align-items: center; gap: 0 10px; margin-top: auto; }
-  .lab-link {
-    display: inline-flex; align-items: center; gap: .45rem; min-height: 40px;
-    color: var(--accent); font-weight: 750; font-size: .87rem; text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .card-links .plain-link { color: var(--muted); font-size: .8rem; }
-  .credits { display: flex; flex-wrap: wrap; gap: 0 1rem; padding-block: 19px 30px; }
-  @media (max-width: 990px) {
-    .single-clips { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
-  @media (max-width: 560px) {
-    .showcase-header { padding-block: 29px 20px; }
-    .featured { padding: 12px; border-radius: 11px; }
-    .showcase-grid { grid-template-columns: 1fr; gap: 12px; }
-    .scene-list ol { columns: 1; }
-    .showcase-section { padding-top: 30px; }
+  @media (max-width: 575px) {
+    .showcase-views a { font-size: .875rem; }
+    .scene-list ol { grid-template-columns: minmax(0, 1fr); }
+    .showcase-caption { padding-inline: 14px; }
   }
 </style>
