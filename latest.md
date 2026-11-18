@@ -1,16 +1,32 @@
 # NVIDIA Physical AI 연구 수집 결과
 
-확인 시각 2026-11-18 09:14 KST · 새로 발견하거나 변경된 항목 0건
+확인 시각 2026-11-18 16:35 KST · 새로 발견하거나 변경된 항목 19건
 
 아래 항목은 검토 후보입니다. 날짜는 출처의 발표 또는 수정 시각입니다. 코드·모델·데이터셋의 실제 공개 여부와 이용 조건은 각 원문에서 확인합니다.
 
 ## 최근 7일에 발견한 후보
 
+- [Making Future-Predictive Representations Actionable](https://arxiv.org/abs/2611.22994) · 2026-11-17 · arXiv 프리프린트 · 논문 수정일
+- [Future Prediction as Training-Only Video Supervision for Pretrained VLA Policies](https://arxiv.org/abs/2610.34593) · 2026-11-17 · arXiv 프리프린트 · 논문 수정일
+- [TouchBridge: Tactile-Conditioned Human-to-Robot Transfer for Dexterous Manipulation](https://arxiv.org/abs/2610.40349) · 2026-11-17 · arXiv 프리프린트 · 논문 수정일
+- [Fly as Instructed: Refining World-Action Policies for UAV Vision-Language Navigation](https://arxiv.org/abs/2611.22883) · 2026-11-17 · arXiv 프리프린트 · 논문 수정일
+- [AdaRSI: On-Demand Recursive Self-Improvement for Embodied Agents](https://arxiv.org/abs/2610.20474) · 2026-11-17 · arXiv 프리프린트 · 논문 수정일
+- [ThinkWAM: Rethinking Latent Futures for Action Refinement](https://arxiv.org/abs/2611.21258) · 2026-11-17 · arXiv 프리프린트 · 논문 수정일
+- [Video-Action Models for Data-Efficient Industrial Manipulation](https://arxiv.org/abs/2611.15974) · 2026-11-17 · arXiv 프리프린트 · 논문 수정일
+- [Data Pyramid for Embodied Manipulation: A Survey](https://arxiv.org/abs/2607.24744) · 2026-11-17 · arXiv 프리프린트 · 논문 수정일
+- [VSpark: Speculative Decoding for Autoregressive Vision-Language-Action Models](https://arxiv.org/abs/2611.22666) · 2026-11-17 · arXiv 프리프린트 · 논문 수정일
+- [Distilling World Action Models for Efficient Bimanual Manipulation via Anchored Path Matching](https://arxiv.org/abs/2611.22592) · 2026-11-17 · arXiv 프리프린트 · 논문 수정일
+- [InteractVLA: Turning VLAs into Interactive Tools for Agentic Robotic Manipulation](https://arxiv.org/abs/2611.22584) · 2026-11-17 · arXiv 프리프린트 · 논문 수정일
+- [VoxelSBFL: Voxel-Level Spectrum-Based Failure Prediction for Vision-Language-Action Models](https://arxiv.org/abs/2611.22453) · 2026-11-17 · arXiv 프리프린트 · 논문 수정일
+- [CoBoVLA: Decoupling Language from Action with Discrete Codes for Robust and Interpretable Robot Manipulation](https://arxiv.org/abs/2611.22395) · 2026-11-17 · arXiv 프리프린트 · 논문 수정일
+- [FailureGen: Scalable Robot Failure Data Generation with World Models](https://arxiv.org/abs/2611.22367) · 2026-11-17 · arXiv 프리프린트 · 논문 수정일
+- [WiTac: Wrist-Informed Tactile Representations for Contact-Rich Manipulation](https://arxiv.org/abs/2611.21057) · 2026-11-17 · arXiv 프리프린트 · 논문 수정일
+- [SR-VLA: Stall-Reduced VLA Execution via Predicted-Input Lookahead and Selective KV Cache Repair](https://arxiv.org/abs/2611.22356) · 2026-11-17 · arXiv 프리프린트 · 논문 수정일
+- [Agent-Centric Observation Adaptation for Robust Visual Control under Dynamic Perturbations](https://arxiv.org/abs/2604.24661) · 2026-11-17 · arXiv 프리프린트 · 논문 수정일
+- [What Can a VLA Learn from the Agent That Calls It? Task-Level Experience Distillation for Embodied Navigation](https://arxiv.org/abs/2611.16246) · 2026-11-17 · arXiv 프리프린트 · 논문 수정일
+- [AR-WAM: efficient streaming world-action modeling for autonomous driving](https://arxiv.org/abs/2611.21851) · 2026-11-16 · arXiv 프리프린트 · 논문 수정일
 - [ScaleVLA: Scaling Vision-Language-Action Models to 552 Billion Parameters](https://arxiv.org/abs/2611.21607) · 2026-11-16 · arXiv 프리프린트 · 논문 수정일
 - [Running AV Reasoning Models Within Onboard Compute and Latency Limits](https://developer.nvidia.com/blog/running-av-reasoning-models-within-onboard-compute-and-latency-limits/) · 2026-11-16 · NVIDIA Robotics 기술 블로그
-- [ThinkWAM: Rethinking Latent Futures for Action Refinement](https://arxiv.org/abs/2611.21258) · 2026-11-16 · arXiv 프리프린트 · 논문 수정일
-- [What Can a VLA Learn from the Agent That Calls It? Task-Level Experience Distillation for Embodied Navigation](https://arxiv.org/abs/2611.16246) · 2026-11-16 · arXiv 프리프린트 · 논문 수정일
-- [WiTac: Wrist-Informed Tactile Representations for Contact-Rich Manipulation](https://arxiv.org/abs/2611.21057) · 2026-11-16 · arXiv 프리프린트 · 논문 수정일
 - [PRIME: Perception Feedback with Situational Memory Embeddings in VLA Models](https://arxiv.org/abs/2609.22040) · 2026-11-16 · arXiv 프리프린트 · 논문 수정일
 - [3D-MoE: Towards Spatial Intelligence with Mixture-of-Experts for 3D Reasoning and Action Generation](https://arxiv.org/abs/2501.16698) · 2026-11-16 · arXiv 프리프린트 · 논문 수정일
 - [ESI: An Embodied Self-Improvement Flywheel for LLM-VLA Agents](https://arxiv.org/abs/2611.18176) · 2026-11-16 · arXiv 프리프린트 · 논문 수정일
@@ -69,7 +85,6 @@
 - [I See What You Want: Decoding Hierarchical Operator Intent from Visual Teleoperation History](https://arxiv.org/abs/2611.16419) · 2026-11-12 · arXiv 프리프린트 · 논문 수정일
 - [NVIDIA OmniDreams: Real-Time Generative World Model for Closed-Loop Autonomous Vehicle Simulation](https://arxiv.org/abs/2606.03159) · 2026-11-12 · arXiv 프리프린트 · 논문 수정일
 - [COSMO-Bench: A Benchmark for Collaborative SLAM Optimization](https://arxiv.org/abs/2508.16731) · 2026-11-11 · arXiv 프리프린트 · 논문 수정일
-- [Video-Action Models for Data-Efficient Industrial Manipulation](https://arxiv.org/abs/2611.15974) · 2026-11-11 · arXiv 프리프린트 · 논문 수정일
 - [BiGym 2.0: Benchmarking Learned and Agent-Developed Policies for Humanoid Household Manipulation](https://arxiv.org/abs/2610.07594) · 2026-11-11 · arXiv 프리프린트 · 논문 수정일
 - [MOSAIC: Modular Obstacle and Spatial-Aware Framework for Manipulation In Cluttered Scenes](https://arxiv.org/abs/2611.15937) · 2026-11-11 · arXiv 프리프린트 · 논문 수정일
 - [newton-physics/newton · v1.8.0](https://github.com/newton-physics/newton/releases/tag/v1.8.0) · 2026-11-11 · 릴리스
@@ -97,51 +112,51 @@
 
 확인 성공 48개 · 실패 0개
 
-- GitHub 릴리스 · isaac-sim/IsaacSim · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 라이선스 · isaac-sim/IsaacSim · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 릴리스 · isaac-sim/IsaacLab · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 라이선스 · isaac-sim/IsaacLab · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 릴리스 · newton-physics/newton · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 라이선스 · newton-physics/newton · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 릴리스 · NVIDIA/warp · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 라이선스 · NVIDIA/warp · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 릴리스 · NVIDIA/Isaac-GR00T · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 라이선스 · NVIDIA/Isaac-GR00T · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 릴리스 · NVIDIA/cosmos · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 라이선스 · NVIDIA/cosmos · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 릴리스 · NVIDIA/cosmos-framework · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 라이선스 · NVIDIA/cosmos-framework · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 릴리스 · NVlabs/alpasim · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 라이선스 · NVlabs/alpasim · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 릴리스 · NVlabs/alpamayo2 · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 라이선스 · NVlabs/alpamayo2 · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 릴리스 · NVlabs/alpamayo2-edge · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 라이선스 · NVlabs/alpamayo2-edge · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 릴리스 · NVlabs/RoboLab · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 라이선스 · NVlabs/RoboLab · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 릴리스 · black-forest-labs/flux-action · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 라이선스 · black-forest-labs/flux-action · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 릴리스 · runwayml/praxis-1-oss · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 라이선스 · runwayml/praxis-1-oss · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 릴리스 · mimic-video/mimic-video · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 라이선스 · mimic-video/mimic-video · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 신규 저장소 · NVIDIA · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 신규 저장소 · NVlabs · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 신규 저장소 · isaac-sim · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 신규 저장소 · NVIDIA-Omniverse · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 신규 저장소 · NVIDIA-NeMo · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- GitHub 신규 저장소 · nvidia-cosmos · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- Hugging Face models · nvidia/Cosmos · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- Hugging Face models · nvidia/GR00T · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- Hugging Face models · nvidia/Alpamayo · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- Hugging Face models · nvidia/PhysicalAI · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- Hugging Face datasets · nvidia/Cosmos · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- Hugging Face datasets · nvidia/GR00T · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- Hugging Face datasets · nvidia/Alpamayo · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- Hugging Face datasets · nvidia/PhysicalAI · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- Hugging Face models · black-forest-labs/action · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- Hugging Face models · runwayml/praxis · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- Hugging Face models · GEAR-Dreams/dreamzero · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- NVIDIA Robotics Atom · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- NVIDIA Research 사이트맵 · 성공 · 마지막 성공 2026-11-18 09:14 KST
-- arXiv cs.RO · 성공 · 마지막 성공 2026-11-18 09:14 KST
+- GitHub 릴리스 · isaac-sim/IsaacSim · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 라이선스 · isaac-sim/IsaacSim · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 릴리스 · isaac-sim/IsaacLab · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 라이선스 · isaac-sim/IsaacLab · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 릴리스 · newton-physics/newton · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 라이선스 · newton-physics/newton · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 릴리스 · NVIDIA/warp · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 라이선스 · NVIDIA/warp · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 릴리스 · NVIDIA/Isaac-GR00T · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 라이선스 · NVIDIA/Isaac-GR00T · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 릴리스 · NVIDIA/cosmos · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 라이선스 · NVIDIA/cosmos · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 릴리스 · NVIDIA/cosmos-framework · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 라이선스 · NVIDIA/cosmos-framework · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 릴리스 · NVlabs/alpasim · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 라이선스 · NVlabs/alpasim · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 릴리스 · NVlabs/alpamayo2 · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 라이선스 · NVlabs/alpamayo2 · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 릴리스 · NVlabs/alpamayo2-edge · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 라이선스 · NVlabs/alpamayo2-edge · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 릴리스 · NVlabs/RoboLab · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 라이선스 · NVlabs/RoboLab · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 릴리스 · black-forest-labs/flux-action · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 라이선스 · black-forest-labs/flux-action · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 릴리스 · runwayml/praxis-1-oss · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 라이선스 · runwayml/praxis-1-oss · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 릴리스 · mimic-video/mimic-video · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 라이선스 · mimic-video/mimic-video · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 신규 저장소 · NVIDIA · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 신규 저장소 · NVlabs · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 신규 저장소 · isaac-sim · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 신규 저장소 · NVIDIA-Omniverse · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 신규 저장소 · NVIDIA-NeMo · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- GitHub 신규 저장소 · nvidia-cosmos · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- Hugging Face models · nvidia/Cosmos · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- Hugging Face models · nvidia/GR00T · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- Hugging Face models · nvidia/Alpamayo · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- Hugging Face models · nvidia/PhysicalAI · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- Hugging Face datasets · nvidia/Cosmos · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- Hugging Face datasets · nvidia/GR00T · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- Hugging Face datasets · nvidia/Alpamayo · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- Hugging Face datasets · nvidia/PhysicalAI · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- Hugging Face models · black-forest-labs/action · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- Hugging Face models · runwayml/praxis · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- Hugging Face models · GEAR-Dreams/dreamzero · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- NVIDIA Robotics Atom · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- NVIDIA Research 사이트맵 · 성공 · 마지막 성공 2026-11-18 16:35 KST
+- arXiv cs.RO · 성공 · 마지막 성공 2026-11-18 16:35 KST
