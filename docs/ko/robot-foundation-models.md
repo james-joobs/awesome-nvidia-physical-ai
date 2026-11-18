@@ -24,6 +24,10 @@ VLA는 보통 카메라 영상, 작업 지시, 체크포인트가 요구하는 �
 
 GR00T N1.6-DROID는 DROID에 맞춘 제어 규약을 쓰고, π 계열도 과제에 맞는 체크포인트와 관측 어댑터를 씁니다. 같은 모양의 배열도 제어 규약이 다르면 다른 동작을 만들 수 있습니다. 저장된 관측 하나로 입력 키와 배열 모양을 확인한 뒤 시뮬레이션에서 작업 성공 조건을 검사합니다. [GR00T 데이터 설정](https://github.com/NVIDIA/Isaac-GR00T/blob/main/getting_started/data_config.md) · [Physical Intelligence openpi](https://github.com/Physical-Intelligence/openpi)
 
+### GR00T N1.7 시뮬레이션 예제 따라가기
+
+Apache-2.0으로 공개된 참조 워크플로는 Isaac Lab에서 시연을 기록하고 LeRobot 데이터로 변환한 뒤 정책을 파인튜닝하는 과정을 보여줍니다. G1은 사과까지 걸어가 집은 뒤 접시에 놓고, H2 Plus는 사과를 한 손에서 다른 손으로 건넨 뒤 접시에 놓습니다. G1의 모델과 데이터셋을 받으려면 Hugging Face에서 이용 조건에 동의해야 합니다. H2 Plus 자료는 바로 다운로드할 수 있으며, 공식 저장소에서는 학습된 H2 Plus 정책의 평가가 아직 검증되지 않았다고 안내합니다. [공식 워크플로](https://nvidia-isaac.github.io/GR00T-E2E-Reference-Workflow/) · [G1 모델 카드](https://huggingface.co/nvidia/GR00T-E2E-Reference-Workflow-SIM-G1-N1.7-AppletoPlate-Model) · [H2 Plus 모델 카드](https://huggingface.co/nvidia/GR00T-E2E-Reference-Workflow-SIM-H2-N1.7-AppleHandoverPlate-Model)
+
 ## Cosmos Policy
 
 초기 [Cosmos Policy](https://github.com/NVlabs/cosmos-policy)는 Cosmos-Predict2를 로봇 조작에 맞게 후학습한 정책입니다. ALOHA 플래닝 경로는 미래 관측과 가치 추정치를 이용해 후보 행동을 비교합니다. [LIBERO 체크포인트](https://huggingface.co/nvidia/Cosmos-Policy-LIBERO-Predict2-2B#license)에는 NVIDIA One-Way Noncommercial License가 적용되고, 코드는 [Apache-2.0](https://github.com/NVlabs/cosmos-policy/blob/18a2accadf4e7a3531e56754102af5a24d2316da/LICENSE)입니다.
@@ -61,11 +65,17 @@ GR00T N1.6-DROID는 DROID에 맞춘 제어 규약을 쓰고, π 계열도 과제
 
 11월 17일에 확인한 RoboLab 공개 집계에서는 Praxis-1이 **555/1,200회**, FLUX 3 Action이 **515/1,200회**, Cosmos3-Nano-Policy가 **441/1,200회**, Cosmos3-Edge-Policy가 **275/1,200회** 성공했습니다. 모두 시뮬레이션에서 발표된 결과입니다. 직접 비교할 때는 정책 버전, 지시문 설정, 평가 횟수, 하드웨어를 함께 기록합니다. [RoboLab-120 리더보드](https://research.nvidia.com/labs/srl/projects/robolab/leaderboard.html) · [정책 클라이언트 인터페이스](https://github.com/NVlabs/RoboLab/blob/main/policies/README.md) · [브라우저에서 GR00T 실행 결과 판정하기](labs/gr00t-placement.md#first-exercise)
 
+RoboLab v0.3.3에서는 물체의 초기 배치를 시드로 재현하고 조명 프리셋을 선택할 수 있습니다. 같은 조건에서 다시 비교할 수 있도록 성공률과 함께 벤치마크 버전, 시드, 조명 설정을 남깁니다. [v0.3.3 릴리스 노트](https://github.com/NVlabs/RoboLab/releases/tag/v0.3.3)
+
 ## 최근 월드 액션 연구
 
 | 연구 | 파이프라인에서 하는 일 | 확인하거나 활용할 수 있는 자료 |
 |---|---|---|
+| **ThinkWAM** (11월 16일) | 행동 묶음을 먼저 예측하고, 그 행동을 했을 때의 장면을 잠재 표현에서 갱신합니다. 갱신된 표현을 바탕으로 실행할 행동을 한 번 더 계산합니다. | 원본 코드 MIT, 포함된 SIGReg는 CC BY-NC 4.0. 공개 가중치에는 Apache-2.0이 적용되며 전용 평가 설정을 제공합니다. [논문](https://arxiv.org/abs/2611.21258) · [코드와 외부 구성 요소 약관](https://github.com/HaoyunT/Thinkwam#license) · [체크포인트](https://huggingface.co/Adrain11/ThinkWAM) |
+| **VLALagBench** (11월 16일 개정) | 물체가 계속 움직이는 시뮬레이션에서 일부러 추론 지연을 주고, LIBERO의 동기·비동기 실행 방식에 따라 성공률이 어떻게 달라지는지 비교합니다. Isaac Sim에서도 일부 조건을 교차 확인했습니다. | 벤치마크 코드와 결과 공개. 원본 코드·데이터·문서는 CC BY-NC 4.0이며 모델과 시뮬레이터 에셋은 별도 조건입니다. [논문](https://arxiv.org/abs/2611.03103v2) · [저장소와 라이선스](https://github.com/codestrongestx/vla-lag-bench#license) |
 | **Ego2Sim2Humanoid** (11월 14일) | 1인칭 RGB-D 촬영 기록에서 시뮬레이션용 로봇 카메라 영상과 실행 가능한 전신 궤적을 만듭니다. 연구팀은 이 데이터로 GR00T N1.7을 파인튜닝해 Unitree G1의 이동과 조작을 시험했습니다. | 논문과 평가 결과 그림 공개. 코드·데이터셋·파인튜닝 체크포인트 공개 여부 미확인. [논문](https://arxiv.org/abs/2611.19196) |
+| **FOVI-Dex** (11월 12일) | NVIDIA 공동 연구팀은 카메라가 주시하는 영역을 정밀하게 렌더링하면서 주변 시야도 유지합니다. 관측 한 장에 드는 비용을 줄여 여러 시뮬레이션에서 물체 집기 정책을 병렬로 학습합니다. | 논문과 평가 영상 공개. 코드·가중치 공개 여부와 이용 조건 미확인. [NVIDIA Research](https://research.nvidia.com/publication/2026-11_fovi-dex-foveation-enables-efficient-perceptive-learning-dexterous-manipulation) · [프로젝트](https://fovi-dex.github.io/) |
+| **SWAM** (11월 11일 개정) | 영상에는 언어와 장면의 관계를 학습시키고, 행동 정보가 있는 사람·로봇 시연에는 행동 학습을 더합니다. 영상과 행동 모듈은 어텐션으로 특징을 주고받습니다. | Apache-2.0 코드와 사전 학습 데이터 일부를 공개했습니다. 데이터는 원본별 조건이 적용되며 정책 가중치의 다운로드 가능 여부와 이용 조건은 미확인입니다. [논문](https://arxiv.org/abs/2611.12870v2) · [코드](https://github.com/shaaaaron/SWAM) · [데이터 조건](https://huggingface.co/datasets/FreDERicia/SWAM-Pretrain#source-terms-and-attribution) |
 | **WISE** (11월 2일) | 모델을 다시 학습시키지 않고 여러 후보를 생성해 행동의 유효성, 예측 영상과 행동의 일치, 작업 진행도를 점검합니다. 논문은 후보를 네 개 썼을 때 Cosmos 3 Edge의 RoboLab 일부 과제에서 성공률이 6%에서 24%로, 에피소드 실행 시간이 약 3.4배로 늘었다고 보고합니다. | 프리프린트와 평가 절차 공개. 코드 공개 여부 미확인. [논문](https://arxiv.org/abs/2611.03585) |
 | **DemoStream** (CoRL 2026 워크숍) | NVIDIA와 공동 연구팀이 과제 계획과 동작 최적화를 병렬 처리해, 시뮬레이션에서 정책 학습에 쓸 성공 시연을 만듭니다. | 공식 연구 페이지와 논문 공개. 코드와 시연 데이터셋 공개 여부 미확인. [NVIDIA Research](https://research.nvidia.com/publication/2026-11_demostream-batched-task-and-motion-plan-optimization-automated-learning) · [논문](https://arxiv.org/abs/2610.22020) |
 | **FlashRT-PAI** (2026년 10월) | 연산을 합치고 런타임 실행 순서를 조정해 전체 추론을 가속합니다. 외부 프로젝트이며 GR00T N1.7, Cosmos3-Edge용 실행 경로를 제공합니다. | 코드 Apache-2.0. 지연 시간을 비교할 때 모델·GPU·정밀도·런타임을 확인합니다. [논문](https://arxiv.org/abs/2610.24349) · [FlashRT 저장소](https://github.com/flashrt-project/FlashRT) |
