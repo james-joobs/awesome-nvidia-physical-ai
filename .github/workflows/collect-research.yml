@@ -2,9 +2,16 @@ name: Collect Physical AI research
 
 on:
   schedule:
-    - cron: '17 9 * * *'
+    - cron: '17 9 * * 0-4,6'
+      timezone: Asia/Seoul
+    - cron: '17 9 * * 5'
       timezone: Asia/Seoul
   workflow_dispatch:
+    inputs:
+      review_preview:
+        description: Build and validate weekly PR changes as a downloadable preview
+        type: boolean
+        default: false
 
 permissions: {}
 
@@ -101,3 +108,129 @@ jobs:
           if len(failed) == len(state["sources"]) or stale:
               raise SystemExit("All sources failed or one or more sources failed for three days.")
           PY
+
+  prepare-review:
+    needs: publish
+    if: github.event.schedule == '17 9 * * 5' || inputs.review_preview == true
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      proposed: ${{ steps.prepare.outputs.proposed }}
+      base: ${{ steps.prepare.outputs.base }}
+      date: ${{ steps.prepare.outputs.date }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: research-report
+          path: ${{ runner.temp }}/research-output
+      - name: Verify new candidates and prepare bilingual edits
+        id: prepare
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          pending="$RUNNER_TEMP/pending-reviews"
+          output="$RUNNER_TEMP/weekly-review"
+          mkdir -p "$pending" "$output"
+          gh pr list --base main --state open --limit 100 --json number,headRefName \
+            --jq '.[] | select(.headRefName | startswith("automation/research-")) | .number' > "$pending/prs"
+          while IFS= read -r pr; do
+            git fetch --no-tags --depth=1 origin "refs/pull/$pr/head"
+            for file in CATALOG.md CATALOG.ko.md docs/en/robot-foundation-models.md docs/ko/robot-foundation-models.md; do
+              git show "FETCH_HEAD:$file" > "$pending/$pr-${file//\//-}"
+            done
+          done < "$pending/prs"
+          python3 scripts/prepare-research-review.py \
+            --state "$RUNNER_TEMP/research-output/state.json" \
+            --pending "$pending" --body "$output/body.md"
+          if git diff --quiet; then
+            echo 'No verified new candidates for a draft.' >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          git diff --check
+          git diff -- CATALOG.md CATALOG.ko.md docs/en/robot-foundation-models.md docs/ko/robot-foundation-models.md > "$output/changes.patch"
+          weekday=$(TZ=Asia/Seoul date +%u)
+          friday=$(TZ=Asia/Seoul date -d "$(((weekday + 2) % 7)) days ago" +%F)
+          echo 'proposed=true' >> "$GITHUB_OUTPUT"
+          echo "base=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "date=$friday" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        if: steps.prepare.outputs.proposed == 'true'
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - name: Validate the proposed site
+        if: steps.prepare.outputs.proposed == 'true'
+        working-directory: site
+        run: |
+          npm ci
+          npm test
+          python3 ../labs/verify.py
+          npm run build
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: steps.prepare.outputs.proposed == 'true'
+        with:
+          name: weekly-research-review
+          path: ${{ runner.temp }}/weekly-review/
+          if-no-files-found: error
+          retention-days: 14
+      - name: Summarize proposed changes
+        if: steps.prepare.outputs.proposed == 'true'
+        run: cat "$RUNNER_TEMP/weekly-review/body.md" >> "$GITHUB_STEP_SUMMARY"
+
+  open-review:
+    needs: prepare-review
+    if: github.event.schedule == '17 9 * * 5' && needs.prepare-review.outputs.proposed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ needs.prepare-review.outputs.base }}
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: weekly-research-review
+          path: ${{ runner.temp }}/weekly-review
+      - name: Open the draft on its own branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPORT_DATE: ${{ needs.prepare-review.outputs.date }}
+        run: |
+          set -euo pipefail
+          [[ "$REPORT_DATE" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]
+          branch="automation/research-$REPORT_DATE"
+          output="$RUNNER_TEMP/weekly-review"
+          existing=$(gh pr list --base main --head "$branch" --state all --json url --jq '.[0].url // ""')
+          if [[ -n "$existing" ]]; then
+            echo "Review already exists $existing" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          remote=$(git ls-remote --heads origin "refs/heads/$branch")
+          if [[ -z "$remote" ]]; then
+            git apply --index "$output/changes.patch"
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m "Draft Physical AI research update for $REPORT_DATE"
+            git push origin "HEAD:refs/heads/$branch"
+          else
+            git fetch --no-tags --depth=1 origin "refs/heads/$branch"
+            git apply --index "$output/changes.patch"
+            if ! git diff --cached --quiet FETCH_HEAD; then
+              echo "Existing review branch differs from this proposal: $branch" >&2
+              exit 1
+            fi
+          fi
+          gh pr create --draft --base main --head "$branch" \
+            --title "Physical AI research review · $REPORT_DATE" --body-file "$output/body.md" \
+            | tee -a "$GITHUB_STEP_SUMMARY"
