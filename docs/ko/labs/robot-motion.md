@@ -27,10 +27,30 @@ AutoData 실습은 별도로 실행합니다. MimicGen은 성공 시연에서 �
 RTX 머신에 [cuRobo V2](https://nvlabs.github.io/curobo/latest/getting-started/motion_planning.html) `71ce172` 환경을 준비합니다. 그 Python이 활성화된 터미널에서 이 레포로 이동하고 아래를 실행합니다. `motion.npz`에는 경로 좌표 배열이, `result.json`에는 비교 결과가 남습니다.
 
 ```sh
-python labs/robot-motion/plan.py ./runs/curobo
+python3 labs/cli.py --json doctor curobo-replan --python /path/to/curobo-env/bin/python
+python3 labs/cli.py --json run curobo-replan \
+  --python /path/to/curobo-env/bin/python --output ./runs/curobo-001
+python3 labs/cli.py --json verify ./runs/curobo-001
 ```
 
-### 3. 새 시연 데이터가 필요하면 AutoData 실행하기
+Python 경로를 내 cuRobo 환경의 경로로 바꿔 넣으세요. 실행할 때마다 새 결과 폴더를 지정하면 해당 시도의 명령어와 측정값이 함께 보존됩니다. [실습 CLI 안내](../../../labs/cli/README.ko.md)
+
+### 3. 방금 계산한 경로를 장면으로 보기
+
+NumPy·Pillow·`usd-core`가 설치된 Python으로 새 경로 배열을 USD 장면으로 만듭니다. 화면에 보이는 구들은 cuRobo가 팔의 충돌을 검사할 때 사용하는 형상입니다. 타임라인을 움직이면 저장된 위치를 따라 움직입니다.
+
+```sh
+python labs/robot-motion/make_scene.py ./runs/curobo-001 ./runs/curobo-scene-001
+```
+
+Isaac Sim에서 `curobo-scene-001/curobo-replan.usda`를 열고 **FilmCamera**를 선택합니다. 왼쪽은 기존 경로, 오른쪽은 빨간 장애물을 반영한 경로입니다. 로봇 정책을 새로 실행하는 화면이 아니라 계산된 충돌 형상을 재생합니다. Linux X11에서 Isaac Lab 환경으로 실제 GUI를 녹화하려면 다음 명령을 사용합니다.
+
+```sh
+python labs/physics/capture_gui.py ./runs/curobo-scene-001 ./runs/curobo-gui-001 \
+  /path/to/ffmpeg --plan ./runs/curobo-scene-001/takes.json --viz kit
+```
+
+### 4. 새 시연 데이터가 필요하면 AutoData 실행하기
 
 먼저 [AutoData 공식 예제](https://github.com/isaac-sim/AutoData/blob/main/docs/pages/quickstart/first_data_generation.rst)에서 `4a3d1f3`과 Isaac Lab 서브모듈, 동작 구간을 표시한 Franka HDF5를 준비합니다. HDF5는 여러 시도의 관절 값과 물체 위치를 한 파일에 담습니다. AutoData 환경을 켠 터미널에서 첫 두 줄을 내 경로로 바꾸고 실행하세요.
 
@@ -46,3 +66,5 @@ python labs/robot-motion/audit.py ./runs/autodata/franka-generated.hdf5 ./runs/a
 ## 테스트 결과
 
 기존 경로는 끝단 중심이 새 장애물 안을 지났고, 재계획한 경로는 우회했습니다. 경유점은 24개와 26개였습니다. AutoData는 여섯 번 시도해 성공 시연 세 개를 생성했고, 재생에서도 세 개가 성공했습니다. HDF5 검사 코드에서 시연별 첫 성공 프레임을 확인할 수 있습니다. [촬영 당시 결과](../../../labs/robot-motion/recorded.json)
+
+[11월 19일 재실행 기록](../../../labs/robot-motion/replan-2026-11-19.json)에서는 저장된 경유점마다 팔 전체의 유효한 충돌 구체도 검사했습니다. 장애물과 가장 가까운 구체의 간격은 약 **2.17mm**였고, 두 경로의 최종 팔 끝 위치는 같았습니다. 경유점 사이의 충돌은 플래너가 별도로 검사합니다. 기존 경로와 재계획은 워밍업 조건이 달라서 두 실행 시간을 속도 비교로 쓰지는 않습니다.

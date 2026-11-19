@@ -8,7 +8,9 @@
 
 **Free, hands-on NVIDIA Physical AI learning for developers.**
 
-Start with a robot exercise in your browser. Use the included code, USD scenes, and saved data to check results with Python or run your own experiments in Isaac Sim.
+Explore robotics, physics engines, world models and autonomous driving through real experiments. Inspect the inputs and outputs, then run the included code and USD scenes.
+
+[Robotics](https://james-joobs.github.io/awesome-nvidia-physical-ai/topics/robotics/) · [Physics engines](https://james-joobs.github.io/awesome-nvidia-physical-ai/topics/simulation/) · [World models](https://james-joobs.github.io/awesome-nvidia-physical-ai/topics/world-models/) · [Autonomous driving](https://james-joobs.github.io/awesome-nvidia-physical-ai/topics/autonomous-driving/)
 
 [🧪 **First exercise**](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/gr00t-placement/#first-exercise) · [📖 **Learning paths**](https://james-joobs.github.io/awesome-nvidia-physical-ai/#workflows) · [**How the tools work**](https://james-joobs.github.io/awesome-nvidia-physical-ai/learn/principles/) · [🎬 **Lab gallery by topic**](https://james-joobs.github.io/awesome-nvidia-physical-ai/topics/)
 
@@ -26,7 +28,7 @@ Start with a robot exercise in your browser. Use the included code, USD scenes, 
 
 ## From tool concepts to labs
 
-The [38 theory guides](https://james-joobs.github.io/awesome-nvidia-physical-ai/learn/principles/) include diagrams and data examples. Pick a field for its full reading order, then try the linked exercise.
+The [theory guides](https://james-joobs.github.io/awesome-nvidia-physical-ai/learn/principles/) include diagrams and data examples. Pick a field for its full reading order, then try the linked exercise.
 
 - **[Setup](https://james-joobs.github.io/awesome-nvidia-physical-ai/learn/principles/#setup)** — NVIDIA Linux → Isaac Sim GUI and CLI. Then [open and play a USD scene](https://james-joobs.github.io/awesome-nvidia-physical-ai/workflows/isaac-sim-first-cube/#open-the-scene).
 - **[Physics and simulation](https://james-joobs.github.io/awesome-nvidia-physical-ai/learn/principles/#simulation)** — Isaac Sim and a cube drop → PhysX and SimReady → Newton and Warp. Then [compare colliders, friction, and bounce](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/physics/#run).

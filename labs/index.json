@@ -3,7 +3,7 @@
     {
       "id": "robot-motion",
       "tags": ["Isaac Sim", "cuRobo", "AutoData", "MimicGen", "GR00T", "Isaac Lab", "Newton"],
-      "code": ["plan.py", "autodata.sh", "audit.py"],
+      "code": ["plan.py", "autodata.sh", "audit.py", "make_scene.py"],
       "evidence": "recorded.json"
     },
     {
@@ -27,7 +27,7 @@
     {
       "id": "gr00t-placement",
       "tags": ["GR00T N1.6-DROID", "Isaac Lab-Arena", "Isaac Sim"],
-      "code": ["droid-70s.yaml", "droid-24s.yaml", "run_arena.sh", "check_result.py", "arena-production-assets.patch"],
+      "code": ["droid-70s.yaml", "droid-24s.yaml", "run_arena.sh", "check_result.py", "arena-production-assets.patch", "record_gui.py", "record_policy.py", "run_recorded.sh"],
       "evidence": "recorded-70s.jsonl"
     },
     {
@@ -46,6 +46,18 @@
       "id": "warp-particles",
       "tags": ["NVIDIA Warp", "CUDA", "OpenGL"],
       "code": ["run_dem.py"],
+      "evidence": "recorded.json"
+    },
+    {
+      "id": "newton-materials",
+      "tags": ["Newton", "Warp", "OpenUSD", "Isaac Sim"],
+      "code": ["run.py"],
+      "evidence": "recorded.json"
+    },
+    {
+      "id": "world-driving",
+      "tags": ["Cosmos3-Edge", "Alpamayo2-Edge", "Isaac Sim", "OpenUSD"],
+      "code": ["setup.sh", "model-pins.json", "make_cosmos_input.py", "make_camera_action_input.py", "make_driving_scene.py", "run_cosmos.sh", "run_camera_action.sh", "run_alpamayo_synthetic.py", "run_alpamayo.sh", "make_prediction_scene.py", "check.py"],
       "evidence": "recorded.json"
     }
   ],

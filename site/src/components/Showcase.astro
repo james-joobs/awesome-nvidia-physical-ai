@@ -5,13 +5,14 @@ import ShowcaseVideo from './ShowcaseVideo.astro';
 import ToolTags from './ToolTags.astro';
 import { pageUrl, repositoryFile } from '../lib/catalog.mjs';
 import { findLab, heroTags, labCopy, scenes } from '../lib/labs.mjs';
-import { clips, featured, grids, sceneLabels, showcaseCopy, showcaseMedia } from '../lib/showcase.mjs';
+import { additionalRecordings, clips, featured, grids, sceneLabels, showcaseCopy, showcaseMedia } from '../lib/showcase.mjs';
 
 const { locale } = Astro.props;
 const labels = showcaseCopy[locale];
 const labLabels = labCopy[locale];
 const labUrl = (id) => pageUrl(locale, `labs/${id}`);
 const sections = [
+  { id: 'recent-runs', title: locale === 'ko' ? '새로 실행한 실험' : 'New experiment runs', items: additionalRecordings },
   { id: 'by-topic', title: labels.grids, items: grids },
   { id: 'single-clips', title: labels.clips, items: clips },
 ];
@@ -58,7 +59,7 @@ const sections = [
       <div class="hub-media-grid showcase-grid">
         {items.map((item) => {
           const entry = item[locale];
-          const lab = findLab(item.id);
+          const lab = findLab(item.lab ?? item.id);
           const guide = item.route ? pageUrl(locale, item.route) : repositoryFile(`docs/${locale}/${item.guide}.md`);
           return (
             <article class="hub-media-card showcase-card" id={item.id}>
@@ -66,9 +67,9 @@ const sections = [
               <div class="showcase-caption">
                 <h3>{entry.title}</h3>
                 <p>{entry.description}</p>
-                <ToolTags tags={lab.tags} label={labLabels.tools} />
+                <ToolTags tags={item.tags ?? lab.tags} label={labLabels.tools} />
                 <div class="card-links">
-                  <a class="plain-link lab-link" href={labUrl(lab.id)}>{labLabels.action} <Icon name="right" size={16} /></a>
+                  <a class="plain-link lab-link" href={item.labRoute ? pageUrl(locale, item.labRoute) : labUrl(lab.id)}>{item.labRoute ? (locale === 'ko' ? '분야별 실습 고르기' : 'Choose a lab by field') : labLabels.action} <Icon name="right" size={16} /></a>
                   <a class="plain-link" href={guide}>{labels.guide}</a>
                 </div>
               </div>

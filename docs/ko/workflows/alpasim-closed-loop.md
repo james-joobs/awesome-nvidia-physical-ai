@@ -93,4 +93,4 @@ uv run alpasim_wizard deploy=local topology=1gpu driver=vavam \
 - **후학습** · [AlpaGym](../alpagym.md)은 지원되는 AlpaSim 워크플로에 강화학습을 연결합니다. [Alpamayo Recipes](https://github.com/NVlabs/alpamayo-recipes)는 모델 후학습과 배포 예제를 제공합니다.
 - **다른 렌더러** · [FlashDreams를 통한 OmniDreams](https://github.com/NVlabs/alpasim/blob/affc2eab209fa43bdfa2f26c0f8d437922d78a68/docs/VIDEO_MODEL.md)는 별도 렌더러 구성입니다. 지원 장면·카메라·체크포인트·GPU 조건을 확인합니다.
 - **라이선스** · AlpaSim 코드는 Apache-2.0입니다. VaVAM 자산, 접근 제한이 있는 NuRec 데이터·아티팩트, 컨테이너 구성 요소에는 별도 조건이 적용됩니다. [AlpaSim 라이선스](https://github.com/NVlabs/alpasim/blob/affc2eab209fa43bdfa2f26c0f8d437922d78a68/LICENSE) · [NuRec 데이터셋 카드](https://huggingface.co/datasets/nvidia/PhysicalAI-Autonomous-Vehicles-NuRec)
-- **검증 상태** · 지정 리비전의 공식 튜토리얼, 장면 항목, 출력 경로를 대조했습니다. 검증 범위는 문서 대조까지입니다. GPU 주행과 직접 수집한 로그로 장면을 복원하는 실습은 실행 확인이 필요합니다.
+- **검증 상태** · 지정 리비전의 공식 튜토리얼, 장면 항목, 출력 경로를 대조했습니다. 준비된 NuRec 장면을 사용한 GPU 폐루프 실행은 2026년 11월 15일 AlpaSim `96a33bc`에서 완료했습니다. 이 문서가 안내하는 고정 리비전 `affc2ea`와는 구분합니다. 실행 완료만으로 정책의 주행 성능을 판단할 수는 없습니다. 데이터셋에서 파생된 영상과 지표는 해당 데이터의 접근·공개 조건에 따라 로컬에 보관합니다. 직접 수집한 주행 로그의 장면 복원은 아직 검증하지 않았습니다.

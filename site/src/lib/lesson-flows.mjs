@@ -1,5 +1,29 @@
 // Each step shows a data example or file name, followed by what it means in the lab.
 export const lessonFlows = {
+  'world-driving': {
+    en: [
+      ['Two independent inputs', 'Cosmos: RGB + camera actions; Alpamayo: 22 RGB frames + ego history', 'Both examples use scenes we authored. They test different model interfaces.'],
+      ['Run released model weights', 'Cosmos3-Edge · Alpamayo2-Edge', 'Cosmos generates pixels. Alpamayo proposes future vehicle positions and rotations.'],
+      ['Inspect each result', '61-frame MP4 · 64 future poses', 'Check decoded frames and finite tensors. The car shown in Isaac Sim replays the predicted trajectory.'],
+    ],
+    ko: [
+      ['두 모델에 각각 입력 준비', 'Cosmos: RGB와 카메라 동작 / Alpamayo: RGB 22장과 과거 자세', '직접 만든 장면을 사용합니다. 서로 다른 모델의 입출력을 확인하는 두 실험입니다.'],
+      ['공개 가중치로 추론', 'Cosmos3-Edge · Alpamayo2-Edge', 'Cosmos는 영상 픽셀을 생성하고, Alpamayo는 차량의 미래 위치와 회전을 예측합니다.'],
+      ['각 결과 확인', 'MP4 61프레임 · 미래 자세 64개', '영상과 저장된 텐서를 검사합니다. Isaac Sim 속 차량은 예측 경로를 재생합니다.'],
+    ],
+  },
+  'newton-materials': {
+    en: [
+      ['Connected geometry', 'mesh vertices + material + fixed points', 'A grid describes cloth. Cable bodies have stiffness and joints.'],
+      ['Solve the motion', 'forces + contacts → updated XYZ positions', 'Newton advances the model. Official example tests check the resulting state.'],
+      ['Inspect the recorded states', 'time-sampled USD · result.json · GUI MP4', 'Replay the solver output in Isaac Sim and check finite positions and deformation.'],
+    ],
+    ko: [
+      ['연결된 점과 재료 설정', '메시의 점 + 물성 + 고정점', '천은 격자로, 케이블은 강성과 관절을 가진 몸체로 표현합니다.'],
+      ['움직임 계산', '힘과 접촉 → 새 XYZ 좌표', 'Newton이 다음 상태를 구합니다. 공식 예제의 테스트로 계산 결과를 검사합니다.'],
+      ['시간별 상태 확인', 'USD · result.json · GUI 녹화', 'Isaac Sim에서 계산 결과를 재생하고 좌표와 변형을 확인합니다.'],
+    ],
+  },
   'gr00t-placement': {
     en: [
       ['What the robot sees', 'camera views + joint state + instruction', 'Arena packages the simulated observations for the GR00T DROID checkpoint.'],

@@ -4,7 +4,24 @@
 
 관심 있는 영상에서 시작하세요. 실습마다 구현 방법과 실행 명령, 소스 코드, 촬영 당시 테스트 결과를 함께 볼 수 있습니다.
 
-**처음부터 끝까지 한 번에 실습하기.** [CAD 작업대 → Isaac Sim → Replicator](../docs/ko/labs/workbench-capstone.md)에서 설치와 캡처부터 GPU 없는 결과 검사까지 따라 할 수 있습니다.
+| 관심 분야 | 먼저 해 볼 실습 | 확인할 내용 |
+| --- | --- | --- |
+| 로봇 학습·제어 | [GR00T 집기](../docs/ko/labs/gr00t-placement.md), [cuRobo 장애물 회피](../docs/ko/labs/robot-motion.md) | 카메라 관측, 행동 묶음, 로봇 경로와 배치 성공 여부. |
+| 물리 엔진 | [Newton 천·케이블](../docs/ko/labs/newton-materials.md), [PhysX 접촉 실험](../docs/ko/labs/physics.md) | 점의 좌표, 물체의 변형, 미끄러진 거리와 튀어 오른 높이. |
+| 월드 모델 | [Cosmos 영상 생성](../docs/ko/labs/world-driving.md) | 입력 이미지, 프롬프트, 시드와 생성된 프레임. |
+| 자율주행 | [Alpamayo 입출력 실험](../docs/ko/labs/world-driving.md), [AlpaSim 평가](../docs/ko/workflows/alpasim-closed-loop.md) | 카메라 6개의 입력과 예측 자세, 모델 추론과 폐루프 평가의 차이. |
+
+[실습 CLI로 실행하고 검증하기](cli/README.ko.md). 실제 시뮬레이터와 모델을 실행하며 명령어·로그·결과 파일 해시를 남깁니다. 플랫폼마다 실행 환경은 따로 준비합니다.
+
+[실험 12가지와 현재 결과 살펴보기](EXPERIMENTS.ko.md) · [GPU 한 대에서 네 분야 실행 영상](../site/public/showcase/four-domain-grid.mp4)
+
+FFmpeg와 Pillow가 있으면 GPU 없이도 도구 이름이 표시된 비교 영상을 다시 만들 수 있습니다.
+
+```sh
+python3 labs/render_grid.py --output ./runs/four-domain-grid.mp4
+```
+
+장면을 만드는 과정부터 배우려면 [CAD 작업대 → Isaac Sim → Replicator](../docs/ko/labs/workbench-capstone.md)에서 설치와 캡처, GPU 없는 결과 검사까지 따라 할 수 있습니다.
 
 ```sh
 git clone https://github.com/james-joobs/awesome-nvidia-physical-ai.git
@@ -15,6 +32,8 @@ cd awesome-nvidia-physical-ai
 | --- | --- | --- |
 | [로봇 동작](../docs/ko/labs/robot-motion.md) | cuRobo, AutoData, MimicGen, Isaac Lab, Newton, GR00T | Franka 팔의 두 경로를 재생해 비교합니다. |
 | [물리 비교](../docs/ko/labs/physics.md) | Isaac Sim, PhysX, OpenUSD, SimReady, Newton | 충돌체가 어긋난 씬을 열고 Play를 누릅니다. |
+| [Newton 천·케이블](../docs/ko/labs/newton-materials.md) | Newton, Warp, OpenUSD, Isaac Sim | 천과 케이블을 계산하고 검토용 장면을 GUI에서 엽니다. |
+| [월드·주행 모델](../docs/ko/labs/world-driving.md) | Cosmos3-Edge, Alpamayo2-Edge, Isaac Sim | 영상을 생성하고 자체 카메라 입력에서 예측한 차량 자세 64개를 검사합니다. |
 | [CAD에서 센서 데이터까지](../docs/ko/labs/scene-to-data.md) | CadQuery, OpenUSD, Isaac Sim, PhysX, Replicator | 동봉된 카메라 데이터로 큐브의 이동량을 계산합니다. |
 | [책상 주변 실험](../docs/ko/labs/everyday-robots.md) | Isaac Sim, PhysX, OpenUSD, OpenCV | 알람, 서랍, 책상 정리, 카트 중 하나를 재생합니다. |
 | [GR00T 집기·놓기](../docs/ko/labs/gr00t-placement.md) | GR00T N1.6-DROID, Isaac Lab-Arena, Isaac Sim | 테스트 기록에서 들기와 놓기 성공 시점을 확인합니다. |

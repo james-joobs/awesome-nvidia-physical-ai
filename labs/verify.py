@@ -1,6 +1,7 @@
 """Check that each lab ships its code, both guides and consistent recorded evidence."""
 
 import json
+import hashlib
 from math import isclose
 from pathlib import Path
 import runpy
@@ -16,7 +17,7 @@ def verify_files():
     manifest = json.loads((ROOT / "index.json").read_text())
     labs = manifest["labs"]
     ids = {lab["id"] for lab in labs}
-    assert len(ids) == len(labs) == 8
+    assert len(ids) == len(labs) and len(labs) >= 8
     assert len(manifest["scenes"]) == 16 and all(lab in ids and tags for lab, tags in manifest["scenes"])
     for lab in labs:
         key = lab["id"]
@@ -31,6 +32,24 @@ def verify_files():
 
 
 def verify_evidence():
+    world = report("world-driving")
+    assert len(world["cosmos"]) == 3
+    for case in world["cosmos"]:
+        video = ROOT / "world-driving" / case["video"]
+        assert case["generation_status"] == "success"
+        assert hashlib.sha256(video.read_bytes()).hexdigest() == case["preview_mp4_sha256"]
+    assert world["alpamayo"]["result"]["finite"]
+    assert world["alpamayo"]["result"]["pred_xyz_shape"] == [1, 1, 1, 64, 3]
+    inputs = ROOT / "world-driving" / "evidence" / "synthetic-intersection"
+    shots = json.loads((inputs / "input.json").read_text())["shots"]
+    assert len(shots) == 22 and len({row["camera_id"] for row in shots}) == 6
+    assert all(hashlib.sha256((inputs / row["image"]).read_bytes()).hexdigest() == row["sha256"] for row in shots)
+
+    newton = report("newton-materials")
+    assert len(newton["cases"]) == 3 and all(row["official_tests_passed"] for row in newton["cases"])
+    assert newton["recording_mode"] == "solver-usd-replay"
+    assert len(newton["gui"]["takes"]) == 3
+
     physics = report("physics")
     live = physics["live"]
     assert isclose(live["simready-live"]["height_difference_m"], .14, abs_tol=.002)
@@ -85,4 +104,4 @@ def verify_evidence():
 if __name__ == "__main__":
     verify_files()
     verify_evidence()
-    print("Verified code, bilingual guides and recorded results for 8 video labs.")
+    print("Verified code, bilingual guides and recorded results for all registered video labs.")

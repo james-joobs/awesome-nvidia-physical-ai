@@ -63,16 +63,46 @@ Arena가 스테이징 에셋 주소에서 404를 반환한다면, [에셋 주소
 
 ### 3. 터미널 B에서 내 실행 기록 읽기
 
-창이 닫히고 터미널 입력이 가능해지면 아래 명령을 실행합니다. 파일 이름이 다르면 `find`가 보여준 경로를 두 번째 줄에 넣으세요. `lift`는 들어 올린 때, `placed`는 그릇에 안정적으로 놓인 때를 뜻합니다. `no`는 해당 단계에 도달하지 못했다는 뜻입니다.
+창이 닫히고 터미널 입력이 가능해지면 아래 명령을 실행합니다. 파일 이름이 다르면 `find`가 보여준 경로를 두 번째 줄에 넣으세요. `lift`는 들어 올린 때, `placed`는 그릇에 놓였다는 판정을 받은 때를 뜻합니다. `no`는 해당 단계에 도달하지 못했다는 뜻입니다.
 
 ```sh
 find ./runs/gr00t -name 'episode_results_*.jsonl'
 python labs/gr00t-placement/check_result.py ./runs/gr00t/droid_pnp_gr00t/episode_results_rebuild0.jsonl
 ```
 
+### 실제 GUI 화면도 함께 녹화하기
+
+터미널 A의 정책 서버는 그대로 두고, 터미널 B에서는 **2단계 대신** 아래 명령을 실행합니다. 실제로 움직이는 Isaac Sim 창과 시작 시점의 USD 장면, 물체 위치 기록을 저장합니다. X11 데스크톱과 `ffmpeg`, `xwininfo`가 필요하며, 앞서 성공한 동작을 재생하는 방식이 아닙니다.
+
+```sh
+export GR00T_GUI_FFMPEG="$(command -v ffmpeg)"
+bash labs/gr00t-placement/run_recorded.sh "$ARENA_DIR" 70 ./runs/gr00t-gui
+python labs/gr00t-placement/check_result.py \
+  ./runs/gr00t-gui/evaluation/droid_pnp_gr00t/episode_results_rebuild0.jsonl
+```
+
+[GUI 녹화 코드](../../../labs/gr00t-placement/record_gui.py)는 `gr00t-gui.mp4`, `gr00t-arena.usda`, `viewport-timing.jsonl`, `capture.json`을 만듭니다. USD에는 시작 장면이 들어 있고 공식 외부 에셋을 참조할 수 있습니다. 정책 가중치나 로봇의 전체 동작을 독립적으로 재생하는 파일은 아닙니다. 실제 모델 입력과 행동 배열도 보고 싶다면 GR00T Python 환경에서 [정책 기록 코드](../../../labs/gr00t-placement/record_policy.py)를 사용할 수 있습니다. `GR00T_MODEL_PATH`에 체크포인트 경로를, `GR00T_POLICY_OUTPUT`에 새 저장 폴더를 지정합니다.
+
 ## 테스트 결과
 
 24초 설정에서는 세 번 중 두 번이 들기 판정을 받았고, 그릇에 놓은 경우는 없었습니다. 70초 설정에서는 두 번 모두 성공했고, 시뮬레이션 시간으로 34.73초와 38.27초가 걸렸습니다. 시작 배치도 달랐으므로 이 기록으로 시간 제한의 효과만 따로 판단하기는 어렵습니다.
+
+### 11월 19일 재실행: 들었다고 작업이 끝난 것은 아닙니다
+
+RTX 5090에서 실제 GR00T N1.6-DROID 정책으로 다시 실행했습니다. Arena는 `c7edf3a`, GR00T는 `e29d8fc`, **Isaac Sim은 6.1.0.0**이며, 체크포인트 리비전은 `ae3ebe8d288971ac53aa30c756ea5cba0f52611b`입니다. 두 번 모두 70초 안에 들기 조건은 통과했지만, 목적지에 놓는 조건은 통과하지 못했습니다. 프로그램은 정상 종료했어도 작업 결과는 **2회 중 배치 성공 0회**입니다.
+
+| 시도 | 들기 시점, 시뮬레이션 시간 | 그릇에 놓기 | 전체 제어 스텝 |
+| --- | --- | --- | --- |
+| 1 | 55.87초 | 미도달 | 1,050 |
+| 2 | 28.47초 | 미도달 | 1,050 |
+
+[새 시도 영상 보기](https://james-joobs.github.io/awesome-nvidia-physical-ai/showcase/gr00t-transfer-check.mp4): 두 번째 시도의 실제 뷰포트를 잘라 **2배속**으로 만든 20초 영상입니다. 큐브를 들어 올린 뒤 그릇을 지나 옮기는 장면을 볼 수 있습니다. [전체 에피소드 기록](../../../labs/gr00t-placement/recorded-2026-11-19.jsonl)에는 두 번의 실패 결과를 앞선 성공 기록과 별도로 남겼습니다. 실행마다 시작 배치가 달랐으므로, 이 몇 번의 시도만으로 일반적인 성공률이나 실패 원인을 단정할 수는 없습니다.
+
+정책 기록 코드가 받은 RGB 카메라 입력은 두 개이며, 각각 `[1, 1, 180, 320, 3]` 형태입니다. 축은 배치·시간·높이·너비·RGB 채널 순서로, 카메라 하나당 320×180 프레임 한 장을 전달했습니다. 행동 출력은 `joint_position`이 `[1, 32, 7]`, `gripper_position`이 `[1, 32, 1]`입니다. 행동 배열의 축은 배치·예측 시점·제어 관절을 뜻합니다. `32`는 한 번에 예측한 행동 시퀀스의 길이이고, 한 시도 전체의 길이가 아닙니다.
+
+```sh
+python3 labs/gr00t-placement/check_result.py labs/gr00t-placement/recorded-2026-11-19.jsonl
+```
 
 ### GPU 없이 기록 다시 확인하기
 

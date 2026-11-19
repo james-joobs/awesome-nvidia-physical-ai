@@ -1,0 +1,223 @@
+{
+  "engine": "Newton",
+  "version": "1.9.0.dev0",
+  "warp": "1.17.0",
+  "recording_mode": "solver-usd-replay",
+  "cases": [
+    {
+      "case": "cloth-xpbd",
+      "command": [
+        "/home/falconeyes-omen/physical-ai-grid/microduck/IsaacLab/.venv/bin/python",
+        "-m",
+        "newton.examples",
+        "cloth_hanging",
+        "--solver",
+        "xpbd",
+        "--width",
+        "64",
+        "--height",
+        "32",
+        "--device",
+        "cuda:0",
+        "--viewer",
+        "usd",
+        "--output-path",
+        "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/newton-output/cloth-xpbd.usd",
+        "--num-frames",
+        "240",
+        "--test"
+      ],
+      "official_tests_passed": true,
+      "source_sha256": "03d3fd8631da5b459f50f105fb718d63192108fcb42b90d80030614a285e6711",
+      "wall_seconds": 4.26,
+      "animated_arrays": [
+        {
+          "prim": "/root/model/triangles",
+          "attribute": "points",
+          "first_shape": [
+            2145,
+            3
+          ],
+          "time_samples": 240,
+          "max_displacement_m": 5.060547238163481
+        },
+        {
+          "prim": "/root/model/particles",
+          "attribute": "positions",
+          "first_shape": [
+            2112,
+            3
+          ],
+          "time_samples": 240,
+          "max_displacement_m": 5.060547238163481
+        }
+      ],
+      "bounds_m": [
+        [
+          -3.4901421070098877,
+          -0.06963370740413666,
+          0.04996218904852867
+        ],
+        [
+          1.7675871504252427e-06,
+          6.399999618530273,
+          4.0
+        ]
+      ],
+      "simulated_seconds": 4.0,
+      "review_scene": "cloth-xpbd-review.usda"
+    },
+    {
+      "case": "cloth-vbd",
+      "command": [
+        "/home/falconeyes-omen/physical-ai-grid/microduck/IsaacLab/.venv/bin/python",
+        "-m",
+        "newton.examples",
+        "cloth_hanging",
+        "--solver",
+        "vbd",
+        "--width",
+        "64",
+        "--height",
+        "32",
+        "--device",
+        "cuda:0",
+        "--viewer",
+        "usd",
+        "--output-path",
+        "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/newton-output/cloth-vbd.usd",
+        "--num-frames",
+        "240",
+        "--test"
+      ],
+      "official_tests_passed": true,
+      "source_sha256": "03d3fd8631da5b459f50f105fb718d63192108fcb42b90d80030614a285e6711",
+      "wall_seconds": 27.89,
+      "animated_arrays": [
+        {
+          "prim": "/root/model/triangles",
+          "attribute": "points",
+          "first_shape": [
+            2145,
+            3
+          ],
+          "time_samples": 240,
+          "max_displacement_m": 4.275900341282058
+        },
+        {
+          "prim": "/root/model/particles",
+          "attribute": "positions",
+          "first_shape": [
+            2112,
+            3
+          ],
+          "time_samples": 240,
+          "max_displacement_m": 4.275900341282058
+        }
+      ],
+      "bounds_m": [
+        [
+          -3.3568925857543945,
+          -1.9073486612342094e-07,
+          0.0487561970949173
+        ],
+        [
+          0.0,
+          6.399999618530273,
+          4.0
+        ]
+      ],
+      "simulated_seconds": 4.0,
+      "review_scene": "cloth-vbd-review.usda"
+    },
+    {
+      "case": "cable-twist",
+      "command": [
+        "/home/falconeyes-omen/physical-ai-grid/microduck/IsaacLab/.venv/bin/python",
+        "-m",
+        "newton.examples",
+        "cable_twist",
+        "--device",
+        "cuda:0",
+        "--viewer",
+        "usd",
+        "--output-path",
+        "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/newton-output/cable-twist.usd",
+        "--num-frames",
+        "240",
+        "--test"
+      ],
+      "official_tests_passed": true,
+      "source_sha256": "99c3348dd63c281e6ccd6ba20b24d422f809ae73cff07be9557193b5764e0612",
+      "wall_seconds": 18.6,
+      "animated_arrays": [
+        {
+          "prim": "/root/model/com",
+          "attribute": "positions",
+          "first_shape": [
+            192,
+            3
+          ],
+          "time_samples": 240,
+          "max_displacement_m": 0.3839713641446989
+        }
+      ],
+      "bounds_m": [
+        [
+          -1.600000023841858,
+          -3.0000100135803223,
+          0.019946228712797165
+        ],
+        [
+          1.5500093698501587,
+          4.6103715896606445,
+          0.3888965845108032
+        ]
+      ],
+      "simulated_seconds": 4.0,
+      "review_scene": "cable-twist-review.usda"
+    }
+  ],
+  "recorded_on": "2026-11-19",
+  "device": "NVIDIA GeForce RTX 5090",
+  "gui": {
+    "application": "Isaac Sim GUI (launched by Isaac Lab)",
+    "isaacsim_version": "6.1.0.0",
+    "recording": "X11 capture of the native application window",
+    "takes": [
+      {
+        "file": "cloth-xpbd.mp4",
+        "scene": "cloth-xpbd-review",
+        "camera": "/World/FilmCamera",
+        "playback_speed": 0.65,
+        "playback_start_s": 0,
+        "playback_end_s": 4.0,
+        "app_updates": 908,
+        "live_physx_final_bottom_m": null,
+        "live_physx": null
+      },
+      {
+        "file": "cloth-vbd.mp4",
+        "scene": "cloth-vbd-review",
+        "camera": "/World/FilmCamera",
+        "playback_speed": 0.65,
+        "playback_start_s": 0,
+        "playback_end_s": 4.0,
+        "app_updates": 909,
+        "live_physx_final_bottom_m": null,
+        "live_physx": null
+      },
+      {
+        "file": "cable-twist.mp4",
+        "scene": "cable-twist-review",
+        "camera": "/World/FilmCamera",
+        "playback_speed": 0.65,
+        "playback_start_s": 0,
+        "playback_end_s": 4.0,
+        "app_updates": 739,
+        "live_physx_final_bottom_m": null,
+        "live_physx": null
+      }
+    ]
+  }
+}

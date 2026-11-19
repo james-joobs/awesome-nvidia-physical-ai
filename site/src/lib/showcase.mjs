@@ -10,7 +10,7 @@ export const showcaseCopy = {
     homeAlt: 'Sixteen scenes recorded in Isaac Sim, with GR00T putting a cube in a bowl in the first tile',
     homeAction: 'Watch 16 Isaac Sim scenes',
     title: 'Physical AI in motion',
-    intro: 'See what these tools do on one RTX 5090, from a CAD workbench to labeled sensor data and a robot policy that picks up a cube and places it in a bowl.',
+    intro: 'Explore robot policy trials, motion planning, deformable materials, generated video, and driving-model outputs on one RTX 5090. Each recording links to code and checks.',
     overview: '16 scenes',
     featured: '16 scenes from the Isaac Sim GUI',
     featuredDetail: 'Watch the top-left tile for the successful GR00T placement. The next tile shows the earlier attempt that lost the cube.',
@@ -28,7 +28,7 @@ export const showcaseCopy = {
     homeAlt: 'Isaac Sim에서 녹화한 16개 장면. 첫 칸에서 GR00T가 큐브를 그릇에 놓습니다.',
     homeAction: 'Isaac Sim 16개 장면 보기',
     title: '영상으로 보는 피지컬 AI',
-    intro: 'RTX 5090 한 대에서 CAD 작업대를 열고, 라벨이 붙은 센서 데이터를 만들고, 로봇 팔로 큐브를 집어 그릇에 놓았습니다.',
+    intro: 'RTX 5090 한 대에서 로봇 정책, 경로 계획, 천과 케이블, 영상 생성과 주행 모델을 실행했습니다. 영상마다 코드와 결과 검사 방법을 함께 볼 수 있습니다.',
     overview: '16개 장면',
     featured: 'Isaac Sim GUI로 찍은 16개 장면',
     featuredDetail: '첫 칸에서 GR00T가 큐브를 그릇에 놓습니다. 바로 옆에서는 앞선 시도의 그리퍼가 큐브를 놓칩니다.',
@@ -70,6 +70,16 @@ export const grids = [
 
 export const clips = [
   {
+    id: 'world-driving', duration: '0:14', width: 960, height: 540, guide: 'cosmos',
+    en: { title: 'World generation and driving-model outputs', description: 'A real Cosmos camera-conditioned generation, then an Alpamayo prediction replay in Isaac Sim. Separate model experiments on our own scenes.' },
+    ko: { title: '월드 모델 생성과 주행 모델의 출력', description: 'Cosmos의 카메라 조건 영상 생성에 이어 Alpamayo 예측 경로를 Isaac Sim에서 재생합니다. 직접 만든 장면으로 각각 실행한 모델 실험입니다.' },
+  },
+  {
+    id: 'newton-materials', duration: '0:24', width: 960, height: 540, guide: 'newton',
+    en: { title: 'Cloth and cables in Newton', description: 'Newton computes XPBD cloth, VBD cloth, and twisting cables. Isaac Sim displays the saved solver states.' },
+    ko: { title: 'Newton으로 천과 케이블 움직여 보기', description: 'XPBD·VBD 천과 케이블 비틀림을 Newton에서 계산하고, 저장된 상태를 Isaac Sim에서 재생합니다.' },
+  },
+  {
     id: 'gr00t-placement', duration: '0:21', width: 768, height: 432, guide: 'groot-model',
     en: { title: 'GR00T puts the cube in the bowl', description: 'Watch the gripper hold, carry, open, and leave the cube resting in the bowl.' },
     ko: { title: 'GR00T가 큐브를 그릇에 놓기까지', description: '그리퍼가 큐브를 들고 옮긴 뒤 그릇 위에서 열리는 동작을 볼 수 있습니다.' },
@@ -88,6 +98,26 @@ export const clips = [
     id: 'warp-particles', duration: '0:17', width: 768, height: 432, guide: 'nvidia-warp',
     en: { title: 'Particles collide in Warp', description: 'Warp computes 65,536 interacting particles on the GPU. The viewer draws one in four.' },
     ko: { title: 'Warp로 입자 충돌 계산하기', description: 'GPU에서 입자 65,536개의 상호작용을 계산하고, 영상에는 네 개 중 하나를 표시합니다.' },
+  },
+];
+
+// Extra runs share an existing lab and its reading order.
+export const additionalRecordings = [
+  {
+    id: 'four-domain-grid', lab: 'world-driving', route: 'topics', labRoute: 'topics', duration: '0:20', width: 1280, height: 720,
+    tags: ['cuRobo', 'Newton', 'Cosmos3-Edge', 'Alpamayo2-Edge', 'Isaac Sim'],
+    en: { title: 'Four fields on one GPU', description: 'Clockwise from the top left: cuRobo paths, Newton solver replay, Alpamayo trajectory replay, and Cosmos generated RGB. Short takes loop; the Newton tile changes examples.' },
+    ko: { title: 'GPU 한 대에서 네 분야 실험하기', description: '왼쪽 위부터 시계 방향으로 cuRobo 경로, Newton 계산 재생, Alpamayo 예측 경로 재생, Cosmos 생성 영상입니다. 짧은 영상은 반복하고 Newton은 예제가 바뀝니다.' },
+  },
+  {
+    id: 'gr00t-transfer-check', lab: 'gr00t-placement', duration: '0:20', width: 960, height: 540, guide: 'groot-model',
+    en: { title: 'A lift is not yet a placement', description: 'November 19 live GR00T run, shown at 2× speed. Both new trials lifted the cube but neither placed it in the bowl.' },
+    ko: { title: '들었다고 그릇에 놓은 것은 아닙니다', description: '11월 19일 GR00T 정책 실행을 2배속으로 담았습니다. 새 시도 두 번 모두 큐브를 들었지만 그릇 배치에는 실패했습니다.' },
+  },
+  {
+    id: 'curobo-replan', lab: 'robot-motion', duration: '0:11', width: 960, height: 540, guide: 'curobo',
+    en: { title: 'Same goal, a new obstacle', description: 'November 19 GPU replan. Isaac Sim replays the calculated arm collision geometry; sampled sphere clearance is about 2.17 mm.' },
+    ko: { title: '같은 목적지, 새로 생긴 장애물', description: '11월 19일 GPU에서 다시 계산한 경로입니다. 팔의 충돌 형상을 Isaac Sim에서 재생하며, 저장된 구체의 최소 간격은 약 2.17mm입니다.' },
   },
 ];
 

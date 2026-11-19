@@ -70,9 +70,39 @@ find ./runs/gr00t -name 'episode_results_*.jsonl'
 python labs/gr00t-placement/check_result.py ./runs/gr00t/droid_pnp_gr00t/episode_results_rebuild0.jsonl
 ```
 
+### Record your own live GUI run
+
+Keep the policy server in terminal A running. In terminal B, use the command below **instead of step 2** to save the native Isaac Sim window, an initial USD scene, and object-position samples. This recorder needs an X11 desktop, `ffmpeg`, and `xwininfo`; it does not replay a previously successful trajectory.
+
+```sh
+export GR00T_GUI_FFMPEG="$(command -v ffmpeg)"
+bash labs/gr00t-placement/run_recorded.sh "$ARENA_DIR" 70 ./runs/gr00t-gui
+python labs/gr00t-placement/check_result.py \
+  ./runs/gr00t-gui/evaluation/droid_pnp_gr00t/episode_results_rebuild0.jsonl
+```
+
+The [GUI recorder](../../../labs/gr00t-placement/record_gui.py) writes `gr00t-gui.mp4`, `gr00t-arena.usda`, `viewport-timing.jsonl`, and `capture.json`. The USD captures the initial scene and can reference official external assets; it does not include the policy weights or a standalone replay of the robot’s actions. To inspect actual model inputs and action arrays too, use the optional [policy recorder](../../../labs/gr00t-placement/record_policy.py) in the GR00T Python environment, with `GR00T_MODEL_PATH` set to the checkpoint and `GR00T_POLICY_OUTPUT` set to a new output directory.
+
 ## Check the result
 
 The three 24-second trials recorded two lifts and zero placements. The two 70-second trials placed the cube at 34.73 and 38.27 simulated seconds. The starting layouts also differed, so these runs cannot isolate the effect of the time limit.
+
+### November 19 rerun: lifting did not complete the task
+
+A fresh run on the RTX 5090 used the real GR00T N1.6-DROID policy, Arena `c7edf3a`, GR00T `e29d8fc`, and **Isaac Sim 6.1.0.0**. The checkpoint revision was `ae3ebe8d288971ac53aa30c756ea5cba0f52611b`. Both 70-second trials reached the lift predicate, but neither passed the destination-placement predicate. The process completed normally; the task result was **0 successful placements out of 2 trials**.
+
+| Trial | Lift time, simulated | Placement | Total control steps |
+| --- | --- | --- | --- |
+| 1 | 55.87 s | Not reached | 1,050 |
+| 2 | 28.47 s | Not reached | 1,050 |
+
+[Watch the new attempt](https://james-joobs.github.io/awesome-nvidia-physical-ai/showcase/gr00t-transfer-check.mp4): a 20-second viewport crop from trial 2, played at **2× speed**. It shows a lift followed by a transfer past the bowl. The [complete episode records](../../../labs/gr00t-placement/recorded-2026-11-19.jsonl) retain both failed outcomes separately from the earlier successful run. Starting layouts differed between runs, so these few trials do not establish a general success rate or identify the cause of failure.
+
+The policy recorder received two RGB camera inputs shaped `[1, 1, 180, 320, 3]`: batch, time, height, width, and RGB channels. Each camera supplied one 320×180 frame. It produced `joint_position` shaped `[1, 32, 7]` plus `gripper_position` shaped `[1, 32, 1]`. The action axes are batch, action horizon, and controlled joints; `32` is the predicted action sequence length, not the episode length.
+
+```sh
+python3 labs/gr00t-placement/check_result.py labs/gr00t-placement/recorded-2026-11-19.jsonl
+```
 
 ### Replay the checks without a GPU
 

@@ -36,11 +36,12 @@ const tracks = [
     ko: { description: '장면을 열고 큐브를 떨어뜨리는 원리부터 읽으세요. 접촉, 물리 엔진의 계산 결과, GPU 입자 시뮬레이션으로 이어집니다.' },
     read: [
       'tools/isaac-sim', 'workflows/isaac-sim-first-cube', 'tools/nvidia-physx', 'tools/simready',
-      'labs/physics', 'tools/newton', 'tools/nvidia-warp', 'labs/warp-particles',
+      'labs/physics', 'tools/newton', 'labs/newton-materials', 'tools/nvidia-warp', 'labs/warp-particles',
     ],
     practice: [
       lab('workflows/isaac-sim-first-cube#open-the-scene', 'Drop a cube with and without a collider', '충돌체를 켜고 끄며 큐브 떨어뜨리기'),
       lab('labs/physics#run', 'Compare colliders, friction, and bounce', '충돌체·마찰·반발 비교하기'),
+      lab('labs/newton-materials#run', 'Simulate cloth and cables in Newton', 'Newton으로 천과 케이블 계산하기'),
     ],
   },
   {
@@ -82,8 +83,9 @@ const tracks = [
     id: 'world-models',
     en: { description: 'Curate source video, see what world models generate or infer, then follow evidence from video search into a model request.' },
     ko: { description: '원본 영상 선별부터 월드 모델의 추론·생성을 살펴보고, 영상에서 찾은 근거가 모델 요청으로 어떻게 이어지는지 읽습니다.' },
-    read: ['tools/cosmos-curator', 'tools/cosmos', 'tools/cosmos-data-factory', 'tools/metropolis-vss', 'tools/nemo-switchyard'],
+    read: ['tools/cosmos-curator', 'tools/cosmos', 'labs/world-driving', 'tools/cosmos-data-factory', 'tools/metropolis-vss', 'tools/nemo-switchyard'],
     practice: [
+      lab('labs/world-driving#run', 'Generate a video and inspect driving-model outputs', '영상을 생성하고 주행 모델의 출력 확인하기'),
       lab('tools/metropolis-vss#example', 'Follow the VSS walkthrough to find timestamped evidence', 'VSS 사용 순서를 따라 시간 정보가 있는 영상 근거 찾기'),
     ],
   },
@@ -112,7 +114,9 @@ export const readingTracks = tracks.map((track) => {
 
 const labByPage = new Map([
   [lab('labs/physics#run', 'Compare colliders, friction, and bounce', '충돌체·마찰·반발 비교하기'),
-    'tools/nvidia-physx', 'tools/simready', 'labs/physics', 'tools/newton'],
+    'tools/nvidia-physx', 'tools/simready', 'labs/physics'],
+  [lab('labs/newton-materials#run', 'Simulate cloth and cables in Newton', 'Newton으로 천과 케이블 계산하기'),
+    'tools/newton', 'labs/newton-materials'],
   [lab('labs/warp-particles#run', 'Run the Warp particle experiment', 'Warp 입자 실험 실행하기'),
     'tools/nvidia-warp', 'labs/warp-particles'],
   [lab('workflows/workbench-cad-to-isaac-sim#convert-to-usd', 'Convert the CAD workbench to USD', '작업대 CAD를 USD로 변환하기'),
@@ -128,12 +132,11 @@ const labByPage = new Map([
   [lab('https://nvidia.github.io/IsaacCapture/main/teleop/quick_start.html',
     'Official Isaac Capture teleoperation quickstart', 'Isaac Capture 공식 원격조작 실습'), 'tools/isaac-capture'],
   [lab('tools/video-to-data#example', 'Follow the Video-to-Data example', 'Video-to-Data 적용 예시 따라가기'), 'tools/video-to-data'],
-  [lab('https://github.com/NVlabs/alpamayo2/blob/59776920bbd981f2c989213bba5ee8594e71ed1d/README.md#cli-inference',
-    'Official Alpamayo 2 Super inference example', 'Alpamayo 2 Super 공식 추론 예제'), 'tools/alpamayo'],
+  [lab('labs/world-driving#run', 'Run Alpamayo on your own synthetic camera views', '직접 만든 카메라 영상으로 Alpamayo 실행하기'), 'tools/alpamayo'],
   [lab('https://github.com/NVlabs/alpagym/blob/972d160eed0e23d388497851504a3a233fec5879/docs/ONBOARDING.md',
     'Official AlpaGym training walkthrough', 'AlpaGym 공식 학습 예제'), 'tools/alpagym', 'tools/cosmos-rl'],
   [lab('tools/cosmos-curator#example', 'Curate a manipulation video archive', '로봇 조작 영상 선별 예시 보기'), 'tools/cosmos-curator'],
-  [lab('tools/cosmos#example', 'Follow the driving scene generation example', '주행 장면 변형 예시 따라가기'), 'tools/cosmos'],
+  [lab('labs/world-driving#run', 'Generate a video and inspect model outputs', '영상을 생성하고 모델 출력 확인하기'), 'tools/cosmos', 'labs/world-driving'],
   [lab('tools/cosmos-data-factory#example', 'Follow a driving video augmentation recipe', '주행 영상 증강 예시 따라가기'), 'tools/cosmos-data-factory'],
   [lab('tools/nemo-switchyard#example', 'Trace how a video summary request is routed', '영상 요약 요청의 모델 연결 예시 보기'), 'tools/nemo-switchyard'],
 ].flatMap(([practice, ...pages]) => pages.map((page) => [page, practice])));

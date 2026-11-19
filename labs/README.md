@@ -4,7 +4,24 @@
 
 Start with the video that interests you. Each lab explains what ran, gives the commands and code, and shows the measurements recorded for the video.
 
-**Start here for an end-to-end project.** [Workbench CAD → Isaac Sim → Replicator](../docs/en/labs/workbench-capstone.md) includes the setup, capture code, and CPU-only replay check.
+| Start with a field | Try this first | What you can inspect |
+| --- | --- | --- |
+| Robotics | [GR00T placement](../docs/en/labs/gr00t-placement.md) and [cuRobo replanning](../docs/en/labs/robot-motion.md) | Camera observations, action chunks, robot paths and placement success. |
+| Physics engines | [Newton cloth and cables](../docs/en/labs/newton-materials.md), then [PhysX contact](../docs/en/labs/physics.md) | Vertex positions, deformation, friction and rebound measurements. |
+| World models | [Cosmos generation](../docs/en/labs/world-driving.md) | The input image, prompt, seed and generated frames. |
+| Autonomous driving | [Alpamayo interface experiment](../docs/en/labs/world-driving.md) and [AlpaSim evaluation](../docs/en/workflows/alpasim-closed-loop.md) | Six-camera input, predicted poses and the distinction between inference and closed-loop evaluation. |
+
+[Run and verify with the lab CLI](cli/README.md). The CLI uses real simulator/model backends and records commands, logs and artifact hashes. Each runtime has its own dependencies.
+
+[Explore 12 experiments and their current results](EXPERIMENTS.md) · [Watch four fields on one GPU](../site/public/showcase/four-domain-grid.mp4)
+
+Recreate the labeled comparison video without a GPU (FFmpeg and Pillow required):
+
+```sh
+python3 labs/render_grid.py --output ./runs/four-domain-grid.mp4
+```
+
+For a scene-building project, [Workbench CAD → Isaac Sim → Replicator](../docs/en/labs/workbench-capstone.md) includes setup, capture code and a CPU-only replay check.
 
 ```sh
 git clone https://github.com/james-joobs/awesome-nvidia-physical-ai.git
@@ -15,6 +32,8 @@ cd awesome-nvidia-physical-ai
 | --- | --- | --- |
 | [Robot motion](../docs/en/labs/robot-motion.md) | cuRobo, AutoData, MimicGen, Isaac Lab, Newton, GR00T | Compare the two Franka path replays. |
 | [Physics](../docs/en/labs/physics.md) | Isaac Sim, PhysX, OpenUSD, SimReady, Newton | Open the collider-offset scene and press Play. |
+| [Newton materials](../docs/en/labs/newton-materials.md) | Newton, Warp, OpenUSD, Isaac Sim | Compute cloth and cable states, then open the review scene in the GUI. |
+| [World and driving models](../docs/en/labs/world-driving.md) | Cosmos3-Edge, Alpamayo2-Edge, Isaac Sim | Generate video and inspect 64 predicted vehicle poses with your own input images. |
 | [CAD to sensor data](../docs/en/labs/scene-to-data.md) | CadQuery, OpenUSD, Isaac Sim, PhysX, Replicator | Measure cube displacement from the included camera data. |
 | [Desk experiments](../docs/en/labs/everyday-robots.md) | Isaac Sim, PhysX, OpenUSD, OpenCV | Replay the alarm, drawer, cleanup or cart. |
 | [GR00T placement](../docs/en/labs/gr00t-placement.md) | GR00T N1.6-DROID, Isaac Lab-Arena, Isaac Sim | Run the episode parser on two recorded test logs. |

@@ -8,7 +8,9 @@
 
 **개발자를 위한 무료 NVIDIA 피지컬 AI 실습.**
 
-브라우저에서 로봇 실험부터 해 보세요. 실습 코드와 USD 장면, 저장된 데이터를 받아 Python으로 결과를 확인하거나 Isaac Sim에서 직접 실험할 수 있습니다.
+로봇 제어, 물리 엔진, 월드 모델, 자율주행을 실제 실험으로 배웁니다. 어떤 데이터가 오가는지 확인하고, 공개된 코드와 USD 장면으로 직접 실행해 보세요.
+
+[로봇 학습·제어](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/topics/robotics/) · [물리 엔진](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/topics/simulation/) · [월드 모델](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/topics/world-models/) · [자율주행](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/topics/autonomous-driving/)
 
 [🧪 **첫 실습**](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/gr00t-placement/#first-exercise) · [📖 **학습 경로**](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/#workflows) · [**동작 원리**](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/learn/principles/) · [🎬 **분야별 갤러리**](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/topics/)
 
@@ -26,7 +28,7 @@
 
 ## 동작 원리부터 실습까지
 
-[동작 원리 가이드 38개](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/learn/principles/)에서 그림과 데이터 예시를 볼 수 있습니다. 분야 이름을 누르면 전체 읽는 순서와 이어서 할 실습이 나옵니다.
+[동작 원리 가이드](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/learn/principles/)에서 그림과 데이터 예시를 볼 수 있습니다. 분야 이름을 누르면 전체 읽는 순서와 이어서 할 실습이 나옵니다.
 
 - **[환경 설정](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/learn/principles/#setup)** — NVIDIA Linux → Isaac Sim GUI·CLI를 읽고 [USD 장면을 열어 재생합니다](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/workflows/isaac-sim-first-cube/#open-the-scene).
 - **[물리·시뮬레이션](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/learn/principles/#simulation)** — Isaac Sim과 큐브 낙하 → PhysX·SimReady → Newton·Warp 순으로 읽고 [충돌체·마찰·반발을 비교합니다](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/physics/#run).

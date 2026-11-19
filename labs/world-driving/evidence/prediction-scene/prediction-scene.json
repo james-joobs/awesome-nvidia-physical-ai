@@ -1,0 +1,23 @@
+{
+  "mode": "model-trajectory-replay; no closed-loop driving or dynamics",
+  "prediction_sha256": "94aa45555977a347e9a6957ee983261700cfb09a807f0306f6aa79d5bd536619",
+  "points": 64,
+  "time_step_s": 0.1,
+  "ego_origin_in_usd_m": [
+    0,
+    -1.8,
+    0
+  ],
+  "proxy": "Cosmetic car dimensions; transforms replay model positions and yaw-only body rotations",
+  "first_predicted_xyz_m": [
+    0.5002987384796143,
+    -0.0001220137273776345,
+    0.0
+  ],
+  "last_predicted_xyz_m": [
+    30.95644760131836,
+    -0.19558760523796082,
+    0.0
+  ],
+  "scene": "alpamayo-trajectory.usda"
+}

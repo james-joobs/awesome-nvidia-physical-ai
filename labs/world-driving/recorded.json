@@ -1,0 +1,198 @@
+{
+  "recorded_at": "2026-11-19",
+  "gpu": "NVIDIA GeForce RTX 5090, 32 GiB",
+  "scope": "Actual model inference on self-authored synthetic inputs; distinct from physics simulation and closed-loop driving.",
+  "cosmos": [
+    {
+      "case": "cosmos-right",
+      "model": "nvidia/Cosmos3-Edge",
+      "model_revision": "6afc1256321c3a8e623d89be3bc5117a1e90f96b",
+      "source_revision": "afd7d4c4087a8929c84523ff60172642fd11690b",
+      "model_mode": "image2video",
+      "seed": 19,
+      "generation_status": "success",
+      "video": "evidence/cosmos-right/vision.mp4",
+      "original_mp4_sha256": "374dd354c4300c602a259af271ec4c7ccef36128053d830689be47f50d5ed3fa",
+      "preview_mp4_sha256": "e7e0baf1f65e543880062293fd1e149ad413f234a6bf9fd0cdebb51d11f9c21a",
+      "public_encoding": "H.264 CRF23 re-encode; same frames, dimensions and FPS. Original retained on recording machine.",
+      "video_probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 832,
+            "height": 480,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "49"
+          }
+        ],
+        "format": {
+          "duration": "2.041667",
+          "size": "84803"
+        }
+      }
+    },
+    {
+      "case": "cosmos-left",
+      "model": "nvidia/Cosmos3-Edge",
+      "model_revision": "6afc1256321c3a8e623d89be3bc5117a1e90f96b",
+      "source_revision": "afd7d4c4087a8929c84523ff60172642fd11690b",
+      "model_mode": "image2video",
+      "seed": 19,
+      "generation_status": "success",
+      "video": "evidence/cosmos-left/vision.mp4",
+      "original_mp4_sha256": "e072828523c6c435bc0a6af370c96828d8d9127dba035c53fa75fc8e6ad633b5",
+      "preview_mp4_sha256": "89ee41e895654baaa5e70dd5cc901eba69c3a836af2e5c5ddf6e629d0d5ff7fb",
+      "public_encoding": "H.264 CRF23 re-encode; same frames, dimensions and FPS. Original retained on recording machine.",
+      "video_probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 832,
+            "height": 480,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "49"
+          }
+        ],
+        "format": {
+          "duration": "2.041667",
+          "size": "84854"
+        }
+      }
+    },
+    {
+      "case": "cosmos-camera-actions",
+      "model": "nvidia/Cosmos3-Edge",
+      "model_revision": "6afc1256321c3a8e623d89be3bc5117a1e90f96b",
+      "source_revision": "afd7d4c4087a8929c84523ff60172642fd11690b",
+      "model_mode": "forward_dynamics",
+      "seed": 19,
+      "generation_status": "success",
+      "video": "evidence/cosmos-camera-actions/vision.mp4",
+      "original_mp4_sha256": "3bedb0e6ca30bb0a03326b43aeb54ad0cc1feb77e94d3d1e9f25b9333d6a0b59",
+      "preview_mp4_sha256": "ecae6337559d610acec4a0f5e817fabf6cd9afd50221c4a59ae1672ed3866741",
+      "public_encoding": "H.264 CRF23 re-encode; same frames, dimensions and FPS. Original retained on recording machine.",
+      "video_probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 832,
+            "height": 464,
+            "r_frame_rate": "30/1",
+            "nb_read_frames": "61"
+          }
+        ],
+        "format": {
+          "duration": "2.033333",
+          "size": "70766"
+        }
+      }
+    }
+  ],
+  "visual_review": {
+    "cosmos_text_prompts": "Both 49-frame clips decoded, but the requested cube slide is not clearly visible. Generation completion is not prompt-adherence success.",
+    "cosmos_camera_actions": "61-frame generated video visibly changes camera viewpoint. Exact metric camera motion and physical consistency are not established."
+  },
+  "alpamayo": {
+    "model_id": "nvidia/Alpamayo2-Edge",
+    "model_revision": "b92b6aa326bd3e2235db28f248ad5a30b5890e64",
+    "source_revision": "02f55a7aeabc1a2b9f7a80445c08e40bddc89f5e",
+    "seed": 19,
+    "verified_weight_sha256": {
+      "00000.safetensors": "d13c1a427218baf7b7d365098c0f5496c0e5e6a6bf662836b8eebbe7eb7cfe7f",
+      "00001.safetensors": "cfe424a7320ce729cd927b5ceaab4323a62443b50f461a2f5c0dd0b10634e0b5"
+    },
+    "input_shapes": {
+      "image_frames": [
+        22,
+        1,
+        3,
+        360,
+        640
+      ],
+      "camera_indices": [
+        22
+      ],
+      "absolute_timestamps": [
+        22
+      ],
+      "ego_history_xyz": [
+        1,
+        20,
+        3
+      ],
+      "ego_history_rot": [
+        1,
+        20,
+        3,
+        3
+      ]
+    },
+    "result": {
+      "sample_id": "isaac-synthetic-intersection",
+      "pred_xyz_shape": [
+        1,
+        1,
+        1,
+        64,
+        3
+      ],
+      "pred_rot_shape": [
+        1,
+        1,
+        1,
+        64,
+        3,
+        3
+      ],
+      "finite": true,
+      "elapsed_seconds": 13.368799760006368,
+      "text": {
+        "cot": [
+          [
+            [
+              "<NOMINAL>"
+            ]
+          ]
+        ],
+        "answer": [
+          [
+            [
+              "<NOMINAL>"
+            ]
+          ]
+        ]
+      }
+    },
+    "peak_allocated_gib": 5.755486965179443,
+    "total_elapsed_s": 16.644982320955023,
+    "versions": {
+      "torch": "2.8.0",
+      "torchvision": "0.23.0",
+      "transformers": "5.17.0",
+      "safetensors": "0.8.0"
+    },
+    "record": "evidence/alpamayo-synthetic/receipt.json",
+    "trajectory": "evidence/alpamayo-synthetic/output.safetensors",
+    "usd_replay": "evidence/prediction-scene/alpamayo-trajectory.usda"
+  },
+  "isaac_input_render": {
+    "isaacsim_version": "6.1.0.0",
+    "isaaclab_version": "17.0.2",
+    "camera_frames": 22,
+    "native_gui_recording": "evidence/synthetic-intersection/six-camera-isaac-gui.mp4",
+    "scene": "evidence/synthetic-intersection/synthetic-intersection.usda"
+  },
+  "access_checks": {
+    "nurec_dataset_file_head": "Authorized; dataset-derived video/metrics kept local under separate terms.",
+    "physicalai_av_source_dataset_file_head": "HTTP 403 GatedRepoError; independent of NuRec approval.",
+    "public_experiment_inputs": "Self-authored simulator geometry and RGB; released model weights; pinned official camera-action sidecar."
+  },
+  "limitations": [
+    "Synthetic camera input is outside the official real-driving benchmark.",
+    "Adaptive reasoning output was <NOMINAL>, not a long explanation.",
+    "USD vehicle animation replays predicted positions/rotations; no live policy decisions or vehicle dynamics."
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "planner": "cuRoboV2 Franka Panda",
+  "same_start_and_goal": true,
+  "baseline_waypoints": 24,
+  "obstacle_waypoints": 26,
+  "baseline_wall_ms": 154.32,
+  "obstacle_wall_ms": 7.77,
+  "obstacle_center_m": [
+    0.11498548090457916,
+    0.09654637426137924,
+    0.6392355561256409
+  ],
+  "obstacle_dimensions_m": [
+    0.04,
+    0.04,
+    0.08
+  ],
+  "baseline_tool_enters_new_obstacle": true,
+  "replanned_tool_enters_obstacle": false,
+  "goal_difference_m": 0.0,
+  "sampled_robot_sphere_min_clearance_m": 0.00216657580376179,
+  "clearance_scope": "All active collision spheres at stored trajectory samples; planner performs its own swept validation",
+  "recorded_on": "2026-11-19",
+  "evidence_mode": "live-planner-data",
+  "device": "NVIDIA GeForce RTX 5090"
+}
