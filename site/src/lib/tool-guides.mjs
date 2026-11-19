@@ -9,13 +9,24 @@ function guide(source, topic, sections, title, en, ko, loop) {
     page: `tools/${source}`,
     topic,
     sections: ['implementation', ...sections],
-    en: { title, description: enDescription },
-    ko: { title, description: koDescription },
+    en: { title: typeof title === 'string' ? title : title.en, description: enDescription },
+    ko: { title: typeof title === 'string' ? title : title.ko, description: koDescription },
     flow: { en: enFlow, ko: koFlow, loop },
   };
 }
 
 export const toolGuides = [
+  guide('spatial-worlds', 'world-models', ['architecture', 'verification', 'related-tools'], { en: 'Choose a 3D world workflow', ko: '3D 세계 생성·렌더링 도구 고르기' }, [
+    'Compare explorable 3D worlds, measured Gaussian scenes, procedural geometry, and action-conditioned video.',
+    ['Choose the scene input', 'prompt · photograph · calibrated views · random seed', 'Different inputs lead to different kinds of uncertainty.'],
+    ['Keep the representation explicit', '3DGS · mesh/materials · collider · RGB video', 'A video is not a reusable 3D scene, and a splat is not a collision surface.'],
+    ['Render, inspect and simulate', 'Spark browser view · Blender · CARLA ego camera', 'Use our OMEN captures and code; check model terms before running a generative checkpoint.'],
+  ], [
+    '탐색 가능한 3D 세계, 촬영한 Gaussian 장면, 절차적 기하 구조와 카메라 동작 기반 영상을 비교합니다.',
+    ['장면을 만들 입력 고르기', '프롬프트 · 사진 · 카메라 정보가 있는 여러 시점 · 시드', '입력에 따라 새로 생성하는 부분과 추정해야 할 부분이 달라집니다.'],
+    ['출력 형식 구분하기', '3DGS · 메시/재질 · 충돌체 · RGB 영상', '영상은 재사용할 3D 공간이 아니며 splat만으로 충돌을 계산할 수도 없습니다.'],
+    ['그려 보고 직접 확인하기', 'Spark 브라우저 · Blender · CARLA 운전자 카메라', '직접 실행한 영상·코드를 살펴보고 생성 모델은 가중치 조건을 확인한 뒤 실행합니다.'],
+  ]),
   guide('simready', 'simulation', referenceSections, 'SimReady', [
     'Read the physical and semantic properties that turn a USD asset into a simulation input.',
     ['Visual asset', 'USD mesh and materials', 'These describe the shape and its appearance.'],

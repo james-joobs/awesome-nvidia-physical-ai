@@ -10,7 +10,7 @@ export const showcaseCopy = {
     homeAlt: 'Sixteen scenes recorded in Isaac Sim, with GR00T putting a cube in a bowl in the first tile',
     homeAction: 'Watch 16 Isaac Sim scenes',
     title: 'Physical AI in motion',
-    intro: 'Explore robot policy trials, motion planning, deformable materials, generated video, and driving-model outputs on one RTX 5090. Each recording links to code and checks.',
+    intro: 'Explore robot policies, physics, 3D Gaussian worlds, generated indoor scenes and ego-camera driving. Our OMEN runs use NVIDIA GPU tools, CARLA and Blender; each recording links to code and checks.',
     overview: '16 scenes',
     featured: '16 scenes from the Isaac Sim GUI',
     featuredDetail: 'Watch the top-left tile for the successful GR00T placement. The next tile shows the earlier attempt that lost the cube.',
@@ -28,7 +28,7 @@ export const showcaseCopy = {
     homeAlt: 'Isaac Sim에서 녹화한 16개 장면. 첫 칸에서 GR00T가 큐브를 그릇에 놓습니다.',
     homeAction: 'Isaac Sim 16개 장면 보기',
     title: '영상으로 보는 피지컬 AI',
-    intro: 'RTX 5090 한 대에서 로봇 정책, 경로 계획, 천과 케이블, 영상 생성과 주행 모델을 실행했습니다. 영상마다 코드와 결과 검사 방법을 함께 볼 수 있습니다.',
+    intro: '로봇 정책·물리부터 3DGS 공간·실내 장면 생성·운전자 시점 주행까지 살펴보세요. OMEN에서 NVIDIA GPU 도구와 CARLA·Blender를 직접 실행했으며, 영상마다 코드와 검사 방법을 연결했습니다.',
     overview: '16개 장면',
     featured: 'Isaac Sim GUI로 찍은 16개 장면',
     featuredDetail: '첫 칸에서 GR00T가 큐브를 그릇에 놓습니다. 바로 옆에서는 앞선 시도의 그리퍼가 큐브를 놓칩니다.',
@@ -70,6 +70,21 @@ export const grids = [
 
 export const clips = [
   {
+    id: 'spatial-reconstruction', duration: '0:16', width: 640, height: 360,
+    en: { title: 'Explore a plaza reconstructed with 3DGS', description: 'CARLA camera views become an fVDB radiance field. Move the viewpoint in the browser, or watch the full model rendered along a new camera path.' },
+    ko: { title: '3DGS로 복원한 광장 둘러보기', description: 'CARLA 촬영을 fVDB로 복원했습니다. 브라우저에서 직접 시점을 움직이거나 전체 모델의 카메라 이동 영상을 볼 수 있습니다.' },
+  },
+  {
+    id: 'carla-ego', duration: '0:16', width: 1280, height: 720,
+    en: { title: 'Four environments from the driver’s seat', description: 'Actual CARLA ego cameras: clear city, heavy rain, wet sunset, and fog. Traffic Manager is a rule-based driver; these are sensor captures, not AI policy results.' },
+    ko: { title: '운전자 시점으로 보는 네 도로 환경', description: 'CARLA에서 도심·폭우·젖은 주택가·안개를 직접 촬영했습니다. 규칙 기반 Traffic Manager의 주행이며 AI 정책 성능을 평가한 영상은 아닙니다.' },
+  },
+  {
+    id: 'scene-generation', duration: '0:06', width: 640, height: 360,
+    en: { title: 'Walk through a procedurally generated house', description: 'Infinigen generates a furnished house and plans a camera tour. Blender Cycles renders the geometry; this is procedural generation, not neural world-model inference.' },
+    ko: { title: '새로 생성한 집 안 둘러보기', description: 'Infinigen이 방·가구를 생성하고 카메라 경로를 정합니다. Blender Cycles로 렌더링한 절차적 생성 예제이며 신경망 월드 모델은 아닙니다.' },
+  },
+  {
     id: 'world-driving', duration: '0:14', width: 960, height: 540, guide: 'cosmos',
     en: { title: 'World generation and driving-model outputs', description: 'A real Cosmos camera-conditioned generation, then an Alpamayo prediction replay in Isaac Sim. Separate model experiments on our own scenes.' },
     ko: { title: '월드 모델 생성과 주행 모델의 출력', description: 'Cosmos의 카메라 조건 영상 생성에 이어 Alpamayo 예측 경로를 Isaac Sim에서 재생합니다. 직접 만든 장면으로 각각 실행한 모델 실험입니다.' },
@@ -103,6 +118,26 @@ export const clips = [
 
 // Extra runs share an existing lab and its reading order.
 export const additionalRecordings = [
+  ...[
+    ['city-clear', 'Clear city', '맑은 도심'],
+    ['junction-rain', 'Heavy-rain junction', '폭우가 내리는 교차로'],
+    ['suburb-sunset', 'Wet suburb at sunset', '해 질 무렵의 젖은 주택가'],
+    ['highway-fog', 'Foggy highway', '안개 낀 고속도로'],
+  ].map(([id, en, ko]) => ({
+    id: `carla-${id}`, lab: 'carla-ego', duration: '0:16', width: 768, height: 432,
+    tags: ['CARLA 0.9.16', 'Ego RGB', 'Traffic Manager'],
+    en: { title: en, description: 'Original-speed, on-board RGB sensor capture in CARLA. Open the lab for setup, camera placement, and per-frame records.' },
+    ko: { title: ko, description: 'CARLA 차량에 단 RGB 센서를 원래 속도로 재생합니다. 실습에서 설치·카메라 위치·프레임별 기록을 확인할 수 있습니다.' },
+  })),
+  ...[
+    ['city', 'City from one image', '사진 한 장에서 복원한 도심'],
+    ['suburb', 'Suburb from one image', '사진 한 장에서 복원한 주택가'],
+  ].map(([id, en, ko]) => ({
+    id: `sharp-${id}`, lab: 'spatial-reconstruction', duration: '0:08', width: 640, height: 360,
+    tags: ['Apple SHARP', 'fVDB renderer', 'Single-view reconstruction'],
+    en: { title: en, description: 'SHARP predicts 3D Gaussians from our CARLA image. fVDB renders nearby views. Research-only model weights; no complete 360° scene.' },
+    ko: { title: ko, description: 'CARLA 사진을 SHARP에 넣고 fVDB로 주변 시점을 렌더링했습니다. 연구용 가중치를 사용한 단일 시점 복원이며 완전한 360° 공간은 아닙니다.' },
+  })),
   {
     id: 'four-domain-grid', lab: 'world-driving', route: 'topics', labRoute: 'topics', duration: '0:20', width: 1280, height: 720,
     tags: ['cuRobo', 'Newton', 'Cosmos3-Edge', 'Alpamayo2-Edge', 'Isaac Sim'],

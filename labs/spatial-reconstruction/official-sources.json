@@ -1,0 +1,56 @@
+[
+  {
+    "repo": "nv-tlabs/lyra",
+    "sha": "9fffc9adc37004091ecf26ef03abfb3abdf4d59a",
+    "date": "2026-07-20T17:07:41Z",
+    "license": "Apache-2.0",
+    "license_path": "LICENSE",
+    "branch": "main",
+    "url": "https://github.com/nv-tlabs/lyra"
+  },
+  {
+    "repo": "carla-simulator/carla",
+    "sha": "472a239798394e966c1073052ffb50869c190838",
+    "date": "2026-11-19T20:05:10Z",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "branch": "ue58-dev",
+    "url": "https://github.com/carla-simulator/carla"
+  },
+  {
+    "repo": "princeton-vl/infinigen",
+    "sha": "53033dd55c7191cbc436be6ffbb63c026935a509",
+    "date": "2026-11-11T00:39:56Z",
+    "license": "BSD-3-Clause",
+    "license_path": "LICENSE",
+    "branch": "main",
+    "url": "https://github.com/princeton-vl/infinigen"
+  },
+  {
+    "repo": "apple/ml-sharp",
+    "sha": "aed6527499ef91cba3b54c18d49a870f25947190",
+    "date": "2026-09-11T16:04:31Z",
+    "license": "NOASSERTION",
+    "license_path": "LICENSE",
+    "branch": "main",
+    "url": "https://github.com/apple-aiml-research/ml-sharp"
+  },
+  {
+    "repo": "ZiYang-xie/WorldGen",
+    "sha": "7ce7b2767fdf31e2727b69a2e61e2e950e3a017f",
+    "date": "2026-04-12T01:07:13Z",
+    "license": "Apache-2.0",
+    "license_path": "LICENSE",
+    "branch": "main",
+    "url": "https://github.com/ZiYang-xie/WorldGen"
+  },
+  {
+    "repo": "sparkjsdev/spark",
+    "sha": "f94964a712e217b7121ae642299fdac6041e5a12",
+    "date": "2026-11-19T18:53:52Z",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "branch": "main",
+    "url": "https://github.com/sparkjsdev/spark"
+  }
+]

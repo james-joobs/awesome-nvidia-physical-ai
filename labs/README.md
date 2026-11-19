@@ -8,8 +8,8 @@ Start with the video that interests you. Each lab explains what ran, gives the c
 | --- | --- | --- |
 | Robotics | [GR00T placement](../docs/en/labs/gr00t-placement.md) and [cuRobo replanning](../docs/en/labs/robot-motion.md) | Camera observations, action chunks, robot paths and placement success. |
 | Physics engines | [Newton cloth and cables](../docs/en/labs/newton-materials.md), then [PhysX contact](../docs/en/labs/physics.md) | Vertex positions, deformation, friction and rebound measurements. |
-| World models | [Cosmos generation](../docs/en/labs/world-driving.md) | The input image, prompt, seed and generated frames. |
-| Autonomous driving | [Alpamayo interface experiment](../docs/en/labs/world-driving.md) and [AlpaSim evaluation](../docs/en/workflows/alpasim-closed-loop.md) | Six-camera input, predicted poses and the distinction between inference and closed-loop evaluation. |
+| 3D worlds and world models | [3DGS plaza](../docs/en/labs/spatial-reconstruction.md), [Infinigen house](../docs/en/labs/scene-generation.md), [tool comparison](../docs/en/spatial-worlds.md) | Explore a reconstructed radiance field, inspect generated meshes, then compare Cosmos video output. |
+| Autonomous driving | [CARLA ego cameras](../docs/en/labs/carla-ego.md), [Alpamayo](../docs/en/labs/world-driving.md), [AlpaSim](../docs/en/workflows/alpasim-closed-loop.md) | Four road environments, measured trajectories, learned inference and separate policy evaluation. |
 
 [Run and verify with the lab CLI](cli/README.md). The CLI uses real simulator/model backends and records commands, logs and artifact hashes. Each runtime has its own dependencies.
 

@@ -1,0 +1,59 @@
+{
+  "tool": "Apple SHARP",
+  "mode": "single-view reconstruction; nearby novel views",
+  "renderer": "fVDB",
+  "weights_license": "Apple ML Research Model License: noncommercial research purposes",
+  "runtime": {
+    "torch": "2.13.0+cu130",
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "cudnn_enabled": false
+  },
+  "cases": [
+    {
+      "input": "city.jpg",
+      "input_sha256": "9ba91160864e05afb68c485e69ce7855c58c189d11e3451f352321b4823a7b57",
+      "input_resolution": [
+        960,
+        540
+      ],
+      "focal_px": 480.0,
+      "inference_seconds": 3.329,
+      "gaussians": 1179648,
+      "video": "city.mp4",
+      "video_sha256": "95f733538f1fb49e61ec4c4f6daf7fe4aacb9fd14959e42c2b02953d93a40632",
+      "frames": 192,
+      "fps": 24,
+      "camera_motion_m": {
+        "x_amplitude": 0.35,
+        "z_range": [
+          0,
+          0.2
+        ]
+      }
+    },
+    {
+      "input": "suburb.jpg",
+      "input_sha256": "c2301906dfabf5a514760233a8df953a9e9b1194f9d5c161385c13918aed1f7e",
+      "input_resolution": [
+        960,
+        540
+      ],
+      "focal_px": 480.0,
+      "inference_seconds": 2.385,
+      "gaussians": 1179648,
+      "video": "suburb.mp4",
+      "video_sha256": "249fdcfa35d55512d6d53187384a08cf403960c36729e6afc32d4df63c36bd54",
+      "frames": 192,
+      "fps": 24,
+      "camera_motion_m": {
+        "x_amplitude": 0.35,
+        "z_range": [
+          0,
+          0.2
+        ]
+      }
+    }
+  ],
+  "source_revision": "aed6527499ef91cba3b54c18d49a870f25947190",
+  "checkpoint_sha256": "94211a75198c47f61fca7d739ba08a215418d8d398d48fddf023baccc24f073d"
+}

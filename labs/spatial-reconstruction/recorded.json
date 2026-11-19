@@ -1,0 +1,135 @@
+{
+  "mode": "multi-view reconstruction, not generative world-model inference",
+  "input": {
+    "backend": "CARLA 0.9.16 / Unreal Engine 4.26",
+    "map": "Town03",
+    "weather": "ClearNoon",
+    "views": 72,
+    "resolution": [
+      640,
+      360
+    ],
+    "fov_degrees": 80,
+    "seed_points": 81322,
+    "depth": "CARLA RGB24 depth decoded in meters",
+    "camera_convention": "OpenCV x-right y-down z-forward; right-handed world: CARLA Y reflected",
+    "source_license": "CARLA-specific assets: CC-BY; see CARLA 0.9.16 README licenses",
+    "seed_views": [
+      3,
+      6,
+      9,
+      12,
+      15,
+      18,
+      21,
+      27,
+      30,
+      33,
+      36,
+      39,
+      42,
+      45,
+      51,
+      54,
+      57,
+      60,
+      63,
+      66,
+      69
+    ],
+    "held_out_modulo": 8
+  },
+  "input_views": 72,
+  "training_views": 63,
+  "held_out_views": 9,
+  "epochs": 40,
+  "optimization_seconds": 9.101,
+  "gaussians": 345318,
+  "held_out_psnr_db": 23.434,
+  "per_view": [
+    {
+      "view": 0,
+      "psnr_db": 23.092,
+      "mean_alpha": 0.9603
+    },
+    {
+      "view": 8,
+      "psnr_db": 24.085,
+      "mean_alpha": 0.9332
+    },
+    {
+      "view": 16,
+      "psnr_db": 22.024,
+      "mean_alpha": 0.8917
+    },
+    {
+      "view": 24,
+      "psnr_db": 23.924,
+      "mean_alpha": 0.9783
+    },
+    {
+      "view": 32,
+      "psnr_db": 24.542,
+      "mean_alpha": 0.9729
+    },
+    {
+      "view": 40,
+      "psnr_db": 20.158,
+      "mean_alpha": 0.8941
+    },
+    {
+      "view": 48,
+      "psnr_db": 22.515,
+      "mean_alpha": 0.8866
+    },
+    {
+      "view": 56,
+      "psnr_db": 24.812,
+      "mean_alpha": 0.972
+    },
+    {
+      "view": 64,
+      "psnr_db": 25.751,
+      "mean_alpha": 0.9796
+    }
+  ],
+  "runtime": {
+    "fvdb": "0.6.0",
+    "torch": "2.13.0+cu130",
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "cudnn_enabled": false
+  },
+  "browser": {
+    "gaussians": 200000,
+    "bytes": 6400000,
+    "sha256": "711a5e04c2b190d39cd696bcc75ab4ec49637f9779f1166dbe9b1ddba7a14738",
+    "format": "32-byte .splat; DC color; opacity > .04; deterministic weighted sampling if needed",
+    "note": "Intermediate .splat export only; the published viewer uses web_preview SPZ"
+  },
+  "render": {
+    "frames": 384,
+    "fps": 24,
+    "resolution": [
+      640,
+      360
+    ],
+    "median_alpha": 0.955708384513855,
+    "sha256": "6979df66e83a7b2275ea64a0a334938b3016819a26e469957999f2424fcf55dd"
+  },
+  "limitations": [
+    "Static radiance field; no collision mesh or dynamic traffic",
+    "CARLA water and distant sky are difficult to reconstruct",
+    "Web SPZ preserves all Gaussians but quantizes parameters and keeps only degree-1 color coefficients"
+  ],
+  "web_preview": {
+    "file": "town03.spz",
+    "format": "SPZ v3",
+    "gaussians": 345318,
+    "sh_degree": 1,
+    "bytes": 6148199,
+    "sha256": "601cefa75dbf5d294f5eb5c80ff9f96e21c27b1d411b65090ff623cd671d96aa",
+    "converter": "PlayCanvas splat-transform 3.12.0 (MIT)",
+    "modification": "Keep all Gaussians; quantize SPZ and retain SH through degree 1; full PLY remains degree 3"
+  },
+  "date": "2026-11-20"
+}

@@ -10,7 +10,7 @@
 
 로봇 제어, 물리 엔진, 월드 모델, 자율주행을 실제 실험으로 배웁니다. 어떤 데이터가 오가는지 확인하고, 공개된 코드와 USD 장면으로 직접 실행해 보세요.
 
-[로봇 학습·제어](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/topics/robotics/) · [물리 엔진](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/topics/simulation/) · [월드 모델](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/topics/world-models/) · [자율주행](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/topics/autonomous-driving/)
+[로봇 학습·제어](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/topics/robotics/) · [물리 엔진](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/topics/simulation/) · [3D 세계·월드 모델](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/topics/world-models/) · [자율주행](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/topics/autonomous-driving/)
 
 [🧪 **첫 실습**](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/gr00t-placement/#first-exercise) · [📖 **학습 경로**](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/#workflows) · [**동작 원리**](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/learn/principles/) · [🎬 **분야별 갤러리**](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/topics/)
 
@@ -34,8 +34,8 @@
 - **[물리·시뮬레이션](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/learn/principles/#simulation)** — Isaac Sim과 큐브 낙하 → PhysX·SimReady → Newton·Warp 순으로 읽고 [충돌체·마찰·반발을 비교합니다](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/physics/#run).
 - **[3D 에셋·합성 데이터](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/learn/principles/#synthetic-data)** — OpenUSD와 CAD → Replicator → RGB-D 복원을 읽고 [GPU 없이 저장된 카메라 데이터를 검사합니다](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/workbench-capstone/#check-recording).
 - **[로봇 학습·제어](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/learn/principles/#robotics)** — Isaac Lab·Arena → GR00T → 경로 계획과 시연·학습 흐름을 읽고 [GR00T 집기·놓기를 브라우저에서 판정합니다](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/gr00t-placement/#first-exercise).
-- **[자율주행](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/learn/principles/#autonomous-driving)** — NuRec → Alpamayo → AlpaSim → AlpaGym·Cosmos RL 순으로 읽고 [AlpaSim 공식 예제를 실행합니다](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/workflows/alpasim-closed-loop/#requirements).
-- **[영상 데이터·월드 모델](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/learn/principles/#world-models)** — Cosmos Curator → Cosmos·Data Factory → VSS·Switchyard를 읽고 [VSS 사용 순서를 따라 영상에서 근거를 찾습니다](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/tools/metropolis-vss/#example).
+- **[자율주행](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/learn/principles/#autonomous-driving)** — [CARLA 운전자 카메라](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/carla-ego/) → Alpamayo 출력 → AlpaSim → AlpaGym·Cosmos RL. 네 도로 환경의 실제 촬영부터 시작합니다.
+- **[3D 세계·렌더링](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/learn/principles/#world-models)** — [fVDB 3DGS 광장 탐색](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/spatial-reconstruction/) → [가구가 있는 집 생성](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/scene-generation/). [Marble·Lyra·복원 도구](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/tools/spatial-worlds/)와 비교하며 Cosmos 영상 생성은 별도 출력으로 살펴봅니다.
 
 ## 터미널에서 시작하기
 
