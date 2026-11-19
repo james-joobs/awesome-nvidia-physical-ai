@@ -1,6 +1,6 @@
 export const homeCopy = {
   en: {
-    description: 'Start with a robot exercise in your browser. Then use the included code, scenes, and saved data to check results and run your own experiments.',
+    description: 'Explore robotics, physics engines, world models, and autonomous driving through NVIDIA tools. Start with a recorded experiment or browser lab, then use the code and guides to run your own.',
     siteTour: 'Site tour video',
     tourDescription: 'An 89-second walkthrough of the browser labs, learning paths, theory guides, and searchable Physical AI catalog.',
     journey: 'Start at your level',
@@ -9,6 +9,11 @@ export const homeCopy = {
       cpu: ['Check data without a GPU', 'Use Python to inspect saved camera frames.'],
       gpu: ['Generate your own data', 'Build and capture a scene with RTX and Isaac Sim 6.2.'],
     },
+    focusTitle: 'Four ways into Physical AI',
+    focusIntro: 'See the result, understand the inputs and outputs, then choose a lab. Each field shows what you can try now and what needs a GPU, model, or dataset.',
+    focusAction: 'Choose your field',
+    focusOpen: 'Explore this field',
+    focusMore: 'Also explore CAD, 3D assets, and synthetic data',
     pathsTitle: 'Choose what you want to build',
     pathsIntro: 'Each path takes you from the first step to a result you can check.',
     pathModes: {
@@ -32,7 +37,7 @@ export const homeCopy = {
     modelDescription: 'Compare GR00T, the π family, and other robot models by their supported inputs and tasks.',
   },
   ko: {
-    description: '브라우저에서 로봇 실험부터 해 보세요. 실습 코드와 장면, 저장된 데이터로 결과를 확인하고 내 환경에서 새 실험을 실행할 수 있습니다.',
+    description: '로보틱스, 물리 엔진, 월드 모델, 자율주행을 NVIDIA 도구로 배워 보세요. 실행 영상과 브라우저 실습에서 시작해, 코드와 가이드로 직접 실험할 수 있습니다.',
     siteTour: '사이트 둘러보기 영상',
     tourDescription: '브라우저 실습, 학습 경로, 동작 원리 가이드와 카탈로그 검색을 1분 29초 영상으로 둘러봅니다.',
     journey: '지금 환경에서 시작하기',
@@ -41,6 +46,11 @@ export const homeCopy = {
       cpu: ['GPU 없이 데이터 검사하기', 'Python으로 저장된 카메라 프레임을 확인합니다.'],
       gpu: ['내 데이터 직접 만들기', 'RTX와 Isaac Sim 6.2로 장면을 만들고 촬영합니다.'],
     },
+    focusTitle: '네 가지 분야로 시작하는 Physical AI',
+    focusIntro: '먼저 동작을 보고, 어떤 데이터가 오가는지 이해한 다음 실습을 골라 보세요. 바로 해 볼 수 있는 예제와 GPU·모델·데이터가 필요한 과정도 구분해 두었습니다.',
+    focusAction: '관심 분야 고르기',
+    focusOpen: '이 분야 살펴보기',
+    focusMore: 'CAD·3D 에셋·합성 데이터도 살펴보기',
     pathsTitle: '어떤 결과를 만들어 보고 싶나요?',
     pathsIntro: '관심 있는 주제를 고르면 준비부터 실행, 결과 확인까지 차례로 따라갈 수 있습니다.',
     pathModes: {

@@ -14,7 +14,7 @@ import { labCode, labCopy } from '../lib/labs.mjs';
 import { courseRoute, courses, firstExerciseRoute, learningCopy } from '../lib/learning.mjs';
 import { lessonFlows } from '../lib/lesson-flows.mjs';
 import { renderGuide } from '../lib/markdown.mjs';
-import { clips, grids, showcaseMedia } from '../lib/showcase.mjs';
+import { additionalRecordings, clips, grids, showcaseMedia } from '../lib/showcase.mjs';
 import { topicForPage, topicsCopy } from '../lib/topics.mjs';
 
 const { locale, lab } = Astro.props;
@@ -77,6 +77,13 @@ const steps = [
     <section class="lab-video" id="example-run" aria-labelledby="example-run-title">
       <h2 id="example-run-title">{exampleLabel}</h2>
       <div class="video-preview"><ShowcaseVideo locale={locale} clip={clip} title={entry.title} /></div>
+      {additionalRecordings.filter((recording) => recording.lab === id && !recording.labRoute).map((recording) => (
+        <div class="additional-recording">
+          <h3>{recording[locale].title}</h3>
+          <p>{recording[locale].description}</p>
+          <div class="video-preview"><ShowcaseVideo locale={locale} clip={recording} title={recording[locale].title} /></div>
+        </div>
+      ))}
       <div class="lab-video-links">
         <a class="plain-link" href={repositoryFile(`labs/${id}/${evidence}`)}>{labels.evidence}<Icon name="external" size={16} /></a>
         <a class="plain-link" href={`${pageUrl(locale, 'showcase')}#${id}`}>{labels.back}<Icon name="right" size={16} /></a>
@@ -101,6 +108,9 @@ const steps = [
   .lab-video-links { display: flex; flex-wrap: wrap; gap: 0 16px; }
   .lab-video-links a { min-height: 44px; }
   .video-preview { overflow: clip; border: 1px solid var(--edge); border-radius: 8px; }
+  .additional-recording { margin-block-start: 24px; }
+  .additional-recording h3 { font-size: 1.15rem; }
+  .additional-recording p { color: var(--muted); line-height: 1.7; margin-block: 8px 12px; }
   .lab-code details { border-block-start: 1px solid var(--edge); }
   .lab-code details:last-child { border-block-end: 1px solid var(--edge); }
   .lab-code details[open] { padding-bottom: 13px; }

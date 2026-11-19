@@ -55,7 +55,11 @@ export const topics = [
     resources: [[`workflows/${workflows[0].slug}`, workflows[0].en.action, workflows[0].ko.action]],
     en: { title: 'Physics & simulation', description: 'See what changes when you swap a collider, adjust friction, or calculate forces on the GPU.' },
     ko: { title: '물리·시뮬레이션', description: '충돌체나 마찰을 바꾸면 물체가 어떻게 움직이는지 보고, GPU로 입자 충돌도 계산해 보세요.' },
-    entries: [recording('physics', ['Isaac Sim', 'PhysX', 'SimReady', 'Newton']), recording('warp-particles', ['Warp', 'CUDA'])],
+    focus: {
+      en: { title: 'Physics engines', outcome: 'Compare collision shapes, friction, and bouncing in Isaac Sim; inspect Newton and Warp simulation results.', availability: 'Recorded runs · scripts and USD scenes' },
+      ko: { title: '물리 엔진·시뮬레이션', outcome: 'Isaac Sim에서 충돌체·마찰·반발력에 따른 차이를 보고, Newton과 Warp의 계산 결과도 확인합니다.', availability: '실행 영상 · 코드와 USD 장면' },
+    },
+    entries: [recording('newton-materials', ['Newton', 'Warp', 'Isaac Sim']), recording('physics', ['Isaac Sim', 'PhysX', 'SimReady', 'Newton']), recording('warp-particles', ['Warp', 'CUDA'])],
   },
   {
     slug: 'synthetic-data', theme: 'mint', icon: 'workbench', course: 'simulation-data',
@@ -70,6 +74,10 @@ export const topics = [
     resources: [[modelGuide.route, 'Compare robot foundation models', '로봇 파운데이션 모델 비교하기']],
     en: { title: 'Robotics & control', description: 'Check a pick-and-place policy, plan around obstacles, and replay a learned walk.' },
     ko: { title: '로봇 학습·제어', description: '로봇 팔이 큐브를 집어 옮기는지 판정하고, 장애물을 우회하는 경로와 학습한 보행을 확인합니다.' },
+    focus: {
+      en: { title: 'Robotics', outcome: 'Judge a GR00T pick-and-place trial, explore obstacle avoidance, and follow a Microduck walking policy.', availability: 'Browser lab · recorded runs and code' },
+      ko: { title: '로봇 학습·제어', outcome: 'GR00T의 집기 성공 여부를 판정하고, 장애물 회피 경로와 Microduck의 보행 정책을 살펴봅니다.', availability: '브라우저 실습 · 실행 영상과 코드' },
+    },
     entries: [recording('gr00t-placement', ['GR00T', 'Isaac Lab-Arena']), recording('robot-motion', ['cuRobo', 'AutoData', 'GR00T', 'Newton']), recording('microduck', ['Isaac Lab', 'Newton']), recording('everyday-robots', ['Isaac Sim', 'PhysX'])],
   },
   {
@@ -77,19 +85,33 @@ export const topics = [
     stacks: ['AlpaSim', 'NuRec', 'Alpamayo', 'AlpaGym', 'DRIVE Sim'],
     en: { title: 'Autonomous driving', description: 'Work through the AlpaSim example and learn how to compare driving policies on a fixed scene.' },
     ko: { title: '자율주행', description: 'AlpaSim 공식 예제를 따라 한 장면에서 기준 정책을 실행하고 주행 지표를 비교하는 법을 익힙니다.' },
-    entries: [driving],
+    focus: {
+      en: { title: 'Autonomous driving', outcome: 'Render six camera views, run Alpamayo, and replay its proposed path. Then explore AlpaSim closed-loop evaluation.', availability: 'Own synthetic inputs · AlpaSim needs separate scene access' },
+      ko: { title: '자율주행', outcome: '카메라 여섯 대의 영상을 만들고 Alpamayo가 예측한 경로를 재생합니다. 이어 AlpaSim 폐루프 평가로 확장해 보세요.', availability: '자체 합성 입력 제공 · AlpaSim은 별도 장면 접근 권한 필요' },
+    },
+    entries: [driving, recording('world-driving', ['Isaac Sim', 'Alpamayo2-Edge', 'Cosmos3-Edge'])],
   },
   {
     slug: 'world-models', theme: 'blue', icon: 'layers',
     stacks: ['Cosmos', 'Cosmos Curator', 'Cosmos Data Factory', 'Video-to-Data', 'NeMo Switchyard'],
     en: { title: 'Video data & world models', description: 'Explore the tools that prepare video, generate new scenes, and route model requests.' },
     ko: { title: '영상 데이터·월드 모델', description: '영상을 정제하고 새 장면을 생성하는 도구부터 앱의 요청을 모델 서버에 보내는 도구까지 살펴봅니다.' },
-    entries: topicGuides,
+    focus: {
+      en: { title: 'World models', outcome: 'Generate RGB video with Cosmos from an image and camera actions, then inspect the inputs, frames, and inference records.', availability: 'RTX 5090 run · input files and reproducible CLI' },
+      ko: { title: '월드 모델', outcome: '이미지와 카메라 동작으로 Cosmos 영상을 생성합니다. 입력 데이터, 생성된 프레임과 추론 기록을 함께 살펴보세요.', availability: 'RTX 5090 실행 · 입력 파일과 재현용 CLI 제공' },
+    },
+    entries: [recording('world-driving', ['Cosmos3-Edge', 'Alpamayo2-Edge', 'Isaac Sim']), ...topicGuides],
   },
-].map((topic) => ({
+].sort((left, right) => {
+  const order = ['robotics', 'simulation', 'world-models', 'autonomous-driving', 'synthetic-data'];
+  return order.indexOf(left.slug) - order.indexOf(right.slug);
+}).map((topic) => ({
   ...topic,
   guides: toolGuides.filter((guide) => guide.topic === topic.slug || topic.stacks.includes(guide.en.title)),
 }));
+
+export const focusTopics = ['robotics', 'simulation', 'world-models', 'autonomous-driving']
+  .map((slug) => topics.find((topic) => topic.slug === slug));
 
 export function topicForPage(page) {
   return topics.find(({ entries, guides, resources, course }) => (course && courseRoute(course) === page) ||

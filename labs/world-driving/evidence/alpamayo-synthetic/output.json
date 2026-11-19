@@ -1,0 +1,36 @@
+{
+  "sample_id": "isaac-synthetic-intersection",
+  "pred_xyz_shape": [
+    1,
+    1,
+    1,
+    64,
+    3
+  ],
+  "pred_rot_shape": [
+    1,
+    1,
+    1,
+    64,
+    3,
+    3
+  ],
+  "finite": true,
+  "elapsed_seconds": 13.368799760006368,
+  "text": {
+    "cot": [
+      [
+        [
+          "<NOMINAL>"
+        ]
+      ]
+    ],
+    "answer": [
+      [
+        [
+          "<NOMINAL>"
+        ]
+      ]
+    ]
+  }
+}

@@ -1,0 +1,530 @@
+{
+  "schema_version": 1,
+  "scenario": {
+    "id": "alpamayo-synthetic",
+    "title": "Alpamayo predicts trajectories from synthetic camera observations",
+    "status": "runnable",
+    "evidence_mode": "model-interface-smoke-synthetic",
+    "platforms": [
+      "Alpamayo2-Edge",
+      "CUDA"
+    ],
+    "command": [
+      "{python}",
+      "{root}/labs/world-driving/run_alpamayo_synthetic.py",
+      "--input",
+      "{input}",
+      "--model",
+      "{model}",
+      "--output",
+      "{output}",
+      "--seed",
+      "{seed}"
+    ],
+    "sources": [
+      "labs/world-driving/run_alpamayo_synthetic.py",
+      "labs/world-driving/model-pins.json"
+    ],
+    "required_paths": {
+      "input": {
+        "kind": "directory",
+        "files": [
+          "input.json"
+        ]
+      },
+      "model": {
+        "kind": "directory",
+        "files": [
+          "config.json",
+          "model.safetensors.index.json"
+        ]
+      }
+    },
+    "modules": [
+      "alpamayo2_edge",
+      "torch",
+      "numpy",
+      "PIL"
+    ],
+    "gpu": true,
+    "display": false,
+    "validator": "alpamayo",
+    "model_reference": {
+      "repository": "nvidia/Alpamayo2-Edge",
+      "revision": "b92b6aa326bd3e2235db28f248ad5a30b5890e64"
+    },
+    "official_sources": [
+      "https://github.com/NVlabs/alpamayo2-edge",
+      "https://huggingface.co/nvidia/Alpamayo2-Edge"
+    ]
+  },
+  "command": [
+    "${RUN_DIR}/python",
+    "${RUN_DIR}/run_alpamayo_synthetic.py",
+    "--input",
+    "${RUN_DIR}/synthetic-intersection",
+    "--model",
+    "${RUN_DIR}/Alpamayo2-Edge",
+    "--output",
+    "${RUN_DIR}/alpamayo-cli",
+    "--seed",
+    "19"
+  ],
+  "cwd": "${RUN_DIR}/repo",
+  "source_hashes": [
+    {
+      "path": "labs/cli.py",
+      "sha256": "210f7fdbbc9038f9c0d8f563ddf7fb7550184e0bfc45a3d91e688fa5ca4ac9a2"
+    },
+    {
+      "path": "labs/scenarios.json",
+      "sha256": "95c1871dddb5e6de47c7a68ba1bb5d6546bca46a37c70f4075472aa09f933197"
+    },
+    {
+      "path": "labs/world-driving/run_alpamayo_synthetic.py",
+      "sha256": "07e7ea98da96e798ce2e5b68adb74b02655e839ab2c32d3919d07f92616ec3d8"
+    },
+    {
+      "path": "labs/world-driving/model-pins.json",
+      "sha256": "8a23818c056343de964c593349f2b12c3a139a86a7604648815bd49e9b10fb59"
+    }
+  ],
+  "resources": {
+    "seed": 19,
+    "inputs": [
+      {
+        "path": "${RUN_DIR}/camera-0-t1000000.png",
+        "bytes": 52905,
+        "sha256": "84865eec98e2309d15b7285b5e06fdcbbc85262c029977b873721a8d5dafac04"
+      },
+      {
+        "path": "${RUN_DIR}/camera-0-t1900000.png",
+        "bytes": 56962,
+        "sha256": "e68b6acdf781648c334d9447b68d0ebc07630f060580a71073a3f9b77793c1ff"
+      },
+      {
+        "path": "${RUN_DIR}/camera-0-t2000000.png",
+        "bytes": 57323,
+        "sha256": "43b81f35caae5cc121c77a8e78b0d4571a2f247ae057ea86fb161d477cf96c69"
+      },
+      {
+        "path": "${RUN_DIR}/camera-1-t0000000.png",
+        "bytes": 62994,
+        "sha256": "e96fe50820993a5fdd61efaf7a8486ca9f6651fb288d5afc954fc15d5651f319"
+      },
+      {
+        "path": "${RUN_DIR}/camera-1-t1000000.png",
+        "bytes": 65193,
+        "sha256": "cc6abea2e33bbc6fe0f086ae4ea800d4a25f7f6cb2e2b92bafe874c5f0f077f2"
+      },
+      {
+        "path": "${RUN_DIR}/camera-1-t1500000.png",
+        "bytes": 68765,
+        "sha256": "d8a562de520b2b76d6b338a145d3bedc8ac484ecb33904d5d2c2b3fee2d4c9fb"
+      },
+      {
+        "path": "${RUN_DIR}/camera-1-t1900000.png",
+        "bytes": 70072,
+        "sha256": "322048b44ef852920afcd6cadd1116737b1e185ea2c7ce19bcbf8c38b160ea4a"
+      },
+      {
+        "path": "${RUN_DIR}/camera-1-t2000000.png",
+        "bytes": 70164,
+        "sha256": "c9f0988a3141529a9fc13f5edd22c14b12f1d9a941df58d60a208cb09beba201"
+      },
+      {
+        "path": "${RUN_DIR}/camera-2-t1000000.png",
+        "bytes": 47475,
+        "sha256": "8aa7cf075012aaeaec5845536b935eb6d0e9c0c29a926fa6ef04d9cc0201ab2c"
+      },
+      {
+        "path": "${RUN_DIR}/camera-2-t1900000.png",
+        "bytes": 49387,
+        "sha256": "074508835b4ece59d0c509f019b953a80bab4d7ca52c7e1074b9270e6c6b1d1b"
+      },
+      {
+        "path": "${RUN_DIR}/camera-2-t2000000.png",
+        "bytes": 48864,
+        "sha256": "21b8805899da3081017b7d43bcae9e6493b9f4282e8c6741e17b46fa86d59f6a"
+      },
+      {
+        "path": "${RUN_DIR}/camera-3-t1000000.png",
+        "bytes": 60974,
+        "sha256": "11c94d5d986145ff0d4dded2d2c52dfe08b9be6be490dc3ed8b3f1ca564aeab4"
+      },
+      {
+        "path": "${RUN_DIR}/camera-3-t1900000.png",
+        "bytes": 56690,
+        "sha256": "32613c6ae20cf5f5234097eca064db1d55241d66b6a40b9ac249b6296fbd92d4"
+      },
+      {
+        "path": "${RUN_DIR}/camera-3-t2000000.png",
+        "bytes": 56687,
+        "sha256": "7f6b191201b943fbbc6ef53d5f05a80f748673ad569745d88fe576e3eca2d1ab"
+      },
+      {
+        "path": "${RUN_DIR}/camera-5-t1000000.png",
+        "bytes": 55150,
+        "sha256": "b2e8afd8ab4ac607ff3bc15b9a33aa6170208d9832be67d4f45762a4ca6e9b87"
+      },
+      {
+        "path": "${RUN_DIR}/camera-5-t1900000.png",
+        "bytes": 52886,
+        "sha256": "fefa2e3d44e1205b729ef436a2e0cfc0a12d41aff2373ea679b098582c6b644a"
+      },
+      {
+        "path": "${RUN_DIR}/camera-5-t2000000.png",
+        "bytes": 53030,
+        "sha256": "bc62528993d983c77f307277f82dffe58bcad5b7476ce3bc8e447afbaaaba0bc"
+      },
+      {
+        "path": "${RUN_DIR}/camera-6-t0000000.png",
+        "bytes": 79508,
+        "sha256": "7e4f471b38bb48f3aa26a03eae8d52e704475ae669c55870edd500fee2803dc8"
+      },
+      {
+        "path": "${RUN_DIR}/camera-6-t1000000.png",
+        "bytes": 78946,
+        "sha256": "8af82f415f73a56725b872ef987aa9104dcdc8a0871d7b25d9e594437573d82a"
+      },
+      {
+        "path": "${RUN_DIR}/camera-6-t1500000.png",
+        "bytes": 76054,
+        "sha256": "d08fb833a0c0d22e29afa034eabf2d3f6b6eeac1e6512e932421891494277c5d"
+      },
+      {
+        "path": "${RUN_DIR}/camera-6-t1900000.png",
+        "bytes": 76545,
+        "sha256": "6ac7aaf0ee657b99ab2696c1a8d91ee99efb7ed6f6224b54a03ee45562811c65"
+      },
+      {
+        "path": "${RUN_DIR}/camera-6-t2000000.png",
+        "bytes": 76816,
+        "sha256": "5ecd81b106f96b28248ddbcdc77409f89c8700a9ba5d24c4c169207636369393"
+      },
+      {
+        "path": "${RUN_DIR}/input.json",
+        "bytes": 6186,
+        "sha256": "61a85809bd5eeb01409f1925c291e22c995d9a36d02931b87e5c38935f24254c"
+      }
+    ],
+    "cosmos_guardrails": "upstream default retained",
+    "model": {
+      "path": "${RUN_DIR}/Alpamayo2-Edge",
+      "declared_reference": {
+        "repository": "nvidia/Alpamayo2-Edge",
+        "revision": "b92b6aa326bd3e2235db28f248ad5a30b5890e64"
+      },
+      "observed_huggingface_revisions": [
+        "b92b6aa326bd3e2235db28f248ad5a30b5890e64"
+      ],
+      "metadata": [
+        {
+          "path": "LICENSE",
+          "sha256": "2ab44b68365473c112f5092211a38f231cb23e50de68b75a13369adbd76a74df"
+        },
+        {
+          "path": "README.md",
+          "sha256": "924b0eaa92963db4f0fde84d14d4d6da7c3405a34ddd838285a8b13a50f2defa"
+        },
+        {
+          "path": "config.json",
+          "sha256": "784fc20f67294d7a4805e860033a88339cd81b7c0f9bd99d1dc95564fe159dc7"
+        },
+        {
+          "path": "model.safetensors.index.json",
+          "sha256": "0e922b870e530b52a3b92c7b8d3abd3e7eb14714c310b32069bf1ab8e59c1390"
+        }
+      ],
+      "checkpoint_files": [
+        {
+          "path": "00000.safetensors",
+          "bytes": 4275716192
+        },
+        {
+          "path": "00001.safetensors",
+          "bytes": 1026726076
+        }
+      ],
+      "hash_scope": "Input files and model metadata are hashed; checkpoint shards are listed by size, not hashed."
+    }
+  },
+  "started_at": "2026-11-19T10:55:29.329854+00:00",
+  "evidence_mode": "model-interface-smoke-synthetic",
+  "headless": false,
+  "preflight": {
+    "scenario": "alpamayo-synthetic",
+    "ready": true,
+    "checks": [
+      {
+        "name": "python",
+        "ok": true,
+        "detail": "${RUN_DIR}/python"
+      },
+      {
+        "name": "source:labs/scenarios.json",
+        "ok": true,
+        "detail": "${RUN_DIR}/scenarios.json"
+      },
+      {
+        "name": "source:labs/world-driving/run_alpamayo_synthetic.py",
+        "ok": true,
+        "detail": "${RUN_DIR}/run_alpamayo_synthetic.py"
+      },
+      {
+        "name": "source:labs/world-driving/model-pins.json",
+        "ok": true,
+        "detail": "${RUN_DIR}/model-pins.json"
+      },
+      {
+        "name": "argument:input",
+        "ok": true,
+        "detail": "${RUN_DIR}/synthetic-intersection"
+      },
+      {
+        "name": "input:input.json",
+        "ok": true,
+        "detail": "${RUN_DIR}/input.json"
+      },
+      {
+        "name": "argument:model",
+        "ok": true,
+        "detail": "${RUN_DIR}/Alpamayo2-Edge"
+      },
+      {
+        "name": "model:config.json",
+        "ok": true,
+        "detail": "${RUN_DIR}/config.json"
+      },
+      {
+        "name": "model:model.safetensors.index.json",
+        "ok": true,
+        "detail": "${RUN_DIR}/model.safetensors.index.json"
+      },
+      {
+        "name": "model:checkpoint-files",
+        "ok": true,
+        "detail": "Checkpoint files must exist and be nonempty"
+      },
+      {
+        "name": "model:index-shards",
+        "ok": true,
+        "detail": "Every indexed shard must exist"
+      },
+      {
+        "name": "input-file:${RUN_DIR}/camera-0-t1000000.png",
+        "ok": true,
+        "detail": "JSON manifest or referenced image"
+      },
+      {
+        "name": "input-file:${RUN_DIR}/camera-0-t1900000.png",
+        "ok": true,
+        "detail": "JSON manifest or referenced image"
+      },
+      {
+        "name": "input-file:${RUN_DIR}/camera-0-t2000000.png",
+        "ok": true,
+        "detail": "JSON manifest or referenced image"
+      },
+      {
+        "name": "input-file:${RUN_DIR}/camera-1-t0000000.png",
+        "ok": true,
+        "detail": "JSON manifest or referenced image"
+      },
+      {
+        "name": "input-file:${RUN_DIR}/camera-1-t1000000.png",
+        "ok": true,
+        "detail": "JSON manifest or referenced image"
+      },
+      {
+        "name": "input-file:${RUN_DIR}/camera-1-t1500000.png",
+        "ok": true,
+        "detail": "JSON manifest or referenced image"
+      },
+      {
+        "name": "input-file:${RUN_DIR}/camera-1-t1900000.png",
+        "ok": true,
+        "detail": "JSON manifest or referenced image"
+      },
+      {
+        "name": "input-file:${RUN_DIR}/camera-1-t2000000.png",
+        "ok": true,
+        "detail": "JSON manifest or referenced image"
+      },
+      {
+        "name": "input-file:${RUN_DIR}/camera-2-t1000000.png",
+        "ok": true,
+        "detail": "JSON manifest or referenced image"
+      },
+      {
+        "name": "input-file:${RUN_DIR}/camera-2-t1900000.png",
+        "ok": true,
+        "detail": "JSON manifest or referenced image"
+      },
+      {
+        "name": "input-file:${RUN_DIR}/camera-2-t2000000.png",
+        "ok": true,
+        "detail": "JSON manifest or referenced image"
+      },
+      {
+        "name": "input-file:${RUN_DIR}/camera-3-t1000000.png",
+        "ok": true,
+        "detail": "JSON manifest or referenced image"
+      },
+      {
+        "name": "input-file:${RUN_DIR}/camera-3-t1900000.png",
+        "ok": true,
+        "detail": "JSON manifest or referenced image"
+      },
+      {
+        "name": "input-file:${RUN_DIR}/camera-3-t2000000.png",
+        "ok": true,
+        "detail": "JSON manifest or referenced image"
+      },
+      {
+        "name": "input-file:${RUN_DIR}/camera-5-t1000000.png",
+        "ok": true,
+        "detail": "JSON manifest or referenced image"
+      },
+      {
+        "name": "input-file:${RUN_DIR}/camera-5-t1900000.png",
+        "ok": true,
+        "detail": "JSON manifest or referenced image"
+      },
+      {
+        "name": "input-file:${RUN_DIR}/camera-5-t2000000.png",
+        "ok": true,
+        "detail": "JSON manifest or referenced image"
+      },
+      {
+        "name": "input-file:${RUN_DIR}/camera-6-t0000000.png",
+        "ok": true,
+        "detail": "JSON manifest or referenced image"
+      },
+      {
+        "name": "input-file:${RUN_DIR}/camera-6-t1000000.png",
+        "ok": true,
+        "detail": "JSON manifest or referenced image"
+      },
+      {
+        "name": "input-file:${RUN_DIR}/camera-6-t1500000.png",
+        "ok": true,
+        "detail": "JSON manifest or referenced image"
+      },
+      {
+        "name": "input-file:${RUN_DIR}/camera-6-t1900000.png",
+        "ok": true,
+        "detail": "JSON manifest or referenced image"
+      },
+      {
+        "name": "input-file:${RUN_DIR}/camera-6-t2000000.png",
+        "ok": true,
+        "detail": "JSON manifest or referenced image"
+      },
+      {
+        "name": "input-file:${RUN_DIR}/input.json",
+        "ok": true,
+        "detail": "JSON manifest or referenced image"
+      },
+      {
+        "name": "module:alpamayo2_edge",
+        "ok": true,
+        "detail": "checked with ${RUN_DIR}/python"
+      },
+      {
+        "name": "module:torch",
+        "ok": true,
+        "detail": "checked with ${RUN_DIR}/python"
+      },
+      {
+        "name": "module:numpy",
+        "ok": true,
+        "detail": "checked with ${RUN_DIR}/python"
+      },
+      {
+        "name": "module:PIL",
+        "ok": true,
+        "detail": "checked with ${RUN_DIR}/python"
+      },
+      {
+        "name": "python-probe",
+        "ok": true,
+        "detail": ""
+      },
+      {
+        "name": "gpu",
+        "ok": true,
+        "detail": "GPU 0: NVIDIA GeForce RTX 5090 (UUID: [omitted])\n"
+      }
+    ]
+  },
+  "status": "passed",
+  "finished_at": "2026-11-19T10:55:48.655304+00:00",
+  "process_returncode": 0,
+  "validation": {
+    "passed": true,
+    "checks": [
+      "synthetic interface receipt",
+      "expected finite trajectory tensors"
+    ],
+    "scope": "Real model inference on self-authored synthetic observations; not a driving benchmark, safety assessment or closed-loop driving.",
+    "model_id": "nvidia/Alpamayo2-Edge",
+    "model_revision": "b92b6aa326bd3e2235db28f248ad5a30b5890e64",
+    "shapes": {
+      "pred_xyz": [
+        1,
+        1,
+        1,
+        64,
+        3
+      ],
+      "pred_rot": [
+        1,
+        1,
+        1,
+        64,
+        3,
+        3
+      ]
+    }
+  },
+  "error": null,
+  "artifacts": [
+    {
+      "path": "output.json",
+      "bytes": 415,
+      "sha256": "1a889aa62993e1466abd905a60a1679459494d6bbc099752f3e056536b6b8982"
+    },
+    {
+      "path": "output.safetensors",
+      "bytes": 3360,
+      "sha256": "94aa45555977a347e9a6957ee983261700cfb09a807f0306f6aa79d5bd536619"
+    },
+    {
+      "path": "packed.safetensors",
+      "bytes": 35617280,
+      "sha256": "3bdbba82a72a3562752376f6ded9a626c91c068cc9c2328e1c8e27ca2254a80b"
+    },
+    {
+      "path": "prompt.txt",
+      "bytes": 39285,
+      "sha256": "506fcecfc3f4d62e557a3787b9bb6d05757185d442d92c85b1c98ee9d930b0b7"
+    },
+    {
+      "path": "receipt.json",
+      "bytes": 1716,
+      "sha256": "7f706ef128ebb264f3200caa7083f23550820bdd84a402b1e5e2ea01e0a11e76"
+    },
+    {
+      "path": "request.json",
+      "bytes": 19679,
+      "sha256": "2c75a89ea13cd88acf2695c239eda7aad122ba170f084dc47ce0519e2c9702e5"
+    },
+    {
+      "path": "run.log",
+      "bytes": 1850,
+      "sha256": "2ca210d6528e26c37ecd7467fbbb8b4207c0722f790aa44a634572bd34e1fa39"
+    }
+  ],
+  "publication_note": "Private machine identifiers and storage paths are omitted or represented by public placeholders; numerical results are unchanged."
+}

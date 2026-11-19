@@ -27,10 +27,30 @@ Open the [cuRobo path scene](../../../labs/robot-motion/curobo-clearance.usda) v
 Set up [cuRobo V2](https://nvlabs.github.io/curobo/latest/getting-started/motion_planning.html) at `71ce172` on your RTX machine. Enter this repository in a terminal with the cuRobo Python environment active. The script writes waypoint arrays to `motion.npz` and the comparison to `result.json`.
 
 ```sh
-python labs/robot-motion/plan.py ./runs/curobo
+python3 labs/cli.py --json doctor curobo-replan --python /path/to/curobo-env/bin/python
+python3 labs/cli.py --json run curobo-replan \
+  --python /path/to/curobo-env/bin/python --output ./runs/curobo-001
+python3 labs/cli.py --json verify ./runs/curobo-001
 ```
 
-### 3. Generate demonstrations with AutoData if needed
+Replace the Python path with your cuRobo environment. Each run needs a new output folder so the commands and measurements remain attached to that attempt. [CLI reference](../../../labs/cli/README.md)
+
+### 3. View the newly calculated paths
+
+Use a Python environment with NumPy, Pillow and `usd-core` to turn the new path arrays into a review scene. The spheres are cuRobo's collision representation of the arm, and their saved positions are replayed on the timeline.
+
+```sh
+python labs/robot-motion/make_scene.py ./runs/curobo-001 ./runs/curobo-scene-001
+```
+
+Open `curobo-scene-001/curobo-replan.usda` in Isaac Sim and select **FilmCamera**. The left side shows the baseline path; the right shows the path planned with the red obstacle. These are calculated collision shapes, rather than a live robot policy. To record with an Isaac Lab environment on X11:
+
+```sh
+python labs/physics/capture_gui.py ./runs/curobo-scene-001 ./runs/curobo-gui-001 \
+  /path/to/ffmpeg --plan ./runs/curobo-scene-001/takes.json --viz kit
+```
+
+### 4. Generate demonstrations with AutoData if needed
 
 Use the [official AutoData example](https://github.com/isaac-sim/AutoData/blob/main/docs/pages/quickstart/first_data_generation.rst) to set up revision `4a3d1f3`, its Isaac Lab submodules, and the annotated Franka HDF5. HDF5 keeps a set of trials and their joint and object states together. In the AutoData environment, replace the paths in the first two lines before running the block.
 
@@ -46,3 +66,5 @@ You can also start by opening the [AutoData replay scene](../../../labs/robot-mo
 ## Check the result
 
 In the recorded run, the original tool center entered the new obstacle and the replanned path avoided it. The paths had 24 and 26 waypoints with the same endpoints. AutoData got three successful demonstrations in six attempts. Its replay reported three successes, and the audit finds each first success frame. [Recorded results](../../../labs/robot-motion/recorded.json)
+
+The [November 19 rerun](../../../labs/robot-motion/replan-2026-11-19.json) also checked all active collision spheres at the stored waypoints. The minimum sphere-to-box clearance was about **2.17 mm**, and the two final tool positions matched. The planner separately performs swept collision validation. Warmup conditions differ between the baseline and replan, so their wall times are not a fair speed comparison.

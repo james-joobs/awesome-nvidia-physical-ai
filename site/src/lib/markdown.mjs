@@ -16,7 +16,7 @@ const guides = import.meta.glob([
 
 const toolSources = new Set(['cosmos', 'nemo-switchyard', ...toolGuides.map(({ source }) => source)]);
 
-const lessonImages = import.meta.glob('../../../assets/lessons/workbench/*.webp',
+const lessonImages = import.meta.glob('../../../assets/lessons/**/*.{webp,svg}',
   { query: '?url&no-inline', import: 'default', eager: true });
 
 const catalogSources = import.meta.glob('../../../CATALOG{,.ko}.md', {
@@ -77,7 +77,7 @@ markdown.renderer.rules.image = (tokens, index, options, env, renderer) => {
     const target = new URL(src, `https://repository.invalid/${env.sourcePath}`);
     const file = `../../..${target.pathname}`;
     let asset;
-    if (file.startsWith('../../../assets/lessons/workbench/')) {
+    if (file.startsWith('../../../assets/lessons/')) {
       asset = lessonImages[file];
       if (!asset) throw new Error(`Missing lesson image: ${src}`);
     } else if (file.startsWith('../../../site/public/showcase/')) {

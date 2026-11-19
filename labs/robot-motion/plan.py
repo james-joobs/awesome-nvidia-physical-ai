@@ -79,6 +79,15 @@ def main():
     else:
         raise RuntimeError("No obstacle case passed the planner and tool-center checks")
     assert np.allclose(base_q[0], obstacle_q[0], atol=1e-3)
+    if not np.allclose(base_tool[-1], obstacle_tool[-1], atol=0.005):
+        raise RuntimeError("Replanning changed the Cartesian goal by more than 5 mm")
+    active = obstacle_spheres[..., 3] > 0
+    distance_to_box = np.linalg.norm(
+        np.maximum(np.abs(obstacle_spheres[..., :3] - center) - np.asarray(dims) / 2, 0), axis=-1
+    ) - obstacle_spheres[..., 3]
+    minimum_clearance = float(distance_to_box[active].min())
+    if minimum_clearance < -0.003:
+        raise RuntimeError(f"A sampled robot collision sphere overlaps the new obstacle: {minimum_clearance} m")
     np.savez_compressed(
         out / "motion.npz", baseline_tool=base_tool, obstacle_tool=obstacle_tool,
         baseline_spheres=base_spheres, obstacle_spheres=obstacle_spheres, baseline_q=base_q, obstacle_q=obstacle_q,
@@ -94,6 +103,9 @@ def main():
         "obstacle_dimensions_m": dims,
         "baseline_tool_enters_new_obstacle": bool((np.abs(base_tool - center) < np.asarray(dims)/2).all(axis=1).any()),
         "replanned_tool_enters_obstacle": bool(is_inside.any()),
+        "goal_difference_m": float(np.linalg.norm(base_tool[-1] - obstacle_tool[-1])),
+        "sampled_robot_sphere_min_clearance_m": minimum_clearance,
+        "clearance_scope": "All active collision spheres at stored trajectory samples; planner performs its own swept validation",
     }
     (out / "result.json").write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps(report, indent=2), flush=True)
