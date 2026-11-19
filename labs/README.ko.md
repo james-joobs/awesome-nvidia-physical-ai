@@ -8,8 +8,8 @@
 | --- | --- | --- |
 | 로봇 학습·제어 | [GR00T 집기](../docs/ko/labs/gr00t-placement.md), [cuRobo 장애물 회피](../docs/ko/labs/robot-motion.md) | 카메라 관측, 행동 묶음, 로봇 경로와 배치 성공 여부. |
 | 물리 엔진 | [Newton 천·케이블](../docs/ko/labs/newton-materials.md), [PhysX 접촉 실험](../docs/ko/labs/physics.md) | 점의 좌표, 물체의 변형, 미끄러진 거리와 튀어 오른 높이. |
-| 월드 모델 | [Cosmos 영상 생성](../docs/ko/labs/world-driving.md) | 입력 이미지, 프롬프트, 시드와 생성된 프레임. |
-| 자율주행 | [Alpamayo 입출력 실험](../docs/ko/labs/world-driving.md), [AlpaSim 평가](../docs/ko/workflows/alpasim-closed-loop.md) | 카메라 6개의 입력과 예측 자세, 모델 추론과 폐루프 평가의 차이. |
+| 3D 세계·월드 모델 | [3DGS 광장](../docs/ko/labs/spatial-reconstruction.md), [Infinigen 집](../docs/ko/labs/scene-generation.md), [도구 비교](../docs/ko/spatial-worlds.md) | 복원한 공간을 탐색하고 생성한 메시를 살펴본 뒤 Cosmos 영상 출력과 비교합니다. |
+| 자율주행 | [CARLA 운전자 카메라](../docs/ko/labs/carla-ego.md), [Alpamayo](../docs/ko/labs/world-driving.md), [AlpaSim](../docs/ko/workflows/alpasim-closed-loop.md) | 네 도로 환경과 차량 경로, 학습 모델 추론과 정책 평가를 구분해 봅니다. |
 
 [실습 CLI로 실행하고 검증하기](cli/README.ko.md). 실제 시뮬레이터와 모델을 실행하며 명령어·로그·결과 파일 해시를 남깁니다. 플랫폼마다 실행 환경은 따로 준비합니다.
 

@@ -32,6 +32,8 @@ def verify_files():
 
 
 def verify_evidence():
+    for key in ("carla-ego", "spatial-reconstruction", "scene-generation"):
+        runpy.run_path(str(ROOT / key / "check.py"))["main"]()
     world = report("world-driving")
     assert len(world["cosmos"]) == 3
     for case in world["cosmos"]:

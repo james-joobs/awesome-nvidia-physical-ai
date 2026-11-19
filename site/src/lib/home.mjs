@@ -19,7 +19,7 @@ export const homeCopy = {
     pathModes: {
       'simulation-data': 'Browser → Python → RTX',
       'robot-policies': 'Browser → RTX',
-      'driving-evaluation': 'Official example · GPU and dataset access',
+      'driving-evaluation': 'Recorded cameras → inference → evaluation',
     },
     exploreTitle: 'Find an example in your field',
     exploreIntro: 'Compare results once, then pick a scene or tool to try on your own.',
@@ -56,7 +56,7 @@ export const homeCopy = {
     pathModes: {
       'simulation-data': '브라우저 → Python → RTX',
       'robot-policies': '브라우저 → RTX',
-      'driving-evaluation': '공식 예제 · GPU와 데이터 접근 권한 필요',
+      'driving-evaluation': '카메라 촬영 → 추론 → 정책 평가',
     },
     exploreTitle: '관심 분야의 실험 살펴보기',
     exploreIntro: '영상에서 도구가 어떻게 쓰이는지 보고, 마음에 드는 예제를 골라 직접 따라 해 보세요.',

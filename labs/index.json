@@ -59,6 +59,51 @@
       "tags": ["Cosmos3-Edge", "Alpamayo2-Edge", "Isaac Sim", "OpenUSD"],
       "code": ["setup.sh", "model-pins.json", "make_cosmos_input.py", "make_camera_action_input.py", "make_driving_scene.py", "run_cosmos.sh", "run_camera_action.sh", "run_alpamayo_synthetic.py", "run_alpamayo.sh", "make_prediction_scene.py", "check.py"],
       "evidence": "recorded.json"
+    },
+    {
+      "id": "carla-ego",
+      "tags": [
+        "CARLA 0.9.16",
+        "Unreal Engine 4.26",
+        "Traffic Manager"
+      ],
+      "code": [
+        "capture.py",
+        "package.py",
+        "check.py"
+      ],
+      "evidence": "recorded.json"
+    },
+    {
+      "id": "spatial-reconstruction",
+      "tags": [
+        "fVDB Reality Capture",
+        "CARLA",
+        "Spark / World Labs",
+        "Apple SHARP"
+      ],
+      "code": [
+        "capture.py",
+        "prepare_seed.py",
+        "reconstruct.py",
+        "reconstruct_single.py",
+        "compress_web.py",
+        "check.py"
+      ],
+      "evidence": "recorded.json"
+    },
+    {
+      "id": "scene-generation",
+      "tags": [
+        "Infinigen",
+        "Blender / Cycles",
+        "Procedural generation"
+      ],
+      "code": [
+        "run.py",
+        "check.py"
+      ],
+      "evidence": "recorded.json"
     }
   ],
   "heroTags": ["Isaac Sim", "PhysX", "Newton", "GR00T", "cuRobo", "AutoData", "Replicator", "SimReady", "OpenUSD", "CadQuery", "OpenCV"],

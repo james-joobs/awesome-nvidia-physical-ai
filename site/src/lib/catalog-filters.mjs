@@ -25,6 +25,7 @@ const licenseRules = [
   ['CC BY-NC-SA 4.0', /\bCC[- ]BY[- ]NC[- ]SA[- ]4\.0\b/i],
   ['OpenMDW-1.1', /\bOpenMDW[- ]1\.1\b/i],
   ['NVIDIA Open Model License', /\bNVIDIA Open Model License\b/i],
+  ['NVIDIA Internal Scientific Research and Development Model License', /\bNVIDIA Internal Scientific Research and Development Model License\b/i],
   ['NVIDIA One-Way Noncommercial', /\bNVIDIA One[- ]Way Noncommercial\b/i],
   ['NVIDIA Community License', /\bNVIDIA Community License\b/i],
   ['NVIDIA Isaac ROS Software License', /\bNVIDIA Isaac ROS Software License\b/i],
@@ -39,6 +40,7 @@ export function licenseLabel(terms, kind) {
   if (/^Apache-2\.0 with a modified trademark clause/i.test(scopedTerms)) return 'review';
   if (/\bTOST 1\.0\b/i.test(scopedTerms)) return 'TOST 1.0';
   if (/\bLlama 2 Community License\b/i.test(scopedTerms)) return 'review';
+  if (kind === 'external' && /CC-BY assets/i.test(scopedTerms)) return 'review';
   const labels = licenseRules.filter(([, pattern]) => pattern.test(scopedTerms)).map(([label]) => label);
   return labels.length === 1 ? labels[0] : 'review';
 }

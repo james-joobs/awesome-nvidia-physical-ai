@@ -32,7 +32,7 @@ export const topicGuides = [
     sections: ['architecture', 'example', 'access', 'related-tools'], tools: ['Cosmos', 'Cosmos Data Factory'],
     credit: { label: 'NVIDIA Cosmos', url: 'https://github.com/NVIDIA/cosmos-framework/blob/5950e7b4ea3677b99a2de279a7ed7058b5446e42/tools/docs/images/cosmos-logo.png' },
     en: { title: 'Cosmos world models', description: 'See how video and scene conditions become inputs for generation or reasoning.', alt: 'NVIDIA Cosmos logo' },
-    ko: { title: 'Cosmos 월드 모델', description: '영상과 장면 조건을 어떻게 입력하고, 장면 생성이나 영상 추론에 어떻게 쓰는지 살펴봅니다.', alt: 'NVIDIA Cosmos 로고' },
+    ko: { title: 'Cosmos 월드 모델', description: '영상과 장면 조건을 어떻게 입력하고, 영상 생성이나 추론에 어떻게 쓰는지 살펴봅니다.', alt: 'NVIDIA Cosmos 로고' },
   },
   {
     page: 'tools/nemo-switchyard', source: 'nemo-switchyard', image: switchyardImage, kind: 'official', fit: 'contain',
@@ -82,25 +82,25 @@ export const topics = [
   },
   {
     slug: 'autonomous-driving', theme: 'blue', icon: 'car', course: 'driving-evaluation',
-    stacks: ['AlpaSim', 'NuRec', 'Alpamayo', 'AlpaGym', 'DRIVE Sim'],
-    en: { title: 'Autonomous driving', description: 'Work through the AlpaSim example and learn how to compare driving policies on a fixed scene.' },
-    ko: { title: '자율주행', description: 'AlpaSim 공식 예제를 따라 한 장면에서 기준 정책을 실행하고 주행 지표를 비교하는 법을 익힙니다.' },
+    stacks: ['CARLA', 'AlpaSim', 'NuRec', 'Alpamayo', 'AlpaGym', 'DRIVE Sim'],
+    en: { title: 'Autonomous driving', description: 'Start in the driver’s seat across four CARLA maps and weather conditions, then distinguish sensor simulation, learned trajectory inference and closed-loop evaluation.' },
+    ko: { title: '자율주행', description: 'CARLA의 네 도로 환경을 운전자 시점으로 달려 보세요. 센서 시뮬레이션, 학습 모델의 경로 예측, 폐루프 평가로 이어집니다.' },
     focus: {
-      en: { title: 'Autonomous driving', outcome: 'Render six camera views, run Alpamayo, and replay its proposed path. Then explore AlpaSim closed-loop evaluation.', availability: 'Own synthetic inputs · AlpaSim needs separate scene access' },
-      ko: { title: '자율주행', outcome: '카메라 여섯 대의 영상을 만들고 Alpamayo가 예측한 경로를 재생합니다. 이어 AlpaSim 폐루프 평가로 확장해 보세요.', availability: '자체 합성 입력 제공 · AlpaSim은 별도 장면 접근 권한 필요' },
+      en: { title: 'Autonomous driving', outcome: 'See city, rain, sunset and fog from real CARLA ego cameras. Follow with Alpamayo inference and AlpaSim policy evaluation.', availability: 'CARLA recordings · source, sensor poses and checks' },
+      ko: { title: '자율주행', outcome: '도심·폭우·일몰·안개를 CARLA 운전자 카메라로 확인합니다. Alpamayo 추론과 AlpaSim 정책 평가로 확장해 보세요.', availability: 'CARLA 촬영 · 코드·센서 위치·검사 방법 제공' },
     },
-    entries: [driving, recording('world-driving', ['Isaac Sim', 'Alpamayo2-Edge', 'Cosmos3-Edge'])],
+    entries: [recording('carla-ego', ['CARLA', 'Unreal Engine', 'Ego RGB']), driving, recording('world-driving', ['Isaac Sim', 'Alpamayo2-Edge', 'Cosmos3-Edge'])],
   },
   {
     slug: 'world-models', theme: 'blue', icon: 'layers',
-    stacks: ['Cosmos', 'Cosmos Curator', 'Cosmos Data Factory', 'Video-to-Data', 'NeMo Switchyard'],
-    en: { title: 'Video data & world models', description: 'Explore the tools that prepare video, generate new scenes, and route model requests.' },
-    ko: { title: '영상 데이터·월드 모델', description: '영상을 정제하고 새 장면을 생성하는 도구부터 앱의 요청을 모델 서버에 보내는 도구까지 살펴봅니다.' },
+    stacks: ['Lyra', 'fVDB', 'Spark / World Labs', 'Infinigen', 'Cosmos', 'Cosmos Curator', 'Cosmos Data Factory', 'Video-to-Data', 'NeMo Switchyard'],
+    en: { title: '3D worlds & rendering', description: 'Explore 3D Gaussian scenes, generate indoor geometry, and compare these with neural 3D world generation and video world models.' },
+    ko: { title: '3D 세계 생성·렌더링', description: '3DGS 공간을 직접 둘러보고 실내 기하 구조를 생성합니다. 생성형 3D 세계·사진 복원·영상 월드 모델의 차이도 살펴보세요.' },
     focus: {
-      en: { title: 'World models', outcome: 'Generate RGB video with Cosmos from an image and camera actions, then inspect the inputs, frames, and inference records.', availability: 'RTX 5090 run · input files and reproducible CLI' },
-      ko: { title: '월드 모델', outcome: '이미지와 카메라 동작으로 Cosmos 영상을 생성합니다. 입력 데이터, 생성된 프레임과 추론 기록을 함께 살펴보세요.', availability: 'RTX 5090 실행 · 입력 파일과 재현용 CLI 제공' },
+      en: { title: '3D worlds & world models', outcome: 'Move through an fVDB 3DGS scene, explore a generated house, and compare Marble, Lyra and video-generation workflows.', availability: 'Interactive 3DGS · GPU workstation runs · generation and reconstruction separated' },
+      ko: { title: '3D 세계·월드 모델', outcome: 'fVDB 3DGS 공간과 새로 생성한 집 안을 둘러보세요. Marble·Lyra와 영상 생성 도구의 입출력도 비교합니다.', availability: '탐색 가능한 3DGS · GPU workstation 실행 · 생성과 복원 구분' },
     },
-    entries: [recording('world-driving', ['Cosmos3-Edge', 'Alpamayo2-Edge', 'Isaac Sim']), ...topicGuides],
+    entries: [recording('spatial-reconstruction', ['fVDB', 'CARLA', 'Spark / World Labs']), recording('scene-generation', ['Infinigen', 'Blender']), recording('world-driving', ['Cosmos3-Edge', 'Alpamayo2-Edge', 'Isaac Sim']), ...topicGuides],
   },
 ].sort((left, right) => {
   const order = ['robotics', 'simulation', 'world-models', 'autonomous-driving', 'synthetic-data'];

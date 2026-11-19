@@ -1,5 +1,42 @@
 // Each step shows a data example or file name, followed by what it means in the lab.
 export const lessonFlows = {
+  'carla-ego': {
+    en: [
+      ['Choose a world', 'Town10HD · Town03 · Town02 · Town04 + weather', 'CARLA owns the map, vehicles, physics and sensor simulation.'],
+      ['Advance the driver and simulation', 'Traffic Manager controls → 0.05 s tick', 'The rule-based driver reads actor/road state. It does not read the RGB video.'],
+      ['Record the observation', '960×540 RGB + frame ID + XYZ + speed', 'Ego and chase cameras share the tick. Published videos are resized to 768×432.'],
+    ],
+    ko: [
+      ['환경 고르기', 'Town10HD · Town03 · Town02 · Town04와 날씨', 'CARLA가 맵·차량·물리·센서를 시뮬레이션합니다.'],
+      ['운전 명령으로 한 스텝 진행', 'Traffic Manager 제어 → 0.05초', '규칙 기반 제어기는 차량·도로 상태를 읽습니다. RGB 영상을 입력으로 쓰지는 않습니다.'],
+      ['관측 기록하기', '960×540 RGB + 프레임 번호 + XYZ + 속도', '운전자·추적 카메라를 같은 스텝에 찍습니다. 공개 개별 영상은 768×432로 줄였습니다.'],
+    ],
+    loop: { en: 'New actor states return to Traffic Manager for the next control step.', ko: '다음 차량 상태를 Traffic Manager가 읽어 새 제어 명령을 정합니다.' },
+  },
+  'spatial-reconstruction': {
+    en: [
+      ['Capture the measured world', '72 RGB images + K + 4×4 poses + depth (m)', 'CARLA supplies known camera geometry. Reserve every eighth view.'],
+      ['Optimize a radiance field', '63 training images → 345,318 Gaussians', 'fVDB adjusts position, scale, opacity and color. Held-out depth is excluded from initialization.'],
+      ['Render another viewpoint', 'full PLY → MP4 / 345k-point SPZ → Spark', 'The browser view loads on demand. No physics or collision mesh is included.'],
+    ],
+    ko: [
+      ['장면 촬영하기', 'RGB 72장 + K + 4×4 자세 행렬 + 깊이(m)', 'CARLA의 정확한 카메라 정보를 사용합니다. 8번째마다 검사 시점으로 남깁니다.'],
+      ['공간의 겉모습 학습', '학습 사진 63장 → Gaussian 345,318개', 'fVDB가 위치·크기·불투명도·색을 조정합니다. 검사 시점의 깊이는 초기 점군에서 제외합니다.'],
+      ['새 시점으로 그리기', '전체 PLY → MP4 / 345,318개 SPZ → Spark', '버튼을 누를 때만 브라우저 모델을 받습니다. 물리나 충돌체는 포함되지 않습니다.'],
+    ],
+  },
+  'scene-generation': {
+    en: [
+      ['Choose generation rules', 'random seed + room count + furniture generators', 'Infinigen constructs a new furnished house from procedural rules.'],
+      ['Plan a camera tour', 'mesh geometry → RRT camera path + transforms', 'The example selects a path through connected rooms. This is camera navigation, not a robot policy.'],
+      ['Render the geometry', '.blend + camera.npz → Cycles RGB', 'CPU rendering and OpenImageDenoise produce the preview. The 48-frame path is played at 8 fps.'],
+    ],
+    ko: [
+      ['생성 규칙 정하기', '랜덤 시드 + 방 개수 + 가구 생성기', 'Infinigen이 규칙에 따라 가구가 있는 새 집을 만듭니다.'],
+      ['카메라 이동 경로 찾기', '메시 → RRT 카메라 경로·변환 행렬', '연결된 방 안의 경로를 정합니다. 로봇 정책을 학습한 것은 아닙니다.'],
+      ['기하 구조를 화면에 그리기', '.blend + camera.npz → Cycles RGB', 'CPU 렌더링과 OpenImageDenoise를 사용했습니다. 48프레임을 8 FPS로 재생합니다.'],
+    ],
+  },
   'world-driving': {
     en: [
       ['Two independent inputs', 'Cosmos: RGB + camera actions; Alpamayo: 22 RGB frames + ego history', 'Both examples use scenes we authored. They test different model interfaces.'],
