@@ -163,3 +163,6 @@ python3 labs/worldgen-navigation/check.py --run runs/worldgen-navigation/sensor-
 ```
 
 [공간 크기·충돌체 실습으로 돌아가기](worldgen-isaac.md) · [WorldGen 공간 생성](worldgen-scenes.md) · [영상·입력 출처](../../../site/public/showcase/SPATIAL-CREDITS.md)
+
+
+[다음 실습: 움직이는 장애물에 대응하고 오래된 관측 지우기](worldgen-dynamic-navigation.md).

@@ -75,6 +75,12 @@ export const clips = [
     ko: { title: '글과 이미지로 만든 3D 공간 둘러보기', description: 'WorldGen으로 로봇 실험실·숲길·확장된 거실을 생성했습니다. 3D 공간에서 카메라를 움직인 영상을 보고, 브라우저에서도 직접 둘러보세요.' },
   },
   {
+    id: 'worldgen-dynamic-navigation', duration: '0:36', width: 960, height: 540,
+    media: { ko: 'worldgen-dynamic-navigation-ko' },
+    en: { title: 'When an obstacle moves, the map must change too', description: 'A gate closes during driving and reopens. The old permanent map still blocks the robot; fresh range observations let the new controller wait, clear the map and continue. Actual Isaac Sim GUI recordings at 1×.' },
+    ko: { title: '움직이는 장애물에 멈추고 다시 출발하기', description: '주행 중 차단벽이 닫혔다 열립니다. 이전 지도에는 관측이 남아 막히지만, 새 제어는 거리 관측으로 지도를 갱신하고 다시 출발합니다. 실제 Isaac Sim GUI를 1배속으로 녹화했습니다.' },
+  },
+  {
     id: 'worldgen-navigation', duration: '0:26', width: 960, height: 540,
     media: { ko: 'worldgen-navigation-ko' },
     en: { title: 'Fixed waypoints or a route from sensor scans?', description: 'A new box blocks the old route. An actual Physics Raycast Sensor feeds an occupancy grid and A* planner, and the same robot chooses the other side. Native Isaac Sim GUI footage at 1× speed.' },
@@ -134,6 +140,22 @@ export const clips = [
 
 // Extra runs share an existing lab and its reading order.
 export const additionalRecordings = [
+  {
+    id: 'worldgen-dynamic-navigation-gate', lab: 'worldgen-dynamic-navigation', duration: '0:23', width: 960, height: 540,
+    en: { title: 'Stop for a closing gate, then continue', description: 'A moving physical collider blocks the passage. The robot waits with zero wheel commands and resumes from new observations when a path opens.' },
+    ko: { title: '닫히는 차단벽 앞에서 기다렸다 다시 출발', description: '움직이는 실제 충돌체가 통로를 막습니다. 바퀴 명령을 0으로 두고 대기하다가 새 관측으로 통과할 경로를 찾으면 다시 움직입니다.' },
+  },
+  {
+    id: 'worldgen-dynamic-navigation-cart', lab: 'worldgen-dynamic-navigation', duration: '0:28', width: 960, height: 540,
+    en: { title: 'A moving box enters the first detour', description: 'The initial sensor-generated route goes below the static crate. A box enters this passage, the robot brakes, and a later plan takes it around the other side.' },
+    ko: { title: '주행하던 우회로에 상자가 들어오면', description: '처음 센서로 계산한 경로는 고정 상자 아래쪽을 향합니다. 그 통로에 다른 상자가 들어오자 제동하고, 이후 계산한 경로로 반대편을 돌아 도착합니다.' },
+  },
+  {
+    id: 'worldgen-dynamic-navigation-static', lab: 'worldgen-dynamic-navigation', duration: '0:19', width: 960, height: 540,
+    en: { title: 'Previous controller: the physical gate opens, but map memory remains', description: 'The same range sensor and moving gate, using the unchanged previous permanent-map Navigator. The robot stops and still has no route after the gate withdraws.' },
+    ko: { title: '이전 방식: 벽이 물러나도 지도에는 관측이 남습니다', description: '같은 거리 센서와 움직이는 차단벽에 이전 제어기를 그대로 사용했습니다. 차단벽이 빠져나간 뒤에도 통과할 경로를 찾지 못해 정지해 있습니다.' },
+  },
+
   {
     id: 'worldgen-navigation-lower', lab: 'worldgen-navigation', duration: '0:16', width: 960, height: 540,
     en: { title: 'Lower passage blocked: the robot chooses the upper side', description: 'The controller receives only ranges, ego pose and a goal. The cyan line is recomputed online; it is not a supplied waypoint list.' },

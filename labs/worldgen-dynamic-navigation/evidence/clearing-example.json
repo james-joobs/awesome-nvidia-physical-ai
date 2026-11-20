@@ -1,0 +1,25 @@
+{
+  "case": "gate-dynamic",
+  "observations": [
+    {
+      "scan_time_s": 8.1,
+      "cleared_cells": 1,
+      "path_points": 0,
+      "phase": "wait-for-path",
+      "command_v_omega": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scan_time_s": 8.6,
+      "cleared_cells": 2,
+      "path_points": 66,
+      "phase": "follow-scan-path",
+      "command_v_omega": [
+        0.2811,
+        -1.1
+      ]
+    }
+  ]
+}

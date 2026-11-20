@@ -1,5 +1,17 @@
 // Each step shows a data example or file name, followed by what it means in the lab.
 export const lessonFlows = {
+  'worldgen-dynamic-navigation': {
+    en: [
+      ['Read a timestamped observation', 'ranges[180] + hit positions[180,3] + sensor time', 'The controller sees measurements and ego pose. The actuator schedule stays outside the planner.'],
+      ['Refresh the map and check motion', 'clear visible space → expire old hits → A* → stop supervisor', 'A passage can reopen. Missing data or an unavailable route stops the wheel commands.'],
+      ['Replan and physically move again', 'new path → wheel drives → next measured pose', 'Verify a stationary hold, a changed detour, and matching collider/display positions in the actual run.'],
+    ],
+    ko: [
+      ['거리와 측정 시각 함께 읽기', '거리[180] + 측정 지점[180,3] + 측정 시각', '로봇은 측정값과 자기 위치를 받습니다. 장애물의 이동 일정은 계획기에 넘기지 않습니다.'],
+      ['지도를 갱신하고 움직임 판단', '빈 곳 확인 → 오래된 관측 제거 → A* → 정지 판단', '통로가 다시 열릴 수 있습니다. 센서 데이터가 오래됐거나 경로가 없으면 바퀴를 멈춥니다.'],
+      ['경로를 다시 정해 실제로 이동', '새 경로 → 바퀴 드라이브 → 다음 위치 측정', '정지 유지와 우회 방향 변경, 충돌체와 표시 위치의 일치를 실제 기록으로 검사합니다.'],
+    ],
+  },
   'worldgen-navigation': {
     en: [
       ['Measure the surroundings', 'ranges: float[180] + hit positions: float[180,3]', 'An ideal Physics Raycast Sensor measures colliders. The planner receives no object names or transforms.'],

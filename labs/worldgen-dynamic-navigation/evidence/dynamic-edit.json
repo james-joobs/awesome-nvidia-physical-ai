@@ -1,0 +1,68 @@
+{
+  "worldgen-dynamic-navigation-gate": {
+    "source_native_sha256": "d8c163a624068fdb6d836e585d7cec78b14c6aa04090e5a638764c385b8b0477",
+    "crop_xywh": [
+      50,
+      64,
+      952,
+      536
+    ],
+    "trim_start_s": 0.4,
+    "speed": 1.0,
+    "duration_limit_s": 23.02335131498985,
+    "simulation_s": 22.083333333333336,
+    "simulation_wall_s": 22.07335131498985,
+    "goal_reached_s": 20.066666666666666,
+    "published_sha256": "03e4415ff644465a47634eac56f9c87c07c358e933cf10f0104c27ec5e85dca3"
+  },
+  "worldgen-dynamic-navigation-static": {
+    "source_native_sha256": "d3d906e5fc152bc6bba80c4522932e64378f724712187121c7b86f4eb32dfe9a",
+    "crop_xywh": [
+      50,
+      64,
+      952,
+      536
+    ],
+    "trim_start_s": 0.4,
+    "speed": 1.0,
+    "duration_limit_s": 18.951126731047406,
+    "simulation_s": 18.0,
+    "simulation_wall_s": 18.001126731047407,
+    "goal_reached_s": null,
+    "published_sha256": "998670d27b9571ed8798e4127aa50d2a5512f0f624d6eebab17d0736b1ac2011"
+  },
+  "worldgen-dynamic-navigation-cart": {
+    "source_native_sha256": "e698680b826f49bedd356813e96e590ad6d939bfbdb21b9efd129cc2b4f260a4",
+    "crop_xywh": [
+      50,
+      64,
+      952,
+      536
+    ],
+    "trim_start_s": 0.4,
+    "speed": 1.0,
+    "duration_limit_s": 28.282827289006672,
+    "simulation_s": 27.333333333333336,
+    "simulation_wall_s": 27.332827289006673,
+    "goal_reached_s": 25.316666666666666,
+    "published_sha256": "86013fc63a29b9e0ec6207bed6a1171a03c54dae02ef9a006d3e5b1ee7943492"
+  },
+  "worldgen-dynamic-navigation": {
+    "edit": "13 s previous permanent-map excerpt, then complete refreshed-map gate take; labeled hard cut",
+    "sources": [
+      "worldgen-dynamic-navigation-static",
+      "worldgen-dynamic-navigation-gate"
+    ],
+    "speed": 1.0,
+    "published_sha256": "fda9669855950a50cd71c79f1d314a8cf703b89624b377959f8dc9afb5712c30"
+  },
+  "worldgen-dynamic-navigation-ko": {
+    "edit": "13 s previous permanent-map excerpt, then complete refreshed-map gate take; labeled hard cut",
+    "sources": [
+      "worldgen-dynamic-navigation-static",
+      "worldgen-dynamic-navigation-gate"
+    ],
+    "speed": 1.0,
+    "published_sha256": "c9e3eb41c5c8caf3f50a713259155a8bcb3da43a84c1a3c7f705a079c71587c6"
+  }
+}
