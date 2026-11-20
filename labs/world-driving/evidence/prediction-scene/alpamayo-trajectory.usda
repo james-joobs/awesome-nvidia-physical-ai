@@ -1,7 +1,7 @@
 #usda 1.0
 (
     defaultPrim = "World"
-    doc = """Generated from Composed Stage of root layer /home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/synthetic-intersection.usda
+    doc = """Generated from the public synthetic-intersection scene
 """
     endTimeCode = 192
     framesPerSecond = 30

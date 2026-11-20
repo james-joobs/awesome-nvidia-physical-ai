@@ -1,6 +1,5 @@
 {
   "date": "2026-11-20",
-  "host": "falconeyes-omen",
   "gpu": "NVIDIA RTX 5090 32 GB",
   "runtime_image": "nvcr.io/nvidia/isaac-sim@sha256:a025b65a7442d56806a1cc3f5eed081caf736c24b72d62dccf68ef66945d8690",
   "runs": [
@@ -18,7 +17,6 @@
     "record_gui.py": "41c907e329095bc2b4ea0fc5b61e2a150a64bd46264536ed0a6540071008d345"
   },
   "recording": "Native Isaac Sim X11 window, 1440×900. Viewport crops at 1×. Main comparison: 10 s baseline, then complete lower-layout sensor take, with controller labels.",
-  "remote_originals": "~/physical-ai-grid/worldgen-navigation-2026-11-20/films/",
   "asset_dependency": "labs/worldgen-isaac/assets; original generated room, explicit assumed scale and local colliders retained",
   "files": {
     "assets/lessons/worldgen-navigation/flow.en.svg": {
@@ -173,5 +171,6 @@
       "bytes": 504729,
       "sha256": "3f01e6cfa15593bf7042bae487b5f51ae9f286d8d2a11908bd17f50ea40a6ece"
     }
-  }
+  },
+  "publication_note": "Machine identifiers and private storage paths are omitted or normalized to ${LAB_ROOT}; recorded numerical results are unchanged."
 }

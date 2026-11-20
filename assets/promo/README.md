@@ -1,6 +1,6 @@
 # Site tour videos / 사이트 둘러보기 영상
 
-Updated **2026-11-20**. Both videos show the actual public GitHub Pages site, with short captions in the matching language. They begin in light mode and finish in dark mode.
+Updated **2026-11-20**. Both videos show the website itself, with short captions in the matching language. They begin in light mode and finish in dark mode.
 
 | Language / 언어 | Video | Length | Format |
 | --- | --- | --- | --- |

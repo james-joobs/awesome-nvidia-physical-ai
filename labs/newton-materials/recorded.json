@@ -7,7 +7,7 @@
     {
       "case": "cloth-xpbd",
       "command": [
-        "/home/falconeyes-omen/physical-ai-grid/microduck/IsaacLab/.venv/bin/python",
+        "${ISAACLAB_PYTHON}",
         "-m",
         "newton.examples",
         "cloth_hanging",
@@ -22,7 +22,7 @@
         "--viewer",
         "usd",
         "--output-path",
-        "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/newton-output/cloth-xpbd.usd",
+        "${RUN_DIR}/cloth-xpbd.usd",
         "--num-frames",
         "240",
         "--test"
@@ -70,7 +70,7 @@
     {
       "case": "cloth-vbd",
       "command": [
-        "/home/falconeyes-omen/physical-ai-grid/microduck/IsaacLab/.venv/bin/python",
+        "${ISAACLAB_PYTHON}",
         "-m",
         "newton.examples",
         "cloth_hanging",
@@ -85,7 +85,7 @@
         "--viewer",
         "usd",
         "--output-path",
-        "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/newton-output/cloth-vbd.usd",
+        "${RUN_DIR}/cloth-vbd.usd",
         "--num-frames",
         "240",
         "--test"
@@ -133,7 +133,7 @@
     {
       "case": "cable-twist",
       "command": [
-        "/home/falconeyes-omen/physical-ai-grid/microduck/IsaacLab/.venv/bin/python",
+        "${ISAACLAB_PYTHON}",
         "-m",
         "newton.examples",
         "cable_twist",
@@ -142,7 +142,7 @@
         "--viewer",
         "usd",
         "--output-path",
-        "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/newton-output/cable-twist.usd",
+        "${RUN_DIR}/cable-twist.usd",
         "--num-frames",
         "240",
         "--test"
@@ -219,5 +219,6 @@
         "live_physx": null
       }
     ]
-  }
+  },
+  "publication_note": "Machine identifiers and private storage paths are omitted. Paths in this public record are placeholders (${RUN_DIR}, ${MODEL_DIR}, ${MODEL_PYTHON}, ${ISAACLAB_PYTHON}) or repository-relative; numerical results are unchanged."
 }

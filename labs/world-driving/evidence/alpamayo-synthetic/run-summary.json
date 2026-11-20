@@ -59,18 +59,18 @@
     ]
   },
   "command": [
-    "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/alpamayo2-edge/.venv/bin/python",
-    "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/repo/labs/world-driving/run_alpamayo_synthetic.py",
+    "${MODEL_PYTHON}",
+    "labs/world-driving/run_alpamayo_synthetic.py",
     "--input",
-    "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection",
+    "${RUN_DIR}/synthetic-intersection",
     "--model",
-    "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/checkpoints/Alpamayo2-Edge",
+    "${MODEL_DIR}",
     "--output",
-    "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/outputs/alpamayo-cli",
+    "${RUN_DIR}/alpamayo-cli",
     "--seed",
     "19"
   ],
-  "cwd": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/repo",
+  "cwd": "${RUN_DIR}/repo",
   "source_hashes": [
     {
       "path": "labs/cli.py",
@@ -93,124 +93,124 @@
     "seed": 19,
     "inputs": [
       {
-        "path": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-0-t1000000.png",
+        "path": "${RUN_DIR}/camera-0-t1000000.png",
         "bytes": 52905,
         "sha256": "84865eec98e2309d15b7285b5e06fdcbbc85262c029977b873721a8d5dafac04"
       },
       {
-        "path": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-0-t1900000.png",
+        "path": "${RUN_DIR}/camera-0-t1900000.png",
         "bytes": 56962,
         "sha256": "e68b6acdf781648c334d9447b68d0ebc07630f060580a71073a3f9b77793c1ff"
       },
       {
-        "path": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-0-t2000000.png",
+        "path": "${RUN_DIR}/camera-0-t2000000.png",
         "bytes": 57323,
         "sha256": "43b81f35caae5cc121c77a8e78b0d4571a2f247ae057ea86fb161d477cf96c69"
       },
       {
-        "path": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-1-t0000000.png",
+        "path": "${RUN_DIR}/camera-1-t0000000.png",
         "bytes": 62994,
         "sha256": "e96fe50820993a5fdd61efaf7a8486ca9f6651fb288d5afc954fc15d5651f319"
       },
       {
-        "path": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-1-t1000000.png",
+        "path": "${RUN_DIR}/camera-1-t1000000.png",
         "bytes": 65193,
         "sha256": "cc6abea2e33bbc6fe0f086ae4ea800d4a25f7f6cb2e2b92bafe874c5f0f077f2"
       },
       {
-        "path": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-1-t1500000.png",
+        "path": "${RUN_DIR}/camera-1-t1500000.png",
         "bytes": 68765,
         "sha256": "d8a562de520b2b76d6b338a145d3bedc8ac484ecb33904d5d2c2b3fee2d4c9fb"
       },
       {
-        "path": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-1-t1900000.png",
+        "path": "${RUN_DIR}/camera-1-t1900000.png",
         "bytes": 70072,
         "sha256": "322048b44ef852920afcd6cadd1116737b1e185ea2c7ce19bcbf8c38b160ea4a"
       },
       {
-        "path": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-1-t2000000.png",
+        "path": "${RUN_DIR}/camera-1-t2000000.png",
         "bytes": 70164,
         "sha256": "c9f0988a3141529a9fc13f5edd22c14b12f1d9a941df58d60a208cb09beba201"
       },
       {
-        "path": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-2-t1000000.png",
+        "path": "${RUN_DIR}/camera-2-t1000000.png",
         "bytes": 47475,
         "sha256": "8aa7cf075012aaeaec5845536b935eb6d0e9c0c29a926fa6ef04d9cc0201ab2c"
       },
       {
-        "path": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-2-t1900000.png",
+        "path": "${RUN_DIR}/camera-2-t1900000.png",
         "bytes": 49387,
         "sha256": "074508835b4ece59d0c509f019b953a80bab4d7ca52c7e1074b9270e6c6b1d1b"
       },
       {
-        "path": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-2-t2000000.png",
+        "path": "${RUN_DIR}/camera-2-t2000000.png",
         "bytes": 48864,
         "sha256": "21b8805899da3081017b7d43bcae9e6493b9f4282e8c6741e17b46fa86d59f6a"
       },
       {
-        "path": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-3-t1000000.png",
+        "path": "${RUN_DIR}/camera-3-t1000000.png",
         "bytes": 60974,
         "sha256": "11c94d5d986145ff0d4dded2d2c52dfe08b9be6be490dc3ed8b3f1ca564aeab4"
       },
       {
-        "path": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-3-t1900000.png",
+        "path": "${RUN_DIR}/camera-3-t1900000.png",
         "bytes": 56690,
         "sha256": "32613c6ae20cf5f5234097eca064db1d55241d66b6a40b9ac249b6296fbd92d4"
       },
       {
-        "path": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-3-t2000000.png",
+        "path": "${RUN_DIR}/camera-3-t2000000.png",
         "bytes": 56687,
         "sha256": "7f6b191201b943fbbc6ef53d5f05a80f748673ad569745d88fe576e3eca2d1ab"
       },
       {
-        "path": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-5-t1000000.png",
+        "path": "${RUN_DIR}/camera-5-t1000000.png",
         "bytes": 55150,
         "sha256": "b2e8afd8ab4ac607ff3bc15b9a33aa6170208d9832be67d4f45762a4ca6e9b87"
       },
       {
-        "path": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-5-t1900000.png",
+        "path": "${RUN_DIR}/camera-5-t1900000.png",
         "bytes": 52886,
         "sha256": "fefa2e3d44e1205b729ef436a2e0cfc0a12d41aff2373ea679b098582c6b644a"
       },
       {
-        "path": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-5-t2000000.png",
+        "path": "${RUN_DIR}/camera-5-t2000000.png",
         "bytes": 53030,
         "sha256": "bc62528993d983c77f307277f82dffe58bcad5b7476ce3bc8e447afbaaaba0bc"
       },
       {
-        "path": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-6-t0000000.png",
+        "path": "${RUN_DIR}/camera-6-t0000000.png",
         "bytes": 79508,
         "sha256": "7e4f471b38bb48f3aa26a03eae8d52e704475ae669c55870edd500fee2803dc8"
       },
       {
-        "path": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-6-t1000000.png",
+        "path": "${RUN_DIR}/camera-6-t1000000.png",
         "bytes": 78946,
         "sha256": "8af82f415f73a56725b872ef987aa9104dcdc8a0871d7b25d9e594437573d82a"
       },
       {
-        "path": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-6-t1500000.png",
+        "path": "${RUN_DIR}/camera-6-t1500000.png",
         "bytes": 76054,
         "sha256": "d08fb833a0c0d22e29afa034eabf2d3f6b6eeac1e6512e932421891494277c5d"
       },
       {
-        "path": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-6-t1900000.png",
+        "path": "${RUN_DIR}/camera-6-t1900000.png",
         "bytes": 76545,
         "sha256": "6ac7aaf0ee657b99ab2696c1a8d91ee99efb7ed6f6224b54a03ee45562811c65"
       },
       {
-        "path": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-6-t2000000.png",
+        "path": "${RUN_DIR}/camera-6-t2000000.png",
         "bytes": 76816,
         "sha256": "5ecd81b106f96b28248ddbcdc77409f89c8700a9ba5d24c4c169207636369393"
       },
       {
-        "path": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/input.json",
+        "path": "${RUN_DIR}/input.json",
         "bytes": 6186,
         "sha256": "61a85809bd5eeb01409f1925c291e22c995d9a36d02931b87e5c38935f24254c"
       }
     ],
     "cosmos_guardrails": "upstream default retained",
     "model": {
-      "path": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/checkpoints/Alpamayo2-Edge",
+      "path": "${MODEL_DIR}",
       "declared_reference": {
         "repository": "nvidia/Alpamayo2-Edge",
         "revision": "b92b6aa326bd3e2235db28f248ad5a30b5890e64"
@@ -259,47 +259,47 @@
       {
         "name": "python",
         "ok": true,
-        "detail": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/alpamayo2-edge/.venv/bin/python"
+        "detail": "${MODEL_PYTHON}"
       },
       {
         "name": "source:labs/scenarios.json",
         "ok": true,
-        "detail": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/repo/labs/scenarios.json"
+        "detail": "labs/scenarios.json"
       },
       {
         "name": "source:labs/world-driving/run_alpamayo_synthetic.py",
         "ok": true,
-        "detail": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/repo/labs/world-driving/run_alpamayo_synthetic.py"
+        "detail": "labs/world-driving/run_alpamayo_synthetic.py"
       },
       {
         "name": "source:labs/world-driving/model-pins.json",
         "ok": true,
-        "detail": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/repo/labs/world-driving/model-pins.json"
+        "detail": "labs/world-driving/model-pins.json"
       },
       {
         "name": "argument:input",
         "ok": true,
-        "detail": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection"
+        "detail": "${RUN_DIR}/synthetic-intersection"
       },
       {
         "name": "input:input.json",
         "ok": true,
-        "detail": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/input.json"
+        "detail": "${RUN_DIR}/input.json"
       },
       {
         "name": "argument:model",
         "ok": true,
-        "detail": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/checkpoints/Alpamayo2-Edge"
+        "detail": "${MODEL_DIR}"
       },
       {
         "name": "model:config.json",
         "ok": true,
-        "detail": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/checkpoints/Alpamayo2-Edge/config.json"
+        "detail": "${MODEL_DIR}/config.json"
       },
       {
         "name": "model:model.safetensors.index.json",
         "ok": true,
-        "detail": "/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/checkpoints/Alpamayo2-Edge/model.safetensors.index.json"
+        "detail": "${MODEL_DIR}/model.safetensors.index.json"
       },
       {
         "name": "model:checkpoint-files",
@@ -312,139 +312,139 @@
         "detail": "Every indexed shard must exist"
       },
       {
-        "name": "input-file:/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-0-t1000000.png",
+        "name": "input-file:${RUN_DIR}/camera-0-t1000000.png",
         "ok": true,
         "detail": "JSON manifest or referenced image"
       },
       {
-        "name": "input-file:/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-0-t1900000.png",
+        "name": "input-file:${RUN_DIR}/camera-0-t1900000.png",
         "ok": true,
         "detail": "JSON manifest or referenced image"
       },
       {
-        "name": "input-file:/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-0-t2000000.png",
+        "name": "input-file:${RUN_DIR}/camera-0-t2000000.png",
         "ok": true,
         "detail": "JSON manifest or referenced image"
       },
       {
-        "name": "input-file:/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-1-t0000000.png",
+        "name": "input-file:${RUN_DIR}/camera-1-t0000000.png",
         "ok": true,
         "detail": "JSON manifest or referenced image"
       },
       {
-        "name": "input-file:/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-1-t1000000.png",
+        "name": "input-file:${RUN_DIR}/camera-1-t1000000.png",
         "ok": true,
         "detail": "JSON manifest or referenced image"
       },
       {
-        "name": "input-file:/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-1-t1500000.png",
+        "name": "input-file:${RUN_DIR}/camera-1-t1500000.png",
         "ok": true,
         "detail": "JSON manifest or referenced image"
       },
       {
-        "name": "input-file:/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-1-t1900000.png",
+        "name": "input-file:${RUN_DIR}/camera-1-t1900000.png",
         "ok": true,
         "detail": "JSON manifest or referenced image"
       },
       {
-        "name": "input-file:/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-1-t2000000.png",
+        "name": "input-file:${RUN_DIR}/camera-1-t2000000.png",
         "ok": true,
         "detail": "JSON manifest or referenced image"
       },
       {
-        "name": "input-file:/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-2-t1000000.png",
+        "name": "input-file:${RUN_DIR}/camera-2-t1000000.png",
         "ok": true,
         "detail": "JSON manifest or referenced image"
       },
       {
-        "name": "input-file:/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-2-t1900000.png",
+        "name": "input-file:${RUN_DIR}/camera-2-t1900000.png",
         "ok": true,
         "detail": "JSON manifest or referenced image"
       },
       {
-        "name": "input-file:/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-2-t2000000.png",
+        "name": "input-file:${RUN_DIR}/camera-2-t2000000.png",
         "ok": true,
         "detail": "JSON manifest or referenced image"
       },
       {
-        "name": "input-file:/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-3-t1000000.png",
+        "name": "input-file:${RUN_DIR}/camera-3-t1000000.png",
         "ok": true,
         "detail": "JSON manifest or referenced image"
       },
       {
-        "name": "input-file:/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-3-t1900000.png",
+        "name": "input-file:${RUN_DIR}/camera-3-t1900000.png",
         "ok": true,
         "detail": "JSON manifest or referenced image"
       },
       {
-        "name": "input-file:/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-3-t2000000.png",
+        "name": "input-file:${RUN_DIR}/camera-3-t2000000.png",
         "ok": true,
         "detail": "JSON manifest or referenced image"
       },
       {
-        "name": "input-file:/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-5-t1000000.png",
+        "name": "input-file:${RUN_DIR}/camera-5-t1000000.png",
         "ok": true,
         "detail": "JSON manifest or referenced image"
       },
       {
-        "name": "input-file:/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-5-t1900000.png",
+        "name": "input-file:${RUN_DIR}/camera-5-t1900000.png",
         "ok": true,
         "detail": "JSON manifest or referenced image"
       },
       {
-        "name": "input-file:/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-5-t2000000.png",
+        "name": "input-file:${RUN_DIR}/camera-5-t2000000.png",
         "ok": true,
         "detail": "JSON manifest or referenced image"
       },
       {
-        "name": "input-file:/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-6-t0000000.png",
+        "name": "input-file:${RUN_DIR}/camera-6-t0000000.png",
         "ok": true,
         "detail": "JSON manifest or referenced image"
       },
       {
-        "name": "input-file:/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-6-t1000000.png",
+        "name": "input-file:${RUN_DIR}/camera-6-t1000000.png",
         "ok": true,
         "detail": "JSON manifest or referenced image"
       },
       {
-        "name": "input-file:/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-6-t1500000.png",
+        "name": "input-file:${RUN_DIR}/camera-6-t1500000.png",
         "ok": true,
         "detail": "JSON manifest or referenced image"
       },
       {
-        "name": "input-file:/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-6-t1900000.png",
+        "name": "input-file:${RUN_DIR}/camera-6-t1900000.png",
         "ok": true,
         "detail": "JSON manifest or referenced image"
       },
       {
-        "name": "input-file:/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/camera-6-t2000000.png",
+        "name": "input-file:${RUN_DIR}/camera-6-t2000000.png",
         "ok": true,
         "detail": "JSON manifest or referenced image"
       },
       {
-        "name": "input-file:/home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/inputs/synthetic-intersection/input.json",
+        "name": "input-file:${RUN_DIR}/input.json",
         "ok": true,
         "detail": "JSON manifest or referenced image"
       },
       {
         "name": "module:alpamayo2_edge",
         "ok": true,
-        "detail": "checked with /home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/alpamayo2-edge/.venv/bin/python"
+        "detail": "checked with ${MODEL_PYTHON}"
       },
       {
         "name": "module:torch",
         "ok": true,
-        "detail": "checked with /home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/alpamayo2-edge/.venv/bin/python"
+        "detail": "checked with ${MODEL_PYTHON}"
       },
       {
         "name": "module:numpy",
         "ok": true,
-        "detail": "checked with /home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/alpamayo2-edge/.venv/bin/python"
+        "detail": "checked with ${MODEL_PYTHON}"
       },
       {
         "name": "module:PIL",
         "ok": true,
-        "detail": "checked with /home/falconeyes-omen/physical-ai-grid/four-domains-2026-11-19/world-driving/alpamayo2-edge/.venv/bin/python"
+        "detail": "checked with ${MODEL_PYTHON}"
       },
       {
         "name": "python-probe",
@@ -454,7 +454,7 @@
       {
         "name": "gpu",
         "ok": true,
-        "detail": "GPU 0: NVIDIA GeForce RTX 5090 (UUID: GPU-9abe7a12-cdf8-bfb5-7dcb-ece0df04f35a)\n"
+        "detail": "GPU 0: NVIDIA GeForce RTX 5090 (UUID: [omitted])\n"
       }
     ]
   },
@@ -525,5 +525,6 @@
       "bytes": 1850,
       "sha256": "2ca210d6528e26c37ecd7467fbbb8b4207c0722f790aa44a634572bd34e1fa39"
     }
-  ]
+  ],
+  "publication_note": "Machine identifiers and private storage paths are omitted. Paths in this public record are placeholders (${RUN_DIR}, ${MODEL_DIR}, ${MODEL_PYTHON}, ${ISAACLAB_PYTHON}) or repository-relative; numerical results are unchanged."
 }

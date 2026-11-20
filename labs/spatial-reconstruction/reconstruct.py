@@ -53,7 +53,7 @@ def main():
     parser.add_argument("--ffmpeg",default="ffmpeg")
     args=parser.parse_args()
     args.output.mkdir(parents=True,exist_ok=True)
-    torch.backends.cudnn.enabled=False  # OMEN cuDNN library mismatch; native CUDA convolutions still work.
+    torch.backends.cudnn.enabled=False  # GPU workstation cuDNN library mismatch; native CUDA convolutions still work.
     scene=SfmScene.from_simple_directory(args.input)
     config=GaussianSplatReconstructionConfig(max_epochs=args.epochs,optimize_camera_poses=False,
         refine_stop_epoch=args.epochs,near_plane=.05,far_plane=200)

@@ -1,0 +1,24 @@
+{
+  "format": "single-file ONNX, including weights",
+  "sha256": "1e39590c4b3df13cd833b75a765ed65307e5b58c8e01c4319eb941d8b2a141b6",
+  "bytes": 793215,
+  "input": {
+    "obs": [
+      1,
+      61
+    ]
+  },
+  "output_shape": [
+    1,
+    14
+  ],
+  "publication_changes": "Removed debug metadata and embedded the original external weights; graph operators and tensors are unchanged.",
+  "comparison": {
+    "runtime": "onnxruntime 1.32.0, CPUExecutionProvider",
+    "seed": 42,
+    "random_inputs": 100,
+    "outputs_bitwise_equal": true,
+    "maximum_absolute_difference": 0.0
+  },
+  "scope": "Interface and publication-equivalence checks; not a walking benchmark."
+}

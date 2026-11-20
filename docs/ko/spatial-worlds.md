@@ -24,9 +24,9 @@
 
 **World Labs Marble**은 글과 시각 입력으로 탐색 가능한 세계를 만듭니다. 공식 문서에는 SPZ·PLY splat과 별도의 메시·충돌체 내보내기가 설명되어 있습니다. 호스팅 서비스이며 로컬 오픈소스 모델은 아닙니다. 무료 생성과 파일 내보내기 권한도 다릅니다. 현재 내보내기는 유료 플랜이 필요합니다. 이번 작업에서는 유료 API를 호출하거나 Marble 세계를 생성하지 않았습니다. 대신 World Labs의 오픈소스 렌더러 **Spark**로 직접 복원한 fVDB 장면을 보여줍니다. [Marble 내보내기](https://docs.worldlabs.ai/marble/export/gaussian-splat/index) · [파일 형식](https://docs.worldlabs.ai/marble/export/specs) · [Spark 소스·MIT](https://github.com/sparkjsdev/spark)
 
-**NVIDIA Lyra 1.0**은 생성한 다중 시점 영상 정보와 Gaussian 디코더를 결합해 3D·4D 장면을 출력합니다. 모델 카드의 가중치 조건은 NVIDIA Open Model License입니다. **Lyra 2.0**은 긴 탐색 경로에서 3D 일관성을 유지하는 세계 생성·복원 계열이며, 가중치 조건이 NVIDIA Internal Scientific Research and Development Model License로 다릅니다. 두 구현 코드는 Apache-2.0으로 공개되어 있습니다. 1.0의 모델 조건을 2.0에 그대로 적용하면 안 됩니다. 2.0 공식 설치 환경은 H100으로 검증되어 있으며, 이번 OMEN 업데이트에서는 두 버전 모두 실행하지 않았습니다. [Lyra 소스](https://github.com/nv-tlabs/lyra) · [1.0 모델 카드](https://huggingface.co/nvidia/Lyra) · [2.0 코드·모델 조건](https://github.com/nv-tlabs/lyra/tree/9fffc9adc37004091ecf26ef03abfb3abdf4d59a/Lyra-2)
+**NVIDIA Lyra 1.0**은 생성한 다중 시점 영상 정보와 Gaussian 디코더를 결합해 3D·4D 장면을 출력합니다. 모델 카드의 가중치 조건은 NVIDIA Open Model License입니다. **Lyra 2.0**은 긴 탐색 경로에서 3D 일관성을 유지하는 세계 생성·복원 계열이며, 가중치 조건이 NVIDIA Internal Scientific Research and Development Model License로 다릅니다. 두 구현 코드는 Apache-2.0으로 공개되어 있습니다. 1.0의 모델 조건을 2.0에 그대로 적용하면 안 됩니다. 2.0 공식 설치 환경은 H100으로 검증되어 있으며, 이번 GPU workstation 업데이트에서는 두 버전 모두 실행하지 않았습니다. [Lyra 소스](https://github.com/nv-tlabs/lyra) · [1.0 모델 카드](https://huggingface.co/nvidia/Lyra) · [2.0 코드·모델 조건](https://github.com/nv-tlabs/lyra/tree/9fffc9adc37004091ecf26ef03abfb3abdf4d59a/Lyra-2)
 
-**WorldGen**은 글·이미지에서 파노라마를 생성하고 DA-2로 거리를 추정한 뒤 splat·메시로 바꿉니다. FLUX 두 모델의 접근 승인 후 OMEN에서 **텍스트 장면 두 개와 카메라 정보가 있는 이미지 장면 한 개**를 실제 생성했습니다. [실습 가이드](labs/worldgen-scenes.md)에 장면별 20초 자유 시점 영상, 직접 불러보는 3D 미리보기, 코드와 형상 검사 방법을 담았습니다. 코드·LoRA는 Apache-2.0이며 FLUX 가중치의 비상업 모델 조건과 사용자별 접근 승인은 별도입니다. 이미지 경로에는 카메라 내부 파라미터를 이용한 투영 보정을 적용했고 내용을 공개했습니다. [WorldGen](https://github.com/ZiYang-xie/WorldGen) · [FLUX.1-dev](https://huggingface.co/black-forest-labs/FLUX.1-dev) · [FLUX.1-Fill-dev](https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev)
+**WorldGen**은 글·이미지에서 파노라마를 생성하고 DA-2로 거리를 추정한 뒤 splat·메시로 바꿉니다. FLUX 두 모델의 접근 승인 후 GPU 머신에서 **텍스트 장면 두 개와 카메라 정보가 있는 이미지 장면 한 개**를 실제 생성했습니다. [실습 가이드](labs/worldgen-scenes.md)에 장면별 20초 자유 시점 영상, 직접 불러보는 3D 미리보기, 코드와 형상 검사 방법을 담았습니다. 코드·LoRA는 Apache-2.0이며 FLUX 가중치의 비상업 모델 조건과 사용자별 접근 승인은 별도입니다. 이미지 경로에는 카메라 내부 파라미터를 이용한 투영 보정을 적용했고 내용을 공개했습니다. [WorldGen](https://github.com/ZiYang-xie/WorldGen) · [FLUX.1-dev](https://huggingface.co/black-forest-labs/FLUX.1-dev) · [FLUX.1-Fill-dev](https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev)
 
 ### 촬영한 공간의 복원과 편집 가능한 기하 구조
 
@@ -36,7 +36,7 @@
 
 **2026-11-20** 확인 기준입니다. ‘실행’은 제작자의 홍보 영상을 가져온 것이 아니라 직접 돌려 결과를 저장했다는 뜻입니다.
 
-| 도구 | OMEN에서 확인한 상태 | 볼 수 있는 결과 |
+| 도구 | GPU 머신에서 확인한 상태 | 볼 수 있는 결과 |
 |---|---|---|
 | CARLA 0.9.16 / UE4.26 | RTX 5090 실행 | 운전자 시점 네 환경, 원본 추적 카메라·차량 경로 |
 | fVDB Reality Capture 0.6.0 | RTX 5090 실행 | 72시점 촬영, 전체 PLY, 3DGS 영상, 6.15MB 브라우저 모델 |
@@ -47,7 +47,7 @@
 | NVIDIA Lyra 1·2 | 공식 자료·라이선스 검토 | 참고 경로. 이번에는 실행하지 않음 |
 | World Labs Marble | 호스팅 서비스 참고 | 계정 생성·결제·API 작업 없음 |
 
-WonderWorld 공식 설치는 GPU 메모리 48GB를 요구해 OMEN의 단일 32GB GPU 조건을 넘습니다. HunyuanWorld 1.0은 커뮤니티 라이선스에서 한국을 제외하므로 이번 실행 후보에서 뺐습니다. 이는 실행 대상을 고른 조건이며 시각적 품질의 우열은 아닙니다. [WonderWorld](https://github.com/KovenYu/WonderWorld) · [HunyuanWorld 1.0 라이선스](https://github.com/Tencent-Hunyuan/HunyuanWorld-1.0/blob/main/LICENSE)
+WonderWorld 공식 설치는 GPU 메모리 48GB를 요구해 GPU 머신의 단일 32GB GPU 조건을 넘습니다. HunyuanWorld 1.0은 커뮤니티 라이선스에서 한국을 제외하므로 이번 실행 후보에서 뺐습니다. 이는 실행 대상을 고른 조건이며 시각적 품질의 우열은 아닙니다. [WonderWorld](https://github.com/KovenYu/WonderWorld) · [HunyuanWorld 1.0 라이선스](https://github.com/Tencent-Hunyuan/HunyuanWorld-1.0/blob/main/LICENSE)
 
 ## 어떤 순서로 실습하면 좋을까요?
 

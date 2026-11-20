@@ -1,6 +1,5 @@
 {
   "date": "2026-11-20",
-  "host": "falconeyes-omen",
   "access": {
     "FLUX.1-dev": "authenticated access verified",
     "FLUX.1-Fill-dev": "authenticated access verified"
@@ -163,5 +162,6 @@
     "audit.py": "3bfb72cab33796f6a3cc4d2f342099b1f06110e8bb3350a64f2580b6de8211a1",
     "preview.py": "634617b4b9be2f341eb28deeaa95014e44146d35293e26e0ac1ccafedf3f3794",
     "model-pins.json": "b2c249f1f2be85d54df29376cd37d2a1c259ab8c9bd3a45e9921260d9ec002f2"
-  }
+  },
+  "publication_note": "Private machine identifiers are omitted. The input PNG has identical pixels with render metadata removed; its original and published byte hashes are recorded in the living-room result."
 }

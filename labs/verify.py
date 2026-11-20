@@ -94,6 +94,11 @@ def verify_evidence():
     assert len(rows) == len({row["rgb_sha256"] for row in rows}) == 12
     assert [row["frame"] for row in rows if row["candidate_occluded"]] == [3, 7, 11]
 
+    policy = json.loads((ROOT / "microduck/policy-publication.json").read_text())
+    policy_bytes = (ROOT / "microduck/policy.onnx").read_bytes()
+    assert len(policy_bytes) == policy["bytes"]
+    assert hashlib.sha256(policy_bytes).hexdigest() == policy["sha256"]
+    assert policy["comparison"]["outputs_bitwise_equal"]
     microduck = report("microduck")
     assert microduck["environments"] == 512 and microduck["iteration_count"] == len(microduck["iterations"]) == 500
     assert microduck["windows"]["last_50"]["mean_reward"] > microduck["windows"]["first_50"]["mean_reward"]

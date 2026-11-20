@@ -38,7 +38,7 @@ CHECKPOINT="/실제/학습/폴더/model_499.pt"
 bash labs/microduck/play.sh "$ISAAC_LAB_DIR" "$CHECKPOINT"
 ```
 
-함께 제공하는 [ONNX 파일](../../../labs/microduck/policy.onnx)은 다른 런타임으로 내보낸 모델입니다. 위 Isaac Lab 재생에서는 학습으로 생성한 `.pt` 파일을 사용합니다.
+함께 제공하는 [ONNX 파일](../../../labs/microduck/policy.onnx)은 다른 런타임으로 내보낸 모델입니다. 위 Isaac Lab 재생에서는 학습으로 생성한 `.pt` 파일을 사용합니다. 공개 모델은 가중치가 포함된 단일 파일이며 디버그 메타데이터를 제거했습니다. 관측값 61개를 받아 관절 목표값 14개를 출력합니다. 별도 환경에 `onnxruntime==1.32.0`을 설치한 뒤 `python labs/microduck/check_policy.py`로 GPU 없이 입출력을 확인할 수 있습니다. 원본 내보내기 결과와의 비교는 [검사 기록](../../../labs/microduck/policy-publication.json)에 남겼습니다.
 
 ## 테스트 결과
 

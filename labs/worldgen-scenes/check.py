@@ -47,7 +47,7 @@ def main():
         if case['mode']=='i2s':
             assert result['conditioning']['max_preserved_rgb_error']==0
             assert .1<result['conditioning']['observed_panorama_fraction']<.3
-            assert hashlib.sha256((folder/'evidence/input.png').read_bytes()).hexdigest()==result['conditioning']['source_sha256']
+            assert hashlib.sha256((folder/'evidence/input.png').read_bytes()).hexdigest()==result['conditioning'].get('published_source_sha256', result['conditioning']['source_sha256'])
     print('WorldGen: 3 generated scenes, 1,440 translated camera poses, 3 MP4s and 3 compressed previews verified.')
 
 

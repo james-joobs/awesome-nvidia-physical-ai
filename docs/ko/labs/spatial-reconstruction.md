@@ -61,7 +61,7 @@ python labs/spatial-reconstruction/reconstruct.py \
   --input runs/plaza-input --output runs/plaza-3dgs --ffmpeg ffmpeg
 ```
 
-카메라 자세를 고정한 채 RGB 63장으로 40에포크를 학습합니다. 전체 PLY와 가벼운 `.splat`을 저장하고, 새 카메라 경로의 영상과 검사 지표를 만듭니다. OMEN에서는 cuDNN 라이브러리 버전 충돌이 있어 cuDNN을 끄고 PyTorch의 기본 CUDA 합성곱을 사용했습니다. fVDB 학습·렌더링은 계속 GPU에서 수행합니다. 코드와 실행 기록에도 이 우회 설정을 명시했습니다.
+카메라 자세를 고정한 채 RGB 63장으로 40에포크를 학습합니다. 전체 PLY와 가벼운 `.splat`을 저장하고, 새 카메라 경로의 영상과 검사 지표를 만듭니다. 촬영 환경에서는 cuDNN 라이브러리 버전 충돌이 있어 cuDNN을 끄고 PyTorch의 기본 CUDA 합성곱을 사용했습니다. fVDB 학습·렌더링은 계속 GPU에서 수행합니다. 코드와 실행 기록에도 이 우회 설정을 명시했습니다.
 
 브라우저용 모델은 Gaussian을 버리지 않고 전체 PLY를 PlayCanvas CLI로 압축합니다.
 
@@ -91,4 +91,4 @@ python3 labs/spatial-reconstruction/check.py
 
 검사용으로 남긴 시점, 카메라 회전, 모델 값의 유효성, 미리보기 용량과 영상 해시를 확인합니다. [이번 실행 기록](../../../labs/spatial-reconstruction/recorded.json)의 검사 이미지 9장은 평균 **PSNR 23.434dB**입니다. 학습에 이 RGB들을 넣지 않았고 초기 점군에도 해당 깊이·색을 넣지 않았습니다. 작은 합성 장면에서 측정한 값이며, 여러 데이터셋을 비교한 성능 순위는 아닙니다. 물결, 먼 배경, 촬영 범위 바깥은 여전히 번지거나 비어 보일 수 있습니다.
 
-원본 촬영 전체와 전체 PLY는 OMEN 실행 폴더에 보관합니다. 저장소에는 코드·카메라 정보·지표·압축 영상·브라우저용 모델을 넣었습니다. [미디어 출처와 이용 조건](../../../site/public/showcase/SPATIAL-CREDITS.md) · [실내 장면 생성하기](scene-generation.md) · [fVDB 동작 원리](../fvdb-reality-capture.md).
+저장소에는 코드·카메라 정보·지표·압축 영상·브라우저용 모델을 넣었습니다. [미디어 출처와 이용 조건](../../../site/public/showcase/SPATIAL-CREDITS.md) · [실내 장면 생성하기](scene-generation.md) · [fVDB 동작 원리](../fvdb-reality-capture.md).

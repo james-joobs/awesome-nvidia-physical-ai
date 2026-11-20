@@ -97,8 +97,8 @@ export const topics = [
     en: { title: '3D worlds & rendering', description: 'Explore 3D Gaussian scenes, generate indoor geometry, and compare these with neural 3D world generation and video world models.' },
     ko: { title: '3D 세계 생성·렌더링', description: '3DGS 공간을 직접 둘러보고 실내 기하 구조를 생성합니다. 생성형 3D 세계·사진 복원·영상 월드 모델의 차이도 살펴보세요.' },
     focus: {
-      en: { title: '3D worlds & world models', outcome: 'Generate a 3D world with WorldGen, explore fVDB reconstruction and procedural houses, then compare Marble, Lyra and video models.', availability: 'Interactive 3DGS · OMEN runs · generation and reconstruction separated' },
-      ko: { title: '3D 세계·월드 모델', outcome: 'WorldGen으로 만든 공간과 fVDB 복원 장면을 직접 둘러보세요. 절차적 생성, Marble·Lyra, 영상 모델의 입출력도 비교합니다.', availability: '탐색 가능한 3DGS · OMEN 실행 · 생성과 복원 구분' },
+      en: { title: '3D worlds & world models', outcome: 'Generate a 3D world with WorldGen, explore fVDB reconstruction and procedural houses, then compare Marble, Lyra and video models.', availability: 'Interactive 3DGS · Recorded experiments · generation and reconstruction separated' },
+      ko: { title: '3D 세계·월드 모델', outcome: 'WorldGen으로 만든 공간과 fVDB 복원 장면을 직접 둘러보세요. 절차적 생성, Marble·Lyra, 영상 모델의 입출력도 비교합니다.', availability: '탐색 가능한 3DGS · GPU 실행 · 생성과 복원 구분' },
     },
     entries: [recording('worldgen-scenes', ['WorldGen', 'FLUX.1', 'DA-2']), recording('worldgen-isaac', ['WorldGen', 'Isaac Sim 6.2', 'PhysX']), recording('worldgen-navigation', ['WorldGen', 'Isaac Sim 6.2', 'Physics Raycast Sensor']), recording('worldgen-dynamic-navigation', ['WorldGen', 'Isaac Sim 6.2', 'Physics Raycast Sensor']), recording('spatial-reconstruction', ['fVDB', 'CARLA', 'Spark / World Labs']), recording('scene-generation', ['Infinigen', 'Blender']), recording('world-driving', ['Cosmos3-Edge', 'Alpamayo2-Edge', 'Isaac Sim']), ...topicGuides],
   },

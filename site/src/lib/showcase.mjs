@@ -10,7 +10,7 @@ export const showcaseCopy = {
     homeAlt: 'Sixteen scenes recorded in Isaac Sim, with GR00T putting a cube in a bowl in the first tile',
     homeAction: 'Watch 16 Isaac Sim scenes',
     title: 'Physical AI in motion',
-    intro: 'Explore robot policies, physics, 3D Gaussian worlds, generated indoor scenes and ego-camera driving. Our OMEN runs use NVIDIA GPU tools, CARLA and Blender; each recording links to code and checks.',
+    intro: 'Explore robot policies, physics, 3D Gaussian worlds, generated indoor scenes and ego-camera driving. These experiments use NVIDIA GPU tools, CARLA and Blender; each recording links to code and checks.',
     overview: '16 scenes',
     featured: '16 scenes from the Isaac Sim GUI',
     featuredDetail: 'Watch the top-left tile for the successful GR00T placement. The next tile shows the earlier attempt that lost the cube.',
@@ -28,7 +28,7 @@ export const showcaseCopy = {
     homeAlt: 'Isaac Sim에서 녹화한 16개 장면. 첫 칸에서 GR00T가 큐브를 그릇에 놓습니다.',
     homeAction: 'Isaac Sim 16개 장면 보기',
     title: '영상으로 보는 피지컬 AI',
-    intro: '로봇 정책·물리부터 3DGS 공간·실내 장면 생성·운전자 시점 주행까지 살펴보세요. OMEN에서 NVIDIA GPU 도구와 CARLA·Blender를 직접 실행했으며, 영상마다 코드와 검사 방법을 연결했습니다.',
+    intro: '로봇 정책·물리부터 3DGS 공간·실내 장면 생성·운전자 시점 주행까지 살펴보세요. GPU 머신에서 NVIDIA GPU 도구와 CARLA·Blender를 직접 실행했으며, 영상마다 코드와 검사 방법을 연결했습니다.',
     overview: '16개 장면',
     featured: 'Isaac Sim GUI로 찍은 16개 장면',
     featuredDetail: '첫 칸에서 GR00T가 큐브를 그릇에 놓습니다. 바로 옆에서는 앞선 시도의 그리퍼가 큐브를 놓칩니다.',
@@ -201,8 +201,8 @@ export const additionalRecordings = [
   ].map(([id, en, ko]) => ({
     id: `worldgen-${id}`, lab: 'worldgen-scenes', duration: '0:20', width: 960, height: 540,
     tags: ['WorldGen', 'FLUX.1', 'DA-2', 'fVDB renderer'],
-    en: { title: en, description: 'Actual OMEN model inference, followed by a translated camera path rendered from the Gaussian PLY. Distance is inferred and not metric ground truth.' },
-    ko: { title: ko, description: 'OMEN에서 모델을 직접 실행한 뒤 Gaussian PLY에서 카메라를 움직여 렌더링했습니다. 깊이는 추정값이며 실제 거리의 정답은 아닙니다.' },
+    en: { title: en, description: 'Actual model inference on an RTX GPU, followed by a translated camera path rendered from the Gaussian PLY. Distance is inferred and not metric ground truth.' },
+    ko: { title: ko, description: 'GPU 머신에서 모델을 직접 실행한 뒤 Gaussian PLY에서 카메라를 움직여 렌더링했습니다. 깊이는 추정값이며 실제 거리의 정답은 아닙니다.' },
   })),
   ...[
     ['city-clear', 'Clear city', '맑은 도심'],

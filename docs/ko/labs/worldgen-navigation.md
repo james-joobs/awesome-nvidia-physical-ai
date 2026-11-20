@@ -156,7 +156,7 @@ python3 labs/worldgen-navigation/test_navigation.py
 python3 labs/worldgen-navigation/check.py
 ```
 
-첫 명령은 관측에 따라 경로가 달라지는지와 정지 조건을 검사합니다. 두 번째는 OMEN에서 실제 실행한 데이터로 거리 배열의 크기와 시각, 우회 방향, 접촉, 도착 위치, 영상 해시를 확인합니다. 직접 실행한 결과도 검사할 수 있습니다.
+첫 명령은 관측에 따라 경로가 달라지는지와 정지 조건을 검사합니다. 두 번째는 GPU 머신에서 실제 실행한 데이터로 거리 배열의 크기와 시각, 우회 방향, 접촉, 도착 위치, 영상 해시를 확인합니다. 직접 실행한 결과도 검사할 수 있습니다.
 
 ```bash
 python3 labs/worldgen-navigation/check.py --run runs/worldgen-navigation/sensor-lower

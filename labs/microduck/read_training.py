@@ -1,4 +1,4 @@
-"""Summarize the warm-up and final training windows from the OMEN Microduck run."""
+"""Summarize the warm-up and final training windows from the GPU workstation Microduck run."""
 
 import argparse
 import json

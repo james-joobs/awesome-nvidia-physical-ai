@@ -1,0 +1,22 @@
+name: Check publication privacy
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publication:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Check public files, metadata, archives and secrets
+        env:
+          PUBLICATION_PRIVATE_NAMES: ${{ secrets.PUBLICATION_PRIVATE_NAMES }}
+        run: bash scripts/ci-publication-checks.sh

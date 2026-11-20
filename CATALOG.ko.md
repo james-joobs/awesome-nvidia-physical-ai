@@ -434,7 +434,7 @@ NeMo 도구는 데이터 준비, 모델 후학습과 에이전트 운영에 쓰�
 | **[Infinigen](https://github.com/princeton-vl/infinigen)** | 편집할 수 있는 실내·자연 장면의 절차적 생성 | [BSD-3-Clause 코드](https://github.com/princeton-vl/infinigen/blob/53033dd55c7191cbc436be6ffbb63c026935a509/LICENSE). Blender·에셋 조건 별도 | [가이드](docs/ko/labs/scene-generation.md) |
 | **[Spark / World Labs](https://github.com/sparkjsdev/spark)** | Three.js 기반 브라우저 3DGS 렌더러 | [MIT](https://github.com/sparkjsdev/spark/blob/f94964a712e217b7121ae642299fdac6041e5a12/LICENSE). 코드 공개. Marble 모델 가중치는 포함하지 않음 | [가이드](docs/ko/labs/spatial-reconstruction.md) |
 | **[Apple SHARP](https://github.com/apple-aiml-research/ml-sharp)** | 사진 한 장에서 주변 시점을 위한 Gaussian 복원 | [Apple 별도 코드 라이선스](https://github.com/apple-aiml-research/ml-sharp/blob/aed6527499ef91cba3b54c18d49a870f25947190/LICENSE) · [가중치는 비상업적 연구용](https://github.com/apple-aiml-research/ml-sharp/blob/aed6527499ef91cba3b54c18d49a870f25947190/LICENSE_MODEL) | [가이드](docs/ko/labs/spatial-reconstruction.md) |
-| **[WorldGen](https://github.com/ZiYang-xie/WorldGen)** | 글·이미지 → 파노라마 → 깊이 → splat·메시 | [Apache-2.0 코드](https://github.com/ZiYang-xie/WorldGen/blob/7ce7b2767fdf31e2727b69a2e61e2e950e3a017f/LICENSE). FLUX 가중치 조건·사용자별 접근 승인 별도. 2026-11-20 OMEN 글·이미지 생성 검증 | [비교](docs/ko/spatial-worlds.md) · [WorldGen 실습](docs/ko/labs/worldgen-scenes.md) |
+| **[WorldGen](https://github.com/ZiYang-xie/WorldGen)** | 글·이미지 → 파노라마 → 깊이 → splat·메시 | [Apache-2.0 코드](https://github.com/ZiYang-xie/WorldGen/blob/7ce7b2767fdf31e2727b69a2e61e2e950e3a017f/LICENSE). FLUX 가중치 조건·사용자별 접근 승인 별도. 2026-11-20 GPU workstation 글·이미지 생성 검증 | [비교](docs/ko/spatial-worlds.md) · [WorldGen 실습](docs/ko/labs/worldgen-scenes.md) |
 
 ## 4. 연결 관계와 명칭 정리
 

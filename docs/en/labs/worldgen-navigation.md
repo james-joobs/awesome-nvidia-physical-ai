@@ -156,7 +156,7 @@ python3 labs/worldgen-navigation/test_navigation.py
 python3 labs/worldgen-navigation/check.py
 ```
 
-The first command tests planning behavior from observations and the stop conditions. The second checks the actual OMEN runs, range shapes and timestamps, route choices, contacts, endpoints and media hashes. To check your own complete run:
+The first command tests planning behavior from observations and the stop conditions. The second checks the actual Recorded experiments, range shapes and timestamps, route choices, contacts, endpoints and media hashes. To check your own complete run:
 
 ```bash
 python3 labs/worldgen-navigation/check.py --run runs/worldgen-navigation/sensor-lower

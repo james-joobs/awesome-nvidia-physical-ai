@@ -1,6 +1,5 @@
 {
   "date": "2026-11-20",
-  "host": "falconeyes-omen",
   "gpu": "NVIDIA RTX 5090 32 GB",
   "runtime_image": "nvcr.io/nvidia/isaac-sim@sha256:a025b65a7442d56806a1cc3f5eed081caf736c24b72d62dccf68ef66945d8690",
   "runs": [
@@ -20,7 +19,6 @@
     "probes": "wide collision-only view; generated room hidden"
   },
   "scope": "Assumed 1.5 m source-camera height, not metric recovery. Explicit local proxy physics. Fixed-time recovery and hand-authored waypoints, not learned perception or autonomous planning.",
-  "remote_originals": "~/physical-ai-grid/worldgen-isaac-2026-11-20/",
   "files": {
     "labs/worldgen-isaac/package.py": {
       "bytes": 2659,
@@ -138,5 +136,6 @@
       "bytes": 1387845,
       "sha256": "ffa2c8ec714e3e280538451cfbeb1f4d5b04d965fb14f3c7a7ce6af8b6a96ac6"
     }
-  }
+  },
+  "publication_note": "Machine identifiers and private storage paths are omitted or normalized to ${LAB_ROOT}; recorded numerical results are unchanged."
 }

@@ -61,7 +61,7 @@ python labs/spatial-reconstruction/reconstruct.py \
   --input runs/plaza-input --output runs/plaza-3dgs --ffmpeg ffmpeg
 ```
 
-The script uses 63 RGB training views for 40 epochs. It leaves camera poses fixed, exports the full PLY and the lighter `.splat`, renders a new camera path, and writes evaluation metrics. On OMEN, cuDNN library versions conflicted, so this script disables cuDNN and uses native PyTorch CUDA convolutions; fVDB training and rendering still run on the GPU. That workaround is explicit in the source and record.
+The script uses 63 RGB training views for 40 epochs. It leaves camera poses fixed, exports the full PLY and the lighter `.splat`, renders a new camera path, and writes evaluation metrics. In the recorded environment, cuDNN library versions conflicted, so this script disables cuDNN and uses native PyTorch CUDA convolutions; fVDB training and rendering still run on the GPU. That workaround is explicit in the source and record.
 
 For the web preview, keep every Gaussian and compress the full PLY with a pinned PlayCanvas CLI:
 
@@ -91,4 +91,4 @@ python3 labs/spatial-reconstruction/check.py
 
 The bundled checker verifies the split, camera rotations, finite model parameters, preview size and recorded video hashes. The [recorded run](../../../labs/spatial-reconstruction/recorded.json) has 9 held-out RGB views with a mean **23.434 dB PSNR**. The photometric fit excludes those RGBs, and the seed excludes their depth and colors. This is a small synthetic scene measurement, not a cross-dataset benchmark. Water reflections, distant backgrounds, holes and views outside the captured region remain imperfect.
 
-The complete original captures and full PLYs stay in the OMEN run folder; the repository includes camera metadata, code, metrics, compressed recordings and the browser preview. [Media provenance and license scope](../../../site/public/showcase/SPATIAL-CREDITS.md) · [Generate an indoor scene](scene-generation.md) · [fVDB theory](../fvdb-reality-capture.md).
+The repository includes camera metadata, code, metrics, compressed recordings and the browser preview. [Media provenance and license scope](../../../site/public/showcase/SPATIAL-CREDITS.md) · [Generate an indoor scene](scene-generation.md) · [fVDB theory](../fvdb-reality-capture.md).
