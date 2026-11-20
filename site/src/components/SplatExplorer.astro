@@ -1,29 +1,41 @@
 ---
 import { showcaseMedia } from '../lib/showcase.mjs';
 import recorded from '../../../labs/spatial-reconstruction/recorded.json';
-const { locale } = Astro.props;
+import worldgen from '../../../labs/worldgen-scenes/recorded.json';
+const { locale, sceneId = 'town03', first = false } = Astro.props;
+const generated = sceneId !== 'town03';
+const sceneRecord = worldgen.cases.find((row) => row.id === sceneId);
+const names = { 'robot-lab': ['Generated robotics laboratory', '생성한 로봇 실험실'], livingroom: ['Expanded living room', '이미지에서 확장한 거실'], 'forest-trail': ['Generated forest trail', '생성한 숲길'] };
+const sceneName = generated ? names[sceneId][locale === 'ko' ? 1 : 0] : '';
+const titleId = `splat-title-${sceneId}`;
+const sectionId = generated && !first ? `explore-${sceneId}` : 'explore';
 const ko = locale === 'ko';
-const modelMB = (recorded.web_preview.bytes / 1_000_000).toFixed(2);
+const modelMB = ((sceneRecord?.web_preview.bytes ?? recorded.web_preview.bytes) / 1_000_000).toFixed(2);
 ---
-<section class="splat-explorer" id="explore" data-locale={locale} data-model={showcaseMedia('town03.spz')} aria-labelledby="splat-title">
-  <h2 id="splat-title">{ko ? '직접 시점을 움직여 보기' : 'Explore the reconstructed scene'}</h2>
-  <p>{ko ? 'CARLA에서 촬영한 광장을 fVDB로 복원했습니다. 버튼을 누를 때만 3D 데이터와 뷰어를 불러옵니다. 물리·충돌은 포함되지 않습니다.' : 'Explore a CARLA plaza reconstructed with fVDB. The model and viewer load only when requested. This radiance field has no physics or collision mesh.'}</p>
+<section class="splat-explorer" id={sectionId} data-locale={locale} data-generated={String(generated)} data-model={showcaseMedia(sceneRecord?.web_preview.file ?? 'town03.spz')} aria-labelledby={titleId}>
+  <h2 id={titleId}>{generated ? sceneName : ko ? '직접 시점을 움직여 보기' : 'Explore the reconstructed scene'}</h2>
+  <p>{generated ? (ko ? 'WorldGen으로 생성한 3D 표면입니다. 실측 거리·충돌체는 포함되지 않습니다. 버튼을 누를 때만 불러옵니다.' : 'A generated WorldGen surface, without measured scale or collisions. Load the 3D scene only when you want it.') : ko ? 'CARLA에서 촬영한 광장을 fVDB로 복원했습니다. 버튼을 누를 때만 3D 데이터와 뷰어를 불러옵니다. 물리·충돌은 포함되지 않습니다.' : 'Explore a CARLA plaza reconstructed with fVDB. The model and viewer load only when requested. This radiance field has no physics or collision mesh.'}</p>
   <div class="viewer-shell">
     <div class="viewer-stage" data-stage>
-      <img src={showcaseMedia('spatial-reconstruction.jpg')} alt={ko ? 'fVDB로 복원한 분수 광장' : 'Fountain plaza reconstructed with fVDB'} loading="lazy" width="640" height="360" />
+      <img src={showcaseMedia(sceneRecord?.poster ?? 'spatial-reconstruction.jpg')} alt={generated ? sceneName : ko ? 'fVDB로 복원한 분수 광장' : 'Fountain plaza reconstructed with fVDB'} loading="lazy" width="640" height="360" />
       <div class="viewer-cover" data-cover><button type="button" class="button button-primary" data-load>{ko ? `3D 장면 불러오기 · ${modelMB} MB` : `Load 3D scene · ${modelMB} MB`}</button></div>
     </div>
     <div class="viewer-toolbar">
       <p role="status" aria-live="polite" data-status>{ko ? '불러오기 전에는 모델을 내려받지 않습니다.' : 'No model download until you choose to load it.'}</p>
       <div><button type="button" data-reset disabled>{ko ? '처음 시점' : 'Reset view'}</button><button type="button" data-stop disabled>{ko ? '3D 닫기' : 'Close 3D'}</button></div>
     </div>
+    {generated && <div class="viewer-motion" aria-label={ko ? '카메라 위치 이동' : 'Translate camera'}>
+      <span>{ko ? '위치 이동' : 'Move camera'}</span>
+      {['a', 'w', 's', 'd'].map((key, i) => <button type="button" data-move={key} disabled>{(ko ? ['왼쪽', '앞으로', '뒤로', '오른쪽'] : ['Left', 'Forward', 'Back', 'Right'])[i]}</button>)}
+    </div>}
   </div>
-  <p class="viewer-help">{ko ? '드래그: 회전 · 휠/두 손가락: 확대·축소 · 오른쪽 드래그: 이동. 화면에 포커스를 두면 W/A/S/D로도 이동합니다. 빈 영역과 번진 물결은 복원 결과의 한계입니다.' : 'Drag to orbit, scroll or pinch to zoom, right-drag to pan. Focus the scene and use W/A/S/D to move. Gaps and blurred water are reconstruction artifacts.'}</p>
-  <p class="viewer-help">{ko ? 'SPZ로 압축해 Gaussian 345,318개를 모두 유지했습니다. 웹 색 계수는 1차, 아래 영상과 PSNR은 3차 전체 모델 기준입니다.' : 'The SPZ keeps all 345,318 Gaussians with degree-1 color. The recording and PSNR use the full degree-3 model.'} <a href="https://github.com/sparkjsdev/spark">Spark / World Labs (MIT)</a> · <a href="https://github.com/carla-simulator/carla/tree/0.9.16#licenses">CARLA assets / CC-BY</a></p>
+  <p class="viewer-help">{generated ? (ko ? '드래그: 둘러보기 · 두 손가락/오른쪽 드래그: 이동 · 화면에 포커스를 두고 W/A/S/D: 위치 이동. 원래 시점에서 멀어지면 가려졌던 면의 구멍과 늘어난 표면이 보입니다.' : 'Drag to look around; two-finger or right-drag to pan. Focus the view and use W/A/S/D to translate. Moving far from the source exposes gaps and stretched surfaces.') : ko ? '드래그: 회전 · 휠/두 손가락: 확대·축소 · 오른쪽 드래그: 이동. 화면에 포커스를 두면 W/A/S/D로도 이동합니다. 빈 영역과 번진 물결은 복원 결과의 한계입니다.' : 'Drag to orbit, scroll or pinch to zoom, right-drag to pan. Focus the scene and use W/A/S/D to move. Gaps and blurred water are reconstruction artifacts.'}</p>
+  <p class="viewer-help">{generated ? (ko ? '전체 128만 개 중 32만 개를 남기고 크기를 조정한 SPZ 미리보기입니다. 아래 영상은 전체 모델로 렌더링했습니다. 숲길은 실내보다 빈 영역이 많습니다.' : 'SPZ preview: 320,000 of 1,280,000 Gaussians with wider footprints. Videos use the full model. Forest gaps are more visible than indoor gaps.') : ko ? 'SPZ로 압축해 Gaussian 345,318개를 모두 유지했습니다. 웹 색 계수는 1차, 아래 영상과 PSNR은 3차 전체 모델 기준입니다.' : 'The SPZ keeps all 345,318 Gaussians with degree-1 color. The recording and PSNR use the full degree-3 model.'} <a href="https://github.com/sparkjsdev/spark">Spark / World Labs (MIT)</a> · {generated ? <a href="https://github.com/ZiYang-xie/WorldGen">WorldGen / FLUX terms separate</a> : <a href="https://github.com/carla-simulator/carla/tree/0.9.16#licenses">CARLA assets / CC-BY</a>}</p>
 </section>
 <script>
   document.querySelectorAll<HTMLElement>('.splat-explorer').forEach((root) => {
     const ko = root.dataset.locale === 'ko';
+    const generated = root.dataset.generated === 'true';
     const stage = root.querySelector<HTMLElement>('[data-stage]')!;
     const load = root.querySelector<HTMLButtonElement>('[data-load]')!;
     const reset = root.querySelector<HTMLButtonElement>('[data-reset]')!;
@@ -32,7 +44,11 @@ const modelMB = (recorded.web_preview.bytes / 1_000_000).toFixed(2);
     const cover = root.querySelector<HTMLElement>('[data-cover]')!;
     let dispose: (() => void) | undefined;
     let resetView: (() => void) | undefined;
+    let moveView: ((key: string) => void) | undefined;
+    const moveButtons = root.querySelectorAll<HTMLButtonElement>('[data-move]');
+    moveButtons.forEach((button) => button.addEventListener('click', () => moveView?.(button.dataset.move!)));
     load.addEventListener('click', async () => {
+      document.querySelectorAll<HTMLButtonElement>('.splat-explorer[data-ready] [data-stop]').forEach((button) => button.click());
       load.disabled = true;
       status.textContent = ko ? '뷰어와 3D 장면을 불러오는 중…' : 'Loading viewer and 3D scene…';
       try {
@@ -40,17 +56,27 @@ const modelMB = (recorded.web_preview.bytes / 1_000_000).toFixed(2);
           import('three'), import('@sparkjsdev/spark'), import('three/addons/controls/OrbitControls.js'),
         ]);
         const scene = new T.Scene(); scene.background = new T.Color('#c5d0d8');
-        const camera = new T.PerspectiveCamera(65, 16/9, .05, 250); camera.up.set(0,0,1);
+        const camera = new T.PerspectiveCamera(generated ? 80 : 65, 16/9, generated ? .005 : .05, 250);
+        camera.up.set(0,generated ? -1 : 0,generated ? 0 : 1);
         const renderer = new T.WebGLRenderer({ antialias: false, powerPreference: 'low-power' });
         renderer.setPixelRatio(Math.min(window.devicePixelRatio,1.5));
         const canvas = renderer.domElement; canvas.tabIndex = 0;
-        canvas.setAttribute('aria-label', ko ? '탐색 가능한 광장 3D 장면' : 'Interactive 3D plaza'); stage.append(canvas);
+        canvas.setAttribute('aria-label', ko ? '탐색 가능한 3D 장면' : 'Interactive 3D scene'); stage.append(canvas);
         const controls = new OrbitControls(camera, canvas);
-        controls.enableDamping = true; controls.minDistance = 2; controls.maxDistance = 65;
+        controls.enableDamping = true; controls.minDistance = generated ? .001 : 2; controls.maxDistance = generated ? 10 : 65;
+        if (generated) { controls.enableZoom = false; controls.screenSpacePanning = true; }
         const spark = new SparkRenderer({ renderer }); scene.add(spark);
         const splats = new SplatMesh({ url: root.dataset.model }); scene.add(splats);
-        resetView = () => { camera.position.set(22,0,5); controls.target.set(0,0,2); controls.update(); };
+        resetView = () => { camera.position.set(generated ? 0 : 22,0,generated ? 0 : 5); controls.target.set(0,0,generated ? .01 : 2); controls.update(); };
         resetView();
+        moveView = (key) => {
+          const forward = camera.getWorldDirection(new T.Vector3());
+          forward.addScaledVector(camera.up, -forward.dot(camera.up)).normalize();
+          const right = new T.Vector3().crossVectors(forward, camera.up).normalize();
+          const delta = forward.multiplyScalar(key === 'w' ? .05 : key === 's' ? -.05 : 0)
+            .addScaledVector(right, key === 'd' ? .05 : key === 'a' ? -.05 : 0);
+          camera.position.add(delta); controls.target.add(delta); controls.update();
+        };
         const resize = new ResizeObserver(() => { camera.aspect = stage.clientWidth/stage.clientHeight; camera.updateProjectionMatrix(); renderer.setSize(stage.clientWidth,stage.clientHeight); });
         resize.observe(stage);
         let visible = true, lastTime = performance.now();
@@ -63,17 +89,17 @@ const modelMB = (recorded.web_preview.bytes / 1_000_000).toFixed(2);
           const time = performance.now(), dt = Math.min((time-lastTime)/1000,.05); lastTime = time;
           if (!visible || document.hidden) return;
           if (keys.size) {
-            const direction = camera.getWorldDirection(new T.Vector3()); direction.z=0; direction.normalize();
+            const direction = camera.getWorldDirection(new T.Vector3()); direction.addScaledVector(camera.up,-direction.dot(camera.up)).normalize();
             const side = new T.Vector3().crossVectors(direction,camera.up).normalize();
-            const delta = direction.multiplyScalar((Number(keys.has('w'))-Number(keys.has('s')))*dt*5)
-              .addScaledVector(side,(Number(keys.has('d'))-Number(keys.has('a')))*dt*5);
+            const delta = direction.multiplyScalar((Number(keys.has('w'))-Number(keys.has('s')))*dt*(generated ? .2 : 5))
+              .addScaledVector(side,(Number(keys.has('d'))-Number(keys.has('a')))*dt*(generated ? .2 : 5));
             camera.position.add(delta); controls.target.add(delta);
           }
           controls.update(); renderer.render(scene,camera);
         });
-        dispose = () => { renderer.setAnimationLoop(null); resize.disconnect(); observer.disconnect(); controls.dispose(); splats.dispose(); spark.dispose(); renderer.dispose(); renderer.forceContextLoss(); canvas.remove(); resetView=undefined; };
+        dispose = () => { renderer.setAnimationLoop(null); resize.disconnect(); observer.disconnect(); controls.dispose(); splats.dispose(); spark.dispose(); renderer.dispose(); renderer.forceContextLoss(); canvas.remove(); resetView=undefined; moveView=undefined; moveButtons.forEach((button) => button.disabled=true); };
         await splats.initialized;
-        cover.hidden=true; root.dataset.ready='true'; reset.disabled=stop.disabled=false;
+        cover.hidden=true; root.dataset.ready='true'; moveButtons.forEach((button) => button.disabled=false); reset.disabled=stop.disabled=false;
         status.textContent=ko ? '3D 장면을 불러왔습니다. 드래그해서 둘러보세요.' : 'Scene loaded. Drag to look around.';
       } catch (error) {
         dispose?.(); dispose=undefined; load.disabled=false;
@@ -104,6 +130,8 @@ const modelMB = (recorded.web_preview.bytes / 1_000_000).toFixed(2);
   .viewer-toolbar button { padding: 10px; min-height: 44px; background: transparent; color: var(--text); border: 1px solid var(--edge); border-radius: 4px; cursor: pointer; }
   button:disabled { opacity: .5; cursor: default; }
   .viewer-toolbar div { display: flex; gap: 8px; }
+  .viewer-motion { display:flex; flex-wrap:wrap; align-items:center; gap:8px; padding:12px; background:var(--surface); border-top:1px solid var(--edge); }
+  .viewer-motion button { min-height:44px; padding:8px 14px; border:1px solid var(--edge); border-radius:4px; background:var(--surface-strong, var(--surface)); color:var(--text); cursor:pointer; }
   .viewer-help { margin-top: 12px; font-size: .9rem; }
   a { text-decoration: underline; text-underline-offset: 3px; }
 </style>

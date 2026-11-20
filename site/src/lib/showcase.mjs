@@ -70,6 +70,11 @@ export const grids = [
 
 export const clips = [
   {
+    id: 'worldgen-scenes', duration: '0:20', width: 960, height: 540,
+    en: { title: 'Generate and explore a world from text or an image', description: 'WorldGen creates a robotics lab, a forest trail and an expanded living room. Watch translated 3D camera views, then load the generated scene in your browser.' },
+    ko: { title: '글과 이미지로 만든 3D 공간 둘러보기', description: 'WorldGen으로 로봇 실험실·숲길·확장된 거실을 생성했습니다. 3D 공간에서 카메라를 움직인 영상을 보고, 브라우저에서도 직접 둘러보세요.' },
+  },
+  {
     id: 'spatial-reconstruction', duration: '0:16', width: 640, height: 360,
     en: { title: 'Explore a plaza reconstructed with 3DGS', description: 'CARLA camera views become an fVDB radiance field. Move the viewpoint in the browser, or watch the full model rendered along a new camera path.' },
     ko: { title: '3DGS로 복원한 광장 둘러보기', description: 'CARLA 촬영을 fVDB로 복원했습니다. 브라우저에서 직접 시점을 움직이거나 전체 모델의 카메라 이동 영상을 볼 수 있습니다.' },
@@ -118,6 +123,15 @@ export const clips = [
 
 // Extra runs share an existing lab and its reading order.
 export const additionalRecordings = [
+  ...[
+    ['livingroom', 'Expand one image into a 360° living room', '이미지 한 장에서 360° 거실로 확장하기'],
+    ['forest-trail', 'Generate a forest trail from text', '글로 생성한 숲길 둘러보기'],
+  ].map(([id, en, ko]) => ({
+    id: `worldgen-${id}`, lab: 'worldgen-scenes', duration: '0:20', width: 960, height: 540,
+    tags: ['WorldGen', 'FLUX.1', 'DA-2', 'fVDB renderer'],
+    en: { title: en, description: 'Actual OMEN model inference, followed by a translated camera path rendered from the Gaussian PLY. Distance is inferred and not metric ground truth.' },
+    ko: { title: ko, description: 'OMEN에서 모델을 직접 실행한 뒤 Gaussian PLY에서 카메라를 움직여 렌더링했습니다. 깊이는 추정값이며 실제 거리의 정답은 아닙니다.' },
+  })),
   ...[
     ['city-clear', 'Clear city', '맑은 도심'],
     ['junction-rain', 'Heavy-rain junction', '폭우가 내리는 교차로'],

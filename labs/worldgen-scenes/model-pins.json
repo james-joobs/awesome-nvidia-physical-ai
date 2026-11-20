@@ -1,0 +1,43 @@
+{
+  "source_revisions": {
+    "WorldGen": "7ce7b2767fdf31e2727b69a2e61e2e950e3a017f",
+    "DA-2": "d659838585f2bc9967c7e9367af573795271dbbb",
+    "PyTorch3D": "ddfc55127fed1a74514cd24db08a7c2e62e76b08"
+  },
+  "models": [
+    {
+      "repo": "black-forest-labs/FLUX.1-dev",
+      "revision": "45d95c497444bbaebe766e1528792fc9158c0c3a",
+      "omitted": [
+        "transformer/*"
+      ]
+    },
+    {
+      "repo": "black-forest-labs/FLUX.1-Fill-dev",
+      "revision": "7326a96224b2513681b5d97281c83af967926bb6",
+      "omitted": [
+        "transformer/*"
+      ]
+    },
+    {
+      "repo": "mit-han-lab/svdq-fp4-flux.1-dev",
+      "revision": "70ecf6cfde1525d88ec386fbec5a3a8cdfc33ea4",
+      "omitted": []
+    },
+    {
+      "repo": "mit-han-lab/svdq-fp4-flux.1-fill-dev",
+      "revision": "cec73b4a4e208b28df9e4f977d775e70edff71a8",
+      "omitted": []
+    },
+    {
+      "repo": "LeoXie/WorldGen",
+      "revision": "2e2b2cb4dc3144a65481f0ca26b892584436868c",
+      "omitted": []
+    },
+    {
+      "repo": "haodongli/DA-2",
+      "revision": "0d55ccb5e46b8ed4715fae3a4c04fc897f1689f3",
+      "omitted": []
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "frames": 480,
+  "fps": 24,
+  "duration_seconds": 20.0,
+  "resolution": [
+    960,
+    540
+  ],
+  "renderer": "fVDB Reality Capture",
+  "torch": "2.13.0+cu130",
+  "gaussians": 1280000,
+  "center_range": [
+    0.4,
+    0.09,
+    0.3
+  ],
+  "mean_alpha": 0.5702803856227547,
+  "mp4_sha256": "fa4d60eb4d4442aee3f6d012276bf4c2487827622123a7383e59924c764a49d8",
+  "mp4_bytes": 5207633,
+  "cameras_sha256": "a302c85a4f8234434ea4dd16e290daf3c2f6b2aeb2253ebc8324be4d5bca4812"
+}

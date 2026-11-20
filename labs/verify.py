@@ -32,7 +32,7 @@ def verify_files():
 
 
 def verify_evidence():
-    for key in ("carla-ego", "spatial-reconstruction", "scene-generation"):
+    for key in ("carla-ego", "spatial-reconstruction", "scene-generation", "worldgen-scenes"):
         runpy.run_path(str(ROOT / key / "check.py"))["main"]()
     world = report("world-driving")
     assert len(world["cosmos"]) == 3

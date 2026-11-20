@@ -1,0 +1,150 @@
+{
+  "status": "success",
+  "mode": "i2s",
+  "prompt": "A coherent spacious living room continuing the input image, matching the pale walls, wooden furniture, indoor materials and natural window light, realistic interior, no people",
+  "seed": 42,
+  "steps": 50,
+  "resolution": [
+    1600,
+    800
+  ],
+  "conditioning": {
+    "source_sha256": "b36273977b42ad07583d74d8e526483ee9a44bbeda75a1c6be1c0ac0f17d0604",
+    "source_resolution": [
+      640,
+      360
+    ],
+    "intrinsics": [
+      [
+        160.0,
+        0.0,
+        320.0
+      ],
+      [
+        0.0,
+        160.0,
+        180.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "observed_panorama_fraction": 0.16300781071186066,
+    "max_preserved_rgb_error": 0,
+    "projection": "known pinhole K to equirectangular rays; white mask is generated"
+  },
+  "distance": {
+    "shape": [
+      800,
+      1600
+    ],
+    "min": 2.2935523986816406,
+    "max": 20.0,
+    "scale": "DA-2 scale-invariant estimate normalized to max 20; not measured metric distance"
+  },
+  "gaussians": {
+    "gaussians": 1280000,
+    "all_finite": true,
+    "bounds": [
+      [
+        -17.549671173095703,
+        -4.585502624511719,
+        -10.87297248840332
+      ],
+      [
+        9.41048812866211,
+        3.725886821746826,
+        8.352387428283691
+      ]
+    ]
+  },
+  "mesh": {
+    "vertices": 1280000,
+    "triangles": 2555202
+  },
+  "seconds": {
+    "load": 6.291384677053429,
+    "panorama": 24.187987825949676,
+    "geometry": 5.583007566048764
+  },
+  "runtime": {
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "torch": "2.7.0+cu128",
+    "cuda": "12.8",
+    "packages": {
+      "nunchaku": "0.2.0+torch2.7",
+      "diffusers": "0.33.1",
+      "transformers": "4.51.3",
+      "da2": "0.1.0",
+      "worldgen": "0.1.0",
+      "pytorch3d": "0.7.9"
+    },
+    "peak_gpu_gb": 13.826649088,
+    "max_rss_gb": 15.598584
+  },
+  "model_revisions": [
+    {
+      "repo": "black-forest-labs/FLUX.1-dev",
+      "revision": "45d95c497444bbaebe766e1528792fc9158c0c3a",
+      "omitted": [
+        "transformer/*"
+      ]
+    },
+    {
+      "repo": "black-forest-labs/FLUX.1-Fill-dev",
+      "revision": "7326a96224b2513681b5d97281c83af967926bb6",
+      "omitted": [
+        "transformer/*"
+      ]
+    },
+    {
+      "repo": "mit-han-lab/svdq-fp4-flux.1-dev",
+      "revision": "70ecf6cfde1525d88ec386fbec5a3a8cdfc33ea4",
+      "omitted": []
+    },
+    {
+      "repo": "mit-han-lab/svdq-fp4-flux.1-fill-dev",
+      "revision": "cec73b4a4e208b28df9e4f977d775e70edff71a8",
+      "omitted": []
+    },
+    {
+      "repo": "LeoXie/WorldGen",
+      "revision": "2e2b2cb4dc3144a65481f0ca26b892584436868c",
+      "omitted": []
+    },
+    {
+      "repo": "haodongli/DA-2",
+      "revision": "0d55ccb5e46b8ed4715fae3a4c04fc897f1689f3",
+      "omitted": []
+    }
+  ],
+  "source_revisions": {
+    "WorldGen": "7ce7b2767fdf31e2727b69a2e61e2e950e3a017f",
+    "DA-2": "d659838585f2bc9967c7e9367af573795271dbbb",
+    "PyTorch3D": "ddfc55127fed1a74514cd24db08a7c2e62e76b08"
+  },
+  "artifacts": {
+    "panorama.png": {
+      "bytes": 1636619,
+      "sha256": "5e77bcdb3646e9e605d4e492a5fdd83639008aa4723cdcff1126525ddaf1027b"
+    },
+    "distance.npy": {
+      "bytes": 5120128,
+      "sha256": "189b446aa11b7b79e1d093ab75720d561122f6e1a306dd675c391efdb009ddae"
+    },
+    "scene.ply": {
+      "bytes": 87040417,
+      "sha256": "046dec72a195ef0a3c3864631af10a6b6a8b61744b6c82fcc7eb62199e7e3002"
+    },
+    "scene-mesh.ply": {
+      "bytes": 67777897,
+      "sha256": "9b0ab5a297f03615c082d7f4169b4ec43311ba820b5530c44d977ee3dbc6d64d"
+    },
+    "scene-mesh.glb": {
+      "bytes": 81844304,
+      "sha256": "5d4c5cd4587adffac1948429acffee048a006bbf6caae32c85f2bc7c4b44e298"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "resolution": [
+    640,
+    360
+  ],
+  "K": [
+    [
+      160.0,
+      0.0,
+      320.0
+    ],
+    [
+      0.0,
+      160.0,
+      180.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "source": "Our Infinigen house-tour render, seed 0, frame 1; input is synthetic, not a real photograph"
+}
