@@ -154,3 +154,6 @@ python3 labs/worldgen-isaac/check.py --run runs/worldgen-isaac/detour
 ```
 
 A successful import is not a validated digital twin. This lesson demonstrates **a generated visual environment plus a checked local physics setup**. Scale is assumed, the surface is estimated, collisions are authored only for the test area, and the robot uses a simple state-feedback controller. [WorldGen generation lab](worldgen-scenes.md) · [Isaac Sim concepts](../isaac-sim.md) · [Media provenance](../../../site/public/showcase/SPATIAL-CREDITS.md).
+
+
+[Next: let sensor scans choose the route](worldgen-navigation.md).

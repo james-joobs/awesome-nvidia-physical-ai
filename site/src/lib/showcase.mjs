@@ -75,6 +75,12 @@ export const clips = [
     ko: { title: '글과 이미지로 만든 3D 공간 둘러보기', description: 'WorldGen으로 로봇 실험실·숲길·확장된 거실을 생성했습니다. 3D 공간에서 카메라를 움직인 영상을 보고, 브라우저에서도 직접 둘러보세요.' },
   },
   {
+    id: 'worldgen-navigation', duration: '0:26', width: 960, height: 540,
+    media: { ko: 'worldgen-navigation-ko' },
+    en: { title: 'Fixed waypoints or a route from sensor scans?', description: 'A new box blocks the old route. An actual Physics Raycast Sensor feeds an occupancy grid and A* planner, and the same robot chooses the other side. Native Isaac Sim GUI footage at 1× speed.' },
+    ko: { title: '정해 둔 경유점과 센서로 찾은 경로 비교', description: '추가 상자가 기존 경로를 막습니다. 실제 물리 거리 센서의 측정값으로 점유 격자와 A* 경로를 만들자, 같은 로봇이 반대편으로 우회합니다. Isaac Sim GUI를 1배속으로 녹화했습니다.' },
+  },
+  {
     id: 'worldgen-isaac', duration: '0:25', width: 960, height: 540,
     en: { title: 'Drive inside the generated WorldGen laboratory', description: 'A generated laboratory becomes an Isaac Sim 6.2 scene. Watch an articulated AMR meet a crate, reverse and follow waypoints around it. The recovery is scripted; contacts and motion are live PhysX.' },
     ko: { title: 'WorldGen 실험실에서 로봇 움직이기', description: '생성한 실험실에서 이동 로봇이 상자에 막힌 뒤 후진해 우회합니다. 회복 순서는 미리 정했고, 접촉과 움직임은 Isaac Sim 6.2의 PhysX가 실제 계산합니다.' },
@@ -128,6 +134,27 @@ export const clips = [
 
 // Extra runs share an existing lab and its reading order.
 export const additionalRecordings = [
+  {
+    id: 'worldgen-navigation-lower', lab: 'worldgen-navigation', duration: '0:16', width: 960, height: 540,
+    en: { title: 'Lower passage blocked: the robot chooses the upper side', description: 'The controller receives only ranges, ego pose and a goal. The cyan line is recomputed online; it is not a supplied waypoint list.' },
+    ko: { title: '아래쪽 통로가 막히면 위쪽으로', description: '제어기에는 거리·현재 위치·목적지만 전달합니다. 청록색 경로는 실행 중 다시 계산하며, 미리 입력한 경유점 목록이 아닙니다.' },
+  },
+  {
+    id: 'worldgen-navigation-upper', lab: 'worldgen-navigation', duration: '0:16', width: 960, height: 540,
+    en: { title: 'Upper passage blocked: the choice changes', description: 'Move the added box to the opposite side without changing the planner. The measured route changes with the scan.' },
+    ko: { title: '위쪽을 막으면 선택이 바뀝니다', description: '계획기는 그대로 두고 추가 상자만 반대편으로 옮겼습니다. 센서 관측에 따라 실제 이동 경로가 달라집니다.' },
+  },
+  {
+    id: 'worldgen-navigation-center', lab: 'worldgen-navigation', duration: '0:16', width: 960, height: 540,
+    en: { title: 'One box, no supplied detour', description: 'The original central obstacle is detected from range hits. The planner builds its first route from an empty obstacle map.' },
+    ko: { title: '상자 하나부터 경유점 없이', description: '원래의 중앙 상자를 거리 측정으로 감지합니다. 비어 있는 장애물 지도에서 첫 우회 경로를 계산합니다.' },
+  },
+  {
+    id: 'worldgen-navigation-fixed', lab: 'worldgen-navigation', duration: '0:21', width: 960, height: 540,
+    en: { title: 'The fixed-route baseline in the changed layout', description: 'The previous waypoint list is unchanged and ignores range data. Live contacts stop the robot at the added box; the goal is not reached.' },
+    ko: { title: '바뀐 배치에서 기존 경유점을 그대로 실행', description: '앞선 경유점 목록을 수정하지 않고 거리 데이터도 제어에 쓰지 않습니다. 추가 상자에 실제로 막혀 목적지에 도착하지 못합니다.' },
+  },
+
   {
     id: 'worldgen-isaac-blocked', lab: 'worldgen-isaac', duration: '0:11', width: 960, height: 540,
     tags: ['Isaac Sim 6.2', 'PhysX', 'WorldGen'],

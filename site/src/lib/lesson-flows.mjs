@@ -1,5 +1,17 @@
 // Each step shows a data example or file name, followed by what it means in the lab.
 export const lessonFlows = {
+  'worldgen-navigation': {
+    en: [
+      ['Measure the surroundings', 'ranges: float[180] + hit positions: float[180,3]', 'An ideal Physics Raycast Sensor measures colliders. The planner receives no object names or transforms.'],
+      ['Build a route from observations', '5 cm occupancy grid → 0.43 m inflation → A*', 'A known flat test boundary and simulator ego pose are assumed. The route is recalculated at 10 Hz.'],
+      ['Drive and measure again', 'path → v, ω → wheel drives → next scan', 'Missing scans stop the robot. A changed box layout changes the generated route.'],
+    ],
+    ko: [
+      ['주변까지의 거리 측정', '거리 float[180] + 측정 지점 float[180,3]', '이상적인 물리 거리 센서로 충돌체를 감지합니다. 계획기에 물체 이름이나 좌표를 넘기지 않습니다.'],
+      ['관측으로 경로 계산', '5cm 점유 격자 → 0.43m 확장 → A*', '평평한 시험 구역 경계와 로봇의 현재 위치는 알고 있다고 가정합니다. 초당 10번 경로를 계산합니다.'],
+      ['주행 후 다시 측정', '경로 → v, ω → 바퀴 드라이브 → 다음 스캔', '센서 데이터가 없으면 정지합니다. 상자 배치가 바뀌면 우회 경로도 달라집니다.'],
+    ],
+  },
   'worldgen-isaac': {
     en: [
       ['Choose a coordinate and scale convention', 'WorldGen RGB + distance → 80k-vertex textured mesh', 'Fit a floor plane; assume a 1.5 m camera height. This establishes a simulation scale, not measured truth.'],

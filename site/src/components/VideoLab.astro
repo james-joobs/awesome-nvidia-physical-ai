@@ -71,7 +71,7 @@ const steps = [
       <a class="plain-link" href="#code">{labels.code} <Icon name="down" size={16} /></a>
       <a class="plain-link" href={repositoryFile(path)}>{labels.github} <Icon name="external" size={16} /></a>
     </Fragment>
-    <LessonPreview slot="preview" image={showcaseMedia(`${id}.jpg`)} alt={entry.title} caption={topicLabels.recording}
+    <LessonPreview slot="preview" image={showcaseMedia(`${clip.media?.[locale] ?? id}.jpg`)} alt={entry.title} caption={topicLabels.recording}
       href="#example-run" label={exampleLabel} />
     {isPlacement && <PlacementExercise locale={locale} />}
     <LessonTheory locale={locale} page={`labs/${id}`} flow={lessonFlows[id]} theory={theory} showPixels={id === 'scene-to-data'} />
