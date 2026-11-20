@@ -104,6 +104,25 @@
         "check.py"
       ],
       "evidence": "recorded.json"
+    },
+    {
+      "id": "worldgen-scenes",
+      "tags": [
+        "WorldGen",
+        "FLUX.1 / Nunchaku FP4",
+        "DA-2",
+        "fVDB renderer"
+      ],
+      "code": [
+        "setup.sh",
+        "generate.py",
+        "render.py",
+        "audit.py",
+        "preview.py",
+        "model-pins.json",
+        "check.py"
+      ],
+      "evidence": "recorded.json"
     }
   ],
   "heroTags": ["Isaac Sim", "PhysX", "Newton", "GR00T", "cuRobo", "AutoData", "Replicator", "SimReady", "OpenUSD", "CadQuery", "OpenCV"],

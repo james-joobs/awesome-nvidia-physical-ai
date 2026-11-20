@@ -47,7 +47,7 @@ const preparation = {
 const steps = [
   ...(isPlacement ? [{ id: 'first-exercise', label: startLabel }] : []),
   ...headings,
-  ...(id === 'spatial-reconstruction' ? [{ id: 'explore', label: ko ? '3D 공간 둘러보기' : 'Explore the 3D scene' }] : []),
+  ...(['spatial-reconstruction', 'worldgen-scenes'].includes(id) ? [{ id: 'explore', label: ko ? '3D 공간 둘러보기' : 'Explore the 3D scene' }] : []),
   { id: 'example-run', label: exampleLabel },
   { id: 'code', label: labels.code },
 ];
@@ -60,9 +60,9 @@ const steps = [
     </Fragment>
     <ToolTags slot="facts" tags={tags} label={labels.tools} />
     <Fragment slot="actions">
-      {id === 'spatial-reconstruction' && <a class="button button-primary" href="#explore">{ko ? '3D 공간 직접 둘러보기' : 'Explore the 3D scene'}</a>}
+      {['spatial-reconstruction', 'worldgen-scenes'].includes(id) && <a class="button button-primary" href="#explore">{ko ? '3D 공간 직접 둘러보기' : 'Explore the 3D scene'}</a>}
       {isPlacement && <a class="button button-primary" href="#first-exercise">{startLabel}<Icon name="down" size={16} /></a>}
-      <a class:list={isPlacement ? 'plain-link' : ['button', id === 'spatial-reconstruction' ? 'button-secondary' : 'button-primary']} href="#run">{labels.run}<Icon name="down" size={16} /></a>
+      <a class:list={isPlacement ? 'plain-link' : ['button', ['spatial-reconstruction', 'worldgen-scenes'].includes(id) ? 'button-secondary' : 'button-primary']} href="#run">{labels.run}<Icon name="down" size={16} /></a>
       {tags.includes('Replicator') && (
         <a class="plain-link" href={catalogSearchUrl(locale, 'Replicator')}>
           {ko ? '카탈로그에서 Replicator 보기' : 'Replicator in the catalog'} <Icon name="right" size={17} />
@@ -78,6 +78,7 @@ const steps = [
     <GuideCommands locale={locale} />
     <div class="prose" set:html={html} />
     {id === 'spatial-reconstruction' && <SplatExplorer locale={locale} />}
+    {id === 'worldgen-scenes' && ['robot-lab', 'livingroom', 'forest-trail'].map((sceneId, index) => <SplatExplorer locale={locale} sceneId={sceneId} first={index === 0} />)}
     <section class="lab-video" id="example-run" aria-labelledby="example-run-title">
       <h2 id="example-run-title">{exampleLabel}</h2>
       <div class="video-preview"><ShowcaseVideo locale={locale} clip={clip} title={entry.title} /></div>

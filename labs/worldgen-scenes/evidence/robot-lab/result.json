@@ -1,0 +1,124 @@
+{
+  "status": "success",
+  "mode": "t2s",
+  "prompt": "A spacious realistic robotics laboratory with collaborative robot arms on workbenches, yellow safety markings on a polished concrete floor, metal storage racks, large windows, natural daylight, no people, a coherent modern industrial interior",
+  "seed": 42,
+  "steps": 50,
+  "resolution": [
+    1600,
+    800
+  ],
+  "conditioning": null,
+  "distance": {
+    "shape": [
+      800,
+      1600
+    ],
+    "min": 0.797760009765625,
+    "max": 20.0,
+    "scale": "DA-2 scale-invariant estimate normalized to max 20; not measured metric distance"
+  },
+  "gaussians": {
+    "gaussians": 1280000,
+    "all_finite": true,
+    "bounds": [
+      [
+        -7.533829212188721,
+        -3.934990167617798,
+        -1.4343006610870361
+      ],
+      [
+        15.398113250732422,
+        0.8206741809844971,
+        15.486687660217285
+      ]
+    ]
+  },
+  "mesh": {
+    "vertices": 1280000,
+    "triangles": 2555202
+  },
+  "seconds": {
+    "load": 6.237436642986722,
+    "panorama": 23.584648928022943,
+    "geometry": 13.615375721012242
+  },
+  "runtime": {
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "torch": "2.7.0+cu128",
+    "cuda": "12.8",
+    "packages": {
+      "nunchaku": "0.2.0+torch2.7",
+      "diffusers": "0.33.1",
+      "transformers": "4.51.3",
+      "da2": "0.1.0",
+      "worldgen": "0.1.0",
+      "pytorch3d": "0.7.9"
+    },
+    "peak_gpu_gb": 11.139160576,
+    "max_rss_gb": 18.038564
+  },
+  "model_revisions": [
+    {
+      "repo": "black-forest-labs/FLUX.1-dev",
+      "revision": "45d95c497444bbaebe766e1528792fc9158c0c3a",
+      "omitted": [
+        "transformer/*"
+      ]
+    },
+    {
+      "repo": "black-forest-labs/FLUX.1-Fill-dev",
+      "revision": "7326a96224b2513681b5d97281c83af967926bb6",
+      "omitted": [
+        "transformer/*"
+      ]
+    },
+    {
+      "repo": "mit-han-lab/svdq-fp4-flux.1-dev",
+      "revision": "70ecf6cfde1525d88ec386fbec5a3a8cdfc33ea4",
+      "omitted": []
+    },
+    {
+      "repo": "mit-han-lab/svdq-fp4-flux.1-fill-dev",
+      "revision": "cec73b4a4e208b28df9e4f977d775e70edff71a8",
+      "omitted": []
+    },
+    {
+      "repo": "LeoXie/WorldGen",
+      "revision": "2e2b2cb4dc3144a65481f0ca26b892584436868c",
+      "omitted": []
+    },
+    {
+      "repo": "haodongli/DA-2",
+      "revision": "0d55ccb5e46b8ed4715fae3a4c04fc897f1689f3",
+      "omitted": []
+    }
+  ],
+  "source_revisions": {
+    "WorldGen": "7ce7b2767fdf31e2727b69a2e61e2e950e3a017f",
+    "DA-2": "d659838585f2bc9967c7e9367af573795271dbbb",
+    "PyTorch3D": "ddfc55127fed1a74514cd24db08a7c2e62e76b08"
+  },
+  "artifacts": {
+    "panorama.png": {
+      "bytes": 1602851,
+      "sha256": "37c4cb03c2c4655964a03a5fe4026d01d1ff5f2973fb41a4420a6b1d67e9455c"
+    },
+    "distance.npy": {
+      "bytes": 5120128,
+      "sha256": "c7c5d11d01e92385604d2643261428781cb422c3ab7486a0cd8b4a0ba9152b12"
+    },
+    "scene.ply": {
+      "bytes": 87040417,
+      "sha256": "5cc0b5f5024018d42ea25a9be70a515e071ed8e8088b713893d46bd37e6c0c91"
+    },
+    "scene-mesh.ply": {
+      "bytes": 67777897,
+      "sha256": "c3c505a7c872bf71708c2c1011f78fab72e50b3703f9c068380929644e8f655c"
+    },
+    "scene-mesh.glb": {
+      "bytes": 81844308,
+      "sha256": "48d49209520a2d7e8a0851bbe5e343f614c0e2cd262a0f3479fa946c0e876538"
+    }
+  }
+}

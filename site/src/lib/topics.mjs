@@ -93,14 +93,14 @@ export const topics = [
   },
   {
     slug: 'world-models', theme: 'blue', icon: 'layers',
-    stacks: ['Lyra', 'fVDB', 'Spark / World Labs', 'Infinigen', 'Cosmos', 'Cosmos Curator', 'Cosmos Data Factory', 'Video-to-Data', 'NeMo Switchyard'],
+    stacks: ['WorldGen', 'Lyra', 'fVDB', 'Spark / World Labs', 'Infinigen', 'Cosmos', 'Cosmos Curator', 'Cosmos Data Factory', 'Video-to-Data', 'NeMo Switchyard'],
     en: { title: '3D worlds & rendering', description: 'Explore 3D Gaussian scenes, generate indoor geometry, and compare these with neural 3D world generation and video world models.' },
     ko: { title: '3D 세계 생성·렌더링', description: '3DGS 공간을 직접 둘러보고 실내 기하 구조를 생성합니다. 생성형 3D 세계·사진 복원·영상 월드 모델의 차이도 살펴보세요.' },
     focus: {
-      en: { title: '3D worlds & world models', outcome: 'Move through an fVDB 3DGS scene, explore a generated house, and compare Marble, Lyra and video-generation workflows.', availability: 'Interactive 3DGS · GPU workstation runs · generation and reconstruction separated' },
-      ko: { title: '3D 세계·월드 모델', outcome: 'fVDB 3DGS 공간과 새로 생성한 집 안을 둘러보세요. Marble·Lyra와 영상 생성 도구의 입출력도 비교합니다.', availability: '탐색 가능한 3DGS · GPU workstation 실행 · 생성과 복원 구분' },
+      en: { title: '3D worlds & world models', outcome: 'Generate a 3D world with WorldGen, explore fVDB reconstruction and procedural houses, then compare Marble, Lyra and video models.', availability: 'Interactive 3DGS · GPU workstation runs · generation and reconstruction separated' },
+      ko: { title: '3D 세계·월드 모델', outcome: 'WorldGen으로 만든 공간과 fVDB 복원 장면을 직접 둘러보세요. 절차적 생성, Marble·Lyra, 영상 모델의 입출력도 비교합니다.', availability: '탐색 가능한 3DGS · GPU workstation 실행 · 생성과 복원 구분' },
     },
-    entries: [recording('spatial-reconstruction', ['fVDB', 'CARLA', 'Spark / World Labs']), recording('scene-generation', ['Infinigen', 'Blender']), recording('world-driving', ['Cosmos3-Edge', 'Alpamayo2-Edge', 'Isaac Sim']), ...topicGuides],
+    entries: [recording('worldgen-scenes', ['WorldGen', 'FLUX.1', 'DA-2']), recording('spatial-reconstruction', ['fVDB', 'CARLA', 'Spark / World Labs']), recording('scene-generation', ['Infinigen', 'Blender']), recording('world-driving', ['Cosmos3-Edge', 'Alpamayo2-Edge', 'Isaac Sim']), ...topicGuides],
   },
 ].sort((left, right) => {
   const order = ['robotics', 'simulation', 'world-models', 'autonomous-driving', 'synthetic-data'];

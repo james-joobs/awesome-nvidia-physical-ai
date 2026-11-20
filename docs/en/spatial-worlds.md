@@ -14,7 +14,7 @@ A camera-controlled video and an explorable 3D scene are different outputs. Star
 | State + controls → driving simulator | Next state, sensor frames and event records | Test controls in a closed loop and record ego views |
 | Image + camera actions → video model | A time sequence of RGB images | Inspect generated visual motion; a reusable 3D asset is not implied |
 
-**Our working path:** [CARLA ego-camera simulation](labs/carla-ego.md) → [known views → fVDB 3DGS → interactive Spark viewer](labs/spatial-reconstruction.md). A separate [Infinigen house tour](labs/scene-generation.md) shows actual generated geometry. [Cosmos video generation](labs/world-driving.md) remains available as a different output type.
+**Generate a world yourself:** [WorldGen text/image → 3D scene](labs/worldgen-scenes.md). **Our working path:** [CARLA ego-camera simulation](labs/carla-ego.md) → [known views → fVDB 3DGS → interactive Spark viewer](labs/spatial-reconstruction.md). A separate [Infinigen house tour](labs/scene-generation.md) shows actual generated geometry. [Cosmos video generation](labs/world-driving.md) remains available as a different output type.
 
 ## Compare the tools and their data boundaries
 
@@ -24,7 +24,7 @@ A camera-controlled video and an explorable 3D scene are different outputs. Star
 
 **NVIDIA Lyra 1.0** combines generated multiview video information and a Gaussian decoder to output 3D/4D scenes. Its model card lists the NVIDIA Open Model License. **Lyra 2.0** adds long-horizon, 3D-consistent world exploration and reconstruction; its model weights instead use the NVIDIA Internal Scientific Research and Development Model License. Both implementations are public Apache-2.0 code. Do not transfer one version's weight license to the other. The official Lyra 2 setup was tested on H100 hardware; neither version was executed in this GPU workstation update. [Lyra source](https://github.com/nv-tlabs/lyra) · [Lyra 1 model card](https://huggingface.co/nvidia/Lyra) · [Lyra 2 code and model terms](https://github.com/nv-tlabs/lyra/tree/9fffc9adc37004091ecf26ef03abfb3abdf4d59a/Lyra-2)
 
-**WorldGen** offers a lighter text/image → panorama → depth → splat/mesh workflow. Its code is Apache-2.0, but the FLUX dependencies have separate model terms. On GPU workstation, the official `FLUX.1-dev` and `FLUX.1-Fill-dev` repositories returned authenticated **403 access denied**. We cloned and inspected the source; we did not run complete generation. Once those model licenses/access requests are approved in the server account, use the author's pinned Python/CUDA instructions in a dedicated environment. [WorldGen](https://github.com/ZiYang-xie/WorldGen) · [FLUX.1-dev](https://huggingface.co/black-forest-labs/FLUX.1-dev) · [FLUX.1-Fill-dev](https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev)
+**WorldGen** generates a panorama from text or an image, predicts distance with DA-2, and converts it into splats and a mesh. After both FLUX approvals, we executed **two text scenes and one calibrated-image scene** on GPU workstation. The [hands-on lab](labs/worldgen-scenes.md) includes actual 20-second free-viewpoint recordings, click-to-load 3D previews, source code and geometry checks. Code and LoRA are Apache-2.0; FLUX weights retain separate noncommercial model terms and user-specific access gates. Our image route uses a documented known-camera projection adapter. [WorldGen](https://github.com/ZiYang-xie/WorldGen) · [FLUX.1-dev](https://huggingface.co/black-forest-labs/FLUX.1-dev) · [FLUX.1-Fill-dev](https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev)
 
 ### Measured reconstruction and editable geometry
 
@@ -41,7 +41,7 @@ Verified on **2026-11-20**. “Executed” means our own run and saved artifacts
 | Apple SHARP | Executed on RTX 5090 | Two single-image reconstructions and nearby-view recordings |
 | Infinigen / Blender | Scene generation and CPU Cycles render | Furnished house, saved `.blend`, camera path and tour recording |
 | Spark 2.4.0 | Integrated into the site | Click-to-load WebGL2 viewer; rendering uses the visitor's device |
-| WorldGen | Source inspected; gated weights returned 403 | Setup follow-up recorded; no generated output claimed |
+| WorldGen / DA-2 | Executed on RTX 5090 with FLUX FP4/offload | 3 generated worlds, Gaussian PLY + mesh, translated camera recordings and 3 browser previews |
 | NVIDIA Lyra 1 / 2 | Official sources and licenses checked | Reference workflow; not executed in this update |
 | World Labs Marble | Hosted reference | No account, payment or API job started |
 
@@ -52,6 +52,7 @@ WonderWorld's official installation calls for 48 GB GPU memory, above GPU workst
 1. [Drive in CARLA](labs/carla-ego.md): understand frames, synchronous ticks and ego-camera placement.
 2. [Reconstruct the plaza](labs/spatial-reconstruction.md): read intrinsics, coordinate transforms, Gaussians and a held-out-view check.
 3. [Generate a house](labs/scene-generation.md): inspect meshes, materials and a camera path through real geometry.
-4. [Inspect a model's proposed driving trajectory](labs/world-driving.md), then [evaluate a driving policy with AlpaSim](workflows/alpasim-closed-loop.md).
+4. [Generate a new WorldGen scene](labs/worldgen-scenes.md): compare text generation, observed image pixels and inferred geometry.
+5. [Inspect a model's proposed driving trajectory](labs/world-driving.md), then [evaluate a driving policy with AlpaSim](workflows/alpasim-closed-loop.md).
 
 Rendering a convincing scene does not supply a collision mesh or prove physical validity. Carry scale, coordinates and licensing metadata with the scene when connecting these tools. [fVDB input/output theory](fvdb-reality-capture.md) · [Media credits](../../site/public/showcase/SPATIAL-CREDITS.md).

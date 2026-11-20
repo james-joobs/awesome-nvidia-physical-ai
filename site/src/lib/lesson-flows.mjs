@@ -1,5 +1,17 @@
 // Each step shows a data example or file name, followed by what it means in the lab.
 export const lessonFlows = {
+  'worldgen-scenes': {
+    en: [
+      ['Describe or show a place', 'prompt / RGB + 3×3 camera K + fill mask', 'Text creates a full panorama. An image fixes observed pixels and generates its surroundings.'],
+      ['Generate appearance and infer distance', 'FLUX + panorama LoRA → RGB 1600×800 → DA-2', 'The distance map has one inferred ray distance per pixel. Max 20 is a normalization, not measured meters.'],
+      ['Build and render a persistent scene', '1,280,000 Gaussians + mesh → PLY / SPZ / MP4', 'XYZ = unit ray × distance. Translated cameras reveal parallax and hidden-surface artifacts.'],
+    ],
+    ko: [
+      ['장소를 글이나 이미지로 지정', '프롬프트 / RGB + 카메라 K(3×3) + 생성 마스크', '글은 파노라마 전체를 만들고, 이미지는 보이는 영역을 유지한 채 주변을 채웁니다.'],
+      ['겉모습 생성 후 거리 추정', 'FLUX + 파노라마 LoRA → RGB 1600×800 → DA-2', '픽셀마다 카메라에서 표면까지의 거리를 추정합니다. 최댓값 20은 정규화 값이며 실측 미터가 아닙니다.'],
+      ['3D 데이터로 바꿔 다른 시점에서 보기', 'Gaussian 128만 개 + 메시 → PLY / SPZ / MP4', '단위 광선 × 거리로 XYZ를 구합니다. 카메라를 옮기면 시차와 가려진 면의 한계가 드러납니다.'],
+    ],
+  },
   'carla-ego': {
     en: [
       ['Choose a world', 'Town10HD · Town03 · Town02 · Town04 + weather', 'CARLA owns the map, vehicles, physics and sensor simulation.'],

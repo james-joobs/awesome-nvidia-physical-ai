@@ -1,0 +1,167 @@
+{
+  "date": "2026-11-20",
+  "access": {
+    "FLUX.1-dev": "authenticated access verified",
+    "FLUX.1-Fill-dev": "authenticated access verified"
+  },
+  "method": "WorldGen panorama generation + DA-2 distance + upstream splat/mesh conversion; known-camera adapter for image input",
+  "cases": [
+    {
+      "id": "robot-lab",
+      "mode": "t2s",
+      "video": "worldgen-scenes.mp4",
+      "poster": "worldgen-scenes.jpg",
+      "web_preview": {
+        "file": "worldgen-robot-lab.spz",
+        "gaussians": 320000,
+        "source_gaussians": 1280000,
+        "method": "2x2 image-grid stride; tangent scales doubled; DC color",
+        "bytes": 3310884,
+        "sha256": "45df9807c085fe172fd3134b898faaf845949e3e94729a4f28bdd2bb85818e38"
+      },
+      "render": {
+        "frames": 480,
+        "fps": 24,
+        "duration_seconds": 20.0,
+        "resolution": [
+          960,
+          540
+        ],
+        "renderer": "fVDB Reality Capture",
+        "torch": "2.13.0+cu130",
+        "gaussians": 1280000,
+        "center_range": [
+          0.4,
+          0.09,
+          0.3
+        ],
+        "mean_alpha": 0.9836421346912781,
+        "mp4_sha256": "24e9412f7b25abb3447a897001b4b191f9d612a57ccfc4032134503ca40c7f87",
+        "mp4_bytes": 1577216,
+        "cameras_sha256": "b5dd0858785d985f5f1f8f32ac8eefef55f179b612b6d406e11984a27a406fe8"
+      },
+      "published": {
+        "worldgen-scenes.mp4": {
+          "bytes": 1577216,
+          "sha256": "24e9412f7b25abb3447a897001b4b191f9d612a57ccfc4032134503ca40c7f87"
+        },
+        "worldgen-scenes.jpg": {
+          "bytes": 75432,
+          "sha256": "c3676d90889e9bfe59adc816d0955754b86101240bce1bc5a0f1685bc1503c10"
+        },
+        "worldgen-robot-lab.spz": {
+          "bytes": 3310884,
+          "sha256": "45df9807c085fe172fd3134b898faaf845949e3e94729a4f28bdd2bb85818e38"
+        }
+      }
+    },
+    {
+      "id": "livingroom",
+      "mode": "i2s",
+      "video": "worldgen-livingroom.mp4",
+      "poster": "worldgen-livingroom.jpg",
+      "web_preview": {
+        "file": "worldgen-livingroom.spz",
+        "gaussians": 320000,
+        "source_gaussians": 1280000,
+        "method": "2x2 image-grid stride; tangent scales doubled; DC color",
+        "bytes": 3519793,
+        "sha256": "714561cb756f917332003acc7e6d133255daed0573dc76e4ada6cf89e70cc113"
+      },
+      "render": {
+        "frames": 480,
+        "fps": 24,
+        "duration_seconds": 20.0,
+        "resolution": [
+          960,
+          540
+        ],
+        "renderer": "fVDB Reality Capture",
+        "torch": "2.13.0+cu130",
+        "gaussians": 1280000,
+        "center_range": [
+          0.4,
+          0.09,
+          0.3
+        ],
+        "mean_alpha": 0.9895896809796493,
+        "mp4_sha256": "fd4e29ee250bd2e06c33dd9710e54ad747bd7e52ceed9fca7cd4e664033c02e1",
+        "mp4_bytes": 1352136,
+        "cameras_sha256": "98781af0ff0862646285e76750b7b1a3d70cfae9b72113dece3ce25da0f78260"
+      },
+      "published": {
+        "worldgen-livingroom.mp4": {
+          "bytes": 1352136,
+          "sha256": "fd4e29ee250bd2e06c33dd9710e54ad747bd7e52ceed9fca7cd4e664033c02e1"
+        },
+        "worldgen-livingroom.jpg": {
+          "bytes": 44380,
+          "sha256": "d7c12734ab00b0ad9701f39db0423a533e1e897e321844dd38a7a78e64e252df"
+        },
+        "worldgen-livingroom.spz": {
+          "bytes": 3519793,
+          "sha256": "714561cb756f917332003acc7e6d133255daed0573dc76e4ada6cf89e70cc113"
+        }
+      }
+    },
+    {
+      "id": "forest-trail",
+      "mode": "t2s",
+      "video": "worldgen-forest-trail.mp4",
+      "poster": "worldgen-forest-trail.jpg",
+      "web_preview": {
+        "file": "worldgen-forest-trail.spz",
+        "gaussians": 320000,
+        "source_gaussians": 1280000,
+        "method": "2x2 image-grid stride; tangent scales doubled; DC color",
+        "bytes": 3033383,
+        "sha256": "a1ac41c5f135bcd8e3a3f6136617cab010608e7ee72624211bcd0ea2ceab363e"
+      },
+      "render": {
+        "frames": 480,
+        "fps": 24,
+        "duration_seconds": 20.0,
+        "resolution": [
+          960,
+          540
+        ],
+        "renderer": "fVDB Reality Capture",
+        "torch": "2.13.0+cu130",
+        "gaussians": 1280000,
+        "center_range": [
+          0.4,
+          0.09,
+          0.3
+        ],
+        "mean_alpha": 0.5702803856227547,
+        "mp4_sha256": "fa4d60eb4d4442aee3f6d012276bf4c2487827622123a7383e59924c764a49d8",
+        "mp4_bytes": 5207633,
+        "cameras_sha256": "a302c85a4f8234434ea4dd16e290daf3c2f6b2aeb2253ebc8324be4d5bca4812"
+      },
+      "published": {
+        "worldgen-forest-trail.mp4": {
+          "bytes": 5207633,
+          "sha256": "fa4d60eb4d4442aee3f6d012276bf4c2487827622123a7383e59924c764a49d8"
+        },
+        "worldgen-forest-trail.jpg": {
+          "bytes": 99121,
+          "sha256": "69051dcbf5d2bf864c4bd3028918746d11bcce945d33e8f72f16d0e00dbbe860"
+        },
+        "worldgen-forest-trail.spz": {
+          "bytes": 3033383,
+          "sha256": "a1ac41c5f135bcd8e3a3f6136617cab010608e7ee72624211bcd0ea2ceab363e"
+        }
+      }
+    }
+  ],
+  "setup_verified_on_host": true,
+  "implementation_sha256": {
+    "setup.sh": "d2adf4a70c6b5bfea8f7713bf17a034e0056b896dbe0cfee3a9b34513510d226",
+    "generate.py": "5b6edd264ae2c5fd768bbfe5c46bb3effb30c1fbab83289d1828affdbea9baf9",
+    "render.py": "13da64698f44b96b629e4a217358565a0a416e0d3ccdf72a3b34e424f72a4ce2",
+    "audit.py": "3bfb72cab33796f6a3cc4d2f342099b1f06110e8bb3350a64f2580b6de8211a1",
+    "preview.py": "634617b4b9be2f341eb28deeaa95014e44146d35293e26e0ac1ccafedf3f3794",
+    "model-pins.json": "b2c249f1f2be85d54df29376cd37d2a1c259ab8c9bd3a45e9921260d9ec002f2"
+  },
+  "publication_note": "Private machine identifiers and storage paths are omitted or represented by public placeholders; numerical results are unchanged."
+}

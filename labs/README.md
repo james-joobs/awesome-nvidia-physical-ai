@@ -42,3 +42,9 @@ cd awesome-nvidia-physical-ai
 | [Warp particles](../docs/en/labs/warp-particles.md) | NVIDIA Warp, CUDA, OpenGL | Run the particle simulation and inspect its metrics. |
 
 From the repository root, `python3 labs/verify.py` checks the included measurements and lab source references without an NVIDIA GPU. Each guide gives the separate runtime requirements for new simulation runs.
+
+## WorldGen text/image to 3D
+
+Generate a robotics lab, expand a calibrated image into a room, and compare an outdoor forest scene. Includes source, full-run metadata, CPU checks, 20-second translated camera recordings and on-demand 3D previews.
+
+[English guide](../docs/en/labs/worldgen-scenes.md) · [한국어 실습](../docs/ko/labs/worldgen-scenes.md) · [Code and evidence](worldgen-scenes/)
