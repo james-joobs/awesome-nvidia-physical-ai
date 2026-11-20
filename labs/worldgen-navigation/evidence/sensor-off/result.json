@@ -1,0 +1,943 @@
+{
+  "status": "complete",
+  "scenario": "sensor",
+  "layout": "center",
+  "sensor_off": true,
+  "collision_view": false,
+  "no_floor": false,
+  "raw_collider": false,
+  "isaacsim_version": "6.2.0",
+  "physics": "live PhysX; joint velocity drives; not a USD trajectory replay",
+  "control": "measured physics raycast scan \u2192 endpoint occupancy \u2192 inflation \u2192 A* \u2192 pose-feedback wheel control",
+  "timing": {
+    "sensor_s": 0.0,
+    "planner_s": 0.0,
+    "draw_s": 0.0,
+    "step_s": 1.1068700707983226
+  },
+  "sensor": {
+    "class": "isaacsim.sensors.experimental.physics.RaycastSensor",
+    "rays": 180,
+    "max_range_m": 2.5,
+    "height_above_chassis_m": 0.25,
+    "controller_read_hz": 10,
+    "scan_frames": 0,
+    "replans": 0
+  },
+  "navigation": {
+    "obstacle_transforms_as_input": false,
+    "known_floor_bounds": [
+      -2.5,
+      -2.0,
+      2.5,
+      2.0
+    ],
+    "inflation_radius_m": 0.43,
+    "grid_resolution_m": 0.05,
+    "goal_xy": [
+      1.3,
+      0.0
+    ],
+    "pose_source": "simulator ground truth; not SLAM or wheel odometry"
+  },
+  "goal_reached_s": null,
+  "start_sim_s": 0.7,
+  "duration_sim_s": 3.0,
+  "duration_wall_s": 1.1256701970705763,
+  "reached_goal": false,
+  "stage": {
+    "up_axis": "Z",
+    "meters_per_unit": 1.0,
+    "render_mesh_collision": false,
+    "multitick_rendering": false,
+    "room_emission_display_setting": 400.0,
+    "proxy_floor": true
+  },
+  "raycasts": {
+    "floor_left": {
+      "hit": true,
+      "collider": "/World/ProxyFloor",
+      "position": [
+        -1.0,
+        -1.0,
+        0.0
+      ]
+    },
+    "floor_right": {
+      "hit": true,
+      "collider": "/World/ProxyFloor",
+      "position": [
+        1.0,
+        -1.0,
+        0.0
+      ]
+    },
+    "crate": {
+      "hit": true,
+      "collider": "/World/TestCrate",
+      "position": [
+        0.0,
+        0.0,
+        0.6000000238418579
+      ]
+    }
+  },
+  "crate_contact_events": [],
+  "samples": [
+    {
+      "step": 0,
+      "sim_time_s": 0.01666666666666672,
+      "wall_s": 0.0029617510735988617,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 6,
+      "sim_time_s": 0.1166666666666667,
+      "wall_s": 0.010169366025365889,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 12,
+      "sim_time_s": 0.21666666666666667,
+      "wall_s": 0.017997117014601827,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 18,
+      "sim_time_s": 0.31666666666666665,
+      "wall_s": 0.03834979305975139,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 24,
+      "sim_time_s": 0.41666666666666674,
+      "wall_s": 0.04623464203905314,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 30,
+      "sim_time_s": 0.5166666666666666,
+      "wall_s": 0.05300033499952406,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 36,
+      "sim_time_s": 0.6166666666666667,
+      "wall_s": 0.05905757402069867,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 42,
+      "sim_time_s": 0.7166666666666668,
+      "wall_s": 0.06536569900345057,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 48,
+      "sim_time_s": 0.8166666666666667,
+      "wall_s": 0.08317448606248945,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 54,
+      "sim_time_s": 0.9166666666666667,
+      "wall_s": 0.09079871501307935,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 60,
+      "sim_time_s": 1.0166666666666666,
+      "wall_s": 0.10979942604899406,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 66,
+      "sim_time_s": 1.1166666666666667,
+      "wall_s": 0.12924547109287232,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 72,
+      "sim_time_s": 1.2166666666666668,
+      "wall_s": 0.14396405301522464,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 78,
+      "sim_time_s": 1.3166666666666667,
+      "wall_s": 0.15080523409415036,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 84,
+      "sim_time_s": 1.4166666666666667,
+      "wall_s": 0.1810755260521546,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 90,
+      "sim_time_s": 1.5166666666666668,
+      "wall_s": 0.19716664706356823,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 96,
+      "sim_time_s": 1.616666666666667,
+      "wall_s": 0.20388320507481694,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 102,
+      "sim_time_s": 1.7166666666666666,
+      "wall_s": 0.2097709020599723,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 108,
+      "sim_time_s": 1.8166666666666667,
+      "wall_s": 0.21584701107349247,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 114,
+      "sim_time_s": 1.9166666666666667,
+      "wall_s": 0.22184928902424872,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 120,
+      "sim_time_s": 2.0166666666666666,
+      "wall_s": 0.22780000499915332,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 126,
+      "sim_time_s": 2.116666666666667,
+      "wall_s": 0.2335983410011977,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 132,
+      "sim_time_s": 2.216666666666667,
+      "wall_s": 0.2397375120781362,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 138,
+      "sim_time_s": 2.3166666666666664,
+      "wall_s": 0.2454685710836202,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 144,
+      "sim_time_s": 2.416666666666667,
+      "wall_s": 0.2520985130686313,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 150,
+      "sim_time_s": 2.5166666666666666,
+      "wall_s": 0.25835466606076807,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 156,
+      "sim_time_s": 2.616666666666667,
+      "wall_s": 0.2640905360458419,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 162,
+      "sim_time_s": 2.716666666666667,
+      "wall_s": 0.27032109000720084,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 168,
+      "sim_time_s": 2.8166666666666664,
+      "wall_s": 0.27645519003272057,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    },
+    {
+      "step": 174,
+      "sim_time_s": 2.916666666666667,
+      "wall_s": 1.116260365000926,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.300000786781311,
+            2.1907265335130433e-08,
+            0.2300000637769699
+          ],
+          [
+            -4.748091342321459e-08,
+            3.7532299757003784e-07,
+            1.433245984117093e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": null,
+      "phase": "sensor-stop",
+      "front_min_m": 2.5,
+      "sensor_age_s": null
+    }
+  ],
+  "final_poses": {
+    "/World/Robot/Chassis": [
+      [
+        -1.300000786781311,
+        2.1907265335130433e-08,
+        0.2300000637769699
+      ],
+      [
+        -4.748091342321459e-08,
+        3.7532299757003784e-07,
+        1.433245984117093e-07,
+        1.0
+      ]
+    ]
+  }
+}

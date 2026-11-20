@@ -1,0 +1,84 @@
+{
+  "worldgen-navigation-lower": {
+    "source_native_sha256": "60b616ab81dde1720df39347f6ef61ff79ceac7600f7a62818ae1b9fb727ec15",
+    "crop_xywh": [
+      50,
+      64,
+      952,
+      536
+    ],
+    "trim_start_s": 0.4,
+    "speed": 1.0,
+    "duration_limit_s": 16.039250511024147,
+    "simulation_s": 15.1,
+    "simulation_wall_s": 15.089250511024147,
+    "goal_reached_s": 12.083333333333332,
+    "published_sha256": "d56d2d8b8bc575f33138d4f0acd1975469b67be2c2e2c495ad00fa37ba563797"
+  },
+  "worldgen-navigation-fixed": {
+    "source_native_sha256": "ac91d1eb11f88c3de57adc7de4e85069c65308fc69ce9e1b70eb7ba361357eea",
+    "crop_xywh": [
+      50,
+      64,
+      952,
+      536
+    ],
+    "trim_start_s": 0.4,
+    "speed": 1.0,
+    "duration_limit_s": 20.951558221993036,
+    "simulation_s": 20.0,
+    "simulation_wall_s": 20.001558221993037,
+    "goal_reached_s": null,
+    "published_sha256": "b6c6643499788ef59c1cdd6ea750338f4af7820cf9d36b4eff97f296d0f59387"
+  },
+  "worldgen-navigation-upper": {
+    "source_native_sha256": "6237f7c0b426d5547c69a161e5ebbc7d3888b9f5cbf40a2c19f9da5a9f306111",
+    "crop_xywh": [
+      50,
+      64,
+      952,
+      536
+    ],
+    "trim_start_s": 0.4,
+    "speed": 1.0,
+    "duration_limit_s": 16.041127671999856,
+    "simulation_s": 15.1,
+    "simulation_wall_s": 15.091127671999857,
+    "goal_reached_s": 12.083333333333332,
+    "published_sha256": "d143af703d12d7b64c1633a5550ff3bf4302a7eddcab0fe4d02e85af6e34ad66"
+  },
+  "worldgen-navigation-center": {
+    "source_native_sha256": "96f33f257c1d8ae53160710a8d6f1d80845b40b06e11e0c48fffa7bfe26ddfab",
+    "crop_xywh": [
+      50,
+      64,
+      952,
+      536
+    ],
+    "trim_start_s": 0.4,
+    "speed": 1.0,
+    "duration_limit_s": 16.042240166966803,
+    "simulation_s": 15.1,
+    "simulation_wall_s": 15.092240166966803,
+    "goal_reached_s": 12.083333333333332,
+    "published_sha256": "5647234b5c51fb2b25ef603ddd53820ab439c42c1808f7b898eae3e08184013e"
+  },
+  "worldgen-navigation": {
+    "edit": "10 s fixed-route excerpt, then complete sensor-lower viewport take; labeled hard cut",
+    "sources": [
+      "worldgen-navigation-fixed",
+      "worldgen-navigation-lower"
+    ],
+    "speed": 1.0,
+    "published_sha256": "3f01e6cfa15593bf7042bae487b5f51ae9f286d8d2a11908bd17f50ea40a6ece"
+  },
+  "worldgen-navigation-ko": {
+    "edit": "10 s fixed-route excerpt, then complete sensor-lower viewport take; labeled hard cut",
+    "sources": [
+      "worldgen-navigation-fixed",
+      "worldgen-navigation-lower"
+    ],
+    "speed": 1.0,
+    "published_sha256": "86691602706fec506165e14c714c87fb40606e061bad05b68d092255a8260126"
+  }
+}

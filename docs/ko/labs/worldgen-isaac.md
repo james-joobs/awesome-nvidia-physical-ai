@@ -154,3 +154,6 @@ python3 labs/worldgen-isaac/check.py --run runs/worldgen-isaac/detour
 ```
 
 장면을 가져왔다고 검증된 디지털 트윈이 완성되는 것은 아닙니다. 이 실습은 **생성한 시각 환경에, 동작을 확인한 국소 물리 구성을 더하는 과정**입니다. 크기는 가정했고, 표면은 추정값이며, 충돌체는 시험 구역에만 설정했습니다. 로봇은 단순한 상태 피드백으로 움직입니다. [WorldGen 생성 실습](worldgen-scenes.md) · [Isaac Sim 원리](../isaac-sim.md) · [영상·입력 출처](../../../site/public/showcase/SPATIAL-CREDITS.md).
+
+
+[다음 실습: 센서로 장애물을 보고 우회하기](worldgen-navigation.md).

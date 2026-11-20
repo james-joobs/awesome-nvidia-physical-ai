@@ -1,0 +1,177 @@
+{
+  "date": "2026-11-20",
+  "host": "falconeyes-omen",
+  "gpu": "NVIDIA RTX 5090 32 GB",
+  "runtime_image": "nvcr.io/nvidia/isaac-sim@sha256:a025b65a7442d56806a1cc3f5eed081caf736c24b72d62dccf68ef66945d8690",
+  "runs": [
+    "center",
+    "lower",
+    "upper",
+    "baseline",
+    "sensor-off"
+  ],
+  "control": "Native Isaac Sim 6.2 Physics Raycast Sensor → measured endpoint occupancy → footprint inflation → A* → physical wheel drives",
+  "scope": "Known simulator ego pose and flat test bounds; ideal horizontal range sensing; static accumulated map. No learned policy, SLAM or automatic collision recovery for generated furniture.",
+  "executed_source_sha256": {
+    "run.py": "f2b220e04fce5f63888032b193131b3b7173a643307cef233215e584076e0fae",
+    "navigation.py": "8f70ffa93656f6595eb18010764deead33922342d6e295328c9c5818ffa98fa6",
+    "record_gui.py": "41c907e329095bc2b4ea0fc5b61e2a150a64bd46264536ed0a6540071008d345"
+  },
+  "recording": "Native Isaac Sim X11 window, 1440×900. Viewport crops at 1×. Main comparison: 10 s baseline, then complete lower-layout sensor take, with controller labels.",
+  "remote_originals": "~/physical-ai-grid/worldgen-navigation-2026-11-20/films/",
+  "asset_dependency": "labs/worldgen-isaac/assets; original generated room, explicit assumed scale and local colliders retained",
+  "files": {
+    "assets/lessons/worldgen-navigation/flow.en.svg": {
+      "bytes": 1711,
+      "sha256": "a8688b532c30edb3dbf79b94f28aeba768b1194dab745a2bd2e7d4b8e1249630"
+    },
+    "assets/lessons/worldgen-navigation/flow.ko.svg": {
+      "bytes": 1799,
+      "sha256": "f6846d060b11649174d29308ae0fcf7d4434f50831fa0841cc79f58e9200000c"
+    },
+    "assets/lessons/worldgen-navigation/paths.en.svg": {
+      "bytes": 226515,
+      "sha256": "278940dde65010f04456e668ad0d5bab5adc0aa8081277059c50e95b0dba3ceb"
+    },
+    "assets/lessons/worldgen-navigation/paths.ko.svg": {
+      "bytes": 225648,
+      "sha256": "c78cb4ec5adb830af7299d9a2ce378b352d7f7535906ba34e283519df9a3a164"
+    },
+    "assets/lessons/worldgen-navigation/scan.webp": {
+      "bytes": 31568,
+      "sha256": "b808a93a1391174b09b244f36e7ad527cdc1bfe752dfa987890b5038e17b8e9a"
+    },
+    "labs/worldgen-navigation/check.py": {
+      "bytes": 3081,
+      "sha256": "f56c57f29ea5b04953c5b9d849c25fcd1eb573f6eca613cb854a3ca32470bf55"
+    },
+    "labs/worldgen-navigation/evidence/baseline/result.json": {
+      "bytes": 223231,
+      "sha256": "3bcafbd6e81c190a395b1c0f5b02ea084597377e3d6972b4872c840a9bd7d47f"
+    },
+    "labs/worldgen-navigation/evidence/baseline/scans.json": {
+      "bytes": 1545457,
+      "sha256": "e04a752269b6e6995e366dd9bbb3bbe92e612cba5660e403258bf1bf17d6393e"
+    },
+    "labs/worldgen-navigation/evidence/center/result.json": {
+      "bytes": 102538,
+      "sha256": "1d8f3b8f581342908049213ff03cf81dc4ce2f6c89d009c112b3af04553a2900"
+    },
+    "labs/worldgen-navigation/evidence/center/scans.json": {
+      "bytes": 872324,
+      "sha256": "91061feca481ad13359def73e8633ac02f9f109045f641127d8bbf1be3dce26a"
+    },
+    "labs/worldgen-navigation/evidence/lower/result.json": {
+      "bytes": 102489,
+      "sha256": "17a83b54f4e2f0fbea77a607a1ac9507c77eb245d046ac54e908bec14d423c56"
+    },
+    "labs/worldgen-navigation/evidence/lower/scans.json": {
+      "bytes": 943821,
+      "sha256": "0c6462b318ab56942a19a32484c88b50a078928c6f626fe7f33f09767cb64fce"
+    },
+    "labs/worldgen-navigation/evidence/navigation-edit.json": {
+      "bytes": 2629,
+      "sha256": "af09070ba788541b4a1490e1b2987f243f64e415de3c34d412603f05d13ff508"
+    },
+    "labs/worldgen-navigation/evidence/scan-example.json": {
+      "bytes": 1294,
+      "sha256": "2bb3d88a90ee0582b006af7897ae788960369af414a77cbc20fae4db1e95af71"
+    },
+    "labs/worldgen-navigation/evidence/sensor-off/result.json": {
+      "bytes": 20523,
+      "sha256": "908e39a6a970a2d59fe86837af2fd617c5c86968a0adc6695c2107bf3f422a20"
+    },
+    "labs/worldgen-navigation/evidence/sensor-off/scans.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "labs/worldgen-navigation/evidence/upper/result.json": {
+      "bytes": 102543,
+      "sha256": "1bb798d467ef3ca76cf4db5afdbf7b6baff75d93798bb8deb584d95a82255c24"
+    },
+    "labs/worldgen-navigation/evidence/upper/scans.json": {
+      "bytes": 945179,
+      "sha256": "c7b469e4a60f93edab9214d4b32a2eef0346c8c99da7262fdaed3bfb7212ec34"
+    },
+    "labs/worldgen-navigation/navigation.py": {
+      "bytes": 4604,
+      "sha256": "8f70ffa93656f6595eb18010764deead33922342d6e295328c9c5818ffa98fa6"
+    },
+    "labs/worldgen-navigation/package.py": {
+      "bytes": 3958,
+      "sha256": "453ae4733b14d17cc528776278ad2658835a068fd579420e1de701ab1d284cb2"
+    },
+    "labs/worldgen-navigation/plot.py": {
+      "bytes": 2787,
+      "sha256": "f246f9329612f4de811a9bb02eb0236682ac87eb7e403142c69241dc1e8bdfba"
+    },
+    "labs/worldgen-navigation/record_gui.py": {
+      "bytes": 3040,
+      "sha256": "41c907e329095bc2b4ea0fc5b61e2a150a64bd46264536ed0a6540071008d345"
+    },
+    "labs/worldgen-navigation/run.py": {
+      "bytes": 22983,
+      "sha256": "f2b220e04fce5f63888032b193131b3b7173a643307cef233215e584076e0fae"
+    },
+    "labs/worldgen-navigation/run.sh": {
+      "bytes": 1700,
+      "sha256": "8866fc3401fe2def0348bf8442ce0a74199e88ab7e72557d40330bf6f7f1dff8"
+    },
+    "labs/worldgen-navigation/test_navigation.py": {
+      "bytes": 2045,
+      "sha256": "acfc42884a767baa08915882e39363334ec42810460973154b084f7f222e6e6d"
+    },
+    "site/public/showcase/worldgen-navigation-center.jpg": {
+      "bytes": 33089,
+      "sha256": "3226cacb6ebd955845e72e2669dfcbfbc6e3cea7eeeddf4f5e28c08482031f07"
+    },
+    "site/public/showcase/worldgen-navigation-center.mp4": {
+      "bytes": 332975,
+      "sha256": "5647234b5c51fb2b25ef603ddd53820ab439c42c1808f7b898eae3e08184013e"
+    },
+    "site/public/showcase/worldgen-navigation-fixed.jpg": {
+      "bytes": 31030,
+      "sha256": "067d1c30593a72d1cd572b58dc869f4a8732e56cdc6624afd6d4b20dc44425d2"
+    },
+    "site/public/showcase/worldgen-navigation-fixed.mp4": {
+      "bytes": 313287,
+      "sha256": "b6c6643499788ef59c1cdd6ea750338f4af7820cf9d36b4eff97f296d0f59387"
+    },
+    "site/public/showcase/worldgen-navigation-ko.jpg": {
+      "bytes": 32869,
+      "sha256": "506c48df6aecdee968a7c5de7004ad01b637f19b5679503d6099365c1d8cbed2"
+    },
+    "site/public/showcase/worldgen-navigation-ko.mp4": {
+      "bytes": 498591,
+      "sha256": "86691602706fec506165e14c714c87fb40606e061bad05b68d092255a8260126"
+    },
+    "site/public/showcase/worldgen-navigation-lower.jpg": {
+      "bytes": 30786,
+      "sha256": "adabb74aafaa2f161a7a63dc5db9fe34f86996298aad17ceb8cbd90115dd60bb"
+    },
+    "site/public/showcase/worldgen-navigation-lower.mp4": {
+      "bytes": 302933,
+      "sha256": "d56d2d8b8bc575f33138d4f0acd1975469b67be2c2e2c495ad00fa37ba563797"
+    },
+    "site/public/showcase/worldgen-navigation-scene.zip": {
+      "bytes": 1389362,
+      "sha256": "5c5f73dc3ed2766dff95f6b60f1d28b21db7e49f2960cd8b10665898c5b7a1ee"
+    },
+    "site/public/showcase/worldgen-navigation-upper.jpg": {
+      "bytes": 33262,
+      "sha256": "277f1f8dd9ec4513bf71f756462034bfccaf66af536515d4b1cae538f6ccbf39"
+    },
+    "site/public/showcase/worldgen-navigation-upper.mp4": {
+      "bytes": 344177,
+      "sha256": "d143af703d12d7b64c1633a5550ff3bf4302a7eddcab0fe4d02e85af6e34ad66"
+    },
+    "site/public/showcase/worldgen-navigation.jpg": {
+      "bytes": 33055,
+      "sha256": "e8b392e5c255cab869795b8ddbc6a0531d6961c9d93d93e1063d4accac1fb575"
+    },
+    "site/public/showcase/worldgen-navigation.mp4": {
+      "bytes": 504729,
+      "sha256": "3f01e6cfa15593bf7042bae487b5f51ae9f286d8d2a11908bd17f50ea40a6ece"
+    }
+  }
+}

@@ -3,8 +3,9 @@ import { showcaseCopy, showcaseMedia } from '../lib/showcase.mjs';
 
 const { locale, clip, title, eager = false, autoplay = false } = Astro.props;
 const labels = showcaseCopy[locale];
-const poster = showcaseMedia(`${clip.id}.jpg`);
-const movie = showcaseMedia(`${clip.id}.mp4`);
+const mediaId = clip.media?.[locale] ?? clip.id;
+const poster = showcaseMedia(`${mediaId}.jpg`);
+const movie = showcaseMedia(`${mediaId}.mp4`);
 const playLabel = locale === 'ko' ? `${title} ${labels.play}` : `${labels.play} ${title}`;
 ---
 <div class="video-frame">

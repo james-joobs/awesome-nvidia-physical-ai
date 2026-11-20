@@ -54,3 +54,10 @@ Generate a robotics lab, expand a calibrated image into a room, and compare an o
 Import the bundled generated laboratory, calibrate an assumed scale, compare collision settings, and run a live differential-drive AMR. No FLUX download is needed for the prepared scene.
 
 [English lab](../docs/en/labs/worldgen-isaac.md) · [한국어 실습](../docs/ko/labs/worldgen-isaac.md) · [Code and assets](worldgen-isaac/)
+
+
+## Sensor navigation inside WorldGen
+
+[English](../docs/en/labs/worldgen-navigation.md) · [한국어](../docs/ko/labs/worldgen-navigation.md) · [Code](worldgen-navigation/)
+
+Actual Isaac Sim 6.2 Physics Raycast Sensor → occupancy grid → inflation → A* → differential wheel drives. Compare a fixed route with online planning when an added box changes the available passage. The test assumes simulator ego pose and known flat-floor bounds.
