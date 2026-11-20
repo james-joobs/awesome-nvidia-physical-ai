@@ -1,0 +1,6940 @@
+{
+  "status": "complete",
+  "scenario": "combined",
+  "collision_view": false,
+  "no_floor": false,
+  "raw_collider": false,
+  "isaacsim_version": "6.2.0",
+  "physics": "live PhysX; joint velocity drives; not a USD trajectory replay",
+  "control": "pose-feedback waypoint controller with initial contact and recovery",
+  "start_sim_s": 1.5833333333333333,
+  "duration_sim_s": 24.316666666666666,
+  "duration_wall_s": 24.307826481061056,
+  "reached_goal": true,
+  "stage": {
+    "up_axis": "Z",
+    "meters_per_unit": 1.0,
+    "render_mesh_collision": false,
+    "multitick_rendering": false,
+    "room_emission_display_setting": 400.0,
+    "proxy_floor": true
+  },
+  "raycasts": {
+    "floor_left": {
+      "hit": true,
+      "collider": "/World/ProxyFloor",
+      "position": [
+        -1.0,
+        -1.0,
+        0.0
+      ]
+    },
+    "floor_right": {
+      "hit": true,
+      "collider": "/World/ProxyFloor",
+      "position": [
+        1.0,
+        -1.0,
+        0.0
+      ]
+    },
+    "crate": {
+      "hit": true,
+      "collider": "/World/TestCrate",
+      "position": [
+        0.0,
+        0.0,
+        0.6000000238418579
+      ]
+    }
+  },
+  "crate_contact_events": [
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 0,
+      "time": 4.283333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.3
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.316666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.333333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.35
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.366666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.383333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.4
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.416666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.433333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.45
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.466666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.483333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.5
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.516666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.533333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.55
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.566666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.583333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.6
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.616666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.633333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.65
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.666666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.683333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.7
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.716666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.733333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.75
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.766666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.783333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.8
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.816666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.833333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.85
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.866666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.883333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.9
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.916666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.933333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.95
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.966666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.983333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.0
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.016666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.033333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.05
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.066666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.083333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.1
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.116666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.133333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.15
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.166666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.183333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.2
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.216666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.233333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.25
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.266666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.283333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.3
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.316666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.333333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.35
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.366666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.383333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.4
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.416666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.433333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.45
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.466666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.483333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.5
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.516666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.533333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.55
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.566666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.583333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.6
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.616666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.633333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.65
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.666666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 1,
+      "time": 5.683333333333334
+    }
+  ],
+  "samples": [
+    {
+      "step": 0,
+      "sim_time_s": 0.01666666666666683,
+      "wall_s": 0.010755171999335289,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.299412727355957,
+            -2.7075169782619923e-05,
+            0.23002754151821136
+          ],
+          [
+            7.037594332359731e-05,
+            -6.441306322813034e-05,
+            -1.5828960385988466e-05,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 6,
+      "sim_time_s": 0.1166666666666667,
+      "wall_s": 0.10884348396211863,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.2833845615386963,
+            0.00042529558413662016,
+            0.23000596463680267
+          ],
+          [
+            2.0607794795068912e-05,
+            -1.7805956304073334e-05,
+            -0.0020514989737421274,
+            0.9999979138374329
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 12,
+      "sim_time_s": 0.21666666666666679,
+      "wall_s": 0.20826095005031675,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.2542680501937866,
+            0.0003079269954469055,
+            0.23000799119472504
+          ],
+          [
+            1.9078612240264192e-05,
+            -1.9956380128860474e-05,
+            -0.0021286122500896454,
+            0.9999976754188538
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 18,
+      "sim_time_s": 0.31666666666666665,
+      "wall_s": 0.3088490640511736,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.2242565155029297,
+            0.00014630152145400643,
+            0.23000848293304443
+          ],
+          [
+            2.0715016944450326e-05,
+            -2.1083280444145203e-05,
+            -0.001959448680281639,
+            0.9999980926513672
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 24,
+      "sim_time_s": 0.41666666666666674,
+      "wall_s": 0.4088889369741082,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.1942384243011475,
+            -1.5546329450444318e-06,
+            0.23000633716583252
+          ],
+          [
+            1.4653262041974813e-05,
+            -1.615472137928009e-05,
+            -0.0017941161058843136,
+            0.9999983906745911
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 30,
+      "sim_time_s": 0.5166666666666668,
+      "wall_s": 0.5078484379919246,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.164237141609192,
+            -0.00014374131569638848,
+            0.23000554740428925
+          ],
+          [
+            1.3913289876654744e-05,
+            -1.4604069292545319e-05,
+            -0.0016135069308802485,
+            0.9999986290931702
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 36,
+      "sim_time_s": 0.6166666666666669,
+      "wall_s": 0.6066379050025716,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.1342580318450928,
+            -0.00028090080013498664,
+            0.23000575602054596
+          ],
+          [
+            1.3599956218968146e-05,
+            -1.4496967196464539e-05,
+            -0.0014019852969795465,
+            0.999998927116394
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 42,
+      "sim_time_s": 0.7166666666666666,
+      "wall_s": 0.707376652979292,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.1042778491973877,
+            -0.00040606645052321255,
+            0.23000468313694
+          ],
+          [
+            1.2279305337870028e-05,
+            -1.2459233403205872e-05,
+            -0.001188031048513949,
+            0.9999992251396179
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 48,
+      "sim_time_s": 0.8166666666666667,
+      "wall_s": 0.8073553619906306,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.0742982625961304,
+            -0.0005224141641519964,
+            0.23000745475292206
+          ],
+          [
+            2.24678915401455e-05,
+            -1.8878839910030365e-05,
+            -0.0009799252729862928,
+            0.999999463558197
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 54,
+      "sim_time_s": 0.9166666666666667,
+      "wall_s": 0.9080438519595191,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.044316291809082,
+            -0.0006492129759863019,
+            0.2300306111574173
+          ],
+          [
+            8.681163308210671e-05,
+            -7.296167314052582e-05,
+            -0.0007932325825095177,
+            0.9999997019767761
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 60,
+      "sim_time_s": 1.0166666666666668,
+      "wall_s": 1.0077049339888617,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.014323115348816,
+            -0.0007028824766166508,
+            0.23000332713127136
+          ],
+          [
+            9.823125765251461e-06,
+            -9.37003642320633e-06,
+            -0.0005804093671031296,
+            0.9999998211860657
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 66,
+      "sim_time_s": 1.116666666666667,
+      "wall_s": 1.1083649559877813,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.9843467473983765,
+            -0.0008108450565487146,
+            0.23003001511096954
+          ],
+          [
+            8.684381464263424e-05,
+            -7.195211946964264e-05,
+            -0.0003883139288518578,
+            0.9999998807907104
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 72,
+      "sim_time_s": 1.2166666666666666,
+      "wall_s": 1.208864848013036,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.9543606638908386,
+            -0.0008724495419301093,
+            0.2300298660993576
+          ],
+          [
+            8.571535727242008e-05,
+            -7.179751992225647e-05,
+            -0.00018730261945165694,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 78,
+      "sim_time_s": 1.3166666666666667,
+      "wall_s": 1.3074519140645862,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.9243742823600769,
+            -0.0009215270401909947,
+            0.2300294041633606
+          ],
+          [
+            8.565835014451295e-05,
+            -7.081311196088791e-05,
+            1.4193360584613401e-05,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 84,
+      "sim_time_s": 1.4166666666666667,
+      "wall_s": 1.4077233009738848,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8943868279457092,
+            -0.0009587429813109338,
+            0.23002906143665314
+          ],
+          [
+            8.232464460888878e-05,
+            -6.947945803403854e-05,
+            0.00021234109590295702,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 90,
+      "sim_time_s": 1.5166666666666668,
+      "wall_s": 1.5078868590062484,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8643837571144104,
+            -0.0009486449416726828,
+            0.23000085353851318
+          ],
+          [
+            2.878438863263e-06,
+            -3.876164555549622e-06,
+            0.00041487551061436534,
+            0.9999998807907104
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 96,
+      "sim_time_s": 1.616666666666667,
+      "wall_s": 1.6077362870564684,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8344027996063232,
+            -0.0009969003731384873,
+            0.23002831637859344
+          ],
+          [
+            8.149079803843051e-05,
+            -6.824731826782227e-05,
+            0.000603347783908248,
+            0.9999997615814209
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 102,
+      "sim_time_s": 1.7166666666666666,
+      "wall_s": 1.7074366039596498,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8044032454490662,
+            -0.0009904565522447228,
+            0.23002927005290985
+          ],
+          [
+            7.338240538956597e-05,
+            -7.001403719186783e-05,
+            0.0007777355494908988,
+            0.9999997019767761
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 108,
+      "sim_time_s": 1.8166666666666667,
+      "wall_s": 1.8060643200296909,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7744016051292419,
+            -0.000945405859965831,
+            0.23000159859657288
+          ],
+          [
+            4.871732016908936e-06,
+            -5.3336843848228455e-06,
+            0.0009488362120464444,
+            0.9999995231628418
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 114,
+      "sim_time_s": 1.9166666666666667,
+      "wall_s": 1.9083716979948804,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.744408130645752,
+            -0.0009218702907674015,
+            0.2300063967704773
+          ],
+          [
+            1.5147351405175868e-05,
+            -1.57160684466362e-05,
+            0.0010942203225567937,
+            0.999999463558197
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 120,
+      "sim_time_s": 2.0166666666666666,
+      "wall_s": 2.007608843035996,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7144135236740112,
+            -0.0009150461992248893,
+            0.23002633452415466
+          ],
+          [
+            7.697648834437132e-05,
+            -6.363168358802795e-05,
+            0.0012459515128284693,
+            0.9999991655349731
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 126,
+      "sim_time_s": 2.116666666666667,
+      "wall_s": 2.1078240759670734,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.6844141483306885,
+            -0.0008625469636172056,
+            0.23001421988010406
+          ],
+          [
+            4.320329026086256e-05,
+            -3.466382622718811e-05,
+            0.0014413214521482587,
+            0.999998927116394
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 132,
+      "sim_time_s": 2.216666666666667,
+      "wall_s": 2.2078206660225987,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.654408872127533,
+            -0.0008127964683808386,
+            0.23002642393112183
+          ],
+          [
+            6.735817441949621e-05,
+            -6.331130862236023e-05,
+            0.0015765979187563062,
+            0.9999987483024597
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 138,
+      "sim_time_s": 2.3166666666666664,
+      "wall_s": 2.3071797320153564,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.6244212985038757,
+            -0.000735588779207319,
+            0.23003830015659332
+          ],
+          [
+            2.8269863832974806e-05,
+            -9.163003414869308e-05,
+            0.0017596195684745908,
+            0.9999984502792358
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 144,
+      "sim_time_s": 2.416666666666667,
+      "wall_s": 2.4072426330531016,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5944480299949646,
+            -0.0006432802765630186,
+            0.2300271838903427
+          ],
+          [
+            3.688806827994995e-06,
+            -6.497185677289963e-05,
+            0.0018907723715528846,
+            0.9999982118606567
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 150,
+      "sim_time_s": 2.5166666666666666,
+      "wall_s": 2.5075917349895462,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5644890666007996,
+            -0.0005574906244874001,
+            0.23003149032592773
+          ],
+          [
+            4.1648912883829325e-05,
+            -7.499381899833679e-05,
+            0.001945642987266183,
+            0.9999980330467224
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 156,
+      "sim_time_s": 2.616666666666667,
+      "wall_s": 2.6077883190009743,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5345343351364136,
+            -0.00043810997158288956,
+            0.23002584278583527
+          ],
+          [
+            -1.2658310879487544e-06,
+            -6.118509918451309e-05,
+            0.0020325842779129744,
+            0.9999979138374329
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 162,
+      "sim_time_s": 2.716666666666667,
+      "wall_s": 2.708964399062097,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5045427680015564,
+            -0.00037554430309683084,
+            0.23001037538051605
+          ],
+          [
+            8.829895523376763e-05,
+            -2.606026828289032e-05,
+            0.002122189849615097,
+            0.9999977350234985
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 168,
+      "sim_time_s": 2.8166666666666673,
+      "wall_s": 2.8087779210181907,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000061988830566,
+            0.0004833360726479441,
+            0.23001618683338165
+          ],
+          [
+            3.965518408222124e-05,
+            -3.7826597690582275e-05,
+            1.7840073951447266e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 174,
+      "sim_time_s": 2.916666666666667,
+      "wall_s": 2.908680740976706,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000126957893372,
+            0.0004956036573275924,
+            0.23002959787845612
+          ],
+          [
+            1.1866935892612673e-05,
+            -6.767548620700836e-05,
+            3.6307449136074865e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 180,
+      "sim_time_s": 3.0166666666666666,
+      "wall_s": 3.008598161046393,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000066161155701,
+            0.0004932589363306761,
+            0.2300155609846115
+          ],
+          [
+            3.837225085590035e-05,
+            -1.7642974853515625e-05,
+            -3.363454197824467e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 186,
+      "sim_time_s": 3.116666666666667,
+      "wall_s": 3.108467828016728,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000107288360596,
+            0.0004731415247078985,
+            0.23002439737319946
+          ],
+          [
+            1.565992715768516e-05,
+            -5.9137120842933655e-05,
+            -4.704225489149394e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 192,
+      "sim_time_s": 3.216666666666667,
+      "wall_s": 3.2086055419640616,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.49999988079071045,
+            0.00046794835361652076,
+            0.23000341653823853
+          ],
+          [
+            8.358525519724935e-06,
+            -7.818453013896942e-06,
+            -1.060742079062038e-06,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 198,
+      "sim_time_s": 3.3166666666666673,
+      "wall_s": 3.307768978062086,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000056028366089,
+            0.00046401991858147085,
+            0.23001277446746826
+          ],
+          [
+            -3.2931337045738474e-05,
+            -2.954341471195221e-05,
+            -8.088105687420466e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 204,
+      "sim_time_s": 3.416666666666667,
+      "wall_s": 3.4096256280317903,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.500006914138794,
+            0.0004859560285694897,
+            0.23002050817012787
+          ],
+          [
+            -1.2781373698089737e-05,
+            -5.448702722787857e-05,
+            3.0436533506872365e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 210,
+      "sim_time_s": 3.5166666666666666,
+      "wall_s": 3.5084928440628573,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000060200691223,
+            0.0004652023781090975,
+            0.23001441359519958
+          ],
+          [
+            3.7000390875618905e-05,
+            -3.459211438894272e-05,
+            1.6984944295472815e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 216,
+      "sim_time_s": 3.616666666666667,
+      "wall_s": 3.607938815956004,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000157356262207,
+            0.0004728940548375249,
+            0.2300375998020172
+          ],
+          [
+            2.7459573175292462e-05,
+            -8.950848132371902e-05,
+            3.6168444239592645e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 222,
+      "sim_time_s": 3.716666666666667,
+      "wall_s": 3.709000798058696,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000069737434387,
+            0.00045690120896324515,
+            0.23002047836780548
+          ],
+          [
+            5.476310252561234e-05,
+            -5.065556615591049e-05,
+            -4.280987468519015e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 228,
+      "sim_time_s": 3.8166666666666673,
+      "wall_s": 3.8074360210448503,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.4999997317790985,
+            0.00047816309961490333,
+            0.22999851405620575
+          ],
+          [
+            -2.2440904956511076e-07,
+            5.932524800300598e-07,
+            -1.4422660115087638e-06,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 234,
+      "sim_time_s": 3.916666666666667,
+      "wall_s": 3.9064178940607235,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000000596046448,
+            0.0004726283950731158,
+            0.22999988496303558
+          ],
+          [
+            -4.75299401614393e-07,
+            -8.102506399154663e-07,
+            1.6426131423941115e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "contact"
+    },
+    {
+      "step": 240,
+      "sim_time_s": 4.016666666666667,
+      "wall_s": 4.008216236019507,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5013635158538818,
+            0.0004587558505591005,
+            0.2303139865398407
+          ],
+          [
+            -2.0541230696835555e-05,
+            0.00153245497494936,
+            6.130712426966056e-05,
+            0.9999987483024597
+          ]
+        ]
+      },
+      "command": [
+        -0.25,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "reverse"
+    },
+    {
+      "step": 246,
+      "sim_time_s": 4.116666666666667,
+      "wall_s": 4.106949973036535,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5241526961326599,
+            0.0004459049378056079,
+            0.22999991476535797
+          ],
+          [
+            1.1550662293302594e-06,
+            3.9422884583473206e-06,
+            6.408018816728145e-05,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        -0.25,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "reverse"
+    },
+    {
+      "step": 252,
+      "sim_time_s": 4.216666666666667,
+      "wall_s": 4.207140443962999,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5470107793807983,
+            0.0004562969843391329,
+            0.22999989986419678
+          ],
+          [
+            1.3906551430409309e-06,
+            2.389773726463318e-06,
+            1.9010682080988772e-05,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        -0.25,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "reverse"
+    },
+    {
+      "step": 258,
+      "sim_time_s": 4.316666666666667,
+      "wall_s": 4.307956264005043,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5698650479316711,
+            0.0004582597757689655,
+            0.23000004887580872
+          ],
+          [
+            -1.3655395036948903e-07,
+            1.6614794731140137e-06,
+            1.8215210729977116e-05,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        -0.25,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "reverse"
+    },
+    {
+      "step": 264,
+      "sim_time_s": 4.416666666666667,
+      "wall_s": 4.407028365065344,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5927170515060425,
+            0.00046023286995477974,
+            0.22999989986419678
+          ],
+          [
+            1.1891663689311827e-06,
+            2.201646566390991e-06,
+            1.1925008038815577e-05,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        -0.25,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "reverse"
+    },
+    {
+      "step": 270,
+      "sim_time_s": 4.516666666666667,
+      "wall_s": 4.5087218440603465,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.6155713200569153,
+            0.00046248032595030963,
+            0.23000004887580872
+          ],
+          [
+            -8.631095482769524e-08,
+            1.5906989574432373e-06,
+            1.1305670341243967e-05,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        -0.25,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "reverse"
+    },
+    {
+      "step": 276,
+      "sim_time_s": 4.616666666666667,
+      "wall_s": 4.607788015971892,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.6384263634681702,
+            0.0004595609207171947,
+            0.230000302195549
+          ],
+          [
+            -1.6434837561973836e-06,
+            1.4211982488632202e-06,
+            2.938565557997208e-05,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        -0.25,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "reverse"
+    },
+    {
+      "step": 282,
+      "sim_time_s": 4.716666666666667,
+      "wall_s": 4.708269722992554,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.6612830758094788,
+            0.00043726753210648894,
+            0.23000037670135498
+          ],
+          [
+            -1.3834078345098533e-06,
+            9.918585419654846e-07,
+            0.0001175052166217938,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        -0.25,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "reverse"
+    },
+    {
+      "step": 288,
+      "sim_time_s": 4.816666666666667,
+      "wall_s": 4.806864254060201,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.6841402649879456,
+            0.0004111473390366882,
+            0.23000042140483856
+          ],
+          [
+            -7.699489970036666e-07,
+            8.03731381893158e-07,
+            0.0002042350679403171,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        -0.25,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "reverse"
+    },
+    {
+      "step": 294,
+      "sim_time_s": 4.916666666666667,
+      "wall_s": 4.908022672054358,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7069978713989258,
+            0.0003813014191109687,
+            0.23000037670135498
+          ],
+          [
+            -6.130833298811922e-07,
+            9.043142199516296e-07,
+            0.00029014606843702495,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        -0.25,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "reverse"
+    },
+    {
+      "step": 300,
+      "sim_time_s": 5.016666666666667,
+      "wall_s": 5.00586181296967,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7298555970191956,
+            0.0003473584074527025,
+            0.2300003170967102
+          ],
+          [
+            -5.662343482981669e-07,
+            1.019798219203949e-06,
+            0.0003761489933822304,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        -0.25,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "reverse"
+    },
+    {
+      "step": 306,
+      "sim_time_s": 5.116666666666667,
+      "wall_s": 5.106925348984078,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7527128458023071,
+            0.0003094262501690537,
+            0.23000027239322662
+          ],
+          [
+            -5.713600330636837e-07,
+            1.02166086435318e-06,
+            0.00046319857938215137,
+            0.9999998807907104
+          ]
+        ]
+      },
+      "command": [
+        -0.25,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "reverse"
+    },
+    {
+      "step": 312,
+      "sim_time_s": 5.216666666666667,
+      "wall_s": 5.209067411022261,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7755706310272217,
+            0.00026736664585769176,
+            0.23000027239322662
+          ],
+          [
+            -4.4503121898742393e-07,
+            1.300126314163208e-06,
+            0.0005495424848049879,
+            0.9999998807907104
+          ]
+        ]
+      },
+      "command": [
+        -0.25,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "reverse"
+    },
+    {
+      "step": 318,
+      "sim_time_s": 5.316666666666667,
+      "wall_s": 5.309346714057028,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7984288334846497,
+            0.00022115236788522452,
+            0.23000024259090424
+          ],
+          [
+            -2.172328095184639e-07,
+            1.2135133147239685e-06,
+            0.000635749485809356,
+            0.9999997615814209
+          ]
+        ]
+      },
+      "command": [
+        -0.25,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "reverse"
+    },
+    {
+      "step": 324,
+      "sim_time_s": 5.416666666666667,
+      "wall_s": 5.409209139994346,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8212845921516418,
+            0.00017297256272286177,
+            0.22999997437000275
+          ],
+          [
+            6.617165126954205e-07,
+            4.370696842670441e-06,
+            0.0007148965378291905,
+            0.9999997019767761
+          ]
+        ]
+      },
+      "command": [
+        -0.25,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "reverse"
+    },
+    {
+      "step": 330,
+      "sim_time_s": 5.516666666666667,
+      "wall_s": 5.508408672991209,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8441373705863953,
+            0.00014940901019144803,
+            0.22999991476535797
+          ],
+          [
+            4.890280251856893e-07,
+            2.237968146800995e-06,
+            0.0006878679851070046,
+            0.9999997019767761
+          ]
+        ]
+      },
+      "command": [
+        -0.25,
+        0.0
+      ],
+      "waypoint": 0,
+      "phase": "reverse"
+    },
+    {
+      "step": 336,
+      "sim_time_s": 5.616666666666667,
+      "wall_s": 5.609292892040685,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8663149476051331,
+            0.00040505995275452733,
+            0.23002290725708008
+          ],
+          [
+            6.114081043051556e-05,
+            -5.434919148683548e-05,
+            -0.0008846995769999921,
+            0.9999995827674866
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        -1.1
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 342,
+      "sim_time_s": 5.716666666666667,
+      "wall_s": 5.70976434496697,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8732146620750427,
+            0.005770877469331026,
+            0.23002637922763824
+          ],
+          [
+            4.04700986109674e-05,
+            -6.385333836078644e-05,
+            -0.02857108786702156,
+            0.9995917677879333
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        -1.1
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 348,
+      "sim_time_s": 5.816666666666667,
+      "wall_s": 5.807639411999844,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8728596568107605,
+            0.014440891332924366,
+            0.2300190031528473
+          ],
+          [
+            2.92464392259717e-05,
+            -4.734378308057785e-05,
+            -0.0719379261136055,
+            0.9974090456962585
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        -1.1
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 354,
+      "sim_time_s": 5.916666666666667,
+      "wall_s": 5.908431092975661,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8714219927787781,
+            0.023108532652258873,
+            0.23000776767730713
+          ],
+          [
+            1.2307660654187202e-05,
+            -2.1092593669891357e-05,
+            -0.11574672907590866,
+            0.9932787418365479
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        -1.1
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 360,
+      "sim_time_s": 6.016666666666667,
+      "wall_s": 6.008918836014345,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8691673278808594,
+            0.03157897666096687,
+            0.23001372814178467
+          ],
+          [
+            4.6158675104379654e-07,
+            -3.380514681339264e-05,
+            -0.15912845730781555,
+            0.9872578978538513
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        -1.1
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 366,
+      "sim_time_s": 6.116666666666667,
+      "wall_s": 6.106530854012817,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8661344051361084,
+            0.0397634357213974,
+            0.23001334071159363
+          ],
+          [
+            -1.0420568287372589e-05,
+            -3.0586495995521545e-05,
+            -0.2020898312330246,
+            0.9793670177459717
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        -1.1
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 372,
+      "sim_time_s": 6.216666666666667,
+      "wall_s": 6.209108297014609,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8624476194381714,
+            0.04768878594040871,
+            0.23001769185066223
+          ],
+          [
+            -3.000977449119091e-05,
+            -3.637932240962982e-05,
+            -0.2448095828294754,
+            0.9695711135864258
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        -1.1
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 378,
+      "sim_time_s": 6.316666666666667,
+      "wall_s": 6.308938549016602,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8580836057662964,
+            0.05527104064822197,
+            0.2300185263156891
+          ],
+          [
+            -3.100070171058178e-05,
+            -3.728456795215607e-05,
+            -0.2871052026748657,
+            0.9578990936279297
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        -1.1
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 384,
+      "sim_time_s": 6.416666666666667,
+      "wall_s": 6.408865195000544,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8530635237693787,
+            0.06242411583662033,
+            0.23002003133296967
+          ],
+          [
+            -4.116073250770569e-05,
+            -3.7128105759620667e-05,
+            -0.3287365138530731,
+            0.9444215893745422
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        -1.1
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 390,
+      "sim_time_s": 6.516666666666667,
+      "wall_s": 6.5069868239806965,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8474647402763367,
+            0.06912786513566971,
+            0.23001053929328918
+          ],
+          [
+            -5.341134965419769e-06,
+            -2.609752118587494e-05,
+            -0.36984527111053467,
+            0.9290933609008789
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        -1.1
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 396,
+      "sim_time_s": 6.616666666666666,
+      "wall_s": 6.607478494988754,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8413436412811279,
+            0.07536882907152176,
+            0.2300354391336441
+          ],
+          [
+            -1.307949423789978e-05,
+            -8.742976933717728e-05,
+            -0.4102550148963928,
+            0.911970853805542
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        -1.1
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 402,
+      "sim_time_s": 6.716666666666668,
+      "wall_s": 6.706384435994551,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8345813155174255,
+            0.08095157146453857,
+            0.2300167679786682
+          ],
+          [
+            -2.0701438188552856e-05,
+            -3.43983992934227e-05,
+            -0.4496529698371887,
+            0.8932033181190491
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        -1.1
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 408,
+      "sim_time_s": 6.816666666666667,
+      "wall_s": 6.805599796003662,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.82340008020401,
+            0.07714155316352844,
+            0.23000890016555786
+          ],
+          [
+            7.638242095708847e-06,
+            -2.796109765768051e-05,
+            -0.482223242521286,
+            0.8760483264923096
+          ]
+        ]
+      },
+      "command": [
+        0.2640448352808492,
+        -1.1
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 414,
+      "sim_time_s": 6.916666666666667,
+      "wall_s": 6.908989854971878,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8047499060630798,
+            0.06272338330745697,
+            0.23001594841480255
+          ],
+          [
+            1.5984755009412766e-05,
+            -5.831383168697357e-05,
+            -0.5224634408950806,
+            0.8526616096496582
+          ]
+        ]
+      },
+      "command": [
+        0.27633833664466984,
+        -1.1
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 420,
+      "sim_time_s": 7.016666666666667,
+      "wall_s": 7.008090969058685,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.785956084728241,
+            0.04301019385457039,
+            0.2300247699022293
+          ],
+          [
+            1.848861575126648e-05,
+            -8.69259238243103e-05,
+            -0.561280369758606,
+            0.8276256918907166
+          ]
+        ]
+      },
+      "command": [
+        0.2874086420644425,
+        -1.1
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 426,
+      "sim_time_s": 7.116666666666666,
+      "wall_s": 7.108972418005578,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7685898542404175,
+            0.020039623603224754,
+            0.22998659312725067
+          ],
+          [
+            -1.5589408576488495e-05,
+            4.790443927049637e-05,
+            -0.5983983278274536,
+            0.8011987209320068
+          ]
+        ]
+      },
+      "command": [
+        0.2967699034777629,
+        -1.073461557453125
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 432,
+      "sim_time_s": 7.216666666666668,
+      "wall_s": 7.2079267730005085,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7540164589881897,
+            -0.004478492774069309,
+            0.23001760244369507
+          ],
+          [
+            -1.5371479094028473e-06,
+            -5.750730633735657e-05,
+            -0.6316933035850525,
+            0.7752183079719543
+          ]
+        ]
+      },
+      "command": [
+        0.3042327617579233,
+        -0.8826233677700118
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 438,
+      "sim_time_s": 7.316666666666667,
+      "wall_s": 7.306842586956918,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7427343726158142,
+            -0.029717620462179184,
+            0.23001137375831604
+          ],
+          [
+            -5.845911800861359e-06,
+            -3.404170274734497e-05,
+            -0.658966600894928,
+            0.7521721124649048
+          ]
+        ]
+      },
+      "command": [
+        0.3095347373280061,
+        -0.7180651724650671
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 444,
+      "sim_time_s": 7.416666666666667,
+      "wall_s": 7.407429208979011,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7344264388084412,
+            -0.05661173537373543,
+            0.23003526031970978
+          ],
+          [
+            -1.0896474123001099e-07,
+            -0.00011626351624727249,
+            -0.6801435351371765,
+            0.7330788969993591
+          ]
+        ]
+      },
+      "command": [
+        0.3129577979899874,
+        -0.5885074541541462
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 450,
+      "sim_time_s": 7.516666666666667,
+      "wall_s": 7.50866049004253,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7284428477287292,
+            -0.0843922346830368,
+            0.2300180345773697
+          ],
+          [
+            -5.904119461774826e-06,
+            -5.672359839081764e-05,
+            -0.6970778107643127,
+            0.7169954180717468
+          ]
+        ]
+      },
+      "command": [
+        0.315215550711,
+        -0.48479330840720924
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 456,
+      "sim_time_s": 7.616666666666666,
+      "wall_s": 7.607760649989359,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7244722247123718,
+            -0.11278911679983139,
+            0.23000870645046234
+          ],
+          [
+            -1.2062955647706985e-05,
+            -1.9629020243883133e-05,
+            -0.710643470287323,
+            0.70355224609375
+          ]
+        ]
+      },
+      "command": [
+        0.31672667420126593,
+        -0.4008330819658356
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 462,
+      "sim_time_s": 7.716666666666668,
+      "wall_s": 7.707546554971486,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7221904397010803,
+            -0.1416681855916977,
+            0.23001110553741455
+          ],
+          [
+            -2.8928741812705994e-05,
+            -7.12275505065918e-06,
+            -0.7215127348899841,
+            0.692401111125946
+          ]
+        ]
+      },
+      "command": [
+        0.3177301917844417,
+        -0.3336949743641
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 468,
+      "sim_time_s": 7.816666666666667,
+      "wall_s": 7.808590864064172,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7213024497032166,
+            -0.1708456128835678,
+            0.23000425100326538
+          ],
+          [
+            -5.893409252166748e-06,
+            -9.476207196712494e-06,
+            -0.7302889227867126,
+            0.6831384301185608
+          ]
+        ]
+      },
+      "command": [
+        0.3184066826624588,
+        -0.27953072178899396
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 474,
+      "sim_time_s": 7.916666666666667,
+      "wall_s": 7.9069277859525755,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7215359210968018,
+            -0.20023979246616364,
+            0.23000359535217285
+          ],
+          [
+            -4.9602240324020386e-06,
+            -7.364433258771896e-06,
+            -0.7374224066734314,
+            0.6754319071769714
+          ]
+        ]
+      },
+      "command": [
+        0.31886412081036225,
+        -0.23598948922494908
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 480,
+      "sim_time_s": 8.016666666666666,
+      "wall_s": 8.00698949105572,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7226973176002502,
+            -0.2298353612422943,
+            0.23000310361385345
+          ],
+          [
+            -4.560686647891998e-06,
+            -6.919726729393005e-06,
+            -0.7433266043663025,
+            0.6689286231994629
+          ]
+        ]
+      },
+      "command": [
+        0.31917863719025075,
+        -0.20065893144125851
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 486,
+      "sim_time_s": 8.116666666666665,
+      "wall_s": 8.10761278506834,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7246168255805969,
+            -0.25948262214660645,
+            0.23002631962299347
+          ],
+          [
+            -1.839175820350647e-05,
+            -7.73831270635128e-05,
+            -0.7482974529266357,
+            0.6633633375167847
+          ]
+        ]
+      },
+      "command": [
+        0.31940319096469494,
+        -0.17103431611835285
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 492,
+      "sim_time_s": 8.216666666666667,
+      "wall_s": 8.208378172013909,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7271385788917542,
+            -0.2892298102378845,
+            0.23000115156173706
+          ],
+          [
+            -4.887580871582031e-06,
+            -2.4498440325260162e-06,
+            -0.7525099515914917,
+            0.6585808396339417
+          ]
+        ]
+      },
+      "command": [
+        0.3195640591209949,
+        -0.14617097840103552
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 498,
+      "sim_time_s": 8.316666666666666,
+      "wall_s": 8.307372870040126,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7302386164665222,
+            -0.31893327832221985,
+            0.23000913858413696
+          ],
+          [
+            -6.314367055892944e-06,
+            -3.117509186267853e-05,
+            -0.7560214996337891,
+            0.654546856880188
+          ]
+        ]
+      },
+      "command": [
+        0.3196777765925112,
+        -0.12566462292089361
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 504,
+      "sim_time_s": 8.416666666666666,
+      "wall_s": 8.407904727035202,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7337672710418701,
+            -0.3486286401748657,
+            0.2300017923116684
+          ],
+          [
+            -3.5604462027549744e-06,
+            -5.211681127548218e-06,
+            -0.7590250372886658,
+            0.651061475276947
+          ]
+        ]
+      },
+      "command": [
+        0.31975739094405786,
+        -0.10903827850618412
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 510,
+      "sim_time_s": 8.516666666666666,
+      "wall_s": 8.508100670063868,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7376874685287476,
+            -0.37825459241867065,
+            0.23000161349773407
+          ],
+          [
+            -2.862885594367981e-06,
+            -4.6477653086185455e-06,
+            -0.7615602016448975,
+            0.648094117641449
+          ]
+        ]
+      },
+      "command": [
+        0.3198147773847959,
+        -0.09527215665683854
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 516,
+      "sim_time_s": 8.616666666666665,
+      "wall_s": 8.606731561012566,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7419315576553345,
+            -0.4078655242919922,
+            0.23000140488147736
+          ],
+          [
+            -2.29664146900177e-06,
+            -4.36883419752121e-06,
+            -0.763732373714447,
+            0.6455329656600952
+          ]
+        ]
+      },
+      "command": [
+        0.31985622707180683,
+        -0.08393688746324565
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 522,
+      "sim_time_s": 8.716666666666667,
+      "wall_s": 8.706951549043879,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.746451199054718,
+            -0.43746307492256165,
+            0.23000121116638184
+          ],
+          [
+            -1.9958242774009705e-06,
+            -3.91155481338501e-06,
+            -0.7656090259552002,
+            0.6433061361312866
+          ]
+        ]
+      },
+      "command": [
+        0.31988642596380895,
+        -0.07460199058555599
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 528,
+      "sim_time_s": 8.816666666666666,
+      "wall_s": 8.80754926102236,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7512059211730957,
+            -0.4670689105987549,
+            0.23000113666057587
+          ],
+          [
+            -3.2866373658180237e-06,
+            -3.734603524208069e-06,
+            -0.7672520279884338,
+            0.6413457989692688
+          ]
+        ]
+      },
+      "command": [
+        0.3199085419315172,
+        -0.06694519282919717
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 534,
+      "sim_time_s": 8.916666666666666,
+      "wall_s": 8.908291797037236,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7561626434326172,
+            -0.4966795742511749,
+            0.23000089824199677
+          ],
+          [
+            -2.948567271232605e-06,
+            -3.529246896505356e-06,
+            -0.7687132954597473,
+            0.6395934820175171
+          ]
+        ]
+      },
+      "command": [
+        0.31992529098711003,
+        -0.060505240131666665
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 540,
+      "sim_time_s": 9.016666666666666,
+      "wall_s": 9.008082243031822,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.761290431022644,
+            -0.5262641310691833,
+            0.2300007939338684
+          ],
+          [
+            -2.72504985332489e-06,
+            -3.2461248338222504e-06,
+            -0.7700302600860596,
+            0.638007402420044
+          ]
+        ]
+      },
+      "command": [
+        0.3199380151527646,
+        -0.05511220893537558
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 546,
+      "sim_time_s": 9.116666666666665,
+      "wall_s": 9.108485982054844,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7665696144104004,
+            -0.555823028087616,
+            0.23000073432922363
+          ],
+          [
+            -2.53971666097641e-06,
+            -3.1106173992156982e-06,
+            -0.7712273597717285,
+            0.6365597248077393
+          ]
+        ]
+      },
+      "command": [
+        0.3199476729626651,
+        -0.05063689081621048
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 552,
+      "sim_time_s": 9.216666666666667,
+      "wall_s": 9.20871229597833,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7719839811325073,
+            -0.5853589773178101,
+            0.23000064492225647
+          ],
+          [
+            -2.5210902094841003e-06,
+            -2.7138739824295044e-06,
+            -0.7723262310028076,
+            0.6352260708808899
+          ]
+        ]
+      },
+      "command": [
+        0.3199549678046142,
+        -0.04697477333113794
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 558,
+      "sim_time_s": 9.316666666666666,
+      "wall_s": 9.30836490006186,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7775120735168457,
+            -0.6148068308830261,
+            0.23000022768974304
+          ],
+          [
+            -4.4517219066619873e-07,
+            -2.8796494007110596e-06,
+            -0.7733303308486938,
+            0.6340033411979675
+          ]
+        ]
+      },
+      "command": [
+        0.3130635993963998,
+        -0.04413518974622823
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 564,
+      "sim_time_s": 9.416666666666666,
+      "wall_s": 9.407286898000166,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7828333377838135,
+            -0.6426096558570862,
+            0.22999997437000275
+          ],
+          [
+            -4.4889748096466064e-07,
+            -1.6707926988601685e-06,
+            -0.7742336988449097,
+            0.632899820804596
+          ]
+        ]
+      },
+      "command": [
+        0.28723331647622263,
+        -0.042034326360659416
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 570,
+      "sim_time_s": 9.516666666666666,
+      "wall_s": 9.508737561060116,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7877582311630249,
+            -0.6679715514183044,
+            0.23000001907348633
+          ],
+          [
+            -5.802139639854431e-07,
+            -1.6274861991405487e-06,
+            -0.7750629186630249,
+            0.6318840384483337
+          ]
+        ]
+      },
+      "command": [
+        0.263633317616917,
+        -0.040485756879486606
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 576,
+      "sim_time_s": 9.616666666666665,
+      "wall_s": 9.607217476004735,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7922965884208679,
+            -0.6910912990570068,
+            0.2299998253583908
+          ],
+          [
+            -3.4924596548080444e-07,
+            -1.494772732257843e-06,
+            -0.7758538126945496,
+            0.6309127807617188
+          ]
+        ]
+      },
+      "command": [
+        0.24211030772149883,
+        -0.03923503622409647
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 582,
+      "sim_time_s": 9.716666666666667,
+      "wall_s": 9.708165124990046,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7964743971824646,
+            -0.7121677398681641,
+            0.229999840259552
+          ],
+          [
+            -4.423782229423523e-07,
+            -1.4561228454113007e-06,
+            -0.7766137719154358,
+            0.6299771070480347
+          ]
+        ]
+      },
+      "command": [
+        0.2224819753946116,
+        -0.038271100252066065
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 588,
+      "sim_time_s": 9.816666666666666,
+      "wall_s": 9.806794043048285,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8003156781196594,
+            -0.7313812375068665,
+            0.23000000417232513
+          ],
+          [
+            -9.676441550254822e-07,
+            -1.3024546205997467e-06,
+            -0.7773504853248596,
+            0.6290677189826965
+          ]
+        ]
+      },
+      "command": [
+        0.2045828615703465,
+        -0.037554086665008674
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 594,
+      "sim_time_s": 9.916666666666666,
+      "wall_s": 9.90749481599778,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.803838312625885,
+            -0.7488963603973389,
+            0.23000477254390717
+          ],
+          [
+            -1.815706491470337e-05,
+            2.06800177693367e-06,
+            -0.7780657410621643,
+            0.6281827688217163
+          ]
+        ]
+      },
+      "command": [
+        0.18826070427955252,
+        -0.037108722278591605
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 600,
+      "sim_time_s": 10.016666666666666,
+      "wall_s": 10.008600436034612,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8070667386054993,
+            -0.7648816704750061,
+            0.23000001907348633
+          ],
+          [
+            -1.6381964087486267e-06,
+            -1.0812655091285706e-06,
+            -0.7788350582122803,
+            0.6272286772727966
+          ]
+        ]
+      },
+      "command": [
+        0.1733680194289367,
+        -0.036666425163700195
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 606,
+      "sim_time_s": 10.116666666666665,
+      "wall_s": 10.107839612988755,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8100263476371765,
+            -0.779448390007019,
+            0.23000234365463257
+          ],
+          [
+            -1.0843388736248016e-05,
+            1.332256942987442e-06,
+            -0.7795610427856445,
+            0.6263262629508972
+          ]
+        ]
+      },
+      "command": [
+        0.15978593593541612,
+        -0.03660668281544827
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 612,
+      "sim_time_s": 10.216666666666667,
+      "wall_s": 10.208107332000509,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8127616047859192,
+            -0.7927376627922058,
+            0.22999978065490723
+          ],
+          [
+            -1.4854595065116882e-06,
+            -5.941838026046753e-07,
+            -0.7802372574806213,
+            0.6254836916923523
+          ]
+        ]
+      },
+      "command": [
+        0.14739370902261145,
+        -0.036884213836039945
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 618,
+      "sim_time_s": 10.316666666666666,
+      "wall_s": 10.307605438982137,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8152599334716797,
+            -0.8048564195632935,
+            0.22999973595142365
+          ],
+          [
+            -1.5748664736747742e-06,
+            -5.532056093215942e-07,
+            -0.7809139490127563,
+            0.6246384382247925
+          ]
+        ]
+      },
+      "command": [
+        0.13609171106712986,
+        -0.03755567186990261
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 624,
+      "sim_time_s": 10.416666666666666,
+      "wall_s": 10.407714733970352,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8175435066223145,
+            -0.8159030079841614,
+            0.22999967634677887
+          ],
+          [
+            -1.0188668966293335e-06,
+            -8.372589945793152e-07,
+            -0.7815900444984436,
+            0.6237924098968506
+          ]
+        ]
+      },
+      "command": [
+        0.1257867949581895,
+        -0.03855084786416407
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 630,
+      "sim_time_s": 10.516666666666666,
+      "wall_s": 10.508211761014536,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8196355700492859,
+            -0.8259682655334473,
+            0.22999998927116394
+          ],
+          [
+            -1.4156103134155273e-06,
+            -1.346692442893982e-06,
+            -0.7822375297546387,
+            0.6229803562164307
+          ]
+        ]
+      },
+      "command": [
+        0.11639780479692524,
+        -0.03997817602724166
+      ],
+      "waypoint": 1,
+      "phase": "detour"
+    },
+    {
+      "step": 636,
+      "sim_time_s": 10.616666666666665,
+      "wall_s": 10.606726592988707,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8221112489700317,
+            -0.834484875202179,
+            0.22999519109725952
+          ],
+          [
+            2.541579306125641e-05,
+            -1.1379364877939224e-05,
+            -0.7805650234222412,
+            0.625074565410614
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        1.1
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 642,
+      "sim_time_s": 10.716666666666667,
+      "wall_s": 10.706559065030888,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8305057287216187,
+            -0.8339536190032959,
+            0.2300240844488144
+          ],
+          [
+            -6.0016289353370667e-05,
+            -1.9017141312360764e-05,
+            -0.7536901235580444,
+            0.6572299599647522
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        1.1
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 648,
+      "sim_time_s": 10.816666666666666,
+      "wall_s": 10.806990796001628,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8392325043678284,
+            -0.8330298662185669,
+            0.23000773787498474
+          ],
+          [
+            1.9976869225502014e-06,
+            -3.0060764402151108e-05,
+            -0.7241069078445435,
+            0.6896877288818359
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        1.1
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 654,
+      "sim_time_s": 10.916666666666666,
+      "wall_s": 10.907731682062149,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8479951024055481,
+            -0.8327633738517761,
+            0.23001481592655182
+          ],
+          [
+            -1.5787780284881592e-05,
+            -3.395881503820419e-05,
+            -0.693086564540863,
+            0.7208543419837952
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        1.1
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 660,
+      "sim_time_s": 11.016666666666666,
+      "wall_s": 11.009005569969304,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8567355871200562,
+            -0.8333762288093567,
+            0.2300167977809906
+          ],
+          [
+            -2.251751720905304e-05,
+            -3.31951305270195e-05,
+            -0.66077721118927,
+            0.7505821585655212
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        1.1
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 666,
+      "sim_time_s": 11.116666666666665,
+      "wall_s": 11.10946106002666,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8653726577758789,
+            -0.8347873687744141,
+            0.2300107181072235
+          ],
+          [
+            -1.4468096196651459e-06,
+            -3.2432377338409424e-05,
+            -0.6272224187850952,
+            0.7788401246070862
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        1.1
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 672,
+      "sim_time_s": 11.216666666666667,
+      "wall_s": 11.20934599195607,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8738495707511902,
+            -0.8369513154029846,
+            0.23001542687416077
+          ],
+          [
+            -1.3743061572313309e-05,
+            -3.622937947511673e-05,
+            -0.5924153923988342,
+            0.8056325912475586
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        1.1
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 678,
+      "sim_time_s": 11.316666666666666,
+      "wall_s": 11.307847740012221,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8822054266929626,
+            -0.8397285342216492,
+            0.23001176118850708
+          ],
+          [
+            -3.5762786865234375e-06,
+            -3.2967887818813324e-05,
+            -0.5563412308692932,
+            0.8309539556503296
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        1.1
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 684,
+      "sim_time_s": 11.416666666666666,
+      "wall_s": 11.40846899105236,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8902658820152283,
+            -0.8432136178016663,
+            0.2300170361995697
+          ],
+          [
+            -7.635913789272308e-06,
+            -4.3676234781742096e-05,
+            -0.5192767977714539,
+            0.8546060919761658
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        1.1
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 690,
+      "sim_time_s": 11.516666666666666,
+      "wall_s": 11.50772233796306,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8979745507240295,
+            -0.847410261631012,
+            0.23001140356063843
+          ],
+          [
+            -1.0411720722913742e-05,
+            -2.607237547636032e-05,
+            -0.48110610246658325,
+            0.8766623735427856
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        1.1
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 696,
+      "sim_time_s": 11.616666666666665,
+      "wall_s": 11.607732960954309,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.9053320288658142,
+            -0.8522118926048279,
+            0.23000968992710114
+          ],
+          [
+            -6.32493756711483e-05,
+            5.870126187801361e-06,
+            -0.4419785439968109,
+            0.8970255851745605
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        1.1
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 702,
+      "sim_time_s": 11.716666666666667,
+      "wall_s": 11.707048797979951,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.9121131300926208,
+            -0.8577709197998047,
+            0.23002326488494873
+          ],
+          [
+            8.767470717430115e-06,
+            -6.587523967027664e-05,
+            -0.402275949716568,
+            0.9155184030532837
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        1.1
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 708,
+      "sim_time_s": 11.816666666666666,
+      "wall_s": 11.806848466978408,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.9183328151702881,
+            -0.8639238476753235,
+            0.23001180589199066
+          ],
+          [
+            -7.922761142253876e-06,
+            -2.7515925467014313e-05,
+            -0.36169618368148804,
+            0.9322959184646606
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        1.1
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 714,
+      "sim_time_s": 11.916666666666666,
+      "wall_s": 11.907898616977036,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.9201579093933105,
+            -0.8725019097328186,
+            0.23001445829868317
+          ],
+          [
+            -5.072448402643204e-05,
+            -1.9225291907787323e-05,
+            -0.32416877150535583,
+            0.9459992051124573
+          ]
+        ]
+      },
+      "command": [
+        0.25919300525096134,
+        1.1
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 720,
+      "sim_time_s": 12.016666666666666,
+      "wall_s": 12.006548332050443,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.9091898202896118,
+            -0.8906010985374451,
+            0.23003017902374268
+          ],
+          [
+            -9.907782077789307e-05,
+            -4.879012703895569e-05,
+            -0.2828449606895447,
+            0.959165632724762
+          ]
+        ]
+      },
+      "command": [
+        0.2721229086994661,
+        1.1
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 726,
+      "sim_time_s": 12.116666666666665,
+      "wall_s": 12.108542750007473,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.892540693283081,
+            -0.91099613904953,
+            0.23002192378044128
+          ],
+          [
+            -6.822566501796246e-05,
+            -3.971811383962631e-05,
+            -0.23689813911914825,
+            0.9715344905853271
+          ]
+        ]
+      },
+      "command": [
+        0.28535024346188514,
+        1.1
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 732,
+      "sim_time_s": 12.216666666666667,
+      "wall_s": 12.20793766702991,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8717069625854492,
+            -0.930457353591919,
+            0.23002801835536957
+          ],
+          [
+            -7.907417602837086e-05,
+            -5.417410284280777e-05,
+            -0.19221365451812744,
+            0.9813531637191772
+          ]
+        ]
+      },
+      "command": [
+        0.29609825255723027,
+        1.0890652314584894
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 738,
+      "sim_time_s": 12.316666666666666,
+      "wall_s": 12.307490234961733,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8483323454856873,
+            -0.9473873376846313,
+            0.23002967238426208
+          ],
+          [
+            -7.778743747621775e-05,
+            -6.054900586605072e-05,
+            -0.15149983763694763,
+            0.9884573221206665
+          ]
+        ]
+      },
+      "command": [
+        0.30436796985893994,
+        0.8787993476064121
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 744,
+      "sim_time_s": 12.416666666666666,
+      "wall_s": 12.40735458000563,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8240309953689575,
+            -0.9611530303955078,
+            0.23003052175045013
+          ],
+          [
+            -7.506622932851315e-05,
+            -6.657466292381287e-05,
+            -0.1165895089507103,
+            0.9931801557540894
+          ]
+        ]
+      },
+      "command": [
+        0.31006462236527593,
+        0.69955255547678
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 750,
+      "sim_time_s": 12.516666666666666,
+      "wall_s": 12.506712264963426,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7982215285301208,
+            -0.9720579981803894,
+            0.23002858459949493
+          ],
+          [
+            -6.689043948426843e-05,
+            -6.425473839044571e-05,
+            -0.08878970891237259,
+            0.9960504174232483
+          ]
+        ]
+      },
+      "command": [
+        0.3137122793691682,
+        0.5559789640624073
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 756,
+      "sim_time_s": 12.616666666666665,
+      "wall_s": 12.607116785016842,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7710726857185364,
+            -0.9806420803070068,
+            0.23000670969486237
+          ],
+          [
+            -7.448834367096424e-06,
+            -1.7373822629451752e-05,
+            -0.06689673662185669,
+            0.9977598786354065
+          ]
+        ]
+      },
+      "command": [
+        0.3159859477504079,
+        0.44396075128464124
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 762,
+      "sim_time_s": 12.716666666666667,
+      "wall_s": 12.707463372964412,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7430384755134583,
+            -0.9872878789901733,
+            0.2300054430961609
+          ],
+          [
+            -4.365167114883661e-06,
+            -1.4021992683410645e-05,
+            -0.04963354766368866,
+            0.9987674951553345
+          ]
+        ]
+      },
+      "command": [
+        0.31741355916730685,
+        0.35623966069077484
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 768,
+      "sim_time_s": 12.816666666666666,
+      "wall_s": 12.810343981953338,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7143954038619995,
+            -0.9923906326293945,
+            0.23000440001487732
+          ],
+          [
+            -2.1363957785069942e-06,
+            -1.102592796087265e-05,
+            -0.03600478917360306,
+            0.9993516206741333
+          ]
+        ]
+      },
+      "command": [
+        0.31831510553353065,
+        0.2874584858154264
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 774,
+      "sim_time_s": 12.916666666666666,
+      "wall_s": 12.909218110959046,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.6853185296058655,
+            -0.9962615966796875,
+            0.23000356554985046
+          ],
+          [
+            -8.710776455700397e-07,
+            -8.3213672041893e-06,
+            -0.02520979382097721,
+            0.9996821284294128
+          ]
+        ]
+      },
+      "command": [
+        0.31888917928564503,
+        0.233370381413245
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 780,
+      "sim_time_s": 13.016666666666666,
+      "wall_s": 13.008002697955817,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.6559110283851624,
+            -0.9991559386253357,
+            0.23000282049179077
+          ],
+          [
+            -8.926581358537078e-07,
+            -6.604939699172974e-06,
+            -0.016591111198067665,
+            0.9998623728752136
+          ]
+        ]
+      },
+      "command": [
+        0.3192593949658593,
+        0.19053517625059505
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 786,
+      "sim_time_s": 13.116666666666665,
+      "wall_s": 13.11050231999252,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.6262379884719849,
+            -1.0012867450714111,
+            0.23001299798488617
+          ],
+          [
+            7.328118954319507e-06,
+            -3.298744559288025e-05,
+            -0.009584731422364712,
+            0.999954104423523
+          ]
+        ]
+      },
+      "command": [
+        0.319503122864213,
+        0.1560553844726517
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 792,
+      "sim_time_s": 13.216666666666667,
+      "wall_s": 13.207965324050747,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5963658690452576,
+            -1.0028198957443237,
+            0.2300111949443817
+          ],
+          [
+            5.620466254185885e-06,
+            -2.893991768360138e-05,
+            -0.0036731576547026634,
+            0.9999932050704956
+          ]
+        ]
+      },
+      "command": [
+        0.31967123458573904,
+        0.1269340951729382
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 798,
+      "sim_time_s": 13.316666666666666,
+      "wall_s": 13.307691922062077,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5664871335029602,
+            -1.0037976503372192,
+            0.2300499975681305
+          ],
+          [
+            -8.57836494105868e-06,
+            -0.00011858902871608734,
+            0.0010778489522635937,
+            0.9999994039535522
+          ]
+        ]
+      },
+      "command": [
+        0.3197814744671715,
+        0.10348415355676377
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 804,
+      "sim_time_s": 13.416666666666666,
+      "wall_s": 13.408814957016148,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5366589426994324,
+            -1.0043390989303589,
+            0.2300502508878708
+          ],
+          [
+            -8.019807864911854e-06,
+            -0.00012136530131101608,
+            0.004801125731319189,
+            0.9999884366989136
+          ]
+        ]
+      },
+      "command": [
+        0.31985101693727575,
+        0.08544434798770806
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 810,
+      "sim_time_s": 13.516666666666666,
+      "wall_s": 13.50743462704122,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.506791889667511,
+            -1.0045562982559204,
+            0.23004703223705292
+          ],
+          [
+            -7.569593435619026e-06,
+            -0.00011372938752174377,
+            0.0079203424975276,
+            0.9999685883522034
+          ]
+        ]
+      },
+      "command": [
+        0.3198983352993243,
+        0.07058210914547487
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 816,
+      "sim_time_s": 13.616666666666665,
+      "wall_s": 13.608100131037645,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.4768793284893036,
+            -1.0044876337051392,
+            0.23004649579524994
+          ],
+          [
+            -3.915971319656819e-06,
+            -0.00011216010898351669,
+            0.010417724959552288,
+            0.9999456405639648
+          ]
+        ]
+      },
+      "command": [
+        0.3199304857303102,
+        0.05836370913998154
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 822,
+      "sim_time_s": 13.716666666666667,
+      "wall_s": 13.708360205055214,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.4469250738620758,
+            -1.0041592121124268,
+            0.2300204485654831
+          ],
+          [
+            -7.118619396351278e-05,
+            -5.147326737642288e-05,
+            0.012435209937393665,
+            0.9999226927757263
+          ]
+        ]
+      },
+      "command": [
+        0.3199512397365887,
+        0.04888060542809022
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 828,
+      "sim_time_s": 13.816666666666666,
+      "wall_s": 13.807310965028591,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.4169737994670868,
+            -1.0037412643432617,
+            0.23000606894493103
+          ],
+          [
+            3.454023681115359e-05,
+            -1.584552228450775e-05,
+            0.014130601659417152,
+            0.9999001026153564
+          ]
+        ]
+      },
+      "command": [
+        0.319966219990727,
+        0.04068475853118711
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 834,
+      "sim_time_s": 13.916666666666666,
+      "wall_s": 13.908509475062601,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.38701266050338745,
+            -1.003104329109192,
+            0.22999785840511322
+          ],
+          [
+            -1.1992640793323517e-05,
+            2.6263296604156494e-06,
+            0.015554258599877357,
+            0.999879002571106
+          ]
+        ]
+      },
+      "command": [
+        0.3199763563831493,
+        0.03403750126897982
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 840,
+      "sim_time_s": 14.016666666666666,
+      "wall_s": 14.00811416900251,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.35705897212028503,
+            -1.002381443977356,
+            0.23000475764274597
+          ],
+          [
+            1.8418068066239357e-06,
+            -1.3655982911586761e-05,
+            0.016776984557509422,
+            0.9998592734336853
+          ]
+        ]
+      },
+      "command": [
+        0.3199836031007674,
+        0.028345280453353692
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 846,
+      "sim_time_s": 14.116666666666665,
+      "wall_s": 14.108918190002441,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.3270810544490814,
+            -1.001560091972351,
+            0.22998245060443878
+          ],
+          [
+            2.5881498004309833e-05,
+            3.931950777769089e-05,
+            0.01782175339758396,
+            0.9998410940170288
+          ]
+        ]
+      },
+      "command": [
+        0.3199887740070148,
+        0.023453717669403875
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 852,
+      "sim_time_s": 14.216666666666667,
+      "wall_s": 14.207648808020167,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.2971223294734955,
+            -1.0006394386291504,
+            0.23001983761787415
+          ],
+          [
+            3.555184230208397e-05,
+            -4.7880224883556366e-05,
+            0.018683843314647675,
+            0.9998253583908081
+          ]
+        ]
+      },
+      "command": [
+        0.3199924067878131,
+        0.0192890867751543
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 858,
+      "sim_time_s": 14.316666666666666,
+      "wall_s": 14.30854164995253,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.2671520411968231,
+            -0.9996333122253418,
+            0.23002858459949493
+          ],
+          [
+            -7.01591488905251e-07,
+            -6.864033639431e-05,
+            0.0194610096514225,
+            0.9998105764389038
+          ]
+        ]
+      },
+      "command": [
+        0.31999480681865344,
+        0.01595200847100384
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 864,
+      "sim_time_s": 14.416666666666666,
+      "wall_s": 14.40727489197161,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.23716911673545837,
+            -0.9985613822937012,
+            0.23000748455524445
+          ],
+          [
+            -4.227102908771485e-05,
+            -2.0284205675125122e-05,
+            0.020126191899180412,
+            0.9997974038124084
+          ]
+        ]
+      },
+      "command": [
+        0.3199964988280432,
+        0.01309800514288021
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 870,
+      "sim_time_s": 14.516666666666667,
+      "wall_s": 14.507712422055192,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.20717433094978333,
+            -0.997468113899231,
+            0.23002471029758453
+          ],
+          [
+            1.4063742128200829e-05,
+            -5.950313061475754e-05,
+            0.020647281780838966,
+            0.9997867345809937
+          ]
+        ]
+      },
+      "command": [
+        0.31999772481714844,
+        0.010558602740556103
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 876,
+      "sim_time_s": 14.616666666666665,
+      "wall_s": 14.606971687986515,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.17718781530857086,
+            -0.9963089227676392,
+            0.23000645637512207
+          ],
+          [
+            5.2308314479887486e-06,
+            -1.6947276890277863e-05,
+            0.021128004416823387,
+            0.9997766613960266
+          ]
+        ]
+      },
+      "command": [
+        0.31999861295677423,
+        0.008244098929669215
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 882,
+      "sim_time_s": 14.716666666666667,
+      "wall_s": 14.706852130009793,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.14721262454986572,
+            -0.9951045513153076,
+            0.23001067340373993
+          ],
+          [
+            2.518936526030302e-08,
+            -2.600066363811493e-05,
+            0.021505026146769524,
+            0.9997687339782715
+          ]
+        ]
+      },
+      "command": [
+        0.3199991896573137,
+        0.006301333857691507
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 888,
+      "sim_time_s": 14.816666666666665,
+      "wall_s": 14.807494624052197,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.11725205183029175,
+            -0.9938566088676453,
+            0.2300041764974594
+          ],
+          [
+            -1.5118377632461488e-05,
+            -1.184176653623581e-05,
+            0.021782444790005684,
+            0.9997626543045044
+          ]
+        ]
+      },
+      "command": [
+        0.3199994685094101,
+        0.005103238786783415
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 894,
+      "sim_time_s": 14.916666666666666,
+      "wall_s": 14.909352052025497,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.08728300034999847,
+            -0.9925643801689148,
+            0.230019211769104
+          ],
+          [
+            -4.227539466228336e-05,
+            -4.706624895334244e-05,
+            0.021949458867311478,
+            0.9997590780258179
+          ]
+        ]
+      },
+      "command": [
+        0.31999963895774247,
+        0.004206075836798723
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 900,
+      "sim_time_s": 15.016666666666667,
+      "wall_s": 15.007802373031154,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.057523418217897415,
+            -0.9912978410720825,
+            0.23007816076278687
+          ],
+          [
+            -4.776116111315787e-05,
+            -0.00018629152327775955,
+            0.022203803062438965,
+            0.9997533559799194
+          ]
+        ]
+      },
+      "command": [
+        0.3199997378752404,
+        0.0035838687161260678
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 906,
+      "sim_time_s": 15.116666666666665,
+      "wall_s": 15.108860017033294,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.027583733201026917,
+            -0.9900496006011963,
+            0.23004668951034546
+          ],
+          [
+            4.856493615079671e-05,
+            -0.00010995473712682724,
+            0.022386495023965836,
+            0.9997493028640747
+          ]
+        ]
+      },
+      "command": [
+        0.3199998672177528,
+        0.0025507509803526117
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 912,
+      "sim_time_s": 15.216666666666667,
+      "wall_s": 15.20782099897042,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.0022886795923113823,
+            -0.988724946975708,
+            0.2300279587507248
+          ],
+          [
+            -6.855247193016112e-06,
+            -6.687641143798828e-05,
+            0.022605471312999725,
+            0.9997444152832031
+          ]
+        ]
+      },
+      "command": [
+        0.3199999617792821,
+        0.0013685083909800192
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 918,
+      "sim_time_s": 15.316666666666665,
+      "wall_s": 15.307659468962811,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.032193031162023544,
+            -0.987417459487915,
+            0.23004001379013062
+          ],
+          [
+            4.682759754359722e-05,
+            -9.397417306900024e-05,
+            0.02271272800862789,
+            0.9997419118881226
+          ]
+        ]
+      },
+      "command": [
+        0.3199999865499355,
+        0.0008118208959158433
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 924,
+      "sim_time_s": 15.416666666666666,
+      "wall_s": 15.407558795064688,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.06210760399699211,
+            -0.9861044883728027,
+            0.23002183437347412
+          ],
+          [
+            6.73258036840707e-05,
+            -5.106162279844284e-05,
+            0.022904010489583015,
+            0.9997376799583435
+          ]
+        ]
+      },
+      "command": [
+        0.3199999999186215,
+        6.314702650499215e-05
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 930,
+      "sim_time_s": 15.516666666666667,
+      "wall_s": 15.507337296032347,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.09200457483530045,
+            -0.9847478270530701,
+            0.23002730309963226
+          ],
+          [
+            4.302011802792549e-05,
+            -6.408710032701492e-05,
+            0.023036286234855652,
+            0.99973464012146
+          ]
+        ]
+      },
+      "command": [
+        0.3199999908679295,
+        -0.0006689330732686988
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 936,
+      "sim_time_s": 15.616666666666665,
+      "wall_s": 15.607979153981432,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.12195203453302383,
+            -0.9833980798721313,
+            0.2300184816122055
+          ],
+          [
+            4.7031528083607554e-05,
+            -4.367716610431671e-05,
+            0.023175926879048347,
+            0.9997313618659973
+          ]
+        ]
+      },
+      "command": [
+        0.319999964793906,
+        -0.0013134301031895723
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 942,
+      "sim_time_s": 15.716666666666667,
+      "wall_s": 15.708692005020566,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.151910662651062,
+            -0.9820257425308228,
+            0.23001517355442047
+          ],
+          [
+            3.85160674341023e-05,
+            -3.590807318687439e-05,
+            0.023275258019566536,
+            0.9997290968894958
+          ]
+        ]
+      },
+      "command": [
+        0.3199999263874203,
+        -0.0018992147173282042
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 948,
+      "sim_time_s": 15.816666666666665,
+      "wall_s": 15.808901724987663,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.1818767488002777,
+            -0.9806457161903381,
+            0.23001284897327423
+          ],
+          [
+            3.271119203418493e-05,
+            -3.071501851081848e-05,
+            0.02336081676185131,
+            0.9997270107269287
+          ]
+        ]
+      },
+      "command": [
+        0.31999987883984005,
+        -0.0024365648389115674
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 954,
+      "sim_time_s": 15.916666666666666,
+      "wall_s": 15.908293043030426,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.21184906363487244,
+            -0.979260265827179,
+            0.23001500964164734
+          ],
+          [
+            3.825649037025869e-05,
+            -3.56798991560936e-05,
+            0.023412447422742844,
+            0.9997258186340332
+          ]
+        ]
+      },
+      "command": [
+        0.31999983421068534,
+        -0.002850206504585317
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 960,
+      "sim_time_s": 16.01666666666667,
+      "wall_s": 16.01005688798614,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.24183134734630585,
+            -0.9778491258621216,
+            0.22999978065490723
+          ],
+          [
+            -4.3655745685100555e-09,
+            -1.866370439529419e-06,
+            0.023452283814549446,
+            0.9997249245643616
+          ]
+        ]
+      },
+      "command": [
+        0.319999801236579,
+        -0.00312080256271007
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 966,
+      "sim_time_s": 16.116666666666667,
+      "wall_s": 16.108101443038322,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.27183976769447327,
+            -0.9764266610145569,
+            0.22999981045722961
+          ],
+          [
+            1.360895112156868e-07,
+            -1.521781086921692e-06,
+            0.02337527833878994,
+            0.9997267723083496
+          ]
+        ]
+      },
+      "command": [
+        0.31999981076808154,
+        -0.003045055815495312
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 972,
+      "sim_time_s": 16.21666666666667,
+      "wall_s": 16.208803110057488,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.30184975266456604,
+            -0.9750162363052368,
+            0.2299998551607132
+          ],
+          [
+            2.2156746126711369e-07,
+            -1.5711411833763123e-06,
+            0.023339590057730675,
+            0.9997275471687317
+          ]
+        ]
+      },
+      "command": [
+        0.3199998124681404,
+        -0.0030313465683273837
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 978,
+      "sim_time_s": 16.316666666666666,
+      "wall_s": 16.30872565996833,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.33185872435569763,
+            -0.973601758480072,
+            0.2299998551607132
+          ],
+          [
+            -1.5352270565927029e-07,
+            -1.5115365386009216e-06,
+            0.02327640727162361,
+            0.9997290372848511
+          ]
+        ]
+      },
+      "command": [
+        0.31999982116661835,
+        -0.0029602088639873597
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 984,
+      "sim_time_s": 16.416666666666668,
+      "wall_s": 16.408303481992334,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.36186516284942627,
+            -0.9721853733062744,
+            0.229999840259552
+          ],
+          [
+            -1.9485014490783215e-07,
+            -1.6372650861740112e-06,
+            0.023172052577137947,
+            0.9997314810752869
+          ]
+        ]
+      },
+      "command": [
+        0.3199998568258944,
+        -0.0026486848999251102
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 990,
+      "sim_time_s": 16.51666666666667,
+      "wall_s": 16.50888577697333,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.39187195897102356,
+            -0.9707767963409424,
+            0.229999840259552
+          ],
+          [
+            -2.766610123217106e-07,
+            -1.8505379557609558e-06,
+            0.02308095432817936,
+            0.9997336268424988
+          ]
+        ]
+      },
+      "command": [
+        0.31999988207109153,
+        -0.002403854585823084
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 996,
+      "sim_time_s": 16.616666666666667,
+      "wall_s": 16.608623806969263,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.42187929153442383,
+            -0.969375491142273,
+            0.229999840259552
+          ],
+          [
+            -1.9260914996266365e-07,
+            -1.6530975699424744e-06,
+            0.02299739234149456,
+            0.9997355341911316
+          ]
+        ]
+      },
+      "command": [
+        0.31999990163078734,
+        -0.00219547071645505
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 1002,
+      "sim_time_s": 16.71666666666667,
+      "wall_s": 16.707386991009116,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.45188647508621216,
+            -0.9679806232452393,
+            0.2299998253583908
+          ],
+          [
+            -1.564621925354004e-07,
+            -1.6801059246063232e-06,
+            0.02291988953948021,
+            0.9997373223304749
+          ]
+        ]
+      },
+      "command": [
+        0.3199999171337533,
+        -0.002015054903195945
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 1008,
+      "sim_time_s": 16.816666666666666,
+      "wall_s": 16.808344366960227,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.48189347982406616,
+            -0.966590940952301,
+            0.2299998253583908
+          ],
+          [
+            7.377821020781994e-08,
+            -1.5245750546455383e-06,
+            0.02284722588956356,
+            0.9997389912605286
+          ]
+        ]
+      },
+      "command": [
+        0.31999992900800406,
+        -0.0018651026597029357
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 1014,
+      "sim_time_s": 16.916666666666668,
+      "wall_s": 16.908658975036815,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.5117425918579102,
+            -0.9652209281921387,
+            0.229999840259552
+          ],
+          [
+            -2.581218723207712e-07,
+            -1.6475096344947815e-06,
+            0.022815784439444542,
+            0.9997397065162659
+          ]
+        ]
+      },
+      "command": [
+        0.3091521725554715,
+        -0.0018394682653010918
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 1020,
+      "sim_time_s": 17.01666666666667,
+      "wall_s": 17.008535561035387,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.5396624207496643,
+            -0.9639458060264587,
+            0.22999989986419678
+          ],
+          [
+            -4.604225978255272e-08,
+            -1.218169927597046e-06,
+            0.02281469851732254,
+            0.9997396469116211
+          ]
+        ]
+      },
+      "command": [
+        0.2836194862663785,
+        -0.002015306620864962
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 1026,
+      "sim_time_s": 17.116666666666667,
+      "wall_s": 17.10788235196378,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.5651289224624634,
+            -0.9627731442451477,
+            0.2299998700618744
+          ],
+          [
+            2.396991476416588e-07,
+            -1.30385160446167e-06,
+            0.022758586332201958,
+            0.9997410178184509
+          ]
+        ]
+      },
+      "command": [
+        0.2603195817776806,
+        -0.0020000599224075793
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 1032,
+      "sim_time_s": 17.21666666666667,
+      "wall_s": 17.2087056649616,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.5883529186248779,
+            -0.9617049694061279,
+            0.2299998700618744
+          ],
+          [
+            -8.931965567171574e-08,
+            -1.3401731848716736e-06,
+            0.022701123729348183,
+            0.999742329120636
+          ]
+        ]
+      },
+      "command": [
+        0.23907182528575438,
+        -0.0019596350427563275
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 1038,
+      "sim_time_s": 17.316666666666666,
+      "wall_s": 17.308038679067977,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.609529435634613,
+            -0.960732638835907,
+            0.22999991476535797
+          ],
+          [
+            1.100124791264534e-08,
+            -1.3774260878562927e-06,
+            0.022645030170679092,
+            0.9997435212135315
+          ]
+        ]
+      },
+      "command": [
+        0.21969731441529688,
+        -0.001936263039327324
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 1044,
+      "sim_time_s": 17.416666666666668,
+      "wall_s": 17.40873406501487,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.628839373588562,
+            -0.959850013256073,
+            0.22999979555606842
+          ],
+          [
+            -1.6335980035364628e-07,
+            -1.605600118637085e-06,
+            0.02260049432516098,
+            0.9997445344924927
+          ]
+        ]
+      },
+      "command": [
+        0.20203056212596843,
+        -0.0019187910995068615
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 1050,
+      "sim_time_s": 17.51666666666667,
+      "wall_s": 17.509087524958886,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.646446943283081,
+            -0.9590460658073425,
+            0.2299998700618744
+          ],
+          [
+            -2.3865140974521637e-09,
+            -1.344829797744751e-06,
+            0.022565271705389023,
+            0.9997453689575195
+          ]
+        ]
+      },
+      "command": [
+        0.1859212452622159,
+        -0.0020165852445415936
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 1056,
+      "sim_time_s": 17.616666666666667,
+      "wall_s": 17.60903672000859,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.6624999642372131,
+            -0.9583097696304321,
+            0.22999981045722961
+          ],
+          [
+            -1.2939563021063805e-07,
+            -1.3066455721855164e-06,
+            0.022507688030600548,
+            0.9997466206550598
+          ]
+        ]
+      },
+      "command": [
+        0.17123350689876832,
+        -0.002037278067573808
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 1062,
+      "sim_time_s": 17.71666666666667,
+      "wall_s": 17.707961571053602,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.6771402955055237,
+            -0.9576454162597656,
+            0.2299998253583908
+          ],
+          [
+            -6.996560841798782e-08,
+            -1.4156103134155273e-06,
+            0.02248326689004898,
+            0.9997472167015076
+          ]
+        ]
+      },
+      "command": [
+        0.15784060358636973,
+        -0.002147384627291457
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 1068,
+      "sim_time_s": 17.816666666666666,
+      "wall_s": 17.807223472045735,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.690487265586853,
+            -0.9570338129997253,
+            0.22999978065490723
+          ],
+          [
+            -1.5477417036890984e-07,
+            -1.3140961527824402e-06,
+            0.02242600917816162,
+            0.9997485280036926
+          ]
+        ]
+      },
+      "command": [
+        0.1456296126068893,
+        -0.0021940220221812966
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 1074,
+      "sim_time_s": 17.916666666666668,
+      "wall_s": 17.90792326501105,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.7026604413986206,
+            -0.9564758539199829,
+            0.22999981045722961
+          ],
+          [
+            5.589390639215708e-08,
+            -1.4808028936386108e-06,
+            0.02236456796526909,
+            0.9997498393058777
+          ]
+        ]
+      },
+      "command": [
+        0.13449230672753648,
+        -0.002251807584694365
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 1080,
+      "sim_time_s": 18.01666666666667,
+      "wall_s": 18.007672194973566,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.7137613892555237,
+            -0.9559710025787354,
+            0.22999978065490723
+          ],
+          [
+            1.4639226719737053e-08,
+            -1.3168901205062866e-06,
+            0.022326765581965446,
+            0.9997506737709045
+          ]
+        ]
+      },
+      "command": [
+        0.12433675786817744,
+        -0.002386083043519571
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 1086,
+      "sim_time_s": 18.116666666666667,
+      "wall_s": 18.107904903008603,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.7238856554031372,
+            -0.9555056095123291,
+            0.229999840259552
+          ],
+          [
+            -2.873566700145602e-07,
+            -1.4565885066986084e-06,
+            0.022259272634983063,
+            0.9997521638870239
+          ]
+        ]
+      },
+      "command": [
+        0.1150738985155175,
+        -0.002488732532320928
+      ],
+      "waypoint": 2,
+      "phase": "detour"
+    },
+    {
+      "step": 1092,
+      "sim_time_s": 18.21666666666667,
+      "wall_s": 18.207158545963466,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.7320337891578674,
+            -0.9568604826927185,
+            0.23001423478126526
+          ],
+          [
+            2.206521457992494e-05,
+            -3.3303163945674896e-05,
+            0.03106668032705784,
+            0.9995173215866089
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        1.1
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1098,
+      "sim_time_s": 18.316666666666666,
+      "wall_s": 18.308817573008128,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.7335616946220398,
+            -0.9653915762901306,
+            0.2300131618976593
+          ],
+          [
+            5.5426498875021935e-06,
+            -3.1480565667152405e-05,
+            0.07430949062108994,
+            0.9972351789474487
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        1.1
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1104,
+      "sim_time_s": 18.416666666666668,
+      "wall_s": 18.40865699306596,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.735185444355011,
+            -0.9739636778831482,
+            0.2300286591053009
+          ],
+          [
+            6.062572356313467e-05,
+            -6.191153079271317e-05,
+            0.1178472563624382,
+            0.9930316805839539
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        1.1
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1110,
+      "sim_time_s": 18.51666666666667,
+      "wall_s": 18.50793339102529,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.7375438213348389,
+            -0.9823645949363708,
+            0.23002009093761444
+          ],
+          [
+            3.248942084610462e-05,
+            -4.3713487684726715e-05,
+            0.16123874485492706,
+            0.9869154095649719
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        1.1
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1116,
+      "sim_time_s": 18.616666666666667,
+      "wall_s": 18.608201054972596,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.7405930161476135,
+            -0.9905727505683899,
+            0.23002097010612488
+          ],
+          [
+            3.762519918382168e-05,
+            -4.4141896069049835e-05,
+            0.2044851928949356,
+            0.978869616985321
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        1.1
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1122,
+      "sim_time_s": 18.71666666666667,
+      "wall_s": 18.707892408012412,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.7547339200973511,
+            -0.9915598034858704,
+            0.23001226782798767
+          ],
+          [
+            -2.3599714040756226e-05,
+            -3.5746023058891296e-05,
+            0.24025872349739075,
+            0.9707089066505432
+          ]
+        ]
+      },
+      "command": [
+        0.2651748713756914,
+        1.1
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1128,
+      "sim_time_s": 18.816666666666666,
+      "wall_s": 18.80879362905398,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.779021143913269,
+            -0.9879683256149292,
+            0.2300146520137787
+          ],
+          [
+            -2.682930789887905e-05,
+            -4.7229230403900146e-05,
+            0.28612518310546875,
+            0.9581922888755798
+          ]
+        ]
+      },
+      "command": [
+        0.2780091687422835,
+        1.1
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1134,
+      "sim_time_s": 18.916666666666668,
+      "wall_s": 18.90967347600963,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.8053464293479919,
+            -0.979987382888794,
+            0.23002538084983826
+          ],
+          [
+            -4.794378764927387e-05,
+            -8.299387991428375e-05,
+            0.3300738036632538,
+            0.94395512342453
+          ]
+        ]
+      },
+      "command": [
+        0.2891258194488532,
+        1.1
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1140,
+      "sim_time_s": 19.01666666666667,
+      "wall_s": 19.008826059056446,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.8318796753883362,
+            -0.9685052037239075,
+            0.2300320714712143
+          ],
+          [
+            -4.61251474916935e-05,
+            -0.00010263640433549881,
+            0.372390478849411,
+            0.9280761480331421
+          ]
+        ]
+      },
+      "command": [
+        0.2984409802948472,
+        1.0336690304129106
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1146,
+      "sim_time_s": 19.116666666666667,
+      "wall_s": 19.107545734965242,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.856598973274231,
+            -0.9541869163513184,
+            0.23002555966377258
+          ],
+          [
+            -2.0057428628206253e-05,
+            -7.672421634197235e-05,
+            0.4096178710460663,
+            0.912257194519043
+          ]
+        ]
+      },
+      "command": [
+        0.3054790404686193,
+        0.8467433961094487
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1152,
+      "sim_time_s": 19.21666666666667,
+      "wall_s": 19.20903085405007,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.8788305521011353,
+            -0.9377778172492981,
+            0.2300359606742859
+          ],
+          [
+            -3.0106399208307266e-05,
+            -0.00011253822594881058,
+            0.44078871607780457,
+            0.8976109027862549
+          ]
+        ]
+      },
+      "command": [
+        0.3105077207887986,
+        0.6836955164874352
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1158,
+      "sim_time_s": 19.316666666666666,
+      "wall_s": 19.309254780993797,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.8993942141532898,
+            -0.9186856746673584,
+            0.23001204431056976
+          ],
+          [
+            2.3064203560352325e-05,
+            -2.3545697331428528e-05,
+            0.46537336707115173,
+            0.8851144909858704
+          ]
+        ]
+      },
+      "command": [
+        0.31373716402461027,
+        0.5548740638554759
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1164,
+      "sim_time_s": 19.416666666666668,
+      "wall_s": 19.40817529906053,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.9184017777442932,
+            -0.8974611163139343,
+            0.23001611232757568
+          ],
+          [
+            -3.603752702474594e-06,
+            -4.7793611884117126e-05,
+            0.48478084802627563,
+            0.874635636806488
+          ]
+        ]
+      },
+      "command": [
+        0.315820015610561,
+        0.4530636839879025
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1170,
+      "sim_time_s": 19.51666666666667,
+      "wall_s": 19.507315622991882,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.9360922574996948,
+            -0.8747180700302124,
+            0.23001478612422943
+          ],
+          [
+            1.3576820492744446e-05,
+            -3.286730498075485e-05,
+            0.5002983212471008,
+            0.8658530712127686
+          ]
+        ]
+      },
+      "command": [
+        0.317175030032864,
+        0.3723273789120272
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1176,
+      "sim_time_s": 19.616666666666667,
+      "wall_s": 19.60874719801359,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.9526530504226685,
+            -0.850835382938385,
+            0.23004400730133057
+          ],
+          [
+            0.00012309057638049126,
+            -4.647206515073776e-05,
+            0.5127673149108887,
+            0.8585275411605835
+          ]
+        ]
+      },
+      "command": [
+        0.31807380659690276,
+        0.30737325350181766
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1182,
+      "sim_time_s": 19.71666666666667,
+      "wall_s": 19.708872794988565,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.9681578278541565,
+            -0.8260394930839539,
+            0.23000603914260864
+          ],
+          [
+            1.822458580136299e-05,
+            -6.883405148983002e-06,
+            0.522836446762085,
+            0.8524330258369446
+          ]
+        ]
+      },
+      "command": [
+        0.3186720646815258,
+        0.25517422327224926
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1188,
+      "sim_time_s": 19.816666666666666,
+      "wall_s": 19.80796196195297,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.9829121828079224,
+            -0.8004644513130188,
+            0.23002062737941742
+          ],
+          [
+            3.1673815101385117e-05,
+            -3.7649646401405334e-05,
+            0.5309778451919556,
+            0.8473856449127197
+          ]
+        ]
+      },
+      "command": [
+        0.31906953917482905,
+        0.21357596407452373
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1194,
+      "sim_time_s": 19.916666666666668,
+      "wall_s": 19.908834128058515,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            0.9969972968101501,
+            -0.7743484377861023,
+            0.23001700639724731
+          ],
+          [
+            2.9650051146745682e-05,
+            -3.252364695072174e-05,
+            0.537629246711731,
+            0.8431813716888428
+          ]
+        ]
+      },
+      "command": [
+        0.3193347281442335,
+        0.18058134559982422
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1200,
+      "sim_time_s": 20.01666666666667,
+      "wall_s": 20.0078011599835,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.0105725526809692,
+            -0.7477903366088867,
+            0.23000967502593994
+          ],
+          [
+            1.5348661690950394e-05,
+            -2.0351260900497437e-05,
+            0.5433219075202942,
+            0.8395244479179382
+          ]
+        ]
+      },
+      "command": [
+        0.31952828689839047,
+        0.15205138255133183
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1206,
+      "sim_time_s": 20.116666666666667,
+      "wall_s": 20.10763385600876,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.0236214399337769,
+            -0.7209670543670654,
+            0.23001600801944733
+          ],
+          [
+            1.0203570127487183e-05,
+            -4.013627767562866e-05,
+            0.5481014847755432,
+            0.8364118337631226
+          ]
+        ]
+      },
+      "command": [
+        0.31966526191695654,
+        0.1280821082971501
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1212,
+      "sim_time_s": 20.21666666666667,
+      "wall_s": 20.20849635405466,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.0362223386764526,
+            -0.6939682960510254,
+            0.23001287877559662
+          ],
+          [
+            1.0541640222072601e-05,
+            -3.1101517379283905e-05,
+            0.5520985126495361,
+            0.8337789177894592
+          ]
+        ]
+      },
+      "command": [
+        0.31975953873701907,
+        0.10855449248068343
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1218,
+      "sim_time_s": 20.316666666666666,
+      "wall_s": 20.308301878045313,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.0484721660614014,
+            -0.666745126247406,
+            0.23000867664813995
+          ],
+          [
+            1.0490883141756058e-05,
+            -1.9499100744724274e-05,
+            0.5554270148277283,
+            0.8315652012825012
+          ]
+        ]
+      },
+      "command": [
+        0.3198243575948976,
+        0.09277534850099779
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1224,
+      "sim_time_s": 20.416666666666668,
+      "wall_s": 20.40857239102479,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.0604215860366821,
+            -0.6393433213233948,
+            0.23000651597976685
+          ],
+          [
+            8.181203156709671e-06,
+            -1.4462508261203766e-05,
+            0.5582191944122314,
+            0.8296933770179749
+          ]
+        ]
+      },
+      "command": [
+        0.319870658411356,
+        0.07961259218172802
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1230,
+      "sim_time_s": 20.51666666666667,
+      "wall_s": 20.50802177703008,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.0721184015274048,
+            -0.61179119348526,
+            0.23000414669513702
+          ],
+          [
+            6.747432053089142e-06,
+            -1.0142102837562561e-05,
+            0.5605427026748657,
+            0.828125536441803
+          ]
+        ]
+      },
+      "command": [
+        0.31990242760412296,
+        0.06914687545776363
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1236,
+      "sim_time_s": 20.616666666666667,
+      "wall_s": 20.607918591005728,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.0836347341537476,
+            -0.5840824842453003,
+            0.2300022840499878
+          ],
+          [
+            4.8442743718624115e-06,
+            -5.8086588978767395e-06,
+            0.5625609159469604,
+            0.8267558217048645
+          ]
+        ]
+      },
+      "command": [
+        0.31992568602426175,
+        0.06034505580755347
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1242,
+      "sim_time_s": 20.71666666666667,
+      "wall_s": 20.70752498996444,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.0948377847671509,
+            -0.5563449263572693,
+            0.23010270297527313
+          ],
+          [
+            -7.266784086823463e-05,
+            -0.00034673232585191727,
+            0.5643745064735413,
+            0.8255187273025513
+          ]
+        ]
+      },
+      "command": [
+        0.3199440434244389,
+        0.0523636526178322
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1248,
+      "sim_time_s": 20.816666666666666,
+      "wall_s": 20.80852803995367,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.106070876121521,
+            -0.5286263227462769,
+            0.23000025749206543
+          ],
+          [
+            1.4123506844043732e-06,
+            -2.057291567325592e-06,
+            0.56581711769104,
+            0.8245307803153992
+          ]
+        ]
+      },
+      "command": [
+        0.3199553103212605,
+        0.046795782176481455
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1254,
+      "sim_time_s": 20.916666666666668,
+      "wall_s": 20.907130367006175,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.117139220237732,
+            -0.5006817579269409,
+            0.23000195622444153
+          ],
+          [
+            1.3066455721855164e-06,
+            -7.443130016326904e-06,
+            0.5672351717948914,
+            0.8235558271408081
+          ]
+        ]
+      },
+      "command": [
+        0.3199657068320053,
+        0.04099262428343655
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1260,
+      "sim_time_s": 21.01666666666667,
+      "wall_s": 21.008699613972567,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.128063678741455,
+            -0.4727361798286438,
+            0.2300017774105072
+          ],
+          [
+            3.3103860914707184e-06,
+            -5.947425961494446e-06,
+            0.5684525966644287,
+            0.8227160573005676
+          ]
+        ]
+      },
+      "command": [
+        0.3199730561746185,
+        0.03633546437658354
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1266,
+      "sim_time_s": 21.116666666666667,
+      "wall_s": 21.108723459066823,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.13887619972229,
+            -0.444736123085022,
+            0.23000404238700867
+          ],
+          [
+            6.043817847967148e-06,
+            -1.0468065738677979e-05,
+            0.5695094466209412,
+            0.8219848275184631
+          ]
+        ]
+      },
+      "command": [
+        0.31997838844218573,
+        0.03254194605212319
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1272,
+      "sim_time_s": 21.21666666666667,
+      "wall_s": 21.208877456956543,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.1495981216430664,
+            -0.41670358180999756,
+            0.2300063520669937
+          ],
+          [
+            6.247777491807938e-06,
+            -1.6530044376850128e-05,
+            0.5704714059829712,
+            0.8213173747062683
+          ]
+        ]
+      },
+      "command": [
+        0.319982502250534,
+        0.029281351363831035
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1278,
+      "sim_time_s": 21.316666666666666,
+      "wall_s": 21.309335981030017,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.1602157354354858,
+            -0.38864579796791077,
+            0.23003140091896057
+          ],
+          [
+            -3.5674311220645905e-06,
+            -9.442958980798721e-05,
+            0.5713626742362976,
+            0.8206976056098938
+          ]
+        ]
+      },
+      "command": [
+        0.3199858094418224,
+        0.02636934754485809
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1284,
+      "sim_time_s": 21.416666666666668,
+      "wall_s": 21.409228028031066,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.1708061695098877,
+            -0.3605659306049347,
+            0.23001495003700256
+          ],
+          [
+            9.296461939811707e-06,
+            -3.8761645555496216e-05,
+            0.5721768140792847,
+            0.8201301693916321
+          ]
+        ]
+      },
+      "command": [
+        0.31998830423878394,
+        0.023939419179222102
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1290,
+      "sim_time_s": 21.51666666666667,
+      "wall_s": 21.50876373203937,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.181328535079956,
+            -0.33246660232543945,
+            0.23001691699028015
+          ],
+          [
+            3.310525789856911e-05,
+            -2.7420930564403534e-05,
+            0.5729578733444214,
+            0.8195847868919373
+          ]
+        ]
+      },
+      "command": [
+        0.31999004233319783,
+        0.022089096945070795
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1296,
+      "sim_time_s": 21.616666666666667,
+      "wall_s": 21.608172002015635,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.1914563179016113,
+            -0.30520859360694885,
+            0.23000970482826233
+          ],
+          [
+            4.061264917254448e-05,
+            -1.0514631867408752e-06,
+            0.5736477375030518,
+            0.8191021084785461
+          ]
+        ]
+      },
+      "command": [
+        0.2957470603500722,
+        0.020080938688324054
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1302,
+      "sim_time_s": 21.71666666666667,
+      "wall_s": 21.708393529057503,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2006648778915405,
+            -0.2802129089832306,
+            0.2300085872411728
+          ],
+          [
+            2.04332172870636e-06,
+            -2.48737633228302e-05,
+            0.5742656588554382,
+            0.8186689019203186
+          ]
+        ]
+      },
+      "command": [
+        0.2714054915779617,
+        0.019231085718203644
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1308,
+      "sim_time_s": 21.816666666666666,
+      "wall_s": 21.80707676196471,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2090392112731934,
+            -0.2574317455291748,
+            0.23001353442668915
+          ],
+          [
+            4.822388291358948e-06,
+            -3.687851130962372e-05,
+            0.5748326778411865,
+            0.8182709217071533
+          ]
+        ]
+      },
+      "command": [
+        0.2492189604856957,
+        0.018101707315606938
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1314,
+      "sim_time_s": 21.916666666666668,
+      "wall_s": 21.90758740401361,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2166630029678345,
+            -0.23664358258247375,
+            0.2300088256597519
+          ],
+          [
+            4.231929779052734e-06,
+            -2.451147884130478e-05,
+            0.5753908157348633,
+            0.8178786039352417
+          ]
+        ]
+      },
+      "command": [
+        0.22898972811106993,
+        0.01725934811851282
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1320,
+      "sim_time_s": 22.01666666666667,
+      "wall_s": 22.008856266969815,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2235827445983887,
+            -0.21769829094409943,
+            0.23000840842723846
+          ],
+          [
+            1.0313000530004501e-05,
+            -1.8815509974956512e-05,
+            0.5758922696113586,
+            0.8175255656242371
+          ]
+        ]
+      },
+      "command": [
+        0.2105557909384969,
+        0.016354676802484123
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1326,
+      "sim_time_s": 22.116666666666667,
+      "wall_s": 22.107943234965205,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2298665046691895,
+            -0.20043261349201202,
+            0.2300136238336563
+          ],
+          [
+            3.186194226145744e-05,
+            -1.875404268503189e-05,
+            0.5763252973556519,
+            0.8172202706336975
+          ]
+        ]
+      },
+      "command": [
+        0.19375965822758842,
+        0.01592935707149179
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1332,
+      "sim_time_s": 22.21666666666667,
+      "wall_s": 22.208668241044506,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2355822324752808,
+            -0.18467287719249725,
+            0.2300087958574295
+          ],
+          [
+            2.173054963350296e-05,
+            -1.1593103408813477e-05,
+            0.5767537951469421,
+            0.8169180154800415
+          ]
+        ]
+      },
+      "command": [
+        0.17844248473925883,
+        0.015737549488203762
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1338,
+      "sim_time_s": 22.316666666666666,
+      "wall_s": 22.30732323299162,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2407796382904053,
+            -0.17028583586215973,
+            0.23000258207321167
+          ],
+          [
+            -1.1152587831020355e-06,
+            -1.0332092642784119e-05,
+            0.5771562457084656,
+            0.8166337609291077
+          ]
+        ]
+      },
+      "command": [
+        0.164466626165913,
+        0.015639598104766426
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1344,
+      "sim_time_s": 22.416666666666668,
+      "wall_s": 22.408992829965428,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2455158233642578,
+            -0.15715625882148743,
+            0.23000159859657288
+          ],
+          [
+            -5.94649463891983e-07,
+            -7.227063179016113e-06,
+            0.5775203704833984,
+            0.8163762092590332
+          ]
+        ]
+      },
+      "command": [
+        0.1517128124587566,
+        0.015781704487831224
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1350,
+      "sim_time_s": 22.51666666666667,
+      "wall_s": 22.506560040987097,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2498232126235962,
+            -0.1451796591281891,
+            0.23000682890415192
+          ],
+          [
+            -3.987923264503479e-06,
+            -2.4310313165187836e-05,
+            0.5778732299804688,
+            0.8161264061927795
+          ]
+        ]
+      },
+      "command": [
+        0.14007898429549373,
+        0.016232392146186214
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1356,
+      "sim_time_s": 22.616666666666667,
+      "wall_s": 22.607620561029762,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2537575960159302,
+            -0.13426153361797333,
+            0.2300063818693161
+          ],
+          [
+            -3.6619603633880615e-06,
+            -2.2827647626399994e-05,
+            0.5782410502433777,
+            0.8158659934997559
+          ]
+        ]
+      },
+      "command": [
+        0.1294724446770753,
+        0.01669104966231627
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1362,
+      "sim_time_s": 22.71666666666667,
+      "wall_s": 22.708358295960352,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2573519945144653,
+            -0.1243039071559906,
+            0.23000165820121765
+          ],
+          [
+            9.061768651008606e-07,
+            -6.671994924545288e-06,
+            0.5786171555519104,
+            0.815599262714386
+          ]
+        ]
+      },
+      "command": [
+        0.11980045969824055,
+        0.01718834915696785
+      ],
+      "waypoint": 3,
+      "phase": "detour"
+    },
+    {
+      "step": 1368,
+      "sim_time_s": 22.816666666666666,
+      "wall_s": 22.807223296025768,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2606173753738403,
+            -0.1152249425649643,
+            0.23000189661979675
+          ],
+          [
+            5.061738193035126e-07,
+            -7.456168532371521e-06,
+            0.5789787769317627,
+            0.8153425455093384
+          ]
+        ]
+      },
+      "command": [
+        0.11098299378643259,
+        0.017966524817677774
+      ],
+      "waypoint": 3,
+      "phase": "detour",
+      "goal_hold": true
+    },
+    {
+      "step": 1374,
+      "sim_time_s": 22.916666666666668,
+      "wall_s": 22.907660951954313,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2619940042495728,
+            -0.11138933897018433,
+            0.23000024259090424
+          ],
+          [
+            -8.321367204189301e-07,
+            1.0132789611816406e-06,
+            0.5791261792182922,
+            0.8152379393577576
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": 3,
+      "phase": "detour",
+      "goal_hold": true
+    },
+    {
+      "step": 1380,
+      "sim_time_s": 23.01666666666667,
+      "wall_s": 23.007791460957378,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2619946002960205,
+            -0.11138862371444702,
+            0.2300003319978714
+          ],
+          [
+            -7.906928658485413e-07,
+            2.080574631690979e-06,
+            0.5791258811950684,
+            0.8152381181716919
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": 3,
+      "phase": "detour",
+      "goal_hold": true
+    },
+    {
+      "step": 1386,
+      "sim_time_s": 23.116666666666667,
+      "wall_s": 23.107156528974883,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2619941234588623,
+            -0.1113894134759903,
+            0.23000019788742065
+          ],
+          [
+            -6.477348506450653e-07,
+            1.0300427675247192e-06,
+            0.5791259407997131,
+            0.8152379989624023
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": 3,
+      "phase": "detour",
+      "goal_hold": true
+    },
+    {
+      "step": 1392,
+      "sim_time_s": 23.21666666666667,
+      "wall_s": 23.20656770898495,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.261994481086731,
+            -0.11138851940631866,
+            0.230000302195549
+          ],
+          [
+            -8.246861398220062e-07,
+            2.26777046918869e-06,
+            0.5791260004043579,
+            0.8152381181716919
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": 3,
+      "phase": "detour",
+      "goal_hold": true
+    },
+    {
+      "step": 1398,
+      "sim_time_s": 23.316666666666666,
+      "wall_s": 23.305283603956923,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2619929313659668,
+            -0.11139219999313354,
+            0.22999997437000275
+          ],
+          [
+            4.260800778865814e-07,
+            -5.168840289115906e-07,
+            0.5791243314743042,
+            0.8152393102645874
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": 3,
+      "phase": "detour",
+      "goal_hold": true
+    },
+    {
+      "step": 1404,
+      "sim_time_s": 23.416666666666668,
+      "wall_s": 23.40553219395224,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2619929313659668,
+            -0.11139219999313354,
+            0.22999997437000275
+          ],
+          [
+            4.260800778865814e-07,
+            -5.168840289115906e-07,
+            0.5791243314743042,
+            0.8152393102645874
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": 3,
+      "phase": "detour",
+      "goal_hold": true
+    },
+    {
+      "step": 1410,
+      "sim_time_s": 23.51666666666667,
+      "wall_s": 23.505074694985524,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2619929313659668,
+            -0.11139219999313354,
+            0.22999997437000275
+          ],
+          [
+            4.260800778865814e-07,
+            -5.168840289115906e-07,
+            0.5791243314743042,
+            0.8152393102645874
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": 3,
+      "phase": "detour",
+      "goal_hold": true
+    },
+    {
+      "step": 1416,
+      "sim_time_s": 23.616666666666667,
+      "wall_s": 23.606641507009044,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2619929313659668,
+            -0.11139219999313354,
+            0.22999997437000275
+          ],
+          [
+            4.260800778865814e-07,
+            -5.168840289115906e-07,
+            0.5791243314743042,
+            0.8152393102645874
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": 3,
+      "phase": "detour",
+      "goal_hold": true
+    },
+    {
+      "step": 1422,
+      "sim_time_s": 23.71666666666667,
+      "wall_s": 23.706020790035836,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2619929313659668,
+            -0.11139219999313354,
+            0.22999997437000275
+          ],
+          [
+            4.260800778865814e-07,
+            -5.168840289115906e-07,
+            0.5791243314743042,
+            0.8152393102645874
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": 3,
+      "phase": "detour",
+      "goal_hold": true
+    },
+    {
+      "step": 1428,
+      "sim_time_s": 23.816666666666666,
+      "wall_s": 23.80634018802084,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2619929313659668,
+            -0.11139219999313354,
+            0.22999997437000275
+          ],
+          [
+            4.260800778865814e-07,
+            -5.168840289115906e-07,
+            0.5791243314743042,
+            0.8152393102645874
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": 3,
+      "phase": "detour",
+      "goal_hold": true
+    },
+    {
+      "step": 1434,
+      "sim_time_s": 23.916666666666668,
+      "wall_s": 23.905509089003317,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2619929313659668,
+            -0.11139219999313354,
+            0.22999997437000275
+          ],
+          [
+            4.260800778865814e-07,
+            -5.168840289115906e-07,
+            0.5791243314743042,
+            0.8152393102645874
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": 3,
+      "phase": "detour",
+      "goal_hold": true
+    },
+    {
+      "step": 1440,
+      "sim_time_s": 24.01666666666667,
+      "wall_s": 24.00566005706787,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2619929313659668,
+            -0.11139219999313354,
+            0.22999997437000275
+          ],
+          [
+            4.260800778865814e-07,
+            -5.168840289115906e-07,
+            0.5791243314743042,
+            0.8152393102645874
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": 3,
+      "phase": "detour",
+      "goal_hold": true
+    },
+    {
+      "step": 1446,
+      "sim_time_s": 24.116666666666667,
+      "wall_s": 24.104989891988225,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2619929313659668,
+            -0.11139219999313354,
+            0.22999997437000275
+          ],
+          [
+            4.260800778865814e-07,
+            -5.168840289115906e-07,
+            0.5791243314743042,
+            0.8152393102645874
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": 3,
+      "phase": "detour",
+      "goal_hold": true
+    },
+    {
+      "step": 1452,
+      "sim_time_s": 24.21666666666667,
+      "wall_s": 24.206993274972774,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2619929313659668,
+            -0.11139219999313354,
+            0.22999997437000275
+          ],
+          [
+            4.260800778865814e-07,
+            -5.168840289115906e-07,
+            0.5791243314743042,
+            0.8152393102645874
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": 3,
+      "phase": "detour",
+      "goal_hold": true
+    },
+    {
+      "step": 1458,
+      "sim_time_s": 24.316666666666666,
+      "wall_s": 24.3063625410432,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            1.2619929313659668,
+            -0.11139219999313354,
+            0.22999997437000275
+          ],
+          [
+            4.260800778865814e-07,
+            -5.168840289115906e-07,
+            0.5791243314743042,
+            0.8152393102645874
+          ]
+        ]
+      },
+      "command": [
+        0.0,
+        0.0
+      ],
+      "waypoint": 3,
+      "phase": "detour",
+      "goal_hold": true
+    }
+  ],
+  "final_poses": {
+    "/World/Robot/Chassis": [
+      [
+        1.2619929313659668,
+        -0.11139219999313354,
+        0.22999997437000275
+      ],
+      [
+        4.260800778865814e-07,
+        -5.168840289115906e-07,
+        0.5791243314743042,
+        0.8152393102645874
+      ]
+    ]
+  }
+}

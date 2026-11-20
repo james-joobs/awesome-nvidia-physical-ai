@@ -150,3 +150,6 @@ It opens the real distance array and PLY, checks finite positive distances, norm
 The forest recording exposes much more transparency and gaps than the indoor scenes. Thin leaves, depth discontinuities and surfaces uncovered by translation are difficult for a single RGB-distance shell. Alpha coverage is recorded as a **render diagnostic**, not a geometric accuracy score. We do not have ground-truth geometry or a held-out PSNR benchmark for these generated worlds. None of the results includes validated collisions, metric scale, joints or a robot controller.
 
 **Licenses:** [WorldGen code](https://github.com/ZiYang-xie/WorldGen/blob/7ce7b2767fdf31e2727b69a2e61e2e950e3a017f/LICENSE), its [LoRA card](https://huggingface.co/LeoXie/WorldGen) and [DA-2 weights](https://huggingface.co/haodongli/DA-2) list Apache-2.0. FLUX base and derived quantized weights retain separate **FLUX.1-dev Non-Commercial** model terms; output permissions have their own scope. The repository distributes our example outputs and code, not those model weights. [Media provenance](../../../site/public/showcase/SPATIAL-CREDITS.md) · [Measured fVDB reconstruction](spatial-reconstruction.md) · [Editable procedural house](scene-generation.md).
+
+
+**Next: [import this laboratory into Isaac Sim, check scale and collisions, and drive a robot](worldgen-isaac.md).**

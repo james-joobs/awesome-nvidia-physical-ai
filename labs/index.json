@@ -123,6 +123,25 @@
         "check.py"
       ],
       "evidence": "recorded.json"
+    },
+    {
+      "id": "worldgen-isaac",
+      "tags": [
+        "WorldGen",
+        "Isaac Sim 6.2",
+        "PhysX",
+        "OpenUSD"
+      ],
+      "code": [
+        "prepare.py",
+        "run.sh",
+        "run.py",
+        "record_gui.py",
+        "package.py",
+        "plot.py",
+        "check.py"
+      ],
+      "evidence": "recorded.json"
     }
   ],
   "heroTags": ["Isaac Sim", "PhysX", "Newton", "GR00T", "cuRobo", "AutoData", "Replicator", "SimReady", "OpenUSD", "CadQuery", "OpenCV"],

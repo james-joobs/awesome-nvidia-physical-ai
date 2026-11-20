@@ -75,6 +75,11 @@ export const clips = [
     ko: { title: '글과 이미지로 만든 3D 공간 둘러보기', description: 'WorldGen으로 로봇 실험실·숲길·확장된 거실을 생성했습니다. 3D 공간에서 카메라를 움직인 영상을 보고, 브라우저에서도 직접 둘러보세요.' },
   },
   {
+    id: 'worldgen-isaac', duration: '0:25', width: 960, height: 540,
+    en: { title: 'Drive inside the generated WorldGen laboratory', description: 'A generated laboratory becomes an Isaac Sim 6.2 scene. Watch an articulated AMR meet a crate, reverse and follow waypoints around it. The recovery is scripted; contacts and motion are live PhysX.' },
+    ko: { title: 'WorldGen 실험실에서 로봇 움직이기', description: '생성한 실험실에서 이동 로봇이 상자에 막힌 뒤 후진해 우회합니다. 회복 순서는 미리 정했고, 접촉과 움직임은 Isaac Sim 6.2의 PhysX가 실제 계산합니다.' },
+  },
+  {
     id: 'spatial-reconstruction', duration: '0:16', width: 640, height: 360,
     en: { title: 'Explore a plaza reconstructed with 3DGS', description: 'CARLA camera views become an fVDB radiance field. Move the viewpoint in the browser, or watch the full model rendered along a new camera path.' },
     ko: { title: '3DGS로 복원한 광장 둘러보기', description: 'CARLA 촬영을 fVDB로 복원했습니다. 브라우저에서 직접 시점을 움직이거나 전체 모델의 카메라 이동 영상을 볼 수 있습니다.' },
@@ -123,6 +128,24 @@ export const clips = [
 
 // Extra runs share an existing lab and its reading order.
 export const additionalRecordings = [
+  {
+    id: 'worldgen-isaac-blocked', lab: 'worldgen-isaac', duration: '0:11', width: 960, height: 540,
+    tags: ['Isaac Sim 6.2', 'PhysX', 'WorldGen'],
+    en: { title: 'A forward command does not pass through a collider', description: 'The same physical robot receives equal wheel-speed targets and stops against the crate. Contact events and measured poses are saved.' },
+    ko: { title: '전진 명령을 줘도 충돌체는 통과하지 않습니다', description: '같은 로봇의 두 바퀴에 같은 속도를 줍니다. 상자 앞에서 멈추는 실제 접촉과 몸체 위치를 기록했습니다.' },
+  },
+  {
+    id: 'worldgen-isaac-detour', lab: 'worldgen-isaac', duration: '0:21', width: 960, height: 540,
+    tags: ['Isaac Sim 6.2', 'PhysX', 'Waypoint feedback'],
+    en: { title: 'A closer view of waypoint control', description: 'An independent run follows the detour directly. The camera is closer and the generated-room emission is lower than in the main overview. No crate contact was reported.' },
+    ko: { title: '경유점 제어를 가까이서 보기', description: '우회 경로를 바로 따라가는 별도 실행입니다. 대표 영상보다 가까운 시점이며 배경 발광값도 낮습니다. 상자 접촉은 보고되지 않았습니다.' },
+  },
+  {
+    id: 'worldgen-isaac-probes', lab: 'worldgen-isaac', duration: '0:03', width: 960, height: 540,
+    tags: ['Isaac Sim 6.2', 'PhysX', 'Collision check'],
+    en: { title: 'Check contact before you drive', description: 'Four 10 cm cubes drop onto the explicit floor. Compare their saved heights with the no-collider and generated-mesh tests in the lab.' },
+    ko: { title: '주행 전에 바닥 접촉 확인하기', description: '10cm 큐브 네 개를 바닥 충돌체에 떨어뜨립니다. 실습 기록에서 충돌체가 없는 경우와 추정 메시를 쓴 경우의 높이도 비교합니다.' },
+  },
   ...[
     ['livingroom', 'Expand one image into a 360° living room', '이미지 한 장에서 360° 거실로 확장하기'],
     ['forest-trail', 'Generate a forest trail from text', '글로 생성한 숲길 둘러보기'],

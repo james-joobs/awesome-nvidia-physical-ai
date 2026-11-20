@@ -1,0 +1,141 @@
+{
+  "date": "2026-11-20",
+  "gpu": "NVIDIA RTX 5090 32 GB",
+  "runtime_image": "nvcr.io/nvidia/isaac-sim@sha256:a025b65a7442d56806a1cc3f5eed081caf736c24b72d62dccf68ef66945d8690",
+  "runs": [
+    "combined",
+    "blocked",
+    "detour",
+    "probes",
+    "no-floor",
+    "raw-mesh"
+  ],
+  "provenance": "WorldGen robotics laboratory generated in the preceding lab; imported into Isaac Sim. Original authored AMR, flat test floor and crate; no external robot asset.",
+  "recording": "real native X11 window; viewport crop only; playback speed 1.0",
+  "visual_variants": {
+    "combined": "wide view, OmniPBR emission display value 400",
+    "blocked": "closer view, emission 1",
+    "detour": "closer view, emission 1",
+    "probes": "wide collision-only view; generated room hidden"
+  },
+  "scope": "Assumed 1.5 m source-camera height, not metric recovery. Explicit local proxy physics. Fixed-time recovery and hand-authored waypoints, not learned perception or autonomous planning.",
+  "files": {
+    "labs/worldgen-isaac/package.py": {
+      "bytes": 2659,
+      "sha256": "9e3824f668c7e0ba121f27cbd41fdaffe9f2c060f6eb1a9ae28005e244e05737"
+    },
+    "labs/worldgen-isaac/run.py": {
+      "bytes": 18602,
+      "sha256": "04aee2f38494858728e8c21a5a00345a9febe9ff9e554718d91d2e41c8ac12e9"
+    },
+    "labs/worldgen-isaac/plot.py": {
+      "bytes": 2303,
+      "sha256": "2226a8e557ba6ccc3b93bf1676781c909e1cf886b749ddedf5e0333ebba53da3"
+    },
+    "labs/worldgen-isaac/check.py": {
+      "bytes": 3147,
+      "sha256": "e81e94aca1e2ea4d5d0fb41c9bde46dd45bc24d5a8e6b0515f9c17c0936d2a14"
+    },
+    "labs/worldgen-isaac/run.sh": {
+      "bytes": 1700,
+      "sha256": "c541098a5f6aff4b0be76612ec90a9b2b555561ab3571db1eb7fa8564689d907"
+    },
+    "labs/worldgen-isaac/prepare.py": {
+      "bytes": 4451,
+      "sha256": "4b94143ca4aea330c945e8bef4e9c3ef74e53908570e36a6d2981e4162adf4a3"
+    },
+    "labs/worldgen-isaac/record_gui.py": {
+      "bytes": 2885,
+      "sha256": "805f1eb08cc0e3ff66fe09b33cc7cb3ff79f96a3ef378dcfcc26cd3b2ec43906"
+    },
+    "labs/worldgen-isaac/evidence/worldgen-isaac-detour.edit.json": {
+      "bytes": 454,
+      "sha256": "48589fb71434c784fb61cbe375adea1cea63366ced80e19b2c1f76f1838176f2"
+    },
+    "labs/worldgen-isaac/evidence/worldgen-isaac-blocked.edit.json": {
+      "bytes": 441,
+      "sha256": "7ea37733a29573a533b0f93555bb9d085da2f9328f1379c039af9ae19e53cc5b"
+    },
+    "labs/worldgen-isaac/evidence/worldgen-isaac.edit.json": {
+      "bytes": 455,
+      "sha256": "0ba3bfe13baad1a697212883abe9eb05c8ff971f8c4aa577825f516202624881"
+    },
+    "labs/worldgen-isaac/evidence/worldgen-isaac-probes.edit.json": {
+      "bytes": 439,
+      "sha256": "58f212c06aa24ef12e6336e7c6034916c4d94de4cfba12a28fd215329ead3739"
+    },
+    "labs/worldgen-isaac/assets/room-mesh.npz": {
+      "bytes": 1755956,
+      "sha256": "e6c200b573f0e36b6001ff252ca567685dd0b97968ba7e99b16329de093a6f1c"
+    },
+    "labs/worldgen-isaac/assets/calibration.json": {
+      "bytes": 2538,
+      "sha256": "ff2a2c640d90aba49994aa23dc379ff221de6473e5aedc29c2ecdc10573abb99"
+    },
+    "labs/worldgen-isaac/assets/panorama.jpg": {
+      "bytes": 304699,
+      "sha256": "31c4aabcfc8d9ecef550014bb0bd02de9a9f84cd17c199c2130a40b2bdeaf777"
+    },
+    "labs/worldgen-isaac/evidence/probes/result.json": {
+      "bytes": 46324,
+      "sha256": "02ef4bac8102292ec1fbb49515205d78ca534b016ad5e699beba4fb47dd00743"
+    },
+    "labs/worldgen-isaac/evidence/detour/result.json": {
+      "bytes": 115072,
+      "sha256": "b1f8fc6c655b2511fb4df6eb260bcdf378f65253197267a7f6a6cc1fb4a229e2"
+    },
+    "labs/worldgen-isaac/evidence/raw-mesh/result.json": {
+      "bytes": 45780,
+      "sha256": "2a6f84f452b4c41feb9f559b0e1e4d1398a39a40247347c14a5b42b691760714"
+    },
+    "labs/worldgen-isaac/evidence/no-floor/result.json": {
+      "bytes": 36775,
+      "sha256": "9b343024524b696f9cc3fb808d921d5ec65473ca9db46eeaac4033246292638a"
+    },
+    "labs/worldgen-isaac/evidence/combined/result.json": {
+      "bytes": 153936,
+      "sha256": "731357f6e6f3c6d0ccbc3902af7025efd6416e1d9cb7de98c725d7c6de3f06bc"
+    },
+    "labs/worldgen-isaac/evidence/blocked/result.json": {
+      "bytes": 113221,
+      "sha256": "8e6bf5ffad4c1c476030511723d207ca511dd989690a703f048c037d6aa36946"
+    },
+    "site/public/showcase/worldgen-isaac-blocked.mp4": {
+      "bytes": 176944,
+      "sha256": "444e170ddf419bbfb15148cd12fbce85e7ec89c545256a460a32bd24ed16dda8"
+    },
+    "site/public/showcase/worldgen-isaac-probes.mp4": {
+      "bytes": 42454,
+      "sha256": "c85a260d4fa8684dcac1db035df97ba98e0c8ecad19fa505d104cc2b1f7997a9"
+    },
+    "site/public/showcase/worldgen-isaac.mp4": {
+      "bytes": 438540,
+      "sha256": "c3fc6f7cb8d3befd848d6507c59c8c085ff6a084d27b74c43c49b6dac909e39a"
+    },
+    "site/public/showcase/worldgen-isaac-detour.mp4": {
+      "bytes": 463895,
+      "sha256": "f79f1fdec8e713d36b69900071b650b66820a27b5b87748fdf4b1b15af3f3719"
+    },
+    "site/public/showcase/worldgen-isaac.jpg": {
+      "bytes": 30518,
+      "sha256": "26dbf1e39233bb5c97296cca8f14b8149a672d57e666a9554b22653c62e5d135"
+    },
+    "site/public/showcase/worldgen-isaac-detour.jpg": {
+      "bytes": 19352,
+      "sha256": "278255f85cf120eede11bfa81613aa057ac6387173fb4b3f0a92850d1139331a"
+    },
+    "site/public/showcase/worldgen-isaac-probes.jpg": {
+      "bytes": 19519,
+      "sha256": "6727d8f702a339efdbb0ec0c8edd795c7544265429b6e6ce4feb397159d7ec53"
+    },
+    "site/public/showcase/worldgen-isaac-blocked.jpg": {
+      "bytes": 18051,
+      "sha256": "4f8fef5d80ae11a889911d71ddc877d829b57858ee03d98437173b37bc520199"
+    },
+    "site/public/showcase/worldgen-isaac-scene.zip": {
+      "bytes": 1387845,
+      "sha256": "ffa2c8ec714e3e280538451cfbeb1f4d5b04d965fb14f3c7a7ce6af8b6a96ac6"
+    }
+  },
+  "publication_note": "Private machine identifiers and storage paths are omitted or represented by public placeholders; numerical results are unchanged."
+}

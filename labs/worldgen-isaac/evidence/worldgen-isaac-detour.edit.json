@@ -1,0 +1,20 @@
+{
+  "source": "native X11 Isaac Sim window, 1440x900",
+  "crop_xywh": [
+    50,
+    64,
+    952,
+    536
+  ],
+  "trim_start_s": 0.4,
+  "speed": 1.0,
+  "published_resolution": [
+    960,
+    540
+  ],
+  "duration_s": 21.0,
+  "bytes": 463895,
+  "sha256": "f79f1fdec8e713d36b69900071b650b66820a27b5b87748fdf4b1b15af3f3719",
+  "source_sha256": "1fd92c9bfff3277f1d3fde0b86668b16e6c6753a4703efeaf6b598072d53759a",
+  "physical_simulation_s": 20.21666666666667
+}

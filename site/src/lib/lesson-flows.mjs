@@ -1,5 +1,17 @@
 // Each step shows a data example or file name, followed by what it means in the lab.
 export const lessonFlows = {
+  'worldgen-isaac': {
+    en: [
+      ['Choose a coordinate and scale convention', 'WorldGen RGB + distance → 80k-vertex textured mesh', 'Fit a floor plane; assume a 1.5 m camera height. This establishes a simulation scale, not measured truth.'],
+      ['Check what can collide', 'static generated mesh / 5×4 m floor / added crate', 'Compare real cube drops and raycasts. The robot run uses explicit proxy collisions.'],
+      ['Close the control loop through physics', 'pose + waypoint → v, ω → wheel drives → PhysX pose', 'A hand-authored route guides the AMR. Native GUI recording shows live joint and contact simulation.'],
+    ],
+    ko: [
+      ['좌표계와 크기 기준 정하기', 'WorldGen RGB·거리 → 정점 8만 개의 텍스처 메시', '바닥을 평면으로 맞추고 카메라 높이를 1.5m로 가정합니다. 실제 크기를 측정한 값은 아닙니다.'],
+      ['부딪히는 형상 확인', '정적 추정 메시 / 5×4m 바닥 / 추가 시험 상자', '큐브 낙하와 광선 충돌을 비교합니다. 주행에는 따로 작성한 충돌체를 사용합니다.'],
+      ['물리 결과를 읽어 다음 제어 명령 계산', '자세·경유점 → v, ω → 바퀴 드라이브 → PhysX 자세', '미리 정한 경유점을 따라갑니다. 실제 GUI에서 관절·접촉을 계산하며 녹화했습니다.'],
+    ],
+  },
   'worldgen-scenes': {
     en: [
       ['Describe or show a place', 'prompt / RGB + 3×3 camera K + fill mask', 'Text creates a full panorama. An image fixes observed pixels and generates its surroundings.'],

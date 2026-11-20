@@ -48,3 +48,9 @@ From the repository root, `python3 labs/verify.py` checks the included measureme
 Generate a robotics lab, expand a calibrated image into a room, and compare an outdoor forest scene. Includes source, full-run metadata, CPU checks, 20-second translated camera recordings and on-demand 3D previews.
 
 [English guide](../docs/en/labs/worldgen-scenes.md) · [한국어 실습](../docs/ko/labs/worldgen-scenes.md) · [Code and evidence](worldgen-scenes/)
+
+## WorldGen → Isaac Sim
+
+Import the bundled generated laboratory, calibrate an assumed scale, compare collision settings, and run a live differential-drive AMR. No FLUX download is needed for the prepared scene.
+
+[English lab](../docs/en/labs/worldgen-isaac.md) · [한국어 실습](../docs/ko/labs/worldgen-isaac.md) · [Code and assets](worldgen-isaac/)
