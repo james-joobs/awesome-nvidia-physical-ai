@@ -5,15 +5,19 @@ import { homeCopy } from '../lib/home.mjs';
 import { showcaseCopy } from '../lib/showcase.mjs';
 import videoEn from '../../../assets/promo/physical-ai-pages-walkthrough-en.mp4?url&no-inline';
 import videoKo from '../../../assets/promo/physical-ai-pages-walkthrough-ko.mp4?url&no-inline';
+import posterEn from '../../../assets/promo/physical-ai-pages-walkthrough-en.jpg?url';
+import posterKo from '../../../assets/promo/physical-ai-pages-walkthrough-ko.jpg?url';
 
 const { locale } = Astro.props;
 const { siteTour, tourDescription } = homeCopy[locale];
 const video = locale === 'ko' ? videoKo : videoEn;
+const poster = locale === 'ko' ? posterKo : posterEn;
 ---
 <Base locale={locale} page="tour" title={siteTour} description={tourDescription}>
   <section class="shell tour">
     <h1 id="tour-title">{siteTour}</h1>
-    <video controls playsinline preload="metadata" width="1600" height="900" aria-labelledby="tour-title">
+    <p class="tour-intro">{tourDescription}</p>
+    <video controls playsinline preload="metadata" width="1600" height="900" poster={poster} aria-labelledby="tour-title">
       <source src={video} type="video/mp4" />
     </video>
     <a class="plain-link" href={video}>{showcaseCopy[locale].open}<Icon name="external" size={16} /></a>
@@ -22,7 +26,8 @@ const video = locale === 'ko' ? videoKo : videoEn;
 
 <style>
   .tour { padding-block: clamp(24px, 5vw, 56px); }
-  h1 { margin-bottom: 16px; }
+  h1 { margin-bottom: 12px; }
+  .tour-intro { max-width: 78ch; margin-bottom: 24px; color: var(--muted); line-height: 1.7; }
   video { display: block; width: 100%; height: auto; background: var(--media-bg); border-radius: 10px; }
   a { min-height: 44px; }
 </style>
