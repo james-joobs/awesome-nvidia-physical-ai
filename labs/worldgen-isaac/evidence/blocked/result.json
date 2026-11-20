@@ -1,0 +1,5202 @@
+{
+  "status": "complete",
+  "scenario": "blocked",
+  "collision_view": false,
+  "no_floor": false,
+  "raw_collider": false,
+  "isaacsim_version": "6.2.0",
+  "physics": "live PhysX; joint velocity drives; not a USD trajectory replay",
+  "control": "fixed wheel commands",
+  "duration_sim_s": 10.0,
+  "duration_wall_s": 10.001587887993082,
+  "reached_goal": false,
+  "stage": {
+    "up_axis": "Z",
+    "meters_per_unit": 1.0,
+    "render_mesh_collision": false,
+    "multitick_rendering": false,
+    "proxy_floor": true
+  },
+  "raycasts": {
+    "floor_left": {
+      "hit": true,
+      "collider": "/World/ProxyFloor",
+      "position": [
+        -1.0,
+        -1.0,
+        0.0
+      ]
+    },
+    "floor_right": {
+      "hit": true,
+      "collider": "/World/ProxyFloor",
+      "position": [
+        1.0,
+        -1.0,
+        0.0
+      ]
+    },
+    "crate": {
+      "hit": true,
+      "collider": "/World/TestCrate",
+      "position": [
+        0.0,
+        0.0,
+        0.6000000238418579
+      ]
+    }
+  },
+  "crate_contact_events": [
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 0,
+      "time": 4.283333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.3
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.316666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.333333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.35
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.366666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.383333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.4
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.416666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.433333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.45
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.466666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.483333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.5
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.516666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.533333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.55
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.566666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.583333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.6
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.616666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.633333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.65
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.666666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.683333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.7
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.716666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.733333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.75
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.766666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.783333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.8
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.816666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.833333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.85
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.866666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.883333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.9
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.916666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.933333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.95
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.966666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 4.983333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.0
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.016666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.033333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.05
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.066666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.083333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.1
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.116666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.133333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.15
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.166666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.183333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.2
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.216666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.233333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.25
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.266666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.283333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.3
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.316666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.333333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.35
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.366666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.383333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.4
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.416666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.433333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.45
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.466666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.483333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.5
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.516666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.533333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.55
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.566666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.583333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.6
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.616666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.633333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.65
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.666666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.683333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.7
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.716666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.733333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.75
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.766666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.783333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.8
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.816666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.833333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.85
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.866666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.883333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.9
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.916666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.933333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.95
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.966666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 5.983333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.0
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.016666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.033333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.05
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.066666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.083333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.1
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.116666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.133333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.15
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.166666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.183333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.2
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.216666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.233333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.25
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.266666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.283333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.3
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.316666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.333333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.35
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.366666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.383333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.4
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.416666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.433333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.45
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.466666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.483333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.5
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.516666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.533333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.55
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.566666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.583333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.6
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.616666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.633333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.65
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.666666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.683333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.7
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.716666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.733333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.75
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.766666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.783333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.8
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.816666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.833333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.85
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.866666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.883333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.9
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.916666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.933333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.95
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.966666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 6.983333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.0
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.016666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.033333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.05
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.066666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.083333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.1
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.116666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.133333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.15
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.166666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.183333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.2
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.216666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.233333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.25
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.266666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.283333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.3
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.316666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.333333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.35
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.366666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.383333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.4
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.416666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.433333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.45
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.466666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.483333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.5
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.516666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.533333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.55
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.566666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.583333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.6
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.616666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.633333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.65
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.666666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.683333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.7
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.716666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.733333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.75
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.766666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.783333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.8
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.816666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.833333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.85
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.866666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.883333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.9
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.916666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.933333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.95
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.966666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 7.983333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.0
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.016666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.033333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.05
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.066666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.083333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.1
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.116666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.133333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.15
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.166666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.183333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.2
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.216666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.233333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.25
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.266666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.283333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.3
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.316666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.333333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.35
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.366666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.383333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.4
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.416666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.433333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.45
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.466666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.483333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.5
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.516666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.533333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.55
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.566666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.583333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.6
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.616666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.633333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.65
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.666666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.683333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.7
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.716666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.733333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.75
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.766666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.783333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.8
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.816666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.833333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.85
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.866666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.883333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.9
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.916666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.933333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.95
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.966666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 8.983333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.0
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.016666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.033333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.05
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.066666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.083333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.1
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.116666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.133333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.15
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.166666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.183333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.2
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.216666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.233333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.25
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.266666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.283333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.3
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.316666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.333333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.35
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.366666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.383333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.4
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.416666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.433333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.45
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.466666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.483333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.5
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.516666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.533333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.55
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.566666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.583333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.6
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.616666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.633333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.65
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.666666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.683333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.7
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.716666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.733333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.75
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.766666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.783333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.8
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.816666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.833333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.85
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.866666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.883333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.9
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.916666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.933333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.95
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.966666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 9.983333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.0
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.016666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.033333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.05
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.066666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.083333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.1
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.116666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.133333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.15
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.166666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.183333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.2
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.216666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.233333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.25
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.266666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.283333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.3
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.316666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.333333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.35
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.366666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.383333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.4
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.416666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.433333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.45
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.466666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.483333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.5
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.516666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.533333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.55
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.566666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.583333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.6
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.616666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.633333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.65
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.666666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.683333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.7
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.716666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.733333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.75
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.766666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.783333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.8
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.816666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.833333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.85
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.866666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.883333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.9
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.916666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.933333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.95
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.966666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 10.983333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.0
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.016666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.033333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.05
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.066666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.083333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.1
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.116666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.133333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.15
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.166666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.183333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.2
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.216666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.233333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.25
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.266666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.283333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.3
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.316666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.333333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.35
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.366666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.383333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.4
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.416666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.433333333333334
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.45
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.466666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.483333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.5
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.516666666666667
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.533333333333333
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.55
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.566666666666666
+    },
+    {
+      "actor0": "/World/Robot/Chassis",
+      "actor1": "/World/TestCrate",
+      "type": 2,
+      "time": 11.583333333333334
+    }
+  ],
+  "samples": [
+    {
+      "step": 0,
+      "sim_time_s": 0.01666666666666683,
+      "wall_s": 0.009491267963312566,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.299412727355957,
+            -2.7075169782619923e-05,
+            0.23002754151821136
+          ],
+          [
+            7.037594332359731e-05,
+            -6.441306322813034e-05,
+            -1.5828960385988466e-05,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 6,
+      "sim_time_s": 0.1166666666666667,
+      "wall_s": 0.10903533303644508,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.2833845615386963,
+            0.00042529558413662016,
+            0.23000596463680267
+          ],
+          [
+            2.0607794795068912e-05,
+            -1.7805956304073334e-05,
+            -0.0020514989737421274,
+            0.9999979138374329
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 12,
+      "sim_time_s": 0.21666666666666679,
+      "wall_s": 0.20721756597049534,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.2542680501937866,
+            0.0003079269954469055,
+            0.23000799119472504
+          ],
+          [
+            1.9078612240264192e-05,
+            -1.9956380128860474e-05,
+            -0.0021286122500896454,
+            0.9999976754188538
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 18,
+      "sim_time_s": 0.31666666666666665,
+      "wall_s": 0.3078677559969947,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.2242565155029297,
+            0.00014630152145400643,
+            0.23000848293304443
+          ],
+          [
+            2.0715016944450326e-05,
+            -2.1083280444145203e-05,
+            -0.001959448680281639,
+            0.9999980926513672
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 24,
+      "sim_time_s": 0.41666666666666674,
+      "wall_s": 0.40773255901876837,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.1942384243011475,
+            -1.5546329450444318e-06,
+            0.23000633716583252
+          ],
+          [
+            1.4653262041974813e-05,
+            -1.615472137928009e-05,
+            -0.0017941161058843136,
+            0.9999983906745911
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 30,
+      "sim_time_s": 0.5166666666666668,
+      "wall_s": 0.5083799860440195,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.164237141609192,
+            -0.00014374131569638848,
+            0.23000554740428925
+          ],
+          [
+            1.3913289876654744e-05,
+            -1.4604069292545319e-05,
+            -0.0016135069308802485,
+            0.9999986290931702
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 36,
+      "sim_time_s": 0.6166666666666669,
+      "wall_s": 0.6075872880173847,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.1342580318450928,
+            -0.00028090080013498664,
+            0.23000575602054596
+          ],
+          [
+            1.3599956218968146e-05,
+            -1.4496967196464539e-05,
+            -0.0014019852969795465,
+            0.999998927116394
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 42,
+      "sim_time_s": 0.7166666666666666,
+      "wall_s": 0.707642138004303,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.1042778491973877,
+            -0.00040606645052321255,
+            0.23000468313694
+          ],
+          [
+            1.2279305337870028e-05,
+            -1.2459233403205872e-05,
+            -0.001188031048513949,
+            0.9999992251396179
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 48,
+      "sim_time_s": 0.8166666666666667,
+      "wall_s": 0.8080498339841142,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.0742982625961304,
+            -0.0005224141641519964,
+            0.23000745475292206
+          ],
+          [
+            2.24678915401455e-05,
+            -1.8878839910030365e-05,
+            -0.0009799252729862928,
+            0.999999463558197
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 54,
+      "sim_time_s": 0.9166666666666667,
+      "wall_s": 0.90740658598952,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.044316291809082,
+            -0.0006492129759863019,
+            0.2300306111574173
+          ],
+          [
+            8.681163308210671e-05,
+            -7.296167314052582e-05,
+            -0.0007932325825095177,
+            0.9999997019767761
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 60,
+      "sim_time_s": 1.0166666666666668,
+      "wall_s": 1.0071534309536219,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -1.014323115348816,
+            -0.0007028824766166508,
+            0.23000332713127136
+          ],
+          [
+            9.823125765251461e-06,
+            -9.37003642320633e-06,
+            -0.0005804093671031296,
+            0.9999998211860657
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 66,
+      "sim_time_s": 1.116666666666667,
+      "wall_s": 1.1094120390480384,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.9843467473983765,
+            -0.0008108450565487146,
+            0.23003001511096954
+          ],
+          [
+            8.684381464263424e-05,
+            -7.195211946964264e-05,
+            -0.0003883139288518578,
+            0.9999998807907104
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 72,
+      "sim_time_s": 1.2166666666666666,
+      "wall_s": 1.2086411099880934,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.9543606638908386,
+            -0.0008724495419301093,
+            0.2300298660993576
+          ],
+          [
+            8.571535727242008e-05,
+            -7.179751992225647e-05,
+            -0.00018730261945165694,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 78,
+      "sim_time_s": 1.3166666666666667,
+      "wall_s": 1.307321346946992,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.9243742823600769,
+            -0.0009215270401909947,
+            0.2300294041633606
+          ],
+          [
+            8.565835014451295e-05,
+            -7.081311196088791e-05,
+            1.4193360584613401e-05,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 84,
+      "sim_time_s": 1.4166666666666667,
+      "wall_s": 1.408071591053158,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8943868279457092,
+            -0.0009587429813109338,
+            0.23002906143665314
+          ],
+          [
+            8.232464460888878e-05,
+            -6.947945803403854e-05,
+            0.00021234109590295702,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 90,
+      "sim_time_s": 1.5166666666666668,
+      "wall_s": 1.5077006430365145,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8643837571144104,
+            -0.0009486449416726828,
+            0.23000085353851318
+          ],
+          [
+            2.878438863263e-06,
+            -3.876164555549622e-06,
+            0.00041487551061436534,
+            0.9999998807907104
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 96,
+      "sim_time_s": 1.616666666666667,
+      "wall_s": 1.6062597499694675,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8344027996063232,
+            -0.0009969003731384873,
+            0.23002831637859344
+          ],
+          [
+            8.149079803843051e-05,
+            -6.824731826782227e-05,
+            0.000603347783908248,
+            0.9999997615814209
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 102,
+      "sim_time_s": 1.7166666666666666,
+      "wall_s": 1.7066294170217589,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.8044032454490662,
+            -0.0009904565522447228,
+            0.23002927005290985
+          ],
+          [
+            7.338240538956597e-05,
+            -7.001403719186783e-05,
+            0.0007777355494908988,
+            0.9999997019767761
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 108,
+      "sim_time_s": 1.8166666666666667,
+      "wall_s": 1.8068868699483573,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7744016051292419,
+            -0.000945405859965831,
+            0.23000159859657288
+          ],
+          [
+            4.871732016908936e-06,
+            -5.3336843848228455e-06,
+            0.0009488362120464444,
+            0.9999995231628418
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 114,
+      "sim_time_s": 1.9166666666666667,
+      "wall_s": 1.9099538950249553,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.744408130645752,
+            -0.0009218702907674015,
+            0.2300063967704773
+          ],
+          [
+            1.5147351405175868e-05,
+            -1.57160684466362e-05,
+            0.0010942203225567937,
+            0.999999463558197
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 120,
+      "sim_time_s": 2.0166666666666666,
+      "wall_s": 2.0091928800102323,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.7144135236740112,
+            -0.0009150461992248893,
+            0.23002633452415466
+          ],
+          [
+            7.697648834437132e-05,
+            -6.363168358802795e-05,
+            0.0012459515128284693,
+            0.9999991655349731
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 126,
+      "sim_time_s": 2.116666666666667,
+      "wall_s": 2.1072312239557505,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.6844141483306885,
+            -0.0008625469636172056,
+            0.23001421988010406
+          ],
+          [
+            4.320329026086256e-05,
+            -3.466382622718811e-05,
+            0.0014413214521482587,
+            0.999998927116394
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 132,
+      "sim_time_s": 2.216666666666667,
+      "wall_s": 2.2101836469955742,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.654408872127533,
+            -0.0008127964683808386,
+            0.23002642393112183
+          ],
+          [
+            6.735817441949621e-05,
+            -6.331130862236023e-05,
+            0.0015765979187563062,
+            0.9999987483024597
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 138,
+      "sim_time_s": 2.3166666666666664,
+      "wall_s": 2.3087036840151995,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.6244212985038757,
+            -0.000735588779207319,
+            0.23003830015659332
+          ],
+          [
+            2.8269863832974806e-05,
+            -9.163003414869308e-05,
+            0.0017596195684745908,
+            0.9999984502792358
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 144,
+      "sim_time_s": 2.416666666666667,
+      "wall_s": 2.4085167719749734,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5944480299949646,
+            -0.0006432802765630186,
+            0.2300271838903427
+          ],
+          [
+            3.688806827994995e-06,
+            -6.497185677289963e-05,
+            0.0018907723715528846,
+            0.9999982118606567
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 150,
+      "sim_time_s": 2.5166666666666666,
+      "wall_s": 2.509040783974342,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5644890666007996,
+            -0.0005574906244874001,
+            0.23003149032592773
+          ],
+          [
+            4.1648912883829325e-05,
+            -7.499381899833679e-05,
+            0.001945642987266183,
+            0.9999980330467224
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 156,
+      "sim_time_s": 2.616666666666667,
+      "wall_s": 2.607532602036372,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5345343351364136,
+            -0.00043810997158288956,
+            0.23002584278583527
+          ],
+          [
+            -1.2658310879487544e-06,
+            -6.118509918451309e-05,
+            0.0020325842779129744,
+            0.9999979138374329
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 162,
+      "sim_time_s": 2.716666666666667,
+      "wall_s": 2.7083514040568843,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5045427680015564,
+            -0.00037554430309683084,
+            0.23001037538051605
+          ],
+          [
+            8.829895523376763e-05,
+            -2.606026828289032e-05,
+            0.002122189849615097,
+            0.9999977350234985
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 168,
+      "sim_time_s": 2.8166666666666673,
+      "wall_s": 2.8089448399841785,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000061988830566,
+            0.0004833360726479441,
+            0.23001618683338165
+          ],
+          [
+            3.965518408222124e-05,
+            -3.7826597690582275e-05,
+            1.7840073951447266e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 174,
+      "sim_time_s": 2.916666666666667,
+      "wall_s": 2.909812259953469,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000126957893372,
+            0.0004956036573275924,
+            0.23002959787845612
+          ],
+          [
+            1.1866935892612673e-05,
+            -6.767548620700836e-05,
+            3.6307449136074865e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 180,
+      "sim_time_s": 3.0166666666666666,
+      "wall_s": 3.0082754699978977,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000066161155701,
+            0.0004932589363306761,
+            0.2300155609846115
+          ],
+          [
+            3.837225085590035e-05,
+            -1.7642974853515625e-05,
+            -3.363454197824467e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 186,
+      "sim_time_s": 3.116666666666667,
+      "wall_s": 3.1070733179803938,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000107288360596,
+            0.0004731415247078985,
+            0.23002439737319946
+          ],
+          [
+            1.565992715768516e-05,
+            -5.9137120842933655e-05,
+            -4.704225489149394e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 192,
+      "sim_time_s": 3.216666666666667,
+      "wall_s": 3.207924715941772,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.49999988079071045,
+            0.00046794835361652076,
+            0.23000341653823853
+          ],
+          [
+            8.358525519724935e-06,
+            -7.818453013896942e-06,
+            -1.060742079062038e-06,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 198,
+      "sim_time_s": 3.3166666666666673,
+      "wall_s": 3.3065077350474894,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000056028366089,
+            0.00046401991858147085,
+            0.23001277446746826
+          ],
+          [
+            -3.2931337045738474e-05,
+            -2.954341471195221e-05,
+            -8.088105687420466e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 204,
+      "sim_time_s": 3.416666666666667,
+      "wall_s": 3.4097052899887785,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.500006914138794,
+            0.0004859560285694897,
+            0.23002050817012787
+          ],
+          [
+            -1.2781373698089737e-05,
+            -5.448702722787857e-05,
+            3.0436533506872365e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 210,
+      "sim_time_s": 3.5166666666666666,
+      "wall_s": 3.5086995960446075,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000060200691223,
+            0.0004652023781090975,
+            0.23001441359519958
+          ],
+          [
+            3.7000390875618905e-05,
+            -3.459211438894272e-05,
+            1.6984944295472815e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 216,
+      "sim_time_s": 3.616666666666667,
+      "wall_s": 3.607942190952599,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000157356262207,
+            0.0004728940548375249,
+            0.2300375998020172
+          ],
+          [
+            2.7459573175292462e-05,
+            -8.950848132371902e-05,
+            3.6168444239592645e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 222,
+      "sim_time_s": 3.716666666666667,
+      "wall_s": 3.7080531739629805,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000069737434387,
+            0.00045690120896324515,
+            0.23002047836780548
+          ],
+          [
+            5.476310252561234e-05,
+            -5.065556615591049e-05,
+            -4.280987468519015e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 228,
+      "sim_time_s": 3.8166666666666673,
+      "wall_s": 3.8103277910267934,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.4999997317790985,
+            0.00047816309961490333,
+            0.22999851405620575
+          ],
+          [
+            -2.2440904956511076e-07,
+            5.932524800300598e-07,
+            -1.4422660115087638e-06,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 234,
+      "sim_time_s": 3.916666666666667,
+      "wall_s": 3.909098893054761,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000000596046448,
+            0.0004726283950731158,
+            0.22999988496303558
+          ],
+          [
+            -4.75299401614393e-07,
+            -8.102506399154663e-07,
+            1.6426131423941115e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 240,
+      "sim_time_s": 4.016666666666667,
+      "wall_s": 4.008524768054485,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.500004768371582,
+            0.00045182654866948724,
+            0.23001131415367126
+          ],
+          [
+            3.320930045447312e-05,
+            -2.4648383259773254e-05,
+            -2.790909547911724e-08,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 246,
+      "sim_time_s": 4.116666666666667,
+      "wall_s": 4.107897180947475,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000086426734924,
+            0.0004279093991499394,
+            0.23002168536186218
+          ],
+          [
+            5.6113443861249834e-05,
+            -5.247723311185837e-05,
+            2.6357824935985263e-06,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 252,
+      "sim_time_s": 4.216666666666667,
+      "wall_s": 4.208894346957095,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000092387199402,
+            0.0004264099698048085,
+            0.23002183437347412
+          ],
+          [
+            6.323487468762323e-06,
+            -4.197005182504654e-05,
+            -2.3251443508343073e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 258,
+      "sim_time_s": 4.316666666666667,
+      "wall_s": 4.308186906971969,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000118613243103,
+            0.00042575536645017564,
+            0.23002824187278748
+          ],
+          [
+            3.29223221342545e-05,
+            -6.654113531112671e-05,
+            8.411177532252623e-08,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 264,
+      "sim_time_s": 4.416666666666667,
+      "wall_s": 4.409759324975312,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000163316726685,
+            0.0004275604442227632,
+            0.23003749549388885
+          ],
+          [
+            -1.1000135600625072e-05,
+            -8.632894605398178e-05,
+            5.115341537020868e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 270,
+      "sim_time_s": 4.516666666666667,
+      "wall_s": 4.507779487990774,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000001788139343,
+            0.0004269428027328104,
+            0.22999852895736694
+          ],
+          [
+            1.8286326621819171e-06,
+            -4.302710294723511e-07,
+            1.3628991268888058e-07,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 276,
+      "sim_time_s": 4.616666666666667,
+      "wall_s": 4.608352688024752,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000143051147461,
+            0.0004190363106317818,
+            0.2300337702035904
+          ],
+          [
+            -6.785349796700757e-06,
+            -7.938873022794724e-05,
+            4.6751297304581385e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 282,
+      "sim_time_s": 4.716666666666667,
+      "wall_s": 4.7085783740039915,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000037550926208,
+            0.00040077141602523625,
+            0.23000971972942352
+          ],
+          [
+            2.5746714527485892e-05,
+            -2.5423243641853333e-05,
+            1.5602217899868265e-06,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 288,
+      "sim_time_s": 4.816666666666667,
+      "wall_s": 4.8101781730074435,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000132918357849,
+            0.00040721538243815303,
+            0.23001694679260254
+          ],
+          [
+            6.133260467322543e-05,
+            -4.550069570541382e-05,
+            1.970240737136919e-05,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 294,
+      "sim_time_s": 4.916666666666667,
+      "wall_s": 4.9089099479606375,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000125765800476,
+            0.0004214787622913718,
+            0.2300310581922531
+          ],
+          [
+            -1.466182766307611e-05,
+            -7.58664682507515e-05,
+            1.737901015985699e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 300,
+      "sim_time_s": 5.016666666666667,
+      "wall_s": 5.008296167943627,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.4999999701976776,
+            0.00041903756209649146,
+            0.22999995946884155
+          ],
+          [
+            -3.448927259341872e-07,
+            -4.563480615615845e-08,
+            3.306027167582215e-07,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 306,
+      "sim_time_s": 5.116666666666667,
+      "wall_s": 5.1088982509681955,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000084042549133,
+            0.00041948212310671806,
+            0.23002107441425323
+          ],
+          [
+            -3.0362107281689532e-05,
+            -4.8483721911907196e-05,
+            -2.9477339467121055e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 312,
+      "sim_time_s": 5.216666666666667,
+      "wall_s": 5.209632994025014,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.49999988079071045,
+            0.0004100202349945903,
+            0.22999940812587738
+          ],
+          [
+            -2.677050906640943e-05,
+            8.66129994392395e-07,
+            -7.607557108713081e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 318,
+      "sim_time_s": 5.316666666666667,
+      "wall_s": 5.3082997830351815,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.500004768371582,
+            0.0003993542632088065,
+            0.23001815378665924
+          ],
+          [
+            1.977093234017957e-06,
+            -3.1406059861183167e-05,
+            -2.262994939883356e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 324,
+      "sim_time_s": 5.416666666666667,
+      "wall_s": 5.410320547991432,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000059008598328,
+            0.0003608914848882705,
+            0.2300136834383011
+          ],
+          [
+            3.3518284908495843e-05,
+            -3.1375326216220856e-05,
+            4.527572343704378e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 330,
+      "sim_time_s": 5.516666666666667,
+      "wall_s": 5.508365861955099,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000207424163818,
+            0.00036830760654993355,
+            0.23004312813282013
+          ],
+          [
+            3.606416066759266e-05,
+            -9.511224925518036e-05,
+            -2.779534952424001e-06,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 336,
+      "sim_time_s": 5.616666666666667,
+      "wall_s": 5.6080119219841436,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000102519989014,
+            0.000353512994479388,
+            0.23002302646636963
+          ],
+          [
+            1.9490185877657495e-05,
+            -5.459599196910858e-05,
+            -1.9011773702004575e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 342,
+      "sim_time_s": 5.716666666666667,
+      "wall_s": 5.707543042022735,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000054836273193,
+            0.00033849143073894083,
+            0.2300121933221817
+          ],
+          [
+            3.8058602513046935e-05,
+            -2.8644688427448273e-05,
+            4.488412741920911e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 348,
+      "sim_time_s": 5.816666666666667,
+      "wall_s": 5.808185579953715,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.500008761882782,
+            0.000308148650219664,
+            0.2300211787223816
+          ],
+          [
+            1.4136186109681148e-05,
+            -5.300343036651611e-05,
+            1.9645785869215615e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 354,
+      "sim_time_s": 5.916666666666667,
+      "wall_s": 5.908889065962285,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000120401382446,
+            0.00030323947430588305,
+            0.23003225028514862
+          ],
+          [
+            6.143198788777227e-06,
+            -8.392054587602615e-05,
+            6.138910748632043e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 360,
+      "sim_time_s": 6.016666666666667,
+      "wall_s": 6.007512087002397,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000044703483582,
+            0.0003188693372067064,
+            0.23001128435134888
+          ],
+          [
+            -3.094509520451538e-05,
+            -2.4539418518543243e-05,
+            9.317005833509029e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 366,
+      "sim_time_s": 6.116666666666667,
+      "wall_s": 6.106876175967045,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000095963478088,
+            0.0003141456109005958,
+            0.23002374172210693
+          ],
+          [
+            -6.633673910982907e-05,
+            -5.652476102113724e-05,
+            -3.473809101706138e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 372,
+      "sim_time_s": 6.216666666666667,
+      "wall_s": 6.208154069958255,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000063180923462,
+            0.000291804492007941,
+            0.2300167828798294
+          ],
+          [
+            -4.354418342700228e-05,
+            -4.203617572784424e-05,
+            2.67744167103956e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 378,
+      "sim_time_s": 6.316666666666667,
+      "wall_s": 6.3076637629419565,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000051259994507,
+            0.00028725984157063067,
+            0.23001250624656677
+          ],
+          [
+            -5.9002722991863266e-06,
+            -3.9946287870407104e-05,
+            4.105337666260311e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 384,
+      "sim_time_s": 6.416666666666667,
+      "wall_s": 6.409280546009541,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000063180923462,
+            0.00023763823264744133,
+            0.2300146520137787
+          ],
+          [
+            3.6180186725687236e-05,
+            -3.222934901714325e-05,
+            1.0508132390896208e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 390,
+      "sim_time_s": 6.516666666666667,
+      "wall_s": 6.508678063983098,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000075101852417,
+            0.00022374845866579562,
+            0.23002126812934875
+          ],
+          [
+            6.706403655698523e-05,
+            -5.463790148496628e-05,
+            -8.051769100347883e-07,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 396,
+      "sim_time_s": 6.616666666666666,
+      "wall_s": 6.609735668054782,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000094175338745,
+            0.0002550911158323288,
+            0.23002362251281738
+          ],
+          [
+            -5.994760067551397e-05,
+            -5.646795034408569e-05,
+            -4.225451448292006e-06,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 402,
+      "sim_time_s": 6.716666666666668,
+      "wall_s": 6.708728963974863,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.500010073184967,
+            0.00022433260164689273,
+            0.23002409934997559
+          ],
+          [
+            1.190404418593971e-05,
+            -5.221087485551834e-05,
+            9.957982456398895e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 408,
+      "sim_time_s": 6.816666666666667,
+      "wall_s": 6.808388888952322,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000045895576477,
+            0.00021169746469240636,
+            0.23001255095005035
+          ],
+          [
+            3.935973654733971e-05,
+            -2.9051676392555237e-05,
+            8.635110134491697e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 414,
+      "sim_time_s": 6.916666666666667,
+      "wall_s": 6.909333831048571,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000086426734924,
+            0.0002448819868732244,
+            0.23002034425735474
+          ],
+          [
+            -4.9590871640248224e-05,
+            -4.632212221622467e-05,
+            -3.4046229302475695e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 420,
+      "sim_time_s": 7.016666666666667,
+      "wall_s": 7.007526810048148,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000066757202148,
+            0.00024058697454165667,
+            0.23001568019390106
+          ],
+          [
+            -4.030608033644967e-05,
+            -3.6213546991348267e-05,
+            -2.3502311705669854e-06,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 426,
+      "sim_time_s": 7.116666666666666,
+      "wall_s": 7.107022896991111,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.500007152557373,
+            0.00020085634605493397,
+            0.23001539707183838
+          ],
+          [
+            4.9761154514271766e-05,
+            -3.626290708780289e-05,
+            4.580870154313743e-06,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 432,
+      "sim_time_s": 7.216666666666668,
+      "wall_s": 7.207831355975941,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000004172325134,
+            0.00019686552695930004,
+            0.22999998927116394
+          ],
+          [
+            -8.93205708507594e-07,
+            -8.437782526016235e-07,
+            -1.318155113949615e-06,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 438,
+      "sim_time_s": 7.316666666666667,
+      "wall_s": 7.308446121052839,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000088214874268,
+            0.0001952673337655142,
+            0.23002579808235168
+          ],
+          [
+            -2.1118299628142267e-05,
+            -6.386078894138336e-05,
+            5.770286406914238e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 444,
+      "sim_time_s": 7.416666666666667,
+      "wall_s": 7.408166914945468,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000080466270447,
+            0.00020282964396756142,
+            0.2300194948911667
+          ],
+          [
+            -4.875552622252144e-05,
+            -4.5501627027988434e-05,
+            6.819682312197983e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 450,
+      "sim_time_s": 7.516666666666667,
+      "wall_s": 7.5080720209516585,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000072717666626,
+            0.00019284657901152968,
+            0.23001600801944733
+          ],
+          [
+            -4.189978790236637e-05,
+            -3.819260746240616e-05,
+            -2.6989946491084993e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 456,
+      "sim_time_s": 7.616666666666666,
+      "wall_s": 7.608462546020746,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.500012218952179,
+            0.0001908108388306573,
+            0.23002971708774567
+          ],
+          [
+            -1.7440877854824066e-05,
+            -6.792787462472916e-05,
+            6.541096695400483e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 462,
+      "sim_time_s": 7.716666666666668,
+      "wall_s": 7.708522793021984,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.500007152557373,
+            0.0001865055091911927,
+            0.23002047836780548
+          ],
+          [
+            -4.4252788939047605e-05,
+            -5.10653480887413e-05,
+            -6.086042390052171e-07,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 468,
+      "sim_time_s": 7.816666666666667,
+      "wall_s": 7.808938296977431,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000060200691223,
+            0.00017210430814884603,
+            0.23002773523330688
+          ],
+          [
+            -2.628621041367296e-05,
+            -6.963033229112625e-05,
+            8.250643986684736e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 474,
+      "sim_time_s": 7.916666666666667,
+      "wall_s": 7.908623798051849,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000064373016357,
+            0.00017414944886695594,
+            0.23001523315906525
+          ],
+          [
+            -3.694474071380682e-05,
+            -3.507174551486969e-05,
+            -1.498482106399024e-06,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 480,
+      "sim_time_s": 8.016666666666666,
+      "wall_s": 8.00976405700203,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000147819519043,
+            0.00015710222942288965,
+            0.23003782331943512
+          ],
+          [
+            -1.1590944268391468e-05,
+            -8.392333984375e-05,
+            -8.443741990049602e-07,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 486,
+      "sim_time_s": 8.116666666666665,
+      "wall_s": 8.108462059055455,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000001192092896,
+            0.0001547681458760053,
+            0.22999981045722961
+          ],
+          [
+            -7.230131018332031e-07,
+            3.166496753692627e-07,
+            -1.6199797414628847e-07,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 492,
+      "sim_time_s": 8.216666666666667,
+      "wall_s": 8.206316023948602,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000000596046448,
+            0.00015521133900620043,
+            0.2299998253583908
+          ],
+          [
+            1.9500335213251674e-07,
+            1.0058283805847168e-07,
+            8.252078487203107e-08,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 498,
+      "sim_time_s": 8.316666666666666,
+      "wall_s": 8.307940814993344,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000070333480835,
+            0.0001503276580478996,
+            0.23001664876937866
+          ],
+          [
+            6.150893750600517e-05,
+            -5.3433701395988464e-05,
+            1.092427623916592e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 504,
+      "sim_time_s": 8.416666666666666,
+      "wall_s": 8.409814062993973,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.4999983608722687,
+            0.00015468944911845028,
+            0.2300022691488266
+          ],
+          [
+            2.270206096000038e-05,
+            -4.196539521217346e-06,
+            -5.6493149713787716e-08,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 510,
+      "sim_time_s": 8.516666666666666,
+      "wall_s": 8.507018906995654,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000143051147461,
+            0.00015879713464528322,
+            0.23003265261650085
+          ],
+          [
+            -1.3769723409495782e-05,
+            -7.496215403079987e-05,
+            -4.274637376511237e-06,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 516,
+      "sim_time_s": 8.616666666666665,
+      "wall_s": 8.607406995957717,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000011324882507,
+            0.0001620142866158858,
+            0.22999726235866547
+          ],
+          [
+            -9.059072908712551e-06,
+            6.334856152534485e-06,
+            -3.8073605423960544e-07,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 522,
+      "sim_time_s": 8.716666666666667,
+      "wall_s": 8.707372218952514,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000037550926208,
+            0.000139842028147541,
+            0.2300093173980713
+          ],
+          [
+            3.139697219012305e-05,
+            -1.9272789359092712e-05,
+            3.721095481523662e-06,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 528,
+      "sim_time_s": 8.816666666666666,
+      "wall_s": 8.807573938043788,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000054240226746,
+            0.00012325240822974592,
+            0.2300153523683548
+          ],
+          [
+            4.439867552719079e-05,
+            -3.519747406244278e-05,
+            5.6462517932232e-06,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 534,
+      "sim_time_s": 8.916666666666666,
+      "wall_s": 8.908256832975894,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.500011146068573,
+            0.00013129801664035767,
+            0.23002839088439941
+          ],
+          [
+            -3.885653495672159e-05,
+            -6.696023046970367e-05,
+            -3.200669198122341e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 540,
+      "sim_time_s": 9.016666666666666,
+      "wall_s": 9.007027145009488,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000095963478088,
+            0.00010468390973983333,
+            0.2300298511981964
+          ],
+          [
+            -1.205264652526239e-05,
+            -7.344037294387817e-05,
+            7.206052032415755e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 546,
+      "sim_time_s": 9.116666666666665,
+      "wall_s": 9.10782278701663,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000112652778625,
+            0.00013116601621732116,
+            0.23002533614635468
+          ],
+          [
+            -3.885281694238074e-05,
+            -6.760004907846451e-05,
+            -4.745481419377029e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 552,
+      "sim_time_s": 9.216666666666667,
+      "wall_s": 9.207312215003185,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.500006377696991,
+            0.0001259706332348287,
+            0.23001880943775177
+          ],
+          [
+            6.818810106778983e-06,
+            -4.4269487261772156e-05,
+            9.37562845138018e-07,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 558,
+      "sim_time_s": 9.316666666666666,
+      "wall_s": 9.306178360013291,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000079274177551,
+            0.00010409297829028219,
+            0.2300196886062622
+          ],
+          [
+            5.0128193834098056e-05,
+            -4.569534212350845e-05,
+            5.187855549593223e-06,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 564,
+      "sim_time_s": 9.416666666666666,
+      "wall_s": 9.406673613004386,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000088810920715,
+            0.00010795253911055624,
+            0.2300218790769577
+          ],
+          [
+            -1.623467505851295e-05,
+            -5.106627941131592e-05,
+            -1.8092927120960667e-06,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 570,
+      "sim_time_s": 9.516666666666666,
+      "wall_s": 9.506393112940714,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000094771385193,
+            0.00012923053873237222,
+            0.23002207279205322
+          ],
+          [
+            -5.5025586334522814e-05,
+            -5.095638334751129e-05,
+            -9.139411076830584e-07,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 576,
+      "sim_time_s": 9.616666666666665,
+      "wall_s": 9.607827174011618,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000078678131104,
+            8.33067751955241e-05,
+            0.2300182282924652
+          ],
+          [
+            4.513614476309158e-05,
+            -4.0736980736255646e-05,
+            9.362671562485048e-07,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 582,
+      "sim_time_s": 9.716666666666667,
+      "wall_s": 9.70738544804044,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000100135803223,
+            9.011539805214852e-05,
+            0.23001757264137268
+          ],
+          [
+            5.296794552123174e-05,
+            -3.62517312169075e-05,
+            7.886041203164496e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 588,
+      "sim_time_s": 9.816666666666666,
+      "wall_s": 9.806820705998689,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000116229057312,
+            9.235963807441294e-05,
+            0.2300310581922531
+          ],
+          [
+            8.784601050138008e-06,
+            -8.33757221698761e-05,
+            -9.89461227618449e-07,
+            0.9999999403953552
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    },
+    {
+      "step": 594,
+      "sim_time_s": 9.916666666666666,
+      "wall_s": 9.90729660994839,
+      "poses": {
+        "/World/Robot/Chassis": [
+          [
+            -0.5000030994415283,
+            9.423117444384843e-05,
+            0.23000669479370117
+          ],
+          [
+            -1.886989593913313e-05,
+            -1.535564661026001e-05,
+            -1.1320103112666402e-06,
+            1.0
+          ]
+        ]
+      },
+      "command": [
+        0.32,
+        0.0
+      ],
+      "waypoint": 0
+    }
+  ],
+  "final_poses": {
+    "/World/Robot/Chassis": [
+      [
+        -0.4999999701976776,
+        0.0001102783644455485,
+        0.22999991476535797
+      ],
+      [
+        -6.33581294096075e-07,
+        -5.774199962615967e-07,
+        7.369426953118818e-07,
+        0.9999999403953552
+      ]
+    ]
+  }
+}

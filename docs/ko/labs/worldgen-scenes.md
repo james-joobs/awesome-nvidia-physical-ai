@@ -152,3 +152,6 @@ runs/worldgen-runtime/.venv/bin/python labs/worldgen-scenes/audit.py \
 숲길 영상에는 실내보다 투명하게 비거나 구멍이 생긴 영역이 많이 보입니다. 얇은 잎, 깊이가 급변하는 경계, 카메라가 옮겨지면서 드러나는 면은 RGB·거리 한 겹만으로 표현하기 어렵습니다. 기록된 alpha coverage는 **렌더링 상태를 확인하는 값**이며 형상 정확도 점수가 아닙니다. 생성 공간의 정답 형상이나 검사 시점 PSNR은 없습니다. 검증된 충돌체·미터 단위 크기·관절·로봇 제어기는 포함되지 않습니다.
 
 **라이선스:** [WorldGen 코드](https://github.com/ZiYang-xie/WorldGen/blob/7ce7b2767fdf31e2727b69a2e61e2e950e3a017f/LICENSE), [LoRA 카드](https://huggingface.co/LeoXie/WorldGen), [DA-2 가중치](https://huggingface.co/haodongli/DA-2)는 Apache-2.0을 명시합니다. FLUX 원본과 양자화 파생 가중치에는 별도 **FLUX.1-dev Non-Commercial** 모델 조건이 적용되며, 출력물 이용 범위도 따로 규정합니다. 저장소에는 직접 만든 예제 결과와 코드를 배포하고 모델 가중치는 넣지 않습니다. [영상·입력 출처](../../../site/public/showcase/SPATIAL-CREDITS.md) · [fVDB로 장면 복원하기](spatial-reconstruction.md) · [편집 가능한 집 생성하기](scene-generation.md).
+
+
+**다음 실습: [이 실험실을 Isaac Sim으로 가져와 크기·충돌체를 확인하고 로봇을 움직여 보세요](worldgen-isaac.md).**

@@ -1,0 +1,129 @@
+{
+  "source": "WorldGen robot-lab, seed 42; generated 2026-11-20",
+  "source_sha256": {
+    "distance.npy": "c7c5d11d01e92385604d2643261428781cb422c3ab7486a0cd8b4a0ba9152b12",
+    "panorama.png": "37c4cb03c2c4655964a03a5fe4026d01d1ff5f2973fb41a4420a6b1d67e9455c"
+  },
+  "metric_scale": "assumed camera-to-floor height; not a measured scale recovery",
+  "assumed_camera_height_m": 1.5,
+  "meters_per_worldgen_unit": 1.8995559541245572,
+  "source_floor_plane": {
+    "normal": [
+      0.009421949054395206,
+      -0.999846915117663,
+      -0.014743581848019363
+    ],
+    "offset": 0.7896582339377839,
+    "inliers": 27858,
+    "candidates": 28000,
+    "threshold_source_units": 0.025
+  },
+  "source_to_isaac": {
+    "rotation_rows": [
+      [
+        0.9999556124528811,
+        0.009420924868179319,
+        0.00013891944334468157
+      ],
+      [
+        0.0,
+        -0.014744236308503243,
+        0.9998912978397598
+      ],
+      [
+        0.009421949054395206,
+        -0.999846915117663,
+        -0.014743581848019363
+      ]
+    ],
+    "source_origin": [
+      -0.007440119650545491,
+      0.7895373491999551,
+      0.011642390804024138
+    ],
+    "formula": "p_isaac = scale * R @ (p_source - source_origin); Z up, metersPerUnit=1"
+  },
+  "floor_inlier_rms_m": 0.016045429752308025,
+  "full_bounds_m": [
+    [
+      -14.315346714388971,
+      -2.710190511089195,
+      -0.05863274671474354
+    ],
+    [
+      29.231304879565585,
+      29.442787090879015,
+      8.868656488169393
+    ]
+  ],
+  "render_mesh": {
+    "stride": 4,
+    "vertices": 80000,
+    "triangles": 158802,
+    "collision_enabled": false,
+    "small_uv_seam_gap": true
+  },
+  "physics_proxy": {
+    "floor_center": [
+      0,
+      0,
+      -0.05
+    ],
+    "floor_size": [
+      5,
+      4,
+      0.1
+    ],
+    "obstacle_center": [
+      0,
+      0,
+      0.3
+    ],
+    "obstacle_size": [
+      0.45,
+      0.8,
+      0.6
+    ],
+    "scope": "authored test floor and added crate only; not automatically inferred furniture collisions"
+  },
+  "robot": {
+    "type": "authored differential-drive AMR",
+    "body_size": [
+      0.55,
+      0.4,
+      0.18
+    ],
+    "wheel_radius_m": 0.11,
+    "wheel_base_m": 0.52,
+    "mass_chassis_kg": 8
+  },
+  "route": {
+    "start": [
+      -1.3,
+      0,
+      0.24
+    ],
+    "goal": [
+      1.3,
+      0
+    ],
+    "detour_waypoints": [
+      [
+        -0.85,
+        0
+      ],
+      [
+        -0.85,
+        -0.95
+      ],
+      [
+        0.85,
+        -0.95
+      ],
+      [
+        1.3,
+        0
+      ]
+    ]
+  }
+}
