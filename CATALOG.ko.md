@@ -85,6 +85,7 @@ CAD가 있다면 OpenUSD 장면을 만들어 카메라 데이터에 라벨을 �
 
 | 이름 | 역할 | 코드 라이선스와 적용 범위 | 최근 커밋 | 공식 링크 | 가이드 |
 |---|---|---|---|---|---|
+| **NVlabs/ProtoMotions** | 시뮬레이션·렌더링 | 공개 저장소 코드 · [Apache-2.0](https://raw.githubusercontent.com/NVlabs/ProtoMotions/13de0cccd06f53ce5c9cf9ec7d1932c7da73610f/LICENSE.md) | [2026-11-10](https://github.com/NVlabs/ProtoMotions/commit/13de0cccd06f53ce5c9cf9ec7d1932c7da73610f) | [공식 출처](https://github.com/NVlabs/ProtoMotions) | — |
 | **Newton** | Warp 기반 GPU 물리 엔진과 로봇 시뮬레이션 솔버 | [Apache-2.0](https://github.com/newton-physics/newton/blob/c552d3653352a472dcc1f7e74e004aacac202f74/LICENSE.md) | [2026-11-15](https://github.com/newton-physics/newton/commit/8a6560683ca99d17a5b5369a27f6fb886e2dcd23) | [저장소](https://github.com/newton-physics/newton) | [상세 보기](docs/ko/newton.md) |
 | **NVIDIA Warp** | GPU 가속 물리·기하 계산용 Python 프레임워크 | [Apache-2.0](https://github.com/NVIDIA/warp/blob/82dab030eeb6088e180922bc60aa167a2038e457/LICENSE.md) | [2026-11-16](https://github.com/NVIDIA/warp/commit/b3044050e8f2c4550fd358672ad5e72683459ae9) | [저장소](https://github.com/NVIDIA/warp) | [상세 보기](docs/ko/nvidia-warp.md) |
 | **NVIDIA PhysX** | 강체·충돌 등 물리 시뮬레이션 엔진 | [BSD-3-Clause](https://github.com/NVIDIA-Omniverse/PhysX/blob/b97365c6ddb32fda8469bc788ec18024862b0368/LICENSE.md); 일부 추가 구성 요소는 별도 조건 확인 | [2026-11-13](https://github.com/NVIDIA-Omniverse/PhysX/commit/7d6f6ac8b83e1610bdf715f1f2f1d6b718aee586) | [저장소](https://github.com/NVIDIA-Omniverse/PhysX) | [상세 보기](docs/ko/nvidia-physx.md) |
@@ -338,6 +339,9 @@ NeMo 도구는 데이터 준비, 모델 후학습과 에이전트 운영에 쓰�
 
 | 모델 | 개발팀과 역할 | 체크포인트 공개 여부 및 조건 | 공식 자료 |
 |---|---|---|---|
+| **nvidia/Cosmos3-Edge-FP8** | 피지컬 AI·월드 모델 | 다운로드 가능 · [OpenMDW-1.1](https://huggingface.co/nvidia/Cosmos3-Edge-FP8/blob/9a55df1413b0ca2a95cc5175476fd3dee64a3d67/README.md) | [공식 출처](https://huggingface.co/nvidia/Cosmos3-Edge-FP8) |
+| **nvidia/Cosmos3-Edge** | 피지컬 AI·월드 모델 | 다운로드 가능 · [OpenMDW-1.1](https://huggingface.co/nvidia/Cosmos3-Edge/blob/6afc1256321c3a8e623d89be3bc5117a1e90f96b/README.md) | [공식 출처](https://huggingface.co/nvidia/Cosmos3-Edge) |
+| **nvidia/Cosmos3-Nano-FP8** | 피지컬 AI·월드 모델 | 다운로드 가능 · [OpenMDW-1.1](https://huggingface.co/nvidia/Cosmos3-Nano-FP8/blob/9d45b0910219989a76c56aae82a08007bc1b597e/README.md) | [공식 출처](https://huggingface.co/nvidia/Cosmos3-Nano-FP8) |
 | **GR00T N1.7** | NVIDIA · 휴머노이드·로봇 팔 VLA | 3B 체크포인트 다운로드 · [NVIDIA Open Model License](https://huggingface.co/nvidia/GR00T-N1.7-3B/blob/main/LICENSE) | [모델 카드](https://huggingface.co/nvidia/GR00T-N1.7-3B) · [가이드](docs/ko/groot-model.md) |
 | **GR00T N1.7 E2E G1** | NVIDIA · 시뮬레이션 G1의 이동·사과 집기·놓기 정책 | Hugging Face 접근 동의 필요 · [NVIDIA Open Model License](https://huggingface.co/nvidia/GR00T-E2E-Reference-Workflow-SIM-G1-N1.7-AppletoPlate-Model/blob/dc17c90f2510584b9592d70097d53643081bd033/LICENSE) | [모델 카드](https://huggingface.co/nvidia/GR00T-E2E-Reference-Workflow-SIM-G1-N1.7-AppletoPlate-Model) · [데이터셋](https://huggingface.co/datasets/nvidia/GR00T-E2E-Reference-Workflow-SIM-G1-N1.7-AppletoPlate-Dataset) |
 | **GR00T N1.7 E2E H2 Plus** | NVIDIA · 시뮬레이션 H2 Plus의 양손 사과 건네기·놓기 정책 | 다운로드 가능 · [NVIDIA Open Model License](https://huggingface.co/nvidia/GR00T-E2E-Reference-Workflow-SIM-H2-N1.7-AppleHandoverPlate-Model/blob/8fa215492d48223d144e6f20af5d429c35d778f9/LICENSE) | [모델 카드](https://huggingface.co/nvidia/GR00T-E2E-Reference-Workflow-SIM-H2-N1.7-AppleHandoverPlate-Model) · [데이터셋](https://huggingface.co/datasets/nvidia/GR00T-E2E-Reference-Workflow-SIM-H2-N1.7-AppleHandoverPlate-Dataset) |
