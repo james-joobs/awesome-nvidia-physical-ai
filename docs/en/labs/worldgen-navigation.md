@@ -163,3 +163,6 @@ python3 labs/worldgen-navigation/check.py --run runs/worldgen-navigation/sensor-
 ```
 
 [Return to scale and collider checks](worldgen-isaac.md) · [WorldGen generation](worldgen-scenes.md) · [Media provenance](../../../site/public/showcase/SPATIAL-CREDITS.md)
+
+
+[Next: react to moving obstacles and clear old observations](worldgen-dynamic-navigation.md).

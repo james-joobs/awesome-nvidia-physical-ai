@@ -61,3 +61,10 @@ Import the bundled generated laboratory, calibrate an assumed scale, compare col
 [English](../docs/en/labs/worldgen-navigation.md) · [한국어](../docs/ko/labs/worldgen-navigation.md) · [Code](worldgen-navigation/)
 
 Actual Isaac Sim 6.2 Physics Raycast Sensor → occupancy grid → inflation → A* → differential wheel drives. Compare a fixed route with online planning when an added box changes the available passage. The test assumes simulator ego pose and known flat-floor bounds.
+
+
+## Moving obstacles and refreshed maps
+
+[English](../docs/en/labs/worldgen-dynamic-navigation.md) · [한국어](../docs/ko/labs/worldgen-dynamic-navigation.md) · [Code](worldgen-dynamic-navigation/)
+
+A real Physics Raycast Sensor updates a time-aware map. Compare the previous permanent-map controller with stopping, waiting, free-space clearing and online replanning around a kinematic gate and an entering box. Native Isaac Sim GUI recordings, actual poses, measured standstill and sensor-gap checks are provided.

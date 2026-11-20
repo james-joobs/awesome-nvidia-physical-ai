@@ -1,0 +1,185 @@
+{
+  "date": "2026-11-20",
+  "gpu": "NVIDIA RTX 5090 32 GB",
+  "runtime_image": "nvcr.io/nvidia/isaac-sim@sha256:a025b65a7442d56806a1cc3f5eed081caf736c24b72d62dccf68ef66945d8690",
+  "runs": [
+    "gate-static",
+    "gate-dynamic",
+    "cart-dynamic",
+    "sensor-gap"
+  ],
+  "baseline_source": "44d2fba:labs/worldgen-navigation/navigation.py; preserved byte-for-byte as static_navigation.py",
+  "executed_source_sha256": {
+    "run.py": "31bde2c6c6d0c778c13e660a2b995fb34e2c27e5fd9ff94904056b7f38f01526",
+    "navigation.py": "370f96d544d4423a6cad88eec60275a39786991c4a7844943ba5f846b35e89ab",
+    "static_navigation.py": "8f70ffa93656f6595eb18010764deead33922342d6e295328c9c5818ffa98fa6",
+    "actors.py": "0ecd4f0671c1efb0c0515e92c631c4b1046aaef6605bec8acb4a919f8b4dc419",
+    "record_gui.py": "00102b59833e6cbc8774f00e3d43b44ae49dbb53102df586c813f178331e2f78"
+  },
+  "controller_inputs": "range frames, actual ego pose, goal and measurement time only; actor transforms/schedule are not passed to the planner",
+  "changes": "observed-space clearing, 2 s expiry, route continuity, stopping supervisor, axle tracking and terminal heading alignment",
+  "control_reference": "previous: chassis with 0.43 m inflation; updated: axle 0.10 m forward with 0.52 m inflation. Same physical chassis goal [1.3,0], same 0.32 m/s maximum speed.",
+  "display": "a non-colliding visible prim follows the measured PhysX actor pose after every step; positional errors checked, actual pixels inspected",
+  "recording": "native X11 Isaac Sim window, cropped to viewport, 1× speed. Comparison: 13 s previous-map excerpt then complete new-map gate take.",
+  "scope": "ideal planar range sensing, known simulator pose and flat 5×4 m bounds. Scripted kinematic obstacles, no learned model, SLAM, velocity prediction or real-robot safety validation.",
+  "asset_dependency": "labs/worldgen-isaac/assets; WorldGen/FLUX generated laboratory with assumed scale; no model weights redistributed",
+  "files": {
+    "assets/lessons/worldgen-dynamic-navigation/cart.en.svg": {
+      "bytes": 44760,
+      "sha256": "5aff8e6aa0c0929fca65d65bece253641e1b4ea336059babfb29dd3a61469eca"
+    },
+    "assets/lessons/worldgen-dynamic-navigation/cart.ko.svg": {
+      "bytes": 47374,
+      "sha256": "9e3be99d75cd7c12977aa4f79b211f04d0970025f68b3c176cbe67f804b820d7"
+    },
+    "assets/lessons/worldgen-dynamic-navigation/closed.webp": {
+      "bytes": 35904,
+      "sha256": "36c0882653dbbee6506be773c27e298b586135cb7317f4a7ed1349e35aa7401d"
+    },
+    "assets/lessons/worldgen-dynamic-navigation/flow.en.svg": {
+      "bytes": 1800,
+      "sha256": "a1c8378fba7254fa41f3e478be1e03ba07c34005d9e31faa20a62103aa9e8c5f"
+    },
+    "assets/lessons/worldgen-dynamic-navigation/flow.ko.svg": {
+      "bytes": 1922,
+      "sha256": "228704d47e91c2e469ce292139f441103768e90a02c251c207fdc81e5cd640b1"
+    },
+    "assets/lessons/worldgen-dynamic-navigation/gate.en.svg": {
+      "bytes": 50738,
+      "sha256": "839fa6e01e7698367037e610f3fd5425626cd529e5cef64f1a90361b03ad1ef6"
+    },
+    "assets/lessons/worldgen-dynamic-navigation/gate.ko.svg": {
+      "bytes": 51462,
+      "sha256": "dde5fbe0fd7232bac5e1d13915bdb5400710fa70ac63ff5ef77b803a0022a8df"
+    },
+    "assets/lessons/worldgen-dynamic-navigation/open.webp": {
+      "bytes": 32664,
+      "sha256": "9bf089ba87a6b4c520b0c0033f57b545d7c021dc2b42048008fb6130d4a44245"
+    },
+    "labs/worldgen-dynamic-navigation/actors.py": {
+      "bytes": 533,
+      "sha256": "0ecd4f0671c1efb0c0515e92c631c4b1046aaef6605bec8acb4a919f8b4dc419"
+    },
+    "labs/worldgen-dynamic-navigation/check.py": {
+      "bytes": 5805,
+      "sha256": "afa8b9def9e95dde955bda71d26564cc42c1559207696e4e85f48d5d3b84f4fc"
+    },
+    "labs/worldgen-dynamic-navigation/evidence/cart-dynamic/result.json": {
+      "bytes": 333822,
+      "sha256": "1afe9e58a3ec194dce581cb3b61e0502f8fc18c76bce6f3223bba8c2c28f6285"
+    },
+    "labs/worldgen-dynamic-navigation/evidence/cart-dynamic/scans.json": {
+      "bytes": 1911178,
+      "sha256": "332e04917e515200984947be5a0082c4924dca49d2aff23b396eb328341ef7df"
+    },
+    "labs/worldgen-dynamic-navigation/evidence/clearing-example.json": {
+      "bytes": 423,
+      "sha256": "f3d3ad7748f690ccc5e9c4e58e36dd49a89f86bde9aae50ac2b5f5c2eed26bb8"
+    },
+    "labs/worldgen-dynamic-navigation/evidence/dynamic-edit.json": {
+      "bytes": 2249,
+      "sha256": "4089083380baccebfb22d12ea988e9e6ca109a05adf93311676b6c1f80eedb49"
+    },
+    "labs/worldgen-dynamic-navigation/evidence/gate-dynamic/result.json": {
+      "bytes": 267130,
+      "sha256": "06504c37faa9139d3cdb90e65bad3ff626dc86b102efde8ad30a4047ab16f66f"
+    },
+    "labs/worldgen-dynamic-navigation/evidence/gate-dynamic/scans.json": {
+      "bytes": 1232954,
+      "sha256": "2847f2799d0515dab9cb1b9f16911de216d3e240199276b55e5f0233c3935651"
+    },
+    "labs/worldgen-dynamic-navigation/evidence/gate-static/result.json": {
+      "bytes": 214348,
+      "sha256": "64c1cb1d0d1a783e14729e4ac062652b957c9e7ac353940c883448d016f31f05"
+    },
+    "labs/worldgen-dynamic-navigation/evidence/gate-static/scans.json": {
+      "bytes": 1040467,
+      "sha256": "c91647757dfc99413f2558dfb08589aee17c4a7c86d7d6b188c5ebfce45836f1"
+    },
+    "labs/worldgen-dynamic-navigation/evidence/sensor-gap/result.json": {
+      "bytes": 274932,
+      "sha256": "9d22bff195877cf7f4ed4ee6df4790d451b01e2b3fc589f68a66040605f31e37"
+    },
+    "labs/worldgen-dynamic-navigation/evidence/sensor-gap/scans.json": {
+      "bytes": 1195056,
+      "sha256": "fb9898c33d74962993516f44ce19eaca1cd64f0a24e69ba4179f1b4ce6697e3f"
+    },
+    "labs/worldgen-dynamic-navigation/navigation.py": {
+      "bytes": 6767,
+      "sha256": "370f96d544d4423a6cad88eec60275a39786991c4a7844943ba5f846b35e89ab"
+    },
+    "labs/worldgen-dynamic-navigation/package.py": {
+      "bytes": 3996,
+      "sha256": "b48a5f88f7e398facff37814980fdf048e99a582e6062245baefcdbe3df83307"
+    },
+    "labs/worldgen-dynamic-navigation/plot.py": {
+      "bytes": 4275,
+      "sha256": "8387ccae0eff73c9986c374f7db7f8c4f5d30c0337cfd7a136c0779d68b9f858"
+    },
+    "labs/worldgen-dynamic-navigation/record_gui.py": {
+      "bytes": 3039,
+      "sha256": "00102b59833e6cbc8774f00e3d43b44ae49dbb53102df586c813f178331e2f78"
+    },
+    "labs/worldgen-dynamic-navigation/run.py": {
+      "bytes": 26169,
+      "sha256": "31bde2c6c6d0c778c13e660a2b995fb34e2c27e5fd9ff94904056b7f38f01526"
+    },
+    "labs/worldgen-dynamic-navigation/run.sh": {
+      "bytes": 1698,
+      "sha256": "c7e50da66f51a47e9603689d065764d3f38d3d33fc0bdc0ce2e2099de0fc74f2"
+    },
+    "labs/worldgen-dynamic-navigation/static_navigation.py": {
+      "bytes": 4604,
+      "sha256": "8f70ffa93656f6595eb18010764deead33922342d6e295328c9c5818ffa98fa6"
+    },
+    "labs/worldgen-dynamic-navigation/test_navigation.py": {
+      "bytes": 2839,
+      "sha256": "901e2c8fcd848f4d77b9963cd3920884e95d26be0b74350f32912363922dcba5"
+    },
+    "site/public/showcase/worldgen-dynamic-navigation-cart.jpg": {
+      "bytes": 34686,
+      "sha256": "1c99e4edde525eac6ff53b53d036cae0b57b603f8ab1d79c6db3e9032fc811a0"
+    },
+    "site/public/showcase/worldgen-dynamic-navigation-cart.mp4": {
+      "bytes": 728764,
+      "sha256": "86013fc63a29b9e0ec6207bed6a1171a03c54dae02ef9a006d3e5b1ee7943492"
+    },
+    "site/public/showcase/worldgen-dynamic-navigation-gate.jpg": {
+      "bytes": 33753,
+      "sha256": "1293420495305100e074025a914cd0806b20fa4afaff520bfb491d7ed3adcd58"
+    },
+    "site/public/showcase/worldgen-dynamic-navigation-gate.mp4": {
+      "bytes": 477280,
+      "sha256": "03e4415ff644465a47634eac56f9c87c07c358e933cf10f0104c27ec5e85dca3"
+    },
+    "site/public/showcase/worldgen-dynamic-navigation-ko.jpg": {
+      "bytes": 34977,
+      "sha256": "4d5d03794cdd7ca051bfacc16010e72e3a4dd326fd13d02adc47abe2dc725cda"
+    },
+    "site/public/showcase/worldgen-dynamic-navigation-ko.mp4": {
+      "bytes": 733325,
+      "sha256": "c9e3eb41c5c8caf3f50a713259155a8bcb3da43a84c1a3c7f705a079c71587c6"
+    },
+    "site/public/showcase/worldgen-dynamic-navigation-scenes.zip": {
+      "bytes": 2472908,
+      "sha256": "c101df9487627d43ee6a11a1eead25b8665c1af59ed07d9c932c271c7fca9caa"
+    },
+    "site/public/showcase/worldgen-dynamic-navigation-static.jpg": {
+      "bytes": 33632,
+      "sha256": "e60b8fdb5edd93491f80480542444376da5015b84d2b61acd00f79bc6bd40aca"
+    },
+    "site/public/showcase/worldgen-dynamic-navigation-static.mp4": {
+      "bytes": 359369,
+      "sha256": "998670d27b9571ed8798e4127aa50d2a5512f0f624d6eebab17d0736b1ac2011"
+    },
+    "site/public/showcase/worldgen-dynamic-navigation.jpg": {
+      "bytes": 35138,
+      "sha256": "2474df7ad4ffa41ba8ab83e29aabb678dad8dafdb21eb3966837afff5e41ab41"
+    },
+    "site/public/showcase/worldgen-dynamic-navigation.mp4": {
+      "bytes": 737706,
+      "sha256": "fda9669855950a50cd71c79f1d314a8cf703b89624b377959f8dc9afb5712c30"
+    }
+  },
+  "publication_note": "Private machine identifiers and storage paths are omitted or represented by public placeholders; numerical results are unchanged."
+}
