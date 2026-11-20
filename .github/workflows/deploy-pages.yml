@@ -11,6 +11,10 @@ on:
       - 'assets/**'
       - 'CATALOG.md'
       - 'CATALOG.ko.md'
+      - 'scripts/check-public-artifacts.py'
+      - 'scripts/ci-publication-checks.sh'
+      - 'scripts/requirements-publication.txt'
+      - 'scripts/test_public_artifacts.py'
   workflow_dispatch:
   workflow_run:
     workflows: ["Refresh catalog commit dates"]
@@ -34,6 +38,12 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+      - name: Check publication privacy before building Pages
+        env:
+          PUBLICATION_PRIVATE_NAMES: ${{ secrets.PUBLICATION_PRIVATE_NAMES }}
+        run: |
+          test -n "$PUBLICATION_PRIVATE_NAMES" || { echo "Configure the private-name denylist before publishing."; exit 1; }
+          bash scripts/ci-publication-checks.sh
       - name: Set up Node.js 24
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:

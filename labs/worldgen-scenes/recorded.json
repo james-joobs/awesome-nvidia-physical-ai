@@ -163,5 +163,5 @@
     "preview.py": "634617b4b9be2f341eb28deeaa95014e44146d35293e26e0ac1ccafedf3f3794",
     "model-pins.json": "b2c249f1f2be85d54df29376cd37d2a1c259ab8c9bd3a45e9921260d9ec002f2"
   },
-  "publication_note": "Private machine identifiers and storage paths are omitted or represented by public placeholders; numerical results are unchanged."
+  "publication_note": "Private machine identifiers are omitted. The input PNG has identical pixels with render metadata removed; its original and published byte hashes are recorded in the living-room result."
 }

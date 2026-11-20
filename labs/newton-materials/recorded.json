@@ -7,7 +7,7 @@
     {
       "case": "cloth-xpbd",
       "command": [
-        "${RUN_DIR}/python",
+        "${ISAACLAB_PYTHON}",
         "-m",
         "newton.examples",
         "cloth_hanging",
@@ -70,7 +70,7 @@
     {
       "case": "cloth-vbd",
       "command": [
-        "${RUN_DIR}/python",
+        "${ISAACLAB_PYTHON}",
         "-m",
         "newton.examples",
         "cloth_hanging",
@@ -133,7 +133,7 @@
     {
       "case": "cable-twist",
       "command": [
-        "${RUN_DIR}/python",
+        "${ISAACLAB_PYTHON}",
         "-m",
         "newton.examples",
         "cable_twist",
@@ -220,5 +220,5 @@
       }
     ]
   },
-  "publication_note": "Private machine identifiers and storage paths are omitted or represented by public placeholders; numerical results are unchanged."
+  "publication_note": "Machine identifiers and private storage paths are omitted. Paths in this public record are placeholders (${RUN_DIR}, ${MODEL_DIR}, ${MODEL_PYTHON}, ${ISAACLAB_PYTHON}) or repository-relative; numerical results are unchanged."
 }

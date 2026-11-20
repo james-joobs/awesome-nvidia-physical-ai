@@ -1,3 +1,20 @@
 /.venv-*/
 /runs/
 __pycache__/
+# Local credentials and unreviewed runtime output
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+.netrc
+.ssh/
+.credentials/
+id_rsa
+id_ed25519
+*.pem
+*.key
+*.p12
+*.pfx
+*.log
+*.log.*

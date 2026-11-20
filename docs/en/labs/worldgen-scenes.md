@@ -81,7 +81,7 @@ This adapter replaces upstream's ordinary-image-to-panorama mapping; the FLUX pa
 
 ### 1. Prepare a separate Linux environment
 
-Start at the root of this repository. Use an NVIDIA GPU with a working driver, Git and [uv](https://docs.astral.sh/uv/getting-started/installation/). Run `nvidia-smi` first: it should list the GPU without an error. This recipe was executed on **GPU workstation, RTX 5090 32 GB, 30 GiB system RAM**. Reserve about **100 GB of disk space** for environments, model downloads and output. The FP4 recipe is for Linux x86_64 and this Blackwell setup; other architectures need their own compatible Nunchaku build.
+Start at the root of this repository. Use an NVIDIA GPU with a working driver, Git and [uv](https://docs.astral.sh/uv/getting-started/installation/). Run `nvidia-smi` first: it should list the GPU without an error. This recipe was executed on **an RTX 5090 with 32 GB VRAM and 30 GiB system RAM**. Reserve about **100 GB of disk space** for environments, model downloads and output. The FP4 recipe is for Linux x86_64 and this Blackwell setup; other architectures need their own compatible Nunchaku build.
 
 ```bash
 bash labs/worldgen-scenes/setup.sh runs/worldgen-runtime

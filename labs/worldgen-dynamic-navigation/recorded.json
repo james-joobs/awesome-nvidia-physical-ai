@@ -181,5 +181,5 @@
       "sha256": "fda9669855950a50cd71c79f1d314a8cf703b89624b377959f8dc9afb5712c30"
     }
   },
-  "publication_note": "Private machine identifiers and storage paths are omitted or represented by public placeholders; numerical results are unchanged."
+  "publication_note": "Machine identifiers and private storage paths are omitted or normalized to ${LAB_ROOT}; recorded numerical results are unchanged."
 }

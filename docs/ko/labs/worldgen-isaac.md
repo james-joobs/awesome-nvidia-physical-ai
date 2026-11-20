@@ -137,7 +137,7 @@ python3 labs/worldgen-isaac/record_gui.py \
 
 새로 녹화할 때는 새 출력 폴더를 사용하세요. 도우미는 시뮬레이터 준비를 기다린 뒤 실제 창을 녹화하고 제어 루프를 시작합니다. `native-gui.mp4`, 창 정보 `window.txt`, 로그와 물리 궤적을 함께 남깁니다. 공개한 뷰포트 영상은 이 실제 GUI 화면을 잘라 만든 것입니다. 렌더링 속도에 따라 물리 시간보다 실제 재생 시간이 길어질 수 있으므로 두 시간을 구분해서 확인하세요.
 
-6.2 예제는 `SimulationManager.step()`과 `RenderingManager.render()`로 물리 스텝과 화면 그리기를 분리합니다. GPU workstation GUI 구성에는 공식 문서의 프레임별 렌더링 호환 플래그 `--/rtx/hydra/supportMultiTickRate=false`를 적용했습니다. 여러 주기의 카메라·LiDAR 촬영을 검증한 구성은 아닙니다. 처음 셰이더·뷰포트를 준비할 때 1~2분이 걸릴 수 있습니다. 실제 뷰포트 프레임이 저장된 뒤에 녹화를 시작합니다. [NVIDIA multi-tick 설정](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/sensors/isaacsim_sensors_multitick_rendering.html)
+6.2 예제는 `SimulationManager.step()`과 `RenderingManager.render()`로 물리 스텝과 화면 그리기를 분리합니다. GPU GUI 구성에는 공식 문서의 프레임별 렌더링 호환 플래그 `--/rtx/hydra/supportMultiTickRate=false`를 적용했습니다. 여러 주기의 카메라·LiDAR 촬영을 검증한 구성은 아닙니다. 처음 셰이더·뷰포트를 준비할 때 1~2분이 걸릴 수 있습니다. 실제 뷰포트 프레임이 저장된 뒤에 녹화를 시작합니다. [NVIDIA multi-tick 설정](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/sensors/isaacsim_sensors_multitick_rendering.html)
 
 공간의 겉모습은 파노라마를 OmniPBR로 표시하고, 구워진 색이 잘 보이도록 발광 표시값을 조정했습니다. 실제 조명이나 반사율을 복원·보정한 재질은 아닙니다. 제어에 기록한 자세 형식은 `[position_xyz, quaternion_xyzw]`이며, 바퀴 속도 명령의 기준점은 몸체 좌표보다 0.10m 앞에 있는 차축 중앙입니다.
 

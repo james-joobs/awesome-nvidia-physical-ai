@@ -137,5 +137,5 @@
       "sha256": "ffa2c8ec714e3e280538451cfbeb1f4d5b04d965fb14f3c7a7ce6af8b6a96ac6"
     }
   },
-  "publication_note": "Private machine identifiers and storage paths are omitted or represented by public placeholders; numerical results are unchanged."
+  "publication_note": "Machine identifiers and private storage paths are omitted or normalized to ${LAB_ROOT}; recorded numerical results are unchanged."
 }

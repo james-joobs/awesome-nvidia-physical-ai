@@ -25,7 +25,7 @@ A mesh consists of vertex coordinates and indexed faces. Materials tell the rend
 
 ### How to read the recording
 
-The clip renders 48 distinct viewpoints at `640 × 360`, with 16 Cycles samples per pixel and OpenImageDenoise. We play these at 8 FPS for a six-second tour, **one third of the original 24 FPS timeline speed**. The room is static; only the camera moves. Low-sample, denoised rendering is a preview, with softer details than a converged render. Original frames and the `.blend` remain on GPU workstation.
+The clip renders 48 distinct viewpoints at `640 × 360`, with 16 Cycles samples per pixel and OpenImageDenoise. We play these at 8 FPS for a six-second tour, **one third of the original 24 FPS timeline speed**. The room is static; only the camera moves. Low-sample, denoised rendering is a preview, with softer details than a converged render. Original frames and the `.blend` remain on an RTX workstation.
 
 ## Generate, save and render your own house
 

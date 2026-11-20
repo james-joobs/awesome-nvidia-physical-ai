@@ -38,7 +38,7 @@ CHECKPOINT="/actual/training/path/model_499.pt"
 bash labs/microduck/play.sh "$ISAAC_LAB_DIR" "$CHECKPOINT"
 ```
 
-The [ONNX export](../../../labs/microduck/policy.onnx) carries the policy to another runtime. Use the training `.pt` checkpoint for the Isaac Lab replay above.
+The [ONNX export](../../../labs/microduck/policy.onnx) carries the policy to another runtime. Use the training `.pt` checkpoint for the Isaac Lab replay above. The published model includes its weights in one file; debug metadata has been removed. It maps 61 observations to 14 joint targets. For a CPU interface check in a separate environment with `onnxruntime==1.32.0`, run `python labs/microduck/check_policy.py`. The [publication record](../../../labs/microduck/policy-publication.json) documents the comparison with the original export.
 
 ## Check the result
 

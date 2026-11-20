@@ -35,7 +35,7 @@
     "max_preserved_rgb_error": 0,
     "projection": "known pinhole K to equirectangular rays; white mask is generated",
     "published_source_sha256": "5e4c4d42f4931811f960947a72bf74acb0bd5a42fd0f116b6216f2f9b97bd435",
-    "publication_note": "Published input pixels are identical; private image metadata is removed."
+    "publication_note": "Only metadata was removed from the published input PNG; decoded pixels are identical to the original input. The original and published byte hashes are recorded separately."
   },
   "distance": {
     "shape": [

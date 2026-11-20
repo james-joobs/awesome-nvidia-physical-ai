@@ -10,7 +10,7 @@ export const showcaseCopy = {
     homeAlt: 'Sixteen scenes recorded in Isaac Sim, with GR00T putting a cube in a bowl in the first tile',
     homeAction: 'Watch 16 Isaac Sim scenes',
     title: 'Physical AI in motion',
-    intro: 'Explore robot policies, physics, 3D Gaussian worlds, generated indoor scenes and ego-camera driving. Our GPU workstation runs use NVIDIA GPU tools, CARLA and Blender; each recording links to code and checks.',
+    intro: 'Explore robot policies, physics, 3D Gaussian worlds, generated indoor scenes and ego-camera driving. These experiments use NVIDIA GPU tools, CARLA and Blender; each recording links to code and checks.',
     overview: '16 scenes',
     featured: '16 scenes from the Isaac Sim GUI',
     featuredDetail: 'Watch the top-left tile for the successful GR00T placement. The next tile shows the earlier attempt that lost the cube.',
@@ -201,7 +201,7 @@ export const additionalRecordings = [
   ].map(([id, en, ko]) => ({
     id: `worldgen-${id}`, lab: 'worldgen-scenes', duration: '0:20', width: 960, height: 540,
     tags: ['WorldGen', 'FLUX.1', 'DA-2', 'fVDB renderer'],
-    en: { title: en, description: 'Actual GPU workstation model inference, followed by a translated camera path rendered from the Gaussian PLY. Distance is inferred and not metric ground truth.' },
+    en: { title: en, description: 'Actual model inference on an RTX GPU, followed by a translated camera path rendered from the Gaussian PLY. Distance is inferred and not metric ground truth.' },
     ko: { title: ko, description: 'GPU 머신에서 모델을 직접 실행한 뒤 Gaussian PLY에서 카메라를 움직여 렌더링했습니다. 깊이는 추정값이며 실제 거리의 정답은 아닙니다.' },
   })),
   ...[

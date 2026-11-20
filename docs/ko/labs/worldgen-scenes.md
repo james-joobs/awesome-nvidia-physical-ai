@@ -83,7 +83,7 @@ RGB 픽셀 → Gaussian의 색
 
 ### 1. 별도 Linux 환경을 준비합니다
 
-이 저장소의 최상위 폴더에서 시작합니다. NVIDIA 드라이버가 설치된 GPU 머신과 Git, [uv](https://docs.astral.sh/uv/getting-started/installation/)가 필요합니다. 먼저 터미널에 `nvidia-smi`를 입력해 GPU 이름이 오류 없이 나오는지 확인하세요. 이번 실행 환경은 **GPU workstation의 RTX 5090 32GB, 시스템 메모리 30GiB**입니다. 환경·모델·결과 파일을 위해 **디스크 약 100GB**를 확보하세요. 아래 FP4 구성은 Linux x86_64와 이 Blackwell 환경에서 실행했습니다. 다른 아키텍처에서는 맞는 Nunchaku 빌드가 필요합니다.
+이 저장소의 최상위 폴더에서 시작합니다. NVIDIA 드라이버가 설치된 GPU 머신과 Git, [uv](https://docs.astral.sh/uv/getting-started/installation/)가 필요합니다. 먼저 터미널에 `nvidia-smi`를 입력해 GPU 이름이 오류 없이 나오는지 확인하세요. 이번 실행 환경은 **RTX 5090 32GB, 시스템 메모리 30GiB**입니다. 환경·모델·결과 파일을 위해 **디스크 약 100GB**를 확보하세요. 아래 FP4 구성은 Linux x86_64와 이 Blackwell 환경에서 실행했습니다. 다른 아키텍처에서는 맞는 Nunchaku 빌드가 필요합니다.
 
 ```bash
 bash labs/worldgen-scenes/setup.sh runs/worldgen-runtime

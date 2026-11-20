@@ -20,7 +20,7 @@ export const toolGuides = [
     'Compare explorable 3D worlds, measured Gaussian scenes, procedural geometry, and action-conditioned video.',
     ['Choose the scene input', 'prompt · photograph · calibrated views · random seed', 'Different inputs lead to different kinds of uncertainty.'],
     ['Keep the representation explicit', '3DGS · mesh/materials · collider · RGB video', 'A video is not a reusable 3D scene, and a splat is not a collision surface.'],
-    ['Render, inspect and simulate', 'Spark browser view · Blender · CARLA ego camera', 'Use our GPU workstation captures and code; check model terms before running a generative checkpoint.'],
+    ['Render, inspect and simulate', 'Spark browser view · Blender · CARLA ego camera', 'Use our recordings and code; check model terms before running a generative checkpoint.'],
   ], [
     '탐색 가능한 3D 세계, 촬영한 Gaussian 장면, 절차적 기하 구조와 카메라 동작 기반 영상을 비교합니다.',
     ['장면을 만들 입력 고르기', '프롬프트 · 사진 · 카메라 정보가 있는 여러 시점 · 시드', '입력에 따라 새로 생성하는 부분과 추정해야 할 부분이 달라집니다.'],
