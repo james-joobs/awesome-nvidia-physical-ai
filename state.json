@@ -1,13 +1,13 @@
 {
-  "checked": "2026-11-19T07:26:21.695121+00:00",
+  "checked": "2026-11-20T07:14:22.882584+00:00",
   "sources": {
     "GitHub 릴리스 · isaac-sim/IsaacSim": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 라이선스 · isaac-sim/IsaacSim": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {
         "isaac-sim/IsaacSim": {
@@ -21,12 +21,12 @@
       }
     },
     "GitHub 릴리스 · isaac-sim/IsaacLab": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 라이선스 · isaac-sim/IsaacLab": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {
         "isaac-sim/IsaacLab": {
@@ -40,7 +40,7 @@
       }
     },
     "GitHub 릴리스 · newton-physics/newton": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {
         "441894382": {
@@ -54,7 +54,7 @@
       }
     },
     "GitHub 라이선스 · newton-physics/newton": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {
         "newton-physics/newton": {
@@ -68,12 +68,12 @@
       }
     },
     "GitHub 릴리스 · NVIDIA/warp": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 라이선스 · NVIDIA/warp": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {
         "NVIDIA/warp": {
@@ -87,12 +87,12 @@
       }
     },
     "GitHub 릴리스 · NVIDIA/Isaac-GR00T": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 라이선스 · NVIDIA/Isaac-GR00T": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {
         "NVIDIA/Isaac-GR00T": {
@@ -106,12 +106,12 @@
       }
     },
     "GitHub 릴리스 · NVIDIA/cosmos": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 라이선스 · NVIDIA/cosmos": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {
         "NVIDIA/cosmos": {
@@ -125,12 +125,12 @@
       }
     },
     "GitHub 릴리스 · NVIDIA/cosmos-framework": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 라이선스 · NVIDIA/cosmos-framework": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {
         "NVIDIA/cosmos-framework": {
@@ -144,12 +144,12 @@
       }
     },
     "GitHub 릴리스 · NVlabs/alpasim": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 라이선스 · NVlabs/alpasim": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {
         "NVlabs/alpasim": {
@@ -163,12 +163,12 @@
       }
     },
     "GitHub 릴리스 · NVlabs/alpamayo2": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 라이선스 · NVlabs/alpamayo2": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {
         "NVlabs/alpamayo2": {
@@ -182,12 +182,12 @@
       }
     },
     "GitHub 릴리스 · NVlabs/alpamayo2-edge": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 라이선스 · NVlabs/alpamayo2-edge": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {
         "NVlabs/alpamayo2-edge": {
@@ -201,7 +201,7 @@
       }
     },
     "GitHub 릴리스 · NVlabs/RoboLab": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {
         "446454272": {
@@ -215,7 +215,7 @@
       }
     },
     "GitHub 라이선스 · NVlabs/RoboLab": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {
         "NVlabs/RoboLab": {
@@ -229,12 +229,12 @@
       }
     },
     "GitHub 릴리스 · black-forest-labs/flux-action": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 라이선스 · black-forest-labs/flux-action": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {
         "black-forest-labs/flux-action": {
@@ -248,12 +248,12 @@
       }
     },
     "GitHub 릴리스 · runwayml/praxis-1-oss": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 라이선스 · runwayml/praxis-1-oss": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {
         "runwayml/praxis-1-oss": {
@@ -267,12 +267,12 @@
       }
     },
     "GitHub 릴리스 · mimic-video/mimic-video": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 라이선스 · mimic-video/mimic-video": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {
         "mimic-video/mimic-video": {
@@ -286,37 +286,37 @@
       }
     },
     "GitHub 신규 저장소 · NVIDIA": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 신규 저장소 · NVlabs": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 신규 저장소 · isaac-sim": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 신규 저장소 · NVIDIA-Omniverse": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 신규 저장소 · NVIDIA-NeMo": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {}
     },
     "GitHub 신규 저장소 · nvidia-cosmos": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {}
     },
     "Hugging Face models · nvidia/Cosmos": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {
         "nvidia/Cosmos3-Edge-FP8": {
@@ -378,7 +378,7 @@
       }
     },
     "Hugging Face models · nvidia/GR00T": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {
         "nvidia/GR00T-E2E-Reference-Workflow-SIM-G1-N1.7-AppletoPlate-Model": {
@@ -400,22 +400,22 @@
       }
     },
     "Hugging Face models · nvidia/Alpamayo": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {}
     },
     "Hugging Face models · nvidia/PhysicalAI": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {}
     },
     "Hugging Face datasets · nvidia/Cosmos": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {}
     },
     "Hugging Face datasets · nvidia/GR00T": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {
         "nvidia/GR00T-E2E-Reference-Workflow-SIM-G1-N1.7-AppletoPlate-Dataset": {
@@ -437,12 +437,12 @@
       }
     },
     "Hugging Face datasets · nvidia/Alpamayo": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {}
     },
     "Hugging Face datasets · nvidia/PhysicalAI": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {
         "nvidia/PhysicalAI-Robotics-NuRec": {
@@ -472,12 +472,37 @@
       }
     },
     "Hugging Face models · black-forest-labs/action": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
-      "items": {}
+      "items": {
+        "black-forest-labs/flux-3-action-base": {
+          "id": "black-forest-labs/flux-3-action-base",
+          "title": "black-forest-labs/flux-3-action-base",
+          "url": "https://huggingface.co/black-forest-labs/flux-3-action-base",
+          "date": "2026-11-19T14:15:39+00:00",
+          "detail": "접근 절차 필요 · 모델/데이터 카드 라이선스 other",
+          "revision": "d540a6a8034004c43eb81758d2ca6ab645882126"
+        },
+        "black-forest-labs/flux-3-action-so101": {
+          "id": "black-forest-labs/flux-3-action-so101",
+          "title": "black-forest-labs/flux-3-action-so101",
+          "url": "https://huggingface.co/black-forest-labs/flux-3-action-so101",
+          "date": "2026-11-19T14:15:32+00:00",
+          "detail": "접근 절차 필요 · 모델/데이터 카드 라이선스 other",
+          "revision": "962ffaeecf878a6128f3e14f6b9de54c27e1afbd"
+        },
+        "black-forest-labs/flux-3-action-droid": {
+          "id": "black-forest-labs/flux-3-action-droid",
+          "title": "black-forest-labs/flux-3-action-droid",
+          "url": "https://huggingface.co/black-forest-labs/flux-3-action-droid",
+          "date": "2026-11-19T14:15:13+00:00",
+          "detail": "접근 절차 필요 · 모델/데이터 카드 라이선스 other",
+          "revision": "7305ef6d95de95ca4100c2e117c23ce580307335"
+        }
+      }
     },
     "Hugging Face models · runwayml/praxis": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {
         "runwayml/praxis-1-so101-nvfp4": {
@@ -539,12 +564,12 @@
       }
     },
     "Hugging Face models · GEAR-Dreams/dreamzero": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {}
     },
     "NVIDIA Robotics Atom": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {
         "https://developer.nvidia.com/blog/?p=121180": {
@@ -582,7 +607,7 @@
       }
     },
     "NVIDIA Research 사이트맵": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {
         "https://research.nvidia.com/publication/2026-11_fovi-dex-foveation-enables-efficient-perceptive-learning-dexterous-manipulation": {
@@ -596,7 +621,7 @@
       }
     },
     "arXiv cs.RO": {
-      "last_success": "2026-11-19T07:26:21.695121+00:00",
+      "last_success": "2026-11-20T07:14:22.882584+00:00",
       "error": null,
       "items": {
         "2611.21607": {
@@ -611,9 +636,9 @@
           "id": "2611.21258",
           "title": "ThinkWAM: Rethinking Latent Futures for Action Refinement",
           "url": "https://arxiv.org/abs/2611.21258",
-          "date": "2026-11-17T14:02:34+00:00",
+          "date": "2026-11-19T08:07:42+00:00",
           "detail": "arXiv 프리프린트 · 논문 수정일",
-          "revision": "v2"
+          "revision": "v3"
         },
         "2611.16246": {
           "id": "2611.16246",
@@ -843,9 +868,9 @@
           "id": "2611.18372",
           "title": "Vision-Language-Action Models: A Life-Cycle Survey of Design, Training and Deployment",
           "url": "https://arxiv.org/abs/2611.18372",
-          "date": "2026-11-13T16:17:00+00:00",
+          "date": "2026-11-19T18:44:47+00:00",
           "detail": "arXiv 프리프린트 · 논문 수정일",
-          "revision": "v1"
+          "revision": "v2"
         },
         "2605.13276": {
           "id": "2605.13276",
@@ -1179,9 +1204,9 @@
           "id": "2604.24661",
           "title": "Agent-Centric Observation Adaptation for Robust Visual Control under Dynamic Perturbations",
           "url": "https://arxiv.org/abs/2604.24661",
-          "date": "2026-11-17T08:05:43+00:00",
+          "date": "2026-11-19T03:22:38+00:00",
           "detail": "arXiv 프리프린트 · 논문 수정일",
-          "revision": "v4"
+          "revision": "v5"
         },
         "2611.21851": {
           "id": "2611.21851",
@@ -1235,9 +1260,9 @@
           "id": "2611.09892",
           "title": "On Agentic Manipulation Policies",
           "url": "https://arxiv.org/abs/2611.09892",
-          "date": "2026-11-18T17:12:53+00:00",
+          "date": "2026-11-19T17:48:05+00:00",
           "detail": "arXiv 프리프린트 · 논문 수정일",
-          "revision": "v2"
+          "revision": "v3"
         },
         "2606.26588": {
           "id": "2606.26588",
@@ -1267,9 +1292,9 @@
           "id": "2611.24455",
           "title": "Homeward: No Place Like the Training View",
           "url": "https://arxiv.org/abs/2611.24455",
-          "date": "2026-11-18T14:01:38+00:00",
+          "date": "2026-11-19T04:16:32+00:00",
           "detail": "arXiv 프리프린트 · 논문 수정일",
-          "revision": "v1"
+          "revision": "v2"
         },
         "2611.24360": {
           "id": "2611.24360",
@@ -1379,9 +1404,9 @@
           "id": "2611.23803",
           "title": "CoT-WAM: Collaborative Training of Vision-Language Models and World-Action Models via Plan Latents",
           "url": "https://arxiv.org/abs/2611.23803",
-          "date": "2026-11-18T04:08:54+00:00",
+          "date": "2026-11-19T04:34:45+00:00",
           "detail": "arXiv 프리프린트 · 논문 수정일",
-          "revision": "v1"
+          "revision": "v2"
         },
         "2611.23746": {
           "id": "2611.23746",
@@ -1430,6 +1455,206 @@
           "date": "2026-11-17T20:50:13+00:00",
           "detail": "arXiv 프리프린트 · 논문 수정일",
           "revision": "v1"
+        },
+        "2611.26596": {
+          "id": "2611.26596",
+          "title": "PGX: Physically Grounded Execution for Long-Horizon Humanoid Loco-Manipulation",
+          "url": "https://arxiv.org/abs/2611.26596",
+          "date": "2026-11-19T18:52:18+00:00",
+          "detail": "arXiv 프리프린트 · 논문 수정일",
+          "revision": "v1"
+        },
+        "2611.26565": {
+          "id": "2611.26565",
+          "title": "PhyDEX: A Benchmark for Physical Reasoning in Vision-Language-Action Models via Dynamic Extrinsic Dexterity",
+          "url": "https://arxiv.org/abs/2611.26565",
+          "date": "2026-11-19T18:33:43+00:00",
+          "detail": "arXiv 프리프린트 · 논문 수정일",
+          "revision": "v1"
+        },
+        "2610.14802": {
+          "id": "2610.14802",
+          "title": "Composable Driving Style for End-to-End Autonomous Driving",
+          "url": "https://arxiv.org/abs/2610.14802",
+          "date": "2026-11-19T18:12:04+00:00",
+          "detail": "arXiv 프리프린트 · 논문 수정일",
+          "revision": "v2"
+        },
+        "2609.39601": {
+          "id": "2609.39601",
+          "title": "GroundingPI: A Grounding Foundation Model towards Physical Intelligence with Visual Primitives",
+          "url": "https://arxiv.org/abs/2609.39601",
+          "date": "2026-11-19T18:08:27+00:00",
+          "detail": "arXiv 프리프린트 · 논문 수정일",
+          "revision": "v3"
+        },
+        "2611.26444": {
+          "id": "2611.26444",
+          "title": "Mind2Act World: A Diagnostic Benchmark for Embodied Mind, Physical Action, and Mind-Action Composition in Robotic Manipulation",
+          "url": "https://arxiv.org/abs/2611.26444",
+          "date": "2026-11-19T17:15:38+00:00",
+          "detail": "arXiv 프리프린트 · 논문 수정일",
+          "revision": "v1"
+        },
+        "2611.26420": {
+          "id": "2611.26420",
+          "title": "Awaken-HI: Scaling Humanoid Intelligence with Whole-Body Human Experience",
+          "url": "https://arxiv.org/abs/2611.26420",
+          "date": "2026-11-19T17:03:03+00:00",
+          "detail": "arXiv 프리프린트 · 논문 수정일",
+          "revision": "v1"
+        },
+        "2611.26405": {
+          "id": "2611.26405",
+          "title": "TacInno: Teaching Vision-Language-Action Models the Contact Dynamics Beyond Vision and Action",
+          "url": "https://arxiv.org/abs/2611.26405",
+          "date": "2026-11-19T16:53:19+00:00",
+          "detail": "arXiv 프리프린트 · 논문 수정일",
+          "revision": "v1"
+        },
+        "2611.26242": {
+          "id": "2611.26242",
+          "title": "FastRoverVLA: Fast Vision-Language-Action Execution for Off-Road Autonomous Driving",
+          "url": "https://arxiv.org/abs/2611.26242",
+          "date": "2026-11-19T15:23:14+00:00",
+          "detail": "arXiv 프리프린트 · 논문 수정일",
+          "revision": "v1"
+        },
+        "2611.26239": {
+          "id": "2611.26239",
+          "title": "Teaching Vision-Language-Action Models to Stop Safely",
+          "url": "https://arxiv.org/abs/2611.26239",
+          "date": "2026-11-19T15:14:55+00:00",
+          "detail": "arXiv 프리프린트 · 논문 수정일",
+          "revision": "v1"
+        },
+        "2611.26161": {
+          "id": "2611.26161",
+          "title": "One View, One Action: Spatially Generalizable VLAs through Observation-Aligned Experts and Cross Graph Consistency",
+          "url": "https://arxiv.org/abs/2611.26161",
+          "date": "2026-11-19T14:16:44+00:00",
+          "detail": "arXiv 프리프린트 · 논문 수정일",
+          "revision": "v1"
+        },
+        "2609.34170": {
+          "id": "2609.34170",
+          "title": "RAVEL: Asynchronous Rolling Inference for Flow-Based Vision-Language-Action Models",
+          "url": "https://arxiv.org/abs/2609.34170",
+          "date": "2026-11-19T12:58:14+00:00",
+          "detail": "arXiv 프리프린트 · 논문 수정일",
+          "revision": "v2"
+        },
+        "2611.03168": {
+          "id": "2611.03168",
+          "title": "Rollout then Recycle: 3,718 Labelled Real-Robot Episodes from Benchmarking 7 Policies on 12 Tasks",
+          "url": "https://arxiv.org/abs/2611.03168",
+          "date": "2026-11-19T11:53:07+00:00",
+          "detail": "arXiv 프리프린트 · 논문 수정일",
+          "revision": "v2"
+        },
+        "2608.22294": {
+          "id": "2608.22294",
+          "title": "Semantic Role-Structured World Model for Physical Interaction Planning",
+          "url": "https://arxiv.org/abs/2608.22294",
+          "date": "2026-11-19T09:58:20+00:00",
+          "detail": "arXiv 프리프린트 · 논문 수정일",
+          "revision": "v3"
+        },
+        "2611.25667": {
+          "id": "2611.25667",
+          "title": "CauSyncVLA: Causal Latent World Modeling for Asynchronous Robot Control",
+          "url": "https://arxiv.org/abs/2611.25667",
+          "date": "2026-11-19T07:45:18+00:00",
+          "detail": "arXiv 프리프린트 · 논문 수정일",
+          "revision": "v1"
+        },
+        "2611.25595": {
+          "id": "2611.25595",
+          "title": "LoopedWAM: Looped World Action Models for Elastic Inference",
+          "url": "https://arxiv.org/abs/2611.25595",
+          "date": "2026-11-19T06:42:13+00:00",
+          "detail": "arXiv 프리프린트 · 논문 수정일",
+          "revision": "v1"
+        },
+        "2611.25580": {
+          "id": "2611.25580",
+          "title": "FlashX: Scaling Robotic Experience Reuse for Embodied Agents with CBA-Based NAND Flash",
+          "url": "https://arxiv.org/abs/2611.25580",
+          "date": "2026-11-19T06:24:38+00:00",
+          "detail": "arXiv 프리프린트 · 논문 수정일",
+          "revision": "v1"
+        },
+        "2602.18224": {
+          "id": "2602.18224",
+          "title": "SimVLA: Attributing Gains in VLA Models Through Controlled Ablation",
+          "url": "https://arxiv.org/abs/2602.18224",
+          "date": "2026-11-19T05:50:40+00:00",
+          "detail": "arXiv 프리프린트 · 논문 수정일",
+          "revision": "v2"
+        },
+        "2611.25529": {
+          "id": "2611.25529",
+          "title": "CoachSI: Self-Improvement of Robot Policies with a Language Coach",
+          "url": "https://arxiv.org/abs/2611.25529",
+          "date": "2026-11-19T05:28:19+00:00",
+          "detail": "arXiv 프리프린트 · 논문 수정일",
+          "revision": "v1"
+        },
+        "2610.14335": {
+          "id": "2610.14335",
+          "title": "PILOT: Guiding Long-Horizon World-Model Planning for Robot Manipulation with Imagined Subgoals and Policy Priors",
+          "url": "https://arxiv.org/abs/2610.14335",
+          "date": "2026-11-19T03:47:21+00:00",
+          "detail": "arXiv 프리프린트 · 논문 수정일",
+          "revision": "v2"
+        },
+        "2611.25413": {
+          "id": "2611.25413",
+          "title": "WAMotor: Accelerating World Action Models via Speculative Inference under Dual Nonuniform Denoising Dynamics",
+          "url": "https://arxiv.org/abs/2611.25413",
+          "date": "2026-11-19T02:52:51+00:00",
+          "detail": "arXiv 프리프린트 · 논문 수정일",
+          "revision": "v1"
+        },
+        "2611.25400": {
+          "id": "2611.25400",
+          "title": "Dune: A Zeroth-Order Optimizer with Time-Conditioned Historical Error Regression for VLA Test-Time Adaptation",
+          "url": "https://arxiv.org/abs/2611.25400",
+          "date": "2026-11-19T02:40:38+00:00",
+          "detail": "arXiv 프리프린트 · 논문 수정일",
+          "revision": "v1"
+        },
+        "2611.25398": {
+          "id": "2611.25398",
+          "title": "RefreshGrad: An Online Adaptive Data-sampling Method for Diffusion-based Visuomotor Learning",
+          "url": "https://arxiv.org/abs/2611.25398",
+          "date": "2026-11-19T02:39:07+00:00",
+          "detail": "arXiv 프리프린트 · 논문 수정일",
+          "revision": "v1"
+        },
+        "2611.25251": {
+          "id": "2611.25251",
+          "title": "WEVO: World Model-Enabled VLA Optimization for Whole-Body Loco-Manipulation",
+          "url": "https://arxiv.org/abs/2611.25251",
+          "date": "2026-11-18T22:36:08+00:00",
+          "detail": "arXiv 프리프린트 · 논문 수정일",
+          "revision": "v1"
+        },
+        "2611.25105": {
+          "id": "2611.25105",
+          "title": "MAWAM: A Multi-Agent World-Action Model for Coordinated Manipulation",
+          "url": "https://arxiv.org/abs/2611.25105",
+          "date": "2026-11-18T19:39:30+00:00",
+          "detail": "arXiv 프리프린트 · 논문 수정일",
+          "revision": "v1"
+        },
+        "2606.23641": {
+          "id": "2606.23641",
+          "title": "Flatness Preserves Instruction Following in Vision-Language-Action Models",
+          "url": "https://arxiv.org/abs/2606.23641",
+          "date": "2026-11-18T19:09:55+00:00",
+          "detail": "arXiv 프리프린트 · 논문 수정일",
+          "revision": "v2"
         }
       }
     }
@@ -1719,11 +1944,11 @@
       "id": "2611.21258",
       "title": "ThinkWAM: Rethinking Latent Futures for Action Refinement",
       "url": "https://arxiv.org/abs/2611.21258",
-      "date": "2026-11-17T14:02:34+00:00",
+      "date": "2026-11-19T08:07:42+00:00",
       "detail": "arXiv 프리프린트 · 논문 수정일",
-      "revision": "v2",
+      "revision": "v3",
       "source": "arXiv cs.RO",
-      "detected": "2026-11-18T07:35:38.198173+00:00"
+      "detected": "2026-11-20T07:14:22.882584+00:00"
     },
     {
       "id": "2611.16246",
@@ -2009,11 +2234,11 @@
       "id": "2611.18372",
       "title": "Vision-Language-Action Models: A Life-Cycle Survey of Design, Training and Deployment",
       "url": "https://arxiv.org/abs/2611.18372",
-      "date": "2026-11-13T16:17:00+00:00",
+      "date": "2026-11-19T18:44:47+00:00",
       "detail": "arXiv 프리프린트 · 논문 수정일",
-      "revision": "v1",
+      "revision": "v2",
       "source": "arXiv cs.RO",
-      "detected": "2026-11-17T22:23:13.729386+00:00"
+      "detected": "2026-11-20T07:14:22.882584+00:00"
     },
     {
       "id": "2605.13276",
@@ -2429,11 +2654,11 @@
       "id": "2604.24661",
       "title": "Agent-Centric Observation Adaptation for Robust Visual Control under Dynamic Perturbations",
       "url": "https://arxiv.org/abs/2604.24661",
-      "date": "2026-11-17T08:05:43+00:00",
+      "date": "2026-11-19T03:22:38+00:00",
       "detail": "arXiv 프리프린트 · 논문 수정일",
-      "revision": "v4",
+      "revision": "v5",
       "source": "arXiv cs.RO",
-      "detected": "2026-11-18T07:35:38.198173+00:00"
+      "detected": "2026-11-20T07:14:22.882584+00:00"
     },
     {
       "id": "2611.21851",
@@ -2509,11 +2734,11 @@
       "id": "2611.09892",
       "title": "On Agentic Manipulation Policies",
       "url": "https://arxiv.org/abs/2611.09892",
-      "date": "2026-11-18T17:12:53+00:00",
+      "date": "2026-11-19T17:48:05+00:00",
       "detail": "arXiv 프리프린트 · 논문 수정일",
-      "revision": "v2",
+      "revision": "v3",
       "source": "arXiv cs.RO",
-      "detected": "2026-11-19T07:26:21.695121+00:00"
+      "detected": "2026-11-20T07:14:22.882584+00:00"
     },
     {
       "id": "2606.26588",
@@ -2549,11 +2774,11 @@
       "id": "2611.24455",
       "title": "Homeward: No Place Like the Training View",
       "url": "https://arxiv.org/abs/2611.24455",
-      "date": "2026-11-18T14:01:38+00:00",
+      "date": "2026-11-19T04:16:32+00:00",
       "detail": "arXiv 프리프린트 · 논문 수정일",
-      "revision": "v1",
+      "revision": "v2",
       "source": "arXiv cs.RO",
-      "detected": "2026-11-19T07:26:21.695121+00:00"
+      "detected": "2026-11-20T07:14:22.882584+00:00"
     },
     {
       "id": "2611.24360",
@@ -2689,11 +2914,11 @@
       "id": "2611.23803",
       "title": "CoT-WAM: Collaborative Training of Vision-Language Models and World-Action Models via Plan Latents",
       "url": "https://arxiv.org/abs/2611.23803",
-      "date": "2026-11-18T04:08:54+00:00",
+      "date": "2026-11-19T04:34:45+00:00",
       "detail": "arXiv 프리프린트 · 논문 수정일",
-      "revision": "v1",
+      "revision": "v2",
       "source": "arXiv cs.RO",
-      "detected": "2026-11-19T07:26:21.695121+00:00"
+      "detected": "2026-11-20T07:14:22.882584+00:00"
     },
     {
       "id": "2611.23746",
@@ -2754,7 +2979,287 @@
       "revision": "v1",
       "source": "arXiv cs.RO",
       "detected": "2026-11-19T07:26:21.695121+00:00"
+    },
+    {
+      "id": "black-forest-labs/flux-3-action-base",
+      "title": "black-forest-labs/flux-3-action-base",
+      "url": "https://huggingface.co/black-forest-labs/flux-3-action-base",
+      "date": "2026-11-19T14:15:39+00:00",
+      "detail": "접근 절차 필요 · 모델/데이터 카드 라이선스 other",
+      "revision": "d540a6a8034004c43eb81758d2ca6ab645882126",
+      "source": "Hugging Face models · black-forest-labs/action",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "black-forest-labs/flux-3-action-so101",
+      "title": "black-forest-labs/flux-3-action-so101",
+      "url": "https://huggingface.co/black-forest-labs/flux-3-action-so101",
+      "date": "2026-11-19T14:15:32+00:00",
+      "detail": "접근 절차 필요 · 모델/데이터 카드 라이선스 other",
+      "revision": "962ffaeecf878a6128f3e14f6b9de54c27e1afbd",
+      "source": "Hugging Face models · black-forest-labs/action",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "black-forest-labs/flux-3-action-droid",
+      "title": "black-forest-labs/flux-3-action-droid",
+      "url": "https://huggingface.co/black-forest-labs/flux-3-action-droid",
+      "date": "2026-11-19T14:15:13+00:00",
+      "detail": "접근 절차 필요 · 모델/데이터 카드 라이선스 other",
+      "revision": "7305ef6d95de95ca4100c2e117c23ce580307335",
+      "source": "Hugging Face models · black-forest-labs/action",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "2611.26596",
+      "title": "PGX: Physically Grounded Execution for Long-Horizon Humanoid Loco-Manipulation",
+      "url": "https://arxiv.org/abs/2611.26596",
+      "date": "2026-11-19T18:52:18+00:00",
+      "detail": "arXiv 프리프린트 · 논문 수정일",
+      "revision": "v1",
+      "source": "arXiv cs.RO",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "2611.26565",
+      "title": "PhyDEX: A Benchmark for Physical Reasoning in Vision-Language-Action Models via Dynamic Extrinsic Dexterity",
+      "url": "https://arxiv.org/abs/2611.26565",
+      "date": "2026-11-19T18:33:43+00:00",
+      "detail": "arXiv 프리프린트 · 논문 수정일",
+      "revision": "v1",
+      "source": "arXiv cs.RO",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "2610.14802",
+      "title": "Composable Driving Style for End-to-End Autonomous Driving",
+      "url": "https://arxiv.org/abs/2610.14802",
+      "date": "2026-11-19T18:12:04+00:00",
+      "detail": "arXiv 프리프린트 · 논문 수정일",
+      "revision": "v2",
+      "source": "arXiv cs.RO",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "2609.39601",
+      "title": "GroundingPI: A Grounding Foundation Model towards Physical Intelligence with Visual Primitives",
+      "url": "https://arxiv.org/abs/2609.39601",
+      "date": "2026-11-19T18:08:27+00:00",
+      "detail": "arXiv 프리프린트 · 논문 수정일",
+      "revision": "v3",
+      "source": "arXiv cs.RO",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "2611.26444",
+      "title": "Mind2Act World: A Diagnostic Benchmark for Embodied Mind, Physical Action, and Mind-Action Composition in Robotic Manipulation",
+      "url": "https://arxiv.org/abs/2611.26444",
+      "date": "2026-11-19T17:15:38+00:00",
+      "detail": "arXiv 프리프린트 · 논문 수정일",
+      "revision": "v1",
+      "source": "arXiv cs.RO",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "2611.26420",
+      "title": "Awaken-HI: Scaling Humanoid Intelligence with Whole-Body Human Experience",
+      "url": "https://arxiv.org/abs/2611.26420",
+      "date": "2026-11-19T17:03:03+00:00",
+      "detail": "arXiv 프리프린트 · 논문 수정일",
+      "revision": "v1",
+      "source": "arXiv cs.RO",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "2611.26405",
+      "title": "TacInno: Teaching Vision-Language-Action Models the Contact Dynamics Beyond Vision and Action",
+      "url": "https://arxiv.org/abs/2611.26405",
+      "date": "2026-11-19T16:53:19+00:00",
+      "detail": "arXiv 프리프린트 · 논문 수정일",
+      "revision": "v1",
+      "source": "arXiv cs.RO",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "2611.26242",
+      "title": "FastRoverVLA: Fast Vision-Language-Action Execution for Off-Road Autonomous Driving",
+      "url": "https://arxiv.org/abs/2611.26242",
+      "date": "2026-11-19T15:23:14+00:00",
+      "detail": "arXiv 프리프린트 · 논문 수정일",
+      "revision": "v1",
+      "source": "arXiv cs.RO",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "2611.26239",
+      "title": "Teaching Vision-Language-Action Models to Stop Safely",
+      "url": "https://arxiv.org/abs/2611.26239",
+      "date": "2026-11-19T15:14:55+00:00",
+      "detail": "arXiv 프리프린트 · 논문 수정일",
+      "revision": "v1",
+      "source": "arXiv cs.RO",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "2611.26161",
+      "title": "One View, One Action: Spatially Generalizable VLAs through Observation-Aligned Experts and Cross Graph Consistency",
+      "url": "https://arxiv.org/abs/2611.26161",
+      "date": "2026-11-19T14:16:44+00:00",
+      "detail": "arXiv 프리프린트 · 논문 수정일",
+      "revision": "v1",
+      "source": "arXiv cs.RO",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "2609.34170",
+      "title": "RAVEL: Asynchronous Rolling Inference for Flow-Based Vision-Language-Action Models",
+      "url": "https://arxiv.org/abs/2609.34170",
+      "date": "2026-11-19T12:58:14+00:00",
+      "detail": "arXiv 프리프린트 · 논문 수정일",
+      "revision": "v2",
+      "source": "arXiv cs.RO",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "2611.03168",
+      "title": "Rollout then Recycle: 3,718 Labelled Real-Robot Episodes from Benchmarking 7 Policies on 12 Tasks",
+      "url": "https://arxiv.org/abs/2611.03168",
+      "date": "2026-11-19T11:53:07+00:00",
+      "detail": "arXiv 프리프린트 · 논문 수정일",
+      "revision": "v2",
+      "source": "arXiv cs.RO",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "2608.22294",
+      "title": "Semantic Role-Structured World Model for Physical Interaction Planning",
+      "url": "https://arxiv.org/abs/2608.22294",
+      "date": "2026-11-19T09:58:20+00:00",
+      "detail": "arXiv 프리프린트 · 논문 수정일",
+      "revision": "v3",
+      "source": "arXiv cs.RO",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "2611.25667",
+      "title": "CauSyncVLA: Causal Latent World Modeling for Asynchronous Robot Control",
+      "url": "https://arxiv.org/abs/2611.25667",
+      "date": "2026-11-19T07:45:18+00:00",
+      "detail": "arXiv 프리프린트 · 논문 수정일",
+      "revision": "v1",
+      "source": "arXiv cs.RO",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "2611.25595",
+      "title": "LoopedWAM: Looped World Action Models for Elastic Inference",
+      "url": "https://arxiv.org/abs/2611.25595",
+      "date": "2026-11-19T06:42:13+00:00",
+      "detail": "arXiv 프리프린트 · 논문 수정일",
+      "revision": "v1",
+      "source": "arXiv cs.RO",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "2611.25580",
+      "title": "FlashX: Scaling Robotic Experience Reuse for Embodied Agents with CBA-Based NAND Flash",
+      "url": "https://arxiv.org/abs/2611.25580",
+      "date": "2026-11-19T06:24:38+00:00",
+      "detail": "arXiv 프리프린트 · 논문 수정일",
+      "revision": "v1",
+      "source": "arXiv cs.RO",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "2602.18224",
+      "title": "SimVLA: Attributing Gains in VLA Models Through Controlled Ablation",
+      "url": "https://arxiv.org/abs/2602.18224",
+      "date": "2026-11-19T05:50:40+00:00",
+      "detail": "arXiv 프리프린트 · 논문 수정일",
+      "revision": "v2",
+      "source": "arXiv cs.RO",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "2611.25529",
+      "title": "CoachSI: Self-Improvement of Robot Policies with a Language Coach",
+      "url": "https://arxiv.org/abs/2611.25529",
+      "date": "2026-11-19T05:28:19+00:00",
+      "detail": "arXiv 프리프린트 · 논문 수정일",
+      "revision": "v1",
+      "source": "arXiv cs.RO",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "2610.14335",
+      "title": "PILOT: Guiding Long-Horizon World-Model Planning for Robot Manipulation with Imagined Subgoals and Policy Priors",
+      "url": "https://arxiv.org/abs/2610.14335",
+      "date": "2026-11-19T03:47:21+00:00",
+      "detail": "arXiv 프리프린트 · 논문 수정일",
+      "revision": "v2",
+      "source": "arXiv cs.RO",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "2611.25413",
+      "title": "WAMotor: Accelerating World Action Models via Speculative Inference under Dual Nonuniform Denoising Dynamics",
+      "url": "https://arxiv.org/abs/2611.25413",
+      "date": "2026-11-19T02:52:51+00:00",
+      "detail": "arXiv 프리프린트 · 논문 수정일",
+      "revision": "v1",
+      "source": "arXiv cs.RO",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "2611.25400",
+      "title": "Dune: A Zeroth-Order Optimizer with Time-Conditioned Historical Error Regression for VLA Test-Time Adaptation",
+      "url": "https://arxiv.org/abs/2611.25400",
+      "date": "2026-11-19T02:40:38+00:00",
+      "detail": "arXiv 프리프린트 · 논문 수정일",
+      "revision": "v1",
+      "source": "arXiv cs.RO",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "2611.25398",
+      "title": "RefreshGrad: An Online Adaptive Data-sampling Method for Diffusion-based Visuomotor Learning",
+      "url": "https://arxiv.org/abs/2611.25398",
+      "date": "2026-11-19T02:39:07+00:00",
+      "detail": "arXiv 프리프린트 · 논문 수정일",
+      "revision": "v1",
+      "source": "arXiv cs.RO",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "2611.25251",
+      "title": "WEVO: World Model-Enabled VLA Optimization for Whole-Body Loco-Manipulation",
+      "url": "https://arxiv.org/abs/2611.25251",
+      "date": "2026-11-18T22:36:08+00:00",
+      "detail": "arXiv 프리프린트 · 논문 수정일",
+      "revision": "v1",
+      "source": "arXiv cs.RO",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "2611.25105",
+      "title": "MAWAM: A Multi-Agent World-Action Model for Coordinated Manipulation",
+      "url": "https://arxiv.org/abs/2611.25105",
+      "date": "2026-11-18T19:39:30+00:00",
+      "detail": "arXiv 프리프린트 · 논문 수정일",
+      "revision": "v1",
+      "source": "arXiv cs.RO",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
+    },
+    {
+      "id": "2606.23641",
+      "title": "Flatness Preserves Instruction Following in Vision-Language-Action Models",
+      "url": "https://arxiv.org/abs/2606.23641",
+      "date": "2026-11-18T19:09:55+00:00",
+      "detail": "arXiv 프리프린트 · 논문 수정일",
+      "revision": "v2",
+      "source": "arXiv cs.RO",
+      "detected": "2026-11-20T07:14:22.882584+00:00"
     }
   ],
-  "changes": 33
+  "changes": 34
 }
