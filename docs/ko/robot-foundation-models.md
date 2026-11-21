@@ -71,6 +71,10 @@ RoboLab v0.3.3에서는 물체의 초기 배치를 시드로 재현하고 조명
 
 | 연구 | 파이프라인에서 하는 일 | 확인하거나 활용할 수 있는 자료 |
 |---|---|---|
+| **PGX: Physically Grounded Execution for Long-Horizon Humanoid Loco-Manipulation** | 로봇 학습·제어 | 프리프린트 공개 · [arXiv 배포 약관](https://arxiv.org/licenses/nonexclusive-distrib/1.0/) · 코드 공개 여부 미확인 · 가중치 공개 여부 미확인 · [공식 출처](https://arxiv.org/abs/2611.26596) |
+| **Vision-Language-Action Models: A Life-Cycle Survey of Design, Training and Deployment** | 시각·언어·행동 정책 | 프리프린트 공개 · [arXiv 배포 약관](https://arxiv.org/licenses/nonexclusive-distrib/1.0/) · 코드 공개 여부 미확인 · 가중치 공개 여부 미확인 · [공식 출처](https://arxiv.org/abs/2611.18372) |
+| **PhyDEX: A Benchmark for Physical Reasoning in Vision-Language-Action Models via Dynamic Extrinsic Dexterity** | 시각·언어·행동 정책 | 프리프린트 공개 · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) · 코드 공개 여부 미확인 · 가중치 공개 여부 미확인 · [공식 출처](https://arxiv.org/abs/2611.26565) |
+| **Composable Driving Style for End-to-End Autonomous Driving** | 자율주행·장면 재구성 | 프리프린트 공개 · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) · 코드 공개 여부 미확인 · 가중치 공개 여부 미확인 · [공식 출처](https://arxiv.org/abs/2610.14802) |
 | **ThinkWAM** (11월 16일) | 행동 묶음을 먼저 예측하고, 그 행동을 했을 때의 장면을 잠재 표현에서 갱신합니다. 갱신된 표현을 바탕으로 실행할 행동을 한 번 더 계산합니다. | 원본 코드 MIT, 포함된 SIGReg는 CC BY-NC 4.0. 공개 가중치에는 Apache-2.0이 적용되며 전용 평가 설정을 제공합니다. [논문](https://arxiv.org/abs/2611.21258) · [코드와 외부 구성 요소 약관](https://github.com/HaoyunT/Thinkwam#license) · [체크포인트](https://huggingface.co/Adrain11/ThinkWAM) |
 | **VLALagBench** (11월 16일 개정) | 물체가 계속 움직이는 시뮬레이션에서 일부러 추론 지연을 주고, LIBERO의 동기·비동기 실행 방식에 따라 성공률이 어떻게 달라지는지 비교합니다. Isaac Sim에서도 일부 조건을 교차 확인했습니다. | 벤치마크 코드와 결과 공개. 원본 코드·데이터·문서는 CC BY-NC 4.0이며 모델과 시뮬레이터 에셋은 별도 조건입니다. [논문](https://arxiv.org/abs/2611.03103v2) · [저장소와 라이선스](https://github.com/codestrongestx/vla-lag-bench#license) |
 | **Ego2Sim2Humanoid** (11월 14일) | 1인칭 RGB-D 촬영 기록에서 시뮬레이션용 로봇 카메라 영상과 실행 가능한 전신 궤적을 만듭니다. 연구팀은 이 데이터로 GR00T N1.7을 파인튜닝해 Unitree G1의 이동과 조작을 시험했습니다. | 논문과 평가 결과 그림 공개. 코드·데이터셋·파인튜닝 체크포인트 공개 여부 미확인. [논문](https://arxiv.org/abs/2611.19196) |
