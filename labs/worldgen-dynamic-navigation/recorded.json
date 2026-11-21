@@ -8,7 +8,7 @@
     "cart-dynamic",
     "sensor-gap"
   ],
-  "baseline_source": "44d2fba:labs/worldgen-navigation/navigation.py; preserved byte-for-byte as static_navigation.py",
+  "baseline_source": "c2bce10d2c6f13b64d6b5d4881bcce75c2c3123b:labs/worldgen-navigation/navigation.py; preserved byte-for-byte as static_navigation.py",
   "executed_source_sha256": {
     "run.py": "31bde2c6c6d0c778c13e660a2b995fb34e2c27e5fd9ff94904056b7f38f01526",
     "navigation.py": "370f96d544d4423a6cad88eec60275a39786991c4a7844943ba5f846b35e89ab",
