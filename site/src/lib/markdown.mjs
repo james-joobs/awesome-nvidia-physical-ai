@@ -4,6 +4,7 @@ import { copy, modelGuide, pageUrl, catalogs, repositoryFile, workflows } from '
 import { clips, grids, showcaseMedia } from './showcase.mjs';
 import { toolGuides } from './tool-guides.mjs';
 import { renderCodeBlock } from './code-blocks.mjs';
+import { hideResearchMarkers } from './research-markers.mjs';
 
 import { availability, catalogFields, licenseLabel } from './catalog-filters.mjs';
 
@@ -23,7 +24,7 @@ const catalogSources = import.meta.glob('../../../CATALOG{,.ko}.md', {
   query: '?raw', import: 'default', eager: true,
 });
 
-const markdown = new MarkdownIt({ linkify: true });
+const markdown = new MarkdownIt({ linkify: true }).use(hideResearchMarkers);
 const renderToken = (tokens, index, options, _env, renderer) =>
   renderer.renderToken(tokens, index, options);
 
