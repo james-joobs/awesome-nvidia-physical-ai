@@ -2,7 +2,7 @@
 
 import argparse
 from copy import deepcopy
-from datetime import datetime, timedelta
+from datetime import UTC, datetime, timedelta
 import hashlib
 import json
 from pathlib import Path
@@ -288,7 +288,15 @@ def pending_records(queue, checked):
             if alias.startswith(("github:", "release:")) and alias.split(":", 1)[1].split("/", 1)[0] in NVIDIA_OWNERS:
                 return True
         return False
-    return sorted(result, key=lambda item: (not official_priority(item), item["_first_seen"], item["_project_id"]))
+    def source_recency(item):
+        value = item.get("updated_at") or item.get("date") or item.get("published_at")
+        try:
+            date = datetime.fromisoformat(value.replace("Z", "+00:00"))
+            return -(date if date.tzinfo else date.replace(tzinfo=UTC)).timestamp()
+        except (AttributeError, ValueError, OverflowError):
+            return 0
+    return sorted(result, key=lambda item: (not official_priority(item), item["_first_seen"],
+                                           source_recency(item), item["_project_id"]))
 
 
 def record_review(queue, record, status, checked, reason=""):

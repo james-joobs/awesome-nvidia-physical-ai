@@ -36,6 +36,14 @@ def paper_page(title="BirdDreams: A Driving World Model"):
 
 
 class QueueTests(unittest.TestCase):
+    def test_source_recency_does_not_override_different_first_seen_times(self):
+        base = "https://github.com/NVIDIA/IsaacAutomator/releases/tag/"
+        q = update_queue({}, [observation(base + "v4.6.0", date="2026-09-01T00:00:00+00:00")],
+                         "2026-11-14T09:00:00+00:00")
+        q = update_queue(q, [observation(base + "v4.6.6", date="2026-10-27T00:00:00+00:00")], NOW)
+        self.assertEqual([record["url"].rsplit("/", 1)[-1] for record in pending_records(q, NOW)],
+                         ["v4.6.0", "v4.6.6"])
+
     def test_unselected_candidate_survives_recent_window(self):
         q = update_queue({}, [observation()], NOW)
         q = update_queue(q, [], LATER)
@@ -166,6 +174,19 @@ class QueueTests(unittest.TestCase):
 
 
 class ReviewTests(unittest.TestCase):
+    def test_same_discovery_batch_selects_newest_releases_before_lexical_oldest(self):
+        base = "https://github.com/NVIDIA/IsaacAutomator/releases/tag/"
+        observations = [observation(base + f"v4.6.{i}", id=str(i), revision=f"v4.6.{i}",
+                                    date=f"2026-10-{21 + i:02d}T09:00:00+00:00") for i in range(7)]
+        q = update_queue({}, observations, NOW)
+        def release(url):
+            return {"kind": "release", "url": url, "title": url.rsplit("/", 1)[-1],
+                    "prerelease": False, "terms": "MIT", "license": REPO + "/LICENSE", "date": "2026-10-27"}
+        with patch.object(review, "verify_release", side_effect=release):
+            selected = review.candidates({"checked": NOW}, set(), q)
+        self.assertEqual([record["title"] for record in selected], [f"v4.6.{i}" for i in (6, 5, 4, 3)])
+        self.assertEqual(len(pending_records(q, NOW)), 3)
+
     def test_real_hero_heading_adjacent_name_and_subtitle_spans_keep_word_boundary(self):
         page = review.Page('<h1 id="project-title"><span class="project-name">BirdDreams</span>'
                            '<span class="project-subtitle">A driving world model with '
