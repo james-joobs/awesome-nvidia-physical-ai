@@ -1,11 +1,523 @@
 # NVIDIA Physical AI 연구 수집 결과
 
-확인 시각 2026-11-21 11:18 KST · 새로 발견하거나 변경된 항목 1622건
+확인 시각 2026-11-21 16:07 KST · 새로 발견하거나 변경된 항목 512건
 
 아래 항목은 검토 후보입니다. 항목 날짜는 원문의 발표·수정 또는 Papers 등록 시각이며, 최초 발견일과는 구분합니다. 날짜가 없는 목록은 날짜 미제공으로 표시합니다. 코드·모델·데이터셋의 실제 공개 여부와 이용 조건은 각 원문에서 확인합니다.
 
 ## 최근 7일에 발견한 후보
 
+- [NVIDIA/physicsnemo · v2.3.0](https://github.com/NVIDIA/physicsnemo/releases/tag/v2.3.0) · 2026-11-21 · 릴리스
+- [Grana: Compositional Reward Modeling for Long-Horizon Robot Manipulation](https://research.nvidia.com/labs/gear/grana/) · 2026-11-02 · NVIDIA 연구실 공식 목록 · 코드·가중치 이용 조건은 별도 확인
+- [Old Is Not False: Valid-Time Memory for Interactive Video World Models](https://arxiv.org/abs/2611.00758) · 2026-10-31 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Large Discrete Policy: Advancing Explicit Behavior Modeling with Stochastic Iterative Scoring](https://arxiv.org/abs/2609.07049) · 2026-10-31 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [STEER: Route-Aware Adaptive Reasoning for Autonomous Driving](https://arxiv.org/abs/2611.00718) · 2026-10-31 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Every Camera Effect, Every Time, All at Once: 4D Gaussian Ray Tracing for Physics-based Camera Effect Data Generation](https://arxiv.org/abs/2509.10759) · 2026-10-31 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Spotter: Let the Embodied Model Lead, and the VLM Reflect for It](https://arxiv.org/abs/2609.36808) · 2026-10-31 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [PREM: Prediction-Regulated Memory for Robot Manipulation](https://arxiv.org/abs/2611.00634) · 2026-10-31 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Learning from an Imitable Teacher: Competition Solution for the MetaFine Challenge](https://arxiv.org/abs/2611.00615) · 2026-10-31 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Behavioral Steering of Vision-Language-Action Models in the Low-Parameter Regime](https://arxiv.org/abs/2611.00522) · 2026-10-31 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Splaxel: Efficient Distributed Training of 3D Gaussian Splatting for Large-scale Scene Reconstruction via Pixel-level Communication](https://arxiv.org/abs/2606.18588) · 2026-10-30 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [CalVLA: Shaping Native Confidence in Vision-Language-Action Policies with Outcome Supervision](https://arxiv.org/abs/2611.00394) · 2026-10-30 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SpecPrune-VLA: Accelerating Vision-Language-Action Models via Action-Aware Self-Speculative Pruning](https://arxiv.org/abs/2509.05614) · 2026-10-30 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [CausalWAM: Learning the Causes of Actions in World Action Models](https://arxiv.org/abs/2610.42096) · 2026-10-30 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [When the Simulator Fails, Not the Policy: Auditing Contact Artifacts in Simulated Robot Benchmarks](https://arxiv.org/abs/2610.41857) · 2026-10-30 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Detect and Suppress: A Mechanistic Defense against Adversarial Patches in VLA Models](https://arxiv.org/abs/2610.03498) · 2026-10-30 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [GROME: GROunding Factorized MEmory into Video World Models](https://arxiv.org/abs/2610.39812) · 2026-10-30 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Adaptive-WAM: Quality-Guided Early-Exit Planning from Intermediate Video-Diffusion Features](https://arxiv.org/abs/2608.06008) · 2026-10-30 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [VLA Policies Do Not Know When Not to Act: Unintended Task Execution and Start Suppression](https://arxiv.org/abs/2610.41609) · 2026-10-30 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [VoxLution: Evolving Voxels for High-Fidelity 3D Scene Generation](https://arxiv.org/abs/2610.41501) · 2026-10-30 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SACQ: Structure-Aware Codebook Quantization for Ultra-Low-Bit Vision-Language-Action Models](https://arxiv.org/abs/2610.41408) · 2026-10-30 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [OpenFlyV2: An onboard vision-language-action model for aerial perception and navigation](https://arxiv.org/abs/2610.39287) · 2026-10-30 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Autoregressive Diffusion for Compositional Text-to-Scene Generation](https://arxiv.org/abs/2604.16552) · 2026-10-30 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [FlowMoDE: Coarse-to-fine Flow Matching for Detail-aware Sim-to-Real Monocular Depth Estimation](https://arxiv.org/abs/2610.41190) · 2026-10-30 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [AdaGS: Confidence-Gated Diffusion Adaptation for Unposed Sparse-View 3D Gaussian Reconstruction](https://arxiv.org/abs/2602.21535) · 2026-10-30 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [One Verdict Is Not Enough: Regression Testing Learned World Models and Their Test Harnesses](https://arxiv.org/abs/2610.41130) · 2026-10-30 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Gaussian Splatting-based Volumetric Video Compression with Sparse 4D Anchors](https://arxiv.org/abs/2609.33969) · 2026-10-30 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Dreams Are Cheaper Than Flights: Curated World-Model Data Improves Aerial Detection](https://arxiv.org/abs/2610.41030) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Prior-Guided Single-Exposure HDR Novel View Synthesis via Base-Gain Representation](https://arxiv.org/abs/2610.41011) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [DiTGaze: Geometry-Conditioned Diffusion Augmentation for Few-Shot Gaze Estimation](https://arxiv.org/abs/2511.11231) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Reading, Writing, Sharing, and Interacting with the World through Video](https://arxiv.org/abs/2610.31668) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [From Teleoperation to Long-Horizon Dexterity: Evaluating Visuomotor Skills and Offline Proxies for Dexterous Manipulation](https://arxiv.org/abs/2610.40828) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [CaPtain: A Pipeline for Post-Training Code-as-Policy Robot Agents](https://arxiv.org/abs/2610.40799) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SonoWorld4D: From One Video to a 4D Audio-Visual Scene via Diffusion Synchronization](https://arxiv.org/abs/2610.40640) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Fight World Model: Customizable Combat through Visual Interaction Proxies](https://arxiv.org/abs/2610.40607) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Gym-Anything for Robotics: Scaling physical simulations with digital agents](https://arxiv.org/abs/2610.40565) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [BURGER: Benchmarking and Understanding Robotic Generalization via Embodied Drawing](https://arxiv.org/abs/2610.40532) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [$π$-StepNFT: Wider Space Needs Finer Steps in Online RL for Flow-based VLAs](https://arxiv.org/abs/2603.02083) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Improving Fine-Grained Manipulation through Demonstration Expansion and Execution Design](https://arxiv.org/abs/2610.40430) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [DyCraft: An Agentic System for Long-Horizon 4D Scene Generation](https://arxiv.org/abs/2610.40754) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [HiFOR: Hierarchical Foresight with Action-Guided World Grounding for Vision-Language-Action Model](https://arxiv.org/abs/2610.40373) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [AffordSim: A Scalable Data Generator and Benchmark for Affordance-Aware Robotic Manipulation](https://arxiv.org/abs/2604.11674) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Video Generation Meets Agent Harness: Agentic Video Generation, Agentic World Modeling and Recursive Self-Improvement](https://arxiv.org/abs/2610.40191) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [NRF-GS: Neural Residual Fields for Expressive and Compact Gaussian Splatting](https://arxiv.org/abs/2609.37115) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [How Much Should a VLA Trust Its Reasoning? Step-Level Guidance as a Measured Action-Value Function](https://arxiv.org/abs/2610.40002) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [PASA-KV: Attacking Action-Facing Visual Routes in World Action Models](https://arxiv.org/abs/2610.39816) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [NovaSplat: Model-Free 6D Object Pose Estimation via 3D Gaussian Splatting Onboarding and Refinement](https://arxiv.org/abs/2610.13309) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [WorldProbe: When Video World Models Fall Apart under Long-Horizon Spatial Exploration](https://arxiv.org/abs/2610.39721) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [FutureWorld: A Plug-and-Play Causal Next-State Predictor for Interactive Video World Exploration](https://arxiv.org/abs/2610.39619) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [From Reasoning to Action: Consequence-Grounded Alignment for Vision-Language-Action Models](https://arxiv.org/abs/2610.39543) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Safe Learning for Contact-Rich Robot Tasks: A Survey from Classical Learning-Based Methods to Safe Foundation Models](https://arxiv.org/abs/2512.11908) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [WNM-3D: A World Navigation Model with 3D Scene Conditioning for Closed-Loop VLN](https://arxiv.org/abs/2608.07267) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Smooth Action Chunking Via Movement-Primitive Representations for Imitation Learning](https://arxiv.org/abs/2610.39451) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [ACD-GS: Asymmetric Curvature-aware Densification for 3D Gaussian Splatting](https://arxiv.org/abs/2610.39399) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [PrinGS: Privacy Preservation in Gaussian Splatting](https://arxiv.org/abs/2610.36168) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Utility-WAM: Correcting Future-Induced Action Changes](https://arxiv.org/abs/2610.39367) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [DiTSG: Context-Aware Air Traffic Scene Generation with Multi-Agent Diffusion Transformers](https://arxiv.org/abs/2610.16959) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [VLA-Corrector: Lightweight Detect-and-Correct Inference for Adaptive Action Horizon](https://arxiv.org/abs/2607.01804) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [CAD-WAM: Anticipating Geometry for Text-to-CAD Generation](https://arxiv.org/abs/2610.39306) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [COGS: A Diagnostic Benchmark for Attribute-Aware Object-Level 3D Gaussian Splatting Perception](https://arxiv.org/abs/2610.39201) · 2026-10-29 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [GradSplat: Gradients Inside the Forward Pass for Feed-Forward 3D Gaussian Splatting](https://arxiv.org/abs/2610.38951) · 2026-10-28 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Quantize by Doing: Task-Guided Mixed-Precision Quantization of Vision-Language-Action Models](https://arxiv.org/abs/2610.38661) · 2026-10-28 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SaiVLA-JEPA: Evaluating Future Latent Prediction in JEPA-Conditioned VLA Control](https://arxiv.org/abs/2610.38508) · 2026-10-28 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Retrieve in Time, Correct in Frequency](https://arxiv.org/abs/2608.04527) · 2026-10-28 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [GSVC: Efficient Video Representation and Compression Through 2D Gaussian Splatting](https://arxiv.org/abs/2501.12060) · 2026-10-28 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [BudSplat: Feed-forward 3D Gaussian Splatting under a Rendering Budget](https://arxiv.org/abs/2610.38278) · 2026-10-28 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Embodied at Sea: Imitation Learning for Multi-Task Underwater Manipulation](https://arxiv.org/abs/2610.38199) · 2026-10-28 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [BitC-3DGS: High-Capacity 3D Gaussian Splatting Watermarking via Bit Compression](https://arxiv.org/abs/2605.29583) · 2026-10-28 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Generalizable VLA Finetuning via Representation Anchoring and Language-Action Alignment](https://arxiv.org/abs/2607.13429) · 2026-10-28 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Self-Labeled Preference Transfer for Steerable Robot Manipulation](https://arxiv.org/abs/2610.38000) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [What Actually Matters? A Paired Evaluation of Inference Settings for $π\_\{0.5\}$ on BEHAVIOR-1K](https://arxiv.org/abs/2610.37917) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [GlanceWAM: Sparse Test-Time Imagination for World-Action Models](https://arxiv.org/abs/2608.23927) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Robust, Estimator-Agnostic Dynamic 3DGS Compression](https://arxiv.org/abs/2609.25633) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [GOFish: Full Field-of-View Gaussian Splatting and Mesh Extraction](https://arxiv.org/abs/2610.37818) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [ThinkWorld: World Imagination Reinforces Chain-of-Dynamics Reasoning](https://arxiv.org/abs/2610.37666) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [World Dreamer v5-lite: A Multi-Robot World Action Model with One Dreamer](https://arxiv.org/abs/2610.37518) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [CTBakeGS: training-free baking of photorealistic CT volume renderings into 3D Gaussian splats](https://arxiv.org/abs/2610.37406) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [VLA-Stem: A Lightweight Safety Mechanism for Vision-Language-Action Models via Reinforcement Learning](https://arxiv.org/abs/2610.37378) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Tokens of Motion: Primitive Motion Learning for Human-Humanoid Skill Transfer](https://arxiv.org/abs/2610.37330) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [ScIntBench: Physical Interaction Plausibility in 3D Scene Generation](https://arxiv.org/abs/2610.37326) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Vision-Language-Action or World-Action? Just Action Models](https://arxiv.org/abs/2610.37219) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Retrieve to Act: Motion Primitive Graph Retrieval for Robust VLA Execution](https://arxiv.org/abs/2610.37215) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [How Much Can Best-of-N Help a World Action Model? Measuring Selectable Headroom and Realizing It in Closed Loop](https://arxiv.org/abs/2610.37196) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [VLA-HWBench: Where the Time Goes When VLA Models Run on Edge Hardware](https://arxiv.org/abs/2610.34717) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [BiDex-100: A Comprehensive Benchmark for Bimanual Dexterous Manipulation Across 100+ Simulation Tasks](https://arxiv.org/abs/2610.25459) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [LoBE-GS: Load-Balanced and Efficient 3D Gaussian Splatting for Large-Scale Scene Reconstruction](https://arxiv.org/abs/2510.01767) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [GAWM: A Compact Latent World-Action Model for Multi-Task Robot Manipulation](https://arxiv.org/abs/2610.37091) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [LingGS: Decoupling Feed-Forward Geometry Prediction from Camera Tracking for High-Fidelity Gaussian SLAM](https://arxiv.org/abs/2610.36853) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Trace-WAM: Learning to Act via 3D Motion Prediction for World Action Models](https://arxiv.org/abs/2610.36840) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [TAPESTRY: A Single Backbone for Video Generation and Robot Control](https://arxiv.org/abs/2610.36823) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [RynnWorld-Latent: A Cross-Embodiment World Model Conditioned on Universal Latent Actions](https://arxiv.org/abs/2610.36791) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Making Self-Driving Laboratories Auditable:A Unified Framework for Hybrid Actions,Measurements, and Safe Execution](https://arxiv.org/abs/2610.36761) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Hy-Nomas: Towards Free-form Interactive World Generation](https://arxiv.org/abs/2610.36729) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [What Makes Video World Model Latents Action-Relevant: Prediction over Reconstruction](https://arxiv.org/abs/2606.07687) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Learning to Feel the Future: DreamTacVLA for Contact-Rich Manipulation](https://arxiv.org/abs/2512.23864) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [FAWAM: Force-Aware World Action Models for Closed-Loop Contact-Rich Manipulation](https://arxiv.org/abs/2606.08555) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [AWARE: Action-Entropy-Weighted and Attention-Guided Retrieval of Observation Evidence for Vision-Language-Action Models](https://arxiv.org/abs/2602.18020) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [ClusterSplat: Semantic Cluster Selection for 3D Visual Grounding in Gaussian Splatting](https://arxiv.org/abs/2610.36462) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SO-101 Bench: Accessible Spatial Manipulation](https://arxiv.org/abs/2610.36420) · 2026-10-27 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [BoxWorld: Let World Engines Control and Video Generators Render](https://arxiv.org/abs/2610.36371) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SG^2SLAM: Spatial Geometry-Informed 3D Gaussian Splatting SLAM for Monocular Outdoor Navigation](https://arxiv.org/abs/2610.36312) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [ASPEN: Adaptive Semantic Reasoning via Command Persistence Prediction for Efficient Navigation VLAs](https://arxiv.org/abs/2610.36285) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [RePO-VLA: Recovery-Driven Policy Optimization for Vision-Language-Action Models](https://arxiv.org/abs/2605.09410) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [OSWAM: An Effective World Action Model with One-Step Action Generation](https://arxiv.org/abs/2610.35850) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Profiling a Frontier Agent with EBench: From Direct Control to Harness with Policy](https://arxiv.org/abs/2610.35832) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [A four-view smartphone video dataset of a robot-held flexible strip, with camera poses and a 3D LaGSplat baseline](https://arxiv.org/abs/2611.09959) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [CleanGS: Pareto-Guided Post-Hoc Cleanup of 3D Gaussian Splatting Scenes](https://arxiv.org/abs/2601.00913) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [VidEdit3D: Flexible 3D Gaussian Editing with Video Diffusion](https://arxiv.org/abs/2610.35756) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [E0.5: From Reconstructive to Future-Predictive 3D Foundations for Robotic World-Action Modeling](https://arxiv.org/abs/2610.36011) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SPECOLA: A Tool for Specification Driven Robot Evaluation](https://arxiv.org/abs/2610.35730) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Robot-Aligned 3D Gaussian Splatting for Precise Reaching with Wrist-Camera VLA Policies](https://arxiv.org/abs/2610.35626) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [S$^2$-RL: Sample-Set Dual Reinforcement Learning for Generative Semantic Segmentation Dataset Distillation](https://arxiv.org/abs/2610.35491) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [\\textit\{4DSurf\}: High-Fidelity Dynamic Scene Surface Reconstruction](https://arxiv.org/abs/2603.28064) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [FlowHOI: Flow-based Semantics-Grounded Generation of Hand-Object Interactions for Dexterous Robot Manipulation](https://arxiv.org/abs/2602.13444) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Model-Aware Generation of Safety-Critical Scenes for Robust End-to-End Driving via Distilled Planner Surrogates](https://arxiv.org/abs/2610.35448) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SG-Splat: Stable Geometry Learning under Pose Uncertainty for Pose-Free 3D Gaussian Splatting](https://arxiv.org/abs/2610.35361) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [CVTSplat: Multi-view Reconstruction Using an Adaptive Centroidal Voronoi Tessellation](https://arxiv.org/abs/2610.35347) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [GLIMPSE: Global-Local Indexing with Multi-Precision Spectral Encoding for Explorable Video World Models](https://arxiv.org/abs/2610.13706) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Video Prediction Policy 2: Predict Better, Act Better](https://arxiv.org/abs/2610.10270) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [GaussianSpline: Adaptive Bézier Splines for Highly Dynamic 4D Gaussian Splatting](https://arxiv.org/abs/2610.35224) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Complexity-guided Regularization for Generalizable Human Gaussian Splatting](https://arxiv.org/abs/2610.35152) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [One-shot Human Video-Guided Adaptation for Vision-Language-Action Models](https://arxiv.org/abs/2610.19746) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Reasoning as a Distribution: Generative Plan Latents for Vision-Language-Action Models](https://arxiv.org/abs/2610.28166) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Zero-HLM: Generalizable Humanoid Loco-Manipulation without Real Robot Data](https://arxiv.org/abs/2610.35075) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [DriveUniTok: A Unified Multimodal Tokenizer for Driving World-Action Models](https://arxiv.org/abs/2610.35044) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [JevVLA: Jev-Inspired Energy-Based Adaptation for Vision-Language-Action Policies](https://arxiv.org/abs/2610.35010) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [DUET4D: Self-Corrective Coupled Guidance for Sparse-View 4D Reconstruction](https://arxiv.org/abs/2610.35002) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Rethinking Densification in Gaussian SLAM: A Stationary Sampling Perspective](https://arxiv.org/abs/2601.00705) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SceneAgent: An Agentic Pipeline from 3D and 4D Captures to Simulation Environments](https://arxiv.org/abs/2610.34745) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Benchmarking Obstacle-Conditioned Safety in Household Robot Navigation](https://arxiv.org/abs/2610.34674) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Video World Models Need Predictable Latents](https://arxiv.org/abs/2610.34663) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [RobotAgentBench: Towards Open-world Robot Autonomy](https://arxiv.org/abs/2610.34649) · 2026-10-26 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [RIDE-Splat: Reflection Removal for In-the-Wild Driving Environments](https://arxiv.org/abs/2610.34632) · 2026-10-25 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [VGGT-$Ω$](https://arxiv.org/abs/2605.15195) · 2026-10-25 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [FlockWorld: Toward Population-Scale Multi-Agent Video World Models through Artificial Life Simulation](https://arxiv.org/abs/2610.34564) · 2026-10-25 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [IndustryNav: Evaluating Spatial Reasoning and Safety of Embodied Agents in Dynamic Industrial Navigation](https://arxiv.org/abs/2511.17384) · 2026-10-25 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [TRIAGE: Efficient Vision-Language-Action Inference Needs Both Reuse and Pruning](https://arxiv.org/abs/2610.34519) · 2026-10-25 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Robot Learning with Vision-Language-Action Models for Agricultural Manipulation](https://arxiv.org/abs/2610.26717) · 2026-10-25 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [AdaThinkDrive: Adaptive Thinking via Reinforcement Learning for Autonomous Driving](https://arxiv.org/abs/2509.13769) · 2026-10-25 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Birth-Death Structural Learning for 3D Gaussian Splatting](https://arxiv.org/abs/2610.34344) · 2026-10-25 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Imagine the Future, Internalize the Gist: Efficient VLA Reasoning via Internalized Spatiotemporal Imagination](https://arxiv.org/abs/2610.02626) · 2026-10-25 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [RacerGS: Residual-Autoregressive Context for 3D Gaussian Splatting Compression](https://arxiv.org/abs/2610.34263) · 2026-10-25 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [ParetoGS: High-Quality Continuous-Budget 3D Gaussian Splatting with Sparse Adapted Anchors](https://arxiv.org/abs/2610.34235) · 2026-10-25 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [BoundedGS: Memory-Efficient High-Resolution Training for 3D Gaussian Splatting](https://arxiv.org/abs/2610.34233) · 2026-10-25 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [HuGe: Scaling Humanoid Generalist Vision-Language-Action Models with Egocentric Experience](https://arxiv.org/abs/2610.34186) · 2026-10-25 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [LAW: Unifying Language, Action, and World Modeling for Agentic Physical Intelligence](https://arxiv.org/abs/2610.23334) · 2026-10-25 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [RoboDuo: Attempt, Check and Atomic Recovery through Code for Vision-Language-Action Models](https://arxiv.org/abs/2610.34108) · 2026-10-25 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [LegoOcc++: Towards Consistent Open-Vocabulary 3D Occupancy Prediction](https://arxiv.org/abs/2610.34093) · 2026-10-25 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SentryVLA: Uncertainty-Guided Action Selection and State Monitoring for Vision-Language-Action Robotic Control](https://arxiv.org/abs/2604.16677) · 2026-10-25 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [LaWAM: Latent World Action Models for Efficient Dynamics-Aware Robot Policies](https://arxiv.org/abs/2606.15768) · 2026-10-25 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [DiVeR: Decision-Critical Verifier Learning for VLA Test-Time Scaling](https://arxiv.org/abs/2610.04933) · 2026-10-25 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [RelateGS: Reliable Semantic and Relational Evidence for 3D Scene Understanding with Gaussian Splatting](https://arxiv.org/abs/2610.33868) · 2026-10-24 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Late Breaking Results: Audio-Language-Action Models with Direct Speech Conditioning for Robotic Manipulation](https://arxiv.org/abs/2610.33866) · 2026-10-24 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [UniManip: Open-World Robotic Manipulation via Agentic Operational Graphs](https://arxiv.org/abs/2602.13086) · 2026-10-24 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [RoboWorM: Evaluating Movement Realism, Consistency and Acceleration Affects in Embodied Video World Models](https://arxiv.org/abs/2610.33807) · 2026-10-24 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [GE-Act 2.0: Pretraining and Scaling a World-Action Model for Robotic Manipulation](https://arxiv.org/abs/2609.05588) · 2026-10-24 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [EXE: Egocentric Cross-Embodiment Pretraining via Factorized Latent Actions for VLA Models](https://arxiv.org/abs/2610.33685) · 2026-10-24 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Mix Forcing: Causal Pre-Training via Mixture Attention for Interactive World Models](https://arxiv.org/abs/2610.33589) · 2026-10-24 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Distilling Dense Trajectory Teachers For Large-Motion Video World Models](https://arxiv.org/abs/2610.33566) · 2026-10-24 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Learning Dexterous Manipulation: Hands, Simulators, Training, and Evaluation](https://arxiv.org/abs/2610.33486) · 2026-10-24 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Physical AI for Intralogistics: Benchmarking the NVIDIA Sim-to-Real Ecosystem for Cosmos-Enhanced COMPASS Navigation on Industrial Mobile Robots](https://arxiv.org/abs/2610.28432) · 2026-10-24 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [What Can One Sentence Fix? A Failure Taxonomy and a Minimal Language Correction for Frozen VLA Policies](https://arxiv.org/abs/2608.29967) · 2026-10-23 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [ForceDelta-VLA: Distilling Force-Conditioned Action Corrections for Contact-Rich Manipulation](https://arxiv.org/abs/2609.18242) · 2026-10-23 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [World-in-Context: Interactive Video World Modeling with In-Context Conditioning](https://arxiv.org/abs/2610.33169) · 2026-10-23 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Gaussian Episodic Memory for Long-Term Spatiotemporal Reasoning](https://arxiv.org/abs/2610.33158) · 2026-10-23 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [RobustRLlib: A Unified Library and Benchmark for Robust Reinforcement Learning Algorithms](https://arxiv.org/abs/2610.32971) · 2026-10-23 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [RynnUnify: Towards Unified Embodied Brain](https://arxiv.org/abs/2610.32965) · 2026-10-23 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [If at First You Don't Succeed, Backtrack: Lightweight Recovery for Frozen VLAs](https://arxiv.org/abs/2610.32941) · 2026-10-23 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Semantic Anchoring for Robotic Action Representations](https://arxiv.org/abs/2607.13597) · 2026-10-23 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Retiming Robot Demonstrations with a Learned Speed Prior](https://arxiv.org/abs/2610.32676) · 2026-10-23 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Localization and Neural Splatting on the Edge: An FPGA Scene Memory for Robots](https://arxiv.org/abs/2610.25068) · 2026-10-23 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [EagleVLA: Towards Onboard Real-Time Robot Control via Foresight-Aligned Asynchronous Inference](https://arxiv.org/abs/2607.12659) · 2026-10-23 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [MAST-VLA: Skill-Conditioned Adaptation with Trajectory-Affordance Priors for Multi-Skill Robot Manipulation](https://arxiv.org/abs/2610.32312) · 2026-10-23 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [RLSplat: Resource-Linear Budget Control for Feed-forward 3D Gaussian Splatting](https://arxiv.org/abs/2610.27712) · 2026-10-23 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [From Tabletop to Walking Bot: Deploying a VLA Model on a Legged Manipulator Robot](https://arxiv.org/abs/2610.32271) · 2026-10-23 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [WAM-TTT: Steering World-Action Models by Watching Human Play at Test Time](https://arxiv.org/abs/2607.06988) · 2026-10-23 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Do VLAs Know They Will Fail? Interpretable Success and Failure Patterns in Physical AI Systems](https://arxiv.org/abs/2610.32208) · 2026-10-23 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Sensorimotor Alignment: A Platonic Proxy for Embodied Policy Success](https://arxiv.org/abs/2610.31670) · 2026-10-23 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Coupling Execution Horizon and Sampling Depth in Flow-Matching VLA Policies](https://arxiv.org/abs/2610.32102) · 2026-10-23 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [RigPAPR: Rig-Based Animation of Static Neural Point Clouds from a Fixed-Viewpoint Video](https://arxiv.org/abs/2606.06685) · 2026-10-22 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Emergent Neural Automaton Policies: Learning Symbolic Structure from Visuomotor Trajectories](https://arxiv.org/abs/2603.25903) · 2026-10-22 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Full-Weight VLA Fine-Tuning Without an fp32 Master Copy Silently Erases Most Updates](https://arxiv.org/abs/2610.31859) · 2026-10-22 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [EgoForesight: Effectively Scaling Policy Learning with Noisy Egocentric Actions](https://arxiv.org/abs/2610.31845) · 2026-10-22 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [FLORA: An Open Model Suite for Scaling Robotics Data Engines](https://arxiv.org/abs/2610.31779) · 2026-10-22 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [WorldForge V2: Eliciting Camera-Trajectory Alignment in Video Diffusion Models](https://arxiv.org/abs/2610.31640) · 2026-10-22 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Echo: Coupled Action and Task Status Signal Denoising for Vision Language Action Models](https://arxiv.org/abs/2610.31569) · 2026-10-22 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Skeleton-Grounded Latent Action Model for Robot World Models](https://arxiv.org/abs/2610.31474) · 2026-10-22 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [FocusVLA: Future-Intent Guided Dynamic View Routing for Vision-Language-Action Models](https://arxiv.org/abs/2610.31423) · 2026-10-22 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [HEX: Humanoid-Aligned Experts for Cross-Embodiment Whole-Body Manipulation](https://arxiv.org/abs/2604.07993) · 2026-10-22 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [RecallGS: Geometry-Grounded Recall for Online Semantic Gaussian Splatting](https://arxiv.org/abs/2610.31293) · 2026-10-22 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Where Success Breaks: Failure-Boundary Learning for Robust Vision-Language-Action Models](https://arxiv.org/abs/2609.06114) · 2026-10-22 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [No Pose, No Problem in 4D: Feed-Forward Dynamic Gaussians from Unposed Multi-View Videos](https://arxiv.org/abs/2605.22190) · 2026-10-22 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [ThermoAct:Thermal-Aware Vision-Language-Action Models for Robotic Perception and Decision-Making](https://arxiv.org/abs/2603.25044) · 2026-10-22 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [UniFlowWAM: A Unified World-Action Model with Visual Semantics and 4D Geometry](https://arxiv.org/abs/2610.30991) · 2026-10-22 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [H-2DGS: Height-Field Gaussian Splatting for Sharp and Deformable Neurosurgical Surface Reconstruction](https://arxiv.org/abs/2610.30910) · 2026-10-22 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Beyond Imitation: Reinforcement Learning-Based Sim-Real Co-Training for VLA Models](https://arxiv.org/abs/2602.12628) · 2026-10-22 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Do VLAs Really Follow Instructions? Diagnosing How-Level Instruction Following in Vision-Language-Action Models](https://arxiv.org/abs/2610.21251) · 2026-10-22 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [FluxVLA Engine: A One-Stop VLA Engineering Platform for Embodied Intelligence](https://arxiv.org/abs/2609.17210) · 2026-10-22 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [DRILL: Training World Models to Improve Policies, Not Predict Pixels](https://arxiv.org/abs/2610.30814) · 2026-10-22 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [When One Step Is Enough: An Empirical Study of Euler Integration in Flow-Matching Policies](https://arxiv.org/abs/2610.30735) · 2026-10-22 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SmolVLA-MoE: Sparse Mixture-of-Experts for Efficient Multi-Task Robotic Manipulation](https://arxiv.org/abs/2610.30732) · 2026-10-22 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Perceive, Predict, and Plan: a Unified World Action Model for Egocentric Dexterous Manipulation](https://arxiv.org/abs/2610.22363) · 2026-10-22 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [NavBind: Diagnosing Instruction-Action Binding at Route Forks in Navigation VLAs](https://arxiv.org/abs/2610.29203) · 2026-10-22 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [UniMem: Unifying Visual and Textual Memory in VLAs for Non-Markovian Tasks](https://arxiv.org/abs/2608.22869) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Learning from Automatic 3D Gaussian Splatting Edits for Online Bayesian Scene Change Detection](https://arxiv.org/abs/2610.28490) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Tactile-Based Robotic Manipulation: From Mechanics-Driven to Data-Driven Perspectives](https://arxiv.org/abs/2610.30438) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [MeSS: City Mesh-Guided Outdoor Scene Generation with Cross-View Consistent Diffusion](https://arxiv.org/abs/2508.15169) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [R4DGS: Referring Segmentation in 4D Gaussian Splatting](https://arxiv.org/abs/2610.30326) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [TerraTransfer++: Demonstration-Free End-to-End Planner](https://arxiv.org/abs/2610.30319) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Agentic World Action Models](https://arxiv.org/abs/2610.30136) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Rethinking Video Autoencoders for Interactive World Models](https://arxiv.org/abs/2610.30129) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [CW-WAM: A Structured Contact-Wrench World Action Model for Force-Sensitive Manipulation](https://arxiv.org/abs/2610.30117) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [AtomicRL: Atomic Reinforcement Learning for Long-Horizon Robotic Manipulation](https://arxiv.org/abs/2610.30097) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SP-HLM: Sparse-Pose-Driven Motion Generation and Whole-Body Control for Humanoid Loco-Manipulation](https://arxiv.org/abs/2610.30044) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [ClunoGS: Compact Language 3D Gaussian Splatting via Unified Optimization](https://arxiv.org/abs/2610.30013) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [CausalAlign: Causal Alignment of Video Generation Models for Consistent Ego-Motion](https://arxiv.org/abs/2610.29915) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [FoveaVLA: Foveation Actions Replace the Wrist Camera in VLAs](https://arxiv.org/abs/2610.20064) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Post-hoc Epistemic Uncertainty for Vision-Language-Action Policies](https://arxiv.org/abs/2610.29730) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [AirPlayground: Benchmarking Aerial Navigation across Diverse Reconstructed Environments](https://arxiv.org/abs/2610.29699) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [FlowVLA: Learning Flow-Aware Physical Completion for Quantitative Robotic Pouring](https://arxiv.org/abs/2610.29692) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Spatially Gated Demographic Steering for Debiasing Multi-Person Text-to-Image Generation](https://arxiv.org/abs/2610.29651) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Unfolding 3D Gaussian Splatting via Iterative Gaussian Synopsis](https://arxiv.org/abs/2604.11685) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [From VLM Planners to Robotic Agents: Self-Evolving Harnesses for History-Dependent Manipulation](https://arxiv.org/abs/2610.29560) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SafeDojo: Safe Reinforcement Learning for VLA via Interactive World Model](https://arxiv.org/abs/2606.20698) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [AutoPhyX: Automatic Text-Condition Physics Property Generation](https://arxiv.org/abs/2610.29517) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Beyond Appearance Shifts: Task-Semantic Action Calibration for VLA Models](https://arxiv.org/abs/2609.23650) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [LiveAct: Towards Real-Time Multi-Agent World Models with Heterogeneous Action Interfaces](https://arxiv.org/abs/2610.29408) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Observation Assimilation Transformer: Probabilistic Weather Analysis from Sparse Station Observations](https://arxiv.org/abs/2610.28327) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Plan First, Act Later: Streaming Reasoning for Executable Memory in Robot Control](https://arxiv.org/abs/2610.29329) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [rMuscle: Robotic Muscle Memory for Efficient Vision-Language-Action Model Inference](https://arxiv.org/abs/2609.19104) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Relational Geometry Forcing for World Action Models](https://arxiv.org/abs/2610.29282) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [AGQ: Action-Guided Ultra-Low-Bit Quantization for Vision-Language-Action Models](https://arxiv.org/abs/2610.33074) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [PaceVLA: Adaptive Temporal Action Quantization in Vision-Language-Action Models](https://arxiv.org/abs/2610.25961) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [How Representational Priors Shape Generalization in World Action Models](https://arxiv.org/abs/2610.29168) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SimPT: An Automated Simulation Framework for Intervention-Based VLA Post-Training](https://arxiv.org/abs/2610.29161) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [VLA-Rolling: Fewer Denoising Steps, Better Control via Adaptive Action Reuse](https://arxiv.org/abs/2610.25043) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Causal world models under physical parameter shifts](https://arxiv.org/abs/2610.29088) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Move-Then-Operate: Behavioral Phasing for Human-Like Robotic Manipulation](https://arxiv.org/abs/2604.23620) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [LaLa-World: Scaling Latent World Models with Natural Language Actions](https://arxiv.org/abs/2610.27851) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [WARPED: Wrist-Aligned Rendering for Robot Policy Learning from Egocentric Human Demonstrations](https://arxiv.org/abs/2604.10809) · 2026-10-21 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Safe-Night VLA: Seeing the Unseen via Thermal-Perceptive Vision-Language-Action Models for Safety-Critical Manipulation](https://arxiv.org/abs/2603.05754) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Real2Sem2Real: 3D Semantic Augmentations for Robot Learning from a Single Human RGB Demonstration](https://arxiv.org/abs/2610.28880) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Industrial ReMEmbR: Scaling Spatiotemporal Memory to Robot Fleets](https://arxiv.org/abs/2610.28624) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [TAPDreamer: Transferable Adversarial Patches for World Action Models](https://arxiv.org/abs/2610.06814) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [KoalaGS: Complexity-Aware Continuous Level of Detail for Gaussian Splatting](https://arxiv.org/abs/2610.28615) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [EMMA: Enhancing Robotic Control Robustness through a Generative Visual Model](https://arxiv.org/abs/2509.22407) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [OverSeer: Multi-Agent World Models Beyond What Agents See](https://arxiv.org/abs/2610.28554) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Plausible Future, Wrong Choice: Steering World-Action Models toward Intended Future](https://arxiv.org/abs/2610.28431) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [DriveVLA-M0: Failure-Aware Memory Augmentation for Autonomous Driving](https://arxiv.org/abs/2608.10413) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [GALA: Geometry-Aware Language Model for Controllable Object Arrangement](https://arxiv.org/abs/2610.28280) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [OPIS: An Input-Grounded Benchmark for Multi-Object Memory in Video World Models](https://arxiv.org/abs/2609.35052) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [CrossFit-GS: Out-of-Fold Pose Estimation for COLMAP-Free 3D Gaussian Splatting](https://arxiv.org/abs/2610.28190) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Perceives but Doesn't Brake: A Perception-Action Binding Gap in Reasoning Driving VLAs](https://arxiv.org/abs/2610.28184) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [PocketGS: High-Fidelity On-Device Training for 3D Gaussian Splatting](https://arxiv.org/abs/2601.17354) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [OV-Foam: How 3D Representations Shape Semantic Feature Lifting](https://arxiv.org/abs/2610.28131) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [De-Diffusing WAMs: Action-Sufficient Direct Prediction for Robot Control](https://arxiv.org/abs/2610.28122) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [FIT-MAC: A Closed-Loop Multi-Agent Framework for Robust Vision-Language-Action Models](https://arxiv.org/abs/2610.28109) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [NestedVLA: Learning to Consolidate and Generate Skills for Vision-Language-Action Models](https://arxiv.org/abs/2610.23271) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [PACT-VLA: Speculative Action-Chunk Verification with Pre-Commit Observations](https://arxiv.org/abs/2610.28019) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Differentiable Task-Driven Coded Aperture Camera Design with 3D Gaussian Scene Representations](https://arxiv.org/abs/2610.28004) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [DEFLECT: Temporal Counterfactual Preference Learning for Delay-Robust Asynchronous VLAs](https://arxiv.org/abs/2605.19294) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [EventSync: Event-Driven Memory Updates for History-Dependent Manipulation](https://arxiv.org/abs/2610.27917) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [WorldScape Policy 2.0: Empowering Steerable World Action Modeling with Reasoning-Augmented Memory and In-Context Learning](https://arxiv.org/abs/2607.18840) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [RoboCasa-Shift: Stage-Aware Robustness Evaluation of Vision-Language-Action Policies in Long-Horizon Household Manipulation](https://arxiv.org/abs/2610.27861) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [InfiniDream: Open-Ended Photorealistic 3D Worlds Through Procedural Generation](https://arxiv.org/abs/2610.26853) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation](https://arxiv.org/abs/2604.28196) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [World2HOSI: A Multi-Expert Harness for Long-Horizon Human-Object-Scene Interaction Generation](https://arxiv.org/abs/2610.27725) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [VLA-Retain: Benchmarking Cross-Dimension Effects of Vision Tuning in VLAs](https://arxiv.org/abs/2610.27698) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [PLaCA: Learning Patch-Level Future Latent Change for Action Generation](https://arxiv.org/abs/2610.27657) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [HumanSkill-4D: Training-Free Language Querying of Animatable Gaussian Avatars in Space and Time](https://arxiv.org/abs/2610.24452) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SwitchSplat: Learning Discrete Object States from Casually Captured Scenes](https://arxiv.org/abs/2610.24812) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [KPHarness: Co-Evolving Knowledge and Probing for Long-Horizon Gaming Harnesses](https://arxiv.org/abs/2610.27417) · 2026-10-20 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [FastVLA: Task-Conditioned and Temporally Adaptive Visual Token Compression for Efficient Vision-Language-Action Models](https://arxiv.org/abs/2610.22146) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [What Would Removing This Corruption Change? Failure Attribution for Vision-Language-Action Models](https://arxiv.org/abs/2610.27277) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Flow Control: Steering Vision-Language-Action Models with Simple Real-Time Inputs](https://arxiv.org/abs/2606.10180) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [COSMOS: Model-Agnostic Personalized Federated Learning with Clustered Server Models and Pseudo-Label-Only Communication](https://arxiv.org/abs/2605.11165) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Counting Contributions, Not Views: Occlusion-Aware Densification for 3D Gaussian Splatting](https://arxiv.org/abs/2610.27108) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Ropedia W0: Scaling Loco-Manipulation World Models across Embodiments with Human Experience](https://arxiv.org/abs/2610.26855) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [PICA-WAM: Visual Perturbation Invariance via Cross-Appearance Self-Alignment in World Action Models](https://arxiv.org/abs/2610.26813) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [HandsOn: A Large-Scale Simulation Benchmark for Generalizable Dexterous Manipulation](https://arxiv.org/abs/2610.26765) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Any 3D Scene is Worth 1K Tokens: 3D-Grounded Representation for Scene Generation at Scale](https://arxiv.org/abs/2604.11331) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [HAF-VLA: Hierarchical Action Flow Framework for Humanoid Vision-Language-Action Control](https://arxiv.org/abs/2610.26584) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [PrismWAM: Decoupling State Representations in World Action Models](https://arxiv.org/abs/2610.26564) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [VLA-Pro: Cross-Task Procedural Memory Transfer for Vision-Language-Action Models](https://arxiv.org/abs/2605.29562) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Learning Geometry-Aware Planning Representations for Monocular Flight with Cross-Modal Supervision](https://arxiv.org/abs/2610.26508) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [ZipSplat: Fewer Gaussians, Better Splats](https://arxiv.org/abs/2606.05102) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SPAR: Structural Pruning and Action Recovery for Vision-Language-Action Models](https://arxiv.org/abs/2610.26487) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [ALIGN: Aligning Condition Estimation and Expression in Advantage-Conditioned Behavior Cloning](https://arxiv.org/abs/2610.26455) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [UniW\(A\)M: A Unified Mixture-of-Experts Framework for World and World-Action Models](https://arxiv.org/abs/2610.18697) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [GaussTrap: Stealthy Backdoor Attacks on 3D Gaussian Splatting for Targeted Scene Misperception](https://arxiv.org/abs/2504.20829) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [LayerRoute: Action-Conditioned Mixture-of-Layers Routing for Vision-Language-Action Policies](https://arxiv.org/abs/2609.06079) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Robotic Photography System based on Vision-Language-Action Model](https://arxiv.org/abs/2610.26287) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [BioProVLA-Agent: An Affordable, Protocol-Driven, Vision-Enhanced VLA-Enabled Embodied Multi-Agent System with Closed-Loop-Capable Reasoning for Biological Laboratory Manipulation](https://arxiv.org/abs/2605.07306) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [FR-VLA: Implicit Force Reasoning VLA for Contact-Rich Manipulation](https://arxiv.org/abs/2610.25981) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Rethinking Sparse-View 3D Gaussian Splatting: A Few-Shot Learning Perspective on Overfitting Prevention](https://arxiv.org/abs/2610.25887) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Vision-Language-Delta-Action: Learning Compact Deltas as Actionable Transition Interfaces for Robotic Manipulation](https://arxiv.org/abs/2610.25874) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [GRAIL: Generating Humanoid Loco-Manipulation from World Models](https://arxiv.org/abs/2606.05160) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [TrajWAM: An Efficient Trajectory-Guided World Action Model for Dynamic Robotic Manipulation](https://arxiv.org/abs/2610.25763) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Causal Scene Narration: Inference-Time Text Restructuring for Vision-Language-Action Driving](https://arxiv.org/abs/2604.01723) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Think Densely, Act Sparsely: Latent Expert Cognitive Chains for Vision-Language-Action Autonomous Driving](https://arxiv.org/abs/2610.25734) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [CoEvolve: Self-Evolving Code Policies from Skills to Strategies for Humanoid Robots](https://arxiv.org/abs/2610.23288) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [RxGS: Relightable Gaussian Stylization via BRDF Decomposition](https://arxiv.org/abs/2610.25681) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Frechet Forcing: Training Long-Horizon Streaming World Models from Short Clips](https://arxiv.org/abs/2610.25666) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [MAGS-SLAM: Monocular Multi-Agent Gaussian Splatting SLAM for Geometrically and Photometrically Consistent Reconstruction](https://arxiv.org/abs/2605.10760) · 2026-10-19 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [AQUAACT: A Joystick-Level Underwater Teleoperation Dataset and Closed-Loop Benchmark](https://arxiv.org/abs/2610.25534) · 2026-10-18 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [MVISTA-4D: View-Consistent 4D World Model with Test-Time Action Inference for Robotic Manipulation](https://arxiv.org/abs/2602.09878) · 2026-10-18 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [AeroDASH: Asynchronous Vision-Language-Action Control for Continuous UAV Flight](https://arxiv.org/abs/2610.25407) · 2026-10-18 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [ELAN4D: Embodiment-Centric 4D Supervision for Vision-Language-Action Models via Plug-and-Play Adaptation](https://arxiv.org/abs/2605.30484) · 2026-10-18 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [MCSplat: Multi-View Photometric and Geometric Consistent Feed-Forward Gaussian Splatting for Driving Scenes](https://arxiv.org/abs/2610.25345) · 2026-10-18 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Continually Evolving Skill Knowledge in Vision Language Action Model](https://arxiv.org/abs/2511.18085) · 2026-10-18 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [GOFusion: Real-Time Gaussian-Occupancy Submap Fusion for Fisher-Informed Autonomous Robot Navigation](https://arxiv.org/abs/2610.25261) · 2026-10-18 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Voronoi-guided Bilateral 2D Gaussian Splatting for Arbitrary-Scale Hyperspectral Image Super-Resolution](https://arxiv.org/abs/2604.17727) · 2026-10-18 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [DA-WAM: Decision-Aligned Future Latents for Driving World Models](https://arxiv.org/abs/2608.19085) · 2026-10-18 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [OUGS: Active View Selection via Object-aware Uncertainty Estimation in 3DGS](https://arxiv.org/abs/2511.09397) · 2026-10-18 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Accelerating VLA Inference with Perturbation Informed Execution](https://arxiv.org/abs/2610.19656) · 2026-10-18 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Orbia: Do Generated Videos Form a Consistent 3D World?](https://arxiv.org/abs/2610.20693) · 2026-10-18 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [AffordanceWAM: Affordance-Aware Joint World-Action Modeling for Robot Manipulation](https://arxiv.org/abs/2609.22332) · 2026-10-18 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [AffordanceVLA: A Vision-Language-Action Model Empowering Action Generation through Affordance-Aware Understanding](https://arxiv.org/abs/2606.06155) · 2026-10-18 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [FineSplat: Fine Patches, Local Groups, Detailed Splats](https://arxiv.org/abs/2610.25011) · 2026-10-18 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Directionally Factorized Illumination with Spherical Harmonic Rotation](https://arxiv.org/abs/2610.24811) · 2026-10-17 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SARAM: Sparse Adapter Allocation with Reuse and Merging for Lifelong Robot Learning](https://arxiv.org/abs/2610.24804) · 2026-10-17 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [EndoVLA-OOV: Language-Conditioned Out-of-View Target Acquisition in Robotic Endoscopy](https://arxiv.org/abs/2610.24747) · 2026-10-17 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Relational Spatial Alignment for Vision-Language-Action Models](https://arxiv.org/abs/2610.24705) · 2026-10-17 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [RoMo-GS: Efficient Online 3D Gaussian Splatting for Robot Mapping via Exposure-Integrated Motion Blur](https://arxiv.org/abs/2610.24605) · 2026-10-17 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Scene-Adaptive VLA: Efficient Autonomous Driving via Dynamic Layer Routing](https://arxiv.org/abs/2610.24590) · 2026-10-17 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [LIBERO-Pro2.0: A Benchmark for Evaluating the Robustness of Embodied Foundation Models](https://arxiv.org/abs/2610.24587) · 2026-10-17 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Retrieval-triggered Action Projection Adjustment for Frozen VLA Policies: An Empirical Study and Failure Analysis](https://arxiv.org/abs/2610.24573) · 2026-10-17 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Codec-Compatible Learned Compression for 3D Gaussian Splatting](https://arxiv.org/abs/2610.26920) · 2026-10-17 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Structured Latent Dynamics for Long-Horizon Embodied World Models](https://arxiv.org/abs/2610.24534) · 2026-10-17 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [GTSM: Gaussian Splatting with Thermal State-Space Dynamics for Spatio-Temporal Thermal Field Reconstruction and Prediction](https://arxiv.org/abs/2610.26918) · 2026-10-17 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [GazeAct: A Human-Gaze-Annotated Manipulation Dataset for Attention-Regularized Policies](https://arxiv.org/abs/2610.24507) · 2026-10-17 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [RARA: Robust Policy Fine-Tuning through Retrieval-Anchored Representation Alignment for Robotic Manipulation](https://arxiv.org/abs/2610.13578) · 2026-10-17 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [EGGHead: Efficient Generalizable Gaussian Heads from a Single Image](https://arxiv.org/abs/2610.26898) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Learning What to Say to Your VLA: Mostly Harmless Vision Language Action Model Steering](https://arxiv.org/abs/2606.12299) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Persistent Planar Memory for Video World Models](https://arxiv.org/abs/2610.23795) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [DexBioLab: Benchmarking Dexterous Manipulation with Dynamic Experimental Phenomena in Realistic Laboratories](https://arxiv.org/abs/2610.13643) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Enhancing Visual Task-Redirection Attacks on Vision-Language-Action Models via Closed-Loop Optimization](https://arxiv.org/abs/2610.23566) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Execution Before Memory: Diagnosing Memory Failures in Video World Models](https://arxiv.org/abs/2610.23542) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Confidence Calibration in Vision-Language-Action Models](https://arxiv.org/abs/2507.17383) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Momentum: Persistent Dynamics for Video World Models](https://arxiv.org/abs/2610.23423) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [AWAM: Active Trajectory-Conditioned View Imagination for Robust Robot Manipulation](https://arxiv.org/abs/2610.23396) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Look Before You Act: Bridging Active Perception and Vision-Language-Action Models via Observation-Aligned Data Adaptation](https://arxiv.org/abs/2610.23378) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Beyond Success Rate: Interventional Evaluation of Memory in Vision-Language-Action Systems](https://arxiv.org/abs/2610.23372) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [From Sliding Windows to Self-evolving Lifelong Memory: A Dual-perspective Survey of Memory Paradigms for Long-Horizon Robotics VLA Models](https://arxiv.org/abs/2610.23319) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [NativeMEM: Native Memory Compression for Long-Horizon Robotic Manipulation](https://arxiv.org/abs/2607.06678) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [LY-GWM-RoboCasa-Human300: Prediction-Guided Action Selection with a Graph Dynamics Model](https://arxiv.org/abs/2610.23274) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [RealtimeWAM: One-Step Asynchronous World Action Models](https://arxiv.org/abs/2610.06617) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [OxyGen: Unified KV Cache Management for VLA Inference under Multi-Task Parallelism](https://arxiv.org/abs/2603.14371) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [GRASP: Global-Local Representation Alignment and Spatial-Physical Grounding for Bimanual Robotic Manipulation](https://arxiv.org/abs/2610.23123) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Scene-Designer: Learning Design Intelligence for Agentic 3D Scene Generation](https://arxiv.org/abs/2610.23121) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Unifying Embodied Foundation Models via a Model-to-Policy Formulation](https://arxiv.org/abs/2610.23053) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [VLA-Fabric: Learning Interaction for Composable Multi-Arm VLA Agents](https://arxiv.org/abs/2610.23018) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [RoboHarness: A Simple Harness Outperforms VLA and World Action Models](https://arxiv.org/abs/2610.14018) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Demystifying When and Why VLAs Fail in Contact-Rich Tasks and How to Fix Them](https://arxiv.org/abs/2608.01402) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [MambaAct: Efficient Mamba Action Experts for Flow-Matching Vision-Language-Action Models](https://arxiv.org/abs/2610.22951) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [When Does Corruption Break the Plan? A Degradation-Tolerance Benchmark for Camera-Only End-to-End Driving](https://arxiv.org/abs/2608.29005) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [AnyRank: Reliable Anytime Policy Ranking via Sequential Testing](https://arxiv.org/abs/2610.14603) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [CryoSplat: Gaussian Splatting for Cryo-EM Homogeneous Reconstruction](https://arxiv.org/abs/2508.04929) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Direct Conditional Parameterization for N-Dimensional Splatting](https://arxiv.org/abs/2610.22778) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [WireCraft: A Simulation Benchmark for Industrial DLO Manipulation](https://arxiv.org/abs/2606.18097) · 2026-10-16 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Same Goal, Different Words: Spatial Instruction Sensitivity in World-Action Models](https://arxiv.org/abs/2610.16242) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [When Plans Change, Remember: Replanning-Guided Visual Memory for Vision-Language-Action Models](https://arxiv.org/abs/2610.22556) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [CodecSplat: Ultra-Compact Latent Coding for Feed-Forward 3D Gaussian Splatting](https://arxiv.org/abs/2605.25563) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [KFS$^4$LAM: Adaptive KeyFrame Selection with Structure-Aware Mapping for Endoscopic Gaussian Splatting SLAM](https://arxiv.org/abs/2610.22505) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [T2-z: Test-Time Optimization of Environment Latents for Robotic World Models](https://arxiv.org/abs/2610.22364) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [EmbodiedMidtrain: Bridging the Gap between Vision-Language Models and Vision-Language-Action Models via Mid-training](https://arxiv.org/abs/2604.20012) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Sim-to-Real Reinforcement Learning for Path-Safe Target Reaching in Robotic Harvesting of Hydroponic Lettuce](https://arxiv.org/abs/2610.22337) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Velox: Spatial Memory Makes World Models Efficient](https://arxiv.org/abs/2610.22311) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [REKI: Registering Knowledge in VLAs](https://arxiv.org/abs/2610.22178) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [DriveWorld3D Evidence Constrained 3D World Modeling and Generative Simulation for Real-World Autonomous Driving](https://arxiv.org/abs/2610.22450) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Memory as Weights: Internalizing Long-Term History for Streaming Videos](https://arxiv.org/abs/2610.22070) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [VeriVLA: Adaptive Test-Time Verification for Flow-Based VLAs with Latent World Models](https://arxiv.org/abs/2610.21985) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [TS-WAM: Temporal Latent Actions and World-Action Coupling for Vision-Language Robot Control](https://arxiv.org/abs/2610.21922) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [What Should Robot Policies Learn to Predict? Rethinking Supervision Targets in Vision-Language-Action Learning](https://arxiv.org/abs/2610.21915) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [LoopWAM: Closed-Loop Generalist Policy Improvement from Deployment Rollouts](https://arxiv.org/abs/2610.18873) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Cross-Embodiment Causal Transfer from Human Videos to Robot Manipulation](https://arxiv.org/abs/2610.21798) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Edit4D: Editable 4D Scene Generation with Textual Control](https://arxiv.org/abs/2610.21668) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Anchor3DGS: Feed-Forward 3D Gaussian Splatting with Compact Anchor-Based Representation](https://arxiv.org/abs/2610.21634) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Training-Free Target-Aware Refinement of 3D Gaussian Language Map](https://arxiv.org/abs/2610.21619) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Beyond Single-Axis Testing: Paired Evaluation of Compound Robustness in Vision-Language-Action Policies](https://arxiv.org/abs/2609.15940) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Multi-Teacher On-Policy Distillation for Flow-Based Vision-Language-Action Models](https://arxiv.org/abs/2610.21522) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [RUSplatting: Robust 3D Gaussian Splatting for Sparse-View Underwater Scene Reconstruction](https://arxiv.org/abs/2505.15737) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [CarryOn: A Dual-Loop Harness for Personalized and Reliable Robot Assistance](https://arxiv.org/abs/2610.21453) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Policy-Aligned Predictive Verification for Adaptive VLA Action-Chunk Execution](https://arxiv.org/abs/2610.21434) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Fast-VLA: You Only Think Once for Robot Manipulation](https://arxiv.org/abs/2610.21389) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Revisiting Embodied Chain-of-Thought for Generalizable Robot Manipulation](https://arxiv.org/abs/2606.03784) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [VLA-$Δ$: Learning Physical State Transition for Vision-Language-Action Models](https://arxiv.org/abs/2610.21306) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [When to Ask for Help: A Decision-Theoretic Account and Measurement Standard for Slow-Module Scheduling in Dual-System Vision-Language-Action Models](https://arxiv.org/abs/2610.21160) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [KODA: Kinematics--Observation Data Alignment for Humanoid Learning from Human Egocentric Demonstration](https://arxiv.org/abs/2610.21152) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [GS-PRM: Gaussian Visual Roadmap for Image-Goal Navigation](https://arxiv.org/abs/2610.19541) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [ResStreamGS: Residual-Sensitive Dual-Stream Gaussian Splatting for Mobile Volumetric Video Streaming](https://arxiv.org/abs/2610.21121) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [RM-WAM: Reliable Memory-Augmented World Action Models for Long-Horizon Robot Manipulation](https://arxiv.org/abs/2610.15305) · 2026-10-15 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SAPS: Shared Autonomy for Policy Steering by Blending Teleoperation with a Pretrained VLA](https://arxiv.org/abs/2606.15568) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [ValueFormer: Stage-Aware Value Labels for Online Failure Detection and VLA Post-Training](https://arxiv.org/abs/2608.02958) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Multi-Dimensional Featurizers Yield Fine-Grained Steering and Data Shaping in Robot Foundation Models](https://arxiv.org/abs/2610.20767) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Causal Analysis of Robot Foundation Models Enables Efficiency Gains](https://arxiv.org/abs/2610.20750) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SafeDriveVLA: Navigation-Conditioned World Model Dreaming for Conflict-Aware End-to-End Autonomous Driving](https://arxiv.org/abs/2610.20609) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [VITAL: From Visual Motion to Precise Action](https://arxiv.org/abs/2610.20604) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [PhyMix: Towards Physically Consistent Single-Image 3D Indoor Scene Generation with Implicit--Explicit Optimization](https://arxiv.org/abs/2604.10125) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Graph-Reweighted Behavior Cloning with Human Interventions for Precise Robotic Manipulation](https://arxiv.org/abs/2610.20504) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Naka-GS: Naka-Guided Chroma Correction and Point-Prior Compaction for Low-Light 3D Gaussian Splatting](https://arxiv.org/abs/2604.11142) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [UniWAM: Unified World-Action Model](https://arxiv.org/abs/2610.02054) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Towards Agentic Robots: Model, Data, Environment, and Harness](https://arxiv.org/abs/2610.20442) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Interaction Latents as Actions for Contact-Rich Manipulation](https://arxiv.org/abs/2610.18855) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Where Should the Gaussians Go? Reusable Label-Aware Allocation for Budget-Constrained Gaussian Splatting of Cinematic CT](https://arxiv.org/abs/2610.20397) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Human Demonstrations as Post-Training Data for Any Robot Body: Retargeting the Object, Not the Hand](https://arxiv.org/abs/2610.20351) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [NeuronSifter: An Agent-in-Twin for Prioritizing Central Nervous System Interventions with World Action Models](https://arxiv.org/abs/2609.35445) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [NeuronDiscover: Agent-in-Twin for Mechanistic Discovery in Neuronal Microenvironments with World Action Models](https://arxiv.org/abs/2609.35338) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [ObjDream: Guiding Vision-Language-Action Models with Object-Level Understanding and Future State Prediction](https://arxiv.org/abs/2610.20223) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Glance Forcing: Making Bidirectional Diffusion Autoregressive at a Glance](https://arxiv.org/abs/2610.20220) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [OneLA: Learning Many Worlds from Latent Actions](https://arxiv.org/abs/2610.20160) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Atomic-WAM: Execution-Grounded Atomic-Motion Reasoning for World Action Models](https://arxiv.org/abs/2610.20157) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [CoTL: Compact Token Learning for 3D Scene Representation](https://arxiv.org/abs/2610.18446) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Physics-Integrated Operator Learning via Gaussian Splatting Representations](https://arxiv.org/abs/2608.24049) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [G$^3$VLA: Geometric Inductive Bias for Vision-Language-Action Models](https://arxiv.org/abs/2606.24472) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Data-Free Continual Learning for World Action Model with Rectified Generative Replay](https://arxiv.org/abs/2610.18038) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SnapFlow: One-Step Action Generation for Flow-Matching VLAs via Progressive Self-Distillation](https://arxiv.org/abs/2604.05656) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Complementary Future Token Pruning for World Action Models](https://arxiv.org/abs/2610.19957) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [VisibilitySplat: Ray-Traced Occlusion for Relighting with 3D Gaussian Splatting](https://arxiv.org/abs/2610.19847) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [What Matters for World Modeling in Vision-Language-Action Models?](https://arxiv.org/abs/2610.19825) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [StateCraft: Augmenting Video World Models with Abstract-State Reasoning](https://arxiv.org/abs/2610.19795) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Coordi-pi: Coordination-Aware Dual-Hand Action Representation for Bimanual Dexterous Manipulation](https://arxiv.org/abs/2610.19753) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [HyperLoop: Hyperspectral-Assisted Loop Closure Detection in 3D-SLAM for Planetary Exploration](https://arxiv.org/abs/2610.19742) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SceneAE: Scene Generation and Reconstruction in Queryable 3D-Anchored Latent Space](https://arxiv.org/abs/2610.19708) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Time-JEPA: Grounding Video World Models with Physical Time Series](https://arxiv.org/abs/2610.23982) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [ACRO: Actor-Critic Rollout Orchestration](https://arxiv.org/abs/2610.19677) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SPECTRA-VLA: Base-Fine Hyperspectral Token Transfer at Frozen Vision-Language-Action Interfaces](https://arxiv.org/abs/2610.19651) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [ForceBench: Benchmarking Force Integration for Robotic Manipulation](https://arxiv.org/abs/2610.19604) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Don't Run with Scissors: Pruning Breaks VLA Models but They Can Be Recovered](https://arxiv.org/abs/2510.08464) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Cracking Mobile Manipulation: From Failure Diagnosis to Agentic Robot System](https://arxiv.org/abs/2610.19600) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Back on Track: Deployment-time Policy Improvement via World Model Planning](https://arxiv.org/abs/2610.19579) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [RDCompGS: Rate-Distortion Optimization for Compression of 3D Gaussian Splatting with Image Codecs](https://arxiv.org/abs/2610.19538) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [VLRLA: Deployment-Time Adaptation of Vision-Language-Action Models through In-Context Reinforcement Learning](https://arxiv.org/abs/2610.19517) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Holi-Spatial 360: Generative Reconstruction from Sparse Panoramas for Spatial Rendering and Intelligence](https://arxiv.org/abs/2610.19502) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Robota-Embed: Unified VLA Embeddings for Robot In-Context Learning and Evolution](https://arxiv.org/abs/2610.19495) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Paraphrase Consensus Is Not Self-Consistency: Instruction Reliance and Robustness in VLA Policies](https://arxiv.org/abs/2610.19438) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [LEGS: Fine-Tuning Teleop-Free VLAs for Humanoid Loco-manipulation in an Embodied Gaussian Splatting World](https://arxiv.org/abs/2606.01458) · 2026-10-14 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [LIME: Learning Intent-aware Camera Motion from Egocentric Video](https://arxiv.org/abs/2607.02417) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [End-to-End Vision-Language-Action Policies for Autonomous Lunar Rover Docking](https://arxiv.org/abs/2610.19224) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [TrAct: Bridging Robot Control and Visual Prediction with Visual Tracks](https://arxiv.org/abs/2608.24101) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Post-Training, Finetuning, and Steering:A Field Guide for Curating Training Data](https://arxiv.org/abs/2610.19143) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [FACT: Failure-Aware Causal Training for World-Action Models](https://arxiv.org/abs/2608.10232) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [DoReMe: Dual optimization of Reconstruction and Motion estimation for self-navigated free-breathing abdominal MRI using Gaussian Splatting](https://arxiv.org/abs/2610.19120) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [WorldMemBench: A Comprehensive Benchmark for Memory of Video World Models](https://arxiv.org/abs/2610.19063) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Failing Forward: Adaptive Failure-Informed Learning for Vision-Language-Action Models](https://arxiv.org/abs/2605.08434) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [ChunkAct: Action Chunking for Agentic Robotics](https://arxiv.org/abs/2610.18874) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [What Matters in Quality-Aware VLA Pretraining: A Benchmark and Empirical Study](https://arxiv.org/abs/2610.18869) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [ForceWAM: Decoupling Future and Response Learning from Demo and Play Data for Contact-Rich Manipulation](https://arxiv.org/abs/2610.18852) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [WorldRecon: Generative Multi-View Mesh Reconstruction for Large-Scale 3D World](https://arxiv.org/abs/2610.18846) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [LIBERO-RIG: A Hardware-Setup Robustness Benchmark for Vision-Language-Action Models](https://arxiv.org/abs/2610.18843) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SEAR: Self-Evolving Agentic Robotics](https://arxiv.org/abs/2610.18792) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [EqC: Equilibrium Energy Control for Introspective Lifelong Robot Learning](https://arxiv.org/abs/2610.18790) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [GreenWAM: A World Foundation Model for Robotics](https://arxiv.org/abs/2610.18774) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Fewer Tokens, Better Action: GPT-6 Astra Robot Agents with 14% Higher Success Rate but 65% Fewer Tokens](https://arxiv.org/abs/2610.01939) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [ForkCast: Predictive Recovery for Vision-Language-Action Policies via Counterfactual Futures](https://arxiv.org/abs/2610.18650) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Grid or Nodes? Probing Object Memory in World Models Under Partial Observability](https://arxiv.org/abs/2610.18637) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [WAVE-0: Bridging VLA Policies and WAMs with Lightweight Latent Future Prediction](https://arxiv.org/abs/2610.18568) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Programmable World Model](https://arxiv.org/abs/2609.10540) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Benchmarking Interaction-Oriented Aerial Mobility across Heterogeneous Environments](https://arxiv.org/abs/2610.18381) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Tactile Curiosity Drives Robot Interaction](https://arxiv.org/abs/2609.40134) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [MLP Splatting: Object-Centric Neural Fields](https://arxiv.org/abs/2606.03877) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Satellite-Free Training for Drone-View Geo-Localization](https://arxiv.org/abs/2604.01581) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [WSA$\_1$: a 3D-Centric World-Spatial-Action Model for Generalizable Robot Control](https://arxiv.org/abs/2607.03941) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [X2Real: an eXtensive simulation benchmark for real-world generalist policies](https://arxiv.org/abs/2609.27449) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [FiberTune: Preserving Action-Fiber Visual Residuals in Vision-Language-Action Fine-Tuning](https://arxiv.org/abs/2606.08653) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [AffordDrive3D: Affordance-Aware World-Action Modeling with Spatial Understanding](https://arxiv.org/abs/2610.11060) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [TRACE: Efficient Transfer Learning for Neural Whole-Body Control Across Humanoid Embodiments](https://arxiv.org/abs/2610.17999) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Breaking the Average: Overcoming Convergent Defaults in Robotic Manipulation via Diagnostic Chain-of-Thought and Structured Guidance](https://arxiv.org/abs/2610.17983) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [PUGS: Physics-Guided Uncertainty Modeling for Underwater Dynamic 3D Gaussian Splatting](https://arxiv.org/abs/2610.17936) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [WoVR+: World Model as Reliable Simulator for Versatile VLA Policy Optimization with RL](https://arxiv.org/abs/2610.17922) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Goal2Skill: Long-Horizon Manipulation with Adaptive Planning and Reflection](https://arxiv.org/abs/2604.13942) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SeeTraceAct: Visibility-Aware Latent Planning from Cross-Embodiment Demonstration Videos](https://arxiv.org/abs/2606.02745) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [METIS: Multi-Source Egocentric Training for Integrated Dexterous Vision-Language-Action Model](https://arxiv.org/abs/2511.17366) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [EgoWAM: World Action Models Beyond Pixels with In-the-Wild Egocentric Human Data](https://arxiv.org/abs/2607.08436) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [A Differentiable 3D Scene Graph Metric via Contextual Hellinger Triplet Geometry](https://arxiv.org/abs/2610.17705) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [OccWAM: Occupancy World-Action Models with Joint Scene-to-Ego Flow Matching](https://arxiv.org/abs/2610.17688) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Learning to Assist: Collaborative VLAs for Implicit Human-Robot Collaboration](https://arxiv.org/abs/2606.12475) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Acting Through Registers](https://arxiv.org/abs/2610.17638) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [From Pixels to Executable Physics: Behavior-Grounded World Models for Embodied Action Consequence Prediction](https://arxiv.org/abs/2610.17630) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [PLEDGE: Progressive Lossy Error-Bounded Compression of 3D Gaussian Splatting](https://arxiv.org/abs/2610.17605) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [WARP-VLA: Wrist-Camera Adaptation for View-Robust Policy Execution in Vision-Language-Action Models](https://arxiv.org/abs/2610.11508) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Sparse-GS2Mesh: 3D Gaussian Splatting Guided by Novel Stereo Views and 2DGS for Sparse View Surface Reconstruction](https://arxiv.org/abs/2610.04203) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [NeuroVLA: A Brain-inspired Embodied Intelligence for Fluid and Fast Reflexive Robotics Control](https://arxiv.org/abs/2601.14628) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [TacitVLA: Reasoning Vision-Language-Action Models Without Reasoning Latency](https://arxiv.org/abs/2610.17540) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Box-WAM: Box Trajectories as Compact State Representations for World Action Models](https://arxiv.org/abs/2610.17526) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [BayesFP: Posterior Estimation for Flow-Based Policies via Feynman-Kac Sampling](https://arxiv.org/abs/2606.21014) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [YUBI-Real2Sim: 3DGS Scene Verification for Reliable Policy Evaluation](https://arxiv.org/abs/2610.17521) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Gaussian Splatting for Real-Time Scene Reconstruction: Methods, Systems, and Trade-offs](https://arxiv.org/abs/2610.17513) · 2026-10-13 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [World-T3: Test-Time Training as Persistent Memory for Real-Time Video World Models](https://arxiv.org/abs/2610.17434) · 2026-10-12 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SplatBus: A Gaussian Splatting Viewer Framework via GPU Interprocess Communication](https://arxiv.org/abs/2601.15431) · 2026-10-12 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Towards Long-horizon Embodied Agents with Tool-Aligned Vision-Language-Action Models](https://arxiv.org/abs/2605.13119) · 2026-10-12 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [MARS: Systematic Multi-Level Acceleration for World Action Models](https://arxiv.org/abs/2610.17141) · 2026-10-12 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [AUGUstus: Autonomous Driving VLA Model with Unified Generation and Understanding](https://arxiv.org/abs/2610.16985) · 2026-10-12 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [UniLAP: A Unified Latent Action Policy for Cross-Embodiment Manipulation](https://arxiv.org/abs/2610.16969) · 2026-10-12 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Artificial Foveated Perception for Mitigating Shortcut Learning in Robotic Foundation Models](https://arxiv.org/abs/2607.10655) · 2026-10-12 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [AnolisVLA: Lightweight Vision-Language-Action Model with Deep State Space Models for Mobile Manipulation](https://arxiv.org/abs/2603.15046) · 2026-10-12 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [What Limits Cross-Task Generalization in World Action Models?](https://arxiv.org/abs/2610.16641) · 2026-10-12 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Language2Drive: Do Vision-Language-Action Models Really Follow the Instructions in Autonomous Driving?](https://arxiv.org/abs/2610.16634) · 2026-10-12 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [GS-DOT: Gaussian splatting-based image reconstruction for diffuse optical tomography](https://arxiv.org/abs/2604.23675) · 2026-10-12 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [VLA-GAUGE: Systematically Evaluating Generalization and Robustness in Vision-Language-Action Models](https://arxiv.org/abs/2610.16567) · 2026-10-12 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [G$^2$WAM: World Action Models for Efficient and Geometry Grounded Image-Goal Navigation](https://arxiv.org/abs/2610.16558) · 2026-10-12 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [Trust-Calibrated VLA Policy Post-Training with Evolving Imagination](https://arxiv.org/abs/2610.16517) · 2026-10-12 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
+- [SONIC: Supersizing motion tracking for natural humanoid whole-body control](https://github.com/NVlabs/GR00T-WholeBodyControl) · 2025-11-11 · NVIDIA 연구실 공식 목록 · 코드·가중치 이용 조건은 별도 확인
+- [Addressable Memory for Video World Models](https://research.nvidia.com/labs/sil/projects/WorldTrace/) · 날짜 미제공 · NVIDIA 연구실 공식 목록 · 코드·가중치 이용 조건은 별도 확인
+- [State of the Art in Grid-Free Monte Carlo Methods for Partial Differential Equations](https://github.com/nv-tlabs/wosx) · 날짜 미제공 · NVIDIA 연구실 공식 목록 · 코드·가중치 이용 조건은 별도 확인
+- [nv-tlabs/wosx · LICENSE](https://github.com/nv-tlabs/wosx/blob/main/LICENSE) · 날짜 미제공 · GitHub 라이선스 표기 Apache-2.0
+- [NVlabs/USDCraft · LICENSE](https://github.com/NVlabs/USDCraft/blob/main/LICENSE) · 날짜 미제공 · GitHub 라이선스 표기 Apache-2.0
+- [NVlabs/Grana · LICENSE](https://github.com/NVlabs/Grana/blob/main/LICENSE) · 날짜 미제공 · GitHub 라이선스 표기 Apache-2.0
+- [nv-tlabs/lidarverse · LICENSE](https://github.com/nv-tlabs/lidarverse/blob/main/LICENSE) · 날짜 미제공 · GitHub 라이선스 표기 Apache-2.0
+- [NVlabs/Flora · LICENSE](https://github.com/NVlabs/Flora/blob/main/LICENSE) · 날짜 미제공 · GitHub 라이선스 표기 NOASSERTION
+- [VFlashEnabling System-1 VLMsfor Physical AI.](https://research.nvidia.com/labs/lpr/vflash/) · 날짜 미제공 · NVIDIA 공식 프로젝트 재확인 · 명시된 코드·가중치 배포 버튼
+- [NVIDIA OmniDreams: Real-Time Generative World Model for Closed-Loop Autonomous Vehicle Simulation](https://research.nvidia.com/labs/sil/projects/omnidreams-blog/) · 날짜 미제공 · NVIDIA 공식 프로젝트 재확인 · 명시된 코드·가중치 배포 버튼
 - [nvidia/simready-central-library](https://huggingface.co/datasets/nvidia/simready-central-library) · 2026-11-20 · 접근 절차 필요 · 모델/데이터 카드 라이선스 apache-2.0
 - [NVIDIA/NeMo-Relay · 0.11.2](https://github.com/NVIDIA/NeMo-Relay/releases/tag/0.11.2) · 2026-11-20 · 릴리스
 - [NVIDIA-NeMo/DataDesigner · v1.0.0](https://github.com/NVIDIA-NeMo/DataDesigner/releases/tag/v1.0.0) · 2026-11-20 · 릴리스
@@ -386,7 +898,6 @@
 - [FINCOSMOS: An Open-World Evaluation Paradigm for Agents in Finance](https://arxiv.org/abs/2611.07464) · 2026-11-11 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [ProTEUS: A mutation-resolved world model for closed-loop protein evolution](https://arxiv.org/abs/2611.13348) · 2026-11-11 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [PhyRubric: Rubric-Grounded Diagnostic Evaluation of Physical Commonsense in Text-to-Video Generation](https://arxiv.org/abs/2611.13576) · 2026-11-11 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [DyCraft: An Agentic System for Long-Horizon 4D Scene Generation](https://arxiv.org/abs/2610.40754) · 2026-11-11 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [LEASH: Stay Safe in Agentic Robotics](https://arxiv.org/abs/2611.14115) · 2026-11-11 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Learning to Act with World Models by Valuing What Comes Next](https://arxiv.org/abs/2611.12200) · 2026-11-11 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [ExRL: Sample-Efficient Online Adaptation of Long-Chunk Policies via Execution Length Control](https://arxiv.org/abs/2611.13482) · 2026-11-11 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
@@ -673,7 +1184,6 @@
 - [NVIDIA/ncore · v20.0.0-beta.1](https://github.com/NVIDIA/ncore/releases/tag/v20.0.0-beta.1) · 2026-11-03 · 프리릴리스
 - [Online Hamilton-Jacobi Reachability Onboard the Robot Control Loop: A Real-Time GPU Solver for Safety-Critical Autonomy](https://arxiv.org/abs/2611.04096) · 2026-11-03 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
 - [Flow Equivariant World Models: Structured Memory for Dynamic Environments](https://arxiv.org/abs/2601.01075) · 2026-11-03 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
-- [Video Generation Meets Agent Harness: Agentic Video Generation, Agentic World Modeling and Recursive Self-Improvement](https://arxiv.org/abs/2610.40191) · 2026-11-03 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Democratizing Robot-Use Agents: A Unified Harness with Open Models](https://arxiv.org/abs/2611.01560) · 2026-11-03 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [History Forcing: Distilling History-Dependent Continuations for Long-Horizon Video World Models](https://arxiv.org/abs/2611.02782) · 2026-11-03 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [TinyAstral: Transferring Self-Evolving Harnesses to Tiny Generalist Manipulation Agents](https://arxiv.org/abs/2610.41216) · 2026-11-03 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
@@ -713,14 +1223,9 @@
 - [OpenHLM: An Empirical Recipe for Whole-Body Humanoid Loco-Manipulation](https://arxiv.org/abs/2606.22174) · 2026-11-02 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
 - [LOGIV: Graph-Verified Execution with Causal Local Repair for Long-Horizon Robot Tasks](https://arxiv.org/abs/2610.40016) · 2026-11-02 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
 - [AgiWorld: An Agentic Video World Model for Building Persistent Worlds](https://arxiv.org/abs/2611.02341) · 2026-11-02 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
-- [Grana: Compositional Reward Modeling for Long-Horizon Robot Manipulation](https://research.nvidia.com/labs/gear/grana/) · 2026-11-02 · NVIDIA 연구실 공식 목록 · 코드·가중치 이용 조건은 별도 확인
 - [Venus-DefakerOne2: A Vision-Forensics Foundation Model with Broader Coverage](https://arxiv.org/abs/2610.37918) · 2026-11-02 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [CaPtain: A Pipeline for Post-Training Code-as-Policy Robot Agents](https://arxiv.org/abs/2610.40799) · 2026-11-02 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [HiFOR: Hierarchical Foresight with Action-Guided World Grounding for Vision-Language-Action Model](https://arxiv.org/abs/2610.40373) · 2026-11-02 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [REA: A Routed Embodied Agent Runtime for Asynchronous Brain-Cerebellum Control](https://arxiv.org/abs/2610.42053) · 2026-11-02 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [OSWAM: An Effective World Action Model with One-Step Action Generation](https://arxiv.org/abs/2610.35850) · 2026-11-02 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [RoboArchitect: Automating the Design of Robotic Agents with Persistent Memory](https://arxiv.org/abs/2610.42141) · 2026-11-02 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [CausalWAM: Learning the Causes of Actions in World Action Models](https://arxiv.org/abs/2610.42096) · 2026-11-02 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Learning Quality-Controllable Robot Policies with Iterative Hindsight Relabeling](https://arxiv.org/abs/2610.37393) · 2026-11-02 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [SketchDirector: Complex Scene Sketching via Agentic Layout Reasoning and Detail Refinement](https://arxiv.org/abs/2610.41260) · 2026-11-02 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [SVD-Prune: Spectral Vision Token Pruning under Extreme Compression](https://arxiv.org/abs/2611.02284) · 2026-11-01 · arXiv 프리프린트 · 소속·공개 범위는 원문에서 확인
@@ -760,8 +1265,6 @@
 - [NVIDIA/cosmos-data-factory · cdf-1.2](https://github.com/NVIDIA/cosmos-data-factory/releases/tag/cdf-1.2) · 2026-10-30 · 릴리스
 - [NVIDIA-NeMo/Megatron-Bridge · v0.7.0](https://github.com/NVIDIA-NeMo/Megatron-Bridge/releases/tag/v0.7.0) · 2026-10-30 · 릴리스
 - [L3G-World: Real-Time Infinite World Generation with Latent 3D Gaussian Memory](https://arxiv.org/abs/2610.40614) · 2026-10-30 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [OpenFlyV2: An onboard vision-language-action model for aerial perception and navigation](https://arxiv.org/abs/2610.39287) · 2026-10-30 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [SO-101 Bench: Accessible Spatial Manipulation](https://arxiv.org/abs/2610.36420) · 2026-10-30 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B-NVFP4](https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B-NVFP4) · 2026-10-29 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 other
 - [nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B-FP8](https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B-FP8) · 2026-10-29 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 other
 - [nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B](https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B) · 2026-10-29 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 other
@@ -773,10 +1276,8 @@
 - [nvidia/Nemotron-Pretraining-Indic-Specialized-v1](https://huggingface.co/datasets/nvidia/Nemotron-Pretraining-Indic-Specialized-v1) · 2026-10-29 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 other
 - [nvidia/Nemotron-Pretraining-Indic-CC-v1](https://huggingface.co/datasets/nvidia/Nemotron-Pretraining-Indic-CC-v1) · 2026-10-29 · 접근 절차 필요 · 모델/데이터 카드 라이선스 other
 - [Evaluating DeepSeek V4.1 Flash-1017 for loss of control and harmful manipulation risks](https://arxiv.org/abs/2610.35671) · 2026-10-29 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [Sensorimotor Alignment: A Platonic Proxy for Embodied Policy Success](https://arxiv.org/abs/2610.31670) · 2026-10-29 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [LOB-Impact Benchmark: Emergent Market Impact in Generative Limit Order Book Models](https://arxiv.org/abs/2610.27100) · 2026-10-29 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [CausGround: Causal Interaction Grounding for Adaptive Embodied Planning](https://arxiv.org/abs/2610.29702) · 2026-10-29 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [HuGe: Scaling Humanoid Generalist Vision-Language-Action Models with Egocentric Experience](https://arxiv.org/abs/2610.34186) · 2026-10-29 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [nvidia/CWIP-1.0](https://huggingface.co/nvidia/CWIP-1.0) · 2026-10-28 · 접근 절차 필요 · 모델/데이터 카드 라이선스 미확인
 - [nvidia/Nemotron-CC-Code-v1](https://huggingface.co/datasets/nvidia/Nemotron-CC-Code-v1) · 2026-10-28 · 접근 절차 필요 · 모델/데이터 카드 라이선스 \['cc-by-4.0', 'cc-by-sa-4.0', 'gfdl', 'other'\]
 - [nvidia/Open-SWE-Traces](https://huggingface.co/datasets/nvidia/Open-SWE-Traces) · 2026-10-28 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 cc-by-4.0
@@ -799,14 +1300,9 @@
 - [NVIDIA/NeMo-Relay · 0.11.0](https://github.com/NVIDIA/NeMo-Relay/releases/tag/0.11.0) · 2026-10-28 · 릴리스
 - [nvidia/NLD-Uni](https://huggingface.co/nvidia/NLD-Uni) · 2026-10-28 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 미확인
 - [nvidia/Muse-Spark-Open-816B-A42B-DFlash2](https://huggingface.co/nvidia/Muse-Spark-Open-816B-A42B-DFlash2) · 2026-10-28 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 other
-- [Hy-Nomas: Towards Free-form Interactive World Generation](https://arxiv.org/abs/2610.36729) · 2026-10-28 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [ThinkWorld: World Imagination Reinforces Chain-of-Dynamics Reasoning](https://arxiv.org/abs/2610.37666) · 2026-10-28 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Rollback: Experience Backtracking in World Models for Policy Improvement](https://arxiv.org/abs/2610.36068) · 2026-10-28 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [Benchmarking Obstacle-Conditioned Safety in Household Robot Navigation](https://arxiv.org/abs/2610.34674) · 2026-10-28 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [RynnWorld-Latent: A Cross-Embodiment World Model Conditioned on Universal Latent Actions](https://arxiv.org/abs/2610.36791) · 2026-10-28 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Can LLMs Uncover Hidden Physical Laws through Free Exploration?](https://arxiv.org/abs/2610.37649) · 2026-10-28 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [MLE-World: Predicting Machine Learning Experiment Outcomes with a Learned World Model](https://arxiv.org/abs/2610.37175) · 2026-10-28 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [Vision-Language-Action or World-Action? Just Action Models](https://arxiv.org/abs/2610.37219) · 2026-10-28 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Quaternion Approximate Networks for Enhanced Image Classification and Oriented Object Detection](https://arxiv.org/abs/2509.05512) · 2026-10-28 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [nvidia/Kumo-Forecast](https://huggingface.co/nvidia/Kumo-Forecast) · 2026-10-27 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 apache-2.0
 - [nvidia/Kumo-Anomaly](https://huggingface.co/nvidia/Kumo-Anomaly) · 2026-10-27 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 apache-2.0
@@ -819,26 +1315,18 @@
 - [NVIDIA/NeMo-Relay · 0.11.0-rc.3](https://github.com/NVIDIA/NeMo-Relay/releases/tag/0.11.0-rc.3) · 2026-10-27 · 프리릴리스
 - [isaac-sim/IsaacAutomator · v4.6.6](https://github.com/isaac-sim/IsaacAutomator/releases/tag/v4.6.6) · 2026-10-27 · 릴리스
 - [InteractiveWorld: A Verifiable Human-Centric Environment for Building Better Interactive MLLM Assistants](https://arxiv.org/abs/2610.33966) · 2026-10-27 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [World-in-Context: Interactive Video World Modeling with In-Context Conditioning](https://arxiv.org/abs/2610.33169) · 2026-10-27 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [AV-FABLE: Audio-Visual Manipulation Forensics in Long-Form Videos](https://arxiv.org/abs/2610.33413) · 2026-10-27 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [CausalAlign: Causal Alignment of Video Generation Models for Consistent Ego-Motion](https://arxiv.org/abs/2610.29915) · 2026-10-27 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [EmbodiedLab: Benchmarking Embodied Agents That Act to Know](https://arxiv.org/abs/2610.35385) · 2026-10-27 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Rethinking Video Storage for AI Training: Breaking Cross-Frame Dependencies for Efficient Random Access](https://arxiv.org/abs/2610.33079) · 2026-10-27 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [RoboJev: An Open Vision-Language Judge for Robot Success Detection](https://arxiv.org/abs/2610.33718) · 2026-10-27 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [RoboHarness: A Simple Harness Outperforms VLA and World Action Models](https://arxiv.org/abs/2610.14018) · 2026-10-27 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Steering Black-Box Large Language Model Agents with Pitfall Anticipation World Model](https://arxiv.org/abs/2610.29139) · 2026-10-27 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-GGUF](https://huggingface.co/nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-GGUF) · 2026-10-26 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 other
 - [nvidia/llama-nv-embed-reasoning-3b](https://huggingface.co/nvidia/llama-nv-embed-reasoning-3b) · 2026-10-26 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 cc-by-4.0
 - [UserArena: Benchmarking Interactive User Simulation for Long-Horizon Shopping Agents](https://arxiv.org/abs/2610.30932) · 2026-10-26 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [RynnUnify: Towards Unified Embodied Brain](https://arxiv.org/abs/2610.32965) · 2026-10-26 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [Reading, Writing, Sharing, and Interacting with the World through Video](https://arxiv.org/abs/2610.31668) · 2026-10-26 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Dual Exam: Controlled Evaluation of Multimodal Agents and World Models](https://arxiv.org/abs/2610.31066) · 2026-10-26 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [DiscoDemo: Discovering Efficient and Diverse Robot Demonstrations for Imitation Learning](https://arxiv.org/abs/2610.32093) · 2026-10-26 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Omni-Woodpecker: Hallucination Correction via Evidence-Prior Rebalancing for Omni LLMs](https://arxiv.org/abs/2610.27103) · 2026-10-26 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [RoboJudge: Multimodal Language Models as Judges for Embodied Video Generation](https://arxiv.org/abs/2610.27782) · 2026-10-26 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [FocusVLA: Future-Intent Guided Dynamic View Routing for Vision-Language-Action Models](https://arxiv.org/abs/2610.31423) · 2026-10-26 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [Echo: Coupled Action and Task Status Signal Denoising for Vision Language Action Models](https://arxiv.org/abs/2610.31569) · 2026-10-26 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [FLORA: An Open Model Suite for Scaling Robotics Data Engines](https://arxiv.org/abs/2610.31779) · 2026-10-26 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [nvidia/Cosmos-H-Dreams](https://huggingface.co/nvidia/Cosmos-H-Dreams) · 2026-10-24 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 other
 - [NVIDIA/NeMo-Relay · 0.11.0-rc.2](https://github.com/NVIDIA/NeMo-Relay/releases/tag/0.11.0-rc.2) · 2026-10-24 · 프리릴리스
 - [nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB](https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB) · 2026-10-23 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 other
@@ -859,17 +1347,13 @@
 - [nvidia/RE-USE](https://huggingface.co/nvidia/RE-USE) · 2026-10-23 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 other
 - [nvidia/Wan2.2-T2V-A14B-Diffusers-FP8](https://huggingface.co/nvidia/Wan2.2-T2V-A14B-Diffusers-FP8) · 2026-10-23 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 apache-2.0
 - [nvidia/Wan2.2-T2V-A14B-Diffusers-NVFP4](https://huggingface.co/nvidia/Wan2.2-T2V-A14B-Diffusers-NVFP4) · 2026-10-23 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 apache-2.0
-- [LaLa-World: Scaling Latent World Models with Natural Language Actions](https://arxiv.org/abs/2610.27851) · 2026-10-23 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Editing Images into Reusable Layers via Compositional Edit-Prior Distillation](https://arxiv.org/abs/2610.24738) · 2026-10-23 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [RLSplat: Resource-Linear Budget Control for Feed-forward 3D Gaussian Splatting](https://arxiv.org/abs/2610.27712) · 2026-10-23 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Toward Recursive Self-Improvement in Physical AI](https://arxiv.org/abs/2610.29677) · 2026-10-23 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [AgentVQA: A Unified Benchmark for Agentic Visual Understanding](https://arxiv.org/abs/2610.31494) · 2026-10-23 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Foundation4D: Towards a unified perception and reconstruction model for autonomous vehicles](https://arxiv.org/abs/2610.30340) · 2026-10-23 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [TILDE: Teacher-in-the-Loop Distillation from Embodied Foundation Models](https://arxiv.org/abs/2610.25376) · 2026-10-23 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [F2G-Pose: Geometry-Aware Foundation Feature Lifting for Direct RGB-D Category-Level Object Pose Estimation](https://arxiv.org/abs/2610.31623) · 2026-10-23 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [MambaAct: Efficient Mamba Action Experts for Flow-Matching Vision-Language-Action Models](https://arxiv.org/abs/2610.22951) · 2026-10-23 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [TARSphere: A Robot-Oriented Full-Stack Framework for Long-Horizon Embodied Agents in Evolving Physical and Social Environments](https://arxiv.org/abs/2610.30043) · 2026-10-23 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [Skeleton-Grounded Latent Action Model for Robot World Models](https://arxiv.org/abs/2610.31474) · 2026-10-23 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [NVIDIA/flashdreams · v0.2.0](https://github.com/NVIDIA/flashdreams/releases/tag/v0.2.0) · 2026-10-22 · 릴리스
 - [nvidia/NVIDIA-NemotronLabs-RE-USE](https://huggingface.co/nvidia/NVIDIA-NemotronLabs-RE-USE) · 2026-10-22 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 openmdw-1.1
 - [nvidia/NVIDIA-NemotronLabs-RE-USE-laughter](https://huggingface.co/nvidia/NVIDIA-NemotronLabs-RE-USE-laughter) · 2026-10-22 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 openmdw-1.1
@@ -887,9 +1371,7 @@
 - [AgenticRoboRL: Bringing Coding-Agent Post-Training to Agentic Robotics](https://arxiv.org/abs/2610.28589) · 2026-10-22 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [ALPS: Visual State Encoders for World Models](https://arxiv.org/abs/2610.30120) · 2026-10-22 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Multimodal Embodied Agents: A Unified Capability-centric Perspective from Computer-Use to Robot-Use](https://arxiv.org/abs/2610.30108) · 2026-10-22 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [Agentic World Action Models](https://arxiv.org/abs/2610.30136) · 2026-10-22 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [StyleStream 2.0: Fast and Controllable Streaming Voice Style Conversion](https://arxiv.org/abs/2610.28940) · 2026-10-22 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [From VLM Planners to Robotic Agents: Self-Evolving Harnesses for History-Dependent Manipulation](https://arxiv.org/abs/2610.29560) · 2026-10-22 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Language Models Learn to Improve Language Models](https://arxiv.org/abs/2610.23344) · 2026-10-22 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Right Screen, Wrong Transition: World Models as Verifiers for GUI Agents](https://arxiv.org/abs/2610.11942) · 2026-10-22 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [FrontierCS 2: A Benchmark for Computer Science R&amp;D](https://arxiv.org/abs/2610.29932) · 2026-10-22 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
@@ -901,12 +1383,9 @@
 - [nvidia/PhysicalAI-Autonomous-Vehicles-Foundation4D](https://huggingface.co/datasets/nvidia/PhysicalAI-Autonomous-Vehicles-Foundation4D) · 2026-10-21 · 접근 절차 필요 · 모델/데이터 카드 라이선스 other
 - [NVIDIA-NeMo/DataDesigner · v0.9.6](https://github.com/NVIDIA-NeMo/DataDesigner/releases/tag/v0.9.6) · 2026-10-21 · 릴리스
 - [nvidia/Cosmos3-Driving-Simulation-Evaluation](https://huggingface.co/datasets/nvidia/Cosmos3-Driving-Simulation-Evaluation) · 2026-10-21 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 openmdw-1.1
-- [Ropedia W0: Scaling Loco-Manipulation World Models across Embodiments with Human Experience](https://arxiv.org/abs/2610.26855) · 2026-10-21 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Learning the 4D World through Point Trajectory Forecasting](https://arxiv.org/abs/2610.28594) · 2026-10-21 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Joints, Camera, Action! Co-Generating 3D Motion and Video for Arbitrary Rigs](https://arxiv.org/abs/2610.28632) · 2026-10-21 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [On the Fragility of Tasks under Composition: Implicit Budgeting in Language Models](https://arxiv.org/abs/2610.27190) · 2026-10-21 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [VLA-Rolling: Fewer Denoising Steps, Better Control via Adaptive Action Reuse](https://arxiv.org/abs/2610.25043) · 2026-10-21 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [OverSeer: Multi-Agent World Models Beyond What Agents See](https://arxiv.org/abs/2610.28554) · 2026-10-21 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Slot-JEPA: Object-Structured Prediction Interfaces for Latent World Models](https://arxiv.org/abs/2610.28074) · 2026-10-21 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [PVBench: Quantifying Physical Plausibility in Video Generation with Object-Level Physical Measurements](https://arxiv.org/abs/2610.26711) · 2026-10-21 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [nvidia/RFD4-Proteina-prep](https://huggingface.co/nvidia/RFD4-Proteina-prep) · 2026-10-20 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 bsd-3-clause
@@ -938,16 +1417,11 @@
 - [Holi-World: Building Holistic World Intelligence from Human-Ego Experience](https://arxiv.org/abs/2610.26549) · 2026-10-20 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [AnyGoal: On World Model Generalization Beyond Expert Rollouts](https://arxiv.org/abs/2610.26844) · 2026-10-20 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [ScaleNav: Scalable Internet Video Pretraining for Language-Conditioned Local Navigation](https://arxiv.org/abs/2610.25690) · 2026-10-20 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [InfiniDream: Open-Ended Photorealistic 3D Worlds Through Procedural Generation](https://arxiv.org/abs/2610.26853) · 2026-10-20 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [BlenderWorld: Benchmarking Visual Agents for 3D Creation from Real-World References](https://arxiv.org/abs/2610.23986) · 2026-10-20 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [RoboValue: A Fine-Grained Sim-and-Real Benchmark for Unified Evaluation of Robotic Value Models](https://arxiv.org/abs/2610.26663) · 2026-10-20 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Where is Physical RSI capability from? An Observational Scaling Law of LLM-as-policy](https://arxiv.org/abs/2610.26848) · 2026-10-20 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [FineSplat: Fine Patches, Local Groups, Detailed Splats](https://arxiv.org/abs/2610.25011) · 2026-10-20 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [AffordanceWAM: Affordance-Aware Joint World-Action Modeling for Robot Manipulation](https://arxiv.org/abs/2609.22332) · 2026-10-20 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [State World Models: Execute the Rules, Generate the Pixels](https://arxiv.org/abs/2610.26811) · 2026-10-20 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [Frechet Forcing: Training Long-Horizon Streaming World Models from Short Clips](https://arxiv.org/abs/2610.25666) · 2026-10-20 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [LIBERO-Industry: Benchmarking Robotic Manipulation under Industrial Process Constraints](https://arxiv.org/abs/2610.16782) · 2026-10-20 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [HandsOn: A Large-Scale Simulation Benchmark for Generalizable Dexterous Manipulation](https://arxiv.org/abs/2610.26765) · 2026-10-20 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [NVIDIA/cosmos-data-factory · paidf-26.10](https://github.com/NVIDIA/cosmos-data-factory/releases/tag/paidf-26.10) · 2026-10-19 · 릴리스
 - [nvidia/physical-plausibility-evaluator](https://huggingface.co/nvidia/physical-plausibility-evaluator) · 2026-10-19 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 openmdw-1.1
 - [nvidia/aisimulate-fpm-dataset](https://huggingface.co/datasets/nvidia/aisimulate-fpm-dataset) · 2026-10-19 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 apache-2.0
@@ -958,8 +1432,6 @@
 - [Has GPT-6-Astra Achieved Embodied Intelligence?](https://arxiv.org/abs/2610.22471) · 2026-10-19 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [HexaShell: A Thin Harness for Exploring the Limits of VLM Agents as Robot Coding Agents](https://arxiv.org/abs/2610.23479) · 2026-10-19 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [BridgeWAM: Bridging Video and Action Experts via Latent Bridge Queries](https://arxiv.org/abs/2610.14746) · 2026-10-19 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [Execution Before Memory: Diagnosing Memory Failures in Video World Models](https://arxiv.org/abs/2610.23542) · 2026-10-19 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [Scene-Designer: Learning Design Intelligence for Agentic 3D Scene Generation](https://arxiv.org/abs/2610.23121) · 2026-10-19 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [OS-Helix: Unifying GUI Interaction and Code Execution in Native Computer-Using Agents](https://arxiv.org/abs/2610.22234) · 2026-10-19 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [BRACE: Adapting Whole-Body References for Force and Terrain Aware Humanoid Motion Tracking](https://arxiv.org/abs/2610.07052) · 2026-10-19 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Failure Recovery via Belief Updates and World Modeling for Long-Horizon Agents](https://arxiv.org/abs/2610.18082) · 2026-10-19 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
@@ -986,15 +1458,11 @@
 - [NVIDIA/cosmos-curator · v2.9.0](https://github.com/NVIDIA/cosmos-curator/releases/tag/v2.9.0) · 2026-10-16 · 릴리스
 - [WorldCast: Exploring Intelligent Visual Generation in World State Prediction](https://arxiv.org/abs/2610.20731) · 2026-10-16 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [ForcingBooster: Adaptive Patch-wise Denoising for Fast Autoregressive Video Diffusion](https://arxiv.org/abs/2610.12625) · 2026-10-16 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [Orbia: Do Generated Videos Form a Consistent 3D World?](https://arxiv.org/abs/2610.20693) · 2026-10-16 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [OmniVerifier-C1: Decomposed Graded Verifier for Rule-Governed Generative World Modeling](https://arxiv.org/abs/2610.22355) · 2026-10-16 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [Velox: Spatial Memory Makes World Models Efficient](https://arxiv.org/abs/2610.22311) · 2026-10-16 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [SimVTA: Simulation-Grounded Video-Trajectory Alignment for Driving World Action Models](https://arxiv.org/abs/2610.13781) · 2026-10-16 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Can World and Action Modeling Benefit Each Other under Unified Causal Training?](https://arxiv.org/abs/2610.21095) · 2026-10-16 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Do Better Visual Representations Always Lead to Better End-to-End Autonomous Driving?](https://arxiv.org/abs/2610.09695) · 2026-10-16 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [VLA-Δ: Learning Physical State Transition for Vision-Language-Action Models](https://arxiv.org/abs/2610.21306) · 2026-10-16 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Learning Self-Orchestration in Decentralized Agent Swarms](https://arxiv.org/abs/2610.22322) · 2026-10-16 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [CarryOn: A Dual-Loop Harness for Personalized and Reliable Robot Assistance](https://arxiv.org/abs/2610.21453) · 2026-10-16 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [CoDA: Co-Evolution of Data Engines and Action Policies](https://arxiv.org/abs/2610.22362) · 2026-10-16 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [nvidia/omni-dreams-scenes](https://huggingface.co/datasets/nvidia/omni-dreams-scenes) · 2026-10-15 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 other
 - [nvidia/ARDY-SOMA-RP-30FPS-Horizon60](https://huggingface.co/nvidia/ARDY-SOMA-RP-30FPS-Horizon60) · 2026-10-15 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 other
@@ -1017,13 +1485,10 @@
 - [NVIDIA-Omniverse/ovstage · v0.3.0](https://github.com/NVIDIA-Omniverse/ovstage/releases/tag/v0.3.0) · 2026-10-15 · 프리릴리스
 - [NVIDIA-NeMo/nemo-helix · 0.7.2](https://github.com/NVIDIA-NeMo/nemo-helix/releases/tag/0.7.2) · 2026-10-15 · 릴리스
 - [nvidia/Nemotron-SFT-Agentic-v4](https://huggingface.co/datasets/nvidia/Nemotron-SFT-Agentic-v4) · 2026-10-15 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 \['openmdw-1.1'\]
-- [Towards Agentic Robots: Model, Data, Environment, and Harness](https://arxiv.org/abs/2610.20442) · 2026-10-15 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [HumanoidToolBench: Benchmarking Humanoid Tool Use from Selection to Mobile Execution](https://arxiv.org/abs/2610.02089) · 2026-10-15 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [DecisionRobust: Benchmarking Robustness for JEV Style Decision Models Across Text and Vision](https://arxiv.org/abs/2610.19118) · 2026-10-15 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [LabInstruct: Benchmarking Situated Instructional Video Generation for Lab Procedures](https://arxiv.org/abs/2610.14020) · 2026-10-15 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [RAR: Rate-Adaptive Rollout for Time-Consistent Interactive World Models](https://arxiv.org/abs/2610.16302) · 2026-10-15 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [VITAL: From Visual Motion to Precise Action](https://arxiv.org/abs/2610.20604) · 2026-10-15 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [SafeDriveVLA: Navigation-Conditioned World Model Dreaming for Conflict-Aware End-to-End Autonomous Driving](https://arxiv.org/abs/2610.20609) · 2026-10-15 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [nvidia/Nemotron-SFT-Finance-Document-Grounded-Reasoning-v1](https://huggingface.co/datasets/nvidia/Nemotron-SFT-Finance-Document-Grounded-Reasoning-v1) · 2026-10-14 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 openmdw-1.1
 - [nvidia/Nemotron-RL-Finance-Tool-Calling-v1](https://huggingface.co/datasets/nvidia/Nemotron-RL-Finance-Tool-Calling-v1) · 2026-10-14 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 openmdw-1.1
 - [NVIDIA/NeMo-Relay · 0.10.2](https://github.com/NVIDIA/NeMo-Relay/releases/tag/0.10.2) · 2026-10-14 · 릴리스
@@ -1040,12 +1505,10 @@
 - [nvidia/DeepSeek-V4.1-Flash-NVFP4](https://huggingface.co/nvidia/DeepSeek-V4.1-Flash-NVFP4) · 2026-10-14 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 mit
 - [NVIDIA/IsaacCapture · v1.5.175](https://github.com/NVIDIA/IsaacCapture/releases/tag/v1.5.175) · 2026-10-14 · 릴리스
 - [NVIDIA/NeMo-Relay · 0.10.1](https://github.com/NVIDIA/NeMo-Relay/releases/tag/0.10.1) · 2026-10-14 · 릴리스
-- [GreenWAM: A World Foundation Model for Robotics](https://arxiv.org/abs/2610.18774) · 2026-10-14 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Multics: Generative Multi-Player World Model with Hierarchical Communication](https://arxiv.org/abs/2610.17201) · 2026-10-14 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [ExeWorldBench: Benchmarking Code-Based Executable 3D World Modeling](https://arxiv.org/abs/2610.15166) · 2026-10-14 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Cepheid: Decoupling Scale from Structure for Cross-Family Motion Completion](https://arxiv.org/abs/2610.18871) · 2026-10-14 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [EgoExplorer: A Vision-Motion-Touch Observatory for Human Loco-Manipulation In Situ](https://arxiv.org/abs/2610.18872) · 2026-10-14 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [WAVE-0: Bridging VLA Policies and WAMs with Lightweight Latent Future Prediction](https://arxiv.org/abs/2610.18568) · 2026-10-14 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [ACCRUE: Continual Off-Policy Reinforcement Learning for Robot Foundation Models](https://arxiv.org/abs/2610.18596) · 2026-10-14 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [LeWAM: End-to-End World and Action Modeling with JEPAs](https://arxiv.org/abs/2610.12818) · 2026-10-14 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Learning Transferable World-Action Models from Task-Paired Human Videos](https://arxiv.org/abs/2610.14351) · 2026-10-14 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
@@ -1097,7 +1560,6 @@
 - [NVIDIA-NeMo/nemo-helix · 0.7.0](https://github.com/NVIDIA-NeMo/nemo-helix/releases/tag/0.7.0) · 2026-10-08 · 릴리스
 - [NVIDIA/NeMo-Relay · 0.10.0-rc.4](https://github.com/NVIDIA/NeMo-Relay/releases/tag/0.10.0-rc.4) · 2026-10-08 · 프리릴리스
 - [Long-WAM: Scaling the Context of World-Action Models](https://arxiv.org/abs/2610.10528) · 2026-10-08 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [UniWAM: Unified World-Action Model](https://arxiv.org/abs/2610.02054) · 2026-10-08 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Rethinking World-Action Model for Compositional and In-Context Robotic Manipulation](https://arxiv.org/abs/2610.02368) · 2026-10-08 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Tetris3D: 3D Scene Generation With Objects That Fit Together](https://arxiv.org/abs/2610.10539) · 2026-10-08 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [RobotWorld: Benchmarking Multimodal Agents for Robot Use Across Diverse Tasks and Embodiments](https://arxiv.org/abs/2610.10409) · 2026-10-08 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
@@ -1161,7 +1623,6 @@
 - [Adaptive Latent Capacity for World Models](https://arxiv.org/abs/2609.32921) · 2026-10-07 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [EmbodiedSmith: Scaling Embodied Data through Recursive Self-Improvement Flywheel in Simulation](https://arxiv.org/abs/2610.07969) · 2026-10-07 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [DistScene: Object-to-Scene Distillation for 3D Scene Generation](https://arxiv.org/abs/2610.06960) · 2026-10-07 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [DiVeR: Decision-Critical Verifier Learning for VLA Test-Time Scaling](https://arxiv.org/abs/2610.04933) · 2026-10-07 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [AdvSim2Real : Training Web Agents Against Adaptive Prompt Injection in a Web World Model](https://arxiv.org/abs/2610.08773) · 2026-10-07 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [World Models' Last Exam in Physics](https://arxiv.org/abs/2610.08791) · 2026-10-07 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Building Rome from a Single Image](https://arxiv.org/abs/2610.08790) · 2026-10-07 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
@@ -1172,7 +1633,6 @@
 - [World Editing: Intervening on Executable Worlds at Increasing Depth](https://arxiv.org/abs/2610.02331) · 2026-10-06 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [RobotUse: Allocating Computation, Context, and Decisions](https://arxiv.org/abs/2610.04929) · 2026-10-06 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [When to Switch: Reliable Action-Chunk Extension for Vision-Language-Action Models](https://arxiv.org/abs/2610.05719) · 2026-10-06 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [RealtimeWAM: One-Step Asynchronous World Action Models](https://arxiv.org/abs/2610.06617) · 2026-10-06 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Video2Skill: From Streaming Experience to Reusable Embodied Skills](https://arxiv.org/abs/2609.36691) · 2026-10-06 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [ProgressCompass: Embodied Progress Reward Models Are Lost Without the Right Context](https://arxiv.org/abs/2609.36684) · 2026-10-06 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [HLA-WM: Hybrid Linear Attention for Long-Horizon Video World Models](https://arxiv.org/abs/2610.05739) · 2026-10-06 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
@@ -1203,7 +1663,6 @@
 - [AutoGUIWorld: Image Generators as Visual World Models for GUI Agent](https://arxiv.org/abs/2610.01215) · 2026-10-02 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [InterEvolve: Test-Time Evolution of Reward Programs for Humanoid Loco-Manipulation](https://arxiv.org/abs/2610.02196) · 2026-10-02 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Beyond the Current Scene: Event-Referential Grasping with Active View Selection](https://arxiv.org/abs/2609.39375) · 2026-10-02 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [Fewer Tokens, Better Action: GPT-6 Astra Robot Agents with 14% Higher Success Rate but 65% Fewer Tokens](https://arxiv.org/abs/2610.01939) · 2026-10-02 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Ego2Act: Evaluating Goal-Directed Manipulation in Egocentric Video Generation](https://arxiv.org/abs/2610.01092) · 2026-10-02 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [4Director: Controlling Video World Models with Rigid 3D Geometry](https://arxiv.org/abs/2610.02160) · 2026-10-02 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [AutoDataBench: A Data-centric Testbed for Accelerating Auto Research](https://arxiv.org/abs/2609.40097) · 2026-10-02 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
@@ -1382,7 +1841,6 @@
 - [nvidia/DeepSeek-V4-Pro-0813-NVFP4](https://huggingface.co/nvidia/DeepSeek-V4-Pro-0813-NVFP4) · 2026-09-10 · 접근 제한 표시 없음 · 모델/데이터 카드 라이선스 mit
 - [Show-Harness: Just a VLM Agent Can Play Robots](https://arxiv.org/abs/2609.10522) · 2026-09-10 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Scaling Automatic Research Agents via World Models](https://arxiv.org/abs/2608.12564) · 2026-09-10 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [Programmable World Model](https://arxiv.org/abs/2609.10540) · 2026-09-10 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [SyncWorld: Visual Calibration Enables World Models as Zero-Shot Simulators](https://arxiv.org/abs/2609.09155) · 2026-09-10 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [PlannerForge: LLM Agents for Scenario-Based Testing of Motion Planners in Autonomous Driving](https://arxiv.org/abs/2609.08965) · 2026-09-10 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [isaac-sim/IsaacAutomator · v4.6.5](https://github.com/isaac-sim/IsaacAutomator/releases/tag/v4.6.5) · 2026-09-09 · 릴리스
@@ -1392,7 +1850,6 @@
 - [OpenWAM: An Open, Modular Exploration Towards Systematic World-Action Model Pretraining](https://arxiv.org/abs/2609.07398) · 2026-09-09 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Marigold V2: Revisiting Diffusion Transformers for Monocular Depth Estimation](https://arxiv.org/abs/2609.08084) · 2026-09-09 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [DriveZero: End-to-End Driving Beyond Human Demonstrations](https://arxiv.org/abs/2609.06055) · 2026-09-09 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [GE-Act 2.0: Pretraining and Scaling a World-Action Model for Robotic Manipulation](https://arxiv.org/abs/2609.05588) · 2026-09-09 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [SceneMosaic: Efficient and Diverse Simulation-Ready Scene Generation via Hybrid Agentic Layout Evolution](https://arxiv.org/abs/2609.05594) · 2026-09-09 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [CosmoH2G: A Hand-to-Gripper Transfer Dataset and Baseline Method for Object Manipulation with Complex Spatial Movements](https://arxiv.org/abs/2609.07498) · 2026-09-09 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [RoboSPA: Can VLA Models Go Beyond Simple Scenes and Short-Horizon Tasks?](https://arxiv.org/abs/2609.05324) · 2026-09-09 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
@@ -1534,7 +1991,6 @@
 - [Human-Centric Intelligence in the Era of Foundation Models: A Survey](https://arxiv.org/abs/2608.18184) · 2026-08-24 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [Hydra-0: Action Flow for Generalist World Modeling and Control](https://arxiv.org/abs/2608.18077) · 2026-08-24 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
 - [PhysCaP: Grounding Code-as-Policy Agent with Physics-Informed Exploration](https://arxiv.org/abs/2608.21031) · 2026-08-24 · Hugging Face Papers 발견 · 공식 출처·소속·공개 범위는 원문에서 확인
-- [SONIC: Supersizing motion tracking for natural humanoid whole-body control](https://github.com/NVlabs/GR00T-WholeBodyControl) · 2025-11-11 · NVIDIA 연구실 공식 목록 · 코드·가중치 이용 조건은 별도 확인
 - [isaac-sim/IsaacSim · LICENSE](https://github.com/isaac-sim/IsaacSim/blob/release/6.3/LICENSE) · 날짜 미제공 · GitHub 라이선스 표기 NOASSERTION
 - [isaac-sim/IsaacLab · LICENSE](https://github.com/isaac-sim/IsaacLab/blob/main/LICENSE) · 날짜 미제공 · GitHub 라이선스 표기 NOASSERTION
 - [newton-physics/newton · LICENSE.md](https://github.com/newton-physics/newton/blob/main/LICENSE.md) · 날짜 미제공 · GitHub 라이선스 표기 Apache-2.0
@@ -1620,13 +2076,11 @@
 - [NVlabs/FoundationStereo · LICENSE](https://github.com/NVlabs/FoundationStereo/blob/master/LICENSE) · 날짜 미제공 · GitHub 라이선스 표기 NOASSERTION
 - [nvidia-isaac/nvblox · LICENSE.md](https://github.com/nvidia-isaac/nvblox/blob/public/LICENSE.md) · 날짜 미제공 · GitHub 라이선스 표기 NOASSERTION
 - [NVIDIA/cdf-anomalygen · LICENSE](https://github.com/NVIDIA/cdf-anomalygen/blob/main/LICENSE) · 날짜 미제공 · GitHub 라이선스 표기 Apache-2.0
-- [Addressable Memory for Video World Models](https://research.nvidia.com/labs/sil/projects/WorldTrace/) · 날짜 미제공 · NVIDIA 연구실 공식 목록 · 코드·가중치 이용 조건은 별도 확인
 - [FlashDreams: High-Performance Inference and Serving Infrastructure for Interactive World Models](https://research.nvidia.com/labs/sil/projects/flashdreams/) · 날짜 미제공 · NVIDIA 연구실 공식 목록 · 코드·가중치 이용 조건은 별도 확인
 - [FreeForm: Reduced-Order Deformable Simulation from Particle-Based Skinning Eigenmodes](https://research.nvidia.com/labs/sil/projects/freeform/) · 날짜 미제공 · NVIDIA 연구실 공식 목록 · 코드·가중치 이용 조건은 별도 확인
 - [NCore: An Open-Source Multi-Sensor Data Platform for Neural 3D Reconstruction and Physical AI](https://research.nvidia.com/labs/sil/projects/ncore/) · 날짜 미제공 · NVIDIA 연구실 공식 목록 · 코드·가중치 이용 조건은 별도 확인
 - [GHOST: Getting to the Bottom of Hallucinations with A Multi-round Consistency Benchmark](https://github.com/vibashan/GHOST) · 날짜 미제공 · NVIDIA 연구실 공식 목록 · 코드·가중치 이용 조건은 별도 확인
 - [fVDB-Reality-Capture](https://github.com/openvdb/fvdb-reality-capture) · 날짜 미제공 · NVIDIA 연구실 공식 목록 · 코드·가중치 이용 조건은 별도 확인
-- [State of the Art in Grid-Free Monte Carlo Methods for Partial Differential Equations](https://github.com/nv-tlabs/wosx) · 날짜 미제공 · NVIDIA 연구실 공식 목록 · 코드·가중치 이용 조건은 별도 확인
 - [Kaolin Wisp: A PyTorch Library and Engine for Neural Fields Research](https://github.com/NVIDIAGameWorks/kaolin-wisp) · 날짜 미제공 · NVIDIA 연구실 공식 목록 · 코드·가중치 이용 조건은 별도 확인
 - [Run Native DLA Inference in Python on NVIDIA Jetson AGX Orin Using cuDLA](https://developer.nvidia.com/blog/run-native-dla-inference-in-python-on-nvidia-jetson-agx-orin-using-cudla/) · 2026-11-14 · NVIDIA Robotics 기술 블로그
 - [runwayml/praxis-1-so101-nvfp4](https://huggingface.co/runwayml/praxis-1-so101-nvfp4) · 2026-11-12 · 접근 절차 필요 · 모델/데이터 카드 라이선스 apache-2.0
@@ -1641,9 +2095,9 @@
 
 ## 누적 검토 대기열
 
-대기 중인 프로젝트 1631개 · 전체 검토 사건 1693개
+대기 중인 프로젝트 2081개 · 전체 검토 사건 2201개
 
-pending: 1693 · deferred: 0 · proposed: 0 · merged: 0 · rejected: 0
+pending: 2201 · deferred: 0 · proposed: 0 · merged: 0 · rejected: 0
 
 주간 선정 한도를 넘긴 후보도 다음 주에 남습니다. 아래는 가장 오래 기다린 프로젝트 최대 10개입니다.
 
@@ -1660,194 +2114,228 @@ pending: 1693 · deferred: 0 · proposed: 0 · merged: 0 · rejected: 0
 
 ## 출처별 상태
 
-확인 성공 188개 · 실패 또는 조회 진행 중 1개
+확인 성공 218개 · 실패 또는 조회 진행 중 5개
 
-- GitHub 릴리스 · isaac-sim/IsaacSim · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · isaac-sim/IsaacSim · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · isaac-sim/IsaacLab · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · isaac-sim/IsaacLab · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · newton-physics/newton · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · newton-physics/newton · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/warp · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/warp · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/Isaac-GR00T · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/Isaac-GR00T · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/cosmos · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/cosmos · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/cosmos-framework · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/cosmos-framework · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVlabs/alpasim · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVlabs/alpasim · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVlabs/alpamayo2 · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVlabs/alpamayo2 · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVlabs/alpamayo2-edge · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVlabs/alpamayo2-edge · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVlabs/RoboLab · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVlabs/RoboLab · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · black-forest-labs/flux-action · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · black-forest-labs/flux-action · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · runwayml/praxis-1-oss · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · runwayml/praxis-1-oss · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · mimic-video/mimic-video · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · mimic-video/mimic-video · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVlabs/SimFoundry · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVlabs/SimFoundry · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA-Omniverse/aif-pipeline-samples · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA-Omniverse/aif-pipeline-samples · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA-NeMo/Switchyard · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA-NeMo/Switchyard · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/soma-retargeter · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/soma-retargeter · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVlabs/ProtoMotions · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVlabs/ProtoMotions · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA-Omniverse/PhysX · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA-Omniverse/PhysX · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/physicsnemo · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/physicsnemo · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA-Omniverse/usd-exchange · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA-Omniverse/usd-exchange · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · nv-tlabs/lyra · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · nv-tlabs/lyra · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · nv-tlabs/3dgrut · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · nv-tlabs/3dgrut · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · isaac-sim/IsaacLab-Arena · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · isaac-sim/IsaacLab-Arena · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · nvidia-isaac/GR00T-E2E-Reference-Workflow · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · nvidia-isaac/GR00T-E2E-Reference-Workflow · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/IsaacCapture · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/IsaacCapture · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · isaac-sim/AutoData · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · isaac-sim/AutoData · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · nvidia-isaac/video\_to\_data · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · nvidia-isaac/video\_to\_data · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVlabs/curobo · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVlabs/curobo · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · nvidia-isaac/leapp · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · nvidia-isaac/leapp · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · nvidia-isaac/WBC-AGILE · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · nvidia-isaac/WBC-AGILE · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · nvidia-isaac/foundation-pose-inference-library · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · nvidia-isaac/foundation-pose-inference-library · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · isaac-sim/IsaacAutomator · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · isaac-sim/IsaacAutomator · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVlabs/GR00T-VisualSim2Real · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVlabs/GR00T-VisualSim2Real · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · nvidia-cosmos/cosmos-reason2 · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · nvidia-cosmos/cosmos-reason2 · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · nvidia-cosmos/cosmos-predict2 · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · nvidia-cosmos/cosmos-predict2 · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVlabs/cosmos-policy · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVlabs/cosmos-policy · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/cosmos-data-factory · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/cosmos-data-factory · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/cdf-auto-labeling · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/cdf-auto-labeling · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/cdf-augmentation · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/cdf-augmentation · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/cdf-simulation · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/cdf-simulation · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/cosmos-curator · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/cosmos-curator · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/cosmos-evaluator · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/cosmos-evaluator · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/cdf-orchestration · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/cdf-orchestration · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/OSMO · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/OSMO · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/TensorRT · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/TensorRT · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA-NeMo/Curator · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA-NeMo/Curator · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA-NeMo/DataDesigner · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA-NeMo/DataDesigner · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA-NeMo/Automodel · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA-NeMo/Automodel · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA-NeMo/Megatron-Bridge · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA-NeMo/Megatron-Bridge · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA-NeMo/RL · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA-NeMo/RL · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA-NeMo/Gym · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA-NeMo/Gym · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA-NeMo/Evaluator · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA-NeMo/Evaluator · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA-NeMo/Guardrails · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA-NeMo/Guardrails · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/NeMo-Retriever · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/NeMo-Retriever · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/NeMo-Agent-Toolkit · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/NeMo-Agent-Toolkit · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/NeMo-Relay · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/NeMo-Relay · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/NeMo-Fabric · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/NeMo-Fabric · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA-NeMo/nemo-helix · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA-NeMo/nemo-helix · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/NemoClaw · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/NemoClaw · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA-NeMo/Speech · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA-NeMo/Speech · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · nvidia-cosmos/cosmos-rl · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · nvidia-cosmos/cosmos-rl · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · nvidia-cosmos/cosmos-xenna · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · nvidia-cosmos/cosmos-xenna · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVlabs/alpagym · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVlabs/alpagym · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/NuRec · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/NuRec · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/ncore · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/ncore · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/asset-harvester · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/asset-harvester · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/nurec-skills · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/nurec-skills · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVlabs/alpamayo-recipes · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVlabs/alpamayo-recipes · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · nv-tlabs/omni-dreams · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · nv-tlabs/omni-dreams · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/flashdreams · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/flashdreams · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVlabs/alpajudge · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVlabs/alpajudge · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/simready-foundation · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/simready-foundation · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA-Omniverse/simready-central · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA-Omniverse/simready-central · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · nvidia-isaac/cuVSLAM · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · nvidia-isaac/cuVSLAM · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA-Omniverse/ovrtx · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA-Omniverse/ovrtx · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA-Omniverse/ovstage · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA-Omniverse/ovstage · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVlabs/mimicgen · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVlabs/mimicgen · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVlabs/dexmimicgen · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVlabs/dexmimicgen · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVlabs/IsaacLabEureka · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVlabs/IsaacLabEureka · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVlabs/FoundationPose · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVlabs/FoundationPose · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVlabs/FoundationStereo · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVlabs/FoundationStereo · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · nvidia-isaac/nvblox · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · nvidia-isaac/nvblox · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 릴리스 · NVIDIA/cdf-anomalygen · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 라이선스 · NVIDIA/cdf-anomalygen · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 신규 저장소 · NVIDIA · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 신규 저장소 · NVlabs · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 신규 저장소 · isaac-sim · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 신규 저장소 · NVIDIA-Omniverse · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 신규 저장소 · NVIDIA-NeMo · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 신규 저장소 · nvidia-cosmos · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- GitHub 신규 저장소 · nv-tlabs · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- Hugging Face models · nvidia 관련 전체 목록 · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- Hugging Face datasets · nvidia 관련 전체 목록 · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- Hugging Face models · black-forest-labs/action · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- Hugging Face models · runwayml/praxis · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- Hugging Face models · GEAR-Dreams/dreamzero · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- NVIDIA 기술 블로그 Atom · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- NVIDIA Research 사이트맵 · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- NVIDIA SIL 공식 논문 목록 · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- NVIDIA GEAR 공식 논문 목록 · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- NVIDIA Seattle Robotics Lab RSS · 성공 · 마지막 성공 2026-11-21 11:18 KST
-- Hugging Face Papers · 성공 · 마지막 성공 2026-11-21 11:18 KST
+- GitHub 릴리스 · isaac-sim/IsaacSim · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · isaac-sim/IsaacSim · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · isaac-sim/IsaacLab · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · isaac-sim/IsaacLab · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · newton-physics/newton · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · newton-physics/newton · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/warp · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/warp · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/Isaac-GR00T · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/Isaac-GR00T · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/cosmos · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/cosmos · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/cosmos-framework · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/cosmos-framework · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVlabs/alpasim · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVlabs/alpasim · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVlabs/alpamayo2 · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVlabs/alpamayo2 · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVlabs/alpamayo2-edge · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVlabs/alpamayo2-edge · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVlabs/RoboLab · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVlabs/RoboLab · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · black-forest-labs/flux-action · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · black-forest-labs/flux-action · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · runwayml/praxis-1-oss · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · runwayml/praxis-1-oss · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · mimic-video/mimic-video · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · mimic-video/mimic-video · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVlabs/SimFoundry · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVlabs/SimFoundry · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA-Omniverse/aif-pipeline-samples · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA-Omniverse/aif-pipeline-samples · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA-NeMo/Switchyard · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA-NeMo/Switchyard · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/TensorRT · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/TensorRT · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA-NeMo/Megatron-Bridge · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA-NeMo/Megatron-Bridge · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA-Omniverse/PhysX · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA-Omniverse/PhysX · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/soma-retargeter · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/soma-retargeter · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · nv-tlabs/wosx · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · nv-tlabs/wosx · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVlabs/USDCraft · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVlabs/USDCraft · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVlabs/ProtoMotions · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVlabs/ProtoMotions · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/physicsnemo · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/physicsnemo · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA-Omniverse/usd-exchange · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA-Omniverse/usd-exchange · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · nv-tlabs/lyra · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · nv-tlabs/lyra · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · nv-tlabs/3dgrut · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · nv-tlabs/3dgrut · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVlabs/Grana · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVlabs/Grana · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · isaac-sim/IsaacLab-Arena · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · isaac-sim/IsaacLab-Arena · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · nvidia-isaac/GR00T-E2E-Reference-Workflow · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · nvidia-isaac/GR00T-E2E-Reference-Workflow · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/IsaacCapture · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/IsaacCapture · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · isaac-sim/AutoData · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · isaac-sim/AutoData · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · nvidia-isaac/video\_to\_data · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · nvidia-isaac/video\_to\_data · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVlabs/curobo · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVlabs/curobo · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · nvidia-isaac/leapp · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · nvidia-isaac/leapp · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · nvidia-isaac/WBC-AGILE · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · nvidia-isaac/WBC-AGILE · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · nvidia-isaac/foundation-pose-inference-library · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · nvidia-isaac/foundation-pose-inference-library · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · isaac-sim/IsaacAutomator · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · isaac-sim/IsaacAutomator · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVlabs/GR00T-VisualSim2Real · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVlabs/GR00T-VisualSim2Real · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · nvidia-cosmos/cosmos-reason2 · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · nvidia-cosmos/cosmos-reason2 · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · nvidia-cosmos/cosmos-predict2 · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · nvidia-cosmos/cosmos-predict2 · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVlabs/cosmos-policy · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVlabs/cosmos-policy · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/cosmos-data-factory · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/cosmos-data-factory · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/cdf-auto-labeling · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/cdf-auto-labeling · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/cdf-augmentation · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/cdf-augmentation · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/cdf-simulation · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/cdf-simulation · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/cosmos-curator · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/cosmos-curator · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/cosmos-evaluator · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/cosmos-evaluator · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/cdf-orchestration · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/cdf-orchestration · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/OSMO · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/OSMO · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA-NeMo/Curator · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA-NeMo/Curator · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA-NeMo/DataDesigner · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA-NeMo/DataDesigner · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA-NeMo/Automodel · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA-NeMo/Automodel · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA-NeMo/RL · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA-NeMo/RL · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA-NeMo/Gym · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA-NeMo/Gym · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA-NeMo/Evaluator · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA-NeMo/Evaluator · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA-NeMo/Guardrails · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA-NeMo/Guardrails · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/NeMo-Retriever · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/NeMo-Retriever · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/NeMo-Agent-Toolkit · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/NeMo-Agent-Toolkit · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/NeMo-Relay · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/NeMo-Relay · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/NeMo-Fabric · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/NeMo-Fabric · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA-NeMo/nemo-helix · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA-NeMo/nemo-helix · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/NemoClaw · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/NemoClaw · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA-NeMo/Speech · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA-NeMo/Speech · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · nvidia-cosmos/cosmos-rl · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · nvidia-cosmos/cosmos-rl · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · nvidia-cosmos/cosmos-xenna · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · nvidia-cosmos/cosmos-xenna · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · nv-tlabs/lidarverse · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · nv-tlabs/lidarverse · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVlabs/alpagym · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVlabs/alpagym · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/NuRec · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/NuRec · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/ncore · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/ncore · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/asset-harvester · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/asset-harvester · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/nurec-skills · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/nurec-skills · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVlabs/alpamayo-recipes · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVlabs/alpamayo-recipes · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · nv-tlabs/omni-dreams · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · nv-tlabs/omni-dreams · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/flashdreams · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/flashdreams · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVlabs/alpajudge · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVlabs/alpajudge · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/simready-foundation · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/simready-foundation · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA-Omniverse/simready-central · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA-Omniverse/simready-central · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVlabs/Flora · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVlabs/Flora · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · nvidia-isaac/cuVSLAM · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · nvidia-isaac/cuVSLAM · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA-Omniverse/ovrtx · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA-Omniverse/ovrtx · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA-Omniverse/ovstage · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA-Omniverse/ovstage · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVlabs/mimicgen · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVlabs/mimicgen · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVlabs/dexmimicgen · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVlabs/dexmimicgen · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVlabs/IsaacLabEureka · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVlabs/IsaacLabEureka · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVlabs/FoundationPose · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVlabs/FoundationPose · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVlabs/FoundationStereo · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVlabs/FoundationStereo · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · nvidia-isaac/nvblox · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · nvidia-isaac/nvblox · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 릴리스 · NVIDIA/cdf-anomalygen · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 라이선스 · NVIDIA/cdf-anomalygen · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 신규 저장소 · NVIDIA · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 신규 저장소 · NVlabs · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 신규 저장소 · isaac-sim · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 신규 저장소 · NVIDIA-Omniverse · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 신규 저장소 · NVIDIA-NeMo · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 신규 저장소 · nvidia-cosmos · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- GitHub 신규 저장소 · nv-tlabs · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- Hugging Face models · nvidia 관련 전체 목록 · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- Hugging Face datasets · nvidia 관련 전체 목록 · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- Hugging Face models · black-forest-labs/action · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- Hugging Face models · runwayml/praxis · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- Hugging Face models · GEAR-Dreams/dreamzero · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- NVIDIA 기술 블로그 Atom · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- NVIDIA Research 사이트맵 · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- NVIDIA SIL 공식 논문 목록 · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- NVIDIA GEAR 공식 논문 목록 · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- NVIDIA Seattle Robotics Lab RSS · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- Hugging Face Papers · 성공 · 마지막 성공 2026-11-21 16:07 KST
 - arXiv cs.RO·cs.CV·cs.LG · PaginationLimit · 마지막 성공 기록 없음 · 다음 실행에서 후속 조회
+- NVIDIA 프로젝트 재확인 · https://research.nvidia.com/labs/gear/flora/ · ValueError · 마지막 성공 기록 없음
+- NVIDIA 프로젝트 재확인 · https://research.nvidia.com/labs/gear/grana/ · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- NVIDIA 프로젝트 재확인 · https://research.nvidia.com/labs/lpr/vflash/ · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- NVIDIA 프로젝트 재확인 · https://research.nvidia.com/labs/par/projects/jca/ · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- NVIDIA 프로젝트 재확인 · https://research.nvidia.com/labs/sil/projects/WorldTrace/ · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- NVIDIA 프로젝트 재확인 · https://research.nvidia.com/labs/sil/projects/birddreams/ · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- NVIDIA 프로젝트 재확인 · https://research.nvidia.com/labs/sil/projects/flashdreams/ · ValueError · 마지막 성공 기록 없음
+- NVIDIA 프로젝트 재확인 · https://research.nvidia.com/labs/sil/projects/foundation4d/ · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- NVIDIA 프로젝트 재확인 · https://research.nvidia.com/labs/sil/projects/freeform/ · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- NVIDIA 프로젝트 재확인 · https://research.nvidia.com/labs/sil/projects/freeform/assets/main.pdf · ValueError · 마지막 성공 기록 없음
+- NVIDIA 프로젝트 재확인 · https://research.nvidia.com/labs/sil/projects/ncore/ · ValueError · 마지막 성공 기록 없음
+- NVIDIA 프로젝트 재확인 · https://research.nvidia.com/labs/sil/projects/omnidreams-blog/ · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- NVIDIA 프로젝트 재확인 · https://research.nvidia.com/labs/srl/post/astranomy/ · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- NVIDIA 프로젝트 재확인 · https://research.nvidia.com/labs/srl/post/the-machines-that-make-the-machines/ · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- NVIDIA 프로젝트 재확인 · https://research.nvidia.com/labs/srl/publication/blank-2026-sparc/ · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- NVIDIA 프로젝트 재확인 · https://research.nvidia.com/labs/srl/publication/chen-2026-vo-lo/ · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- NVIDIA 프로젝트 재확인 · https://research.nvidia.com/labs/srl/publication/cheng-2026-human-2-any/ · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- NVIDIA 프로젝트 재확인 · https://research.nvidia.com/labs/srl/publication/johannsmeier-2026-pakt/ · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- NVIDIA 프로젝트 재확인 · https://research.nvidia.com/labs/srl/publication/lin-2026-humanoid-mimic-gen/ · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- NVIDIA 프로젝트 재확인 · https://research.nvidia.com/labs/srl/publication/sirigiri-2026-bayes-fp/ · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- NVIDIA 프로젝트 재확인 · https://research.nvidia.com/labs/srl/publication/sirigiri-2026-diversity/ · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- NVIDIA 프로젝트 재확인 · https://research.nvidia.com/labs/srl/publication/tao-2026-silo/ · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- NVIDIA 프로젝트 재확인 · https://research.nvidia.com/labs/srl/publication/vanjani-2026-davla/ · 성공 · 마지막 성공 2026-11-21 16:07 KST
+- NVIDIA 프로젝트 재확인 · https://research.nvidia.com/labs/srl/publication/xiong-2026-geom-vla/ · 성공 · 마지막 성공 2026-11-21 16:07 KST
