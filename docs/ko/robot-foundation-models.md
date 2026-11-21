@@ -71,6 +71,7 @@ RoboLab v0.3.3에서는 물체의 초기 배치를 시드로 재현하고 조명
 
 | 연구 | 파이프라인에서 하는 일 | 확인하거나 활용할 수 있는 자료 |
 |---|---|---|
+| **BirdDreams: Joint Perspective and BEV Video Generation for a Plausible, Reactive Driving World Model** | 자율주행·장면 재구성 | 프리프린트 공개 · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) · [프로젝트 페이지](https://research.nvidia.com/labs/sil/projects/birddreams/) · 코드 공개 여부 미확인 · 가중치 공개 여부 미확인 · [공식 출처](https://arxiv.org/abs/2611.14815)  <!-- research-events:41e30500a422c7d4deb10a09,fa4daa163823614eae7ca287 --> |
 | **PGX: Physically Grounded Execution for Long-Horizon Humanoid Loco-Manipulation** | 로봇 학습·제어 | 프리프린트 공개 · [arXiv 배포 약관](https://arxiv.org/licenses/nonexclusive-distrib/1.0/) · 코드 공개 여부 미확인 · 가중치 공개 여부 미확인 · [공식 출처](https://arxiv.org/abs/2611.26596) |
 | **Vision-Language-Action Models: A Life-Cycle Survey of Design, Training and Deployment** | 시각·언어·행동 정책 | 프리프린트 공개 · [arXiv 배포 약관](https://arxiv.org/licenses/nonexclusive-distrib/1.0/) · 코드 공개 여부 미확인 · 가중치 공개 여부 미확인 · [공식 출처](https://arxiv.org/abs/2611.18372) |
 | **PhyDEX: A Benchmark for Physical Reasoning in Vision-Language-Action Models via Dynamic Extrinsic Dexterity** | 시각·언어·행동 정책 | 프리프린트 공개 · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) · 코드 공개 여부 미확인 · 가중치 공개 여부 미확인 · [공식 출처](https://arxiv.org/abs/2611.26565) |
