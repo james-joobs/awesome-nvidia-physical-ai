@@ -1,0 +1,45 @@
+# Real PandaSet RGB + measured LiDAR, fitted by NuRec 26.04.
+# Static baseline: dynamic road users are not modeled as tracked actors.
+defaults:
+  - /experimental/3dgut/3dgut_colmap
+  - override /model/gaussians/initialization@model.layers.background.initialization: ply
+  - _self_
+
+out_dir: /work/train
+mode: trainval
+
+dataset:
+  path: /work/ncore/pandaset-001.json
+  camera_ids: [front_camera, front_left_camera, front_right_camera, left_camera, right_camera, back_camera]
+  lidar_ids: []
+  n_samples_per_epoch: 6000
+  n_val_image_subsample: 1
+  train_sequential_camera_frame_step: 1
+  val_camera_frame_step: 8
+  camera_mask_sources: [dataset]
+
+datamodule:
+  train_num_workers: 2
+  val_num_workers: 1
+  test_num_workers: 1
+
+trainer:
+  max_epochs: 1
+  log_every_n_steps: 100
+
+model:
+  layers:
+    background:
+      initialization:
+        path: /work/seed.ply
+        translate_world_to_nre: true
+  strategy:
+    add:
+      max_n_gaussians: 450000
+
+system:
+  test:
+    video_fps: 10
+    metrics:
+      cpsnr:
+        enabled: false

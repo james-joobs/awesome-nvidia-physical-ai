@@ -1,7 +1,7 @@
 import MarkdownIt from 'markdown-it';
 import { cubeScene } from './assets.mjs';
 import { copy, modelGuide, pageUrl, catalogs, repositoryFile, workflows } from './catalog.mjs';
-import { clips, grids, showcaseMedia } from './showcase.mjs';
+import { clips, grids, labMediaFiles, showcaseMedia } from './showcase.mjs';
 import { toolGuides } from './tool-guides.mjs';
 import { renderCodeBlock } from './code-blocks.mjs';
 import { hideResearchMarkers } from './research-markers.mjs';
@@ -39,6 +39,7 @@ function resolveLink(link, sourcePath) {
 
   const target = new URL(link, `https://repository.invalid/${sourcePath}`);
   const file = decodeURIComponent(target.pathname.slice(1));
+  if (labMediaFiles[file]) return showcaseMedia(labMediaFiles[file]);
   const lessonImage = lessonImages[`../../../${file}`];
   if (lessonImage) return lessonImage;
   const guide = file.match(/^docs\/(en|ko)\/workflows\/(.+)\.md$/);

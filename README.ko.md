@@ -37,6 +37,14 @@
 - **[자율주행](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/learn/principles/#autonomous-driving)** — [CARLA 운전자 카메라](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/carla-ego/) → Alpamayo 출력 → AlpaSim → AlpaGym·Cosmos RL. 네 도로 환경의 실제 촬영부터 시작합니다.
 - **[3D 세계·렌더링](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/learn/principles/#world-models)** — [WorldGen 글·이미지 3D 생성](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/worldgen-scenes/) → [생성한 공간에서 로봇 주행](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/worldgen-isaac/) → [센서로 장애물 우회](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/worldgen-navigation/) → [움직이는 장애물에 대응](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/worldgen-dynamic-navigation/) → [fVDB 3DGS 광장 탐색](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/spatial-reconstruction/) → [가구가 있는 집 생성](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/scene-generation/). [Marble·Lyra·복원 도구](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/tools/spatial-worlds/)와 비교하며 Cosmos 영상 생성은 별도 출력으로 살펴봅니다.
 
+## RTX 5090 한 장으로 만드는 RGB 도로 뷰어
+
+실사 사진 162장 → COLMAP → NVIDIA 3DGUT → Volvo S90 중심 3D 장면. LiDAR·외부 카메라 자세 없이 복원하고 마우스로 시점을 움직입니다.
+
+[3D로 직접 둘러보기](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/rgb-reality-view/#explore) · [마우스 조작 영상](site/public/showcase/rgb-reality-view.ko.mp4) · [오픈소스 파이프라인 따라 하기](docs/ko/labs/rgb-reality-view.md) · [코드](labs/rgb-reality-view/)
+
+미리 복원한 정적 장면이며 화면의 거리는 상대 단위입니다.
+
 ## 터미널에서 시작하기
 
 Python으로 GR00T의 실행 결과를 확인할 수 있습니다. 저장된 Arena 기록을 읽어 큐브를 들어 올린 시점과 그릇에 놓았는지를 출력합니다. 기록을 확인하는 데 GPU와 Isaac Sim은 필요 없습니다.

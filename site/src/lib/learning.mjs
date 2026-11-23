@@ -139,14 +139,14 @@ export const courses = [
       description: 'Start with real CARLA camera recordings, inspect Alpamayo outputs, then follow AlpaSim policy evaluation.',
       setup: 'View saved videos without a GPU. CARLA requires Linux, NVIDIA GPU and Docker; AlpaSim needs separate NuRec scene access.',
       result: 'Camera frames and trajectories first; policy rollout metrics in the AlpaSim extension.',
-      scope: 'CARLA recordings and Alpamayo inference are provided. The AlpaSim steps remain an official-example guide.',
+      scope: 'CARLA recordings, a self-authored NuRec/Harmonizer lab and Alpamayo inference are provided. The AlpaSim steps remain an official-example guide.',
     },
     ko: {
       title: '운전자 카메라부터 주행 평가까지',
       description: '실제 CARLA 카메라 촬영부터 시작해 Alpamayo의 출력을 읽고 AlpaSim 정책 평가로 확장합니다.',
       setup: '저장된 영상은 GPU 없이 확인. CARLA는 Linux·NVIDIA GPU·Docker, AlpaSim은 별도 NuRec 장면 접근 권한 필요.',
       result: '카메라 프레임·경로를 확인한 뒤 AlpaSim의 주행 평가 지표로 확장',
-      scope: 'CARLA 촬영과 Alpamayo 추론 결과를 제공합니다. AlpaSim 단계는 공식 예제를 대조한 가이드입니다.',
+      scope: 'CARLA 촬영, 자체 도로의 NuRec·Harmonizer 실습과 Alpamayo 추론 결과를 제공합니다. AlpaSim 단계는 공식 예제를 대조한 가이드입니다.',
     },
     lessons: [
       {
@@ -158,6 +158,16 @@ export const courses = [
         route: 'labs/world-driving#implementation', mode: 'gpu',
         en: ['Read a learned model’s output', 'Inspect six-camera inputs and Alpamayo’s future poses; distinguish inference from a driving rollout.'],
         ko: ['학습 모델의 출력 읽기', '여섯 카메라 입력과 Alpamayo의 미래 자세를 보고 추론과 실제 주행을 구분합니다.'],
+      },
+      {
+        route: 'labs/rgb-reality-view#explore', mode: 'gpu',
+        en: ['Reconstruct a road from RGB alone', 'Orbit a real 3D road in your browser, then recover cameras and train NVIDIA 3DGUT on one RTX 5090.'],
+        ko: ['RGB 사진만으로 도로 복원하기', '브라우저에서 도로를 돌려본 뒤 RTX 5090 한 장으로 카메라 추정과 NVIDIA 3DGUT 학습까지 따라 합니다.'],
+      },
+      {
+        route: 'labs/reality-view#implementation', mode: 'gpu',
+        en: ['Build a neural road view', 'Fit our own scene in NuRec, compare Harmonizer against held-out USD renders, and project an Alpamayo trajectory.'],
+        ko: ['도로 장면의 새 시점 만들기', '직접 만든 도로를 NuRec으로 학습하고, Harmonizer를 원래 USD와 비교한 뒤 Alpamayo 경로를 표시합니다.'],
       },
       {
         route: 'workflows/alpasim-closed-loop#requirements',

@@ -1,0 +1,350 @@
+{
+  "recorded_at": "2026-11-23",
+  "scope": "real measured road reconstruction + added Volvo display mesh; static scene, non-temporal enhancement, no driving control",
+  "dataset": {
+    "name": "PandaSet",
+    "authors": "Scale AI and Hesai",
+    "scene": "001",
+    "mirror": "https://huggingface.co/datasets/georghess/pandaset",
+    "mirror_status": "unofficial community mirror",
+    "revision": "e2e123aea3b3132c67f4b395ec6120f63e190271",
+    "payload_terms": "CC BY 4.0 + PandaSet Dataset Terms",
+    "alternate_notice": "Scale Nucleus labels PandaSet CC BY-SA 4.0; preserved in SOURCES.md",
+    "new_media_license": "CC BY-SA 4.0 + original data terms",
+    "contains_nvidia_av_data": false
+  },
+  "nurec": {
+    "runtime": "26.4.149",
+    "image": "nvcr.io/nvidia/nre/nre-ga:26.04",
+    "renderer": "gsplat",
+    "training_steps": 6000,
+    "training_seconds": 100.8,
+    "timing_scope": "NuRec-reported training elapsed time; excludes environment setup and data preparation",
+    "artifact_bytes": 110694637
+  },
+  "preparation": {
+    "camera_pose_approximation": {
+      "front_camera": {
+        "max_translation_m": 0.008162332110443557,
+        "max_rotation_deg": 0.11378713379575345
+      },
+      "front_left_camera": {
+        "max_translation_m": 0.00999750842738347,
+        "max_rotation_deg": 0.09874791276593822
+      },
+      "front_right_camera": {
+        "max_translation_m": 0.006655573459795009,
+        "max_rotation_deg": 0.08934207321841439
+      },
+      "left_camera": {
+        "max_translation_m": 0.011798310549055793,
+        "max_rotation_deg": 0.07722879488419383
+      },
+      "right_camera": {
+        "max_translation_m": 0.0029045928237448337,
+        "max_rotation_deg": 0.04243799151229795
+      },
+      "back_camera": {
+        "max_translation_m": 0.014336786051070746,
+        "max_rotation_deg": 0.1309245089064959
+      }
+    },
+    "source": "PandaSet scene 001",
+    "train_indices": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77
+    ],
+    "width": 1024,
+    "height": 576,
+    "baseline": "static 3D Gaussian scene; no actor dynamics or control",
+    "original_data_terms": "CC BY 4.0 + PandaSet Dataset Terms; see data/001/LICENSE.txt",
+    "seed_gaussians": 320000,
+    "seed_lidar_frames": [
+      3,
+      7,
+      11,
+      15,
+      19,
+      23,
+      27,
+      31,
+      35,
+      39,
+      43,
+      47,
+      51,
+      55,
+      59,
+      63,
+      67,
+      71,
+      75
+    ],
+    "camera_count": 6,
+    "image_count": 456,
+    "seed_source": "measured real LiDAR in world coordinates, colored by real camera RGB; 0.18m voxel subset; no synthetic depth"
+  },
+  "harmonizer": {
+    "mode": "non-temporal single-frame; no previous-frame conditioning",
+    "model_id": "nvidia/Harmonizer",
+    "model_revision": "20ca33d4612b1e98e0526b3a7ee604af5b289f58",
+    "checkpoint": "harmonizer_nontemporal.pt",
+    "checkpoint_sha256": "ece8e2daa914e8c2a027a2da94e0eb2064491d5b3fd8514009fae9a442e06e90",
+    "frames": 76,
+    "resolution": [
+      1024,
+      576
+    ],
+    "per_frame_seconds": [
+      14.166198078077286,
+      5.975956604117528,
+      0.12808020715601742,
+      0.12806174904108047,
+      0.12812254880554974,
+      0.12812499678693712,
+      0.12810151185840368,
+      0.12810181290842593,
+      0.12806473392993212,
+      0.12808998604305089,
+      0.12815071502700448,
+      0.12807688489556313,
+      0.12806412088684738,
+      0.12811873597092927,
+      0.12809460586868227,
+      0.12805136595852673,
+      0.1280588679946959,
+      0.128118613967672,
+      0.12834627320989966,
+      0.12811803095974028,
+      0.1280789130833,
+      0.12814373592846096,
+      0.1282071399036795,
+      0.1281251071486622,
+      0.1280840910039842,
+      0.1281862531322986,
+      0.1281975859310478,
+      0.12808553501963615,
+      0.1281322711147368,
+      0.12813253700733185,
+      0.12814064091071486,
+      0.12819081591442227,
+      0.12816974287852645,
+      0.1281321649439633,
+      0.12811742187477648,
+      0.12812308804132044,
+      0.12811159202829003,
+      0.12817371799610555,
+      0.12815325800329447,
+      0.12823776598088443,
+      0.1281903141643852,
+      0.12821680516935885,
+      0.12821251107379794,
+      0.12827045214362442,
+      0.1281318950932473,
+      0.12815891695208848,
+      0.12820404302328825,
+      0.12830671085976064,
+      0.12843494582921267,
+      0.1282646539621055,
+      0.1282054039184004,
+      0.12828507204540074,
+      0.12816586485132575,
+      0.128166374983266,
+      0.12817005021497607,
+      0.12828242080286145,
+      0.12822393304668367,
+      0.1282246659975499,
+      0.12820162810385227,
+      0.12826824304647744,
+      0.12824453692883253,
+      0.12837034999392927,
+      0.12829127605073154,
+      0.12834040191955864,
+      0.12829281110316515,
+      0.1282229709904641,
+      0.12828144198283553,
+      0.12832508911378682,
+      0.1283173121046275,
+      0.12832857598550618,
+      0.12831559404730797,
+      0.12831737380474806,
+      0.1283724601380527,
+      0.12833733414299786,
+      0.12829989986494184,
+      0.12831961293704808
+    ],
+    "median_seconds_excluding_first": 0.1281862531322986,
+    "peak_allocated_gib": 2.7540597915649414,
+    "torch": "2.7.0+cu128",
+    "transformer_engine": "1.11.0+cafd8e50",
+    "attribution": "Built on NVIDIA Cosmos",
+    "weights_license": "NVIDIA Open Model License"
+  },
+  "video_frames_per_view": 76,
+  "capture_fps": 10,
+  "added_vehicle": "Volvo S90 Recharge by lazercar, CC BY 4.0",
+  "files": {
+    "pandaset-nurec.ko.mp4": {
+      "bytes": 2066249,
+      "sha256": "6653aa2b04c5530497df7af94425ba21b467c4cc375a2175c4b8a010b0cae306"
+    },
+    "pandaset-nurec.en.jpg": {
+      "bytes": 96937,
+      "sha256": "0cc390ba080e0b06f1e7aaa28fa88d0cb665b388165db7cd69b84c5a4e97bb06"
+    },
+    "nurec-quarter.mp4": {
+      "bytes": 1111457,
+      "sha256": "0cd58baa1cecde39721cb632e706a354cd0d21ca9b713e7cbac681be6f6bc863"
+    },
+    "ground-plane.json": {
+      "bytes": 258,
+      "sha256": "7ca0be2d522146ec4841cf992aa17dd99132547c2e0ad7a2087dd87eb44666bf"
+    },
+    "ego-elevated-layer.png": {
+      "bytes": 112142,
+      "sha256": "ef6fb5386f1d3c3eb0969e277d15aabe9306dc75356ef3ec8eb9f67f1170e439"
+    },
+    "comparison.en.mp4": {
+      "bytes": 3310803,
+      "sha256": "cdda5327e361977c5ac98a2e4915f4d203704e7de4edc2fe6866b2b252803de3"
+    },
+    "README.md": {
+      "bytes": 908,
+      "sha256": "f024022ddaedfd9f60bce1fcb2109a4e105b739bba515090ab94f7616752e4ae"
+    },
+    "comparison.ko.mp4": {
+      "bytes": 3306623,
+      "sha256": "8a6ebe52d168e4446c883a612a3a31a9aed2d3f6aefe4744aa4ff8d877dab105"
+    },
+    "ego-quarter-layer.png": {
+      "bytes": 104887,
+      "sha256": "ce2407453aa2476f290c98b9ea40ab316148c37f76af4af4d798be9b9882438f"
+    },
+    "ego-views.json": {
+      "bytes": 1495,
+      "sha256": "f09ebdaede94641c93dbcf3752a7baef3e58541a44b2fea6d2cfc8a521cb9055"
+    },
+    "pandaset-nurec.en.mp4": {
+      "bytes": 2066256,
+      "sha256": "69836be109e2feae5587ea08a646deaafa5094948d8ffc1d578b688983c7877e"
+    },
+    "pandaset-nurec.ko.jpg": {
+      "bytes": 94980,
+      "sha256": "103cf342ffae90ded10981910725f6ad0cd0a437bad4235d84ea85d09136ccc5"
+    },
+    "volvo-quarter.mp4": {
+      "bytes": 1084800,
+      "sha256": "ec9fd3785161018c9dcaeb5dea1cee319d4abeec01cbca65d0f7a9471ed6f6c3"
+    },
+    "frames/36-enhanced.png": {
+      "bytes": 561582,
+      "sha256": "f3d784a702804c8737e05a0e1b8604f75bd9717ea31d11db1755d044b9f7f0d6"
+    },
+    "frames/00-enhanced.png": {
+      "bytes": 516019,
+      "sha256": "d4b925aaca367fe9a1dc58b92cc06658c2d334c6ca6bad19df08fbc374a14342"
+    },
+    "frames/36-ego-quarter.png": {
+      "bytes": 483973,
+      "sha256": "b7fb8fdd4f79fba808430c3782670826b5959b5c7f78a04d5ada52ab5e8a5c54"
+    },
+    "frames/36-front.png": {
+      "bytes": 367987,
+      "sha256": "53e2bfbc718c78619d2f02926e502c798880e7ccf5ce810d57735d38b883a0bc"
+    },
+    "frames/75-front.png": {
+      "bytes": 439928,
+      "sha256": "e101514164e1de1d626f5445e8f9355145fcae9b140d56d0b3cfa558a97a1bcc"
+    },
+    "frames/75-ego-quarter.png": {
+      "bytes": 405240,
+      "sha256": "d0a2cd63a184c205a384bf1429e1a0d02e73563eadac81ffce073a668a248bd7"
+    },
+    "frames/00-ego-quarter.png": {
+      "bytes": 490080,
+      "sha256": "46b53e35f8a40e3312f94ace45ef3166b6276d3252051eddf57f9fca6f1c8b66"
+    },
+    "frames/75-enhanced.png": {
+      "bytes": 469161,
+      "sha256": "2b805b7bca84c11126e99541ff4ac07ecb19ad4c513959de20f4c25e7d5d27f6"
+    },
+    "frames/00-front.png": {
+      "bytes": 414986,
+      "sha256": "e554ae4a731458a6928776f414da305e757c2f465878430fa1ecfff22269400e"
+    }
+  }
+}

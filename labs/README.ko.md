@@ -1,5 +1,8 @@
 # 영상으로 보고 따라 하는 피지컬 AI 실습
 
+[RTX 5090 한 장으로 RGB 도로 복원하기](../docs/ko/labs/rgb-reality-view.md) · [데이터·차량 모델 출처와 사용 조건](rgb-reality-view/SOURCES.md)
+
+
 [English](README.md) · [한국어 영상 갤러리](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/showcase/)
 
 관심 있는 영상에서 시작하세요. 실습마다 구현 방법과 실행 명령, 소스 코드, 촬영 당시 테스트 결과를 함께 볼 수 있습니다.
@@ -42,3 +45,9 @@ cd awesome-nvidia-physical-ai
 | [Warp 입자](../docs/ko/labs/warp-particles.md) | NVIDIA Warp, CUDA, OpenGL | 입자 충돌을 계산하고 결과를 확인합니다. |
 
 이 레포의 최상위 폴더에서 `python3 labs/verify.py`를 실행하면 NVIDIA GPU 없이도 동봉된 결과와 코드 연결을 검사할 수 있습니다. 시뮬레이션을 새로 실행하는 데 필요한 환경은 각 가이드에 적었습니다.
+
+## 도로의 새 시점과 주행 예측 경로
+
+직접 만든 도로를 촬영해 NuRec으로 새 시점을 렌더링하고 Harmonizer 적용 전후를 비교합니다. 원본 여섯 카메라의 영상은 Alpamayo 2 Edge에 따로 넣습니다. 영문·한국어 20초 영상, 정답·복원·보정 이미지와 CPU 검사를 제공합니다.
+
+[한국어 실습](../docs/ko/labs/reality-view.md) · [English lab](../docs/en/labs/reality-view.md) · [코드와 실행 결과](reality-view/)

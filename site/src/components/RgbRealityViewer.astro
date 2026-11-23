@@ -1,0 +1,29 @@
+---
+import {showcaseMedia} from '../lib/showcase.mjs';
+import '../../../labs/rgb-reality-view/viewer.css';
+const {locale}=Astro.props;const ko=locale==='ko';
+---
+<section class="rgb-viewer" id="explore" data-rgb-viewer data-root={showcaseMedia('rgb-reality-view')} data-locale={locale} aria-labelledby="rgb-view-title">
+<h2 id="rgb-view-title">{ko?'마우스로 Volvo 주변을 직접 둘러보기':'Orbit around the Volvo yourself'}</h2>
+<p>{ko?'RGB 사진에서 복원한 하나의 3D 장면입니다. 버튼을 누를 때만 약 8.8MB의 장면·차량 모델을 불러옵니다.':'Explore one persistent 3D scene reconstructed from RGB. About 8.8 MB of scene and vehicle data loads only when requested.'}</p>
+<div class="rgb-stage" data-rgb-stage>
+<img class="rgb-poster" src={showcaseMedia(`rgb-reality-view.${locale}.jpg`)} alt={ko?'RGB로 복원한 도로와 Volvo S90':'RGB-reconstructed road with a Volvo S90 reference'} loading="lazy" width="1280" height="720">
+<div class="rgb-loading" data-rgb-cover><button data-rgb-load type="button">{ko?'3D 장면 열기':'Open 3D scene'}</button></div>
+<span class="rgb-cursor" data-rgb-cursor hidden aria-hidden="true"></span><span class="rgb-chip">RGB only · 3DGS</span>
+</div>
+<div class="rgb-toolbar"><div class="rgb-presets">{['chase','rear','side','overhead','driver'].map((view,i)=><button type="button" data-rgb-preset={view} disabled>{(ko?['추적','뒤','옆','위','운전자']:['Chase','Rear','Side','Overhead','Driver'])[i]}</button>)}</div><div class="rgb-timeline"><button type="button" data-rgb-play disabled>{ko?'경로 재생':'Play path'}</button><label class="visually-hidden" for={`rgb-frame-${locale}`}>{ko?'촬영 프레임':'Recorded frame'}</label><input id={`rgb-frame-${locale}`} data-rgb-frame type="range" min="0" max="26" value="13" step="1" disabled><output data-rgb-time>—</output></div></div>
+<p class="rgb-status" role="status" data-rgb-status>{ko?'드래그: 회전 · 휠/두 손가락: 확대 · 오른쪽 드래그: 이동':'Drag: orbit · Scroll/pinch: zoom · Right drag: pan'}</p>
+<p class="rgb-credit">PandaSet: Scale AI / Hesai · <a href="https://sketchfab.com/3d-models/volvo-s90-recharge-free-9462b07c10244fd4a28d86846dc9e3a9">Volvo S90: lazercar, CC BY 4.0</a> · <a href={showcaseMedia('rgb-reality-view/ATTRIBUTION.txt')}>{ko?'출처와 사용 조건':'Sources and terms'}</a></p>
+<p>{ko?'녹화한 RGB 클립을 먼저 복원하고 브라우저에서 시점을 움직입니다. 거리는 화면용 상대 단위이며 주변 차량은 정적 장면에 포함됩니다. Volvo는 전경에 따로 그리는 3D 위치 표시용 모델입니다.':'The RGB clip is reconstructed offline; viewpoint changes are interactive in your browser. Scale is relative and surrounding traffic is part of a static scene. The Volvo is a separately rendered foreground 3D reference.'}</p>
+</section>
+<script>
+for(const root of document.querySelectorAll<HTMLElement>('[data-rgb-viewer]')){
+ let dispose:(()=>void)|undefined;
+ const load=root.querySelector<HTMLButtonElement>('[data-rgb-load]')!;
+ load.addEventListener('click',async()=>{load.disabled=true;const status=root.querySelector<HTMLElement>('[data-rgb-status]')!;status.textContent=root.dataset.locale==='ko'?'3D 장면을 불러오는 중…':'Loading the 3D scene…';try{const {mountRgbViewer}=await import('../../../labs/rgb-reality-view/viewer.js');dispose=await mountRgbViewer(root);root.querySelector<HTMLElement>('[data-rgb-cover]')!.hidden=true;}catch(error){load.disabled=false;status.textContent=root.dataset.locale==='ko'?'이 브라우저에서 장면을 열지 못했습니다. 아래 조작 영상을 확인하세요.':'Could not open the scene in this browser. Watch the interaction recording below.';console.error(error);}});
+ window.addEventListener('pagehide',()=>dispose?.(),{once:true});
+}
+</script>
+<style>
+.rgb-viewer{margin-block:2rem;--viewer-bg:var(--surface,#f6f8fa)}.rgb-viewer p{color:var(--muted,#59636b);line-height:1.7}.rgb-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.rgb-toolbar{background:var(--surface,#f6f8fa);color:var(--text,#25292d);border-color:var(--edge,#d8dee4)}.rgb-viewer button{background:var(--surface,#fff);color:var(--text,#25292d);border-color:var(--edge,#bcc5cc)}.rgb-viewer button[aria-pressed=true],.rgb-loading button{background:#76b900;color:#132300;border-color:#76b900}.rgb-viewer :global(canvas){z-index:1}.rgb-chip{z-index:2}.rgb-loading{z-index:5}.rgb-credit a{color:inherit;text-decoration:underline}.rgb-credit{margin:0;padding:0;justify-content:flex-start}
+</style>

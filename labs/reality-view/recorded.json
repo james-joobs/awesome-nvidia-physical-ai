@@ -1,0 +1,407 @@
+{
+  "recorded_at": "2026-11-23",
+  "scope": "self-authored synthetic road; reconstructed rendering, per-frame enhancement and one trajectory prediction",
+  "capture_runtime": {
+    "isaac_sim": "6.1.0.0",
+    "isaac_lab": "17.0.2"
+  },
+  "data_source": "Only our primitive-only USD scene; no NVIDIA PhysicalAI-AV/NuRec dataset content",
+  "nurec": {
+    "runtime": "26.4.149",
+    "image": "nvcr.io/nvidia/nre/nre-ga:26.04",
+    "renderer": "gsplat",
+    "training_steps": 2400,
+    "training_seconds": 67.42,
+    "timing_scope": "NuRec-reported training elapsed time; excludes environment setup and data preparation",
+    "artifact_bytes": 49044136,
+    "capture_runtime_verified_from_installed_packages": {
+      "isaac_sim": "6.1.0.0",
+      "isaac_lab": "17.0.2"
+    },
+    "train_views": 120,
+    "held_out_views": 40,
+    "seed_gaussians": 90028,
+    "resolution": [
+      1024,
+      576
+    ],
+    "held_out_camera_height_delta_m": 1.0,
+    "seed_uses_training_depth_only": true,
+    "held_out_mean_psnr_db": 29.20948716036319
+  },
+  "harmonizer": {
+    "mode": "non-temporal single-frame; no previous-frame conditioning",
+    "model_id": "nvidia/Harmonizer",
+    "model_revision": "20ca33d4612b1e98e0526b3a7ee604af5b289f58",
+    "checkpoint": "harmonizer_nontemporal.pt",
+    "checkpoint_sha256": "ece8e2daa914e8c2a027a2da94e0eb2064491d5b3fd8514009fae9a442e06e90",
+    "frames": 40,
+    "resolution": [
+      1024,
+      576
+    ],
+    "per_frame_seconds": [
+      12.546690082992427,
+      6.622719086008146,
+      0.1282791899284348,
+      0.12833421304821968,
+      0.1282616900280118,
+      0.12825561594218016,
+      0.12833036994561553,
+      0.12845997896511108,
+      0.1284086990635842,
+      0.12841816002037376,
+      0.12847020209301263,
+      0.12837703002151102,
+      0.12846359494142234,
+      0.12846073391847312,
+      0.12851617904379964,
+      0.12842453201301396,
+      0.12850941601209342,
+      0.12852524500340223,
+      0.12855870800558478,
+      0.13076035503763705,
+      0.1284647920401767,
+      0.12849434209056199,
+      0.12848646601196378,
+      0.12864069000352174,
+      0.12848223408218473,
+      0.12853801401797682,
+      0.12851504096761346,
+      0.12854652502574027,
+      0.12851263605989516,
+      0.12856368394568563,
+      0.12858520192094147,
+      0.12854026805143803,
+      0.1285288860090077,
+      0.1285619609989226,
+      0.12853936408646405,
+      0.12853053503204137,
+      0.12859111104626209,
+      0.1286022000713274,
+      0.12857750104740262,
+      0.12863578996621072
+    ],
+    "median_seconds_excluding_first": 0.12851504096761346,
+    "peak_allocated_gib": 2.7540597915649414,
+    "torch": "2.7.0+cu128",
+    "transformer_engine": "1.11.0+cafd8e50",
+    "attribution": "Built on NVIDIA Cosmos",
+    "weights_license": "NVIDIA Open Model License"
+  },
+  "alpamayo": {
+    "scope": "actual Alpamayo2-Edge model inference on a self-authored synthetic interface test; not driving evaluation",
+    "upstream_source": "https://github.com/NVlabs/alpamayo2-edge",
+    "upstream_revision": "02f55a7aeabc1a2b9f7a80445c08e40bddc89f5e",
+    "model_id": "nvidia/Alpamayo2-Edge",
+    "model_revision": "b92b6aa326bd3e2235db28f248ad5a30b5890e64",
+    "verified_weight_sha256": {
+      "00000.safetensors": "d13c1a427218baf7b7d365098c0f5496c0e5e6a6bf662836b8eebbe7eb7cfe7f",
+      "00001.safetensors": "cfe424a7320ce729cd927b5ceaab4323a62443b50f461a2f5c0dd0b10634e0b5"
+    },
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "peak_allocated_gib": 5.755486965179443,
+    "total_elapsed_s": 23.425614104024135,
+    "versions": {
+      "torch": "2.8.0",
+      "torchvision": "0.23.0",
+      "transformers": "5.17.0",
+      "safetensors": "0.8.0"
+    },
+    "input_shapes": {
+      "image_frames": [
+        22,
+        1,
+        3,
+        360,
+        640
+      ],
+      "camera_indices": [
+        22
+      ],
+      "absolute_timestamps": [
+        22
+      ],
+      "ego_history_xyz": [
+        1,
+        20,
+        3
+      ],
+      "ego_history_rot": [
+        1,
+        20,
+        3,
+        3
+      ]
+    },
+    "navigation": "Continue straight through the intersection.",
+    "seed": 43,
+    "result": {
+      "sample_id": "isaac-synthetic-intersection",
+      "pred_xyz_shape": [
+        1,
+        1,
+        1,
+        64,
+        3
+      ],
+      "pred_rot_shape": [
+        1,
+        1,
+        1,
+        64,
+        3,
+        3
+      ],
+      "finite": true,
+      "elapsed_seconds": 19.243595779989846,
+      "text": {
+        "cot": [
+          [
+            [
+              "<NOMINAL>"
+            ]
+          ]
+        ],
+        "answer": [
+          [
+            [
+              "<NOMINAL>"
+            ]
+          ]
+        ]
+      }
+    }
+  },
+  "comparison": {
+    "alignment": "same K and held-out camera poses; original USD is reference",
+    "nurec_mean_psnr_db": 29.20948716036319,
+    "harmonizer_mean_psnr_db": 27.088231714461386,
+    "frames": [
+      {
+        "frame": 0,
+        "nurec_psnr_db": 30.38735169235849,
+        "harmonizer_psnr_db": 27.50714861686451
+      },
+      {
+        "frame": 1,
+        "nurec_psnr_db": 30.545899220337684,
+        "harmonizer_psnr_db": 27.666899414397918
+      },
+      {
+        "frame": 2,
+        "nurec_psnr_db": 30.61300465405015,
+        "harmonizer_psnr_db": 27.68563232247653
+      },
+      {
+        "frame": 3,
+        "nurec_psnr_db": 31.086418135995967,
+        "harmonizer_psnr_db": 28.037576118654624
+      },
+      {
+        "frame": 4,
+        "nurec_psnr_db": 30.747892579783176,
+        "harmonizer_psnr_db": 27.781284997600842
+      },
+      {
+        "frame": 5,
+        "nurec_psnr_db": 30.92599008847239,
+        "harmonizer_psnr_db": 27.93760158704094
+      },
+      {
+        "frame": 6,
+        "nurec_psnr_db": 30.526318823189037,
+        "harmonizer_psnr_db": 27.67683874294507
+      },
+      {
+        "frame": 7,
+        "nurec_psnr_db": 30.82991454151619,
+        "harmonizer_psnr_db": 27.985082163995713
+      },
+      {
+        "frame": 8,
+        "nurec_psnr_db": 30.63550272092884,
+        "harmonizer_psnr_db": 27.84360114668926
+      },
+      {
+        "frame": 9,
+        "nurec_psnr_db": 30.618868672478186,
+        "harmonizer_psnr_db": 27.764347851111246
+      },
+      {
+        "frame": 10,
+        "nurec_psnr_db": 30.558387979769826,
+        "harmonizer_psnr_db": 27.74370278014416
+      },
+      {
+        "frame": 11,
+        "nurec_psnr_db": 30.51422874691753,
+        "harmonizer_psnr_db": 27.781206145443548
+      },
+      {
+        "frame": 12,
+        "nurec_psnr_db": 30.55718039823461,
+        "harmonizer_psnr_db": 27.926104403568907
+      },
+      {
+        "frame": 13,
+        "nurec_psnr_db": 30.355578972892822,
+        "harmonizer_psnr_db": 27.87078446972523
+      },
+      {
+        "frame": 14,
+        "nurec_psnr_db": 30.49859692840366,
+        "harmonizer_psnr_db": 27.976093986823457
+      },
+      {
+        "frame": 15,
+        "nurec_psnr_db": 30.137389816031988,
+        "harmonizer_psnr_db": 27.682513899788805
+      },
+      {
+        "frame": 16,
+        "nurec_psnr_db": 30.145566816587447,
+        "harmonizer_psnr_db": 27.694093391684362
+      },
+      {
+        "frame": 17,
+        "nurec_psnr_db": 30.052120535971657,
+        "harmonizer_psnr_db": 27.74474814474305
+      },
+      {
+        "frame": 18,
+        "nurec_psnr_db": 30.02679022405458,
+        "harmonizer_psnr_db": 27.74303038782982
+      },
+      {
+        "frame": 19,
+        "nurec_psnr_db": 29.4235605118002,
+        "harmonizer_psnr_db": 27.321858424837487
+      },
+      {
+        "frame": 20,
+        "nurec_psnr_db": 29.59954497484249,
+        "harmonizer_psnr_db": 27.492700344826176
+      },
+      {
+        "frame": 21,
+        "nurec_psnr_db": 29.658100567464963,
+        "harmonizer_psnr_db": 27.52136348359786
+      },
+      {
+        "frame": 22,
+        "nurec_psnr_db": 29.596001095001668,
+        "harmonizer_psnr_db": 27.508890420250744
+      },
+      {
+        "frame": 23,
+        "nurec_psnr_db": 29.44877784251391,
+        "harmonizer_psnr_db": 27.400216875974053
+      },
+      {
+        "frame": 24,
+        "nurec_psnr_db": 29.469263096959743,
+        "harmonizer_psnr_db": 27.409044586253323
+      },
+      {
+        "frame": 25,
+        "nurec_psnr_db": 29.142211496544995,
+        "harmonizer_psnr_db": 27.21367949067718
+      },
+      {
+        "frame": 26,
+        "nurec_psnr_db": 29.029702610307133,
+        "harmonizer_psnr_db": 27.18279049281413
+      },
+      {
+        "frame": 27,
+        "nurec_psnr_db": 28.686801802286173,
+        "harmonizer_psnr_db": 26.869004937268947
+      },
+      {
+        "frame": 28,
+        "nurec_psnr_db": 28.33209918436956,
+        "harmonizer_psnr_db": 26.636232253158948
+      },
+      {
+        "frame": 29,
+        "nurec_psnr_db": 28.143051643751072,
+        "harmonizer_psnr_db": 26.54114522464656
+      },
+      {
+        "frame": 30,
+        "nurec_psnr_db": 28.10716316616511,
+        "harmonizer_psnr_db": 26.57196156541793
+      },
+      {
+        "frame": 31,
+        "nurec_psnr_db": 27.74809629784523,
+        "harmonizer_psnr_db": 26.289759763925527
+      },
+      {
+        "frame": 32,
+        "nurec_psnr_db": 27.701968539336615,
+        "harmonizer_psnr_db": 26.245034347807398
+      },
+      {
+        "frame": 33,
+        "nurec_psnr_db": 27.21476303378398,
+        "harmonizer_psnr_db": 25.886351163327312
+      },
+      {
+        "frame": 34,
+        "nurec_psnr_db": 27.14379087232535,
+        "harmonizer_psnr_db": 25.871589619660433
+      },
+      {
+        "frame": 35,
+        "nurec_psnr_db": 26.84012087532363,
+        "harmonizer_psnr_db": 25.73989187031043
+      },
+      {
+        "frame": 36,
+        "nurec_psnr_db": 26.441502237335655,
+        "harmonizer_psnr_db": 25.45964640894757
+      },
+      {
+        "frame": 37,
+        "nurec_psnr_db": 26.100219915626077,
+        "harmonizer_psnr_db": 25.16158671389183
+      },
+      {
+        "frame": 38,
+        "nurec_psnr_db": 25.603559265490784,
+        "harmonizer_psnr_db": 24.76754613487664
+      },
+      {
+        "frame": 39,
+        "nurec_psnr_db": 25.18618583747902,
+        "harmonizer_psnr_db": 24.390683884456898
+      }
+    ]
+  },
+  "limitations": [
+    "Static primitive-only scene; domain shift from real driving data",
+    "Non-temporal Harmonizer can alter geometry/appearance and does not guarantee temporal consistency",
+    "Alpamayo input is raw Isaac Sim RGB, not enhanced frames or NuRec sensor output",
+    "One inference and a display overlay; no controls, vehicle physics or closed-loop safety evaluation",
+    "Display playback speed differs from measured model inference throughput"
+  ],
+  "files": {
+    "evidence/frames/00-reference.png": "7a642ba7fb5853ce10b621fcafd8e08a0f4807afbba8ada89d8479e3aef47114",
+    "evidence/frames/00-nurec.png": "d1c21e5c6a9bf9c83bddc9720e61ce4111672f8791a3ff98cdfaffbd93d8791a",
+    "evidence/frames/00-harmonizer.png": "0ec118e42788d10424dbb38a0015505666e54a48dd35a0f6bb1f434fa66fecd3",
+    "evidence/frames/20-reference.png": "12874d8484ced35bda037dc35939c9498906e93f199c5aa98c67c957343e3f8c",
+    "evidence/frames/20-nurec.png": "39cebc056e3ded1649cf15b41fd2eb81d3befd792df4a8cb6c859cf60fe1212e",
+    "evidence/frames/20-harmonizer.png": "add30deb93975df4e7724a89f83fdbc31ae2196dcf8104cc0b33e355aa1bc1a3",
+    "evidence/frames/39-reference.png": "2b4181821fdf372e6cee21d30e06ce83a75d232cb9616b025cd2c6cc98920a84",
+    "evidence/frames/39-nurec.png": "0fd59ee609995fd7fd92e0db180521425d30af8b4e13b475923ce7284db3b484",
+    "evidence/frames/39-harmonizer.png": "a06bfb9a5cea0a8355b1bada5f432fbc31068429a571fc610a868259f4b7cfab",
+    "evidence/nurec-novel.mp4": "9b8e932cb32adb73e2467f436c46a449c553b4cf3ce4cc23b21a15fe03b3f744",
+    "evidence/harmonizer-novel.mp4": "f1200835dcb9573d12e9be449c64dbf9033edc73f151d2b21137aa99d48b0b55",
+    "evidence/alpamayo-overlay.mp4": "14b88eee73b6a92939df912a3ed480bf336118dd045ab1a148e827323792489e",
+    "evidence/reality-view.ko.mp4": "af35ed34d9c5ad72c352f4c95f382078d127dc1ad093bed4213661b7710139ed",
+    "evidence/reality-view.en.mp4": "d0fa6bd0d1fc26c159acda43730e02d8de8c14e18bd3aa42af3fcd71e9db8bb4",
+    "evidence/trajectory.json": "eebc151bc9e107c00dff72be525f9c3253cd7b545b275d48b0083289b41dbd0c"
+  }
+}

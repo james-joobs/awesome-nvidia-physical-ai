@@ -1,0 +1,30 @@
+{
+  "checked_at": "2026-11-23",
+  "nurec": {
+    "image": "nvcr.io/nvidia/nre/nre-ga:26.04",
+    "documentation": "https://docs.nvidia.com/nurec/",
+    "note": "Use the matching 26.04 CLI and nre namespace; current documentation also describes newer APIs. Runtime terms differ from the Apache-2.0 public SDK.",
+    "digest": "sha256:97f43e7130c5636ce3e80ea3184d97f56a87fdd989b05cce42230881dbdea284"
+  },
+  "harmonizer": {
+    "model": "nvidia/Harmonizer",
+    "revision": "20ca33d4612b1e98e0526b3a7ee604af5b289f58",
+    "filename": "harmonizer_nontemporal.pt",
+    "mode": "non-temporal; no history conditioning",
+    "license": "NVIDIA Open Model License",
+    "license_url": "https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-open-model-license/",
+    "source": "https://github.com/NVIDIA/harmonizer",
+    "source_license": "Apache-2.0",
+    "attribution": "Built on NVIDIA Cosmos",
+    "sha256": "ece8e2daa914e8c2a027a2da94e0eb2064491d5b3fd8514009fae9a442e06e90"
+  },
+  "alpamayo": {
+    "source": "https://github.com/NVlabs/alpamayo2-edge",
+    "source_revision": "02f55a7aeabc1a2b9f7a80445c08e40bddc89f5e",
+    "model": "nvidia/Alpamayo2-Edge",
+    "model_revision": "b92b6aa326bd3e2235db28f248ad5a30b5890e64",
+    "source_license": "Apache-2.0",
+    "weights_license": "OpenMDW-1.1"
+  },
+  "inputs": "Self-authored primitive-only Isaac Sim road; no PhysicalAI-AV or NuRec dataset images/artifacts."
+}

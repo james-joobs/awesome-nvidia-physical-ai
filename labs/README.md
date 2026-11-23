@@ -1,5 +1,8 @@
 # Hands-on labs from the video gallery
 
+[RGB-only road reconstruction on one RTX 5090](../docs/en/labs/rgb-reality-view.md) · [Source and asset terms](rgb-reality-view/SOURCES.md)
+
+
 [한국어](README.ko.md) · [Video gallery](https://james-joobs.github.io/awesome-nvidia-physical-ai/showcase/)
 
 Start with the video that interests you. Each lab explains what ran, gives the commands and code, and shows the measurements recorded for the video.
@@ -68,3 +71,9 @@ Actual Isaac Sim 6.2 Physics Raycast Sensor → occupancy grid → inflation →
 [English](../docs/en/labs/worldgen-dynamic-navigation.md) · [한국어](../docs/ko/labs/worldgen-dynamic-navigation.md) · [Code](worldgen-dynamic-navigation/)
 
 A real Physics Raycast Sensor updates a time-aware map. Compare the previous permanent-map controller with stopping, waiting, free-space clearing and online replanning around a kinematic gate and an entering box. Native Isaac Sim GUI recordings, actual poses, measured standstill and sensor-gap checks are provided.
+
+## A neural road view with a predicted route
+
+Our primitive-only road → calibrated RGB/depth → NuRec novel views → non-temporal Harmonizer. Six raw cameras independently feed Alpamayo 2 Edge. Includes 20-second bilingual videos, lossless reference/render/enhancement triplets and CPU checks.
+
+[English lab](../docs/en/labs/reality-view.md) · [한국어 실습](../docs/ko/labs/reality-view.md) · [Code and evidence](reality-view/)

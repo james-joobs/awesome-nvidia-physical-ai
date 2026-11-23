@@ -42,3 +42,10 @@ Access, runtime, trained artifacts and data terms vary by distribution. [Officia
 The public NuRec SDK contains reconstruction and rendering libraries, training systems, and application entry points under Apache-2.0. Runtime containers are distributed through NGC under the terms on their catalog pages. Model checkpoints and scene data have separate terms. NCore provides an Apache-2.0 format and conversion tooling for the sensor recordings that enter the pipeline. [NuRec SDK and distribution matrix](https://github.com/NVIDIA/NuRec#source-containers-and-models) · [SDK license](https://github.com/NVIDIA/NuRec/blob/main/LICENSE.md) · [NCore](https://github.com/NVIDIA/ncore)
 
 [Follow a closed-loop AlpaSim evaluation using a prepared NuRec scene](workflows/alpasim-closed-loop.md).
+
+[Start from RGB only: COLMAP → NVIDIA 3DGUT → an interactive road viewer on one RTX 5090](labs/rgb-reality-view.md). Camera calibration and poses are estimated from photos; no LiDAR or supplied depth enters this separate open-source workflow.
+
+[Try the self-authored road lab: NuRec novel views, Harmonizer A/B and an Alpamayo route overlay](labs/reality-view.md).
+
+
+[Real-data lab: PandaSet road reconstruction with a Volvo ego reference](labs/pandaset-nurec.md). Includes measured RGB/LiDAR, attributed assets, source licenses and CPU checks.

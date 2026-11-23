@@ -69,3 +69,5 @@ Edge와 Super의 가중치는 Hugging Face에서 공개 다운로드할 수 있�
 - [AlpaSim 드라이버 튜토리얼](https://github.com/NVlabs/alpasim/blob/main/docs/TUTORIAL.md)
 - [튜닝·배포용 Alpamayo Recipes](https://github.com/NVlabs/alpamayo-recipes)
 - 주행 추론을 평가하고 학습 보상을 제공하는 AlpaJudge의 [모델 카드](https://huggingface.co/nvidia/alpajudge)와 [소스](https://github.com/NVlabs/alpajudge)
+
+[직접 만든 도로 실습: NuRec 새 시점, Harmonizer 전후 비교, Alpamayo 예측 경로](labs/reality-view.md).

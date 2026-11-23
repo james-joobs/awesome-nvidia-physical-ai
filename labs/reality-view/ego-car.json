@@ -1,0 +1,24 @@
+{
+  "vehicle": "Volvo S90 Recharge",
+  "asset_title": "Volvo S90 Recharge (Free)",
+  "author": "lazercar",
+  "source": "https://sketchfab.com/3d-models/volvo-s90-recharge-free-9462b07c10244fd4a28d86846dc9e3a9",
+  "author_provided_download": "https://drive.google.com/file/d/1Q9Zz8getrYY5AA1f8k72rapH2kCTXKD6/view",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "license_checked_from": "https://api.sketchfab.com/v3/models/9462b07c10244fd4a28d86846dc9e3a9",
+  "checked_at": "2026-11-23",
+  "archive_bytes": 1287191032,
+  "archive_sha256": "222d57d4ad29b7bafecb9ef0ded813d60dbb03343a124fec90b235b3e22cf087",
+  "mesh_note": "Actual detailed vehicle mesh supplied by its author; not a box proxy or an AI-generated imitation.",
+  "changes": [
+    "Pearl paint material",
+    "Coordinate alignment: source -Y nose to rig +X forward",
+    "Transparent-background render",
+    "Subdivision render level capped at 1",
+    "Measured PandaSet road-plane alignment and shadow-catcher layer, displayed at 22% strength"
+  ],
+  "attribution": "Volvo S90 Recharge (Free) by lazercar, CC BY 4.0. Paint, orientation and rendering modified.",
+  "scope": "Added ego-position reference. Does not identify the original data-collection car, reproduce OEM driving dynamics, or imply manufacturer endorsement.",
+  "distribution": "The 1.2 GB source archive is downloaded from the author; it is not bundled in this repository. Background dataset rights remain separate."
+}
