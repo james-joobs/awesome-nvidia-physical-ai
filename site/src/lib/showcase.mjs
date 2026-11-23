@@ -70,6 +70,30 @@ export const grids = [
 
 export const clips = [
   {
+    id: 'nurec-rgb-reality', duration: '0:35', width: 1280, height: 720,
+    media: { en: 'nurec-overview.en', ko: 'nurec-overview.ko' },
+    en: { title: 'RGB-only NuRec road view, perception and Alpamayo paths', description: 'Actual NuRec training and rendering, a native Harmonizer comparison, source-RGB object perception and four Alpamayo predictions. Orbit a Volvo reference on one GPU’s saved result; scale and camera-layout assumptions are disclosed.' },
+    ko: { title: 'RGB로 NuRec 도로 복원·주변 인식·Alpamayo 경로 보기', description: '실제 NuRec 학습·렌더링, Harmonizer 전후 비교, 원본 RGB의 객체 인식과 Alpamayo 네 시점 예측을 연결했습니다. GPU 한 장에서 만든 장면을 Volvo 중심으로 둘러보고 스케일·카메라 가정도 확인합니다.' },
+  },
+  {
+    id: 'rgb-reality-view', duration: '0:25', width: 1280, height: 720,
+    media: { en: 'rgb-perception.en', ko: 'rgb-perception.ko' },
+    en: { title: 'Standalone 3DGUT comparison: RGB reconstruction and perception', description: '162 real camera images → COLMAP → NVIDIA 3DGUT → an interactive 3D road with a Volvo S90. Detect actual cars and people in RGB, inspect their masks, and orbit approximate 3D contact markers. No LiDAR or supplied camera poses; offline static reconstruction.' },
+    ko: { title: '독립 실행형 3DGUT 비교: RGB 복원·객체 인식', description: '실사 사진 162장 → COLMAP → NVIDIA 3DGUT → Volvo S90 중심 3D 뷰어. 실제 차량·사람의 마스크와 검출 박스를 확인하고 3D 위치 추정을 둘러봅니다. LiDAR·외부 카메라 자세 없이 미리 복원한 정적 장면입니다.' },
+  },
+  {
+    id: 'pandaset-nurec', duration: '0:15', width: 1024, height: 576,
+    media: { en: 'pandaset-nurec.en', ko: 'pandaset-nurec.ko' },
+    en: { title: 'RGB + LiDAR reference: NuRec and Harmonizer', description: 'A separate comparison using PandaSet camera RGB and measured LiDAR. Compare NuRec views and non-temporal Harmonizer; the Volvo layer was rendered in Blender. This is not the RGB-only pipeline.' },
+    ko: { title: 'RGB + LiDAR 비교 실험: NuRec·Harmonizer', description: 'PandaSet 사진과 실측 LiDAR를 쓴 별도 비교 실험입니다. NuRec 새 시점과 Harmonizer를 비교하며 Volvo는 Blender 렌더를 합성했습니다. RGB 전용 파이프라인과 구분합니다.' },
+  },
+  {
+    id: 'reality-view', duration: '0:20', width: 1280, height: 720,
+    media: { en: 'reality-view.en', ko: 'reality-view.ko' },
+    en: { title: 'Synthetic road test: neural views and a predicted route', description: 'Our own road, reconstructed with NuRec and enhanced frame by frame with Harmonizer. Alpamayo 2 Edge supplies one predicted route. Compare against the original USD; this is a rendering and model-interface lab.' },
+    ko: { title: '합성 도로로 확인하는 NuRec·Alpamayo 연결', description: '직접 만든 도로를 NuRec으로 복원하고 Harmonizer로 프레임별 보정했습니다. Alpamayo 2 Edge의 단일 예측 경로와 원래 USD를 함께 비교하는 실습입니다.' },
+  },
+  {
     id: 'worldgen-scenes', duration: '0:20', width: 960, height: 540,
     en: { title: 'Generate and explore a world from text or an image', description: 'WorldGen creates a robotics lab, a forest trail and an expanded living room. Watch translated 3D camera views, then load the generated scene in your browser.' },
     ko: { title: '글과 이미지로 만든 3D 공간 둘러보기', description: 'WorldGen으로 로봇 실험실·숲길·확장된 거실을 생성했습니다. 3D 공간에서 카메라를 움직인 영상을 보고, 브라우저에서도 직접 둘러보세요.' },
@@ -139,7 +163,67 @@ export const clips = [
 ];
 
 // Extra runs share an existing lab and its reading order.
+export const labMediaFiles = {
+  'labs/nurec-rgb-reality/evidence/nurec-overview.en.mp4': 'nurec-overview.en.mp4',
+  'labs/nurec-rgb-reality/evidence/nurec-overview.ko.mp4': 'nurec-overview.ko.mp4',
+  'labs/nurec-rgb-reality/evidence/nurec-rgb-reality.en.mp4': 'nurec-rgb-reality.en.mp4',
+  'labs/nurec-rgb-reality/evidence/nurec-rgb-reality.ko.mp4': 'nurec-rgb-reality.ko.mp4',
+  'labs/nurec-rgb-reality/evidence/nurec-harmonizer.en.mp4': 'nurec-harmonizer.en.mp4',
+  'labs/nurec-rgb-reality/evidence/nurec-harmonizer.ko.mp4': 'nurec-harmonizer.ko.mp4',
+  'labs/rgb-reality-view/evidence/rgb-perception.en.mp4': 'rgb-perception.en.mp4',
+  'labs/rgb-reality-view/evidence/rgb-perception.ko.mp4': 'rgb-perception.ko.mp4',
+  'labs/rgb-reality-view/evidence/rgb-reality-view.en.mp4': 'rgb-reality-view.en.mp4',
+  'labs/rgb-reality-view/evidence/rgb-reality-view.ko.mp4': 'rgb-reality-view.ko.mp4',
+  'labs/pandaset-nurec/evidence/pandaset-nurec.en.mp4': 'pandaset-nurec.en.mp4',
+  'labs/pandaset-nurec/evidence/pandaset-nurec.ko.mp4': 'pandaset-nurec.ko.mp4',
+  'labs/pandaset-nurec/evidence/comparison.en.mp4': 'pandaset-comparison.en.mp4',
+  'labs/pandaset-nurec/evidence/comparison.ko.mp4': 'pandaset-comparison.ko.mp4',
+  'labs/pandaset-nurec/evidence/volvo-quarter.mp4': 'pandaset-volvo-quarter.mp4',
+  'labs/pandaset-nurec/evidence/nurec-quarter.mp4': 'pandaset-nurec-quarter.mp4',
+  'labs/reality-view/evidence/reality-view.en.mp4': 'reality-view.en.mp4',
+  'labs/reality-view/evidence/reality-view.ko.mp4': 'reality-view.ko.mp4',
+  'labs/reality-view/evidence/nurec-novel.mp4': 'reality-view-nurec.mp4',
+  'labs/reality-view/evidence/harmonizer-novel.mp4': 'reality-view-harmonizer.mp4',
+  'labs/reality-view/evidence/alpamayo-overlay.mp4': 'reality-view-alpamayo.mp4',
+};
+
 export const additionalRecordings = [
+  {
+    id: 'nurec-interactive', lab: 'nurec-rgb-reality', duration: '0:27', width: 1280, height: 720,
+    media: { en: 'nurec-rgb-reality.en', ko: 'nurec-rgb-reality.ko' },
+    en: { title: 'Actual mouse interaction with the NuRec-trained preview', description: 'Source-RGB detections, 3D contacts and actual Alpamayo predictions. Toggle the overlays, change cameras and rotate the same Gaussian scene.' },
+    ko: { title: 'NuRec 학습 장면을 실제 마우스로 조작한 영상', description: '원본 RGB 인식, 3D 접점과 Alpamayo 실제 예측을 확인합니다. 표시를 껐다 켜고 카메라를 바꾸며 같은 Gaussian 장면을 회전합니다.' },
+  },
+  {
+    id: 'nurec-harmonizer', lab: 'nurec-rgb-reality', duration: '0:08', width: 1280, height: 720,
+    media: { en: 'nurec-harmonizer.en', ko: 'nurec-harmonizer.ko' },
+    en: { title: 'Native NuRec renders and Harmonizer at the same 48 poses', description: 'Left: actual NuRec render. Right: released non-temporal Harmonizer. This is image enhancement, with generated details and possible flicker. Built on NVIDIA Cosmos.' },
+    ko: { title: '같은 시점 48곳의 NuRec 원본·Harmonizer 보정 비교', description: '왼쪽은 실제 NuRec 렌더링, 오른쪽은 공개 non-temporal Harmonizer 출력입니다. 새로 생성되는 세부 묘사와 프레임 간 깜박임을 구분해 보세요. Built on NVIDIA Cosmos.' },
+  },
+  {
+    id: 'rgb-reality-view-orbit', lab: 'rgb-reality-view', duration: '0:27', width: 1280, height: 720,
+    media: { en: 'rgb-reality-view.en', ko: 'rgb-reality-view.ko' },
+    en: { title: 'Original RGB reconstruction: mouse orbit and driver view', description: 'The same 400k-Gaussian scene before adding object perception. Actual mouse rotation, pan, zoom and camera-path replay.' },
+    ko: { title: '인식 표시를 추가하기 전의 RGB 복원 영상', description: '같은 Gaussian 40만 개 장면에서 실제 마우스로 회전·이동·확대하고 카메라 경로를 재생한 원래 영상입니다.' },
+  },
+  {
+    id: 'reality-view-nurec', lab: 'reality-view', duration: '0:08', width: 1280, height: 720,
+    tags: ['NuRec 26.04', 'gsplat'],
+    en: { title: 'NuRec novel-camera sweep', description: 'Forty held-out camera poses, 1 m higher than capture. This is the neural render before enhancement.' },
+    ko: { title: 'NuRec 새 시점만 보기', description: '촬영할 때보다 1m 높은 카메라 40곳의 결과입니다. 보정을 적용하기 전의 신경 렌더링입니다.' },
+  },
+  {
+    id: 'reality-view-harmonizer', lab: 'reality-view', duration: '0:08', width: 1280, height: 720,
+    tags: ['Harmonizer', 'NVIDIA Cosmos', 'Non-temporal'],
+    en: { title: 'Harmonizer on the same camera sweep', description: 'The released non-temporal checkpoint processes each frame independently. Built on NVIDIA Cosmos.' },
+    ko: { title: '같은 시점에 Harmonizer 적용', description: '공개된 non-temporal 체크포인트로 한 장씩 처리했습니다. Built on NVIDIA Cosmos.' },
+  },
+  {
+    id: 'reality-view-alpamayo', lab: 'reality-view', duration: '0:08', width: 1280, height: 720,
+    tags: ['Alpamayo 2 Edge', 'Predicted trajectory'],
+    en: { title: 'The actual 64-pose prediction', description: 'One Alpamayo output projected onto the display camera and BEV. No controls or new decisions are applied.' },
+    ko: { title: '실제로 출력한 미래 자세 64개', description: 'Alpamayo의 단일 예측을 카메라와 BEV에 표시했습니다. 제어 명령이나 추가 추론을 적용하지 않았습니다.' },
+  },
   {
     id: 'worldgen-dynamic-navigation-gate', lab: 'worldgen-dynamic-navigation', duration: '0:23', width: 960, height: 540,
     en: { title: 'Stop for a closing gate, then continue', description: 'A moving physical collider blocks the passage. The robot waits with zero wheel commands and resumes from new observations when a path opens.' },

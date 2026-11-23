@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1140" height="474" viewBox="0 0 1140 474" role="img" aria-label="RGB perception: from pixels to visible detections">
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#669c00" stroke-width="1.5"/></marker></defs>
+<path d="M364 106 H396" fill="none" stroke="#669c00" stroke-width="2.2" marker-end="url(#a)"/>
+<path d="M744 106 H776" fill="none" stroke="#669c00" stroke-width="2.2" marker-end="url(#a)"/>
+<path d="M194 184 V234" fill="none" stroke="#669c00" stroke-width="2.2" marker-end="url(#a)"/>
+<path d="M954 184 V212 H574 V234" fill="none" stroke="#669c00" stroke-width="2.2" marker-end="url(#a)"/>
+<path d="M364 320 H396" fill="none" stroke="#669c00" stroke-width="2.2" marker-end="url(#a)"/>
+<path d="M744 320 H776" fill="none" stroke="#669c00" stroke-width="2.2" marker-end="url(#a)"/>
+<rect x="24" y="28" width="340" height="156" rx="8" fill="#fff" stroke="#76b900" stroke-width="1.8"/>
+<text x="42" y="63" font-family="Arial,Noto Sans KR,sans-serif" font-size="20" font-weight="600" fill="#202b33">RGB camera frames</text>
+<text x="42" y="98" font-family="Arial,Noto Sans KR,sans-serif" font-size="16" font-weight="400" fill="#202b33">uint8[H,W,3]</text>
+<text x="42" y="133" font-family="Arial,Noto Sans KR,sans-serif" font-size="16" font-weight="400" fill="#202b33">Real camera pixels only</text>
+<rect x="404" y="28" width="340" height="156" rx="8" fill="#fff" stroke="#76b900" stroke-width="1.8"/>
+<text x="422" y="63" font-family="Arial,Noto Sans KR,sans-serif" font-size="20" font-weight="600" fill="#202b33">Mask R-CNN on CUDA</text>
+<text x="422" y="98" font-family="Arial,Noto Sans KR,sans-serif" font-size="16" font-weight="400" fill="#202b33">Class + score + bbox</text>
+<text x="422" y="133" font-family="Arial,Noto Sans KR,sans-serif" font-size="16" font-weight="400" fill="#202b33">An instance mask per detection</text>
+<rect x="784" y="28" width="340" height="156" rx="8" fill="#fff" stroke="#76b900" stroke-width="1.8"/>
+<text x="802" y="63" font-family="Arial,Noto Sans KR,sans-serif" font-size="20" font-weight="600" fill="#202b33">Actual 2D model outputs</text>
+<text x="802" y="98" font-family="Arial,Noto Sans KR,sans-serif" font-size="16" font-weight="400" fill="#202b33">bbox [x0,y0,x1,y1]</text>
+<text x="802" y="133" font-family="Arial,Noto Sans KR,sans-serif" font-size="16" font-weight="400" fill="#202b33">Mask → compressed binary raster</text>
+<rect x="24" y="242" width="340" height="156" rx="8" fill="#fff" stroke="#76b900" stroke-width="1.8"/>
+<text x="42" y="277" font-family="Arial,Noto Sans KR,sans-serif" font-size="20" font-weight="600" fill="#202b33">RGB-derived scene geometry</text>
+<text x="42" y="312" font-family="Arial,Noto Sans KR,sans-serif" font-size="16" font-weight="400" fill="#202b33">COLMAP K + pose + road plane</text>
+<text x="42" y="347" font-family="Arial,Noto Sans KR,sans-serif" font-size="16" font-weight="400" fill="#202b33">No supplied depth or calibration</text>
+<rect x="404" y="242" width="340" height="156" rx="8" fill="#fff" stroke="#76b900" stroke-width="1.8"/>
+<text x="422" y="277" font-family="Arial,Noto Sans KR,sans-serif" font-size="20" font-weight="600" fill="#202b33">Approximate ground contact</text>
+<text x="422" y="312" font-family="Arial,Noto Sans KR,sans-serif" font-size="16" font-weight="400" fill="#202b33">Mask bottom pixel → camera ray</text>
+<text x="422" y="347" font-family="Arial,Noto Sans KR,sans-serif" font-size="16" font-weight="400" fill="#202b33">Ray meets the estimated road plane</text>
+<rect x="784" y="242" width="340" height="156" rx="8" fill="#fff" stroke="#76b900" stroke-width="1.8"/>
+<text x="802" y="277" font-family="Arial,Noto Sans KR,sans-serif" font-size="20" font-weight="600" fill="#202b33">Inspect the same observation</text>
+<text x="802" y="312" font-family="Arial,Noto Sans KR,sans-serif" font-size="16" font-weight="400" fill="#202b33">2D masks on the original RGB</text>
+<text x="802" y="347" font-family="Arial,Noto Sans KR,sans-serif" font-size="16" font-weight="400" fill="#202b33">3D markers in relative viewer units</text>
+<text x="24" y="451" font-family="Arial,Noto Sans KR,sans-serif" font-size="14" fill="#59656e">3D contacts are road-plane estimates. Scores are model confidence, not measured accuracy. No live vehicle control.</text></svg>

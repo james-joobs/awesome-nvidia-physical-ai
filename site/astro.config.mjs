@@ -7,6 +7,7 @@ export default defineConfig({
   trailingSlash: 'always',
   devToolbar: { enabled: false },
   vite: {
+    resolve: { dedupe: ['three', '@sparkjsdev/spark'] },
     server: {
       fs: {
         allow: [fileURLToPath(new URL('..', import.meta.url))],

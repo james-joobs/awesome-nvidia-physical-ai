@@ -1,5 +1,57 @@
 // Each step shows a data example or file name, followed by what it means in the lab.
 export const lessonFlows = {
+  'nurec-rgb-reality': {
+    en: [
+      ['Recover a camera rig from RGB', '162 images → COLMAP K/poses/XYZ → rig bundle adjustment', 'No LiDAR or source sensor calibration. The fixed camera layout and nominal grouping are explicit assumptions.'],
+      ['Run NuRec and enhance native renders', 'NCore → NuRec artifact → native RGB → Harmonizer RGB', 'NuRec trains the 3D representation. Harmonizer predicts image appearance at the same camera poses.'],
+      ['Infer from original camera evidence', '22 RGB views + 20 estimated poses → 64 future poses', 'Alpamayo uses adapted camera slots and an assumed metric scale. Mask R-CNN separately predicts actual source-image masks.'],
+      ['Inspect the saved outputs', 'NuRec-exported Gaussians + Volvo + contacts + predicted path', 'The browser is a converted preview. Native rendering and enhancement are recorded separately; no controls are applied.'],
+    ],
+    ko: [
+      ['RGB로 카메라 배열 추정', '사진 162장 → COLMAP K·자세·XYZ → rig 보정', 'LiDAR·정답 센서 보정은 쓰지 않습니다. 고정 배열과 명목상 촬영 시점 가정을 드러냅니다.'],
+      ['NuRec 실행 후 원본 렌더링 보정', 'NCore → NuRec 산출물 → 원본 RGB → Harmonizer RGB', 'NuRec은 3D 표현을 학습하고 Harmonizer는 같은 시점 이미지의 외관을 예측합니다.'],
+      ['원본 카메라 관측으로 추론', 'RGB 뷰 22개 + 추정 자세 20개 → 미래 자세 64개', 'Alpamayo에는 카메라 배열·거리 스케일 가정이 있습니다. Mask R-CNN의 실제 원본 마스크는 별도입니다.'],
+      ['저장된 결과 함께 살펴보기', 'NuRec Gaussian + Volvo + 접점 + 예측 경로', '브라우저는 변환한 미리보기입니다. 실제 렌더링·보정 영상은 따로 확인하며 제어는 하지 않습니다.'],
+    ],
+  },
+  'rgb-reality-view': {
+    en: [
+      ['Start from RGB pixels', '162 JPEGs · uint8[H,W,3] → feature matches', 'The input guard excludes depth, LiDAR, supplied calibration, GPS and camera poses.'],
+      ['Recover cameras, then learn the scene', 'COLMAP K[3,3] + poses[4,4] + XYZ → 400k Gaussians', 'NVIDIA 3DGUT learns a static scene on one RTX 5090. RGB alone leaves global scale ambiguous.'],
+      ['Recognize real road users', 'RGB → class, score, bbox and instance mask → approximate contact', 'Mask R-CNN runs on actual photos. Markers use an RGB road-plane assumption; model scores are not measured accuracy.'],
+      ['Move the viewing camera', 'Mouse drag → camera change → new-view RGB', 'Spark renders the same 3D scene. The Volvo is a real mesh reference; the replay path comes from estimated cameras.'],
+    ],
+    ko: [
+      ['RGB 픽셀에서 시작', 'JPEG 162장 · uint8[H,W,3] → 특징점 매칭', '깊이·LiDAR·제공된 보정값·GPS·카메라 자세를 입력에서 제외합니다.'],
+      ['카메라와 장면 복원', 'COLMAP K[3,3] + 자세[4,4] + XYZ → Gaussian 40만 개', 'RTX 5090 한 장에서 NVIDIA 3DGUT를 학습합니다. RGB만으로는 실제 길이 단위를 확정할 수 없습니다.'],
+      ['실제 주변 차량·사람 인식', 'RGB → 종류·점수·박스·마스크 → 도로면 접점 추정', '실사 사진에서 Mask R-CNN을 실행합니다. 3D 위치는 RGB 도로면 가정에 따른 추정이며 모델 점수는 실측 정확도가 아닙니다.'],
+      ['마우스로 관찰 시점 바꾸기', '드래그 → 3D 카메라 이동 → 새 시점 RGB', 'Spark가 같은 3D 장면을 그립니다. Volvo는 실제 메시이며 재생 경로는 사진에서 추정한 카메라 위치입니다.'],
+    ],
+  },
+  'pandaset-nurec': {
+    en: [
+      ['Read measured surroundings', 'Six RGB cameras + timestamps + 4×4 poses + real LiDAR XYZ', 'PandaSet supplies real observations. Align asynchronous exposures before packaging NCore V4.'],
+      ['Reconstruct and change the viewpoint', '456 images + 320k seed Gaussians → USDZ → new-view RGB', 'A static NuRec baseline can smear moving traffic and expose holes in unobserved surfaces.'],
+      ['Place an identifiable ego car', 'Same camera pose → Blender Volvo RGBA → composite', 'Align the detailed CC BY Volvo mesh with a measured road plane. It does not supply vehicle control.'],
+    ],
+    ko: [
+      ['실제 주행 관측 읽기', '카메라 6대 RGB + 시각 + 4×4 자세 + 실측 LiDAR XYZ', 'PandaSet의 실제 데이터를 씁니다. 카메라마다 다른 촬영 시각에 맞춰 NCore V4로 묶습니다.'],
+      ['복원한 도로를 다른 시점에서 보기', '사진 456장 + Gaussian 초기값 32만 개 → USDZ → 새 시점 RGB', '정적 NuRec 예제라 움직이는 차는 번지고, 가려졌던 면에는 빈틈이 생길 수 있습니다.'],
+      ['실제 차종으로 자차 위치 표시', '같은 카메라 → Blender Volvo RGBA → 합성', 'CC BY Volvo 상세 모델을 실측 도로 높이에 맞춥니다. 차량 제어 기능을 제공하는 모델은 아닙니다.'],
+    ],
+  },
+  'reality-view': {
+    en: [
+      ['Capture our road', '120 RGB + z-depth images · K · camera-to-world', 'Only training-view depth seeds the Gaussian model. Keep 40 elevated camera views for comparison.'],
+      ['Reconstruct and enhance', 'NuRec novel RGB → non-temporal Harmonizer RGB', 'Compare against the original USD. A learned enhancement can reduce pixel fidelity.'],
+      ['Show a predicted route', 'Six raw cameras + ego history → 64 future poses', 'Project the actual Alpamayo output onto the display. This does not apply vehicle controls.'],
+    ],
+    ko: [
+      ['직접 만든 도로 촬영', 'RGB·깊이 120장 · K · 카메라 자세', '학습용 깊이만 초기화에 쓰고, 높이를 올린 카메라 40곳은 비교용으로 남깁니다.'],
+      ['장면 복원 후 프레임 보정', 'NuRec 새 시점 RGB → Harmonizer RGB', '원래 USD와 비교합니다. 생성 모델의 보정이 픽셀 정확도를 낮출 수도 있습니다.'],
+      ['주행 모델의 예측 표시', '원본 여섯 카메라 + 과거 자세 → 미래 자세 64개', '실제 Alpamayo 출력을 화면에 투영합니다. 차량에 제어 명령을 적용하는 단계는 포함하지 않습니다.'],
+    ],
+  },
   'worldgen-dynamic-navigation': {
     en: [
       ['Read a timestamped observation', 'ranges[180] + hit positions[180,3] + sensor time', 'The controller sees measurements and ego pose. The actuator schedule stays outside the planner.'],

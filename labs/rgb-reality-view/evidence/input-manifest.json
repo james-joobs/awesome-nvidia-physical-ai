@@ -1,0 +1,985 @@
+{
+  "schema": 1,
+  "input": "RGB pixels only",
+  "external_sensor_inputs": [],
+  "supplied_camera_poses": false,
+  "supplied_intrinsics": false,
+  "supplied_depth": false,
+  "supplied_ground_plane": false,
+  "stride": 1,
+  "max_side": 1024,
+  "images": [
+    {
+      "image": "back_camera/00.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "913280a13a13d54ffa55ce9ba964e8ddc88969959888f903450a06fd4ee614a0"
+    },
+    {
+      "image": "back_camera/03.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "98a1b4c49d43159f354d38cfb807241c121af314ae37c65d576d5c97aab3c56b"
+    },
+    {
+      "image": "back_camera/06.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "6191f213a3f09eaeda8db4553c2a4d4aa72599bdac60ada39fc90227df4be30c"
+    },
+    {
+      "image": "back_camera/09.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "d440bc4b304899d129eb6fd37a33baf1d745a8ad216c8fefc35b86fcfda0e059"
+    },
+    {
+      "image": "back_camera/12.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "18cbe88123c9efbffb16c8b14a0f0c350f69ce58ce95c55c4a0d79a7f304b71f"
+    },
+    {
+      "image": "back_camera/15.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "d72a62c66263241f42b065c8bb1e7fe1a7057d8f4b7e1148bd21a5e39fad2de4"
+    },
+    {
+      "image": "back_camera/18.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "b8887a33001f0e3adaea087cd577ce3bbfe4fc5af68cdadf6630edaf19b6d278"
+    },
+    {
+      "image": "back_camera/21.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "e72726c89daf9191bc712ce65a6777372f0ce49d241d721633fc909873d487a8"
+    },
+    {
+      "image": "back_camera/24.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "ebfefece649a4560b2670192a03ee121dff55353cd0769f807136e8db003af07"
+    },
+    {
+      "image": "back_camera/27.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "d45812e647f35129e5c72b7f9eb0bf4f3248d496793699b34e4e6068e972ba86"
+    },
+    {
+      "image": "back_camera/30.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "7915d8b18e0ea998d4b2fea252115b195db7c9b2fb6191a2ec10e98b574e982c"
+    },
+    {
+      "image": "back_camera/33.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "4a34f1425ed37173b48967471d5aafd0cd5eaf7f830a07ddc9049d07cb7eb3ea"
+    },
+    {
+      "image": "back_camera/36.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "6b181672fb43c70e4da0cbad2b27df2b30e4cf809b3ad7d0498d3bb4dc44df10"
+    },
+    {
+      "image": "back_camera/39.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "802f68849e34753c30f5a9a430f853dd0c1ef1bb36bb65a12b8904565d2af100"
+    },
+    {
+      "image": "back_camera/42.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "22dc7d9011ca7d5515de20389c7a41af9d78d4433d23358d64ecb286ced14322"
+    },
+    {
+      "image": "back_camera/45.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "ba5a39a968d3b4c2e2035a9029fe179cdaa2ae65eb29dc7c38034e318dd7fcf8"
+    },
+    {
+      "image": "back_camera/48.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "bbc6a5f8ca46b889fa6928e59dc531fd671f8c658dcd44a74bdace19c7865020"
+    },
+    {
+      "image": "back_camera/51.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "ffe9ab823a61e9c8091a3c47594c9f762c7834e30643c789b0f023d4f721a905"
+    },
+    {
+      "image": "back_camera/54.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "e2c03dd099c05783b0d6a8c5f8a4e6011dda698cf27cc41241d187cef71e723b"
+    },
+    {
+      "image": "back_camera/57.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "336fdcdffdb0625dba7fcbdb688df27ed10ba008a794980e2e50352a079af5f9"
+    },
+    {
+      "image": "back_camera/60.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "68e5ec26ca3937176f11c2603290d0d6045850f13904b77a0fe9be3f6697238b"
+    },
+    {
+      "image": "back_camera/63.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "9198a5f274e1f472273eb6121a7c97f8a7cd48648ff2bbfe275b36edb556d930"
+    },
+    {
+      "image": "back_camera/66.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "d6093fbfe8e4a17b17db55fdd937c3c3f386f9a1269d0814df0ea446e3c908d2"
+    },
+    {
+      "image": "back_camera/69.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "3bacaf8d2d38772a9a76278a8e0457fd0e0001b47eb44be198d5dec99a0a7436"
+    },
+    {
+      "image": "back_camera/72.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "d49e1edd32786d308f49fa726b6d2f5f132c3fa9dc0bc7b100ff7bd13119a949"
+    },
+    {
+      "image": "back_camera/75.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "8fc3226856bc8f9f40235fa43fe2dc8523861182baaf8041a80752bb22806837"
+    },
+    {
+      "image": "back_camera/78.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "58b1a592b4752532eacab5ff1beae2251f4829ad38d30579d1a4e4c9a0acf934"
+    },
+    {
+      "image": "front_camera/00.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "0005cb79519b498ebec2f15bfe1c34db148d435e57643753450b5e9d6dc7f379"
+    },
+    {
+      "image": "front_camera/03.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "4283727d2263b5ed5b20ecb2639e3f0efd056d53029ceacc51e207a2217f8b7d"
+    },
+    {
+      "image": "front_camera/06.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "2dfd4c32976d36281d9a4fa307ddb94bcdda37a004bd9162a2ac2b386d0b0618"
+    },
+    {
+      "image": "front_camera/09.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "434c14691307cba0cd59a80e43a3ab67aa5a4a339d122918e175a00bc0d5354b"
+    },
+    {
+      "image": "front_camera/12.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "a8b27f4e259a3209465e620d8b7393d16e1b90e5bf7a509cf6a140f90a808589"
+    },
+    {
+      "image": "front_camera/15.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "e711d3352f74f53a1da273e2d3d9a22706071b6c90039f0fcb878c580c7f6da9"
+    },
+    {
+      "image": "front_camera/18.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "04909c97ed7bd1a91eedde0e77e2577e885381246979d40679af65441b77452d"
+    },
+    {
+      "image": "front_camera/21.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "ad9695a6ecdc10e61354ea8796874a8d5a6c2c36a2244be612faf8ac379c083f"
+    },
+    {
+      "image": "front_camera/24.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "1cde93adf4ec825cbcd6cce17fa8192b1d247a3610fd1dc1db261f82057fc6a6"
+    },
+    {
+      "image": "front_camera/27.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "ab8b8dba8a18802fbe75067cf164fa9e124206a450b7345bfe8008a62e895bf7"
+    },
+    {
+      "image": "front_camera/30.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "42f0cf5d078e4163785d06db2c3200e0a04fc9f50dceeb3808acff9b429a820a"
+    },
+    {
+      "image": "front_camera/33.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "edec4ebe87b01ebe363466d0f3cc31cef10e8a5b6a0eeea65165347ae205c9c3"
+    },
+    {
+      "image": "front_camera/36.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "1a52ffcf9d23970ee12c96ddbc795e324f1e31f8e3fe6e2e08ac3bbe3348b30d"
+    },
+    {
+      "image": "front_camera/39.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "3418ff3678cf5e8d9fec3df2c74828435ea2fd6a7c017a9b819f83ce783e3892"
+    },
+    {
+      "image": "front_camera/42.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "bfbaf3faf5f0325b4699060edd7f4dd3f189be95cc7ea23bc61be24c91e97274"
+    },
+    {
+      "image": "front_camera/45.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "ebfd58372af5c2c7c894b63124952af278f19cab977616a5cd9dd180ca35e038"
+    },
+    {
+      "image": "front_camera/48.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "18b6edf56aa899dc43dc3034b4331949ffdc63d108a2b7ad56abf639ade80db0"
+    },
+    {
+      "image": "front_camera/51.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "3599dfc57cab17f9eb599f18537202ae9d51b090c5f84ccd36d69867ff7d9b9d"
+    },
+    {
+      "image": "front_camera/54.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "fbe4564117eee7f5815cd760fc44e14d0f0bd2dd9a79a9fee62e542498591705"
+    },
+    {
+      "image": "front_camera/57.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "ec0bae1b23983087ae4b160871a5df17e8467403fbe41ed3ac3fe70e17f828d1"
+    },
+    {
+      "image": "front_camera/60.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "bc9256306ef87a51bcfe5aac74ce53804048d55cbe70671187148c479002579c"
+    },
+    {
+      "image": "front_camera/63.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "58375ec7d790ff99b9ac5fd81cca7ec9bbfc49e3321a4174cd115bb2234f811c"
+    },
+    {
+      "image": "front_camera/66.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "e25170157bcbfded2ede6e2af80833b26b330ae96459c64f6f36ea3a896ac731"
+    },
+    {
+      "image": "front_camera/69.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "2a28387f56c40491f55faf2f046df3368e0585f6749426dc8a8a316a8eedd88d"
+    },
+    {
+      "image": "front_camera/72.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "f350ab5a50528b5c7330857de91ff60a232f4b6a5c3fb93c873ef523123b636c"
+    },
+    {
+      "image": "front_camera/75.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "e37523809dcb3602d233e6b3855cbc30cf5fd214cef03501d7030ec39a799923"
+    },
+    {
+      "image": "front_camera/78.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "d0a82f863b6abdb6a6b22e23f4e24c11a49c33a7be61f5c3140605af0c000d7f"
+    },
+    {
+      "image": "front_left_camera/00.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "44a8197ea10160bf378720e600cfecb91a72f57f1d35f8f35fecf3ae1a7c4ce0"
+    },
+    {
+      "image": "front_left_camera/03.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "826a9e70af70d3063d894c26c3af27b800254826ff23b46b8da92d05a3c02be4"
+    },
+    {
+      "image": "front_left_camera/06.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "366665db47a51326e4ff850a91821e5080c29a8f06dbcaa65e4a029350be8171"
+    },
+    {
+      "image": "front_left_camera/09.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "5e4f7944001e7ec898eeb7a64bbdae243738b20955d3230917b6dcfedf3d36bf"
+    },
+    {
+      "image": "front_left_camera/12.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "7610a9ea28538026e6acc7b65ebcc7f53032ff0c521778d6ae54fcfb85dc6c06"
+    },
+    {
+      "image": "front_left_camera/15.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "f2c644a46651557a04e609e58f64e3155044f5a249cccd0c8c97d3ea01393386"
+    },
+    {
+      "image": "front_left_camera/18.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "3188446f59caf6096bd588b0be53fc8e3ef861182020485d34009cac3e1c3abc"
+    },
+    {
+      "image": "front_left_camera/21.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "4023d36085136cb435aedd0015f6d422804058e9045ac790ba30a7011cb84e47"
+    },
+    {
+      "image": "front_left_camera/24.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "f9cda30b3f4b33b967156e8bf425a740f6ca01177f35b664ed56dc10826d1bd5"
+    },
+    {
+      "image": "front_left_camera/27.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "33abd1bf2569e95aec540edccade9350cef776c09d34d7b1b1d316eff3e113f6"
+    },
+    {
+      "image": "front_left_camera/30.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "e91960a4eb533e9512c34e397ed0492ad1f93bfee96dc68ff90b6e68581efe0b"
+    },
+    {
+      "image": "front_left_camera/33.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "e635cf67289ad959d691cd40954ad92a5c7d1e46954d537a5bb7536cbfaeda8d"
+    },
+    {
+      "image": "front_left_camera/36.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "54714f8c052d121206e55f3a70328bb651b2cec8b157ea2c138db71014477b80"
+    },
+    {
+      "image": "front_left_camera/39.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "38c353fab503a41f01abfaaa0634be8db4bb44cf52e1e347377e00f04b067a47"
+    },
+    {
+      "image": "front_left_camera/42.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "51a2f570ed457bb42b7f1517ebd6b63a343ff3999e0192d8912a55a6df820b73"
+    },
+    {
+      "image": "front_left_camera/45.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "f12d0f4a44aef371e3d7016f9d2b5290d7b6f28986aaecabcabd4b4c396a422c"
+    },
+    {
+      "image": "front_left_camera/48.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "f45907e9fda5a20eb4c3b0b3b3f80901147ac6e044db0334994837ac7f504d1b"
+    },
+    {
+      "image": "front_left_camera/51.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "bf09c2f6d46ca3d5a7c7114343f440bdd1c49bb8f50c5a3ceefeca8cea4db278"
+    },
+    {
+      "image": "front_left_camera/54.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "1ecccbbd6f03ef62dc3d056edd9a03ec7039cf758097675affa5f13c76a22611"
+    },
+    {
+      "image": "front_left_camera/57.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "d1f4a5c6cb890d0b351d9ae62eed313e87b90a44c0e63941ccd8c8d32b7624c5"
+    },
+    {
+      "image": "front_left_camera/60.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "c2569ac3b3cf21ee44aaae331f34af2a218bf71f51dc9101f0537ec60b947270"
+    },
+    {
+      "image": "front_left_camera/63.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "aed874cfa4e75ddf06400e69748ded6d86c5ff796f27fc9ae764e772f11d5f88"
+    },
+    {
+      "image": "front_left_camera/66.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "16492d8af9ce4355252b0a6bdf70cab05186bf0e1c26b371e31975a373c97ec4"
+    },
+    {
+      "image": "front_left_camera/69.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "1f133acbc5c0110a1b45a4989476a3df68524441a624ba06cbe4116dc70f0326"
+    },
+    {
+      "image": "front_left_camera/72.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "aff4e8280009fe9d38ae0d069b6521d726b4df9bc40ee62aef0daa230f6177b2"
+    },
+    {
+      "image": "front_left_camera/75.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "c1e94dec579f90d14b217dfc0da5574596d073fa304be0ca19ce1d4b9300c2f0"
+    },
+    {
+      "image": "front_left_camera/78.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "dc00f24dbb521aaa1a1716a76f1798fe795cf03589bd4edf4b7e75d45c2d4f4c"
+    },
+    {
+      "image": "front_right_camera/00.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "ceb9affe0c2d7e1fd9c6feb66984cd80f4f04a1297731671c87625eb83dda446"
+    },
+    {
+      "image": "front_right_camera/03.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "8872fb6425b681f5613712d8f50a278785dea3771508fc25e1a50c89860e4704"
+    },
+    {
+      "image": "front_right_camera/06.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "b2dfece8fdbbba0ab64dd547e8065a6bdf1769d6ed4a52ffec60d38351907d81"
+    },
+    {
+      "image": "front_right_camera/09.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "f450c7084885a875e743b53865b229675749075da11bbbbdaaaf9c18c3dc8ce6"
+    },
+    {
+      "image": "front_right_camera/12.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "33747f96e4af1e1ec9b1bd2cb78506ff54bf5c8fc47c063410e0c16a2884a357"
+    },
+    {
+      "image": "front_right_camera/15.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "f55a8c8bfa41ecfc78496f28885bb451ab6a96993dee09d87c320f3103053779"
+    },
+    {
+      "image": "front_right_camera/18.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "b48677e7a5e95f1928d383ba1bb814265987485e21de294e591ac02401bd6f84"
+    },
+    {
+      "image": "front_right_camera/21.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "bc9104ee93a4e35e74cf35ee67ffac6af9ed043de2d4333e4eefdf122798d805"
+    },
+    {
+      "image": "front_right_camera/24.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "8c9042c1e4904909bb2050d5f7877c319175f64f63d4b9a03b18d3725e10a325"
+    },
+    {
+      "image": "front_right_camera/27.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "b108ade1fed06c7ac3fceb7f5cc85b954918c03b624dd6d30ac25f8095b7cfd5"
+    },
+    {
+      "image": "front_right_camera/30.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "5a55fd128a70bee0a93f6a0a035ea0af11facf767af203dec3b243efe9704cf8"
+    },
+    {
+      "image": "front_right_camera/33.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "64ef72665d4757633226f6d77aaa69999d5ab3861ba0752dab9b48c18bbc7cbd"
+    },
+    {
+      "image": "front_right_camera/36.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "73dc0cff374166822ea5592e10ae393be316966013bb22bb21bf70d523438fb5"
+    },
+    {
+      "image": "front_right_camera/39.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "621e3eed51d0f5bbe93b5df08a2e9990c0de8372914119442db29b26be4596f5"
+    },
+    {
+      "image": "front_right_camera/42.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "39fd7d25788a6b288f2364e6086c928cc2f9eb1f27888ad4bb4653deae8e0102"
+    },
+    {
+      "image": "front_right_camera/45.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "96594d0608eb45ff890e3c0759ed7e88a7167b90a42b58493325ef60adc6dc13"
+    },
+    {
+      "image": "front_right_camera/48.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "f21310e841c8606821d873ce2dea7e103dc886a5f49daa1b588e77c17b7c68b4"
+    },
+    {
+      "image": "front_right_camera/51.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "93517ad04c47b0dda5b7b626a5ae7efe59d25918a6a18cc979790560555cf3e1"
+    },
+    {
+      "image": "front_right_camera/54.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "f52ad3e1b7e981bdc0dd608d0bf5bf1853ecb48770db7d258867308b6dcded57"
+    },
+    {
+      "image": "front_right_camera/57.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "4a15eba14ae3ffe5c2e58f72c226b2fb7458cbe68ac0eef211934ae7d22fca09"
+    },
+    {
+      "image": "front_right_camera/60.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "a5fffb142d1c32c339233391ba55a8c2ff9c3fdda7e48463963f0fe4e765d7d4"
+    },
+    {
+      "image": "front_right_camera/63.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "6a39ea4b75b23643b2d2ca118f647d9307e1a4e0eb6cd2a38ac81a64e976d01c"
+    },
+    {
+      "image": "front_right_camera/66.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "14fb77df87ee193576a4667ce987d39fd224ca78a73513b835369ce63edbdb6e"
+    },
+    {
+      "image": "front_right_camera/69.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "0e2da20679fb83ced173ca1b146910f56c8daca998bf37d9a66c9e2c573adc75"
+    },
+    {
+      "image": "front_right_camera/72.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "1b91be34efcddd6c98b846694f1867c0502cbd689701ad6c12789e964ebe61cf"
+    },
+    {
+      "image": "front_right_camera/75.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "2109dbd7681b25ca3e020f13e745f12fa7238beb9e837ce209f572deef1000a3"
+    },
+    {
+      "image": "front_right_camera/78.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "0b2f5408484f7148922eb0f4522916169310d9a24db3dfe5a1916b5c850f1237"
+    },
+    {
+      "image": "left_camera/00.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "72c6398a79e006a0bbfb2e259797e734ddf9ec04740f519ec628579936760751"
+    },
+    {
+      "image": "left_camera/03.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "0e2df4906125619a6326d5ce76b9472a542a70053a4e257b17c12d08f29822b0"
+    },
+    {
+      "image": "left_camera/06.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "b96dd3dbb7a218cd731e3c5a8a00628184aacef2b0be1469379a84ac29bf5a65"
+    },
+    {
+      "image": "left_camera/09.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "f63b2559a45caebca6ad6feb9afe8c2b3130bf7604542270d873ad16f049927f"
+    },
+    {
+      "image": "left_camera/12.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "875ede86e035257d1bc8c17116908951c394597a3d2c0833a0ed8076c1fd172a"
+    },
+    {
+      "image": "left_camera/15.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "0c1e19750ee6ac7f6c0e0845242721beb346b6c50b413dfd4ff06975cdf76e1c"
+    },
+    {
+      "image": "left_camera/18.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "e7213cf9e14b0e2453fb3f04e86ae6b3f412e903189e954380f8a1a2a1dae702"
+    },
+    {
+      "image": "left_camera/21.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "413dc139fedee82f7be37b671dfd8ead97180efa78cb64cde5c466b3fb941f2c"
+    },
+    {
+      "image": "left_camera/24.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "ba8e62393349bf086955ff0903abc4446b828fa500bbd0c14f92e7181db35397"
+    },
+    {
+      "image": "left_camera/27.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "50d89fe2b9ffc7aefb3688369921781d64802b77be543d663c1eab1eff3025d4"
+    },
+    {
+      "image": "left_camera/30.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "c1c716957249f3bb545809a710e319e1cfadec926e8d8106407bf4d1d9b28725"
+    },
+    {
+      "image": "left_camera/33.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "7ffb031a01c434325f308a42e0b31b746b9e46bb8cef7f9960d55e190cebac1c"
+    },
+    {
+      "image": "left_camera/36.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "3cf28fc83f9a9f76c17620de83ce104d88df64588bab3e2a34cdbc6cdf597ee7"
+    },
+    {
+      "image": "left_camera/39.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "44333acfa9699e53a07dca37eadbd19f4cdb1898ee7582bfe94903888be0e0d7"
+    },
+    {
+      "image": "left_camera/42.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "0213a6bac4c10dc3db48e0f77b04f97fda5f8e126b361e5b29c0b2dc7cfb2a7a"
+    },
+    {
+      "image": "left_camera/45.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "2eabf1c3def08b5b5ec3ec74e24156a346dbf4f373444583a6e6ceda236ac925"
+    },
+    {
+      "image": "left_camera/48.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "aa9fad010a6be4e859a36868199225777ea6a5d818382f2359a1e217a2f27202"
+    },
+    {
+      "image": "left_camera/51.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "27c16e7a17d8e2640042f294e1d9bcdda8baeb32aa4078f5440e30c9f56efdff"
+    },
+    {
+      "image": "left_camera/54.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "08eb782806ee71c25d1bbde384f04f95562672b29b2c40f3c82d4a35003c9b9f"
+    },
+    {
+      "image": "left_camera/57.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "e09fb382d4625d35c8438a9bd8399b9a8e5f731ab2b499b9fc3b6f5e7c5775c4"
+    },
+    {
+      "image": "left_camera/60.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "b98c7c8914b79281b7cb7b516a428a77f1a0b5537152a5bb21a3a120104d7fe8"
+    },
+    {
+      "image": "left_camera/63.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "9f5eacef496508e3c4a757fbfed153f9d02ab2e303998acaf240a7cb0f0a31a3"
+    },
+    {
+      "image": "left_camera/66.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "0d2effda313e80b466db11970c59c329217fb3ca30d9b74573b4299eaf97a7d2"
+    },
+    {
+      "image": "left_camera/69.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "c368715ced98903eac08bef7a86021bf6df81f47af9fd2f76746e46d4daba27a"
+    },
+    {
+      "image": "left_camera/72.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "33f8cddfebfd5bac9471c521e5857c7a285fec3c6dc5d7df572758cc946cde14"
+    },
+    {
+      "image": "left_camera/75.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "cb2f48b5295bba7ac568cb05fad5decea0543ca061e8e9bc8bff5421c90ef39d"
+    },
+    {
+      "image": "left_camera/78.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "e2c9f5df9dad4a7c5caa891ecc8d05994f6337e8e3f15a33c59f4865738d9367"
+    },
+    {
+      "image": "right_camera/00.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "6c01d4f012a657176cfe761efeb903e5d4d9984551eae00d99702687d12eecc4"
+    },
+    {
+      "image": "right_camera/03.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "604f79ea72e42fa575ed17b6e6f6189bcee3e3ababb9dce51d20faf90f37dd36"
+    },
+    {
+      "image": "right_camera/06.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "5337509a745cabd41f7050aaa3b624cf60ccf17de9be02b5b43a7d70a28d1c3c"
+    },
+    {
+      "image": "right_camera/09.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "e5744934dff19bb69236b8396396a7bf0b7f20adb4a85c1bb5abee56dc75cbc6"
+    },
+    {
+      "image": "right_camera/12.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "c9a8701e74ce61ec03eba6baccd7650d8540082ce3af2fe8117841628fd0a2c2"
+    },
+    {
+      "image": "right_camera/15.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "5b942fc039a729bd0b36a60272af5d1ccdf6e547c19017ece9de04d56e32fee1"
+    },
+    {
+      "image": "right_camera/18.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "92571db8c568723cb1aaa8fcc8e14f39063600e1b7a01fd87a2388a8f02e2909"
+    },
+    {
+      "image": "right_camera/21.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "b05443d6339b2f0bce6fdb44c631061872cfca41710b90c9c7fe294e9ab0fec5"
+    },
+    {
+      "image": "right_camera/24.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "fdf145885bd6d794b1fe06733637a0c0aa7658c3d3c4eab2eb5eeb5e3a6b6af0"
+    },
+    {
+      "image": "right_camera/27.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "6b509fbac426ce231f30ab0fe0e9cf4c693ee73bd5f172a5e135c7a78c7285d8"
+    },
+    {
+      "image": "right_camera/30.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "d5062c498669d9d6da351f53ad096e85503ea83aba65752875a6a51d98d05585"
+    },
+    {
+      "image": "right_camera/33.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "ebfc608991b1ec2ea7ad6560418092d991880b22b826b8271bcdcf57d62dfeea"
+    },
+    {
+      "image": "right_camera/36.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "77f846210bce852ee23124ed80ee350ae2f9609b332bd6d8a39d8901950acafb"
+    },
+    {
+      "image": "right_camera/39.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "39b044173da5f14ab131caf3663ac9bcf90bdf204cabf5e4753fc6e63a6c85e4"
+    },
+    {
+      "image": "right_camera/42.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "f7033e771e56eaf4e03f16e8e14cb33e0d796d2cf8e698b15bd5e1a837c8ffb4"
+    },
+    {
+      "image": "right_camera/45.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "b80d77c0ca6e3d7db245d7e58c79cc504c2ffabbf67a7fccb38359fad3a6d543"
+    },
+    {
+      "image": "right_camera/48.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "8117613c2231b41306ee7a04653f7e381142df47e8e084a592ae57dfd194bb13"
+    },
+    {
+      "image": "right_camera/51.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "aeb8003cfb8f9b673a870c00be31229ccde588d2d6573cca192203a766a988ea"
+    },
+    {
+      "image": "right_camera/54.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "374d4dd1d935d93f9255c80a7399c1dc2293d07cbbc1c0b25b996fa9695c318e"
+    },
+    {
+      "image": "right_camera/57.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "a5703cc0b7011492a3d76812acd255a6bc0c2b27995f0ca604033036143c5697"
+    },
+    {
+      "image": "right_camera/60.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "723bb5c1ae296a67c536482dedc87778f181d13935051e2bb154cf0803697dc8"
+    },
+    {
+      "image": "right_camera/63.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "0fd2034f52c7451c896149314702b21d33daeb9644d3cf5c40807f2549456f92"
+    },
+    {
+      "image": "right_camera/66.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "6e4da25e418bac26c3bd9cc766bd0085c74a2c391a50bf023d77b86378377e2d"
+    },
+    {
+      "image": "right_camera/69.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "db7f0bf10e26e7cfde3a32eba486c44f3530d524ebcc37b90a79910bef9cbaf1"
+    },
+    {
+      "image": "right_camera/72.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "7775d599f29af336e759da5a40381bf8bf6f01bdebda3f41ae6292d2e5b837e7"
+    },
+    {
+      "image": "right_camera/75.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "b4ef70377dd91dda3939e7a579bb50ad55b1c9578e3d0c30d867d2ed34bb56c9"
+    },
+    {
+      "image": "right_camera/78.jpg",
+      "width": 1024,
+      "height": 576,
+      "sha256": "c077a687b1dcba2367c56e241261819af2b57d00f30af05382396dce905175b2"
+    }
+  ]
+}

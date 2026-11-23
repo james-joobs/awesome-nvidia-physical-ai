@@ -1,0 +1,193 @@
+{
+  "schema": 1,
+  "recorded_date": "2026-11-23",
+  "pipeline": {
+    "inputs": [
+      "RGB pixels"
+    ],
+    "uses_lidar": false,
+    "uses_supplied_poses": false,
+    "uses_supplied_intrinsics": false,
+    "uses_depth_model": false,
+    "static_offline_reconstruction": true,
+    "public_runner_verified": true
+  },
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 5090 32 GB",
+    "gpu_count": 1,
+    "system_ram_gb_approx": 32,
+    "os": "Linux x86_64"
+  },
+  "sfm": {
+    "pycolmap": "3.13.0",
+    "cuda_build": true,
+    "device": "cuda",
+    "input_images": 162,
+    "registered_images": 162,
+    "sparse_points": 28577,
+    "mean_reprojection_error_px": 0.8748183065623464,
+    "elapsed_seconds": 64.28710344899446,
+    "selected_model": "sfm-selected",
+    "intrinsics": "estimated from RGB, SIMPLE_RADIAL shared per image folder",
+    "camera_poses": "estimated by COLMAP SfM; no dataset poses, GPS, IMU or LiDAR",
+    "scale": "arbitrary SfM units before explicitly labeled display normalization"
+  },
+  "training": {
+    "3dgrut_commit": "dfd3d54c8c612003fb7948443edf7778f2bcd5ec",
+    "training_steps": 16000,
+    "epochs": 114,
+    "training_loop_seconds": 121.01,
+    "wall_seconds_including_compile": 127.80835600802675,
+    "gpu_count": 1,
+    "gpu_memory_mib_sampled_total_peak": 4850,
+    "memory_scope": "nvidia-smi total GPU usage sampled each second; includes display/background allocations",
+    "input_manifest_sha256": "c6cc578dd06ce82e91049cb5324f08b270b0b96c4162f4ae00a4f06acb895aa9",
+    "dataset_type": "COLMAP estimated from RGB",
+    "test_last": false,
+    "evaluation_scope": "No independent novel-view accuracy claim. All images inform SfM; photometric train/validation split is not a sensor-exclusion benchmark."
+  },
+  "viewer": {
+    "gaussians": 400000,
+    "spz_version": 3,
+    "spherical_harmonics_degree": 1,
+    "front_poses": 27,
+    "road_plane_inliers": 187,
+    "road_plane_rms_relative_units": 0.014573953643839392,
+    "units": "relative camera-height units; not measured meters",
+    "vehicle": "Volvo S90 Recharge by lazercar, CC BY 4.0; separately rendered foreground reference"
+  },
+  "licenses": {
+    "code": "MIT",
+    "new_scene_and_recordings": "CC-BY-SA-4.0 plus original PandaSet Dataset Terms; differing original notices retained",
+    "vehicle": "CC-BY-4.0"
+  },
+  "scope": "A fully reconstructed RGB-only sample, not live perception or a closed-loop driving-policy benchmark. All images inform SfM. Timing excludes first dependency installation; sampled total GPU memory is training only.",
+  "files": {
+    "labs/rgb-reality-view/evidence/PANDASET-DATA-LICENSE.txt": {
+      "bytes": 5507,
+      "sha256": "b198d2cb6ce184a0cc586ffd4513dd7e9060b0e10686b94768c845f8b94cdcf7"
+    },
+    "labs/rgb-reality-view/evidence/cameras.json": {
+      "bytes": 30020,
+      "sha256": "e73868d4415ead9330952cf6bfb9c25a6381b1a4c696ac80d23ca4f36ab31188"
+    },
+    "labs/rgb-reality-view/evidence/download-result.json": {
+      "bytes": 31052,
+      "sha256": "26266691c192eabc18e29a888013c791209b6eac6b8a84f33221760e828b62a7"
+    },
+    "labs/rgb-reality-view/evidence/input-manifest.json": {
+      "bytes": 29015,
+      "sha256": "c6cc578dd06ce82e91049cb5324f08b270b0b96c4162f4ae00a4f06acb895aa9"
+    },
+    "labs/rgb-reality-view/evidence/interaction.en.json": {
+      "bytes": 3610,
+      "sha256": "b7253cf9e094ea7e636c4cbe248a576c0f29fd99fbc9021694d7d4ce7a26bcba"
+    },
+    "labs/rgb-reality-view/evidence/interaction.ko.json": {
+      "bytes": 3591,
+      "sha256": "6c26ee6b39b0a5bd2426e214dac4c2cce61ee5189c06efb71564ba0578f18c19"
+    },
+    "labs/rgb-reality-view/evidence/rgb-reality-view.en.mp4": {
+      "bytes": 4801669,
+      "sha256": "f6f9ea2d06b44221951ab986e16d646a5803ffdedce2304b7d9217e1384e83b0"
+    },
+    "labs/rgb-reality-view/evidence/rgb-reality-view.ko.mp4": {
+      "bytes": 4723082,
+      "sha256": "7a8b81fd705be27d30297e5bcb9497af2380e55e730c6ba33e37890bebfe11a6"
+    },
+    "labs/rgb-reality-view/evidence/sfm-result.json": {
+      "bytes": 515,
+      "sha256": "863484a64cc96764209cfe7070c5b02ad3ecf113aeb3bc1666db4d830ced872d"
+    },
+    "site/public/showcase/rgb-reality-view/ATTRIBUTION.txt": {
+      "bytes": 1187,
+      "sha256": "6f1fc9c0f32ff288a275c3cf461a3cab06db09af4f630de7da4247378ca12fca"
+    },
+    "site/public/showcase/rgb-reality-view/PANDASET-DATA-LICENSE.txt": {
+      "bytes": 5507,
+      "sha256": "b198d2cb6ce184a0cc586ffd4513dd7e9060b0e10686b94768c845f8b94cdcf7"
+    },
+    "site/public/showcase/rgb-reality-view/VEHICLE-LICENSE.txt": {
+      "bytes": 529,
+      "sha256": "b2e0de0073328cc023b2c2291f07f94fa61cbc271182e19565c7156b8f0b8548"
+    },
+    "site/public/showcase/rgb-reality-view/cameras.json": {
+      "bytes": 30020,
+      "sha256": "e73868d4415ead9330952cf6bfb9c25a6381b1a4c696ac80d23ca4f36ab31188"
+    },
+    "site/public/showcase/rgb-reality-view/road.spz": {
+      "bytes": 7801118,
+      "sha256": "1647fb51688f18a4078fd8b868e489c1836479049ed0d1ab85f54741671968bb"
+    },
+    "site/public/showcase/rgb-reality-view/volvo-s90.glb": {
+      "bytes": 950520,
+      "sha256": "f72ae49994834fa62cd319dd8651eed9048cd6e5201424aed87eeb2e969fdbab"
+    },
+    "site/public/showcase/rgb-reality-view.en.jpg": {
+      "bytes": 119871,
+      "sha256": "b13c9adc930dc7ced7055be4cd1d1d6cdf4c835c3782c74970bf120ee14bea25"
+    },
+    "site/public/showcase/rgb-reality-view.en.mp4": {
+      "bytes": 4801669,
+      "sha256": "f6f9ea2d06b44221951ab986e16d646a5803ffdedce2304b7d9217e1384e83b0"
+    },
+    "site/public/showcase/rgb-reality-view.ko.jpg": {
+      "bytes": 118409,
+      "sha256": "d444166e3ccfd5d4b31302be2ba80f22260bc0d0b06040f88e825155ea435aa6"
+    },
+    "site/public/showcase/rgb-reality-view.ko.mp4": {
+      "bytes": 4723082,
+      "sha256": "7a8b81fd705be27d30297e5bcb9497af2380e55e730c6ba33e37890bebfe11a6"
+    },
+    "labs/rgb-reality-view/evidence/browser-check.json": {
+      "bytes": 2255,
+      "sha256": "d8441993a02f3795c8695ba8386b0eb2c5c67069fab9436d76a5eff1013f429a"
+    },
+    "labs/rgb-reality-view/evidence/rgb-perception.en.mp4": {
+      "bytes": 2714957,
+      "sha256": "6889a806aa2f6ca9d776829d2040a713826b5bfe881892ce5eca8d1a7a51853f"
+    },
+    "labs/rgb-reality-view/evidence/rgb-perception.ko.mp4": {
+      "bytes": 2789255,
+      "sha256": "c01cdf35e847e18a0dd475381f8a12d2f6efc6cc47cb5573d69b2e82eceff928"
+    },
+    "labs/rgb-reality-view/evidence/perception-interaction.en.json": {
+      "bytes": 5437,
+      "sha256": "2bdf31429d1d5277bddb0f932108aa3ba77093c32faf11151a67a6dd06f0bc46"
+    },
+    "labs/rgb-reality-view/evidence/perception-result.json": {
+      "bytes": 18393,
+      "sha256": "5e54d81288ecfec3c5f92cb038bb750e0293c489f5bd782dee32b056f42ebb5f"
+    },
+    "labs/rgb-reality-view/evidence/perception-interaction.ko.json": {
+      "bytes": 5485,
+      "sha256": "cee3f1c6c558ee235a8c51f3afc51ea70b836705853beb0dc14032b5aa29d984"
+    },
+    "site/public/showcase/rgb-reality-view/perception.json": {
+      "bytes": 686771,
+      "sha256": "a4eef74c7cc77f5f96d3d8fd8c18aefaef33d29cc2433efadaf6fff2c9507002"
+    },
+    "site/public/showcase/rgb-perception.ko.jpg": {
+      "bytes": 127404,
+      "sha256": "0297b244efc457106598b86856f7e945741c8692f68779a05d7376c38887b7ef"
+    },
+    "site/public/showcase/rgb-perception.en.mp4": {
+      "bytes": 2714957,
+      "sha256": "6889a806aa2f6ca9d776829d2040a713826b5bfe881892ce5eca8d1a7a51853f"
+    },
+    "site/public/showcase/rgb-perception.en.jpg": {
+      "bytes": 131631,
+      "sha256": "f3c97650320b15c804eb90ae64f99cc8ca09d3f8d783a4455ce0c31874d4a02a"
+    },
+    "site/public/showcase/rgb-perception.ko.mp4": {
+      "bytes": 2789255,
+      "sha256": "c01cdf35e847e18a0dd475381f8a12d2f6efc6cc47cb5573d69b2e82eceff928"
+    }
+  },
+  "perception": {
+    "report": "evidence/perception-result.json",
+    "inputs": "RGB images and RGB-derived camera/road geometry only",
+    "detector": "TorchVision Mask R-CNN ResNet50 FPN v2, COCO_V1",
+    "localization": "approximate RGB road-plane contact; relative units, not 3D ground truth"
+  }
+}

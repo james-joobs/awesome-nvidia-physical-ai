@@ -1,0 +1,40 @@
+{
+  "image_count": 162,
+  "camera_count": 6,
+  "seed_gaussians": 28577,
+  "seed_source": "RGB-triangulated COLMAP sparse points only",
+  "camera_pose_handling": "RGB-estimated front trajectory + fitted static camera-to-rig transforms; approximation residuals retained",
+  "rig_fit_residuals": {
+    "back_camera": {
+      "translation_max_relative_units": 2.4440435265589662e-14,
+      "translation_mean_relative_units": 5.285081331141238e-15,
+      "rotation_max_degrees": 4.610290372058925e-14
+    },
+    "front_camera": {
+      "translation_max_relative_units": 3.561336412777762e-15,
+      "translation_mean_relative_units": 9.877509990084783e-16,
+      "rotation_max_degrees": 1.115385298568622e-14
+    },
+    "front_left_camera": {
+      "translation_max_relative_units": 2.1514359180802416e-14,
+      "translation_mean_relative_units": 1.0020130884707631e-14,
+      "rotation_max_degrees": 3.1640543476373355e-14
+    },
+    "front_right_camera": {
+      "translation_max_relative_units": 9.20782593144509e-15,
+      "translation_mean_relative_units": 3.3557793668764615e-15,
+      "rotation_max_degrees": 2.553068931088358e-14
+    },
+    "left_camera": {
+      "translation_max_relative_units": 4.878170135800494e-14,
+      "translation_mean_relative_units": 2.195907397377828e-14,
+      "rotation_max_degrees": 2.784427326299729e-14
+    },
+    "right_camera": {
+      "translation_max_relative_units": 1.8024346910808308e-14,
+      "translation_mean_relative_units": 5.636560561130916e-15,
+      "rotation_max_degrees": 3.08860068431063e-14
+    }
+  },
+  "units": "relative camera-height units; not measured meters"
+}

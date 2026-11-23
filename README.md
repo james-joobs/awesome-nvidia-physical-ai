@@ -37,6 +37,14 @@ The [theory guides](https://james-joobs.github.io/awesome-nvidia-physical-ai/lea
 - **[Autonomous driving](https://james-joobs.github.io/awesome-nvidia-physical-ai/learn/principles/#autonomous-driving)** — [CARLA ego cameras](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/carla-ego/) → Alpamayo outputs → AlpaSim → AlpaGym and Cosmos RL. Start with four recorded road environments.
 - **[3D worlds and rendering](https://james-joobs.github.io/awesome-nvidia-physical-ai/learn/principles/#world-models)** — [Generate a 3D world from text or an image](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/worldgen-scenes/) → [drive a robot inside it](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/worldgen-isaac/) → [navigate from sensor scans](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/worldgen-navigation/) → [react to moving obstacles](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/worldgen-dynamic-navigation/) → [Explore an fVDB 3DGS plaza](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/spatial-reconstruction/) → [generate a furnished house](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/scene-generation/). Compare [Marble, Lyra and reconstruction workflows](https://james-joobs.github.io/awesome-nvidia-physical-ai/tools/spatial-worlds/); Cosmos video generation is a separate output.
 
+## RGB-only NuRec, Harmonizer and Alpamayo
+
+Real camera RGB → COLMAP → NuRec reconstruction and Harmonizer comparison, with actual source-image detections and Alpamayo predicted paths. Reproduce the stages on one RTX 5090.
+
+[Explore the NuRec-trained scene](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/nurec-rgb-reality/#explore) · [Watch the demo](site/public/showcase/nurec-overview.en.mp4) · [Run the pipeline](docs/en/labs/nurec-rgb-reality.md) · [Standalone 3DGUT comparison](docs/en/labs/rgb-reality-view.md)
+
+RGB only; static reconstruction. Scale and camera-layout assumptions are disclosed.
+
 ## Quick start
 
 Replay the GR00T result check with Python. It reads the bundled Arena report and prints when each trial lifted the cube and whether it ended up in the bowl. No GPU or Isaac Sim installation is needed to read the logs.

@@ -1,0 +1,14 @@
+{
+  "pycolmap": "3.13.0",
+  "cuda_build": true,
+  "device": "cuda",
+  "input_images": 162,
+  "registered_images": 162,
+  "sparse_points": 28577,
+  "mean_reprojection_error_px": 0.8748183065623464,
+  "elapsed_seconds": 64.28710344899446,
+  "selected_model": "sfm-selected",
+  "intrinsics": "estimated from RGB, SIMPLE_RADIAL shared per image folder",
+  "camera_poses": "estimated by COLMAP SfM; no dataset poses, GPS, IMU or LiDAR",
+  "scale": "arbitrary SfM units before explicitly labeled display normalization"
+}

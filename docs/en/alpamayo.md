@@ -69,3 +69,5 @@ Edge and Super weights are publicly downloadable on Hugging Face under OpenMDW-1
 - [AlpaSim driver tutorial](https://github.com/NVlabs/alpasim/blob/main/docs/TUTORIAL.md)
 - [Alpamayo recipes for tuning and deployment](https://github.com/NVlabs/alpamayo-recipes)
 - [AlpaJudge model card](https://huggingface.co/nvidia/alpajudge) and [source](https://github.com/NVlabs/alpajudge) for evaluating driving reasoning and supplying training rewards
+
+[Try the self-authored road lab: NuRec novel views, Harmonizer A/B and an Alpamayo route overlay](labs/reality-view.md).

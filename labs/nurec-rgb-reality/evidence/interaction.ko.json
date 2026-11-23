@@ -1,0 +1,355 @@
+{
+  "language": "ko",
+  "recording": "Actual browser viewport, driven by Playwright mouse/scroll/buttons",
+  "trim_start_seconds": 1.627,
+  "content_seconds": 26.736,
+  "viewport": [
+    1280,
+    720
+  ],
+  "events": [
+    {
+      "action": "initial",
+      "time_seconds": 0.006999999999999895,
+      "frame": 13,
+      "view": "chase",
+      "camera": [
+        -3.3967674446415415,
+        -2.6042217507391725,
+        2.629999999999931
+      ],
+      "target": [
+        -9.634705797901682e-17,
+        5.2919638379485604e-18,
+        0.4300000000000002
+      ],
+      "gaussians": 450000,
+      "perception": {
+        "enabled": true,
+        "frame": 13,
+        "camera": "left_camera",
+        "detections_in_camera": 10,
+        "markers": 20,
+        "people_in_camera": 3
+      },
+      "policy": {
+        "enabled": true,
+        "frame": 13,
+        "t0_seconds": 3.9,
+        "poses": 64
+      }
+    },
+    {
+      "action": "recognition_off",
+      "time_seconds": 3.8950000000000005,
+      "frame": 13,
+      "view": "chase",
+      "camera": [
+        -3.3967674446415437,
+        -2.6042217507389727,
+        2.629999999999727
+      ],
+      "target": [
+        -9.634705797901682e-17,
+        5.2919638379485604e-18,
+        0.4300000000000002
+      ],
+      "gaussians": 450000,
+      "perception": {
+        "enabled": false,
+        "frame": 13,
+        "camera": "left_camera",
+        "detections_in_camera": 10,
+        "markers": 20,
+        "people_in_camera": 3
+      },
+      "policy": {
+        "enabled": true,
+        "frame": 13,
+        "t0_seconds": 3.9,
+        "poses": 64
+      }
+    },
+    {
+      "action": "recognition_on",
+      "time_seconds": 5.728000000000001,
+      "frame": 13,
+      "view": "chase",
+      "camera": [
+        -3.396767444641544,
+        -2.6042217507388727,
+        2.6299999999996313
+      ],
+      "target": [
+        -9.634705797901682e-17,
+        5.2919638379485604e-18,
+        0.4300000000000002
+      ],
+      "gaussians": 450000,
+      "perception": {
+        "enabled": true,
+        "frame": 13,
+        "camera": "left_camera",
+        "detections_in_camera": 10,
+        "markers": 20,
+        "people_in_camera": 3
+      },
+      "policy": {
+        "enabled": true,
+        "frame": 13,
+        "t0_seconds": 3.9,
+        "poses": 64
+      }
+    },
+    {
+      "action": "policy_off",
+      "time_seconds": 6.96,
+      "frame": 13,
+      "view": "chase",
+      "camera": [
+        -3.39676744464154,
+        -2.6042217507388066,
+        2.6299999999995642
+      ],
+      "target": [
+        -9.634705797901682e-17,
+        5.2919638379485604e-18,
+        0.4300000000000002
+      ],
+      "gaussians": 450000,
+      "perception": {
+        "enabled": true,
+        "frame": 13,
+        "camera": "left_camera",
+        "detections_in_camera": 10,
+        "markers": 20,
+        "people_in_camera": 3
+      },
+      "policy": {
+        "enabled": false,
+        "frame": 13,
+        "t0_seconds": 3.9,
+        "poses": 64
+      }
+    },
+    {
+      "action": "policy_on",
+      "time_seconds": 8.193999999999999,
+      "frame": 13,
+      "view": "chase",
+      "camera": [
+        -3.3967674446415375,
+        -2.6042217507387417,
+        2.6299999999994994
+      ],
+      "target": [
+        -9.634705797901682e-17,
+        5.2919638379485604e-18,
+        0.4300000000000002
+      ],
+      "gaussians": 450000,
+      "perception": {
+        "enabled": true,
+        "frame": 13,
+        "camera": "left_camera",
+        "detections_in_camera": 10,
+        "markers": 20,
+        "people_in_camera": 3
+      },
+      "policy": {
+        "enabled": true,
+        "frame": 13,
+        "t0_seconds": 3.9,
+        "poses": 64
+      }
+    },
+    {
+      "action": "front_camera",
+      "time_seconds": 9.902,
+      "frame": 13,
+      "view": "chase",
+      "camera": [
+        -3.396767444641538,
+        -2.604221750738649,
+        2.62999999999941
+      ],
+      "target": [
+        -9.634705797901682e-17,
+        5.2919638379485604e-18,
+        0.4300000000000002
+      ],
+      "gaussians": 450000,
+      "perception": {
+        "enabled": true,
+        "frame": 13,
+        "camera": "front_camera",
+        "detections_in_camera": 17,
+        "markers": 20,
+        "people_in_camera": 0
+      },
+      "policy": {
+        "enabled": true,
+        "frame": 13,
+        "t0_seconds": 3.9,
+        "poses": 64
+      }
+    },
+    {
+      "action": "left_camera",
+      "time_seconds": 11.617999999999999,
+      "frame": 13,
+      "view": "chase",
+      "camera": [
+        -3.3967674446415344,
+        -2.6042217507385605,
+        2.6299999999993164
+      ],
+      "target": [
+        -9.634705797901682e-17,
+        5.2919638379485604e-18,
+        0.4300000000000002
+      ],
+      "gaussians": 450000,
+      "perception": {
+        "enabled": true,
+        "frame": 13,
+        "camera": "left_camera",
+        "detections_in_camera": 10,
+        "markers": 20,
+        "people_in_camera": 3
+      },
+      "policy": {
+        "enabled": true,
+        "frame": 13,
+        "t0_seconds": 3.9,
+        "poses": 64
+      }
+    },
+    {
+      "action": "orbit",
+      "time_seconds": 14.543999999999999,
+      "frame": 13,
+      "view": "chase",
+      "camera": [
+        4.040858028226808,
+        1.4111932524320583,
+        2.629999999999129
+      ],
+      "target": [
+        -9.634705797901682e-17,
+        5.2919638379485604e-18,
+        0.4300000000000002
+      ],
+      "gaussians": 450000,
+      "perception": {
+        "enabled": true,
+        "frame": 13,
+        "camera": "left_camera",
+        "detections_in_camera": 10,
+        "markers": 20,
+        "people_in_camera": 3
+      },
+      "policy": {
+        "enabled": true,
+        "frame": 13,
+        "t0_seconds": 3.9,
+        "poses": 64
+      }
+    },
+    {
+      "action": "overhead",
+      "time_seconds": 18.095000000000002,
+      "frame": 13,
+      "view": "overhead",
+      "camera": [
+        -0.39999969128480267,
+        -0.0004969627860891226,
+        6.929999999999667
+      ],
+      "target": [
+        -9.634705797901682e-17,
+        5.2919638379485604e-18,
+        0.4300000000000002
+      ],
+      "gaussians": 450000,
+      "perception": {
+        "enabled": true,
+        "frame": 13,
+        "camera": "left_camera",
+        "detections_in_camera": 10,
+        "markers": 20,
+        "people_in_camera": 3
+      },
+      "policy": {
+        "enabled": true,
+        "frame": 13,
+        "t0_seconds": 3.9,
+        "poses": 64
+      }
+    },
+    {
+      "action": "driver",
+      "time_seconds": 20.528000000000002,
+      "frame": 13,
+      "view": "driver",
+      "camera": [
+        0,
+        -1.662558979376172e-14,
+        0.9476390445538017
+      ],
+      "target": [
+        4.996201062396795,
+        0.0062066927663130544,
+        0.7528663024412575
+      ],
+      "gaussians": 450000,
+      "perception": {
+        "enabled": true,
+        "frame": 13,
+        "camera": "front_camera",
+        "detections_in_camera": 17,
+        "markers": 20,
+        "people_in_camera": 0
+      },
+      "policy": {
+        "enabled": true,
+        "frame": 13,
+        "t0_seconds": 3.9,
+        "poses": 64
+      }
+    },
+    {
+      "action": "perception_replay",
+      "time_seconds": 24.927,
+      "frame": 0,
+      "view": "chase",
+      "camera": [
+        -22.51634637173689,
+        -2.3821752977457273,
+        2.6299999999997667
+      ],
+      "target": [
+        -19.119578927095343,
+        0.22204645299327994,
+        0.4300000000000001
+      ],
+      "gaussians": 450000,
+      "perception": {
+        "enabled": true,
+        "frame": 0,
+        "camera": "left_camera",
+        "detections_in_camera": 13,
+        "markers": 19,
+        "people_in_camera": 1
+      },
+      "policy": {
+        "enabled": true,
+        "frame": 0,
+        "t0_seconds": null,
+        "poses": 0
+      }
+    }
+  ],
+  "errors": [],
+  "raw_file": "raw-nurec.ko.webm"
+}

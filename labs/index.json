@@ -1,6 +1,104 @@
 {
   "labs": [
     {
+      "id": "nurec-rgb-reality",
+      "tags": [
+        "RGB only",
+        "NuRec 26.04",
+        "Harmonizer",
+        "Alpamayo 2 Edge",
+        "Mask R-CNN"
+      ],
+      "code": [
+        "pipeline.py",
+        "rig_bundle.py",
+        "export_rgb.py",
+        "prepare_ncore.py",
+        "scene.yaml",
+        "run.sh",
+        "prepare_policy.py",
+        "run_policy.py",
+        "enhance.py",
+        "export_viewer.py",
+        "check.py"
+      ],
+      "evidence": "recorded.json"
+    },
+    {
+      "id": "rgb-reality-view",
+      "tags": [
+        "RGB only",
+        "Mask R-CNN",
+        "COLMAP",
+        "NVIDIA 3DGUT",
+        "RTX 5090",
+        "Spark"
+      ],
+      "code": [
+        "pipeline.py",
+        "prepare_images.py",
+        "input_guard.py",
+        "fetch_example.py",
+        "sfm.py",
+        "prepare_viewer.py",
+        "perceive.py",
+        "perception_geometry.py",
+        "perception-view.js",
+        "record_perception.mjs",
+        "viewer.js",
+        "record_tour.mjs",
+        "check.py"
+      ],
+      "evidence": "recorded.json"
+    },
+    {
+      "id": "pandaset-nurec",
+      "tags": [
+        "PandaSet",
+        "NuRec 26.04",
+        "Harmonizer",
+        "Blender"
+      ],
+      "code": [
+        "index_zip.py",
+        "download.py",
+        "prepare.py",
+        "scene.yaml",
+        "collect_training.py",
+        "make_views.py",
+        "run.sh",
+        "package.py",
+        "check.py"
+      ],
+      "evidence": "recorded.json"
+    },
+    {
+      "id": "reality-view",
+      "tags": [
+        "NuRec 26.04",
+        "Harmonizer",
+        "NVIDIA Cosmos",
+        "Alpamayo 2 Edge",
+        "Isaac Sim"
+      ],
+      "code": [
+        "setup_models.sh",
+        "run.sh",
+        "model-pins.json",
+        "capture_road.py",
+        "prepare_ncore.py",
+        "collect_training.py",
+        "road.yaml",
+        "make_trajectory.py",
+        "enhance.py",
+        "package.py",
+        "check.py",
+        "ego-car.json",
+        "render_ego_car.py"
+      ],
+      "evidence": "recorded.json"
+    },
+    {
       "id": "robot-motion",
       "tags": ["Isaac Sim", "cuRobo", "AutoData", "MimicGen", "GR00T", "Isaac Lab", "Newton"],
       "code": ["plan.py", "autodata.sh", "audit.py", "make_scene.py"],

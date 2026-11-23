@@ -1,0 +1,7 @@
+{
+  "forward_slope": 0.006411690709932051,
+  "left_slope": 0.04739856472496751,
+  "height_at_rig_m": -0.3484584112995587,
+  "reference_lidar_frame": 30,
+  "scope": "robust least-squares fit of observed road patch 3-12m ahead, not per-frame contact physics"
+}

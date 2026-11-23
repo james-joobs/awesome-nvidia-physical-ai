@@ -82,14 +82,14 @@ export const topics = [
   },
   {
     slug: 'autonomous-driving', theme: 'blue', icon: 'car', course: 'driving-evaluation',
-    stacks: ['CARLA', 'AlpaSim', 'NuRec', 'Alpamayo', 'AlpaGym', 'DRIVE Sim'],
-    en: { title: 'Autonomous driving', description: 'Start in the driver’s seat across four CARLA maps and weather conditions, then distinguish sensor simulation, learned trajectory inference and closed-loop evaluation.' },
-    ko: { title: '자율주행', description: 'CARLA의 네 도로 환경을 운전자 시점으로 달려 보세요. 센서 시뮬레이션, 학습 모델의 경로 예측, 폐루프 평가로 이어집니다.' },
+    stacks: ['NVIDIA 3DGRUT', 'COLMAP', 'Spark', 'CARLA', 'AlpaSim', 'NuRec', 'Harmonizer', 'Alpamayo', 'AlpaGym', 'DRIVE Sim'],
+    en: { title: 'Autonomous driving', description: 'Reconstruct a real road from RGB alone, orbit around a Volvo in 3D, then explore CARLA sensors, model predictions and closed-loop evaluation.' },
+    ko: { title: '자율주행', description: 'RGB 사진만으로 실사 도로를 복원하고 Volvo 주변을 3D로 둘러보세요. CARLA 센서, 주행 모델의 예측, 폐루프 평가로 이어집니다.' },
     focus: {
-      en: { title: 'Autonomous driving', outcome: 'See city, rain, sunset and fog from real CARLA ego cameras. Follow with Alpamayo inference and AlpaSim policy evaluation.', availability: 'CARLA recordings · source, sensor poses and checks' },
-      ko: { title: '자율주행', outcome: '도심·폭우·일몰·안개를 CARLA 운전자 카메라로 확인합니다. Alpamayo 추론과 AlpaSim 정책 평가로 확장해 보세요.', availability: 'CARLA 촬영 · 코드·센서 위치·검사 방법 제공' },
+      en: { title: 'Autonomous driving', outcome: 'RGB → COLMAP → NuRec and Harmonizer, with Alpamayo predictions and source-RGB perception. Inspect each stage from one RTX 5090 run.', availability: 'RGB only · interactive 3D · code and checks' },
+      ko: { title: '자율주행', outcome: 'RGB → COLMAP → NuRec·Harmonizer에 Alpamayo 예측과 원본 RGB 인식을 연결했습니다. RTX 5090 한 장에서 실행한 각 단계를 직접 확인합니다.', availability: 'RGB 전용 · 3D 직접 조작 · 코드와 결과 검사' },
     },
-    entries: [recording('carla-ego', ['CARLA', 'Unreal Engine', 'Ego RGB']), driving, recording('world-driving', ['Isaac Sim', 'Alpamayo2-Edge', 'Cosmos3-Edge'])],
+    entries: [recording('nurec-rgb-reality', ['RGB only', 'NuRec', 'Harmonizer', 'Alpamayo 2 Edge']), recording('rgb-reality-view', ['RGB only', 'COLMAP', 'NVIDIA 3DGUT', 'Spark']), recording('pandaset-nurec', ['PandaSet', 'NuRec', 'Harmonizer', 'Blender']), recording('carla-ego', ['CARLA', 'Unreal Engine', 'Ego RGB']), recording('reality-view', ['NuRec', 'Harmonizer', 'Alpamayo 2 Edge', 'Isaac Sim']), driving, recording('world-driving', ['Isaac Sim', 'Alpamayo2-Edge', 'Cosmos3-Edge'])],
   },
   {
     slug: 'world-models', theme: 'blue', icon: 'layers',

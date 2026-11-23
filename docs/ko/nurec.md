@@ -42,3 +42,12 @@ Omniverse NuRec은 촬영한 장면을 신경 표현으로 재구성해 시뮬�
 공개 NuRec SDK에는 Apache-2.0으로 제공되는 복원·렌더링 라이브러리, 학습 시스템, 애플리케이션 실행 코드가 있습니다. 런타임 컨테이너는 NVIDIA NGC의 각 카탈로그 페이지에 명시된 조건으로 배포합니다. 모델 체크포인트와 장면 데이터에는 별도 조건이 적용됩니다. NCore는 복원에 입력하는 센서 기록의 공통 형식과 변환 도구를 Apache-2.0으로 제공합니다. [NuRec SDK와 배포 조건](https://github.com/NVIDIA/NuRec#source-containers-and-models) · [SDK 라이선스](https://github.com/NVIDIA/NuRec/blob/main/LICENSE.md) · [NCore](https://github.com/NVIDIA/ncore)
 
 [준비된 NuRec 장면으로 AlpaSim 폐루프 평가 따라 하기](workflows/alpasim-closed-loop.md).
+
+[RGB만으로 시작하기: COLMAP → NVIDIA 3DGUT → RTX 5090 한 장으로 만드는 도로 뷰어](labs/rgb-reality-view.md). 카메라 보정값과 자세를 사진에서 추정하며 LiDAR·외부 깊이를 쓰지 않는 별도 오픈소스 실습입니다.
+
+[직접 만든 도로 실습: NuRec 새 시점, Harmonizer 전후 비교, Alpamayo 예측 경로](labs/reality-view.md).
+
+
+[실사 데이터 실습: PandaSet 도로 복원과 Volvo 자차 표시](labs/pandaset-nurec.md). 실측 RGB·LiDAR, 차량 모델 출처·사용 조건, GPU 없는 결과 검사를 제공합니다.
+
+[RGB 전용 주력 실습: 실제 NuRec 실행·Harmonizer 비교·Alpamayo 경로 추론](labs/nurec-rgb-reality.md).
