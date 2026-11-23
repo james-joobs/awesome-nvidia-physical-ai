@@ -50,12 +50,16 @@ jobs:
           node-version: '24'
           cache: npm
           cache-dependency-path: site/package-lock.json
+      - name: Install CPU lab verification dependencies
+        run: |
+          python3 -m venv "$RUNNER_TEMP/lab-checks"
+          "$RUNNER_TEMP/lab-checks/bin/python" -m pip install --disable-pip-version-check -r labs/requirements-check.txt
       - name: Install dependencies and build the site
         working-directory: site
         run: |
           npm ci
           npm test
-          python3 ../labs/verify.py
+          "$RUNNER_TEMP/lab-checks/bin/python" ../labs/verify.py
           npm run build
       - name: Upload the static site
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5

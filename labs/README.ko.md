@@ -44,7 +44,15 @@ cd awesome-nvidia-physical-ai
 | [Microduck 보행](../docs/ko/labs/microduck.md) | Isaac Lab, Newton, RSL-RL | 보행 정책을 학습하고 체크포인트를 재생합니다. |
 | [Warp 입자](../docs/ko/labs/warp-particles.md) | NVIDIA Warp, CUDA, OpenGL | 입자 충돌을 계산하고 결과를 확인합니다. |
 
-이 레포의 최상위 폴더에서 `python3 labs/verify.py`를 실행하면 NVIDIA GPU 없이도 동봉된 결과와 코드 연결을 검사할 수 있습니다. 시뮬레이션을 새로 실행하는 데 필요한 환경은 각 가이드에 적었습니다.
+레포의 최상위 폴더에서 검사에 필요한 패키지를 설치하고 동봉된 결과와 코드 연결을 확인하세요.
+
+```sh
+python3 -m venv .venv-lab-checks
+.venv-lab-checks/bin/python -m pip install -r labs/requirements-check.txt
+.venv-lab-checks/bin/python labs/verify.py
+```
+
+이 검사는 NVIDIA GPU나 모델 가중치 없이 실행할 수 있습니다. 시뮬레이션을 새로 실행하는 데 필요한 환경은 각 가이드에 적었습니다.
 
 ## 도로의 새 시점과 주행 예측 경로
 

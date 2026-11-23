@@ -44,7 +44,15 @@ cd awesome-nvidia-physical-ai
 | [Microduck](../docs/en/labs/microduck.md) | Isaac Lab, Newton, RSL-RL | Train the walking policy and replay the checkpoint. |
 | [Warp particles](../docs/en/labs/warp-particles.md) | NVIDIA Warp, CUDA, OpenGL | Run the particle simulation and inspect its metrics. |
 
-From the repository root, `python3 labs/verify.py` checks the included measurements and lab source references without an NVIDIA GPU. Each guide gives the separate runtime requirements for new simulation runs.
+From the repository root, prepare the CPU checker and verify the included measurements and source references:
+
+```sh
+python3 -m venv .venv-lab-checks
+.venv-lab-checks/bin/python -m pip install -r labs/requirements-check.txt
+.venv-lab-checks/bin/python labs/verify.py
+```
+
+These checks need no NVIDIA GPU or model weights. Each guide gives the separate runtime requirements for new simulation runs.
 
 ## WorldGen text/image to 3D
 

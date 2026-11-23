@@ -1,0 +1,3 @@
+# CPU verification of published lab evidence; no CUDA or model weights required.
+numpy==2.4.6
+Pillow==13.0.0
