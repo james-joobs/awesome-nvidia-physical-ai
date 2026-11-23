@@ -1,9 +1,34 @@
 {
   "labs": [
     {
+      "id": "nurec-rgb-reality",
+      "tags": [
+        "RGB only",
+        "NuRec 26.04",
+        "Harmonizer",
+        "Alpamayo 2 Edge",
+        "Mask R-CNN"
+      ],
+      "code": [
+        "pipeline.py",
+        "rig_bundle.py",
+        "export_rgb.py",
+        "prepare_ncore.py",
+        "scene.yaml",
+        "run.sh",
+        "prepare_policy.py",
+        "run_policy.py",
+        "enhance.py",
+        "export_viewer.py",
+        "check.py"
+      ],
+      "evidence": "recorded.json"
+    },
+    {
       "id": "rgb-reality-view",
       "tags": [
         "RGB only",
+        "Mask R-CNN",
         "COLMAP",
         "NVIDIA 3DGUT",
         "RTX 5090",
@@ -16,6 +41,10 @@
         "fetch_example.py",
         "sfm.py",
         "prepare_viewer.py",
+        "perceive.py",
+        "perception_geometry.py",
+        "perception-view.js",
+        "record_perception.mjs",
         "viewer.js",
         "record_tour.mjs",
         "check.py"

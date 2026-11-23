@@ -38,6 +38,7 @@ const topic = topicForPage(`labs/${id}`);
 const topicLabels = topicsCopy[locale];
 const ko = locale === 'ko';
 const preparation = {
+  'nurec-rgb-reality': ko ? 'NuRec·Harmonizer·Alpamayo를 실제 실행한 RGB 전용 실습입니다. GPU 없이도 저장된 장면과 출력을 볼 수 있습니다.' : 'An RGB-only NuRec, Harmonizer and Alpamayo run. Explore the saved scene and model outputs without a CUDA GPU.',
   'rgb-reality-view': ko ? '브라우저에서 먼저 둘러보세요. 직접 복원하려면 Linux와 RTX 5090 한 장이 필요합니다.'
     : 'Explore in the browser first. The tested reconstruction preset uses Linux and one RTX 5090.',
   'gr00t-placement': ko ? '브라우저에서 시작합니다. 정책을 직접 실행하려면 RTX Linux 환경이 필요합니다.'
@@ -50,7 +51,7 @@ const preparation = {
 const steps = [
   ...(isPlacement ? [{ id: 'first-exercise', label: startLabel }] : []),
   ...headings,
-  ...(['rgb-reality-view', 'spatial-reconstruction', 'worldgen-scenes'].includes(id) ? [{ id: 'explore', label: ko ? '3D 공간 둘러보기' : 'Explore the 3D scene' }] : []),
+  ...(['nurec-rgb-reality', 'rgb-reality-view', 'spatial-reconstruction', 'worldgen-scenes'].includes(id) ? [{ id: 'explore', label: ko ? '3D 공간 둘러보기' : 'Explore the 3D scene' }] : []),
   { id: 'example-run', label: exampleLabel },
   { id: 'code', label: labels.code },
 ];
@@ -63,9 +64,9 @@ const steps = [
     </Fragment>
     <ToolTags slot="facts" tags={tags} label={labels.tools} />
     <Fragment slot="actions">
-      {['rgb-reality-view', 'spatial-reconstruction', 'worldgen-scenes'].includes(id) && <a class="button button-primary" href="#explore">{ko ? '3D 공간 직접 둘러보기' : 'Explore the 3D scene'}</a>}
+      {['nurec-rgb-reality', 'rgb-reality-view', 'spatial-reconstruction', 'worldgen-scenes'].includes(id) && <a class="button button-primary" href="#explore">{ko ? '3D 공간 직접 둘러보기' : 'Explore the 3D scene'}</a>}
       {isPlacement && <a class="button button-primary" href="#first-exercise">{startLabel}<Icon name="down" size={16} /></a>}
-      <a class:list={isPlacement ? 'plain-link' : ['button', ['rgb-reality-view', 'spatial-reconstruction', 'worldgen-scenes'].includes(id) ? 'button-secondary' : 'button-primary']} href="#run">{labels.run}<Icon name="down" size={16} /></a>
+      <a class:list={isPlacement ? 'plain-link' : ['button', ['nurec-rgb-reality', 'rgb-reality-view', 'spatial-reconstruction', 'worldgen-scenes'].includes(id) ? 'button-secondary' : 'button-primary']} href="#run">{labels.run}<Icon name="down" size={16} /></a>
       {tags.includes('Replicator') && (
         <a class="plain-link" href={catalogSearchUrl(locale, 'Replicator')}>
           {ko ? '카탈로그에서 Replicator 보기' : 'Replicator in the catalog'} <Icon name="right" size={17} />
@@ -77,7 +78,7 @@ const steps = [
     <LessonPreview slot="preview" image={showcaseMedia(`${clip.media?.[locale] ?? id}.jpg`)} alt={entry.title} caption={topicLabels.recording}
       href="#example-run" label={exampleLabel} />
     {isPlacement && <PlacementExercise locale={locale} />}
-    {id === 'rgb-reality-view' && <RgbRealityViewer locale={locale} />}
+    {['nurec-rgb-reality', 'rgb-reality-view'].includes(id) && <RgbRealityViewer locale={locale} id={id} />}
     <LessonTheory locale={locale} page={`labs/${id}`} flow={lessonFlows[id]} theory={theory} showPixels={id === 'scene-to-data'} />
     <GuideCommands locale={locale} />
     <div class="prose" set:html={html} />

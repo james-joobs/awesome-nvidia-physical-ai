@@ -1,0 +1,15 @@
+{
+  "runtime": "NuRec 26.4.149",
+  "image": "nvcr.io/nvidia/nre/nre-ga:26.04@sha256:97f43e7130c5636ce3e80ea3184d97f56a87fdd989b05cce42230881dbdea284",
+  "preset": "experimental/3dgut/3dgut_colmap",
+  "training_steps": 16000,
+  "training_seconds": 143.84,
+  "artifact_bytes": 109161977,
+  "artifact_sha256": "e834c7cc868150c1600e8b5b77a688720c55d5b78b3d706751a37e6a97467867",
+  "inputs": "RGB pixels -> COLMAP rig-constrained bundle adjustment -> NCore + RGB-triangulated SfM seed",
+  "uses_lidar": false,
+  "uses_source_sensor_poses": false,
+  "uses_source_annotations": false,
+  "scale": "relative camera-height units; not measured meters",
+  "timing_scope": "NuRec-reported training elapsed; excludes SfM, initial compilation, reconstruction input conversion, rendering and enhancement"
+}

@@ -1,0 +1,248 @@
+{
+  "schema": 1,
+  "recorded_date": "2026-11-23",
+  "pipeline": {
+    "primary": [
+      "RGB pixels",
+      "COLMAP rig refinement",
+      "NCore",
+      "NuRec 26.04",
+      "Harmonizer",
+      "Alpamayo 2 Edge"
+    ],
+    "perception": "TorchVision Mask R-CNN on original RGB",
+    "uses_lidar": false,
+    "uses_source_calibration": false,
+    "uses_source_poses": false,
+    "uses_source_timestamps": false,
+    "uses_pandaset_annotations": false,
+    "scale_prior_for_policy": "camera height assumed 1.8 m; not measured from RGB",
+    "native_and_browser_renderers_distinguished": true
+  },
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 5090 32 GB",
+    "gpu_count": 1,
+    "os": "Linux x86_64",
+    "system_ram_gb_approx": 32
+  },
+  "nurec": {
+    "runtime": "NuRec 26.4.149",
+    "image": "nvcr.io/nvidia/nre/nre-ga:26.04@sha256:97f43e7130c5636ce3e80ea3184d97f56a87fdd989b05cce42230881dbdea284",
+    "preset": "experimental/3dgut/3dgut_colmap",
+    "training_steps": 16000,
+    "training_seconds": 143.84,
+    "artifact_bytes": 109161977,
+    "artifact_sha256": "e834c7cc868150c1600e8b5b77a688720c55d5b78b3d706751a37e6a97467867",
+    "inputs": "RGB pixels -> COLMAP rig-constrained bundle adjustment -> NCore + RGB-triangulated SfM seed",
+    "uses_lidar": false,
+    "uses_source_sensor_poses": false,
+    "uses_source_annotations": false,
+    "scale": "relative camera-height units; not measured meters",
+    "timing_scope": "NuRec-reported training elapsed; excludes SfM, initial compilation, reconstruction input conversion, rendering and enhancement"
+  },
+  "harmonizer_mode": "released non-temporal checkpoint; not previous-frame conditioned",
+  "policy": {
+    "keyframes": 4,
+    "poses_per_keyframe": 64,
+    "physical_rgb_streams": 4,
+    "virtual_camera_slots": 6,
+    "assumed_camera_height_m": 1.8,
+    "actuates_vehicle": false
+  },
+  "viewer": {
+    "gaussians": 450000,
+    "source": "official NuRec export-gaussian-plys, SPZ SH degree 1",
+    "renderer": "Spark / Three.js converted preview; native rendering recorded separately"
+  },
+  "scope": "Static RGB-only scene, observed detector outputs and open-loop predicted routes. Not a driving or independent novel-view benchmark. Nominal timing, fixed rig, road plane, camera layout and metric scale assumptions are explicit.",
+  "files": {
+    "labs/nurec-rgb-reality/evidence/00-harmonizer.jpg": {
+      "bytes": 89639,
+      "sha256": "9a5eb4cac72e490682fcada1e983bbbe5749c1df271f90cc845f31673e12cc12"
+    },
+    "labs/nurec-rgb-reality/evidence/00-native.jpg": {
+      "bytes": 93532,
+      "sha256": "fa274bfc545c39dce9134d234cef1fa5992e1c6e18f184ce02cc52adb001afdf"
+    },
+    "labs/nurec-rgb-reality/evidence/16-harmonizer.jpg": {
+      "bytes": 56779,
+      "sha256": "32101d944d34225a86ec4f98b9f998333935fcb68d243d95104fab866c8288f0"
+    },
+    "labs/nurec-rgb-reality/evidence/16-native.jpg": {
+      "bytes": 62392,
+      "sha256": "6c256aebb695dda1b0b04f46261804073813ce5585a1783c03d33217090ada95"
+    },
+    "labs/nurec-rgb-reality/evidence/32-harmonizer.jpg": {
+      "bytes": 64145,
+      "sha256": "8b975e04934e09a2ed4d90ff1ae5af8ebcf3daf83ebeab014cbaa801cd1ad55d"
+    },
+    "labs/nurec-rgb-reality/evidence/32-native.jpg": {
+      "bytes": 96164,
+      "sha256": "54fb102dac68ab62259dc7154ee6b14627fb3350d3766bedaf3751ded9f6d895"
+    },
+    "labs/nurec-rgb-reality/evidence/PANDASET-DATA-LICENSE.txt": {
+      "bytes": 5507,
+      "sha256": "b198d2cb6ce184a0cc586ffd4513dd7e9060b0e10686b94768c845f8b94cdcf7"
+    },
+    "labs/nurec-rgb-reality/evidence/alpamayo-result.json": {
+      "bytes": 132993,
+      "sha256": "c121c2ec7977b8373eecf72f94c7d46c3684601a0bfe8c18845b687970257321"
+    },
+    "labs/nurec-rgb-reality/evidence/harmonizer-result.json": {
+      "bytes": 1840,
+      "sha256": "17aff7e98c507024a10864c3724b60b7ef9b7ec9aa78a6e68fc3c22102a25cc9"
+    },
+    "labs/nurec-rgb-reality/evidence/interaction.en.json": {
+      "bytes": 7890,
+      "sha256": "2ea424fb7ea51a902598c58bffe83f1b5fe2352199cb64499b42ce1593125f92"
+    },
+    "labs/nurec-rgb-reality/evidence/interaction.ko.json": {
+      "bytes": 7929,
+      "sha256": "dd3e33852cdac3021b79981d921afa528ac48e2348be4791006e5191750f1baf"
+    },
+    "labs/nurec-rgb-reality/evidence/nurec-harmonizer.en.mp4": {
+      "bytes": 2045855,
+      "sha256": "37a27126fe0085b8c61c7febc1ebd62ed73250c3187993237d0103d3cb253f1a"
+    },
+    "labs/nurec-rgb-reality/evidence/nurec-harmonizer.ko.mp4": {
+      "bytes": 2051975,
+      "sha256": "666693a9ffb263eb7e33ba4e43e0bdaf1d167a474213c07ff0960c772f9b171e"
+    },
+    "labs/nurec-rgb-reality/evidence/nurec-overview.en.mp4": {
+      "bytes": 4917418,
+      "sha256": "c213865a52158bc1065d7fd8ee5f906f7e3291fa2490d08484c8ab8e23dae521"
+    },
+    "labs/nurec-rgb-reality/evidence/nurec-overview.ko.mp4": {
+      "bytes": 4954673,
+      "sha256": "3d53d87fbe63f5cd3f8236f0d509d1c468ad59681b7c3ae0cce7192d62056573"
+    },
+    "labs/nurec-rgb-reality/evidence/nurec-result.json": {
+      "bytes": 791,
+      "sha256": "299adc1653052786b138a4aa2531a088a9bfd8ec503cfbb66d3dfb5b0e8021f9"
+    },
+    "labs/nurec-rgb-reality/evidence/nurec-rgb-reality.en.mp4": {
+      "bytes": 3175961,
+      "sha256": "08cd13d0c1614a937fb91f23dc2c6abeb9a5c0e77bdbd67e77a8917fdd8fc2f8"
+    },
+    "labs/nurec-rgb-reality/evidence/nurec-rgb-reality.ko.mp4": {
+      "bytes": 3190314,
+      "sha256": "64a80f3af493f3ac10895a37f0cb22c41381eb508e9589cc775bd85bb6899dbb"
+    },
+    "labs/nurec-rgb-reality/evidence/perception-result.json": {
+      "bytes": 18393,
+      "sha256": "a702407484c326d9f4803d215fc6cd926648aed1e90d86077c40b3d8daf063a6"
+    },
+    "labs/nurec-rgb-reality/evidence/policy-input-sample.json": {
+      "bytes": 13004,
+      "sha256": "32322feba5ac68feca49deb2ab94ff7017c8884f69f0517df4b63e9758cbf6f1"
+    },
+    "labs/nurec-rgb-reality/evidence/policy-inputs.json": {
+      "bytes": 474,
+      "sha256": "c07d508e3a085e183dfac15b008e75a5766949175749501bc866edff395acb10"
+    },
+    "labs/nurec-rgb-reality/evidence/prepared.json": {
+      "bytes": 1625,
+      "sha256": "fc2e23e3ff81b4a685ae97e6c2f037043490330b9743675e8d287d61acba68ed"
+    },
+    "labs/nurec-rgb-reality/evidence/render-pairs.json": {
+      "bytes": 11290,
+      "sha256": "3c578727144d6ede18f9fc6b29bd0904745858dfd17db69652d37d9b84b2d8d5"
+    },
+    "labs/nurec-rgb-reality/evidence/rig-bundle-result.json": {
+      "bytes": 366,
+      "sha256": "9364e3c2a27900616ebf71a1324673d78acbb00f4f095e87a22ed26e88b4e3cd"
+    },
+    "labs/nurec-rgb-reality/evidence/view-paths.json": {
+      "bytes": 3606,
+      "sha256": "1fa58edfce5fd14e4fcc61afb2d48899cfb90fb1aa7f1434d5a853616371c226"
+    },
+    "site/public/showcase/nurec-harmonizer.en.jpg": {
+      "bytes": 130834,
+      "sha256": "2f25dba1e7698f8513910e91f5040feadabe4594c07268f1e115c4f16218e8c6"
+    },
+    "site/public/showcase/nurec-harmonizer.en.mp4": {
+      "bytes": 2045855,
+      "sha256": "37a27126fe0085b8c61c7febc1ebd62ed73250c3187993237d0103d3cb253f1a"
+    },
+    "site/public/showcase/nurec-harmonizer.ko.jpg": {
+      "bytes": 129891,
+      "sha256": "eb9801e68e596b7afc70397add5b7b20b474ebc1f5f737bfb83fa53ef9af500d"
+    },
+    "site/public/showcase/nurec-harmonizer.ko.mp4": {
+      "bytes": 2051975,
+      "sha256": "666693a9ffb263eb7e33ba4e43e0bdaf1d167a474213c07ff0960c772f9b171e"
+    },
+    "site/public/showcase/nurec-overview.en.jpg": {
+      "bytes": 153509,
+      "sha256": "7149707f5845e9bb82d27a457c07c4ebcfd6b03afa01710738994d8ab0a3da28"
+    },
+    "site/public/showcase/nurec-overview.en.mp4": {
+      "bytes": 4917418,
+      "sha256": "c213865a52158bc1065d7fd8ee5f906f7e3291fa2490d08484c8ab8e23dae521"
+    },
+    "site/public/showcase/nurec-overview.ko.jpg": {
+      "bytes": 151048,
+      "sha256": "b896e8231970aad00582ec50a539821d06a11fbe924a6569af49e2026ad28105"
+    },
+    "site/public/showcase/nurec-overview.ko.mp4": {
+      "bytes": 4954673,
+      "sha256": "3d53d87fbe63f5cd3f8236f0d509d1c468ad59681b7c3ae0cce7192d62056573"
+    },
+    "site/public/showcase/nurec-rgb-reality/ATTRIBUTION.txt": {
+      "bytes": 1540,
+      "sha256": "dc5797e610d6cf164985d14e71b907c725360dcdb5d1b15c7aa16337a08a6ae9"
+    },
+    "site/public/showcase/nurec-rgb-reality/PANDASET-DATA-LICENSE.txt": {
+      "bytes": 5507,
+      "sha256": "b198d2cb6ce184a0cc586ffd4513dd7e9060b0e10686b94768c845f8b94cdcf7"
+    },
+    "site/public/showcase/nurec-rgb-reality/VEHICLE-LICENSE.txt": {
+      "bytes": 529,
+      "sha256": "b2e0de0073328cc023b2c2291f07f94fa61cbc271182e19565c7156b8f0b8548"
+    },
+    "site/public/showcase/nurec-rgb-reality/alpamayo.json": {
+      "bytes": 52462,
+      "sha256": "12200f68537e5ecd3d152d9ea9970270cccdfca0bb2def705a98fb9f4b16cb43"
+    },
+    "site/public/showcase/nurec-rgb-reality/cameras.json": {
+      "bytes": 30131,
+      "sha256": "85bd2102a89f3761fd9a4396e4c70bdf0867cba3c9bf7f732d83042327571d44"
+    },
+    "site/public/showcase/nurec-rgb-reality/perception.json": {
+      "bytes": 690967,
+      "sha256": "a0e4620ef2b46bee46bbee059fb65f626a930577e3a44bbdc9cad1511cf43c7e"
+    },
+    "site/public/showcase/nurec-rgb-reality/road.spz": {
+      "bytes": 8627655,
+      "sha256": "dbdab1760ccfd55c64c36e2905769f97240af991cda157eaab019f7cdd716bba"
+    },
+    "site/public/showcase/nurec-rgb-reality/volvo-s90.glb": {
+      "bytes": 950520,
+      "sha256": "f72ae49994834fa62cd319dd8651eed9048cd6e5201424aed87eeb2e969fdbab"
+    },
+    "site/public/showcase/nurec-rgb-reality.en.jpg": {
+      "bytes": 153509,
+      "sha256": "7149707f5845e9bb82d27a457c07c4ebcfd6b03afa01710738994d8ab0a3da28"
+    },
+    "site/public/showcase/nurec-rgb-reality.en.mp4": {
+      "bytes": 3175961,
+      "sha256": "08cd13d0c1614a937fb91f23dc2c6abeb9a5c0e77bdbd67e77a8917fdd8fc2f8"
+    },
+    "site/public/showcase/nurec-rgb-reality.ko.jpg": {
+      "bytes": 151048,
+      "sha256": "b896e8231970aad00582ec50a539821d06a11fbe924a6569af49e2026ad28105"
+    },
+    "site/public/showcase/nurec-rgb-reality.ko.mp4": {
+      "bytes": 3190314,
+      "sha256": "64a80f3af493f3ac10895a37f0cb22c41381eb508e9589cc775bd85bb6899dbb"
+    },
+    "labs/nurec-rgb-reality/evidence/browser-check.json": {
+      "bytes": 2500,
+      "sha256": "ba955984fd92104a7729420933161c0f4ba814e6913a300f12a66f4f3883ab03"
+    },
+    "labs/nurec-rgb-reality/evidence/fresh-pipeline-check.json": {
+      "bytes": 1349,
+      "sha256": "584b97c225e7129794ae700ef757d8d1744eac49292b1e4ba6ad5254888035af"
+    }
+  }
+}

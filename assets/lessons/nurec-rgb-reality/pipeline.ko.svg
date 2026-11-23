@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1380" height="700" viewBox="0 0 1380 700" role="img" aria-label="RGB-only NuRec Harmonizer Alpamayo pipeline">
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#669c00" stroke-width="1.5"/></marker></defs>
+<path d="M304 99 H326" stroke="#669c00" stroke-width="2.1" fill="none" marker-end="url(#a)"/>
+<path d="M644 99 H666" stroke="#669c00" stroke-width="2.1" fill="none" marker-end="url(#a)"/>
+<path d="M1014 99 H1036" stroke="#669c00" stroke-width="2.1" fill="none" marker-end="url(#a)"/>
+<path d="M164 174 V256" stroke="#669c00" stroke-width="2.1" fill="none" marker-end="url(#a)"/>
+<path d="M164 174 V220 H624 V256" stroke="#669c00" stroke-width="2.1" fill="none" marker-end="url(#a)"/>
+<path d="M384 339 H856" stroke="#669c00" stroke-width="2.1" fill="none" marker-end="url(#a)"/>
+<path d="M834 339 H856" stroke="#669c00" stroke-width="2.1" fill="none" marker-end="url(#a)"/>
+<path d="M844 174 V230 H1110 V256" stroke="#669c00" stroke-width="2.1" fill="none" marker-end="url(#a)"/>
+<path d="M1200 174 V486" stroke="#669c00" stroke-width="2.1" fill="none" marker-end="url(#a)"/>
+<path d="M844 174 V454 H950 V486" stroke="#669c00" stroke-width="2.1" fill="none" marker-end="url(#a)"/>
+<rect x="24" y="24" width="280" height="150" rx="8" stroke="#76b900" stroke-width="1.8" fill="#fff"/>
+<text x="40" y="58" font-family="Arial,Noto Sans KR,sans-serif" font-size="19" font-weight="600" fill="#202b33">실제 RGB만 입력</text>
+<text x="40" y="92" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">JPEG 162장 · 카메라 여섯 방향</text>
+<text x="40" y="126" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">LiDAR·정답 카메라 자세 사용 안 함</text>
+<rect x="334" y="24" width="310" height="150" rx="8" stroke="#76b900" stroke-width="1.8" fill="#fff"/>
+<text x="350" y="58" font-family="Arial,Noto Sans KR,sans-serif" font-size="19" font-weight="600" fill="#202b33">COLMAP + rig 보정</text>
+<text x="350" y="92" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">K · rig 자세 27개 · 희소 XYZ</text>
+<text x="350" y="126" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">상대 스케일·명목상 프레임 시각</text>
+<rect x="674" y="24" width="340" height="150" rx="8" stroke="#76b900" stroke-width="1.8" fill="#fff"/>
+<text x="690" y="58" font-family="Arial,Noto Sans KR,sans-serif" font-size="19" font-weight="600" fill="#202b33">NCore → NuRec 26.04</text>
+<text x="690" y="92" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">RGB 기반 초기값 → 장면 학습</text>
+<text x="690" y="126" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">실제 새 시점 RGB·Gaussian 내보내기</text>
+<rect x="1044" y="24" width="310" height="150" rx="8" stroke="#76b900" stroke-width="1.8" fill="#fff"/>
+<text x="1060" y="58" font-family="Arial,Noto Sans KR,sans-serif" font-size="19" font-weight="600" fill="#202b33">Harmonizer</text>
+<text x="1060" y="92" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">NuRec RGB → 보정 RGB</text>
+<text x="1060" y="126" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">같은 카메라 자세·프레임별 처리</text>
+<rect x="24" y="264" width="360" height="150" rx="8" stroke="#76b900" stroke-width="1.8" fill="#fff"/>
+<text x="40" y="298" font-family="Arial,Noto Sans KR,sans-serif" font-size="19" font-weight="600" fill="#202b33">주변 객체 인식</text>
+<text x="40" y="332" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">원본 RGB → Mask R-CNN</text>
+<text x="40" y="366" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">종류·점수·박스·마스크 → 접점 추정</text>
+<rect x="414" y="264" width="420" height="150" rx="8" stroke="#76b900" stroke-width="1.8" fill="#fff"/>
+<text x="430" y="298" font-family="Arial,Noto Sans KR,sans-serif" font-size="19" font-weight="600" fill="#202b33">Alpamayo 2 Edge</text>
+<text x="430" y="332" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">원본 RGB + 추정한 과거 이동</text>
+<text x="430" y="366" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">거리 스케일 가정 → 미래 자세 64개</text>
+<rect x="864" y="264" width="490" height="150" rx="8" stroke="#76b900" stroke-width="1.8" fill="#fff"/>
+<text x="880" y="298" font-family="Arial,Noto Sans KR,sans-serif" font-size="19" font-weight="600" fill="#202b33">NuRec 학습 장면 미리보기</text>
+<text x="880" y="332" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">Gaussian 내보내기 + Volvo 메시</text>
+<text x="880" y="366" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">RGB 마스크·접점·예측 경로 표시</text>
+<rect x="864" y="494" width="490" height="150" rx="8" stroke="#76b900" stroke-width="1.8" fill="#fff"/>
+<text x="880" y="528" font-family="Arial,Noto Sans KR,sans-serif" font-size="19" font-weight="600" fill="#202b33">실제 렌더링 비교</text>
+<text x="880" y="562" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">NuRec RGB ↔ Harmonizer RGB</text>
+<text x="880" y="596" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">생성된 세부 묘사와 실제 관측 구분</text>
+<text x="24" y="674" font-family="Arial,Noto Sans KR,sans-serif" font-size="16" fill="#59636b">GPU 한 장에서 순서대로 실행합니다. 브라우저 미리보기와 원본 렌더링을 구분하며 실차 제어는 하지 않습니다.</text></svg>

@@ -49,3 +49,5 @@ The public NuRec SDK contains reconstruction and rendering libraries, training s
 
 
 [Real-data lab: PandaSet road reconstruction with a Volvo ego reference](labs/pandaset-nurec.md). Includes measured RGB/LiDAR, attributed assets, source licenses and CPU checks.
+
+[Primary RGB-only lab: actual NuRec, Harmonizer comparison and Alpamayo path inference](labs/nurec-rgb-reality.md).

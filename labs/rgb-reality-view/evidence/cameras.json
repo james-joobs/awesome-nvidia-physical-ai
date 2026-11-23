@@ -1473,5 +1473,6 @@
     "model_axis": "glTF Y-up, nose +X; rotate +90 degrees around X into viewer Z-up",
     "role": "added ego-position reference; not the original capture vehicle or an OEM dynamics model"
   },
-  "default_frame": 13
+  "default_frame": 13,
+  "perception_file": "perception.json"
 }

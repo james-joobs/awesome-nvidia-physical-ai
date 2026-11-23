@@ -68,8 +68,8 @@
       "sha256": "b198d2cb6ce184a0cc586ffd4513dd7e9060b0e10686b94768c845f8b94cdcf7"
     },
     "labs/rgb-reality-view/evidence/cameras.json": {
-      "bytes": 29980,
-      "sha256": "5a1c71052e2279494ac2b06a1ec13c37ecada68fd52649d647233a4ad7bb1430"
+      "bytes": 30020,
+      "sha256": "e73868d4415ead9330952cf6bfb9c25a6381b1a4c696ac80d23ca4f36ab31188"
     },
     "labs/rgb-reality-view/evidence/download-result.json": {
       "bytes": 31052,
@@ -112,8 +112,8 @@
       "sha256": "b2e0de0073328cc023b2c2291f07f94fa61cbc271182e19565c7156b8f0b8548"
     },
     "site/public/showcase/rgb-reality-view/cameras.json": {
-      "bytes": 29980,
-      "sha256": "5a1c71052e2279494ac2b06a1ec13c37ecada68fd52649d647233a4ad7bb1430"
+      "bytes": 30020,
+      "sha256": "e73868d4415ead9330952cf6bfb9c25a6381b1a4c696ac80d23ca4f36ab31188"
     },
     "site/public/showcase/rgb-reality-view/road.spz": {
       "bytes": 7801118,
@@ -140,8 +140,54 @@
       "sha256": "7a8b81fd705be27d30297e5bcb9497af2380e55e730c6ba33e37890bebfe11a6"
     },
     "labs/rgb-reality-view/evidence/browser-check.json": {
-      "bytes": 1780,
-      "sha256": "3a9c4e36ea75dbcc9c7f9ac3a6153bf1534265a1a6aaa96bec86109a750e064c"
+      "bytes": 2255,
+      "sha256": "d8441993a02f3795c8695ba8386b0eb2c5c67069fab9436d76a5eff1013f429a"
+    },
+    "labs/rgb-reality-view/evidence/rgb-perception.en.mp4": {
+      "bytes": 2714957,
+      "sha256": "6889a806aa2f6ca9d776829d2040a713826b5bfe881892ce5eca8d1a7a51853f"
+    },
+    "labs/rgb-reality-view/evidence/rgb-perception.ko.mp4": {
+      "bytes": 2789255,
+      "sha256": "c01cdf35e847e18a0dd475381f8a12d2f6efc6cc47cb5573d69b2e82eceff928"
+    },
+    "labs/rgb-reality-view/evidence/perception-interaction.en.json": {
+      "bytes": 5437,
+      "sha256": "2bdf31429d1d5277bddb0f932108aa3ba77093c32faf11151a67a6dd06f0bc46"
+    },
+    "labs/rgb-reality-view/evidence/perception-result.json": {
+      "bytes": 18393,
+      "sha256": "5e54d81288ecfec3c5f92cb038bb750e0293c489f5bd782dee32b056f42ebb5f"
+    },
+    "labs/rgb-reality-view/evidence/perception-interaction.ko.json": {
+      "bytes": 5485,
+      "sha256": "cee3f1c6c558ee235a8c51f3afc51ea70b836705853beb0dc14032b5aa29d984"
+    },
+    "site/public/showcase/rgb-reality-view/perception.json": {
+      "bytes": 686771,
+      "sha256": "a4eef74c7cc77f5f96d3d8fd8c18aefaef33d29cc2433efadaf6fff2c9507002"
+    },
+    "site/public/showcase/rgb-perception.ko.jpg": {
+      "bytes": 127404,
+      "sha256": "0297b244efc457106598b86856f7e945741c8692f68779a05d7376c38887b7ef"
+    },
+    "site/public/showcase/rgb-perception.en.mp4": {
+      "bytes": 2714957,
+      "sha256": "6889a806aa2f6ca9d776829d2040a713826b5bfe881892ce5eca8d1a7a51853f"
+    },
+    "site/public/showcase/rgb-perception.en.jpg": {
+      "bytes": 131631,
+      "sha256": "f3c97650320b15c804eb90ae64f99cc8ca09d3f8d783a4455ce0c31874d4a02a"
+    },
+    "site/public/showcase/rgb-perception.ko.mp4": {
+      "bytes": 2789255,
+      "sha256": "c01cdf35e847e18a0dd475381f8a12d2f6efc6cc47cb5573d69b2e82eceff928"
     }
+  },
+  "perception": {
+    "report": "evidence/perception-result.json",
+    "inputs": "RGB images and RGB-derived camera/road geometry only",
+    "detector": "TorchVision Mask R-CNN ResNet50 FPN v2, COCO_V1",
+    "localization": "approximate RGB road-plane contact; relative units, not 3D ground truth"
   }
 }

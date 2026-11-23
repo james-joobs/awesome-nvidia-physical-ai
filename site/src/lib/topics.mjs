@@ -86,10 +86,10 @@ export const topics = [
     en: { title: 'Autonomous driving', description: 'Reconstruct a real road from RGB alone, orbit around a Volvo in 3D, then explore CARLA sensors, model predictions and closed-loop evaluation.' },
     ko: { title: '자율주행', description: 'RGB 사진만으로 실사 도로를 복원하고 Volvo 주변을 3D로 둘러보세요. CARLA 센서, 주행 모델의 예측, 폐루프 평가로 이어집니다.' },
     focus: {
-      en: { title: 'Autonomous driving', outcome: 'RGB cameras → COLMAP → NVIDIA 3DGUT → interactive road view. Run the reconstruction on one RTX 5090 and explore it in your browser.', availability: 'RGB only · interactive 3D · code and checks' },
-      ko: { title: '자율주행', outcome: 'RGB 카메라 → COLMAP → NVIDIA 3DGUT → 도로 3D 뷰어. RTX 5090 한 장으로 복원하고 브라우저에서 직접 시점을 움직입니다.', availability: 'RGB 전용 · 3D 직접 조작 · 코드와 결과 검사' },
+      en: { title: 'Autonomous driving', outcome: 'RGB → COLMAP → NuRec and Harmonizer, with Alpamayo predictions and source-RGB perception. Inspect each stage from one RTX 5090 run.', availability: 'RGB only · interactive 3D · code and checks' },
+      ko: { title: '자율주행', outcome: 'RGB → COLMAP → NuRec·Harmonizer에 Alpamayo 예측과 원본 RGB 인식을 연결했습니다. RTX 5090 한 장에서 실행한 각 단계를 직접 확인합니다.', availability: 'RGB 전용 · 3D 직접 조작 · 코드와 결과 검사' },
     },
-    entries: [recording('rgb-reality-view', ['RGB only', 'COLMAP', 'NVIDIA 3DGUT', 'Spark']), recording('pandaset-nurec', ['PandaSet', 'NuRec', 'Harmonizer', 'Blender']), recording('carla-ego', ['CARLA', 'Unreal Engine', 'Ego RGB']), recording('reality-view', ['NuRec', 'Harmonizer', 'Alpamayo 2 Edge', 'Isaac Sim']), driving, recording('world-driving', ['Isaac Sim', 'Alpamayo2-Edge', 'Cosmos3-Edge'])],
+    entries: [recording('nurec-rgb-reality', ['RGB only', 'NuRec', 'Harmonizer', 'Alpamayo 2 Edge']), recording('rgb-reality-view', ['RGB only', 'COLMAP', 'NVIDIA 3DGUT', 'Spark']), recording('pandaset-nurec', ['PandaSet', 'NuRec', 'Harmonizer', 'Blender']), recording('carla-ego', ['CARLA', 'Unreal Engine', 'Ego RGB']), recording('reality-view', ['NuRec', 'Harmonizer', 'Alpamayo 2 Edge', 'Isaac Sim']), driving, recording('world-driving', ['Isaac Sim', 'Alpamayo2-Edge', 'Cosmos3-Edge'])],
   },
   {
     slug: 'world-models', theme: 'blue', icon: 'layers',

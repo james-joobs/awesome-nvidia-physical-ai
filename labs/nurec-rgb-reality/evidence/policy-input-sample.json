@@ -1,0 +1,676 @@
+{
+  "schema": 1,
+  "t0_seconds": 3.9,
+  "shots": [
+    {
+      "image": "camera-0-0.jpg",
+      "camera_id": 0,
+      "timestamp_us": 2700000,
+      "source_image": "left_camera/27.jpg",
+      "requested_time_seconds": 2.9,
+      "virtual_camera_yaw_deg": 0,
+      "virtual_camera_zoom": 1
+    },
+    {
+      "image": "camera-0-1.jpg",
+      "camera_id": 0,
+      "timestamp_us": 3600000,
+      "source_image": "left_camera/36.jpg",
+      "requested_time_seconds": 3.8,
+      "virtual_camera_yaw_deg": 0,
+      "virtual_camera_zoom": 1
+    },
+    {
+      "image": "camera-0-2.jpg",
+      "camera_id": 0,
+      "timestamp_us": 3900000,
+      "source_image": "left_camera/39.jpg",
+      "requested_time_seconds": 3.9,
+      "virtual_camera_yaw_deg": 0,
+      "virtual_camera_zoom": 1
+    },
+    {
+      "image": "camera-1-0.jpg",
+      "camera_id": 1,
+      "timestamp_us": 1800000,
+      "source_image": "front_camera/18.jpg",
+      "requested_time_seconds": 1.9,
+      "virtual_camera_yaw_deg": 0,
+      "virtual_camera_zoom": 1
+    },
+    {
+      "image": "camera-1-1.jpg",
+      "camera_id": 1,
+      "timestamp_us": 2700000,
+      "source_image": "front_camera/27.jpg",
+      "requested_time_seconds": 2.9,
+      "virtual_camera_yaw_deg": 0,
+      "virtual_camera_zoom": 1
+    },
+    {
+      "image": "camera-1-2.jpg",
+      "camera_id": 1,
+      "timestamp_us": 3300000,
+      "source_image": "front_camera/33.jpg",
+      "requested_time_seconds": 3.4,
+      "virtual_camera_yaw_deg": 0,
+      "virtual_camera_zoom": 1
+    },
+    {
+      "image": "camera-1-3.jpg",
+      "camera_id": 1,
+      "timestamp_us": 3600000,
+      "source_image": "front_camera/36.jpg",
+      "requested_time_seconds": 3.8,
+      "virtual_camera_yaw_deg": 0,
+      "virtual_camera_zoom": 1
+    },
+    {
+      "image": "camera-1-4.jpg",
+      "camera_id": 1,
+      "timestamp_us": 3900000,
+      "source_image": "front_camera/39.jpg",
+      "requested_time_seconds": 3.9,
+      "virtual_camera_yaw_deg": 0,
+      "virtual_camera_zoom": 1
+    },
+    {
+      "image": "camera-2-0.jpg",
+      "camera_id": 2,
+      "timestamp_us": 2700000,
+      "source_image": "right_camera/27.jpg",
+      "requested_time_seconds": 2.9,
+      "virtual_camera_yaw_deg": 0,
+      "virtual_camera_zoom": 1
+    },
+    {
+      "image": "camera-2-1.jpg",
+      "camera_id": 2,
+      "timestamp_us": 3600000,
+      "source_image": "right_camera/36.jpg",
+      "requested_time_seconds": 3.8,
+      "virtual_camera_yaw_deg": 0,
+      "virtual_camera_zoom": 1
+    },
+    {
+      "image": "camera-2-2.jpg",
+      "camera_id": 2,
+      "timestamp_us": 3900000,
+      "source_image": "right_camera/39.jpg",
+      "requested_time_seconds": 3.9,
+      "virtual_camera_yaw_deg": 0,
+      "virtual_camera_zoom": 1
+    },
+    {
+      "image": "camera-3-0.jpg",
+      "camera_id": 3,
+      "timestamp_us": 2700000,
+      "source_image": "back_camera/27.jpg",
+      "requested_time_seconds": 2.9,
+      "virtual_camera_yaw_deg": 15,
+      "virtual_camera_zoom": 2.4
+    },
+    {
+      "image": "camera-3-1.jpg",
+      "camera_id": 3,
+      "timestamp_us": 3600000,
+      "source_image": "back_camera/36.jpg",
+      "requested_time_seconds": 3.8,
+      "virtual_camera_yaw_deg": 15,
+      "virtual_camera_zoom": 2.4
+    },
+    {
+      "image": "camera-3-2.jpg",
+      "camera_id": 3,
+      "timestamp_us": 3900000,
+      "source_image": "back_camera/39.jpg",
+      "requested_time_seconds": 3.9,
+      "virtual_camera_yaw_deg": 15,
+      "virtual_camera_zoom": 2.4
+    },
+    {
+      "image": "camera-5-0.jpg",
+      "camera_id": 5,
+      "timestamp_us": 2700000,
+      "source_image": "back_camera/27.jpg",
+      "requested_time_seconds": 2.9,
+      "virtual_camera_yaw_deg": -15,
+      "virtual_camera_zoom": 2.4
+    },
+    {
+      "image": "camera-5-1.jpg",
+      "camera_id": 5,
+      "timestamp_us": 3600000,
+      "source_image": "back_camera/36.jpg",
+      "requested_time_seconds": 3.8,
+      "virtual_camera_yaw_deg": -15,
+      "virtual_camera_zoom": 2.4
+    },
+    {
+      "image": "camera-5-2.jpg",
+      "camera_id": 5,
+      "timestamp_us": 3900000,
+      "source_image": "back_camera/39.jpg",
+      "requested_time_seconds": 3.9,
+      "virtual_camera_yaw_deg": -15,
+      "virtual_camera_zoom": 2.4
+    },
+    {
+      "image": "camera-6-0.jpg",
+      "camera_id": 6,
+      "timestamp_us": 1800000,
+      "source_image": "front_camera/18.jpg",
+      "requested_time_seconds": 1.9,
+      "virtual_camera_yaw_deg": 0,
+      "virtual_camera_zoom": 2
+    },
+    {
+      "image": "camera-6-1.jpg",
+      "camera_id": 6,
+      "timestamp_us": 2700000,
+      "source_image": "front_camera/27.jpg",
+      "requested_time_seconds": 2.9,
+      "virtual_camera_yaw_deg": 0,
+      "virtual_camera_zoom": 2
+    },
+    {
+      "image": "camera-6-2.jpg",
+      "camera_id": 6,
+      "timestamp_us": 3300000,
+      "source_image": "front_camera/33.jpg",
+      "requested_time_seconds": 3.4,
+      "virtual_camera_yaw_deg": 0,
+      "virtual_camera_zoom": 2
+    },
+    {
+      "image": "camera-6-3.jpg",
+      "camera_id": 6,
+      "timestamp_us": 3600000,
+      "source_image": "front_camera/36.jpg",
+      "requested_time_seconds": 3.8,
+      "virtual_camera_yaw_deg": 0,
+      "virtual_camera_zoom": 2
+    },
+    {
+      "image": "camera-6-4.jpg",
+      "camera_id": 6,
+      "timestamp_us": 3900000,
+      "source_image": "front_camera/39.jpg",
+      "requested_time_seconds": 3.9,
+      "virtual_camera_yaw_deg": 0,
+      "virtual_camera_zoom": 2
+    }
+  ],
+  "history_xyz_m": [
+    [
+      -18.159623953414318,
+      0.14703735285960776,
+      0.0
+    ],
+    [
+      -17.272781507549375,
+      0.1409101857841045,
+      0.0
+    ],
+    [
+      -16.363920095907996,
+      0.1343823480465715,
+      0.0
+    ],
+    [
+      -15.455058684266623,
+      0.12785451030903855,
+      0.0
+    ],
+    [
+      -14.546197272625248,
+      0.1213266725715056,
+      0.0
+    ],
+    [
+      -13.614314209719964,
+      0.1175447085309909,
+      0.0
+    ],
+    [
+      -12.68243114681469,
+      0.11376274449047621,
+      0.0
+    ],
+    [
+      -11.750548083909408,
+      0.1099807804499615,
+      0.0
+    ],
+    [
+      -10.799512574793676,
+      0.10554701438870615,
+      0.0
+    ],
+    [
+      -9.84847706567794,
+      0.10111324832745076,
+      0.0
+    ],
+    [
+      -8.897441556562205,
+      0.09667948226619538,
+      0.0
+    ],
+    [
+      -7.925898517129523,
+      0.0882731284070301,
+      0.0
+    ],
+    [
+      -6.9543554776968355,
+      0.07986677454786473,
+      0.0
+    ],
+    [
+      -5.982812438264154,
+      0.07146042068869943,
+      0.0
+    ],
+    [
+      -4.993212341977061,
+      0.06181694252338326,
+      0.0
+    ],
+    [
+      -4.003612245689966,
+      0.05217346435806708,
+      0.0
+    ],
+    [
+      -3.0140121494028733,
+      0.04252998619275092,
+      0.0
+    ],
+    [
+      -2.0093414329352517,
+      0.028353324128500654,
+      0.0
+    ],
+    [
+      -1.004670716467626,
+      0.01417666206425033,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "history_rot": [
+    [
+      [
+        0.9999347542083912,
+        0.011423104928373626,
+        0.0
+      ],
+      [
+        -0.011423104928373626,
+        0.9999347542083912,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    [
+      [
+        0.9999476113528776,
+        0.01023594400505786,
+        0.0
+      ],
+      [
+        -0.01023594400505786,
+        0.9999476113528776,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    [
+      [
+        0.9999573382195458,
+        0.009236976825847938,
+        0.0
+      ],
+      [
+        -0.009236976825847938,
+        0.9999573382195458,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    [
+      [
+        0.9999660670987546,
+        0.0082380004278577,
+        0.0
+      ],
+      [
+        -0.0082380004278577,
+        0.9999660670987546,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    [
+      [
+        0.9999737979817924,
+        0.007239015808095588,
+        0.0
+      ],
+      [
+        -0.007239015808095588,
+        0.9999737979817924,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0000000000000002
+      ]
+    ],
+    [
+      [
+        0.9999795779846596,
+        0.006390900845888046,
+        0.0
+      ],
+      [
+        -0.006390900845888046,
+        0.9999795779846596,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    [
+      [
+        0.99998463866982,
+        0.005542781286498483,
+        0.0
+      ],
+      [
+        -0.005542781286498483,
+        0.99998463866982,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    [
+      [
+        0.9999889800336326,
+        0.004694657740006762,
+        0.0
+      ],
+      [
+        -0.004694657740006762,
+        0.9999889800336326,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0000000000000002
+      ]
+    ],
+    [
+      [
+        0.9999919837420284,
+        0.00400405440560202,
+        0.0
+      ],
+      [
+        -0.00400405440560202,
+        0.9999919837420284,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    [
+      [
+        0.9999945105122602,
+        0.0033134491614956085,
+        0.0
+      ],
+      [
+        -0.0033134491614956085,
+        0.9999945105122602,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0000000000000002
+      ]
+    ],
+    [
+      [
+        0.9999965603431221,
+        0.002622842337066167,
+        0.0
+      ],
+      [
+        -0.002622842337066167,
+        0.9999965603431221,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0000000000000002
+      ]
+    ],
+    [
+      [
+        0.99999818096869,
+        0.0019073697365273223,
+        0.0
+      ],
+      [
+        -0.0019073697365273223,
+        0.99999818096869,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0000000000000002
+      ]
+    ],
+    [
+      [
+        0.9999992896915203,
+        0.0011918961595989055,
+        0.0
+      ],
+      [
+        -0.0011918961595989055,
+        0.9999992896915203,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    [
+      [
+        0.9999998865110458,
+        0.00047642197253447796,
+        0.0
+      ],
+      [
+        -0.00047642197253447796,
+        0.9999998865110458,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    [
+      [
+        0.9999999731067527,
+        0.00023191915455452887,
+        0.0
+      ],
+      [
+        -0.00023191915455452887,
+        0.9999999731067527,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    [
+      [
+        0.9999999999208257,
+        -1.2583677289926357e-05,
+        0.0
+      ],
+      [
+        1.2583677289926357e-05,
+        0.9999999999208257,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    [
+      [
+        0.9999999669532632,
+        -0.0002570865083821089,
+        0.0
+      ],
+      [
+        0.0002570865083821089,
+        0.9999999669532632,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    [
+      [
+        0.9999999853125613,
+        -0.00017139100663694575,
+        0.0
+      ],
+      [
+        0.00017139100663694575,
+        0.9999999853125613,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    [
+      [
+        0.9999999963281405,
+        -8.569550363313473e-05,
+        0.0
+      ],
+      [
+        8.569550363313473e-05,
+        0.9999999963281405,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    [
+      [
+        1.0000000000000002,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0000000000000002,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  ],
+  "world_anchor_position_relative_units": [
+    -0.006224234073665563,
+    0.0075155305186991135,
+    0.0
+  ],
+  "world_anchor_rotation": [
+    [
+      0.999999976494268,
+      -0.0002168212713194424,
+      0.0
+    ],
+    [
+      0.0002168212713194424,
+      0.999999976494268,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "assumed_camera_height_m": 1.8,
+  "scale_status": "assumed, not measured; RGB SfM has no absolute scale",
+  "history_source": "RGB-derived ground-projected positions and yaw-only body orientation; planar-road assumption; Savitzky-Golay smoothing and 10 Hz interpolation; no future labels",
+  "camera_profile": "4 physical RGB streams -> 6 virtual slots: actual left/front/right; two rear crops from back RGB; tele crop from front. Narrower FOV than the native training profile; no claim of native calibration or driving accuracy",
+  "time_source": "nominal source frame number / 10; causal previous-frame selection, not supplied sensor timestamps",
+  "navigation": "Continue straight on the road and yield to pedestrians."
+}

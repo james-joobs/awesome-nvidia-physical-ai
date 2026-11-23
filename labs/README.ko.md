@@ -1,6 +1,6 @@
 # 영상으로 보고 따라 하는 피지컬 AI 실습
 
-[RTX 5090 한 장으로 RGB 도로 복원하기](../docs/ko/labs/rgb-reality-view.md) · [데이터·차량 모델 출처와 사용 조건](rgb-reality-view/SOURCES.md)
+[RGB 전용 NuRec·Harmonizer·Alpamayo](../docs/ko/labs/nurec-rgb-reality.md) · [독립 실행형 3DGUT 비교](../docs/ko/labs/rgb-reality-view.md)
 
 
 [English](README.md) · [한국어 영상 갤러리](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/showcase/)

@@ -1,0 +1,10 @@
+{
+  "input_images": 162,
+  "points": 28577,
+  "rig_frames": 27,
+  "rigs": 1,
+  "reprojection_before_px": 0.874818306562346,
+  "reprojection_after_px": 1.149706765537283,
+  "elapsed_seconds": 4.553456040099263,
+  "constraints": "one fixed six-camera rig; folder/stem nominal time pairing; RGB-derived intrinsics frozen; no source sensor calibration or pose labels"
+}

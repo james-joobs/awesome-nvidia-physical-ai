@@ -1,0 +1,239 @@
+{
+  "language": "ko",
+  "recording": "Actual browser viewport, driven by Playwright mouse/scroll/buttons",
+  "trim_start_seconds": 1.576,
+  "content_seconds": 24.285999999999998,
+  "viewport": [
+    1280,
+    720
+  ],
+  "events": [
+    {
+      "action": "initial",
+      "time_seconds": 0.006999999999999895,
+      "frame": 13,
+      "view": "chase",
+      "camera": [
+        -3.3983341296992955,
+        -2.602177000690114,
+        2.6299999999999413
+      ],
+      "target": [
+        -2.2892238739008137e-17,
+        1.3278858411194263e-17,
+        0.4299999999999993
+      ],
+      "gaussians": 400000,
+      "perception": {
+        "enabled": true,
+        "frame": 13,
+        "camera": "left_camera",
+        "detections_in_camera": 10,
+        "markers": 19,
+        "people_in_camera": 3
+      }
+    },
+    {
+      "action": "recognition_off",
+      "time_seconds": 3.8989999999999996,
+      "frame": 13,
+      "view": "chase",
+      "camera": [
+        -3.398334129699297,
+        -2.6021770006899065,
+        2.62999999999974
+      ],
+      "target": [
+        -2.2892238739008137e-17,
+        1.3278858411194263e-17,
+        0.4299999999999993
+      ],
+      "gaussians": 400000,
+      "perception": {
+        "enabled": false,
+        "frame": 13,
+        "camera": "left_camera",
+        "detections_in_camera": 10,
+        "markers": 19,
+        "people_in_camera": 3
+      }
+    },
+    {
+      "action": "recognition_on",
+      "time_seconds": 5.747999999999999,
+      "frame": 13,
+      "view": "chase",
+      "camera": [
+        -3.398334129699291,
+        -2.602177000689806,
+        2.629999999999654
+      ],
+      "target": [
+        -2.2892238739008137e-17,
+        1.3278858411194263e-17,
+        0.4299999999999993
+      ],
+      "gaussians": 400000,
+      "perception": {
+        "enabled": true,
+        "frame": 13,
+        "camera": "left_camera",
+        "detections_in_camera": 10,
+        "markers": 19,
+        "people_in_camera": 3
+      }
+    },
+    {
+      "action": "front_camera",
+      "time_seconds": 7.462999999999999,
+      "frame": 13,
+      "view": "chase",
+      "camera": [
+        -3.398334129699281,
+        -2.60217700068971,
+        2.6299999999995762
+      ],
+      "target": [
+        -2.2892238739008137e-17,
+        1.3278858411194263e-17,
+        0.4299999999999993
+      ],
+      "gaussians": 400000,
+      "perception": {
+        "enabled": true,
+        "frame": 13,
+        "camera": "front_camera",
+        "detections_in_camera": 17,
+        "markers": 19,
+        "people_in_camera": 0
+      }
+    },
+    {
+      "action": "left_camera",
+      "time_seconds": 9.174,
+      "frame": 13,
+      "view": "chase",
+      "camera": [
+        -3.3983341296992777,
+        -2.6021770006896134,
+        2.6299999999994905
+      ],
+      "target": [
+        -2.2892238739008137e-17,
+        1.3278858411194263e-17,
+        0.4299999999999993
+      ],
+      "gaussians": 400000,
+      "perception": {
+        "enabled": true,
+        "frame": 13,
+        "camera": "left_camera",
+        "detections_in_camera": 10,
+        "markers": 19,
+        "people_in_camera": 3
+      }
+    },
+    {
+      "action": "orbit",
+      "time_seconds": 12.091999999999999,
+      "frame": 13,
+      "view": "chase",
+      "camera": [
+        4.04170694310904,
+        1.408760088169481,
+        2.6299999999992925
+      ],
+      "target": [
+        -2.2892238739008137e-17,
+        1.3278858411194263e-17,
+        0.4299999999999993
+      ],
+      "gaussians": 400000,
+      "perception": {
+        "enabled": true,
+        "frame": 13,
+        "camera": "left_camera",
+        "detections_in_camera": 10,
+        "markers": 19,
+        "people_in_camera": 3
+      }
+    },
+    {
+      "action": "overhead",
+      "time_seconds": 15.628999999999998,
+      "frame": 13,
+      "view": "overhead",
+      "camera": [
+        -0.39999991792787554,
+        -0.00025623750663504645,
+        6.929999999999666
+      ],
+      "target": [
+        -2.2892238739008137e-17,
+        1.3278858411194263e-17,
+        0.4299999999999993
+      ],
+      "gaussians": 400000,
+      "perception": {
+        "enabled": true,
+        "frame": 13,
+        "camera": "left_camera",
+        "detections_in_camera": 10,
+        "markers": 19,
+        "people_in_camera": 3
+      }
+    },
+    {
+      "action": "driver",
+      "time_seconds": 18.064999999999998,
+      "frame": 13,
+      "view": "driver",
+      "camera": [
+        0,
+        -1.8381563632319242e-14,
+        0.9481572809398828
+      ],
+      "target": [
+        4.9959628599388965,
+        0.0031996708317021043,
+        0.7472969707297078
+      ],
+      "gaussians": 400000,
+      "perception": {
+        "enabled": true,
+        "frame": 13,
+        "camera": "front_camera",
+        "detections_in_camera": 17,
+        "markers": 19,
+        "people_in_camera": 0
+      }
+    },
+    {
+      "action": "perception_replay",
+      "time_seconds": 22.479,
+      "frame": 0,
+      "view": "chase",
+      "camera": [
+        -22.331472030350398,
+        -2.2787612748623705,
+        2.629999999999792
+      ],
+      "target": [
+        -18.933137900651097,
+        0.32341572582759937,
+        0.4299999999999992
+      ],
+      "gaussians": 400000,
+      "perception": {
+        "enabled": true,
+        "frame": 0,
+        "camera": "left_camera",
+        "detections_in_camera": 13,
+        "markers": 17,
+        "people_in_camera": 1
+      }
+    }
+  ],
+  "errors": [],
+  "raw_file": "raw-perception.ko.webm"
+}

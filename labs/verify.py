@@ -32,7 +32,7 @@ def verify_files():
 
 
 def verify_evidence():
-    for key in ("rgb-reality-view", "pandaset-nurec", "reality-view", "carla-ego", "spatial-reconstruction", "scene-generation", "worldgen-scenes", "worldgen-isaac", "worldgen-navigation", "worldgen-dynamic-navigation"):
+    for key in ("nurec-rgb-reality", "rgb-reality-view", "pandaset-nurec", "reality-view", "carla-ego", "spatial-reconstruction", "scene-generation", "worldgen-scenes", "worldgen-isaac", "worldgen-navigation", "worldgen-dynamic-navigation"):
         runpy.run_path(str(ROOT / key / "check.py"))["main"]()
     world = report("world-driving")
     assert len(world["cosmos"]) == 3

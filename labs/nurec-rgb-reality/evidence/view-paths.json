@@ -1,0 +1,198 @@
+{
+  "sensor_id": "front_camera@rgb-only-road",
+  "units": "relative camera-height units",
+  "views": [
+    {
+      "view": "front",
+      "frames": 27,
+      "camera_to_rig": [
+        [
+          -1.1102230246251565e-16,
+          1.1102230246251565e-16,
+          1.0,
+          0.0
+        ],
+        [
+          -1.0,
+          1.1102230246251565e-16,
+          -1.1102230246251565e-16,
+          -1.3010426069826053e-18
+        ],
+        [
+          -1.1102230246251565e-16,
+          -1.0,
+          1.1102230246251565e-16,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "intrinsics": {
+        "resolution": [
+          1024,
+          569
+        ],
+        "shutter_type": "GLOBAL",
+        "external_distortion_parameters": null,
+        "principal_point": [
+          512.0,
+          284.5
+        ],
+        "focal_length": [
+          1055.495361328125,
+          1056.3104248046875
+        ],
+        "radial_coeffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "tangential_coeffs": [
+          0.0,
+          0.0
+        ],
+        "thin_prism_coeffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "view": "quarter",
+      "frames": 27,
+      "camera_to_rig": [
+        [
+          0.5646839155919903,
+          -0.36880985981029735,
+          0.7383165735498608,
+          -3.4
+        ],
+        [
+          -0.8253072612498318,
+          -0.25234358829125614,
+          0.5051639713762206,
+          -2.6
+        ],
+        [
+          0.0,
+          -0.89459599862452,
+          -0.44687582083281047,
+          2.8
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "intrinsics": {
+        "resolution": [
+          1024,
+          576
+        ],
+        "shutter_type": "GLOBAL",
+        "external_distortion_parameters": null,
+        "principal_point": [
+          512,
+          288
+        ],
+        "focal_length": [
+          512,
+          512
+        ],
+        "radial_coeffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "tangential_coeffs": [
+          0.0,
+          0.0
+        ],
+        "thin_prism_coeffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "view": "orbit",
+      "frames": 48,
+      "camera_to_rig": [
+        [
+          -1.1102230246251565e-16,
+          1.1102230246251565e-16,
+          1.0,
+          0.0
+        ],
+        [
+          -1.0,
+          1.1102230246251565e-16,
+          -1.1102230246251565e-16,
+          -1.3010426069826053e-18
+        ],
+        [
+          -1.1102230246251565e-16,
+          -1.0,
+          1.1102230246251565e-16,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "intrinsics": {
+        "resolution": [
+          1024,
+          576
+        ],
+        "shutter_type": "GLOBAL",
+        "external_distortion_parameters": null,
+        "principal_point": [
+          512,
+          288
+        ],
+        "focal_length": [
+          512,
+          512
+        ],
+        "radial_coeffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "tangential_coeffs": [
+          0.0,
+          0.0
+        ],
+        "thin_prism_coeffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    }
+  ]
+}

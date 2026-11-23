@@ -160,9 +160,9 @@ export const courses = [
         ko: ['학습 모델의 출력 읽기', '여섯 카메라 입력과 Alpamayo의 미래 자세를 보고 추론과 실제 주행을 구분합니다.'],
       },
       {
-        route: 'labs/rgb-reality-view#explore', mode: 'gpu',
-        en: ['Reconstruct a road from RGB alone', 'Orbit a real 3D road in your browser, then recover cameras and train NVIDIA 3DGUT on one RTX 5090.'],
-        ko: ['RGB 사진만으로 도로 복원하기', '브라우저에서 도로를 돌려본 뒤 RTX 5090 한 장으로 카메라 추정과 NVIDIA 3DGUT 학습까지 따라 합니다.'],
+        route: 'labs/nurec-rgb-reality#explore', mode: 'gpu',
+        en: ['Reconstruct a road from RGB alone', 'Explore NuRec reconstruction, Harmonizer and actual Alpamayo predictions; then follow the RGB-only one-GPU pipeline.'],
+        ko: ['RGB 사진만으로 도로 복원하기', 'NuRec 복원·Harmonizer 보정·Alpamayo 실제 예측을 둘러보고 GPU 한 장에서 RGB 전용 파이프라인을 따라 합니다.'],
       },
       {
         route: 'labs/reality-view#implementation', mode: 'gpu',

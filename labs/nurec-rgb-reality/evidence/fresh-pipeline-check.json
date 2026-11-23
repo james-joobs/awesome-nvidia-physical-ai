@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "checked_date": "2026-11-23",
+  "command": "python3 labs/nurec-rgb-reality/pipeline.py --root <new-output-folder> --model-root <model-cache> --no-serve all",
+  "fresh_output_folder": true,
+  "new_python_environments": true,
+  "runtime_and_model_downloads_cached": true,
+  "scope": "Full public command in a new output folder on the same tested GPU host; not a cold installation on a new machine. Reference videos use the separately identified reference run.",
+  "exit_code": 0,
+  "completion_marker": "RGB_NUREC_PIPELINE_COMPLETE",
+  "stages_completed": [
+    "setup",
+    "rgb",
+    "rig",
+    "prepare",
+    "train",
+    "render",
+    "enhance",
+    "policy",
+    "perceive",
+    "export"
+  ],
+  "uses_lidar": false,
+  "rgb_images": 162,
+  "rig_frames": 27,
+  "seed_points": 28785,
+  "nurec_steps": 16000,
+  "nurec_training_seconds": 147.56,
+  "nurec_artifact_sha256": "9497369d65cc40c2662576bd112ce448ab1012fb4f1c9951564513bcb0563acb",
+  "exported_gaussians": 450000,
+  "enhanced_frames": 48,
+  "actual_alpamayo_keyframes": 4,
+  "poses_per_keyframe": 64,
+  "detection_observations_by_class": {
+    "car": 1281,
+    "person": 84,
+    "truck": 14
+  },
+  "preview_hashes_verified": 162,
+  "reconstruction_variation": "SfM and neural training may differ between runs; byte-identical models or detection counts are not promised."
+}

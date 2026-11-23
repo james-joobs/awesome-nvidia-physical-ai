@@ -49,3 +49,5 @@ Omniverse NuRec은 촬영한 장면을 신경 표현으로 재구성해 시뮬�
 
 
 [실사 데이터 실습: PandaSet 도로 복원과 Volvo 자차 표시](labs/pandaset-nurec.md). 실측 RGB·LiDAR, 차량 모델 출처·사용 조건, GPU 없는 결과 검사를 제공합니다.
+
+[RGB 전용 주력 실습: 실제 NuRec 실행·Harmonizer 비교·Alpamayo 경로 추론](labs/nurec-rgb-reality.md).

@@ -9,14 +9,18 @@
     "path_playback": true,
     "inline_video": {
       "width": 1280,
-      "time": 0.9309,
+      "time": 0.9237,
       "inline": true
     },
     "dimensions": {
       "width": 1440,
       "content": 1440
     },
-    "local_links_checked": 9,
+    "actual_recognition": true,
+    "mask_toggle": true,
+    "source_camera_switch": true,
+    "people_in_camera": 3,
+    "local_links_checked": 10,
     "same_page_language_link": true,
     "errors": [],
     "failed": []
@@ -31,14 +35,18 @@
     "path_playback": true,
     "inline_video": {
       "width": 1280,
-      "time": 1.0015,
+      "time": 1.0241,
       "inline": true
     },
     "dimensions": {
       "width": 1440,
       "content": 1440
     },
-    "local_links_checked": 9,
+    "actual_recognition": true,
+    "mask_toggle": true,
+    "source_camera_switch": true,
+    "people_in_camera": 3,
+    "local_links_checked": 10,
     "same_page_language_link": true,
     "errors": [],
     "failed": []
@@ -53,14 +61,18 @@
     "path_playback": true,
     "inline_video": {
       "width": 1280,
-      "time": 1.0028,
+      "time": 0.998,
       "inline": true
     },
     "dimensions": {
       "width": 390,
       "content": 390
     },
-    "local_links_checked": 9,
+    "actual_recognition": true,
+    "mask_toggle": true,
+    "source_camera_switch": true,
+    "people_in_camera": 3,
+    "local_links_checked": 10,
     "same_page_language_link": true,
     "errors": [],
     "failed": []
@@ -75,14 +87,18 @@
     "path_playback": true,
     "inline_video": {
       "width": 1280,
-      "time": 1.0015,
+      "time": 0.9968,
       "inline": true
     },
     "dimensions": {
       "width": 390,
       "content": 390
     },
-    "local_links_checked": 9,
+    "actual_recognition": true,
+    "mask_toggle": true,
+    "source_camera_switch": true,
+    "people_in_camera": 3,
+    "local_links_checked": 10,
     "same_page_language_link": true,
     "errors": [],
     "failed": []

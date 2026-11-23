@@ -4,6 +4,8 @@
 
 **RGB images → COLMAP → NVIDIA 3DGUT → a persistent 3D road you can orbit with a mouse.**
 
+The viewer also shows **actual Mask R-CNN detections and instance masks** on source RGB, with approximate road-plane contact markers in 3D. Toggle recognition and switch camera direction to inspect the evidence.
+
 The tested preset uses one RTX 5090 32 GB on Linux. No LiDAR, supplied depth, calibration, camera poses, GPS, IMU or gated pretrained weights enter reconstruction. The example uses 162 RGB images and estimates cameras from image matches. The Volvo S90 is a credited, simplified 3D mesh added as an ego-position reference.
 
 ```bash
@@ -44,3 +46,11 @@ Then visit **http://127.0.0.1:8090/**.
 The optional video check needs FFmpeg. [recorded.json](recorded.json) contains measured runtimes, GPU-memory sampling scope and hashes. The browser model is in [site/public/showcase/rgb-reality-view](../../site/public/showcase/rgb-reality-view/); bilingual recordings are in [evidence](evidence/). Raw machine logs stay outside public artifacts.
 
 `record_tour.mjs` records actual mouse, wheel and button interactions with optional Playwright 1.60.0 and Chrome. `package_tour.py` adds English/Korean captions with FFmpeg, Pillow and a font you supply. No pre-rendered camera sequence replaces the interaction.
+
+For an existing reconstructed output, add perception without retraining:
+
+```bash
+python3 labs/rgb-reality-view/pipeline.py --root "$RGB_VIEW_ROOT" perceive
+```
+
+This downloads the pinned public COCO detector weights on first use. Its source/weights terms are documented separately in SOURCES.md. No dataset annotations or LiDAR are used. The saved recognition video is [English](evidence/rgb-perception.en.mp4) / [한국어](evidence/rgb-perception.ko.mp4).

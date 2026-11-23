@@ -1,14 +1,30 @@
 // Each step shows a data example or file name, followed by what it means in the lab.
 export const lessonFlows = {
+  'nurec-rgb-reality': {
+    en: [
+      ['Recover a camera rig from RGB', '162 images → COLMAP K/poses/XYZ → rig bundle adjustment', 'No LiDAR or source sensor calibration. The fixed camera layout and nominal grouping are explicit assumptions.'],
+      ['Run NuRec and enhance native renders', 'NCore → NuRec artifact → native RGB → Harmonizer RGB', 'NuRec trains the 3D representation. Harmonizer predicts image appearance at the same camera poses.'],
+      ['Infer from original camera evidence', '22 RGB views + 20 estimated poses → 64 future poses', 'Alpamayo uses adapted camera slots and an assumed metric scale. Mask R-CNN separately predicts actual source-image masks.'],
+      ['Inspect the saved outputs', 'NuRec-exported Gaussians + Volvo + contacts + predicted path', 'The browser is a converted preview. Native rendering and enhancement are recorded separately; no controls are applied.'],
+    ],
+    ko: [
+      ['RGB로 카메라 배열 추정', '사진 162장 → COLMAP K·자세·XYZ → rig 보정', 'LiDAR·정답 센서 보정은 쓰지 않습니다. 고정 배열과 명목상 촬영 시점 가정을 드러냅니다.'],
+      ['NuRec 실행 후 원본 렌더링 보정', 'NCore → NuRec 산출물 → 원본 RGB → Harmonizer RGB', 'NuRec은 3D 표현을 학습하고 Harmonizer는 같은 시점 이미지의 외관을 예측합니다.'],
+      ['원본 카메라 관측으로 추론', 'RGB 뷰 22개 + 추정 자세 20개 → 미래 자세 64개', 'Alpamayo에는 카메라 배열·거리 스케일 가정이 있습니다. Mask R-CNN의 실제 원본 마스크는 별도입니다.'],
+      ['저장된 결과 함께 살펴보기', 'NuRec Gaussian + Volvo + 접점 + 예측 경로', '브라우저는 변환한 미리보기입니다. 실제 렌더링·보정 영상은 따로 확인하며 제어는 하지 않습니다.'],
+    ],
+  },
   'rgb-reality-view': {
     en: [
       ['Start from RGB pixels', '162 JPEGs · uint8[H,W,3] → feature matches', 'The input guard excludes depth, LiDAR, supplied calibration, GPS and camera poses.'],
       ['Recover cameras, then learn the scene', 'COLMAP K[3,3] + poses[4,4] + XYZ → 400k Gaussians', 'NVIDIA 3DGUT learns a static scene on one RTX 5090. RGB alone leaves global scale ambiguous.'],
+      ['Recognize real road users', 'RGB → class, score, bbox and instance mask → approximate contact', 'Mask R-CNN runs on actual photos. Markers use an RGB road-plane assumption; model scores are not measured accuracy.'],
       ['Move the viewing camera', 'Mouse drag → camera change → new-view RGB', 'Spark renders the same 3D scene. The Volvo is a real mesh reference; the replay path comes from estimated cameras.'],
     ],
     ko: [
       ['RGB 픽셀에서 시작', 'JPEG 162장 · uint8[H,W,3] → 특징점 매칭', '깊이·LiDAR·제공된 보정값·GPS·카메라 자세를 입력에서 제외합니다.'],
       ['카메라와 장면 복원', 'COLMAP K[3,3] + 자세[4,4] + XYZ → Gaussian 40만 개', 'RTX 5090 한 장에서 NVIDIA 3DGUT를 학습합니다. RGB만으로는 실제 길이 단위를 확정할 수 없습니다.'],
+      ['실제 주변 차량·사람 인식', 'RGB → 종류·점수·박스·마스크 → 도로면 접점 추정', '실사 사진에서 Mask R-CNN을 실행합니다. 3D 위치는 RGB 도로면 가정에 따른 추정이며 모델 점수는 실측 정확도가 아닙니다.'],
       ['마우스로 관찰 시점 바꾸기', '드래그 → 3D 카메라 이동 → 새 시점 RGB', 'Spark가 같은 3D 장면을 그립니다. Volvo는 실제 메시이며 재생 경로는 사진에서 추정한 카메라 위치입니다.'],
     ],
   },

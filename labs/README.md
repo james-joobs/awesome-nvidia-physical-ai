@@ -1,6 +1,6 @@
 # Hands-on labs from the video gallery
 
-[RGB-only road reconstruction on one RTX 5090](../docs/en/labs/rgb-reality-view.md) · [Source and asset terms](rgb-reality-view/SOURCES.md)
+[RGB-only NuRec + Harmonizer + Alpamayo](../docs/en/labs/nurec-rgb-reality.md) · [Standalone 3DGUT comparison](../docs/en/labs/rgb-reality-view.md)
 
 
 [한국어](README.ko.md) · [Video gallery](https://james-joobs.github.io/awesome-nvidia-physical-ai/showcase/)

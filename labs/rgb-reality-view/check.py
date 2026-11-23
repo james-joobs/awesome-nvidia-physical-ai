@@ -84,6 +84,8 @@ def main(decode=False):
         assert hashlib.sha256(path.read_bytes()).hexdigest() == expected['sha256'], name
         if decode and path.suffix == '.mp4':
             subprocess.run(['ffmpeg', '-v', 'error', '-i', str(path), '-f', 'null', '-'], check=True)
+    import runpy
+    runpy.run_path(str(LAB/'check_perception.py'))['main'](decode=decode)
     print('Verified 162 RGB-only inputs, estimated cameras, 400k Gaussians, 27 poses, bilingual mouse traces and artifact hashes.')
 
 if __name__ == '__main__':

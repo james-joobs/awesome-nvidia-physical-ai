@@ -1,5 +1,7 @@
 // RGB-only reconstruction viewer. MIT; upstream model/vehicle licenses separate.
 import * as T from 'three';
+import { mountPolicy } from './policy-view.js';
+import { mountPerception } from './perception-view.js';
 import { SparkRenderer, SplatMesh } from '@sparkjsdev/spark';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
@@ -10,6 +12,7 @@ export async function mountRgbViewer(root) {
   const ko=root.dataset.locale==='ko', base=root.dataset.root.replace(/\/$/,'')+'/';
   const stage=root.querySelector('[data-rgb-stage]'), status=root.querySelector('[data-rgb-status]');
   const config=await fetch(base+'cameras.json').then(r=>{if(!r.ok)throw new Error('Missing camera reconstruction');return r.json();});
+  root.dataset.rgbBackend=config.backend??'standalone-3dgut';if(config.reconstruction_title){const chip=root.querySelector('.rgb-chip');if(chip)chip.textContent=config.reconstruction_title;}
   const renderer=new T.WebGLRenderer({antialias:false,alpha:false,powerPreference:'high-performance'});
   renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.setClearColor('#ccd3d9');renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.0;renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;
   const canvas=renderer.domElement;canvas.tabIndex=0;canvas.setAttribute('aria-label',ko?'RGB로 복원한 도로와 Volvo의 3D 장면':'3D road reconstructed from RGB, with a Volvo reference');stage.append(canvas);
@@ -29,12 +32,13 @@ export async function mountRgbViewer(root) {
   const slider=root.querySelector('[data-rgb-frame]'), play=root.querySelector('[data-rgb-play]'), frameLabel=root.querySelector('[data-rgb-time]');
   slider.max=String(config.frames.length-1);slider.value=String(config.default_frame);let index=config.default_frame,playing=false,clock=0,view='chase',visible=true,disposed=false;
   const offset=new T.Vector3(-4.3,-3.1,2.8), lastGround=new T.Vector3(), carTarget=new T.Vector3();
+  let perception,policy;
   const framePosition=(frame)=>new T.Vector3(...frame.ground_position);
   function setFrame(value,{initial=false}={}) {
     index=Math.max(0,Math.min(config.frames.length-1,Number(value)));const frame=config.frames[index];const p=framePosition(frame);const delta=p.clone().sub(lastGround);car.position.copy(p);car.rotation.z=frame.yaw_radians;carTarget.copy(p).add(new T.Vector3(0,0,.43));
     if(!initial){camera.position.add(delta);controls.target.add(delta);}lastGround.copy(p);slider.value=String(index);frameLabel.textContent=`${frame.time_seconds.toFixed(1)} s · ${index+1}/${config.frames.length}`;
     shadow.position.set(p.x,p.y,-.015);sun.position.copy(p).add(new T.Vector3(-3,-4,9));sun.target.position.copy(p);
-    if(view==='driver')setPreset('driver');root.dataset.frame=String(index);
+    if(view==='driver')setPreset('driver');perception?.setFrame(index);policy?.setFrame(index);root.dataset.frame=String(index);
   }
   function setPreset(name) {
     view=name;car.visible=name!=='driver';const frame=config.frames[index];const yaw=frame.yaw_radians;const q=new T.Quaternion().setFromAxisAngle(new T.Vector3(0,0,1),yaw);
@@ -63,10 +67,10 @@ export async function mountRgbViewer(root) {
     if(playing){clock+=dt;const step=config.frames[Math.min(index+1,config.frames.length-1)].time_seconds-config.frames[index].time_seconds||.3;if(clock>=step){clock=0;setFrame((index+1)%config.frames.length);}}
     controls.update();renderer.clear();renderer.render(scene,camera);renderer.clearDepth();renderer.render(referenceScene,camera);
   });
-  await splats.initialized;root.dataset.rgbReady='true';status.textContent=ko?'드래그해서 회전하고 휠로 확대해 보세요. 입력은 RGB 사진뿐입니다.':'Drag to orbit and scroll to zoom. Reconstruction inputs are RGB images only.';
+  await splats.initialized;perception=await mountPerception({root,stage,scene:referenceScene,base,ko,config});policy=await mountPolicy({root,scene:referenceScene,base,config,ko});root.querySelector('.rgb-poster')?.remove();root.dataset.rgbReady='true';status.textContent=ko?'드래그해서 회전하고 휠로 확대해 보세요. 입력은 RGB 사진뿐입니다.':'Drag to orbit and scroll to zoom. Reconstruction inputs are RGB images only.';
   root.querySelectorAll('[data-rgb-frame],[data-rgb-play],[data-rgb-preset]').forEach(el=>el.disabled=false);
   // Read-only debug state supports automated interaction checks without replacing
   // real pointer/scroll events with a pre-rendered video or camera animation.
-  root.rgbViewerState=()=>({frame:index,view,camera:camera.position.toArray(),target:controls.target.toArray(),gaussians:splats.packedSplats?.numSplats??null});
-  return ()=>{disposed=true;renderer.setAnimationLoop(null);resize.disconnect();observer.disconnect();slider.removeEventListener('input',onInput);play.removeEventListener('click',onPlay);presetHandlers.forEach(([b,h])=>b.removeEventListener('click',h));canvas.removeEventListener('pointermove',pointer);canvas.removeEventListener('pointerleave',leave);controls.removeEventListener('start',orbit);controls.dispose();splats.dispose();spark.dispose();vehicle.traverse(o=>{if(o.geometry)o.geometry.dispose();if(o.material){for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();}});environment.dispose();shadow.geometry.dispose();shadow.material.dispose();renderer.dispose();renderer.forceContextLoss();canvas.remove();delete root.dataset.rgbReady;delete root.rgbViewerState;};
+  root.rgbViewerState=()=>({frame:index,view,camera:camera.position.toArray(),target:controls.target.toArray(),gaussians:splats.packedSplats?.numSplats??null,perception:perception?.state()??null,policy:policy?.state()??null});
+  return ()=>{policy?.dispose();perception?.dispose();disposed=true;renderer.setAnimationLoop(null);resize.disconnect();observer.disconnect();slider.removeEventListener('input',onInput);play.removeEventListener('click',onPlay);presetHandlers.forEach(([b,h])=>b.removeEventListener('click',h));canvas.removeEventListener('pointermove',pointer);canvas.removeEventListener('pointerleave',leave);controls.removeEventListener('start',orbit);controls.dispose();splats.dispose();spark.dispose();vehicle.traverse(o=>{if(o.geometry)o.geometry.dispose();if(o.material){for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();}});environment.dispose();shadow.geometry.dispose();shadow.material.dispose();renderer.dispose();renderer.forceContextLoss();canvas.remove();delete root.dataset.rgbReady;delete root.rgbViewerState;};
 }

@@ -4,6 +4,8 @@
 
 카메라로 찍은 도로를 하나의 3D 장면으로 복원한 뒤, Volvo S90 주변을 마우스로 돌려봅니다. 먼저 뷰어와 조작 영상을 살펴보고, RTX 5090 한 장으로 같은 과정을 실행해 보세요. **입력은 RGB 픽셀뿐**이며 카메라 정보와 촬영 위치, 3D 점을 모두 사진에서 추정합니다.
 
+**실행 구성:** 이 실습은 NVIDIA 3DGRUT/3DGUT를 직접 실행하고, 원본 RGB 인식에 Mask R-CNN을 씁니다. [NuRec·Harmonizer·Alpamayo 비교 실험](reality-view.md)과 [RGB + LiDAR NuRec 실험](pandaset-nurec.md)은 별도 구성입니다. 현재 뷰어가 그 도구들을 호출한 결과로 설명하지 않습니다.
+
 ## 동작 원리
 
 ![RGB 사진에서 COLMAP으로 카메라와 3D 점을 추정하고 NVIDIA 3DGUT으로 학습한 뒤 Spark에서 Volvo와 함께 다른 시점으로 보는 흐름](../../../assets/lessons/rgb-reality-view/pipeline.ko.svg)
@@ -79,6 +81,59 @@ NVIDIA가 공개한 [3DGRUT](https://github.com/nv-tlabs/3dgrut)에서 3DGUT 렌
 
 외부 크기 기준이 없는 RGB 복원에는 전체 크기가 정해지지 않는 문제가 있습니다. 뷰어는 추정한 카메라와 도로 사이 높이를 1로 맞추고 차량을 상대 비율로 배치합니다. 도로 평면도 **RGB 특징점으로 만든 3D 점**에서 추정합니다. 화면의 단위는 실측 미터가 아닙니다.
 
+### 4. 실사 RGB에서 주변 차량과 사람 인식하기
+
+![RGB에서 Mask R-CNN으로 차량과 사람의 박스·마스크를 예측하고, 사진에서 복원한 카메라와 도로면으로 3D 접점 위치를 추정하는 흐름](../../../assets/lessons/rgb-reality-view/perception.ko.svg)
+
+추가한 인식 단계는 **TorchVision Mask R-CNN ResNet50 FPN v2, COCO_V1**을 왜곡 보정한 실제 카메라 사진에 실행합니다. 먼저 이미지의 특징을 추출하고 객체가 있을 법한 영역을 찾습니다. 각 영역에서 객체 종류·점수·검출 박스를 예측하고, 해당 객체에 속하는 픽셀을 마스크로 구분합니다. 데이터셋의 정답 라벨은 읽지 않습니다.
+
+```text
+RGB uint8[H,W,3] → float32[3,H,W], 값 범위 [0,1] → CUDA 추론
+boxes:  float[N,4]       왜곡 보정한 원본 이미지의 픽셀 좌표
+labels: int64[N]         사람·차량 등의 클래스 번호
+scores: float[N]         모델 점수이며 실측 정확도를 뜻하지 않음
+masks:  float[N,1,H,W] → 0.5 기준 이진화 → 객체 영역만 자르기 → RLE
+```
+
+화면에는 점수 **0.8 이상**인 사람·차량·트럭·버스·자전거·이륜차를 표시합니다. 다음은 왼쪽 카메라에서 실제로 예측한 보행자 한 명의 출력입니다.
+
+```json
+{
+  "image": "left_camera/39.jpg",
+  "class": "person",
+  "score": 0.9982,
+  "bbox_xyxy": [
+    274.1,
+    316.64,
+    294.92,
+    364.5
+  ],
+  "cropped_mask_size": [
+    21,
+    49
+  ],
+  "contact_pixel": [
+    280.0,
+    363.0
+  ],
+  "estimated_ground_xyz": [
+    -5.95426,
+    11.1151,
+    0.0
+  ]
+}
+```
+
+이 박스의 크기는 약 21×48픽셀입니다. 저장한 마스크는 전체 이미지 크기가 아니라 객체 주변을 자른 **21×49 이진 배열**입니다. 0과 1이 몇 번 연속되는지 기록하는 RLE로 압축해 브라우저에 전달합니다. 점수 0.9982가 나왔더라도 정답으로 검증된 것은 아닙니다. 오검출과 누락이 생길 수 있습니다.
+
+**이 결과를 어떻게 3D 화면에 놓을까요?** 예측 마스크 아래쪽의 픽셀을 고르고, COLMAP이 추정한 `K`와 카메라 자세로 광선을 만듭니다. 그 광선이 RGB로 추정한 도로면과 만나는 곳을 접점으로 삼습니다. 이 값은 **도로면 가정에 따른 상대 위치 추정**이며, 3D 검출 박스나 실측 거리·객체 자세가 아닙니다. 수평선 부근, 너무 먼 교점, 화면 가장자리에서 잘린 객체는 2D 결과만 남깁니다. 보도 높이·경사·가림·마스크 오차가 있으면 위치가 어긋날 수 있습니다.
+
+여섯 카메라는 같은 프레임 번호끼리 연결합니다. 데이터셋이 제공하는 센서 시각과 보정값은 쓰지 않습니다. 카메라 간 가까운 위치 추정은 합치고, 짧은 클립에서 종류와 위치를 비교해 임시 ID를 붙입니다. ID가 바뀔 수 있으므로 사람의 신원이나 실제 속도, 고유 객체 수로 해석하면 안 됩니다. 화면에는 가까운 표식을 최대 24개 그리며 선택한 카메라에 보이는 객체의 이름을 강조합니다. 표식의 가림 관계는 물리적으로 검증하지 않습니다.
+
+**인식 표시**를 껐다 켜며 원본과 예측을 비교하고, 카메라 방향을 바꿔 실제 입력을 확인하세요. 차량은 청록색, 사람은 노란색, 자전거·이륜차는 보라색으로 표시합니다. RGB 패널과 3D 표식은 같은 촬영 프레임으로 갱신됩니다. 배경은 하나의 정적 Gaussian 장면이므로 인식 시점을 바꿔도 움직이는 차량의 잔상이 사라지지는 않습니다.
+
+자차를 중심에 두고 주변 도로와 객체를 살펴보는 표현은 [Tesla 공식 주행 시각화 설명](https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html)을 참고했습니다. 이 실습은 복원과 인식을 각각 살펴볼 수 있는 공개 도구로 구성했으며, Tesla의 비공개 신경망·Reality View 내부 구조·주행 제어를 재현한 결과로 설명하지 않습니다.
+
 ## 따라 하기
 
 ### 1. NVIDIA GPU 없이 저장된 결과 보기
@@ -128,6 +183,7 @@ python3 labs/rgb-reality-view/pipeline.py --root "$RGB_VIEW_ROOT" example
 python3 labs/rgb-reality-view/pipeline.py --root "$RGB_VIEW_ROOT" sfm
 python3 labs/rgb-reality-view/pipeline.py --root "$RGB_VIEW_ROOT" train
 python3 labs/rgb-reality-view/pipeline.py --root "$RGB_VIEW_ROOT" export
+python3 labs/rgb-reality-view/pipeline.py --root "$RGB_VIEW_ROOT" perceive
 python3 labs/rgb-reality-view/pipeline.py --root "$RGB_VIEW_ROOT" serve
 ```
 

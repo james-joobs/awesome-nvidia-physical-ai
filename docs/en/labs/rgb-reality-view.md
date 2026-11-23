@@ -4,6 +4,8 @@
 
 Turn ordinary camera frames into a persistent 3D road scene, then drag to look around a Volvo S90 reference. Start with the interactive example and its mouse-control recording. The GPU workflow accepts **RGB pixels only** and estimates camera calibration, camera poses and geometry from those images.
 
+**Pipeline identity:** this lab directly runs standalone NVIDIA 3DGRUT/3DGUT, with Mask R-CNN for source-RGB perception. The separate [NuRec + Harmonizer + Alpamayo comparison](reality-view.md) and [RGB + LiDAR NuRec experiment](pandaset-nurec.md) use different pipelines. Their model calls are not part of this viewer.
+
 ## How it works
 
 ![RGB images enter COLMAP; estimated cameras and sparse points enter NVIDIA 3DGUT; Spark renders a persistent 3D scene with an added Volvo mesh](../../../assets/lessons/rgb-reality-view/pipeline.en.svg)
@@ -79,6 +81,59 @@ The path slider follows **camera motion estimated by COLMAP**. It does not invok
 
 Uncalibrated RGB has an unknown global scale. The viewer normalizes estimated camera-to-road height to one display unit and gives the car a relative display size. Its road plane is fitted to **triangulated RGB feature tracks**, not LiDAR. These units are not measured meters.
 
+### 4. Recognize cars and pedestrians in the actual RGB
+
+![RGB enters Mask R-CNN; masks and boxes identify road users; RGB-derived camera geometry projects an approximate road-plane contact into the 3D scene](../../../assets/lessons/rgb-reality-view/perception.en.svg)
+
+The new perception stage runs **TorchVision Mask R-CNN ResNet50 FPN v2, COCO_V1**, on the undistorted camera photos. Its backbone extracts image features, region proposals select candidate objects, and separate heads predict a class, confidence score, bounding box and instance mask. No dataset object annotations are read.
+
+```text
+RGB uint8[H,W,3] → float32[3,H,W] in [0,1] → CUDA inference
+boxes:  float[N,4] in original undistorted-image pixels
+labels: int64[N]                    e.g. person, car, truck
+scores: float[N]                    model confidence, not calibrated accuracy
+masks:  float[N,1,H,W] → mask > 0.5 → cropped binary raster → RLE
+```
+
+The demo keeps scores ≥ **0.8** and six road-user classes: person, car, truck, bus, bicycle and motorcycle. Here is a real pedestrian prediction from the left camera:
+
+```json
+{
+  "image": "left_camera/39.jpg",
+  "class": "person",
+  "score": 0.9982,
+  "bbox_xyxy": [
+    274.1,
+    316.64,
+    294.92,
+    364.5
+  ],
+  "cropped_mask_size": [
+    21,
+    49
+  ],
+  "contact_pixel": [
+    280.0,
+    363.0
+  ],
+  "estimated_ground_xyz": [
+    -5.95426,
+    11.1151,
+    0.0
+  ]
+}
+```
+
+The box is about 21×48 pixels; the saved mask is a cropped **21×49** binary raster, not a full-image mask. Alternating zero/one run lengths compress it for the browser. The model's 0.9982 score does not establish that its prediction is correct. Missed objects and false detections remain possible.
+
+**How does that become a 3D marker?** Take a pixel near the bottom of the predicted mask, cast a ray using COLMAP's estimated `K` and camera pose, and intersect it with the RGB-derived road plane. This supplies an **approximate contact point**, in relative viewer units. It is not a learned 3D bounding box, measured distance or ground-truth object pose. Horizon rays, far intersections and edge-truncated objects remain 2D-only. Sidewalk height, slopes, occlusion and mask errors can shift the marker.
+
+The six views are paired by nominal frame number; supplied sensor timestamps and calibration are excluded. Nearby cross-camera estimates are merged, and a short class/position association assigns temporary IDs. These IDs may switch and are not identities, measured velocities or unique-object counts. The UI uses class labels and draws at most 24 nearby markers; highlighted labels follow the selected source camera. Overlay markers do not establish correct physical occlusion.
+
+Use **Recognition on/off** to compare the original RGB with the predictions. Switch camera direction to inspect the source evidence. Cyan marks vehicles; amber marks people; purple marks cycles. The RGB panel and 3D markers advance with the same capture-frame selection. The background remains one static Gaussian reconstruction, so its moving-traffic ghosts do not disappear when the detection time changes.
+
+Tesla's [official driving-visualization documentation](https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html) informs the ego-centered presentation and emphasis on surrounding road users. This lab combines separately inspectable reconstruction and detection stages; it does not reproduce Tesla's proprietary network, Reality View internals or driving-control system.
+
 ## Run the lab
 
 ### 1. Explore the saved result without a CUDA GPU
@@ -128,6 +183,7 @@ python3 labs/rgb-reality-view/pipeline.py --root "$RGB_VIEW_ROOT" example
 python3 labs/rgb-reality-view/pipeline.py --root "$RGB_VIEW_ROOT" sfm
 python3 labs/rgb-reality-view/pipeline.py --root "$RGB_VIEW_ROOT" train
 python3 labs/rgb-reality-view/pipeline.py --root "$RGB_VIEW_ROOT" export
+python3 labs/rgb-reality-view/pipeline.py --root "$RGB_VIEW_ROOT" perceive
 python3 labs/rgb-reality-view/pipeline.py --root "$RGB_VIEW_ROOT" serve
 ```
 

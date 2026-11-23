@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1380" height="700" viewBox="0 0 1380 700" role="img" aria-label="RGB-only NuRec Harmonizer Alpamayo pipeline">
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#669c00" stroke-width="1.5"/></marker></defs>
+<path d="M304 99 H326" stroke="#669c00" stroke-width="2.1" fill="none" marker-end="url(#a)"/>
+<path d="M644 99 H666" stroke="#669c00" stroke-width="2.1" fill="none" marker-end="url(#a)"/>
+<path d="M1014 99 H1036" stroke="#669c00" stroke-width="2.1" fill="none" marker-end="url(#a)"/>
+<path d="M164 174 V256" stroke="#669c00" stroke-width="2.1" fill="none" marker-end="url(#a)"/>
+<path d="M164 174 V220 H624 V256" stroke="#669c00" stroke-width="2.1" fill="none" marker-end="url(#a)"/>
+<path d="M384 339 H856" stroke="#669c00" stroke-width="2.1" fill="none" marker-end="url(#a)"/>
+<path d="M834 339 H856" stroke="#669c00" stroke-width="2.1" fill="none" marker-end="url(#a)"/>
+<path d="M844 174 V230 H1110 V256" stroke="#669c00" stroke-width="2.1" fill="none" marker-end="url(#a)"/>
+<path d="M1200 174 V486" stroke="#669c00" stroke-width="2.1" fill="none" marker-end="url(#a)"/>
+<path d="M844 174 V454 H950 V486" stroke="#669c00" stroke-width="2.1" fill="none" marker-end="url(#a)"/>
+<rect x="24" y="24" width="280" height="150" rx="8" stroke="#76b900" stroke-width="1.8" fill="#fff"/>
+<text x="40" y="58" font-family="Arial,Noto Sans KR,sans-serif" font-size="19" font-weight="600" fill="#202b33">Real RGB only</text>
+<text x="40" y="92" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">162 JPEGs · six directions</text>
+<text x="40" y="126" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">No LiDAR or source pose labels</text>
+<rect x="334" y="24" width="310" height="150" rx="8" stroke="#76b900" stroke-width="1.8" fill="#fff"/>
+<text x="350" y="58" font-family="Arial,Noto Sans KR,sans-serif" font-size="19" font-weight="600" fill="#202b33">COLMAP + rig refinement</text>
+<text x="350" y="92" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">K · 27 rig poses · sparse XYZ</text>
+<text x="350" y="126" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">Relative scale; nominal frame times</text>
+<rect x="674" y="24" width="340" height="150" rx="8" stroke="#76b900" stroke-width="1.8" fill="#fff"/>
+<text x="690" y="58" font-family="Arial,Noto Sans KR,sans-serif" font-size="19" font-weight="600" fill="#202b33">NCore → NuRec 26.04</text>
+<text x="690" y="92" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">RGB-derived seed → trained scene</text>
+<text x="690" y="126" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">Native new-view RGB + Gaussian export</text>
+<rect x="1044" y="24" width="310" height="150" rx="8" stroke="#76b900" stroke-width="1.8" fill="#fff"/>
+<text x="1060" y="58" font-family="Arial,Noto Sans KR,sans-serif" font-size="19" font-weight="600" fill="#202b33">Harmonizer</text>
+<text x="1060" y="92" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">Native RGB → enhanced RGB</text>
+<text x="1060" y="126" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">Same poses · non-temporal checkpoint</text>
+<rect x="24" y="264" width="360" height="150" rx="8" stroke="#76b900" stroke-width="1.8" fill="#fff"/>
+<text x="40" y="298" font-family="Arial,Noto Sans KR,sans-serif" font-size="19" font-weight="600" fill="#202b33">Object perception</text>
+<text x="40" y="332" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">Source RGB → Mask R-CNN</text>
+<text x="40" y="366" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">Class · score · bbox · mask → contact</text>
+<rect x="414" y="264" width="420" height="150" rx="8" stroke="#76b900" stroke-width="1.8" fill="#fff"/>
+<text x="430" y="298" font-family="Arial,Noto Sans KR,sans-serif" font-size="19" font-weight="600" fill="#202b33">Alpamayo 2 Edge</text>
+<text x="430" y="332" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">Source RGB + estimated past motion</text>
+<text x="430" y="366" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">Assumed metric scale → 64 future poses</text>
+<rect x="864" y="264" width="490" height="150" rx="8" stroke="#76b900" stroke-width="1.8" fill="#fff"/>
+<text x="880" y="298" font-family="Arial,Noto Sans KR,sans-serif" font-size="19" font-weight="600" fill="#202b33">Interactive NuRec preview</text>
+<text x="880" y="332" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">Exported Gaussians + Volvo mesh</text>
+<text x="880" y="366" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">RGB masks · contacts · predicted path</text>
+<rect x="864" y="494" width="490" height="150" rx="8" stroke="#76b900" stroke-width="1.8" fill="#fff"/>
+<text x="880" y="528" font-family="Arial,Noto Sans KR,sans-serif" font-size="19" font-weight="600" fill="#202b33">Native render comparison</text>
+<text x="880" y="562" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">NuRec RGB ↔ Harmonizer RGB</text>
+<text x="880" y="596" font-family="Arial,Noto Sans KR,sans-serif" font-size="15" font-weight="400" fill="#202b33">Generated details are not observations</text>
+<text x="24" y="674" font-family="Arial,Noto Sans KR,sans-serif" font-size="16" fill="#59636b">One GPU, sequential stages. Browser preview ≠ native renderer. No live vehicle control.</text></svg>
