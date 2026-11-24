@@ -12,10 +12,10 @@ from scipy.spatial import cKDTree
 def rotation4(left,right):
  left=left/np.linalg.norm(left,axis=1,keepdims=True);right=right/np.linalg.norm(right,axis=1,keepdims=True);a,b,c,d=left.T;p,q,r,s=right.T
  L=np.stack([a,-b,-c,-d,b,a,-d,c,c,d,a,-b,d,-c,b,a],-1).reshape(-1,4,4);R=np.stack([p,q,r,s,-q,p,-s,r,-r,s,p,-q,-s,-r,q,p],-1).reshape(-1,4,4);return L@R
-p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--model',type=Path,required=True);p.add_argument('--out',type=Path,required=True);a=p.parse_args();r=a.root
+p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--name',default='pilot');p.add_argument('--model',type=Path,required=True);p.add_argument('--out',type=Path,required=True);a=p.parse_args();r=a.root
 z=np.load(a.model,allow_pickle=False);meta=json.loads(z['metadata'].tobytes());N=len(z['xyz']);rot=rotation4(z['left'].astype(np.float64),z['right'].astype(np.float64));scales=np.exp(np.c_[z['scale'],z['time_scale']].astype(np.float64));C=(rot*scales[:,None,:]**2)@rot.transpose(0,2,1);variance=np.maximum(C[:,3,3],1e-12);velocity=C[:,:3,3]/variance[:,None];spatial=C[:,:3,:3]-C[:,:3,3,None]*C[:,None,3,:3]/variance[:,None,None];unit=float(meta['config']['space_scale']);sigma=np.sqrt(np.maximum(np.linalg.eigvalsh(spatial)[:,-1],0))*unit
 time=z['time'][:,0].astype(np.float64);last=float(meta['times'][-1]);dt_limit=np.sqrt(-2*np.log(meta['config']['marginal_threshold'])*variance);samples=np.stack([np.clip(time,0,last),np.clip(time-dt_limit,0,last),np.clip(time+dt_limit,0,last)],1)
-g=np.load(r/'rig/geometry.npz');conditioning=np.load(r/'multiview-prior/pilot/soma-conditioning.npz');origin=conditioning['world_origin'];S=conditioning['cv_to_world'];source_ids=conditioning['frame_ids'];vertices=g['vertices'][source_ids];trees={};distances=np.zeros((N,3),np.float32)
+g=np.load(r/'rig/geometry.npz');conditioning=np.load(r/'multiview-prior'/a.name/'soma-conditioning.npz');origin=conditioning['world_origin'];S=conditioning['cv_to_world'];source_ids=conditioning['frame_ids'];vertices=g['vertices'][source_ids];trees={};distances=np.zeros((N,3),np.float32)
 for sidx in range(3):
  ts=samples[:,sidx];frames=np.rint(ts*30).astype(int);positions=(z['xyz'].astype(np.float64)+velocity*(ts-time)[:,None])*unit
  for t in np.unique(frames):

@@ -77,22 +77,19 @@ This implementation conditions the joint space-time distribution on the requeste
 
 Long videos are processed in intervals supported by the model. The package records interval starts, frame ranges and playback transitions. Pose, appearance and color continuity need separate checks at interval boundaries.
 
-### 5. Advanced experiment: extend a short appearance prior to full motion
+### 5. How do short models become one full-motion timeline?
 
-**This extension is an advanced experiment under validation. Complete the short interval before trying it.** The full-length procedure takes a **shared appearance snapshot at `t=0`** from the selected short native model. It binds those particles to consistent SOMA material locations and follows their trajectories through the full motion. A freely learned temporal Gaussian is not necessarily a persistent skin point, so this differs from taking each particle at its own temporal center.
+After completing the short result, `extend` fits later intervals with **new twelve-direction video priors generated from each interval’s own RGB and motion**. The seed uses six Base24 directions plus six Turbo4 offsets; later intervals use two six-direction Turbo4 passes. Equal view counts do not imply identical generation settings.
 
-```text
-selected native 4D model's t=0 appearance snapshot
-  + full SOMA motion with consistent skin correspondence
-  → position tracks sampled every 3 frames [Nk,Ns,3]
-  → lift track velocity and spatial covariance into conditional 4D Gaussians
-  → fit actual interval RGB, original ROIs and MoGe guidance
-  → interval manifest → full playback
-```
+![Connect 121-frame training windows at a 120-frame stride, excluding overlap and final padding from the 957-frame playback](../../../assets/lessons/human-4d-gaussian/sequence.en.svg)
 
-`Ns` counts retained snapshot particles and `Nk` counts sampled track times. At 30Hz, three frames span 0.1 seconds. Initialization shares one body coordinate frame and prepares velocity and space-time covariance alongside position. Each interval must then be fitted to its actual RGB. Later-interval optimization holds trajectory velocity, time center and temporal variance fixed while optimizing spatial covariance independently. Saving converts covariance back into the standard native SO(4) archive.
+For example, 957 frames at 30Hz last 31.9 seconds. Each training window contains 121 frames and starts 120 frames after the previous one. Neighboring models share one training frame, but playback shows it once. The last 117 real frames receive four internal padding frames for the generator; those repeats do not extend playback.
 
-This does not run new multiview diffusion generation for every interval of the full video. Transferring appearance initialization also does not establish accurate clothing, hair or occluded surfaces in new poses. Evaluate the refitted later motion from the same source video. It is not presented as general retargeting to another person or arbitrary new motion.
+All intervals retain **the same world origin, axes and units**. At global time 4.50 seconds, the second model is queried at local time 0.50 seconds. The camera stays in place as models change. The browser prepares only the current model and the next model.
+
+Better source-view agreement does not validate hidden surfaces. Inspect each boundary for changing clothing colors or body thickness, and look for residual smearing around fast hands and hair.
+
+**Comparison experiment:** `refine --trajectory-experiment` transfers the first model’s appearance to SOMA skin trajectories before fitting observed RGB. It avoids new multiview generation in later intervals, but produced more smearing there. The recommended full-motion exercise uses `extend` above.
 
 ### 6. Where do face/hand detail and geometry guidance enter?
 
@@ -172,10 +169,28 @@ python3 labs/human-4d-gaussian/pipeline.py --root "$HUMAN_4D_ROOT" \
 
 ```bash
 python3 labs/human-4d-gaussian/pipeline.py --root "$HUMAN_4D_ROOT" rig
+```
+
+Set `RECON_PY` below to the `python.reconstruction` path in `runtime.json`. The inspection tools use NumPy, Pillow and OpenCV from that environment too.
+
+First inspect the estimated GEM-X/SOMA joints overlaid on the original video. If wrists or ankles follow the wrong body part, check the input and estimate before continuing. Inspect foreground masks too. The following command measures mask coverage over the estimated head surface and creates RGB/mask contact sheets for frames needing review. It never edits the masks.
+
+```bash
+RECON_PY="$HUMAN_4D_ROOT/envs/reconstruction/bin/python"
+"$RECON_PY" labs/human-4d-gaussian/inspect_masks.py --root "$HUMAN_4D_ROOT"
 python3 labs/human-4d-gaussian/pipeline.py --root "$HUMAN_4D_ROOT" multiview
 ```
 
-First inspect joints overlaid on the original video. If wrists or ankles follow the wrong body part, check the input and estimate before continuing. The second command projects the same reference-interval motion into virtual cameras and generates views. Full-video extension connects this appearance initialization to the complete SOMA motion. Compare hand positions and clothing at matched times across front, side and rear views.
+`multiview` projects reference-interval motion into virtual cameras and generates views. Full-video extension generates fresh views from each interval's own RGB and SOMA motion. Create the start/middle/end contact sheets below. Check **whether front, side and rear views actually face the intended directions**, and compare hand positions and clothing. The tool assembles images; it does not automatically classify front/back consistency.
+
+```bash
+"$RECON_PY" labs/human-4d-gaussian/inspect_teachers.py --root "$HUMAN_4D_ROOT" \
+  --name pilot --out "$HUMAN_4D_ROOT/diagnostics/pilot-views.jpg"
+"$RECON_PY" labs/human-4d-gaussian/inspect_teachers.py --root "$HUMAN_4D_ROOT" \
+  --name offset --out "$HUMAN_4D_ROOT/diagnostics/offset-views.jpg"
+```
+
+If RGB contains a visible face but its mask is `0`, the training target asks the model to reproduce background there. If a generated image labeled `yaw=180°` shows a frontal face, its camera and image contradict each other. Fix these inputs before spending more optimization steps. See the [code README](../../../labs/human-4d-gaussian/README.md) for inspection and isolated experiments.
 
 ### 5. Train the model and refine original details
 
@@ -203,6 +218,21 @@ python3 labs/human-4d-gaussian/pipeline.py --root "$HUMAN_4D_ROOT" serve
 ```
 
 Keep output folders outside tracked source. Publishing a model requires considering the source footage, people/capture material, model weights and included assets together. Linking to a source video and redistributing its footage or derived model are separate uses.
+
+### 7. Advanced: extend the full motion with new views
+
+After inspecting the short result, run this in the same output root. Every later interval performs generation and fitting, so a longer clip can take hours on one GPU. Completed stages are reused only after matching their input, recipe and output hashes. Rerun the same command after an interruption; use a new output root when changing an experiment’s conditions.
+
+```bash
+python3 labs/human-4d-gaussian/pipeline.py --root "$HUMAN_4D_ROOT" extend
+python3 labs/human-4d-gaussian/pipeline.py --root "$HUMAN_4D_ROOT" render
+python3 labs/human-4d-gaussian/pipeline.py --root "$HUMAN_4D_ROOT" \
+  --package-dir "$HUMAN_4D_ROOT/package-full" package
+python3 labs/human-4d-gaussian/pipeline.py --root "$HUMAN_4D_ROOT" \
+  --package-dir "$HUMAN_4D_ROOT/package-full" --deep check
+```
+
+The full timeline is written only after every interval passes its checks. Your short render and package remain intact; new renders use a separate folder identified by the selected model inventory. Open `package-full` in the viewer and inspect the beginning, middle, end and every interval boundary.
 
 ## Check the result
 

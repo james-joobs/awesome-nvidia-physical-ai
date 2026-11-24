@@ -52,7 +52,8 @@ def main():
   from geometry_loss import GeometryLoss
   geometry=GeometryLoss(a.geometry,settings,'cuda')
  else:geometry=None
- provenance={'branch':a.name,'base_sha256':hashlib.sha256(base.read_bytes()).hexdigest(),'steps':a.steps,'roi_enabled':a.roi,'roi_loss':{'l1':a.roi_l1,'ssim':.15,'vgg19':a.roi_vgg,'alpha':.08} if a.roi else None,'full_frame_sampling':'6 observed copies : 11 generated','densification':split_records if a.split_roi else False,'optimizer_recipe':'Fixed topology after optional ROI 4D split; all existing degree-3 SH trainable, no SH activation gating or adaptive pruning','settings':settings,'seed':42,'generated_views_are_inferred':True,'geometry':str(a.geometry) if a.geometry else None}
+ camera_keys=[json.dumps([c['K'],c['w2c']],sort_keys=True) for c in data.cameras];observed_count=camera_keys.count(camera_keys[0])
+ provenance={'branch':a.name,'base_sha256':hashlib.sha256(base.read_bytes()).hexdigest(),'steps':a.steps,'roi_enabled':a.roi,'roi_loss':{'l1':a.roi_l1,'ssim':.15,'vgg19':a.roi_vgg,'alpha':.08} if a.roi else None,'full_frame_sampling':f'{observed_count} observed copies : {len(data.cameras)-observed_count} generated','densification':split_records if a.split_roi else False,'optimizer_recipe':'Fixed topology after optional ROI 4D split; all existing degree-3 SH trainable, no SH activation gating or adaptive pruning','settings':settings,'seed':42,'generated_views_are_inferred':True,'geometry':str(a.geometry) if a.geometry else None}
  (out/'PROVENANCE.json').write_text(json.dumps(provenance,indent=2)+'\n')
  torch.cuda.reset_peak_memory_stats();started=time.monotonic();log=(out/'train.jsonl').open('w')
  for step,(pixels,indices) in enumerate(batches(data,sampler,0,a.steps,'cuda',batch_size=4,loader_workers=4,seed=42)):

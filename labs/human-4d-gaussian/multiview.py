@@ -4,7 +4,7 @@ This is an original adapter, NOT GVHMR/SMPL-X inference. Source RGB is observed;
 every target-view RGB produced by the video model is synthetic supervision.
 The released 4DAnyone base model/renderer/conditioning API is left unchanged.
 """
-import argparse, json, logging, sys, time
+import argparse, json, logging, sys, time, hashlib
 from dataclasses import asdict
 from pathlib import Path
 import numpy as np
@@ -16,7 +16,7 @@ p.add_argument('--start',type=int,default=0)
 p.add_argument('--views',type=int,default=6)
 p.add_argument('--name',default='pilot')
 p.add_argument('--start-yaw',type=int,default=0)
-p.add_argument('--turbo',action='store_true');p.add_argument('--rcp',action='store_true')
+p.add_argument('--seed',type=int,default=42);p.add_argument('--turbo',action='store_true');p.add_argument('--rcp',action='store_true')
 p.add_argument('--prepare-only',action='store_true')
 p.add_argument('--white-source',action='store_true')
 a=p.parse_args();r=a.root;work=r/'multiview-prior';sys.path.insert(0,str(work/'4danyone'))
@@ -31,13 +31,30 @@ from fdanyone.config import INFERENCE, BASE24, RANK64_DELTA4
 
 logging.basicConfig(level=logging.INFO,format='%(asctime)s %(message)s')
 out=work/a.name;out.mkdir(exist_ok=True,parents=True)
+# A cached video belongs to an exact source, camera plan and inference profile.
+# Earlier conditioning-only caches may be recalculated; unproven generated RGB
+# is never silently adopted as the requested experiment.
+request={'start':a.start,'views':a.views,'start_yaw':a.start_yaw,'turbo':a.turbo,'rcp':a.rcp,'white_source':a.white_source,'seed':a.seed,'input_sha256':hashlib.sha256((r/'input.json').read_bytes()).hexdigest(),'geometry_sha256':hashlib.sha256((r/'rig/geometry.npz').read_bytes()).hexdigest()}
+request_file=out/'request.json'
+if request_file.exists():
+ if json.loads(request_file.read_text())!=request:raise ValueError('Existing multiview cache has a different input/start/camera plan/profile; use a new interval name or output root')
+elif (out/'generation.json').exists() or (out/'generated').exists():raise ValueError('Generated cache has no request fingerprint; preserve it and use a new interval name')
+request_file.write_text(json.dumps(request,indent=2)+'\n')
 condition_root=out/'conditioning';condition_root.mkdir(exist_ok=True)
 g=np.load(r/'rig/geometry.npz');names=json.loads((r/'rig/rig.json').read_text())['public_joint_names'];lookup={n:i for i,n in enumerate(names)}
-ids=np.arange(a.start,a.start+121);assert ids[-1]<len(g['joints'])
+if not 0 <= a.start < len(g['joints']):raise ValueError('start must identify an existing normalized frame')
+valid_frames=min(121,len(g['joints'])-a.start)
+# Diffusion requires 121 frames; pad only the final incomplete window.
+ids=np.minimum(np.arange(a.start,a.start+121),len(g['joints'])-1)
 j=g['joints'][ids].copy();v=g['vertices'][ids]
 # SOMA camera axes -> upright human world, retaining the actual source motion.
-origin=g['joints'][a.start,0].copy();ground=float(np.quantile(v[:,:,[1]],.995))
-origin[1]=ground
+# Use the same estimated coordinate frame for every interval. The seed
+# definition remains unchanged; later intervals read that seed's origin.
+seed_conditioning=work/'pilot/soma-conditioning.npz'
+if a.start and seed_conditioning.is_file():
+ origin=np.load(seed_conditioning)['world_origin'].copy()
+else:
+ origin=g['joints'][0,0].copy();origin[1]=float(np.quantile(g['vertices'][:min(121,len(g['vertices'])),:,[1]],.995))
 S=np.diag([1.,-1.,-1.]);world=(j-origin)@S
 kps=np.zeros((121,70,3),np.float32)
 def at(name):return world[:,lookup[name]]
@@ -106,7 +123,7 @@ if not source_path.exists():
    yield rgb
  write_video(source_frames(),source_path,30,crf=16,preset='fast')
 np.savez_compressed(out/'soma-conditioning.npz',keypoints_world=kps,world_origin=origin,cv_to_world=S,frame_ids=ids)
-payload={'adapter':'GEM-X/SOMA -> Goliath40 hints; no GVHMR/SMPL-X assets','source_frames':ids.tolist(),'source_rgb':'observed; optional white background', 'target_rgb':'generated, not observed or ground truth','front_direction_from_initial_pose':True,'body_height_model_m':body_height,'cameras':camera_rows,'source_crop':asdict(source_crop),'source_K':g['K'][a.start].tolist(),'source_input_size':[json.loads((r/'input.json').read_text())['width'],json.loads((r/'input.json').read_text())['height']],'view_plan':plan.to_dict(),'face_hints':'approximate existing SOMA eye/head joints; no face recognition','white_source':a.white_source}
+payload={'adapter':'GEM-X/SOMA -> Goliath40 hints; no GVHMR/SMPL-X assets','source_frames':ids.tolist(),'valid_frames':valid_frames,'common_world_origin':True,'source_rgb':'observed; optional white background', 'target_rgb':'generated, not observed or ground truth','front_direction_from_initial_pose':True,'body_height_model_m':body_height,'cameras':camera_rows,'source_crop':asdict(source_crop),'source_K':g['K'][a.start].tolist(),'source_input_size':[json.loads((r/'input.json').read_text())['width'],json.loads((r/'input.json').read_text())['height']],'view_plan':plan.to_dict(),'face_hints':'approximate existing SOMA eye/head joints; no face recognition','white_source':a.white_source}
 (out/'adapter.json').write_text(json.dumps(payload,indent=2)+'\n')
 conditioning=Conditioning(root=condition_root,source_video=source_path,source_crop=source_crop,target_skeletons=tuple(target_skeletons),rcp_skeletons=tuple(rcp_skeletons),view_plan=plan,fps_num=30,fps_den=1,num_frames=121)
 if a.prepare_only:raise SystemExit(0)
@@ -115,7 +132,7 @@ from fdanyone.model.inference import generate_views
 import torch
 torch.set_num_threads(8)
 model_dir=work/'models/4danyone';started=time.time()
-generated=generate_views(conditioning=conditioning,checkpoint_path=model_dir/'model.safetensors',turbo_lora_path=resolve_turbo_lora(model_dir=work/'models') if a.turbo else None,denoising_profile=RANK64_DELTA4 if a.turbo else BASE24,attention_backend='sdpa',assets=BaseAssets(model_dir/'Wan2.2_VAE.pth',model_dir/'prompt_context.safetensors'),output_dir=out/'generated',devices=('cuda:0',),seed=42)
+generated=generate_views(conditioning=conditioning,checkpoint_path=model_dir/'model.safetensors',turbo_lora_path=resolve_turbo_lora(model_dir=work/'models') if a.turbo else None,denoising_profile=RANK64_DELTA4 if a.turbo else BASE24,attention_backend='sdpa',assets=BaseAssets(model_dir/'Wan2.2_VAE.pth',model_dir/'prompt_context.safetensors'),output_dir=out/'generated',devices=('cuda:0',),seed=a.seed)
 result={**asdict(generated),'total_wall_seconds':time.time()-started}
 (out/'generation.json').write_text(json.dumps(result,indent=2,default=str)+'\n')
 print('SYNTHETIC_VIEWS_READY',json.dumps(result,default=str),flush=True)

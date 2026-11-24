@@ -75,6 +75,7 @@ const renderImage = markdown.renderer.rules.image;
 markdown.renderer.rules.image = (tokens, index, options, env, renderer) => {
   const token = tokens[index];
   const src = token.attrGet('src');
+  let mobileAsset;
   if (src.startsWith('.')) {
     const target = new URL(src, `https://repository.invalid/${env.sourcePath}`);
     const file = `../../..${target.pathname}`;
@@ -82,6 +83,7 @@ markdown.renderer.rules.image = (tokens, index, options, env, renderer) => {
     if (file.startsWith('../../../assets/lessons/')) {
       asset = lessonImages[file];
       if (!asset) throw new Error(`Missing lesson image: ${src}`);
+      if (file.endsWith('.svg')) mobileAsset = lessonImages[file.replace(/(\.(?:en|ko))?\.svg$/, '-mobile$1.svg')];
     } else if (file.startsWith('../../../site/public/showcase/')) {
       const frame = [...clips, ...grids].find(({ id }) => file === `../../../site/public/showcase/${id}.jpg`);
       if (!frame) throw new Error(`Missing showcase frame: ${src}`);
@@ -95,7 +97,8 @@ markdown.renderer.rules.image = (tokens, index, options, env, renderer) => {
       token.attrSet('decoding', 'async');
     }
   }
-  return renderImage(tokens, index, options, env, renderer);
+  const image = renderImage(tokens, index, options, env, renderer);
+  return mobileAsset ? `<picture><source media="(max-width: 640px)" srcset="${markdown.utils.escapeHtml(mobileAsset)}">${image}</picture>` : image;
 };
 
 markdown.renderer.rules.table_open = (tokens, index, options, env, renderer) => {

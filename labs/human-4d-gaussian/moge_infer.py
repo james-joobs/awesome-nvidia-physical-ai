@@ -7,7 +7,7 @@ import torch
 import torch.nn.functional as F
 p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--data',type=Path,required=True);p.add_argument('--out',type=Path);p.add_argument('--cameras',default='0,2,3,4');a=p.parse_args();r=a.root;w=r/'multiview-prior';e=w/'refinement';out=a.out or e/'moge-raw';out.mkdir(parents=True,exist_ok=True);sys.path.insert(0,str(e/'moge-source'))
 from moge.model.v3 import MoGeModel
-torch.set_num_threads(8);model=MoGeModel.from_pretrained(e/'moge-model/model.pt').to('cuda').eval();cameras=json.loads((a.data/'cameras.json').read_text())['cameras'];records=[];started=time.monotonic()
+torch.set_num_threads(8);model=MoGeModel.from_pretrained(e/'moge-model/model.pt').to('cuda').eval();cameras={row['camera_id']:row for row in json.loads((a.data/'cameras.json').read_text())['cameras']};records=[];started=time.monotonic()
 for cid in [int(x) for x in a.cameras.split(',')]:
  row=cameras[cid];K=np.asarray(row['K']);c2w=np.asarray(row['camera_to_world']);H,W=row['image_height'],row['image_width'];sx,sy=352/W,640/H;k=K.copy();k[0]*=sx;k[1]*=sy;camera={'name':f'moge-{cid}','K':k.tolist(),'w2c':np.linalg.inv(c2w).tolist(),'height':640,'width':352};pad_left=max(0,int(round(W-2*K[0,2])));pad_right=max(0,int(round(2*K[0,2]-W)));pad_top=max(0,int(round(H-2*K[1,2])));pad_bottom=max(0,int(round(2*K[1,2]-H)));Wp=W+pad_left+pad_right;Hp=H+pad_top+pad_bottom;fov=float(np.rad2deg(2*np.arctan(Wp/(2*K[0,0]))))
  for t in [0,24,48,72,96,120]:

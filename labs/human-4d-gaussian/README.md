@@ -5,7 +5,7 @@
 This folder provides real stage adapters for two routes:
 
 - **Known-geometry control:** official SOMA example motion → native Warp skinning → synthetic RGB and per-vertex Gaussians. No monocular learning is claimed.
-- **Local monocular reconstruction:** local video → official GEM-X motion-video → SOMA/SAM2 → source-preserving 4DAnyone seed → original face/hand and MoGe guidance → pose-conditioned later intervals → native/browser rendering.
+- **Local monocular reconstruction:** local video → official GEM-X motion-video → SOMA/SAM2 → source-preserving 4DAnyone seed → original face/hand and MoGe guidance → fresh multiview fitting for later intervals → native/browser rendering.
 
 The public control can be inspected without CUDA. New training needs explicitly configured Linux GPU environments. This is not a silent one-click installer: a missing runtime, model or stage output stops with a prerequisite error.
 
@@ -87,11 +87,51 @@ python3 labs/human-4d-gaussian/pipeline.py --root "$HUMAN_4D_ROOT" --deep check
 python3 labs/human-4d-gaussian/pipeline.py --root "$HUMAN_4D_ROOT" serve
 ```
 
-`multiview` runs Base24 for six seed directions and Turbo4 for six offset directions. It does not generate the full long video from every camera. `train` fits the six-direction source-preserving seed. `refine` first fits all twelve directions at higher resolution, then original ROIs and MoGe guidance. The quickstart uses `refine --seed-only` for this 121-frame interval. Removing that option selects the experimental full-motion extension; use a separate output root after inspecting the short result.
+`multiview` runs Base24 for six seed directions and Turbo4 for six offset directions. It does not generate the full long video from every camera. `train` fits the six-direction source-preserving seed. `refine` first fits all twelve directions at higher resolution, then original ROIs and MoGe guidance. The quickstart uses `refine --seed-only` for this 121-frame interval. Then use the separate `extend` stage for the full-motion exercise.
 
-For later intervals, `refine` uses `warmstart.py --mode trajectory` to bind one shared seed snapshot to coherent SOMA material tracks, then `fit_interval.py` fits actual interval RGB/ROIs/MoGe. Velocity/time variance stay fixed while spatial covariance is optimized independently through `conditional.py`; standard native SO(4) archives are restored on save. Side/rear protected views are renders of the transferred initialization, not newly observed or newly diffused RGB. This long-sequence extension is undergoing direct GPU validation; the public control and its checks are independently executable. Review interval boundaries and RGB quality on your own result rather than interpreting a completed process as verified fidelity.
+For a longer clip, complete the short seed and run the explicit `extend` stage. It generates twelve new views per later interval (six Turbo4 views plus six Turbo4 offsets), fits a new native model, adds high-resolution RGB, original face/hand ROIs and MoGe-3 guidance, then checks the selected checkpoint. This differs from the seed's Base24-plus-Turbo generation. Internal 121-frame windows advance by 120 frames; padding never extends playback.
+
+```bash
+python3 labs/human-4d-gaussian/pipeline.py --root "$HUMAN_4D_ROOT" extend
+python3 labs/human-4d-gaussian/pipeline.py --root "$HUMAN_4D_ROOT" render
+python3 labs/human-4d-gaussian/pipeline.py --root "$HUMAN_4D_ROOT" \
+  --package-dir "$HUMAN_4D_ROOT/package-full" package
+python3 labs/human-4d-gaussian/pipeline.py --root "$HUMAN_4D_ROOT" \
+  --package-dir "$HUMAN_4D_ROOT/package-full" --deep check
+```
+
+A full timeline is written only after every interval completes. Stage journals match inputs, runtime configuration, adapter code and output hashes before reuse. Rerun the same command after an interruption; changed inputs or conditions require a separate output root. Renders are stored under `renders/<model-and-renderer-hash>` so the full result does not replace the short one. Select `package-full` in the Pages folder picker.
+
+The older `refine --trajectory-experiment` path binds a shared seed snapshot to SOMA material tracks and fits observed-only later intervals through the stable conditional factorization. It remains an explicitly selected comparison: it produced more smearing than fresh multiview fitting. Plain `refine` and `refine --seed-only` complete the short seed; neither silently starts the experimental transfer route.
 
 GPU stages share the configured file lock. The script keeps outputs private and does not push, upload or publish packages. Use a new root for a different video or experimental recipe. Upstream source checkpoints and previous outputs are not replaced by setup.
+
+### Inspect inputs before fitting a long interval
+
+`inspect_masks.py --root "$HUMAN_4D_ROOT"` compares predicted foreground coverage with the estimated SOMA head projection. Its `coverage.json` and contact sheets are review aids, not ground truth or a whole-body segmentation accuracy score. A high masked RGB score can hide a face that the mask incorrectly removed.
+
+For a later interval, generate its two teacher sets before fitting:
+
+Use the actual `python.reconstruction` executable from `runtime.json` in place of `RECON_PY`:
+
+```bash
+RECON_PY="$HUMAN_4D_ROOT/envs/reconstruction/bin/python"
+export CUDA_HOME=/usr/local/cuda-12.9
+export PATH="$CUDA_HOME/bin:$PATH"
+export TORCH_CUDA_ARCH_LIST=12.0
+flock "$HUMAN_4D_ROOT/.gpu.lock" "$RECON_PY" labs/human-4d-gaussian/fresh_interval.py \
+  --root "$HUMAN_4D_ROOT" --name s01 --start 120 --views-only
+"$RECON_PY" labs/human-4d-gaussian/inspect_teachers.py --root "$HUMAN_4D_ROOT" \
+  --name s01 --out "$HUMAN_4D_ROOT/diagnostics/s01-base.jpg"
+"$RECON_PY" labs/human-4d-gaussian/inspect_teachers.py --root "$HUMAN_4D_ROOT" \
+  --name s01 --offset --out "$HUMAN_4D_ROOT/diagnostics/s01-offset.jpg"
+```
+
+Run this direct GPU helper inside the same configured GPU lock and CUDA environment as the main pipeline; it deliberately does not acquire a second lock. Its default step counts must match the runtime configuration when subsequently using `extend`. `--views-only` writes an awaiting-review state without claiming a trained checkpoint. Repeating the same helper command without that flag verifies cached inputs and continues fitting.
+
+More directions are not always better: inspect all six base and six offset views at their first, middle and last frames. A frontal face in a camera labeled 180° is a contradictory target even when source-camera PSNR looks good. `--exclude-base-cameras 3` explicitly omits base camera 3; it retains contiguous camera slots, maps geometry guidance to the retained views, and records generated versus accepted counts. Only the exclusion list may change while the interval is explicitly awaiting teacher review and fitting has not started; the previous recipe is retained. After fitting starts, changed exclusions need a new interval name/output root. Changed seeds or generator profiles always need a separate experiment. Old checkpoints remain unchanged. Direct helper experiments are not silently selected into an existing `models.json`.
+
+`repair_foreground.py --help` documents an optional, manually selected mask correction: it intersects foreground masks warped from both adjacent RGB frames, adds their agreement only near the estimated head, and creates new training data plus original-pixel edge ROIs. It does not edit original masks, download imagery, change the renderer, or automatically decide that a correction is valid. Review the corrected mask and retrain a separate candidate before selecting it.
 
 ## 4. Rebuild the public control
 
@@ -112,3 +152,5 @@ python3 labs/human-4d-gaussian/pipeline.py --root "$CONTROL_ROOT" --mode control
 ## Local viewing
 
 Open the Pages lab and choose **Open a local result folder**. Select the package folder containing `manifest.json`, `source.mp4` and its model subfolders. Files are read with browser-local URLs, not uploaded. The optional `serve` command provides a loopback data URL; it does not run GPU inference or claim to host the full Pages application.
+
+Optional `source_credit` and `source_reference_url` in `runtime.json` carry your input attribution into the selected model inventory and browser package; the native comparison also prints the credit. Use an ASCII credit or a compatible installed font for native video text.
