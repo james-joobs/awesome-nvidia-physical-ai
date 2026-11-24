@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "source": "https://github.com/NVlabs/SOMA-X/blob/01ab5b5c0876058bd27d34b1607d74b2e55e0cf4/assets/example_animation.usd",
+  "source_code_revision": "01ab5b5c0876058bd27d34b1607d74b2e55e0cf4",
+  "motion_sha256": "c09372492aaacdca3ca7ec5d737263d8e6042b66fdd29318d91848427fa40695",
+  "identity": "Native SOMA neutral, all identity coefficients zero, correctives disabled",
+  "private_data_used": false,
+  "frames": 931,
+  "fps": 24.0,
+  "seconds_export": 6.097238059854135,
+  "max_native_skinning_error_m": 1.341104507446289e-07,
+  "camera": {
+    "position": [
+      0.0,
+      1.031295838356018,
+      4.0
+    ],
+    "target": [
+      0.0,
+      1.031295838356018,
+      0.0
+    ],
+    "fov": 42.0,
+    "source_width": 640,
+    "source_height": 768
+  },
+  "synthetic_control": true,
+  "validated_environments": {
+    "export": {
+      "python": "3.12.16",
+      "torch": "2.10.0+cu128",
+      "torch_cuda": "12.8",
+      "warp": "1.19.0"
+    },
+    "render": {
+      "python": "3.11.18",
+      "torch": "2.8.0+cu128",
+      "torch_cuda": "12.8",
+      "gsplat": "1.5.3",
+      "nvcc": "CUDA 12.9"
+    },
+    "gpu": "NVIDIA RTX 5090"
+  }
+}

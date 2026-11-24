@@ -1,0 +1,18 @@
+# Install Torch separately from its CUDA index and the pinned 4DAnyone source.
+numpy>=1.26,<3
+scipy>=1.11,<2
+pillow>=10,<13
+opencv-python-headless>=4.10,<5
+av>=16,<17
+huggingface-hub>=1.5,<2
+transformers>=5.17,<5.18
+safetensors
+einops
+imageio
+ffmpeg-python
+tqdm
+fire
+colorlog
+timm==0.9.12
+kornia
+gsplat @ git+https://github.com/nerfstudio-project/gsplat.git@937e29912570c372bed6747a5c9bf85fed877bae

@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "title": "SOMA synthetic control",
+  "duration": 38.791666666666664,
+  "fps": 24.0,
+  "source": {
+    "url": "source.mp4",
+    "title": "Known SOMA mesh RGB",
+    "credit": "NVIDIA SOMA-X official example motion; neutral SOMA geometry; our procedural matte render",
+    "license": "Apache-2.0 (upstream SOMA assets); MIT wrapper code",
+    "attribution_url": "https://github.com/NVlabs/SOMA-X/blob/01ab5b5c0876058bd27d34b1607d74b2e55e0cf4/assets/example_animation.usd"
+  },
+  "segments": [
+    {
+      "id": "control",
+      "start": 0,
+      "duration": 38.791666666666664,
+      "root": "data/"
+    }
+  ],
+  "provenance": "Synthetic control sample with known rig/geometry, not a monocular reconstruction; separate from the referenced YouTube video.",
+  "representation": "soma-skinned-gaussians",
+  "poster": "poster.jpg",
+  "comparison": "comparison.mp4",
+  "sample_kind": "soma-synthetic-control"
+}

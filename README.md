@@ -37,6 +37,12 @@ The [theory guides](https://james-joobs.github.io/awesome-nvidia-physical-ai/lea
 - **[Autonomous driving](https://james-joobs.github.io/awesome-nvidia-physical-ai/learn/principles/#autonomous-driving)** — [CARLA ego cameras](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/carla-ego/) → Alpamayo outputs → AlpaSim → AlpaGym and Cosmos RL. Start with four recorded road environments.
 - **[3D worlds and rendering](https://james-joobs.github.io/awesome-nvidia-physical-ai/learn/principles/#world-models)** — [Generate a 3D world from text or an image](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/worldgen-scenes/) → [drive a robot inside it](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/worldgen-isaac/) → [navigate from sensor scans](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/worldgen-navigation/) → [react to moving obstacles](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/worldgen-dynamic-navigation/) → [Explore an fVDB 3DGS plaza](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/spatial-reconstruction/) → [generate a furnished house](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/scene-generation/). Compare [Marble, Lyra and reconstruction workflows](https://james-joobs.github.io/awesome-nvidia-physical-ai/tools/spatial-worlds/); Cosmos video generation is a separate output.
 
+## Human motion and 4D Gaussian reconstruction
+
+Follow RGB frames, GEM-X/SOMA motion, generated views and depth/normal guidance. Compare a small **synthetic SOMA control** in equal-size RGB and 3D panels, or open your own locally trained model.
+
+[Open the interactive lab](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/human-4d-gaussian/#explore) · [Implementation and curriculum](docs/en/labs/human-4d-gaussian.md) · [Lab code](labs/human-4d-gaussian/)
+
 ## RGB-only NuRec, Harmonizer and Alpamayo
 
 Real camera RGB → COLMAP → NuRec reconstruction and Harmonizer comparison, with actual source-image detections and Alpamayo predicted paths. Reproduce the stages on one RTX 5090.

@@ -1,6 +1,43 @@
 {
   "labs": [
     {
+      "id": "human-4d-gaussian",
+      "codePreview": ["pipeline.py", "runtime.example.json", "control_sample.py"],
+      "tags": [
+        "GEM-X",
+        "SOMA",
+        "4D Gaussian",
+        "MoGe-3",
+        "Warp"
+      ],
+      "code": [
+        "pipeline.py",
+        "runtime.example.json",
+        "model-pins.json",
+        "requirements-gem.txt",
+        "requirements-reconstruction.txt",
+        "align_geometry.py",
+        "clean_model.py",
+        "conditional.py",
+        "control_sample.py",
+        "export_model.py",
+        "fit_interval.py",
+        "geometry_loss.py",
+        "hires.py",
+        "moge_infer.py",
+        "multiview.py",
+        "prepare_data.py",
+        "render_sequence.py",
+        "rig_export.py",
+        "seed_train.py",
+        "segment.py",
+        "test_pipeline.py",
+        "train_refine.py",
+        "warmstart.py"
+      ],
+      "evidence": "recorded.json"
+    },
+    {
       "id": "nurec-rgb-reality",
       "tags": [
         "RGB only",

@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "ffmpeg": "ffmpeg",
+  "cuda_home": "/usr/local/cuda-12.9",
+  "cuda_arch": "12.0",
+  "gpu_lock": ".gpu.lock",
+  "python": {
+    "gem": "envs/gem/bin/python",
+    "reconstruction": "envs/reconstruction/bin/python",
+    "moge": "envs/moge/bin/python",
+    "control_export": "envs/control_export/bin/python",
+    "control_render": "envs/control_render/bin/python"
+  },
+  "sources": {
+    "gem": "deps/gem",
+    "four_d_anyone": "deps/four_d_anyone",
+    "moge": "deps/moge",
+    "soma": "deps/soma"
+  },
+  "sam2_source": "deps/sam2",
+  "assets": {
+    "soma": "assets/soma",
+    "sam2_checkpoint": "models/sam2.1_hiera_large.pt",
+    "gem_config": "gem-motion.yaml"
+  },
+  "models": "models",
+  "interval_steps": 6000,
+  "seed_train_steps": 20000,
+  "hires_steps": 6000,
+  "roi_steps": 3000,
+  "geometry_steps": 1500,
+  "extra_python_paths": []
+}

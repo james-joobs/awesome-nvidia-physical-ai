@@ -1,0 +1,25 @@
+---
+import '../styles/human-gaussian.css';
+import {humanGaussianMarkup} from '../lib/human-gaussian-markup.mjs';
+const {locale,manifestUrl='',reference=true,id='explore'}=Astro.props;
+const controlSample=Astro.props.controlSample??manifestUrl.includes('human-4d-control');
+const sourcePosterUrl=Astro.props.sourcePosterUrl??(controlSample?manifestUrl.replace(/manifest\.json$/,'ui-source-poster.jpg'):'');
+const modelPosterUrl=Astro.props.modelPosterUrl??(controlSample?manifestUrl.replace(/manifest\.json$/,'ui-model-poster.jpg'):'');
+---
+<section class="human-gaussian" id={id} data-human-gaussian data-locale={locale} data-manifest={manifestUrl} set:html={humanGaussianMarkup(locale,{manifestUrl,reference,controlSample,sourcePosterUrl,modelPosterUrl})} />
+<script>
+for(const root of document.querySelectorAll<HTMLElement>('[data-human-gaussian]')){
+ let active:any;let loading=false;
+ const load=root.querySelector<HTMLButtonElement>('[data-hg-load]')!;
+ const files=root.querySelector<HTMLInputElement>('[data-hg-folder]')!;
+ const close=root.querySelector<HTMLButtonElement>('[data-hg-close]')!;
+ async function open(options:any={}){
+  if(loading)return;loading=true;load.disabled=true;files.disabled=true;
+  try{active?.dispose();const {mountHumanGaussianViewer}=await import('../lib/human-gaussian-viewer.mjs');active=await mountHumanGaussianViewer(root,options);}
+  catch(error){root.querySelector<HTMLElement>('[data-hg-status]')!.textContent=root.dataset.locale==='ko'?'결과 폴더를 열지 못했습니다. manifest.json과 데이터 파일을 확인해 주세요.':'Could not open the result. Check manifest.json and its data files.';console.error(error);}
+  finally{loading=false;load.disabled=false;files.disabled=false;}
+ }
+ load.addEventListener('click',()=>open());files.addEventListener('change',()=>{if(files.files?.length)void open({files:[...files.files]});});
+ close.addEventListener('click',()=>active?.dispose());window.addEventListener('pagehide',()=>active?.dispose(),{once:true});
+}
+</script>

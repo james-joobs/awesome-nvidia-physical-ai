@@ -1,0 +1,7 @@
+# Install the official pinned GEM-X source [video] in a separate Torch 2.10 env.
+numpy>=1.26,<3
+scipy>=1.11,<2
+pillow>=10,<13
+opencv-python-headless>=4.10,<5
+py-soma-x==0.3.3
+# SAM2 must be installed from its official source in this configured environment.

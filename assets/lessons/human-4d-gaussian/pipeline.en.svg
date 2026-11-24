@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc"><title id="title">From monocular video to a time-conditioned 3D representation</title><desc id="desc">Observed RGB conditions estimated motion, generated views and 4D Gaussian fitting. The public synthetic control uses a separate path.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L8 3 L0 6" fill="none" stroke="#51616a" stroke-width="1.5"/></marker><marker id="green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L8 3 L0 6" fill="none" stroke="#619800" stroke-width="1.5"/></marker></defs>
+<rect width="1200" height="760" rx="8" fill="#fff"/>
+<g font-family="Arial, Noto Sans KR, sans-serif" fill="#1e2428">
+<text x="30" y="46" font-size="27" font-weight="700">From monocular video to a time-conditioned 3D representation</text>
+<rect x="30" y="100" width="210" height="235" rx="8" fill="#f7f8fa" stroke="#cdd4d8"/>
+<rect x="30" y="100" width="210" height="5" rx="2" fill="#22707b"/>
+<text x="45" y="136" font-size="15" font-weight="700" fill="#22707b">01 · OBSERVED</text>
+<text x="45" y="174" font-size="22" font-weight="700">Source RGB</text>
+<text x="45" y="216" font-size="17" fill="#45525a">frames + times</text>
+<text x="45" y="247" font-size="17" fill="#45525a">uint8[T,H,W,3]</text>
+<text x="45" y="278" font-size="17" fill="#45525a">visible camera pixels</text>
+<path d="M241 218 H263" fill="none" stroke="#51616a" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="265" y="100" width="210" height="235" rx="8" fill="#f7f8fa" stroke="#cdd4d8"/>
+<rect x="265" y="100" width="210" height="5" rx="2" fill="#76b900"/>
+<text x="280" y="136" font-size="15" font-weight="700" fill="#76b900">02 · ESTIMATED</text>
+<text x="280" y="174" font-size="22" font-weight="700">GEM-X · SOMA</text>
+<text x="280" y="216" font-size="17" fill="#45525a">joints [T,77,3]</text>
+<text x="280" y="247" font-size="17" fill="#45525a">skin [T,110,4,4]</text>
+<text x="280" y="278" font-size="17" fill="#45525a">estimated camera K</text>
+<path d="M476 218 H498" fill="none" stroke="#51616a" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="500" y="100" width="210" height="235" rx="8" fill="#f7f8fa" stroke="#cdd4d8"/>
+<rect x="500" y="100" width="210" height="5" rx="2" fill="#a16d00"/>
+<text x="515" y="136" font-size="15" font-weight="700" fill="#a16d00">03 · GENERATED</text>
+<text x="515" y="174" font-size="22" font-weight="700">4DAnyone</text>
+<text x="515" y="216" font-size="17" fill="#45525a">seed motion, new views</text>
+<text x="515" y="247" font-size="17" fill="#45525a">RGB[V,Tw,H,W,3]</text>
+<text x="515" y="278" font-size="17" fill="#45525a">side/rear are inferred</text>
+<path d="M711 218 H733" fill="none" stroke="#51616a" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="735" y="100" width="210" height="235" rx="8" fill="#f7f8fa" stroke="#cdd4d8"/>
+<rect x="735" y="100" width="210" height="5" rx="2" fill="#76b900"/>
+<text x="750" y="136" font-size="15" font-weight="700" fill="#76b900">04 · OPTIMIZED</text>
+<text x="750" y="174" font-size="22" font-weight="700">Native 4DGS</text>
+<text x="750" y="216" font-size="17" fill="#45525a">position/time/covariance</text>
+<text x="750" y="247" font-size="17" fill="#45525a">opacity + SH color</text>
+<text x="750" y="278" font-size="17" fill="#45525a">RGB + mask + guidance</text>
+<path d="M946 218 H968" fill="none" stroke="#51616a" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="970" y="100" width="210" height="235" rx="8" fill="#f7f8fa" stroke="#cdd4d8"/>
+<rect x="970" y="100" width="210" height="5" rx="2" fill="#22707b"/>
+<text x="985" y="136" font-size="15" font-weight="700" fill="#22707b">05 · RENDERED</text>
+<text x="985" y="174" font-size="22" font-weight="700">Spark · Three.js</text>
+<text x="985" y="216" font-size="17" fill="#45525a">query time t</text>
+<text x="985" y="247" font-size="17" fill="#45525a">interactive 3D camera</text>
+<text x="985" y="278" font-size="17" fill="#45525a">same model → new RGB</text>
+<rect x="30" y="410" width="410" height="145" rx="8" fill="#f7faf1" stroke="#b7ca96"/>
+<text x="48" y="444" font-size="21" font-weight="700">Original face/hand refinement</text>
+<text x="48" y="482" font-size="17" fill="#45525a">native-resolution crops → adjust camera K</text>
+<text x="48" y="513" font-size="17" fill="#45525a">add pixel, SSIM and VGG19 objectives</text>
+<rect x="480" y="410" width="460" height="145" rx="8" fill="#f7faf1" stroke="#b7ca96"/>
+<text x="498" y="444" font-size="21" font-weight="700">MoGe-3 depth/normal guidance</text>
+<text x="498" y="482" font-size="17" fill="#45525a">RGB → Z[H,W] · normal[H,W,3]</text>
+<text x="498" y="513" font-size="17" fill="#45525a">align scale; exclude uncertain boundaries</text>
+<path d="M135 336 V407" fill="none" stroke="#51616a" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M440 477 H456 V372 H812 V338" fill="none" stroke="#619800" stroke-width="2" marker-end="url(#green)"/>
+<path d="M812 409 V338" fill="none" stroke="#619800" stroke-width="2" marker-end="url(#green)"/>
+<text x="480" y="584" font-size="16" fill="#6c5b36">Weak inferred priors · not observed rear-view ground truth</text>
+<rect x="30" y="615" width="1140" height="104" rx="8" fill="#f4f6f8" stroke="#cdd4d8"/>
+<text x="48" y="642" font-size="15" font-weight="700" fill="#527e00">PUBLIC SYNTHETIC CONTROL</text>
+<text x="48" y="673" font-size="21" font-weight="700">Official SOMA motion → synthetic human Gaussians → camera/time controls</text>
+<text x="48" y="701" font-size="16" fill="#45525a">Separate from appearance learned from a real RGB video.</text>
+<text x="30" y="746" font-size="15" fill="#596970">Only source RGB is observed. Joints, masks and depth are estimated; unseen appearance is generated.</text>
+</g></svg>

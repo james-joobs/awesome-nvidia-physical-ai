@@ -70,6 +70,12 @@ export const grids = [
 
 export const clips = [
   {
+    id: 'human-4d-gaussian', duration: '0:39', width: 1392, height: 1016,
+    media: { en: 'human-4d-control/interaction.en', ko: 'human-4d-control/interaction.ko' },
+    en: { title: 'Human 4D reconstruction: motion, views and Gaussian rendering', description: 'Learn the RGB → GEM-X/SOMA → multiview → 4D Gaussian workflow. Start with a separately licensed synthetic SOMA control, compare matching RGB and 3D at equal size, then load a local model. The YouTube reference is embedded separately.' },
+    ko: { title: '인체 4D 재구성: 동작·시점·Gaussian 렌더링', description: 'RGB → GEM-X/SOMA → 다중 시점 → 4D Gaussian 과정을 배웁니다. 별도 공개 SOMA 합성 제어 샘플을 RGB·3D 같은 크기로 비교하고, 직접 만든 로컬 모델도 열어보세요. YouTube 참고 영상은 별도로 임베드합니다.' },
+  },
+  {
     id: 'nurec-rgb-reality', duration: '0:35', width: 1280, height: 720,
     media: { en: 'nurec-overview.en', ko: 'nurec-overview.ko' },
     en: { title: 'RGB-only NuRec road view, perception and Alpamayo paths', description: 'Actual NuRec training and rendering, a native Harmonizer comparison, source-RGB object perception and four Alpamayo predictions. Orbit a Volvo reference on one GPU’s saved result; scale and camera-layout assumptions are disclosed.' },
@@ -188,6 +194,12 @@ export const labMediaFiles = {
 };
 
 export const additionalRecordings = [
+  {
+    id: 'human-4d-control-render', lab: 'human-4d-gaussian', duration: '0:39', width: 1280, height: 816,
+    media: { en: 'human-4d-control/comparison', ko: 'human-4d-control/comparison' },
+    en: { title: 'Full SOMA control: fixed RGB and Gaussian orbit', description: 'All 931 frames of NVIDIA’s official example motion, rendered as a known mesh and as 18,056 skinned Gaussians. This separate synthetic control tests time, cameras and skinning, rather than video-reconstruction accuracy.' },
+    ko: { title: 'SOMA 전체 동작: 고정 RGB와 Gaussian 회전 영상', description: 'NVIDIA 공식 예제 동작 931프레임을 메시와 리깅 Gaussian 18,056개로 렌더링했습니다. 시간·카메라·스키닝을 확인하는 별도의 합성 제어 예제입니다.' },
+  },
   {
     id: 'nurec-interactive', lab: 'nurec-rgb-reality', duration: '0:27', width: 1280, height: 720,
     media: { en: 'nurec-rgb-reality.en', ko: 'nurec-rgb-reality.ko' },

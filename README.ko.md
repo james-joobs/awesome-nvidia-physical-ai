@@ -37,6 +37,12 @@
 - **[자율주행](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/learn/principles/#autonomous-driving)** — [CARLA 운전자 카메라](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/carla-ego/) → Alpamayo 출력 → AlpaSim → AlpaGym·Cosmos RL. 네 도로 환경의 실제 촬영부터 시작합니다.
 - **[3D 세계·렌더링](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/learn/principles/#world-models)** — [WorldGen 글·이미지 3D 생성](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/worldgen-scenes/) → [생성한 공간에서 로봇 주행](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/worldgen-isaac/) → [센서로 장애물 우회](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/worldgen-navigation/) → [움직이는 장애물에 대응](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/worldgen-dynamic-navigation/) → [fVDB 3DGS 광장 탐색](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/spatial-reconstruction/) → [가구가 있는 집 생성](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/scene-generation/). [Marble·Lyra·복원 도구](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/tools/spatial-worlds/)와 비교하며 Cosmos 영상 생성은 별도 출력으로 살펴봅니다.
 
+## 인체 동작과 4D Gaussian 재구성
+
+RGB 영상, GEM-X/SOMA 동작 추정, 다중 시점 생성, 깊이·법선 제약을 차례로 배웁니다. 작은 **SOMA 합성 제어 샘플**을 같은 크기의 RGB·3D 화면으로 비교하고, 직접 학습한 로컬 모델도 열어볼 수 있습니다.
+
+[브라우저 실습 열기](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/human-4d-gaussian/#explore) · [구현 설명과 커리큘럼](docs/ko/labs/human-4d-gaussian.md) · [실습 코드](labs/human-4d-gaussian/)
+
 ## RGB로 NuRec·Harmonizer·Alpamayo 연결하기
 
 실사 RGB → COLMAP → NuRec 복원·Harmonizer 비교에 실제 원본 인식과 Alpamayo 예측 경로를 연결했습니다. RTX 5090 한 장에서 각 단계를 따라 해 보세요.

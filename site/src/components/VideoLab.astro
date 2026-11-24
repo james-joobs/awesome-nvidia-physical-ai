@@ -9,6 +9,7 @@ import PlacementExercise from './PlacementExercise.astro';
 import ShowcaseVideo from './ShowcaseVideo.astro';
 import SplatExplorer from './SplatExplorer.astro';
 import RgbRealityViewer from './RgbRealityViewer.astro';
+import HumanGaussianViewer from './HumanGaussianViewer.astro';
 import ToolTags from './ToolTags.astro';
 import { catalogSearchUrl, pageUrl, repositoryFile } from '../lib/catalog.mjs';
 import { renderCodeBlock } from '../lib/code-blocks.mjs';
@@ -26,7 +27,7 @@ const path = `docs/${locale}/labs/${id}.md`;
 const clip = [...grids, ...clips].find((item) => item.id === id);
 const entry = clip[locale];
 const { title = entry.title, headings, html, theory } = renderGuide(locale, path, ['implementation', 'run', 'verify'], 'implementation');
-const code = labCode(lab);
+const code = labCode(lab).filter(({ name }) => !lab.codePreview || lab.codePreview.includes(name));
 const course = courses.find(({ lessons, advanced }) =>
   advanced?.route === `labs/${id}` ||
   lessons.some(({ route }) => route !== firstExerciseRoute && route.split('#')[0] === `labs/${id}`)
@@ -41,6 +42,7 @@ const preparation = {
   'nurec-rgb-reality': ko ? 'NuRec·Harmonizer·Alpamayo를 실제 실행한 RGB 전용 실습입니다. GPU 없이도 저장된 장면과 출력을 볼 수 있습니다.' : 'An RGB-only NuRec, Harmonizer and Alpamayo run. Explore the saved scene and model outputs without a CUDA GPU.',
   'rgb-reality-view': ko ? '브라우저에서 먼저 둘러보세요. 직접 복원하려면 Linux와 RTX 5090 한 장이 필요합니다.'
     : 'Explore in the browser first. The tested reconstruction preset uses Linux and one RTX 5090.',
+  'human-4d-gaussian': ko ? '브라우저에서 SOMA 합성 제어 샘플을 먼저 살펴보세요. 본인 영상으로 인체를 복원하는 과정은 NVIDIA GPU 실습으로 이어집니다.' : 'Start with the synthetic SOMA control in your browser, then follow the NVIDIA GPU workflow for a local video you can use.',
   'gr00t-placement': ko ? '브라우저에서 시작합니다. 정책을 직접 실행하려면 RTX Linux 환경이 필요합니다.'
     : 'Start in the browser. Running the policy requires RTX on Linux.',
   'replicator-outputs': ko ? '심화 실습 · RTX GPU, Isaac Sim 6.1, Isaac Lab 필요.'
@@ -51,7 +53,7 @@ const preparation = {
 const steps = [
   ...(isPlacement ? [{ id: 'first-exercise', label: startLabel }] : []),
   ...headings,
-  ...(['nurec-rgb-reality', 'rgb-reality-view', 'spatial-reconstruction', 'worldgen-scenes'].includes(id) ? [{ id: 'explore', label: ko ? '3D 공간 둘러보기' : 'Explore the 3D scene' }] : []),
+  ...(['nurec-rgb-reality', 'rgb-reality-view', 'spatial-reconstruction', 'worldgen-scenes', 'human-4d-gaussian'].includes(id) ? [{ id: 'explore', label: id === 'human-4d-gaussian' ? (ko ? 'RGB·3D 동작 비교' : 'Compare RGB and 3D motion') : (ko ? '3D 공간 둘러보기' : 'Explore the 3D scene') }] : []),
   { id: 'example-run', label: exampleLabel },
   { id: 'code', label: labels.code },
 ];
@@ -64,9 +66,9 @@ const steps = [
     </Fragment>
     <ToolTags slot="facts" tags={tags} label={labels.tools} />
     <Fragment slot="actions">
-      {['nurec-rgb-reality', 'rgb-reality-view', 'spatial-reconstruction', 'worldgen-scenes'].includes(id) && <a class="button button-primary" href="#explore">{ko ? '3D 공간 직접 둘러보기' : 'Explore the 3D scene'}</a>}
+      {['nurec-rgb-reality', 'rgb-reality-view', 'spatial-reconstruction', 'worldgen-scenes', 'human-4d-gaussian'].includes(id) && <a class="button button-primary" href="#explore">{id === 'human-4d-gaussian' ? (ko ? 'RGB·3D 비교 실습' : 'Compare RGB and 3D') : (ko ? '3D 공간 직접 둘러보기' : 'Explore the 3D scene')}</a>}
       {isPlacement && <a class="button button-primary" href="#first-exercise">{startLabel}<Icon name="down" size={16} /></a>}
-      <a class:list={isPlacement ? 'plain-link' : ['button', ['nurec-rgb-reality', 'rgb-reality-view', 'spatial-reconstruction', 'worldgen-scenes'].includes(id) ? 'button-secondary' : 'button-primary']} href="#run">{labels.run}<Icon name="down" size={16} /></a>
+      <a class:list={isPlacement ? 'plain-link' : ['button', ['nurec-rgb-reality', 'rgb-reality-view', 'spatial-reconstruction', 'worldgen-scenes', 'human-4d-gaussian'].includes(id) ? 'button-secondary' : 'button-primary']} href="#run">{labels.run}<Icon name="down" size={16} /></a>
       {tags.includes('Replicator') && (
         <a class="plain-link" href={catalogSearchUrl(locale, 'Replicator')}>
           {ko ? '카탈로그에서 Replicator 보기' : 'Replicator in the catalog'} <Icon name="right" size={17} />
@@ -79,6 +81,7 @@ const steps = [
       href="#example-run" label={exampleLabel} />
     {isPlacement && <PlacementExercise locale={locale} />}
     {['nurec-rgb-reality', 'rgb-reality-view'].includes(id) && <RgbRealityViewer locale={locale} id={id} />}
+    {id === 'human-4d-gaussian' && <HumanGaussianViewer locale={locale} manifestUrl={showcaseMedia('human-4d-control/manifest.json')} reference={true} />}
     <LessonTheory locale={locale} page={`labs/${id}`} flow={lessonFlows[id]} theory={theory} showPixels={id === 'scene-to-data'} />
     <GuideCommands locale={locale} />
     <div class="prose" set:html={html} />
@@ -101,6 +104,7 @@ const steps = [
     </section>
     <section class="lab-code" id="code" aria-labelledby="code-title">
       <h2 id="code-title">{labels.code}</h2>
+      {lab.codePreview && <p><a class="plain-link" href={repositoryFile(`labs/${id}`)}>{ko ? "단계별 실행기·학습 코드·검사 도구 전체 보기" : "Browse all stage adapters, training code and validation tools"}<Icon name="external" size={16} /></a></p>}
       {code.map(({ name, path, source }) => (
         <details>
           <summary><code>{name}</code><Icon name="chevron" size={16} /></summary>

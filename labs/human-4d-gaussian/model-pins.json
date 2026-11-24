@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "sources": {
+    "gem": {
+      "url": "https://github.com/NVlabs/GEM-X.git",
+      "revision": "4aef1452e5df171deff4f293c08e643eb450981e"
+    },
+    "four_d_anyone": {
+      "url": "https://github.com/ant-research/4DAnyone.git",
+      "revision": "1b5c707cfe7c7fda19d08f37a10e1c444c3299ef"
+    },
+    "moge": {
+      "url": "https://github.com/microsoft/MoGe.git",
+      "revision": "74fbce054ebed49800de42d0ad0e83495065719a"
+    },
+    "soma": {
+      "url": "https://github.com/NVlabs/SOMA-X.git",
+      "revision": "01ab5b5c0876058bd27d34b1607d74b2e55e0cf4"
+    }
+  },
+  "models": {
+    "4danyone": {
+      "repo": "AntResearch/4DAnyone",
+      "revision": "4c80e87b805a5f8461cf339cdbe2fb4249e585aa",
+      "turbo_terms": "CC BY-NC-SA 4.0"
+    },
+    "moge3": {
+      "repo": "Ruicheng/moge-3-vitl",
+      "revision": "184008f877d7ad1ad4c2cd2182a9bd1f63d0e5be"
+    },
+    "birefnet": {
+      "repo": "ZhengPeng7/BiRefNet",
+      "revision": "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4"
+    },
+    "gem": {
+      "repo": "nvidia/GEM-X",
+      "revision": "b111f2dcf3ebcf57965fd53499cb645dfa5ba25c"
+    },
+    "soma": {
+      "repo": "nvidia/SOMA-X",
+      "revision": "d281db2d01553f7230c56e764cec00fe27ef23f7"
+    }
+  },
+  "sam2": "Use official SAM2.1-large checkpoint/config. Configure and record the locally installed SAM2 source revision; not vendored by this lab."
+}

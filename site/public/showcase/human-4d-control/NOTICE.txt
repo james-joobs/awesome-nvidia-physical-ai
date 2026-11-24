@@ -1,0 +1,20 @@
+SOMA synthetic control sample
+
+Motion, neutral geometry and rig derived from NVIDIA SOMA-X.
+Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES.
+SOMA-X source revision: 01ab5b5c0876058bd27d34b1607d74b2e55e0cf4
+Official example motion:
+https://github.com/NVlabs/SOMA-X/blob/01ab5b5c0876058bd27d34b1607d74b2e55e0cf4/assets/example_animation.usd
+SOMA-X license: Apache License 2.0; see SOMA-LICENSE.txt.
+
+Independent build script and procedural rendering: repository MIT license.
+
+This is a known-geometry synthetic control, not a learned monocular reconstruction.
+The control uses a neutral native SOMA identity and the official example animation.
+Horizontal root translation is removed for an in-place display; vertical motion
+and official local rotations are retained. Colors are procedural matte values.
+The reference RGB is a triangle-mesh render. The interactive model is a
+Gaussian approximation driven by the same known skinning matrices.
+
+No frames, audio, inferred motion, geometry, or appearance from the referenced
+YouTube clip or any private performer were used in this public control sample.

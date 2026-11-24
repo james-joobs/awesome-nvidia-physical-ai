@@ -87,8 +87,9 @@ const tracks = [
     id: 'world-models',
     en: { description: 'Distinguish generated worlds, reconstructed 3DGS and procedural geometry first, then explore video generation, data curation and model serving.' },
     ko: { description: '세계 생성·3DGS 복원·절차적 기하 구조를 먼저 구분합니다. 이어 영상 생성, 데이터 정제와 모델 연결로 확장합니다.' },
-    read: ['tools/spatial-worlds', 'labs/worldgen-scenes', 'labs/worldgen-isaac', 'labs/worldgen-navigation', 'labs/worldgen-dynamic-navigation', 'labs/spatial-reconstruction', 'labs/scene-generation', 'tools/cosmos-curator', 'tools/cosmos', 'labs/world-driving', 'tools/cosmos-data-factory', 'tools/metropolis-vss', 'tools/nemo-switchyard'],
+    read: ['tools/spatial-worlds', 'labs/worldgen-scenes', 'labs/worldgen-isaac', 'labs/worldgen-navigation', 'labs/worldgen-dynamic-navigation', 'labs/spatial-reconstruction', 'labs/human-4d-gaussian', 'labs/scene-generation', 'tools/cosmos-curator', 'tools/cosmos', 'labs/world-driving', 'tools/cosmos-data-factory', 'tools/metropolis-vss', 'tools/nemo-switchyard'],
     practice: [
+      lab('labs/human-4d-gaussian#explore', 'Compare human motion and Gaussian rendering', '인체 동작과 Gaussian 렌더링 비교하기'),
       lab('labs/spatial-reconstruction#run', 'Reconstruct and explore a 3D Gaussian scene', '3D Gaussian 장면을 복원하고 직접 둘러보기'),
       lab('labs/worldgen-dynamic-navigation#run', 'Stop and replan around moving obstacles', '움직이는 장애물에 정지·재계획으로 대응하기'),
       lab('labs/worldgen-navigation#run', 'Navigate from measured ranges', '센서 측정으로 장애물 우회하기'),
@@ -123,6 +124,7 @@ export const readingTracks = tracks.map((track) => {
 });
 
 const labByPage = new Map([
+  [lab('labs/human-4d-gaussian#run', 'Run the local human 4D reconstruction workflow', '로컬 인체 4D 재구성 과정 실행하기'), 'labs/human-4d-gaussian'],
   [lab('labs/physics#run', 'Compare colliders, friction, and bounce', '충돌체·마찰·반발 비교하기'),
     'tools/nvidia-physx', 'tools/simready', 'labs/physics'],
   [lab('labs/newton-materials#run', 'Simulate cloth and cables in Newton', 'Newton으로 천과 케이블 계산하기'),

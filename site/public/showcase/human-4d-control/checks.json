@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "synthetic_control": true,
+  "private_data_used": false,
+  "frames": 931,
+  "fps": 24.0,
+  "duration": 38.791666666666664,
+  "gaussians": 18056,
+  "bones": 110,
+  "influences": 8,
+  "native_skinning_max_error_m": 1.341104507446289e-07,
+  "array_hashes_match": true,
+  "weight_sums_match": true,
+  "media": [
+    {
+      "file": "source.mp4",
+      "full_decode": true,
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 640,
+          "height": 768,
+          "r_frame_rate": "24/1",
+          "nb_frames": "931"
+        }
+      ],
+      "format": {
+        "duration": "38.791667",
+        "size": "834375"
+      }
+    },
+    {
+      "file": "comparison.mp4",
+      "full_decode": true,
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 1280,
+          "height": 816,
+          "r_frame_rate": "24/1",
+          "nb_frames": "931"
+        }
+      ],
+      "format": {
+        "duration": "38.791667",
+        "size": "1402399"
+      }
+    }
+  ],
+  "source_vertex_out_of_frame_fraction": 0.0,
+  "source_pixel_bounds_xyxy": [
+    70.81954641400267,
+    95.68879294804765,
+    589.8067388995191,
+    688.3769482934275
+  ]
+}

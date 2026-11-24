@@ -1,0 +1,45 @@
+{
+  "scope": "Actual browser interaction on our own separately licensed SOMA synthetic control. No YouTube frame, audio, private-person reconstruction or original user clip is included.",
+  "recordings": [
+    {
+      "locale": "en",
+      "file": "interaction.en.mp4",
+      "bytes": 1952552,
+      "sha256": "9724d5ac381a6803684903bfe344b8a132a9d5717586c6b6438ea1508837a582",
+      "duration": 39.045,
+      "width": 1392,
+      "height": 1016,
+      "full_decode": true,
+      "page_errors": [],
+      "representation": "soma-skinned-gaussians",
+      "source_kind": "SOMA synthetic known-rig control",
+      "source_duration": 38.791666666666664,
+      "actions": [
+        "actual pointer drag",
+        "camera preset clicks",
+        "automatic orbit"
+      ],
+      "no_private_person_pixels": true
+    },
+    {
+      "locale": "ko",
+      "file": "interaction.ko.mp4",
+      "bytes": 2018103,
+      "sha256": "8baef5a5c19522b05d75c8d50e05355743c81d287b77c371a8613c3ffb9d4d76",
+      "duration": 39.048,
+      "width": 1392,
+      "height": 1016,
+      "full_decode": true,
+      "page_errors": [],
+      "representation": "soma-skinned-gaussians",
+      "source_kind": "SOMA synthetic known-rig control",
+      "source_duration": 38.791666666666664,
+      "actions": [
+        "actual pointer drag",
+        "camera preset clicks",
+        "automatic orbit"
+      ],
+      "no_private_person_pixels": true
+    }
+  ]
+}

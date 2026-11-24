@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "scope": "Aggregate metrics for one private 121-frame (4.0333s) experimental video interval; source video and person model are not distributed. Separate from the public synthetic SOMA control.",
+  "source_reference": "https://www.youtube.com/shorts/rWS8uli1-m0",
+  "evaluation": {
+    "roi_samples": 75,
+    "timestamps": 25,
+    "regions": [
+      "face",
+      "left-hand",
+      "right-hand"
+    ],
+    "same_initial_model": true,
+    "roi_holdout_scope": "Some timestamps excluded from direct high-resolution ROI updates remain in low-resolution training/conditioning; not independent unseen views.",
+    "geometry_scope": "Agreement with inferred MoGe-3 supervision at 24 camera/time samples, not measured geometry accuracy.",
+    "all_view_accuracy_claimed": false
+  },
+  "roi_3000_steps": {
+    "baseline": {
+      "psnr_core": 25.516852823893228,
+      "vgg19": 0.1322786025206248,
+      "iou": 0.9821683216094971
+    },
+    "control": {
+      "psnr_core": 26.268030064900717,
+      "vgg19": 0.12278963088989257,
+      "iou": 0.9821389365196228
+    },
+    "roi-original": {
+      "psnr_core": 26.00845848083496,
+      "vgg19": 0.11604330718517303,
+      "iou": 0.981195375919342
+    },
+    "joint-trained": {
+      "psnr_core": 26.106882883707684,
+      "vgg19": 0.12720874905586244,
+      "iou": 0.981872140566508
+    }
+  },
+  "guidance_1500_steps": {
+    "roi-original": {
+      "psnr_core": 26.00845848083496,
+      "vgg19": 0.11604330718517303,
+      "iou": 0.981195375919342,
+      "depth_mae_m": 0.02899654380356272,
+      "normal_cosine": 0.7220562150080999
+    },
+    "roi-continued": {
+      "psnr_core": 25.970701370239258,
+      "vgg19": 0.1154485357304414,
+      "iou": 0.9812880245844523,
+      "depth_mae_m": 0.029019221430644393,
+      "normal_cosine": 0.7217312554518381
+    },
+    "moge3": {
+      "psnr_core": 25.956570587158204,
+      "vgg19": 0.11567402611176172,
+      "iou": 0.9813039231300354,
+      "depth_mae_m": 0.025982057054837544,
+      "normal_cosine": 0.7950951730211576
+    }
+  },
+  "changes": {
+    "roi_vgg19_relative_reduction": 0.05494212871092574,
+    "roi_psnr_delta_db": -0.25957158406575687,
+    "moge_prior_depth_mae_relative_reduction": 0.10466043629273925
+  },
+  "interpretation": "Photometric and perceptual metrics can disagree. Lower inferred-prior error does not establish correct hidden anatomy, clothing or novel views."
+}
