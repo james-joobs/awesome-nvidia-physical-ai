@@ -1,0 +1,134 @@
+{
+  "schema": 1,
+  "files": {
+    "assets/lessons/nurec-rgb-guidance/comparison.en.webp": {
+      "bytes": 142892,
+      "sha256": "71d5c2d586406a3909cccd7e5aa0eff080408110c4c3697684d96e1035723eba"
+    },
+    "assets/lessons/nurec-rgb-guidance/comparison.ko.webp": {
+      "bytes": 143002,
+      "sha256": "fc5a10310daa79279578b527000632cfdfb1c276356dd8be9feb7bb674a8181a"
+    },
+    "assets/lessons/nurec-rgb-guidance/pipeline.en.svg": {
+      "bytes": 4428,
+      "sha256": "1ecf49946c41e8627e30508bc4235976d9229065dcb31332e7934bc91c5d4b19"
+    },
+    "assets/lessons/nurec-rgb-guidance/pipeline.ko.svg": {
+      "bytes": 4477,
+      "sha256": "582dc1db105d9d0dd42336d7e9fe712c7fa07446fa99446bbaa57be0bb4e6581"
+    },
+    "assets/lessons/nurec-rgb-guidance/priors.webp": {
+      "bytes": 109478,
+      "sha256": "cc489ead04612e6b660dfb9b03ca936aa28a46c5f942e007132164b0fa0413ec"
+    },
+    "assets/lessons/nurec-rgb-guidance/production-compare.webp": {
+      "bytes": 83416,
+      "sha256": "d42d2af8d0bfd65b920fa2bee4090f4a30be965bbd73a60359daf3aed8e8d5db"
+    },
+    "labs/nurec-rgb-reality/evidence/guidance/baseline.png": {
+      "bytes": 470724,
+      "sha256": "48928b28f2df57db3cda989d98d20e15433627c3dc58c88fea097187c06e527a"
+    },
+    "labs/nurec-rgb-reality/evidence/guidance/browser-check.json": {
+      "bytes": 2983,
+      "sha256": "ee26b0db1a816c934154ca9aa8d7503da987dc00607b44d915d7bdf62177c34b"
+    },
+    "labs/nurec-rgb-reality/evidence/guidance/browser-fps.json": {
+      "bytes": 3808,
+      "sha256": "6343a9e05199582d07a218de3e76e49eac64e245dbd2fb0e8a00fa1a420881e2"
+    },
+    "labs/nurec-rgb-reality/evidence/guidance/comparison.json": {
+      "bytes": 59402,
+      "sha256": "cde9f62c49ac5d89db91064c5b5fb4951f34592dbdf145099ddc12aecc1c93d9"
+    },
+    "labs/nurec-rgb-reality/evidence/guidance/depth-normal-soft.png": {
+      "bytes": 499806,
+      "sha256": "86fbc1efadf0f886e4d9c906b7fb8516b16ba05e5311d1da2ca910c27c0d8478"
+    },
+    "labs/nurec-rgb-reality/evidence/guidance/depth-normal.png": {
+      "bytes": 495332,
+      "sha256": "bf86538abc1dc900e94fa861348f78c47348448d0cd69a8fd9f0bca184369454"
+    },
+    "labs/nurec-rgb-reality/evidence/guidance/depth.png": {
+      "bytes": 496650,
+      "sha256": "bdb344338eba6d9107c3169e67cbcbb638406243d660281429a699c32cf08bfe"
+    },
+    "labs/nurec-rgb-reality/evidence/guidance/extra-browser-check.json": {
+      "bytes": 1871,
+      "sha256": "a7941fa2642e4530079df634538594a13a98baa2607c00dc4cf8141ab7698210"
+    },
+    "labs/nurec-rgb-reality/evidence/guidance/final-source-smoke.json": {
+      "bytes": 322,
+      "sha256": "adef5bf03d493bd82eaa44fcedc3bdfe5c7a85670c2342c66e6c1d1cf9b60ce3"
+    },
+    "labs/nurec-rgb-reality/evidence/guidance/input-output-sample.json": {
+      "bytes": 995,
+      "sha256": "9f1550f3dce8ed28376f1c13b88858928064f75b8cc0903936d6ef1ba140344d"
+    },
+    "labs/nurec-rgb-reality/evidence/guidance/interaction.en.json": {
+      "bytes": 4435,
+      "sha256": "6faf591389b5d0020e34129df3da799ffaa6e9884cfdc87b307895b9704c5526"
+    },
+    "labs/nurec-rgb-reality/evidence/guidance/interaction.en.mp4": {
+      "bytes": 1978542,
+      "sha256": "a9f44d24d636885788019c7950f1b68f4267d11263ef70f5e1760ee3e4c73fec"
+    },
+    "labs/nurec-rgb-reality/evidence/guidance/interaction.ko.json": {
+      "bytes": 4429,
+      "sha256": "03c9a5d78be3836e7a1e8d2da560d7815ec37304b57cd861b5d8b54f6295958b"
+    },
+    "labs/nurec-rgb-reality/evidence/guidance/interaction.ko.mp4": {
+      "bytes": 2002934,
+      "sha256": "56c6071ee436e50c99800f3fd2d063ef863a0cf98b3cf4e1f94e527c70b82fe7"
+    },
+    "labs/nurec-rgb-reality/evidence/guidance/matched-runs.json": {
+      "bytes": 3594,
+      "sha256": "6de3d37de28f90b77407a0239f5400a6a5b34dff83822baab4d3b9ba9039ea6b"
+    },
+    "labs/nurec-rgb-reality/evidence/guidance/native-comparison.en.mp4": {
+      "bytes": 9511804,
+      "sha256": "2103d8d14e71a23fb32434ee6227b6356681838471c92423f5caab618b3afab0"
+    },
+    "labs/nurec-rgb-reality/evidence/guidance/native-comparison.ko.mp4": {
+      "bytes": 9592768,
+      "sha256": "0886c14bbd172c2248d2af2f7f3d415babe7e9ce229c91dbd5388c0510bf68c8"
+    },
+    "labs/nurec-rgb-reality/evidence/guidance/paired-renders.json": {
+      "bytes": 50078,
+      "sha256": "248b3a7f456212e259b1eca760cfc36b4f909f9d9a08f2caca219348335c98e2"
+    },
+    "labs/nurec-rgb-reality/evidence/guidance/priors-summary.json": {
+      "bytes": 1092,
+      "sha256": "6f1f0c593cfcc93ddce0573acdd1d6dbafd08ded20095d7c151047360f1a8816"
+    },
+    "labs/nurec-rgb-reality/evidence/guidance/production-model.json": {
+      "bytes": 2687,
+      "sha256": "fdcdb8a061bc93447fd5786dc4772afa0744378c40e39b712fa1f87cf2f8f4b3"
+    },
+    "labs/nurec-rgb-reality/evidence/guidance/reference.png": {
+      "bytes": 797475,
+      "sha256": "ced7e26bf70d382392e57a75123277860e415fd245fd999674d1d249290c16a0"
+    },
+    "labs/nurec-rgb-reality/evidence/guidance/sample-files.json": {
+      "bytes": 764,
+      "sha256": "11773ad2eb5390506f2f29f1da868f6f86db81f2350a23bbab677572291aadd0"
+    },
+    "site/public/showcase/nurec-rgb-reality/guidance.json": {
+      "bytes": 3072,
+      "sha256": "6cf5519a8cb84be186c53b7e462df4620383a216f8f95b6336259a0627caa6ed"
+    },
+    "site/public/showcase/nurec-rgb-reality/guided.spz": {
+      "bytes": 23586369,
+      "sha256": "20f029a4e2acb7e6412dcefe411b4219d2f57c048606eefc55da5454848f2eb9"
+    },
+    "site/public/showcase/nurec-rgb-reality/matched-depth.spz": {
+      "bytes": 8717593,
+      "sha256": "f17d8a662de6f54c2e54b55a97f6981d8fe76016a9797ce657123cac5495cf46"
+    },
+    "site/public/showcase/nurec-rgb-reality/matched-rgb.spz": {
+      "bytes": 8700100,
+      "sha256": "bd29d04ad87864a52514023a718f95623538476446893c84b9373ccfc4c4a363"
+    }
+  },
+  "scope": "Guidance additions only. Original NuRec reference artifacts retain their separate immutable recorded.json. The current guidance manifest additionally exposes the RGB depth-support diagnostic."
+}

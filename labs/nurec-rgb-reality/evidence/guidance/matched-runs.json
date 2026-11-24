@@ -1,0 +1,115 @@
+{
+  "baseline": {
+    "schema": 1,
+    "case": "baseline",
+    "steps": 16000,
+    "gaussian_limit": 450000,
+    "seed": 42,
+    "loss_weights": {
+      "distance": 0.0,
+      "normal": 0.0,
+      "gaussian_flatten": 0.0
+    },
+    "training_seconds": 329.86,
+    "artifact_sha256": "f72e29b9e18afac9469ed927f2fe9d4deb10f1d84a115ff13e33e60085a64e9f",
+    "split_sha256": "0481567d5b3c50238639d18ded7a1697f9e1e713543785ad07c4714e58050efa",
+    "seed_sha256": "f1e4cb9aa09b50e858b46b23efdc3a194a27805de7547c16397daf756432a702",
+    "guidance_receipt_sha256": "0889744c91b977d992d38c106b51142075e6ea25c8d97c8eb13cc6859f5b7e7f",
+    "native_differentiable_losses": [],
+    "uses_lidar": false,
+    "uses_supplied_depth": false
+  },
+  "depth-normal-soft": {
+    "schema": 1,
+    "case": "depth-normal-soft",
+    "steps": 16000,
+    "gaussian_limit": 450000,
+    "seed": 42,
+    "loss_weights": {
+      "distance": 0.1,
+      "normal": 0.005,
+      "gaussian_flatten": 5e-05
+    },
+    "training_seconds": 328.72,
+    "artifact_sha256": "67b60ac651310703ff868f99ec915b1563760cdff465389ab1edf10269517fb2",
+    "split_sha256": "0481567d5b3c50238639d18ded7a1697f9e1e713543785ad07c4714e58050efa",
+    "seed_sha256": "f1e4cb9aa09b50e858b46b23efdc3a194a27805de7547c16397daf756432a702",
+    "guidance_receipt_sha256": "0889744c91b977d992d38c106b51142075e6ea25c8d97c8eb13cc6859f5b7e7f",
+    "native_differentiable_losses": [
+      {
+        "kind": "depth",
+        "valid_pixels": 259342,
+        "differentiable": true,
+        "finite": true
+      },
+      {
+        "kind": "normal",
+        "valid_pixels": 201118,
+        "differentiable": true,
+        "finite": true
+      }
+    ],
+    "uses_lidar": false,
+    "uses_supplied_depth": false
+  },
+  "depth-normal": {
+    "schema": 1,
+    "case": "depth-normal",
+    "steps": 16000,
+    "gaussian_limit": 450000,
+    "seed": 42,
+    "loss_weights": {
+      "distance": 0.1,
+      "normal": 0.03,
+      "gaussian_flatten": 0.0005
+    },
+    "training_seconds": 329.81,
+    "artifact_sha256": "d589e22b4930cc27b2428c097be9b6f99663e5d2805a984182b0e3dca5aa7d42",
+    "split_sha256": "0481567d5b3c50238639d18ded7a1697f9e1e713543785ad07c4714e58050efa",
+    "seed_sha256": "f1e4cb9aa09b50e858b46b23efdc3a194a27805de7547c16397daf756432a702",
+    "guidance_receipt_sha256": "0889744c91b977d992d38c106b51142075e6ea25c8d97c8eb13cc6859f5b7e7f",
+    "native_differentiable_losses": [
+      {
+        "kind": "depth",
+        "valid_pixels": 259342,
+        "differentiable": true,
+        "finite": true
+      },
+      {
+        "kind": "normal",
+        "valid_pixels": 201118,
+        "differentiable": true,
+        "finite": true
+      }
+    ],
+    "uses_lidar": false,
+    "uses_supplied_depth": false
+  },
+  "depth": {
+    "schema": 1,
+    "case": "depth",
+    "steps": 16000,
+    "gaussian_limit": 450000,
+    "seed": 42,
+    "loss_weights": {
+      "distance": 0.1,
+      "normal": 0.0,
+      "gaussian_flatten": 0.0
+    },
+    "training_seconds": 325.98,
+    "artifact_sha256": "6bc689c4c7941ba464622330175e7bef8b4456190e440efaf22ced0980f0ad04",
+    "split_sha256": "0481567d5b3c50238639d18ded7a1697f9e1e713543785ad07c4714e58050efa",
+    "seed_sha256": "f1e4cb9aa09b50e858b46b23efdc3a194a27805de7547c16397daf756432a702",
+    "guidance_receipt_sha256": "0889744c91b977d992d38c106b51142075e6ea25c8d97c8eb13cc6859f5b7e7f",
+    "native_differentiable_losses": [
+      {
+        "kind": "depth",
+        "valid_pixels": 259342,
+        "differentiable": true,
+        "finite": true
+      }
+    ],
+    "uses_lidar": false,
+    "uses_supplied_depth": false
+  }
+}

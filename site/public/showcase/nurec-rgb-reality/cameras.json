@@ -1481,5 +1481,6 @@
   "trained_gaussians": 450000,
   "reconstruction_title": "RGB only \u00b7 NuRec",
   "pipeline_notice": "NuRec-trained Gaussian preview in a browser rasterizer; native NuRec and Harmonizer outputs are recorded separately",
-  "policy_file": "alpamayo.json"
+  "policy_file": "alpamayo.json",
+  "guidance_file": "guidance.json"
 }

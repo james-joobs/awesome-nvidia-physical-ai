@@ -1,0 +1,25 @@
+{
+  "image": "front_camera/45.jpg",
+  "reference": {
+    "file": "reference.png",
+    "sha256": "ced7e26bf70d382392e57a75123277860e415fd245fd999674d1d249290c16a0"
+  },
+  "predictions": {
+    "baseline": {
+      "file": "baseline.png",
+      "sha256": "48928b28f2df57db3cda989d98d20e15433627c3dc58c88fea097187c06e527a"
+    },
+    "depth": {
+      "file": "depth.png",
+      "sha256": "bdb344338eba6d9107c3169e67cbcbb638406243d660281429a699c32cf08bfe"
+    },
+    "depth-normal": {
+      "file": "depth-normal.png",
+      "sha256": "bf86538abc1dc900e94fa861348f78c47348448d0cd69a8fd9f0bca184369454"
+    },
+    "depth-normal-soft": {
+      "file": "depth-normal-soft.png",
+      "sha256": "86fbc1efadf0f886e4d9c906b7fb8516b16ba05e5311d1da2ca910c27c0d8478"
+    }
+  }
+}

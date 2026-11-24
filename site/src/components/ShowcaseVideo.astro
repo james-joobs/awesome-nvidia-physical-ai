@@ -8,7 +8,7 @@ const poster = showcaseMedia(`${mediaId}.jpg`);
 const movie = showcaseMedia(`${mediaId}.mp4`);
 const playLabel = locale === 'ko' ? `${title} ${labels.play}` : `${labels.play} ${title}`;
 ---
-<div class="video-frame">
+<div class="video-frame" style={{aspectRatio: `${clip.width} / ${clip.height}`}}>
   <a href={movie} class="video-cover" data-video-cover data-autoplay={autoplay ? '' : undefined} aria-label={playLabel}>
     <img src={poster} width={clip.width} height={clip.height} loading={eager ? 'eager' : 'lazy'}
       fetchpriority={eager ? 'high' : 'auto'} alt="" />

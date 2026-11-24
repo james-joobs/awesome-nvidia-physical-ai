@@ -1,0 +1,159 @@
+{
+  "date": "2026-11-23",
+  "browser": "157.0.8103.79",
+  "scope": "Render-loop submission cadence after warm-up in Chrome headless Metal on this Mac. The browser runs near a 60 Hz cadence. Not a maximum uncapped GPU benchmark, not physical-mobile testing, and not end-to-end reconstruction or model inference throughput. Timestamp instrumentation only; model and scene rendering are unchanged.",
+  "results": [
+    {
+      "viewport": [
+        1440,
+        1050
+      ],
+      "requested_device_scale_factor": 1,
+      "gaussians": 1200000,
+      "mode": "static",
+      "seconds": 8.002900000095368,
+      "rendered_frames": 480,
+      "fps": 60.001002104060895,
+      "median_frame_ms": 16.699999809265137,
+      "p95_frame_ms": 17.799999952316284,
+      "p99_frame_ms": 18.59999990463257,
+      "css_size": [
+        896,
+        504
+      ],
+      "drawing_buffer": [
+        896,
+        504
+      ],
+      "context_lost": false,
+      "errors": []
+    },
+    {
+      "viewport": [
+        1440,
+        1050
+      ],
+      "requested_device_scale_factor": 1,
+      "gaussians": 1200000,
+      "mode": "orbit",
+      "seconds": 9.519100000143052,
+      "rendered_frames": 571,
+      "fps": 60.00442137871856,
+      "median_frame_ms": 16.600000143051147,
+      "p95_frame_ms": 19.399999856948853,
+      "p99_frame_ms": 20,
+      "css_size": [
+        896,
+        504
+      ],
+      "drawing_buffer": [
+        896,
+        504
+      ],
+      "context_lost": false,
+      "errors": []
+    },
+    {
+      "viewport": [
+        1440,
+        1050
+      ],
+      "requested_device_scale_factor": 1,
+      "gaussians": 1200000,
+      "mode": "path-playback",
+      "seconds": 8.12,
+      "rendered_frames": 487,
+      "fps": 59.99333407505118,
+      "median_frame_ms": 16.700000047683716,
+      "p95_frame_ms": 24.100000143051147,
+      "p99_frame_ms": 30.600000143051147,
+      "css_size": [
+        896,
+        504
+      ],
+      "drawing_buffer": [
+        896,
+        504
+      ],
+      "context_lost": false,
+      "errors": []
+    },
+    {
+      "viewport": [
+        1440,
+        1050
+      ],
+      "requested_device_scale_factor": 2,
+      "gaussians": 1200000,
+      "mode": "static",
+      "seconds": 8.003099999904633,
+      "rendered_frames": 480,
+      "fps": 59.99649289847702,
+      "median_frame_ms": 16.699999809265137,
+      "p95_frame_ms": 17.799999952316284,
+      "p99_frame_ms": 18.399999856948853,
+      "css_size": [
+        896,
+        504
+      ],
+      "drawing_buffer": [
+        1344,
+        756
+      ],
+      "context_lost": false,
+      "errors": []
+    },
+    {
+      "viewport": [
+        1440,
+        1050
+      ],
+      "requested_device_scale_factor": 2,
+      "gaussians": 1200000,
+      "mode": "orbit",
+      "seconds": 9.523700000047684,
+      "rendered_frames": 572,
+      "fps": 60.0048340140478,
+      "median_frame_ms": 16.699999809265137,
+      "p95_frame_ms": 18.799999952316284,
+      "p99_frame_ms": 19.800000190734863,
+      "css_size": [
+        896,
+        504
+      ],
+      "drawing_buffer": [
+        1344,
+        756
+      ],
+      "context_lost": false,
+      "errors": []
+    },
+    {
+      "viewport": [
+        1440,
+        1050
+      ],
+      "requested_device_scale_factor": 2,
+      "gaussians": 1200000,
+      "mode": "path-playback",
+      "seconds": 8.111099999904633,
+      "rendered_frames": 487,
+      "fps": 60.00518563191324,
+      "median_frame_ms": 16.699999809265137,
+      "p95_frame_ms": 21.899999856948853,
+      "p99_frame_ms": 30.59999990463257,
+      "css_size": [
+        896,
+        504
+      ],
+      "drawing_buffer": [
+        1344,
+        756
+      ],
+      "context_lost": false,
+      "errors": []
+    }
+  ],
+  "page": "ko/labs/nurec-rgb-reality",
+  "client_hardware": "Apple M2 Max MacBook Pro, 64 GB"
+}

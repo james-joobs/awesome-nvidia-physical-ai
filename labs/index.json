@@ -49,6 +49,7 @@
       "tags": [
         "RGB only",
         "NuRec 26.04",
+        "Depth Anything 3",
         "Harmonizer",
         "Alpamayo 2 Edge",
         "Mask R-CNN"
@@ -64,6 +65,22 @@
         "run_policy.py",
         "enhance.py",
         "export_viewer.py",
+        "guidance/pipeline.py",
+        "guidance/geometry.py",
+        "guidance/scene.yaml",
+        "guidance/train.py",
+        "guidance/normal_loss.py",
+        "temporal/pipeline.py",
+        "temporal/enhance.py",
+        "temporal/standalone.py",
+        "temporal/evaluate.py",
+        "temporal/service.py",
+        "temporal/context.py",
+        "temporal/support.py",
+        "temporal/check.py",
+        "temporal/record_viewer.mjs",
+        "temporal/test_context.py",
+        "temporal/test_support.py",
         "check.py"
       ],
       "evidence": "recorded.json"

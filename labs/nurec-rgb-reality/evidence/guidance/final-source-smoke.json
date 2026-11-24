@@ -1,0 +1,18 @@
+{
+  "training_steps": 4,
+  "completed": true,
+  "native_differentiable_losses": [
+    {
+      "kind": "depth",
+      "valid_pixels": 417987,
+      "differentiable": true,
+      "finite": true
+    },
+    {
+      "kind": "normal",
+      "valid_pixels": 409112,
+      "differentiable": true,
+      "finite": true
+    }
+  ]
+}

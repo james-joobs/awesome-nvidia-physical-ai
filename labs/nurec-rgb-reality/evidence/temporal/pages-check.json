@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "scope": "Chrome viewport checks; mobile layout emulation, not a physical-phone performance benchmark.",
+  "pages": [
+    {
+      "language": "en",
+      "mobile": false,
+      "width": {
+        "viewport": 1440,
+        "scroll": 1440
+      },
+      "theme_checked": [
+        "light",
+        "dark"
+      ],
+      "inline_video": {
+        "inline": true,
+        "time": 0.3202,
+        "width": 1280,
+        "height": 889
+      },
+      "code_copy": true,
+      "language_switch": true,
+      "guided_gaussians": 1200000,
+      "support_gaussians": 1200000,
+      "camera_preserved": true,
+      "mobile_diagram": null,
+      "errors": [],
+      "failed_requests": 0,
+      "unexpected_local_inference_requests": 0
+    },
+    {
+      "language": "en",
+      "mobile": true,
+      "width": {
+        "viewport": 390,
+        "scroll": 390
+      },
+      "theme_checked": [
+        "light",
+        "dark"
+      ],
+      "inline_video": {
+        "inline": true,
+        "time": 0.3201,
+        "width": 1280,
+        "height": 889
+      },
+      "code_copy": true,
+      "language_switch": true,
+      "guided_gaussians": 1200000,
+      "support_gaussians": 1200000,
+      "camera_preserved": true,
+      "mobile_diagram": true,
+      "errors": [],
+      "failed_requests": 0,
+      "unexpected_local_inference_requests": 0
+    },
+    {
+      "language": "ko",
+      "mobile": false,
+      "width": {
+        "viewport": 1440,
+        "scroll": 1440
+      },
+      "theme_checked": [
+        "light",
+        "dark"
+      ],
+      "inline_video": {
+        "inline": true,
+        "time": 0.3116,
+        "width": 1280,
+        "height": 889
+      },
+      "code_copy": true,
+      "language_switch": true,
+      "guided_gaussians": 1200000,
+      "support_gaussians": 1200000,
+      "camera_preserved": true,
+      "mobile_diagram": null,
+      "errors": [],
+      "failed_requests": 0,
+      "unexpected_local_inference_requests": 0
+    },
+    {
+      "language": "ko",
+      "mobile": true,
+      "width": {
+        "viewport": 390,
+        "scroll": 390
+      },
+      "theme_checked": [
+        "light",
+        "dark"
+      ],
+      "inline_video": {
+        "inline": true,
+        "time": 0.3122,
+        "width": 1280,
+        "height": 889
+      },
+      "code_copy": true,
+      "language_switch": true,
+      "guided_gaussians": 1200000,
+      "support_gaussians": 1200000,
+      "camera_preserved": true,
+      "mobile_diagram": true,
+      "errors": [],
+      "failed_requests": 0,
+      "unexpected_local_inference_requests": 0
+    }
+  ],
+  "actual_local_auto_v5_passed": true,
+  "invalid_input_origin_cases_passed": 4
+}

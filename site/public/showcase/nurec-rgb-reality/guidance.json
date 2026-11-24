@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "default": "guided",
+  "variants": [
+    {
+      "id": "guided",
+      "file": "guided.spz",
+      "gaussians": 1200000,
+      "sha256": "20f029a4e2acb7e6412dcefe411b4219d2f57c048606eefc55da5454848f2eb9",
+      "label_en": "Depth-guided · 1.2M / 32k steps",
+      "label_ko": "깊이 기반 · 120만 개 / 32,000단계",
+      "note_en": "All 162 RGB images; denser seed and larger training budget. Not a loss-only comparison.",
+      "note_ko": "전체 RGB 162장으로 학습했습니다. 초기 점군과 학습량도 늘린 표시용 모델로, loss만 비교한 결과와 구분합니다."
+    },
+    {
+      "id": "original",
+      "file": "road.spz",
+      "gaussians": 450000,
+      "sha256": "dbdab1760ccfd55c64c36e2905769f97240af991cda157eaab019f7cdd716bba",
+      "label_en": "Original · 450k / 16k steps",
+      "label_ko": "기존 · 45만 개 / 16,000단계",
+      "note_en": "Original all-RGB NuRec model, without geometric guidance.",
+      "note_ko": "기하 제약 없이 전체 RGB로 학습한 기존 NuRec 모델입니다."
+    },
+    {
+      "id": "matched-rgb",
+      "file": "matched-rgb.spz",
+      "gaussians": 450000,
+      "sha256": "bd29d04ad87864a52514023a718f95623538476446893c84b9373ccfc4c4a363",
+      "label_en": "Experiment · RGB baseline / 450k",
+      "label_ko": "비교 실험 · RGB 기준 / 45만 개",
+      "note_en": "138 training images; 24 held-out images; same seed and 16k-step budget as the depth experiment.",
+      "note_ko": "학습 138장·검사 24장. 깊이 실험과 같은 초기 점군·난수 seed·16,000단계입니다."
+    },
+    {
+      "id": "matched-depth",
+      "file": "matched-depth.spz",
+      "gaussians": 450000,
+      "sha256": "f17d8a662de6f54c2e54b55a97f6981d8fe76016a9797ce657123cac5495cf46",
+      "label_en": "Experiment · depth guidance / 450k",
+      "label_ko": "비교 실험 · 깊이 제약 / 45만 개",
+      "note_en": "138 training images; same seed, 16k steps and 450k limit. Depth weight 0.1, normal weight 0.",
+      "note_ko": "학습 138장. 같은 초기값·16,000단계·45만 개 상한에 깊이 loss 0.1을 추가했습니다. 법선 loss는 0입니다."
+    },
+    {
+      "id": "support",
+      "file": "support.spz",
+      "label_en": "Inspect RGB depth support",
+      "label_ko": "RGB 깊이 근거 살펴보기",
+      "note_en": "Red:0 / amber:1 / teal:2+ named cameras with depth-consistent projections. Uses predicted depth and estimated cameras; not measured visibility or a hallucination detector. Same Gaussian geometry and opacity.",
+      "note_ko": "빨강:0 · 노랑:1 · 청록:2개 이상 카메라의 깊이 일치 추정. 예측 깊이·추정 카메라로 계산한 보조 자료이며, 실측 가시성이나 환각 판정이 아닙니다. Gaussian 형상·불투명도는 같습니다.",
+      "diagnostic": true,
+      "report": "support.json",
+      "gaussians": 1200000,
+      "sha256": "3fc5aa51daf0638476d5ea11737435617c7c3f55671e792630545d46b4786c95"
+    }
+  ],
+  "chase_offset": [
+    -3.4,
+    -1.8,
+    1.0
+  ]
+}

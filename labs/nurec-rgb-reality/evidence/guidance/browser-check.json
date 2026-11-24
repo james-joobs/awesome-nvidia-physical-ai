@@ -1,0 +1,138 @@
+[
+  {
+    "language": "en",
+    "mobile": false,
+    "gaussians": 1200000,
+    "lazy_model": true,
+    "same_camera_model_switches": [
+      "guided",
+      "original",
+      "matched-rgb",
+      "matched-depth"
+    ],
+    "actual_pointer": true,
+    "driver_view": true,
+    "path_playback": true,
+    "inline_video": {
+      "width": 1280,
+      "time": 0.9158,
+      "inline": true
+    },
+    "dimensions": {
+      "width": 1440,
+      "content": 1440
+    },
+    "actual_recognition": true,
+    "mask_toggle": true,
+    "source_camera_switch": true,
+    "people_in_camera": 3,
+    "local_links_checked": 16,
+    "same_page_language_link": true,
+    "nurec_backend": true,
+    "actual_alpamayo_path": true,
+    "errors": [],
+    "failed": []
+  },
+  {
+    "language": "ko",
+    "mobile": false,
+    "gaussians": 1200000,
+    "lazy_model": true,
+    "same_camera_model_switches": [
+      "guided",
+      "original",
+      "matched-rgb",
+      "matched-depth"
+    ],
+    "actual_pointer": true,
+    "driver_view": true,
+    "path_playback": true,
+    "inline_video": {
+      "width": 1280,
+      "time": 1.0095,
+      "inline": true
+    },
+    "dimensions": {
+      "width": 1440,
+      "content": 1440
+    },
+    "actual_recognition": true,
+    "mask_toggle": true,
+    "source_camera_switch": true,
+    "people_in_camera": 3,
+    "local_links_checked": 16,
+    "same_page_language_link": true,
+    "nurec_backend": true,
+    "actual_alpamayo_path": true,
+    "errors": [],
+    "failed": []
+  },
+  {
+    "language": "en",
+    "mobile": true,
+    "gaussians": 1200000,
+    "lazy_model": true,
+    "same_camera_model_switches": [
+      "guided",
+      "original",
+      "matched-rgb",
+      "matched-depth"
+    ],
+    "actual_pointer": true,
+    "driver_view": true,
+    "path_playback": true,
+    "inline_video": {
+      "width": 1280,
+      "time": 0.9946,
+      "inline": true
+    },
+    "dimensions": {
+      "width": 390,
+      "content": 390
+    },
+    "actual_recognition": true,
+    "mask_toggle": true,
+    "source_camera_switch": true,
+    "people_in_camera": 3,
+    "local_links_checked": 16,
+    "same_page_language_link": true,
+    "nurec_backend": true,
+    "actual_alpamayo_path": true,
+    "errors": [],
+    "failed": []
+  },
+  {
+    "language": "ko",
+    "mobile": true,
+    "gaussians": 1200000,
+    "lazy_model": true,
+    "same_camera_model_switches": [
+      "guided",
+      "original",
+      "matched-rgb",
+      "matched-depth"
+    ],
+    "actual_pointer": true,
+    "driver_view": true,
+    "path_playback": true,
+    "inline_video": {
+      "width": 1280,
+      "time": 0.856,
+      "inline": true
+    },
+    "dimensions": {
+      "width": 390,
+      "content": 390
+    },
+    "actual_recognition": true,
+    "mask_toggle": true,
+    "source_camera_switch": true,
+    "people_in_camera": 3,
+    "local_links_checked": 16,
+    "same_page_language_link": true,
+    "nurec_backend": true,
+    "actual_alpamayo_path": true,
+    "errors": [],
+    "failed": []
+  }
+]

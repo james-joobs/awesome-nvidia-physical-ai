@@ -205,8 +205,8 @@
       "sha256": "12200f68537e5ecd3d152d9ea9970270cccdfca0bb2def705a98fb9f4b16cb43"
     },
     "site/public/showcase/nurec-rgb-reality/cameras.json": {
-      "bytes": 30131,
-      "sha256": "85bd2102a89f3761fd9a4396e4c70bdf0867cba3c9bf7f732d83042327571d44"
+      "bytes": 30167,
+      "sha256": "b434dfddc3cd45bf131308f4d7309a8ef6822a0a437dc1c4955bb1feca160096"
     },
     "site/public/showcase/nurec-rgb-reality/perception.json": {
       "bytes": 690967,

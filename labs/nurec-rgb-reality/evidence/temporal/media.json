@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "media": [
+    {
+      "file": "site/public/showcase/nurec-temporal-live.en.mp4",
+      "sha256": "a22a6a019293724e0dcb33c36899d17bef6fdb08c8ca652a27807d91dc718973",
+      "bytes": 1760396,
+      "seconds": 27.08,
+      "width": 1280,
+      "height": 888
+    },
+    {
+      "file": "site/public/showcase/nurec-temporal.en.mp4",
+      "sha256": "d6898c355f828616392ac7dc4eb46c820232f89b1ee813fcaac172f3af76b1af",
+      "bytes": 9577342,
+      "seconds": 24.0,
+      "width": 1280,
+      "height": 640
+    },
+    {
+      "file": "site/public/showcase/nurec-temporal-live.ko.mp4",
+      "sha256": "454271a824b7eb4419685121404451049ac6c2babc5693568165a2636ca167b6",
+      "bytes": 1570232,
+      "seconds": 26.48,
+      "width": 1280,
+      "height": 888
+    },
+    {
+      "file": "site/public/showcase/nurec-temporal.ko.mp4",
+      "sha256": "8fd68301f4cda153afd475710458637ee690d9011b1e01ae1dca2055c1c2a0bc",
+      "bytes": 9562584,
+      "seconds": 24.0,
+      "width": 1280,
+      "height": 640
+    }
+  ],
+  "scope": "Actual ordered model outputs and actual browser interactions, edited for presentation. Video playback rate is not inference throughput.",
+  "credits": "PandaSet: Scale AI / Hesai; CC BY-SA 4.0 + original Dataset Terms. Volvo S90: lazercar, CC BY 4.0. Built on NVIDIA Cosmos."
+}

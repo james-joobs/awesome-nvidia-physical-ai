@@ -1,0 +1,99 @@
+[
+  {
+    "test": "simulated-503",
+    "preserved_model": true,
+    "recovered_next_selection": true
+  },
+  {
+    "language": "en",
+    "mobile": false,
+    "media": [
+      {
+        "id": "nurec-guidance",
+        "width": 1280,
+        "height": 720,
+        "time": 0.8079,
+        "inline": true,
+        "fullscreen": false
+      },
+      {
+        "id": "nurec-guided-interaction",
+        "width": 1280,
+        "height": 720,
+        "time": 0.808,
+        "inline": true,
+        "fullscreen": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "language": "ko",
+    "mobile": false,
+    "media": [
+      {
+        "id": "nurec-guidance",
+        "width": 1280,
+        "height": 720,
+        "time": 0.8087,
+        "inline": true,
+        "fullscreen": false
+      },
+      {
+        "id": "nurec-guided-interaction",
+        "width": 1280,
+        "height": 720,
+        "time": 0.8084,
+        "inline": true,
+        "fullscreen": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "language": "en",
+    "mobile": true,
+    "media": [
+      {
+        "id": "nurec-guidance",
+        "width": 1280,
+        "height": 720,
+        "time": 0.8069,
+        "inline": true,
+        "fullscreen": false
+      },
+      {
+        "id": "nurec-guided-interaction",
+        "width": 1280,
+        "height": 720,
+        "time": 0.8134,
+        "inline": true,
+        "fullscreen": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "language": "ko",
+    "mobile": true,
+    "media": [
+      {
+        "id": "nurec-guidance",
+        "width": 1280,
+        "height": 720,
+        "time": 0.8212,
+        "inline": true,
+        "fullscreen": false
+      },
+      {
+        "id": "nurec-guided-interaction",
+        "width": 1280,
+        "height": 720,
+        "time": 0.8131,
+        "inline": true,
+        "fullscreen": false
+      }
+    ],
+    "errors": []
+  }
+]

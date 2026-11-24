@@ -1,0 +1,69 @@
+{
+  "training": {
+    "schema": 1,
+    "case": "depth",
+    "steps": 32000,
+    "gaussian_limit": 1200000,
+    "seed": 42,
+    "loss_weights": {
+      "distance": 0.1,
+      "normal": 0.0,
+      "gaussian_flatten": 0.0
+    },
+    "training_seconds": 723.07,
+    "artifact_sha256": "884b0d17f829823e5dc9c8cd726102e3582a5102fd6eabbb1d1db661540e4a08",
+    "split_sha256": "93c13f976855d490e24d731e15066e2eff966542fcafbc32d515ea87f704897b",
+    "seed_sha256": "0211da824935073f9fa7cae44181228dde81b32d90d57bd875098299650a21cc",
+    "guidance_receipt_sha256": "c8282b12a9204ce3d26d33cce41b4bac631c6b2d4304e6e5a49522137deb6353",
+    "native_differentiable_losses": [
+      {
+        "kind": "depth",
+        "valid_pixels": 209053,
+        "differentiable": true,
+        "finite": true
+      }
+    ],
+    "uses_lidar": false,
+    "uses_supplied_depth": false
+  },
+  "split": {
+    "schema": 1,
+    "production_fit": true,
+    "train_images": 162,
+    "held_out_images": 0,
+    "train_times": 27,
+    "held_out_times": 0,
+    "held_out_timestamp_us": [],
+    "seed_points": 16661,
+    "seed_color_source": "Training RGB only; points retriangulated from training observations at fixed RGB-derived poses",
+    "pose_scope": "Offline COLMAP camera estimates use the full image set. The held-out mode is a fixed-camera RGB comparison, not an online causal reconstruction benchmark. The all-image production fit is not an independent validation model.",
+    "uses_lidar": false,
+    "uses_supplied_depth": false,
+    "uses_source_calibration": false,
+    "uses_source_labels": false
+  },
+  "seed": {
+    "sparse_points": 16661,
+    "cross_checked_candidates": 392738,
+    "voxel_representatives": 373767,
+    "final_seed_points": 266661,
+    "stride_pixels": 8,
+    "voxel_size_relative_units": 0.035,
+    "normal_and_photometric_checks": true,
+    "uses_held_out_rgb": false,
+    "uses_lidar": false,
+    "scope": "Predicted geometry cross-checked against another training RGB/prior view. Consistency is not independent depth accuracy."
+  },
+  "export": {
+    "schema": 1,
+    "case": "depth",
+    "gaussians": 1200000,
+    "file": "guided.spz",
+    "bytes": 23586369,
+    "sha256": "20f029a4e2acb7e6412dcefe411b4219d2f57c048606eefc55da5454848f2eb9",
+    "artifact_sha256": "884b0d17f829823e5dc9c8cd726102e3582a5102fd6eabbb1d1db661540e4a08",
+    "source": "NuRec official export-gaussian-plys output; degree-1 SPZ browser conversion",
+    "browser_renderer": "Spark / Three.js; differs from native NuRec rendering"
+  },
+  "comparison_scope": "All-RGB production fit with denser initialization, more steps and a larger Gaussian budget. Not a loss-only ablation or an independent held-out score."
+}

@@ -1,0 +1,181 @@
+{
+  "schema": 1,
+  "language": "en",
+  "scope": "Actual Chrome Metal scene capture sampled through browser screenshots with real mouse events. Scene-only framing and descriptive captions; encoded at 30 fps. Capture sampling is separate from the render-loop throughput benchmark.",
+  "captured_frames": 161,
+  "seconds": 13.946000099182129,
+  "events": [
+    {
+      "action": "original-driver",
+      "state": {
+        "frame": 13,
+        "view": "driver",
+        "variant": "original",
+        "camera": [
+          0,
+          2.7755575615628914e-17,
+          0.9476390445538017
+        ],
+        "target": [
+          4.996201062396795,
+          0.0062066927663130544,
+          0.7528663024412575
+        ],
+        "gaussians": 450000,
+        "perception": {
+          "enabled": true,
+          "frame": 13,
+          "camera": "left_camera",
+          "detections_in_camera": 10,
+          "markers": 20,
+          "people_in_camera": 3
+        },
+        "policy": {
+          "enabled": true,
+          "frame": 13,
+          "t0_seconds": 3.9,
+          "poses": 64
+        }
+      },
+      "time_seconds": 0
+    },
+    {
+      "action": "guided-driver",
+      "state": {
+        "frame": 13,
+        "view": "driver",
+        "variant": "guided",
+        "camera": [
+          0,
+          2.7755575615628914e-17,
+          0.9476390445538017
+        ],
+        "target": [
+          4.996201062396795,
+          0.0062066927663130544,
+          0.7528663024412575
+        ],
+        "gaussians": 1200000,
+        "perception": {
+          "enabled": true,
+          "frame": 13,
+          "camera": "left_camera",
+          "detections_in_camera": 10,
+          "markers": 20,
+          "people_in_camera": 3
+        },
+        "policy": {
+          "enabled": true,
+          "frame": 13,
+          "t0_seconds": 3.9,
+          "poses": 64
+        }
+      },
+      "time_seconds": 3.1750001907348633
+    },
+    {
+      "action": "guided-mouse-orbit",
+      "state": {
+        "frame": 13,
+        "view": "chase",
+        "variant": "guided",
+        "camera": [
+          -3.3977612698138318,
+          -1.8042223680447746,
+          1.4299999999999997
+        ],
+        "target": [
+          -9.634705797901682e-17,
+          5.2919638379485604e-18,
+          0.4300000000000002
+        ],
+        "gaussians": 1200000,
+        "perception": {
+          "enabled": true,
+          "frame": 13,
+          "camera": "left_camera",
+          "detections_in_camera": 10,
+          "markers": 20,
+          "people_in_camera": 3
+        },
+        "policy": {
+          "enabled": true,
+          "frame": 13,
+          "t0_seconds": 3.9,
+          "poses": 64
+        }
+      },
+      "time_seconds": 5.990000009536743
+    },
+    {
+      "action": "guided-path-playback",
+      "state": {
+        "frame": 13,
+        "view": "chase",
+        "variant": "guided",
+        "camera": [
+          -3.3976758650270344,
+          -1.8043938067228014,
+          1.4299808530532898
+        ],
+        "target": [
+          -9.634705797901682e-17,
+          5.2919638379485604e-18,
+          0.4300000000000002
+        ],
+        "gaussians": 1200000,
+        "perception": {
+          "enabled": true,
+          "frame": 13,
+          "camera": "left_camera",
+          "detections_in_camera": 10,
+          "markers": 20,
+          "people_in_camera": 3
+        },
+        "policy": {
+          "enabled": true,
+          "frame": 13,
+          "t0_seconds": 3.9,
+          "poses": 64
+        }
+      },
+      "time_seconds": 9.56000018119812
+    },
+    {
+      "action": "finished",
+      "state": {
+        "frame": 23,
+        "view": "chase",
+        "variant": "guided",
+        "camera": [
+          14.744567771612056,
+          -1.4533085317238754,
+          1.4298404413538424
+        ],
+        "target": [
+          18.141617068048124,
+          0.35234236737483365,
+          0.4300000000000002
+        ],
+        "gaussians": 1200000,
+        "perception": {
+          "enabled": true,
+          "frame": 23,
+          "camera": "left_camera",
+          "detections_in_camera": 1,
+          "markers": 11,
+          "people_in_camera": 0
+        },
+        "policy": {
+          "enabled": true,
+          "frame": 23,
+          "t0_seconds": 5.7,
+          "poses": 64
+        }
+      },
+      "time_seconds": 12.784000158309937
+    }
+  ],
+  "errors": [],
+  "capture_sample_rate_fps": 11.544528815071637
+}

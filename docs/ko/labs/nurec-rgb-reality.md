@@ -4,6 +4,8 @@
 
 실사 도로를 **NuRec**에서 복원하고, 같은 시점의 렌더링에 **Harmonizer**를 적용해 비교합니다. 여기에 **Alpamayo 2 Edge**의 예측 경로와 원본 카메라의 객체 인식 결과를 연결합니다. 복원 입력은 RGB 픽셀뿐입니다. 먼저 저장된 장면과 영상을 둘러보고 RTX 5090 한 장으로 각 단계를 따라 해 보세요.
 
+**깊이 기반 복원 개선:** 아래 3D 뷰어에서 카메라 위치를 유지한 채 모델을 바꿔 보세요. [RGB로 추정한 깊이·법선의 역할](#동작-원리)과 [같은 조건의 비교 결과](#결과-확인)도 확인할 수 있습니다.
+
 ## 동작 원리
 
 ![RGB로 카메라와 장면을 추정해 NuRec에 입력하고, NuRec 렌더링은 Harmonizer로 보정하며, 원본 RGB와 추정 주행 이력은 Alpamayo로 전달하는 흐름](../../../assets/lessons/nurec-rgb-reality/pipeline.ko.svg)
@@ -16,7 +18,7 @@
 | Rig bundle adjustment | 사진별 추정치 → 카메라 6대·촬영 시점 27개의 고정 배열 | NuRec 입력 형식에 맞춰 카메라의 상대 위치를 함께 보정합니다. |
 | NCore | 추정 카메라·RGB·SfM 점 → NuRec 시퀀스와 Gaussian 초기값 | 데이터를 묶는 형식과 API입니다. 신경망 모델은 아닙니다. |
 | NuRec 26.04 | NCore와 RGB 기반 초기값 → 학습 산출물·새 시점 RGB·Gaussian | 실제 NuRec 런타임의 3DGUT COLMAP 구성을 실행합니다. |
-| Harmonizer | NuRec의 실제 렌더링 → 같은 시점의 보정 RGB | 공개된 **non-temporal** 체크포인트로 이미지 한 장씩 처리합니다. 3D 모델 자체는 바꾸지 않습니다. |
+| Harmonizer | NuRec의 실제 렌더링 → 같은 시점의 보정 RGB | 기존 non-temporal 기준 영상과 아래의 V1·V5 시간축 비교를 제공합니다. 3D 형상 자체는 바꾸지 않습니다. |
 | Alpamayo 2 Edge | 원본 RGB·추정한 과거 이동·주행 지시 → 시점마다 미래 자세 64개 | 실제 VLA 모델을 실행하고 예측을 표시합니다. 제어 명령은 적용하지 않습니다. |
 | Mask R-CNN | 원본 RGB → 종류·점수·검출 박스·객체별 마스크 | Alpamayo나 보정 영상과 독립적으로 주변 차량과 사람을 인식합니다. |
 
@@ -38,7 +40,7 @@ NuRec은 Gaussian의 위치·회전·크기·불투명도·방향별 색을 조�
 
 Harmonizer에는 NuRec이 실제 렌더링한 프레임을 값 범위 `[-1,1]`의 `float[1,3,1,576,1024]`로 넣습니다. 비교 영상의 좌우는 **같은 카메라 자세와 프레임 번호**를 사용합니다. 공개된 non-temporal 모델은 각 프레임을 독립적으로 처리하므로 세부 묘사가 바뀌거나 깜박일 수 있습니다. 도로처럼 빈 공간을 채워도 그 부분을 실제로 관측했다는 뜻은 아닙니다. **Built on NVIDIA Cosmos.**
 
-브라우저에서는 NuRec의 공식 `export-gaussian-plys` 출력물을 SPZ로 압축해 Spark/Three.js로 그립니다. Gaussian은 유지하고 방향별 색은 degree 1로 줄입니다. 따라서 **NuRec 학습 결과의 브라우저용 미리보기**이며, 압축과 렌더러 차이로 NuRec 원본 렌더링과 조금 다를 수 있습니다. 마우스를 움직일 때마다 Harmonizer를 실행한다고 설명하지 않습니다. NuRec 원본과 Harmonizer의 실제 출력은 별도 비교 영상으로 확인합니다.
+브라우저에서는 NuRec의 공식 `export-gaussian-plys` 출력물을 SPZ로 압축해 Spark/Three.js로 그립니다. Gaussian은 유지하고 방향별 색은 degree 1로 줄입니다. 따라서 **NuRec 학습 결과의 브라우저용 미리보기**이며, 압축과 렌더러 차이로 NuRec 원본 렌더링과 조금 다를 수 있습니다. 공개 Pages에서는 NuRec 원본과 Harmonizer의 실제 출력 영상을 확인합니다. 아래의 선택형 로컬 서버를 연결하면 마우스로 고른 실제 화면도 보정할 수 있습니다. 정적 Pages 자체에서 GPU 추론을 실행하지는 않습니다.
 
 ### 4. Alpamayo 경로는 어디서 나올까?
 
@@ -69,6 +71,69 @@ Mask R-CNN은 원본 RGB에서 객체 종류·박스·이진 마스크를 예측
 마스크 아래쪽 픽셀에서 나온 광선을 추정한 도로면과 교차시켜 3D 접점을 표시합니다. 화면 가장자리에서 잘렸거나 수평선 근처이거나 너무 먼 객체는 2D 결과만 남깁니다. 표식은 실측한 3D 박스나 물리적 가림 관계가 아닙니다. 임시 ID가 바뀔 수 있고 여러 프레임의 검출 수는 고유한 사람·차량 수와 다릅니다. [마스크와 좌표의 상세 설명](rgb-reality-view.md)도 함께 보세요.
 
 Volvo S90은 출처를 표시한 실제 3D 메시로, 자차 위치를 보여주기 위해 전경에 추가합니다. 원래 촬영 차량이나 차량 동역학 모델은 아닙니다. 장면 복원·외관 보정·객체 인식·주행 예측은 각각 확인할 수 있게 유지합니다.
+
+### 6. RGB에서 추정한 깊이로 번짐 줄이기
+
+![RGB 사진에서 DA3 깊이를 추정하고 SfM으로 스케일을 맞춰 NuRec의 거리·법선 loss에 연결하는 과정](../../../assets/lessons/nurec-rgb-guidance/pipeline.ko.svg)
+
+RGB만 맞추는 학습에서는 서로 다른 3D 배치가 비슷한 사진을 만들 수 있습니다. 도로가 울퉁불퉁하게 복원되거나 색이 허공에 번지는 이유 중 하나입니다. **깊이 prior**는 “이 픽셀의 표면이 대략 이 거리쯤에 있다”는 보조 추정치입니다. [Depth Anything 3](https://github.com/ByteDance-Seed/Depth-Anything-3)의 **DA3-BASE**에 학습용 사진과 RGB에서 추정한 카메라를 넣어 깊이를 얻습니다. 코드와 이 체크포인트는 Apache-2.0이며, 더 큰 DA3 모델 모두가 같은 조건인 것은 아닙니다.
+
+깊이 지도의 값은 그대로 쓰지 않습니다. 학습 사진의 특징점으로 삼각측량한 SfM 점과 맞춰 **양수 스케일과 오프셋**을 추정합니다. 차량·사람의 검출 박스, 신뢰도가 낮은 픽셀과 깊이가 불연속적인 경계는 기하 제약에서 제외합니다. RGB 재현 loss에는 원래 사진을 계속 사용합니다.
+
+![실제 학습 사진과 RGB에서 예측한 깊이, 깊이 차분으로 구한 표면 법선](../../../assets/lessons/nurec-rgb-guidance/priors.webp)
+
+깊이에는 서로 다른 두 정의가 있습니다. **z-depth**는 카메라 앞 방향의 거리이고 **ray distance**는 픽셀의 광선을 따라 잰 거리입니다. 화면 중앙에서 벗어나면 두 값이 달라집니다. NuRec의 거리 loss에 전달하는 것은 ray distance입니다. 법선(normal)은 표면이 향하는 방향을 길이 1의 벡터로 나타냅니다. 이번 법선은 별도 모델의 독립적인 예측이 아니라, 같은 깊이 지도에서 주변 3D 점의 기울기를 구한 것입니다.
+
+실제 학습 프레임 `front_camera/39.jpg`의 도로 픽셀 `(512, 450)`은 다음처럼 변환됐습니다. 모두 **상대 단위**이며 미터로 측정한 값은 아닙니다.
+
+```json
+{
+  "rgb_shape": [569, 1024, 3],
+  "pixel_uv": [512, 450],
+  "z_depth": 5.08896,
+  "ray_distance": 5.15104,
+  "world_normal": [-0.00348, -0.04803, 0.99884]
+}
+```
+
+법선의 세 번째 성분이 약 1이라는 것은 이 좌표계에서 도로가 대체로 위를 향한다는 뜻입니다. NuRec에는 거리 `float[1,569,1024,1]`, 법선 `float[1,569,1024,3]`과 유효 영역을 전달합니다. 렌더러가 예측한 거리·방향을 이 값들과 비교하고, 그 오차를 역전파해 Gaussian의 위치·크기·방향을 조정합니다. 깊이 loss와 법선 loss가 실제 미분 가능한 렌더링에 연결됐는지도 실행 중 검사합니다. [실제 입출력 수치](../../../labs/nurec-rgb-reality/evidence/guidance/input-output-sample.json) · [구현 코드](../../../labs/nurec-rgb-reality/guidance/train.py).
+
+이 방식은 [DN-Splatter의 연구](https://arxiv.org/abs/2403.17822)와 같은 깊이·법선 정규화 접근을 참고한 독립 구현입니다. DN-Splatter 자체를 실행한 결과가 아닙니다. RGB로 추정한 깊이도 틀릴 수 있고, 정적인 Gaussian 모델만으로 움직이는 차량의 잔상을 해결할 수는 없습니다.
+
+### 7. Reality View에 이전 보정 화면을 넣으면 무엇이 달라질까?
+
+![RGB로 복원한 3D 장면을 기준으로 현재 시점을 그리고, 이전 보정 출력 네 장을 Harmonizer에 넣으며 인식과 경로는 원본 RGB에서 따로 계산하는 흐름](../../../assets/lessons/nurec-temporal/pipeline.ko.svg)
+
+사진을 한 장씩 보정하면 마우스를 조금만 움직여도 같은 나무의 모양이 달라질 수 있습니다. 이번에는 **NuRec의 3D 장면을 공간 기준으로 유지**하고, 보정 모델에 이전 출력 네 장을 함께 넣습니다. 현재 렌더링은 새 시점을 알려주고, 이전 출력은 외관이 이어지도록 돕습니다. 기존의 프레임별 보정에서 실제로 바꾼 부분입니다.
+
+| 궁금한 점 | 기존 구현 | 이번 구현 |
+| --- | --- | --- |
+| 장면의 공간 기준은? | RGB로 복원한 NuRec Gaussian | 깊이 제약으로 개선한 NuRec Gaussian. 비교할 때 같은 카메라 사용 |
+| 화면을 어떻게 보정하나? | non-temporal 가중치로 한 장씩 처리 | 공개된 temporal 가중치 하나로 V1·V5를 비교 |
+| 마우스로 돌리면? | 브라우저에서 3D 렌더링, 보정은 저장 영상으로 확인 | 선택한 실제 화면을 로컬 GPU 서버로 보내 보정. 밀린 화면을 쌓아두지 않음 |
+| 시점이 갑자기 바뀌면? | 보정 이력이 없음 | 큰 회전·이동, 시간 점프, 투영·복원 모델 변경 시 이력 초기화 |
+| 인식 표식과 경로의 입력은? | 원본 RGB와 추정 움직임 | 같은 원본 입력 유지. 보정 **이후에** 표식과 경로를 겹쳐 표시 |
+| RGB 근거가 약한 곳은? | 별도 표시 없음 | Gaussian 형상은 유지한 채 깊이 일치 추정치를 색으로 확인 |
+
+**데이터를 살펴봅시다.** 현재 시점의 렌더링은 `[-1,1]` 범위의 `float[1,3,1,576,1024]`가 됩니다. 이전 보정 출력이 네 장 쌓이면 다음처럼 묶습니다.
+
+```text
+x[:, :, 0] = 현재 시점의 3D 렌더링
+x[:, :, 1] = 직전 보정 출력, t−1
+x[:, :, 2] = 두 번째 이전 보정 출력, t−2
+x[:, :, 3] = 세 번째 이전 보정 출력, t−3
+x[:, :, 4] = 네 번째 이전 보정 출력, t−4
+x.shape    = [1, 3, 5, 576, 1024]
+y.shape    = [1, 3, 5, 576, 1024] → y[:, :, 0]을 표시
+```
+
+처음 네 장은 V1으로 처리하고, 이력을 비우면 다시 네 장을 모읍니다. 여기서 과거 입력은 **모델이 앞서 생성한 출력**입니다. 미래 카메라 사진이나 앞으로의 여덟 프레임을 예측하는 구조와 다릅니다. 단일 단계 diffusion으로 외관을 보정하며, 3D 형상을 다시 학습하거나 채워 넣은 표면의 정확성을 보장하지는 않습니다. [공식 코드](https://github.com/NVIDIA/harmonizer)와 [모델 카드](https://huggingface.co/nvidia/Harmonizer)에서 원래 구현을 확인할 수 있습니다.
+
+제공받은 Tesla 해설은 하나의 시각 인코더에서 주행 모델과 diffusion·mean-flow 표시 모델로 갈라지는 구조를 제안합니다. 설계에 참고할 가설이지만 모델 크기·36fps·여덟 프레임이라는 주장은 **이 실습에서 확인한 사실이 아닙니다.** 연결된 [원본 X 게시물](https://x.com/elonmusk/status/2124458557525397780)은 확인 과정에서 직접 열리지 않았습니다. 우리는 Tesla 가중치나 공유 UVE를 재현하지 않았습니다. 원본 RGB에서 복원·인식·Alpamayo를 각각 실행하고, 표시용 분기에서 실제 NuRec 렌더링과 공개 Harmonizer 가중치를 사용합니다.
+
+**색은 정답이 아니라 보조 근거입니다.** 뷰어에서 **RGB 깊이 근거 살펴보기**를 고르세요. Gaussian 중심을 투영했을 때 깊이가 일치하는 카메라가 0개면 빨강, 1개면 노랑, 2개 이상이면 청록입니다. 여섯 카메라 이름을 구분하므로 같은 카메라의 여러 프레임을 별개 카메라로 세지 않습니다. RGB에서 추정한 카메라와 예측 깊이를 10% + 상대 단위 0.1의 오차 범위로 비교합니다. 가림·움직이는 객체 제외·깊이 오차 때문에 낮게 나올 수 있습니다. 실측 가시성, 픽셀별 신뢰도나 환각 판정으로 읽으면 안 됩니다.
+
+[같은 160개 시점의 원본·V1·V5 비교 영상](../../../labs/nurec-rgb-reality/evidence/temporal/comparison.ko.mp4) · [마우스로 시점을 바꿔 GPU에서 보정한 실제 화면](../../../labs/nurec-rgb-reality/evidence/temporal/interaction.ko.mp4)
 
 ## 따라 하기
 
@@ -116,10 +181,97 @@ python3 labs/nurec-rgb-reality/pipeline.py --root "$NUREC_RGB_ROOT" serve
 
 새 출력 폴더에서는 `pipeline.py --root "$NUREC_RGB_ROOT" all`로 전체 과정을 이어 실행할 수 있습니다. GPU 단계는 같은 잠금과 GPU 한 장을 사용합니다. 이 예제는 문서에 나온 PandaSet 방식의 카메라 폴더 여섯 개를 기대합니다. 정면 카메라 하나로는 후방 관측을 얻을 수 없으므로, 다른 카메라 배열은 입력을 명시적으로 맞춰야 합니다.
 
+### 4. 깊이·법선 보조 학습 비교하기
+
+위 실습으로 `prepare`와 `perceive`까지 완료한 입력 폴더를 사용합니다. 첫 비교는 별도 폴더에서 학습 사진 138장과 검사 사진 24장을 나눠 실행합니다. 아래 명령은 저장소 폴더의 터미널에서 한 줄씩 실행하세요. 설치 단계는 DA3 전용 Python 환경을 만들며 기존 실습 환경을 바꾸지 않습니다.
+
+```bash
+export RGB_BASE="$HOME/physical-ai-labs/nurec-rgb-road"
+export RGB_GUIDED="$HOME/physical-ai-labs/nurec-guidance-test"
+python3 labs/nurec-rgb-reality/guidance/pipeline.py --base "$RGB_BASE" --root "$RGB_GUIDED" setup
+python3 labs/nurec-rgb-reality/guidance/pipeline.py --base "$RGB_BASE" --root "$RGB_GUIDED" inputs
+python3 labs/nurec-rgb-reality/guidance/pipeline.py --base "$RGB_BASE" --root "$RGB_GUIDED" prepare
+python3 labs/nurec-rgb-reality/guidance/pipeline.py --base "$RGB_BASE" --root "$RGB_GUIDED" priors
+python3 labs/nurec-rgb-reality/guidance/pipeline.py --base "$RGB_BASE" --root "$RGB_GUIDED" train
+python3 labs/nurec-rgb-reality/guidance/pipeline.py --base "$RGB_BASE" --root "$RGB_GUIDED" evaluate
+```
+
+`inputs`는 검사 사진을 먼저 분리하고, 학습 사진의 관측만으로 초기 점의 위치와 색을 다시 구합니다. `priors`는 **학습 사진만** DA3에 넣습니다. `train`은 동일한 초기값·난수 seed·16,000단계·Gaussian 상한 45만 개로 RGB 기준 모델, 깊이 모델, 깊이+법선 모델을 차례로 학습합니다. `evaluate`는 같은 카메라의 원본 해상도에서 검사 사진 24장과 비교해 `comparison.json`을 만듭니다. Harmonizer나 이미지 보정은 이 점수에 사용하지 않습니다.
+
+약한 법선 제약도 시험하려면 `train` 명령에 `--variant depth-normal-soft`를 넣고 `evaluate`를 다시 실행합니다. 이 설정은 첫 비교 결과를 본 뒤 조정한 후속 실험이므로 별도의 독립 테스트 결과로 해석하지 않습니다.
+
+뷰어용 고해상도 모델은 **새 출력 폴더**에서 각 명령에 `--production --variant depth`를 추가해 만듭니다. 이 모드에서는 전체 RGB 162장을 사용합니다. `priors` 다음에 `dense`를 실행하고 `train`, `export` 순서로 진행하세요. 인접한 학습 뷰에서 깊이·색·방향이 함께 일치하는 점을 모아 초기 점군을 조밀하게 만들고, 32,000단계·Gaussian 상한 120만 개로 학습합니다. 이 모델은 검사 사진도 포함한 표시용 모델이며, 아래의 loss 비교 점수와 구분합니다. `package`로 기존 실습의 카메라·인식·경로 결과와 묶고 `serve`를 실행하면 **http://127.0.0.1:8093/**에서 직접 둘러볼 수 있습니다. 기존 실습의 `export` 단계가 먼저 끝나 있어야 합니다. `export`는 NuRec 원본을 PLY로 내보내 SPZ로 압축합니다. 선택형 서버를 연결하지 않은 마우스 조작은 Spark의 브라우저 렌더링입니다. [단계별 실행 코드](../../../labs/nurec-rgb-reality/guidance/pipeline.py) · [모델 내보내기](../../../labs/nurec-rgb-reality/guidance/export_model.py).
+
+### 5. GPU에서 시간축 보정 실행하기
+
+앞에서 복원과 렌더링까지 마친 뒤 진행하세요. NuRec 컨테이너는 그대로 두고 공식 Harmonizer 환경을 따로 만듭니다. **Python 3.12 이상, Linux x86_64, NVIDIA Container Toolkit이 연결된 Docker, uv**가 필요합니다. 공개 가중치는 약 5GB이며 NVIDIA Open Model License가 적용됩니다. 공식 코드의 Apache-2.0과 이 저장소 어댑터의 MIT 라이선스는 별개입니다.
+
+```bash
+export RV_TEMPORAL_ROOT="$HOME/physical-ai-labs/reality-temporal"
+export RV_INPUT="$NUREC_RGB_ROOT/renders/orbit/front_camera"
+python3 labs/nurec-rgb-reality/temporal/pipeline.py --root "$RV_TEMPORAL_ROOT" setup
+python3 labs/nurec-rgb-reality/temporal/pipeline.py --root "$RV_TEMPORAL_ROOT" --input "$RV_INPUT" compare
+python3 labs/nurec-rgb-reality/temporal/pipeline.py --root "$RV_TEMPORAL_ROOT" --input "$RV_INPUT" evaluate
+python3 labs/nurec-rgb-reality/temporal/pipeline.py --root "$RV_TEMPORAL_ROOT" check
+```
+
+`setup`은 고정한 공식 코드와 가중치 해시를 확인합니다. `compare`는 같은 순서의 렌더링을 V1·V5로 처리해 따로 저장합니다. 기존 실험을 보존하려면 새 결과 폴더를 쓰세요. `evaluate`는 영상의 시간적 안정성과 윤곽을 비교하고, `check`는 출력 파일 해시와 실제 네 장 문맥 사용을 확인합니다. 공개한 160프레임 비교는 개선 모델의 NuRec 원본 렌더링을 사용했습니다. [같은 시점 경로 재현과 선택형 실시간 뷰어 설정](../../../labs/nurec-rgb-reality/temporal/README.ko.md).
+
+**GPU나 가중치를 받지 않고 공개한 실행 기록을 검사**하려면 다음 한 줄만 실행하세요.
+
+```bash
+python3 labs/nurec-rgb-reality/temporal/check.py
+```
+
+GPU 서버는 필요할 때만 켭니다. 마우스로 선택한 실제 3D 화면의 중앙 16:9 영역을 깨끗하게 캡처해 보내고, 보정이 끝난 뒤 양쪽 화면에 원본 RGB의 인식 표식과 Alpamayo 경로를 덧그립니다. 공개 Pages에서는 3D 장면과 실제 녹화 영상을 볼 수 있으며, 방문자의 컴퓨터에 연결을 시도하지 않습니다. [GPU 서버와 SSH 터널 설정](../../../labs/nurec-rgb-reality/temporal/README.ko.md#실시간-뷰어-연결하기).
+
 ## 결과 확인
+
+### 시간축 보정 결과는 어떻게 읽어야 할까?
+
+RTX 5090 한 장, 1024×576, BF16, 같은 공개 temporal 가중치와 NuRec 원본 렌더링 160장을 사용했습니다. 이번 V1·V5는 **같은 가중치**로 비교했으며, 이전 TorchScript non-temporal 데모와 구분합니다. 지연은 처음 네 프레임을 제외하고 GPU 모델 계산만 동기화해 측정했습니다.
+
+| 방식 | 중앙값 / p95 | 최대 할당 VRAM | 같은 flow의 warp L1 ↓ | 윤곽 크기 |
+| --- | --- | --- | --- | --- |
+| 원본 렌더링 | — | — | 0.02898 | 0.02609 |
+| V1: 프레임별 보정 | 124 / 124ms | 3.61GiB | 0.02550 | 0.02240 |
+| V5: 이전 출력 네 장 | 484 / 485ms | 7.01GiB | 0.01722 | 0.01973 |
+
+V5의 시간적 흔들림 지표는 V1보다 약 **32% 낮고**, 윤곽 크기도 약 **12% 낮습니다.** 화면을 부드럽게 만드는 것만으로 지표가 좋아질 수 있으므로, 관측하지 않은 시점의 정확도가 32% 올랐다는 뜻은 아닙니다. 모델 계산만 환산하면 약 8.1장/초와 2.1장/초이며 캡처·인코딩·전송 시간은 빠져 있습니다. 비교 영상은 살펴보기 편하게 빠르게 재생합니다. 브라우저가 약 60Hz로 움직여도 diffusion이 60fps로 실행되는 것은 아닙니다. 첫 초기화·컴파일에도 시간이 더 걸립니다.
+
+처음에는 시점을 크게 바꾸면 앞선 차량 외관이 잔상으로 남았습니다. 지금은 회전 12도·상대 거리 0.75를 넘는 이동, 투영·모델 변경과 시간 점프에서 이력을 비웁니다. 데모용 보수적 기준이며 학습된 보장 조건은 아닙니다. 실제 브라우저에서 작은 마우스 이동 시 V5 유지, 운전자 시점 전환 시 이력 초기화, 모드 전환과 두 언어의 390px 화면을 확인했습니다.
+
+[프레임별 계산 시간·해시](../../../labs/nurec-rgb-reality/evidence/temporal/temporal.json) · [동일 입력 비교 결과와 계산 방식](../../../labs/nurec-rgb-reality/evidence/temporal/evaluation.json) · [실제 브라우저 조작 기록](../../../labs/nurec-rgb-reality/evidence/temporal/browser.json)
+
+여전히 미리 복원한 정적 장면이므로 움직이는 주변 차량이 겹칠 수 있고 스케일도 모호합니다. 보이지 않던 면은 추정이며 차량을 제어하지 않습니다. 원본 RGB·복원 형상·생성 보정·인식 추정·예측 경로를 구분해 살펴보세요.
+
+
+
+### 깊이·법선 loss를 넣으면 얼마나 달라질까?
+
+![같은 운전자 시점의 기존 45만 개 모델과 깊이 기반 120만 개 모델](../../../assets/lessons/nurec-rgb-guidance/production-compare.webp)
+
+[기존 모델과 고해상도 모델의 같은 새 시점 영상](../../../labs/nurec-rgb-reality/evidence/guidance/native-comparison.ko.mp4)에서 도로의 빈틈과 번짐을 비교해 보세요. 이 영상은 초기 점군과 학습 예산도 달라지는 별도 비교입니다. 뷰어의 기본 추적 시점도 원래 촬영 높이에 가까운 위치로 낮췄으며, 비교 모델 모두 같은 시점을 사용합니다.
+
+![같은 검사 사진에 대한 RGB 기준 모델과 깊이 기반 복원 비교](../../../assets/lessons/nurec-rgb-guidance/comparison.ko.webp)
+
+학습에 쓰지 않은 **6개 카메라 × 4개 시점, 총 24장**의 평균입니다. 두 지표 모두 높을수록 원본 RGB와 가깝습니다.
+
+| 같은 조건의 실험 | PSNR (dB) | SSIM | 깊이 / 법선 / 평탄화 가중치 |
+| --- | ---: | ---: | --- |
+| RGB 기준 | 21.974 | 0.7113 | 0 / 0 / 0 |
+| 깊이 | 22.249 | 0.7171 | 0.1 / 0 / 0 |
+| 깊이 + 법선 | 21.924 | 0.7168 | 0.1 / 0.03 / 0.0005 |
+| 약한 법선 제약 · 후속 조정 | 22.249 | 0.7175 | 0.1 / 0.005 / 0.00005 |
+
+깊이 보조 학습은 이 비교에서 개선됐지만, 강한 법선 제약은 PSNR을 낮췄습니다. 법선 제약을 약하게 조정하면 깊이 모델과 거의 같은 결과가 나왔습니다. 뷰어용 모델에는 깊이 loss를 사용하고, 법선은 조밀한 초기 점군의 방향과 일관성 검사에 활용했습니다. “loss를 더하면 무조건 좋아진다”는 결과가 아닙니다. 카메라 자세는 전체 RGB로 미리 구한 값을 고정했으므로, **카메라 추정까지 완전히 분리한 독립 검증은 아닙니다.** 사진별 수치와 해시, 학습 완료 시간, 실제 loss 연결 기록은 [비교 결과](../../../labs/nurec-rgb-reality/evidence/guidance/comparison.json)와 [실행 기록 요약](../../../labs/nurec-rgb-reality/evidence/guidance/matched-runs.json)에 있습니다.
+
+표시용 모델은 RTX 5090 한 장에서 **723.07초** 학습했습니다. DA3 추론·카메라 복원·내보내기 시간은 제외한 값입니다. Gaussian 120만 개 뷰어는 M2 Max의 Chrome에서 정지·회전·경로 재생 모두 약 **60FPS**를 유지했습니다. 렌더링 버퍼는 896×504와 1344×756이며, 브라우저의 약 60Hz 루프를 측정한 것입니다. GPU의 최대 FPS나 전체 파이프라인의 실시간 처리 속도로 해석하지 않습니다. [클라이언트 측정 기록](../../../labs/nurec-rgb-reality/evidence/guidance/browser-fps.json) · [학습·초기화·내보내기 기록](../../../labs/nurec-rgb-reality/evidence/guidance/production-model.json).
 
 ```bash
 python3 labs/nurec-rgb-reality/check.py --decode-video
+python3 labs/nurec-rgb-reality/guidance/check.py
+python3 -m unittest discover -s labs/nurec-rgb-reality/guidance -p 'test_*.py'
 python3 -m unittest discover -s labs/rgb-reality-view -p 'test_*.py'
 ```
 

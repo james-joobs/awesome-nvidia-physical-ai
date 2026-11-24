@@ -76,10 +76,10 @@ export const clips = [
     ko: { title: '인체 4D 재구성: 동작·시점·Gaussian 렌더링', description: 'RGB → GEM-X/SOMA → 다중 시점 → 4D Gaussian 과정을 배웁니다. 별도 공개 SOMA 합성 제어 샘플을 RGB·3D 같은 크기로 비교하고, 직접 만든 로컬 모델도 열어보세요. YouTube 참고 영상은 별도로 임베드합니다.' },
   },
   {
-    id: 'nurec-rgb-reality', duration: '0:35', width: 1280, height: 720,
-    media: { en: 'nurec-overview.en', ko: 'nurec-overview.ko' },
-    en: { title: 'RGB-only NuRec road view, perception and Alpamayo paths', description: 'Actual NuRec training and rendering, a native Harmonizer comparison, source-RGB object perception and four Alpamayo predictions. Orbit a Volvo reference on one GPU’s saved result; scale and camera-layout assumptions are disclosed.' },
-    ko: { title: 'RGB로 NuRec 도로 복원·주변 인식·Alpamayo 경로 보기', description: '실제 NuRec 학습·렌더링, Harmonizer 전후 비교, 원본 RGB의 객체 인식과 Alpamayo 네 시점 예측을 연결했습니다. GPU 한 장에서 만든 장면을 Volvo 중심으로 둘러보고 스케일·카메라 가정도 확인합니다.' },
+    id: 'nurec-rgb-reality', duration: '0:27', width: 1280, height: 888,
+    media: { en: 'nurec-temporal-live.en', ko: 'nurec-temporal-live.ko' },
+    en: { title: 'RGB-only Reality View: 3D geometry and temporal enhancement', description: 'Actual mouse-controlled NuRec scene → GPU Harmonizer with four previous outputs. Inspect original RGB detections, Alpamayo predictions and the native/generated pair; camera jumps reset history. Explore the saved 3D scene without a GPU or reproduce the optional local enhancer.' },
+    ko: { title: 'RGB Reality View: 3D 기준과 시간축 생성 보정', description: '실제 마우스 시점의 NuRec 장면을 GPU Harmonizer로 보정하고 이전 출력 네 장을 이어 씁니다. 원본 RGB 인식·Alpamayo 경로와 원본·보정 화면을 비교하고 큰 시점 변경에서는 이력을 비웁니다. GPU 없이 저장된 3D 장면을 탐색하거나 로컬 서버로 직접 실행해 보세요.' },
   },
   {
     id: 'rgb-reality-view', duration: '0:25', width: 1280, height: 720,
@@ -170,6 +170,14 @@ export const clips = [
 
 // Extra runs share an existing lab and its reading order.
 export const labMediaFiles = {
+  'labs/nurec-rgb-reality/evidence/temporal/comparison.en.mp4': 'nurec-temporal.en.mp4',
+  'labs/nurec-rgb-reality/evidence/temporal/comparison.ko.mp4': 'nurec-temporal.ko.mp4',
+  'labs/nurec-rgb-reality/evidence/temporal/interaction.en.mp4': 'nurec-temporal-live.en.mp4',
+  'labs/nurec-rgb-reality/evidence/temporal/interaction.ko.mp4': 'nurec-temporal-live.ko.mp4',
+  'labs/nurec-rgb-reality/evidence/guidance/native-comparison.en.mp4': 'nurec-guidance.en.mp4',
+  'labs/nurec-rgb-reality/evidence/guidance/native-comparison.ko.mp4': 'nurec-guidance.ko.mp4',
+  'labs/nurec-rgb-reality/evidence/guidance/interaction.en.mp4': 'nurec-guided-interaction.en.mp4',
+  'labs/nurec-rgb-reality/evidence/guidance/interaction.ko.mp4': 'nurec-guided-interaction.ko.mp4',
   'labs/nurec-rgb-reality/evidence/nurec-overview.en.mp4': 'nurec-overview.en.mp4',
   'labs/nurec-rgb-reality/evidence/nurec-overview.ko.mp4': 'nurec-overview.ko.mp4',
   'labs/nurec-rgb-reality/evidence/nurec-rgb-reality.en.mp4': 'nurec-rgb-reality.en.mp4',
@@ -195,10 +203,34 @@ export const labMediaFiles = {
 
 export const additionalRecordings = [
   {
+    id: 'nurec-temporal', lab: 'nurec-rgb-reality', duration: '0:24', width: 1280, height: 640,
+    media: { en: 'nurec-temporal.en', ko: 'nurec-temporal.ko' },
+    en: { title: 'Matched native / independent / temporal comparison', description: '160 actual native camera renders, one checkpoint in V1 and V5. Temporal warp error is lower, while edges also soften. Model-only medians are 124ms and 484ms on one RTX 5090; playback speed is not inference FPS.' },
+    ko: { title: '같은 시점의 원본·프레임별·시간축 보정 비교', description: '실제 NuRec 렌더링 160장에 같은 가중치로 V1·V5를 실행했습니다. 시간적 흔들림 지표는 낮아지고 윤곽도 부드러워집니다. RTX 5090 모델 계산 중앙값 124ms·484ms이며 영상 재생 속도는 추론 FPS가 아닙니다.' },
+  },
+  {
+    id: 'nurec-overview', lab: 'nurec-rgb-reality', duration: '0:35', width: 1280, height: 720,
+    media: { en: 'nurec-overview.en', ko: 'nurec-overview.ko' },
+    en: { title: 'Earlier baseline: reconstruction, recognition and prediction', description: 'Preserved original overview before temporal enhancement. Compare the original RGB-only NuRec scene, non-temporal Harmonizer and separate perception / policy outputs.' },
+    ko: { title: '이전 기준 영상: 복원·인식·예측 연결', description: '시간축 보정 전의 전체 소개 영상을 보존했습니다. 기존 RGB NuRec 장면, non-temporal Harmonizer와 별도 인식·경로 출력을 확인하세요.' },
+  },
+  {
     id: 'human-4d-control-render', lab: 'human-4d-gaussian', duration: '0:39', width: 1280, height: 816,
     media: { en: 'human-4d-control/comparison', ko: 'human-4d-control/comparison' },
     en: { title: 'Full SOMA control: fixed RGB and Gaussian orbit', description: 'All 931 frames of NVIDIA’s official example motion, rendered as a known mesh and as 18,056 skinned Gaussians. This separate synthetic control tests time, cameras and skinning, rather than video-reconstruction accuracy.' },
     ko: { title: 'SOMA 전체 동작: 고정 RGB와 Gaussian 회전 영상', description: 'NVIDIA 공식 예제 동작 931프레임을 메시와 리깅 Gaussian 18,056개로 렌더링했습니다. 시간·카메라·스키닝을 확인하는 별도의 합성 제어 예제입니다.' },
+  },
+  {
+    id: 'nurec-guided-interaction', lab: 'nurec-rgb-reality', duration: '0:14', width: 1280, height: 720,
+    media: { en: 'nurec-guided-interaction.en', ko: 'nurec-guided-interaction.ko' },
+    en: { title: 'Use the improved 1.2M-Gaussian scene', description: 'Actual browser capture: switch from the original driver view to the guided model at the same camera, orbit with the mouse, and replay the RGB-estimated path with perception contacts and Alpamayo predictions. Offline-trained reconstruction; open-loop display.' },
+    ko: { title: '개선한 Gaussian 120만 개 장면 직접 조작하기', description: '실제 브라우저 화면에서 같은 운전자 시점으로 모델을 바꾸고, 마우스로 회전한 뒤 경로를 재생합니다. 원본 RGB의 인식 접점과 Alpamayo 예측을 함께 표시합니다. 미리 복원한 장면을 탐색하는 예제이며 차량 제어는 하지 않습니다.' },
+  },
+  {
+    id: 'nurec-guidance', lab: 'nurec-rgb-reality', duration: '0:16', width: 1280, height: 720,
+    media: { en: 'nurec-guidance.en', ko: 'nurec-guidance.ko' },
+    en: { title: 'Depth-guided reconstruction: original and production model', description: 'Actual native NuRec renders on the same quarter-view and orbit paths, with matching detail crops. The production fit changes seed density, steps and Gaussian capacity as well as guidance; use the held-out table for a loss-only comparison. No Harmonizer or image enhancement.' },
+    ko: { title: '깊이 기반 복원: 기존 모델과 고해상도 모델 비교', description: '같은 사선·회전 경로를 NuRec에서 직접 렌더링하고 같은 영역을 확대했습니다. 개선 모델은 깊이 제약과 함께 초기 점군·학습량·Gaussian 상한도 늘렸습니다. loss만의 효과는 검사 사진 비교표에서 확인하세요. Harmonizer나 이미지 보정은 사용하지 않았습니다.' },
   },
   {
     id: 'nurec-interactive', lab: 'nurec-rgb-reality', duration: '0:27', width: 1280, height: 720,

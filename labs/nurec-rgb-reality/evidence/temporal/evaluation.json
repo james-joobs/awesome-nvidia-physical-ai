@@ -1,0 +1,3057 @@
+{
+  "schema": 1,
+  "frames": 160,
+  "contextual_pairs": 156,
+  "checkpoint_sha256": "6e65e9ec33019a49f7f0d15f81f5e089c2527e131bd5339d6a14f9b3531db524",
+  "summary": {
+    "native": {
+      "flow_warp_l1": 0.02897911771940879,
+      "edge_magnitude": 0.02609065633553725
+    },
+    "independent": {
+      "flow_warp_l1": 0.02550316864075378,
+      "edge_magnitude": 0.022401469610275608
+    },
+    "temporal": {
+      "flow_warp_l1": 0.01722010947429599,
+      "edge_magnitude": 0.019734686586112462
+    }
+  },
+  "method": "Shared backward Farneback flow from the native input; forward/backward round-trip threshold1.5px at512x288; same valid pixels for all modes. Cuts and context-free startup frames excluded from summary.",
+  "scope": "Temporal stability proxy; not ground-truth depth, novel-view fidelity, object correctness, or driving safety. Blur or frozen output can reduce warp error; inspect edge sharpness and actual camera response alongside it.",
+  "timing": {
+    "independent": {
+      "model_median_seconds_after_frame4": 0.12407956644892693,
+      "model_p95_seconds_after_frame4": 0.12417917547281832,
+      "peak_allocated_gib": 3.6079115867614746
+    },
+    "temporal": {
+      "model_median_seconds_after_frame4": 0.4840722184162587,
+      "model_p95_seconds_after_frame4": 0.48476944130379707,
+      "peak_allocated_gib": 7.006844997406006
+    }
+  },
+  "pairs": [
+    {
+      "frame": 1,
+      "valid_fraction": 0.8774007161458334,
+      "actual_history_frames": 0,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.03061079792678356,
+          "edge_magnitude": 0.03385406194948683
+        },
+        "independent": {
+          "flow_warp_l1": 0.028760872781276703,
+          "edge_magnitude": 0.031596928016812194
+        },
+        "temporal": {
+          "flow_warp_l1": 0.028760872781276703,
+          "edge_magnitude": 0.031596928016812194
+        }
+      }
+    },
+    {
+      "frame": 2,
+      "valid_fraction": 0.8928765190972222,
+      "actual_history_frames": 0,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.022078845649957657,
+          "edge_magnitude": 0.034691877926097195
+        },
+        "independent": {
+          "flow_warp_l1": 0.022437086328864098,
+          "edge_magnitude": 0.031174470864090264
+        },
+        "temporal": {
+          "flow_warp_l1": 0.022437086328864098,
+          "edge_magnitude": 0.031174470864090264
+        }
+      }
+    },
+    {
+      "frame": 3,
+      "valid_fraction": 0.9233330620659722,
+      "actual_history_frames": 0,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01932380720973015,
+          "edge_magnitude": 0.034315026975145525
+        },
+        "independent": {
+          "flow_warp_l1": 0.024536095559597015,
+          "edge_magnitude": 0.030860040702071843
+        },
+        "temporal": {
+          "flow_warp_l1": 0.024536095559597015,
+          "edge_magnitude": 0.030860040702071843
+        }
+      }
+    },
+    {
+      "frame": 4,
+      "valid_fraction": 0.9268934461805556,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01818360760807991,
+          "edge_magnitude": 0.034075116176231234
+        },
+        "independent": {
+          "flow_warp_l1": 0.01833314262330532,
+          "edge_magnitude": 0.031361778109681375
+        },
+        "temporal": {
+          "flow_warp_l1": 0.02107575163245201,
+          "edge_magnitude": 0.02899177962658452
+        }
+      }
+    },
+    {
+      "frame": 5,
+      "valid_fraction": 0.9257744683159722,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.017634060233831406,
+          "edge_magnitude": 0.034339283961875765
+        },
+        "independent": {
+          "flow_warp_l1": 0.018842272460460663,
+          "edge_magnitude": 0.031121599907968558
+        },
+        "temporal": {
+          "flow_warp_l1": 0.015513250604271889,
+          "edge_magnitude": 0.02862556868908452
+        }
+      }
+    },
+    {
+      "frame": 6,
+      "valid_fraction": 0.9295383029513888,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.017166055738925934,
+          "edge_magnitude": 0.03413679085525812
+        },
+        "independent": {
+          "flow_warp_l1": 0.021497705951333046,
+          "edge_magnitude": 0.029994484022551893
+        },
+        "temporal": {
+          "flow_warp_l1": 0.014518075622618198,
+          "edge_magnitude": 0.027841685799991384
+        }
+      }
+    },
+    {
+      "frame": 7,
+      "valid_fraction": 0.9346856011284722,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.016849642619490623,
+          "edge_magnitude": 0.0340183370253619
+        },
+        "independent": {
+          "flow_warp_l1": 0.020230118185281754,
+          "edge_magnitude": 0.02951952616373698
+        },
+        "temporal": {
+          "flow_warp_l1": 0.015523020178079605,
+          "edge_magnitude": 0.027317952174766392
+        }
+      }
+    },
+    {
+      "frame": 8,
+      "valid_fraction": 0.92620849609375,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.016905829310417175,
+          "edge_magnitude": 0.03398041070676317
+        },
+        "independent": {
+          "flow_warp_l1": 0.017512058839201927,
+          "edge_magnitude": 0.028614186305625768
+        },
+        "temporal": {
+          "flow_warp_l1": 0.015207613818347454,
+          "edge_magnitude": 0.026931078293744255
+        }
+      }
+    },
+    {
+      "frame": 9,
+      "valid_fraction": 0.9361640082465278,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.017112065106630325,
+          "edge_magnitude": 0.03383336908677045
+        },
+        "independent": {
+          "flow_warp_l1": 0.020193275064229965,
+          "edge_magnitude": 0.029305572135775698
+        },
+        "temporal": {
+          "flow_warp_l1": 0.015141604468226433,
+          "edge_magnitude": 0.027126497380873735
+        }
+      }
+    },
+    {
+      "frame": 10,
+      "valid_fraction": 0.9383748372395834,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.016731154173612595,
+          "edge_magnitude": 0.033795925215178844
+        },
+        "independent": {
+          "flow_warp_l1": 0.02246379852294922,
+          "edge_magnitude": 0.029183049295462813
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01461031287908554,
+          "edge_magnitude": 0.0267153403338264
+        }
+      }
+    },
+    {
+      "frame": 11,
+      "valid_fraction": 0.9354654947916666,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01641308329999447,
+          "edge_magnitude": 0.03378767873726639
+        },
+        "independent": {
+          "flow_warp_l1": 0.017174288630485535,
+          "edge_magnitude": 0.03012221841251149
+        },
+        "temporal": {
+          "flow_warp_l1": 0.014022721908986568,
+          "edge_magnitude": 0.027459170771580117
+        }
+      }
+    },
+    {
+      "frame": 12,
+      "valid_fraction": 0.9519110785590278,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.016620613634586334,
+          "edge_magnitude": 0.033886958103553924
+        },
+        "independent": {
+          "flow_warp_l1": 0.019632965326309204,
+          "edge_magnitude": 0.029985442816042433
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01352072786539793,
+          "edge_magnitude": 0.027521269929175283
+        }
+      }
+    },
+    {
+      "frame": 13,
+      "valid_fraction": 0.9475368923611112,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.016245363280177116,
+          "edge_magnitude": 0.03390873927696078
+        },
+        "independent": {
+          "flow_warp_l1": 0.017094898968935013,
+          "edge_magnitude": 0.02980526194852941
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013190589845180511,
+          "edge_magnitude": 0.027474543627570656
+        }
+      }
+    },
+    {
+      "frame": 14,
+      "valid_fraction": 0.94805908203125,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.016203708946704865,
+          "edge_magnitude": 0.03400421516568053
+        },
+        "independent": {
+          "flow_warp_l1": 0.022075898945331573,
+          "edge_magnitude": 0.03115388645845301
+        },
+        "temporal": {
+          "flow_warp_l1": 0.015419661067426205,
+          "edge_magnitude": 0.027958090165082147
+        }
+      }
+    },
+    {
+      "frame": 15,
+      "valid_fraction": 0.9471367730034722,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.016740668565034866,
+          "edge_magnitude": 0.03432218140246821
+        },
+        "independent": {
+          "flow_warp_l1": 0.02348043955862522,
+          "edge_magnitude": 0.03103466220930511
+        },
+        "temporal": {
+          "flow_warp_l1": 0.014939536340534687,
+          "edge_magnitude": 0.028453179901721432
+        }
+      }
+    },
+    {
+      "frame": 16,
+      "valid_fraction": 0.9439290364583334,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.016991209238767624,
+          "edge_magnitude": 0.03437593123492073
+        },
+        "independent": {
+          "flow_warp_l1": 0.02014552243053913,
+          "edge_magnitude": 0.031750993167652806
+        },
+        "temporal": {
+          "flow_warp_l1": 0.014947800897061825,
+          "edge_magnitude": 0.028683864369111904
+        }
+      }
+    },
+    {
+      "frame": 17,
+      "valid_fraction": 0.9493543836805556,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.0170816071331501,
+          "edge_magnitude": 0.034854825337727866
+        },
+        "independent": {
+          "flow_warp_l1": 0.022267937660217285,
+          "edge_magnitude": 0.03191327487721163
+        },
+        "temporal": {
+          "flow_warp_l1": 0.014987044036388397,
+          "edge_magnitude": 0.028981938081629136
+        }
+      }
+    },
+    {
+      "frame": 18,
+      "valid_fraction": 0.9470553927951388,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.016972096636891365,
+          "edge_magnitude": 0.03470376706590839
+        },
+        "independent": {
+          "flow_warp_l1": 0.019901329651474953,
+          "edge_magnitude": 0.030939984789081647
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013723641633987427,
+          "edge_magnitude": 0.028255819806865617
+        }
+      }
+    },
+    {
+      "frame": 19,
+      "valid_fraction": 0.9463568793402778,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01689385250210762,
+          "edge_magnitude": 0.0341218162985409
+        },
+        "independent": {
+          "flow_warp_l1": 0.017082173377275467,
+          "edge_magnitude": 0.02975656658995385
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013745725154876709,
+          "edge_magnitude": 0.027204206878063724
+        }
+      }
+    },
+    {
+      "frame": 20,
+      "valid_fraction": 0.9412706163194444,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01697266660630703,
+          "edge_magnitude": 0.03311847237979665
+        },
+        "independent": {
+          "flow_warp_l1": 0.022951435297727585,
+          "edge_magnitude": 0.027838626562380325
+        },
+        "temporal": {
+          "flow_warp_l1": 0.015065104700624943,
+          "edge_magnitude": 0.026787200628542434
+        }
+      }
+    },
+    {
+      "frame": 21,
+      "valid_fraction": 0.9406399197048612,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.016403811052441597,
+          "edge_magnitude": 0.03260152480181526
+        },
+        "independent": {
+          "flow_warp_l1": 0.02210705541074276,
+          "edge_magnitude": 0.028069948682598038
+        },
+        "temporal": {
+          "flow_warp_l1": 0.014808704145252705,
+          "edge_magnitude": 0.026331310646206724
+        }
+      }
+    },
+    {
+      "frame": 22,
+      "valid_fraction": 0.9418470594618056,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.016605377197265625,
+          "edge_magnitude": 0.032216030943627454
+        },
+        "independent": {
+          "flow_warp_l1": 0.02007969468832016,
+          "edge_magnitude": 0.02825169843785903
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01537130493670702,
+          "edge_magnitude": 0.02536166321997549
+        }
+      }
+    },
+    {
+      "frame": 23,
+      "valid_fraction": 0.9476521809895834,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.016899431124329567,
+          "edge_magnitude": 0.031543395098517925
+        },
+        "independent": {
+          "flow_warp_l1": 0.02168026752769947,
+          "edge_magnitude": 0.02693458818921856
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01502580288797617,
+          "edge_magnitude": 0.02476351868872549
+        }
+      }
+    },
+    {
+      "frame": 24,
+      "valid_fraction": 0.9328884548611112,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.016697967424988747,
+          "edge_magnitude": 0.030325590395459942
+        },
+        "independent": {
+          "flow_warp_l1": 0.01980479620397091,
+          "edge_magnitude": 0.026471758823768766
+        },
+        "temporal": {
+          "flow_warp_l1": 0.015873771160840988,
+          "edge_magnitude": 0.0240020284465715
+        }
+      }
+    },
+    {
+      "frame": 25,
+      "valid_fraction": 0.9358791775173612,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.016284046694636345,
+          "edge_magnitude": 0.029501868229286344
+        },
+        "independent": {
+          "flow_warp_l1": 0.017816809937357903,
+          "edge_magnitude": 0.02455440409043256
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013885215856134892,
+          "edge_magnitude": 0.022978552650002874
+        }
+      }
+    },
+    {
+      "frame": 26,
+      "valid_fraction": 0.9347941080729166,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01632755436003208,
+          "edge_magnitude": 0.028810828339819815
+        },
+        "independent": {
+          "flow_warp_l1": 0.01926802098751068,
+          "edge_magnitude": 0.023711986167758117
+        },
+        "temporal": {
+          "flow_warp_l1": 0.014345958828926086,
+          "edge_magnitude": 0.021345976287243412
+        }
+      }
+    },
+    {
+      "frame": 27,
+      "valid_fraction": 0.9273478190104166,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.017200225964188576,
+          "edge_magnitude": 0.028701071645699294
+        },
+        "independent": {
+          "flow_warp_l1": 0.02282346412539482,
+          "edge_magnitude": 0.02315532833922143
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01424556877464056,
+          "edge_magnitude": 0.020987609788483266
+        }
+      }
+    },
+    {
+      "frame": 28,
+      "valid_fraction": 0.9168226453993056,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.016708046197891235,
+          "edge_magnitude": 0.028876198039335364
+        },
+        "independent": {
+          "flow_warp_l1": 0.01959460973739624,
+          "edge_magnitude": 0.024244413188859528
+        },
+        "temporal": {
+          "flow_warp_l1": 0.014765730127692223,
+          "edge_magnitude": 0.021291269040575215
+        }
+      }
+    },
+    {
+      "frame": 29,
+      "valid_fraction": 0.91473388671875,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01804279536008835,
+          "edge_magnitude": 0.02936439888150084
+        },
+        "independent": {
+          "flow_warp_l1": 0.024656979367136955,
+          "edge_magnitude": 0.025852790533327587
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013853684067726135,
+          "edge_magnitude": 0.02221349828383502
+        }
+      }
+    },
+    {
+      "frame": 30,
+      "valid_fraction": 0.9085489908854166,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.018772458657622337,
+          "edge_magnitude": 0.0294283062803979
+        },
+        "independent": {
+          "flow_warp_l1": 0.021574612706899643,
+          "edge_magnitude": 0.025525274463728362
+        },
+        "temporal": {
+          "flow_warp_l1": 0.014825759455561638,
+          "edge_magnitude": 0.021355868320839078
+        }
+      }
+    },
+    {
+      "frame": 31,
+      "valid_fraction": 0.9128078884548612,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01750509813427925,
+          "edge_magnitude": 0.029476283578311696
+        },
+        "independent": {
+          "flow_warp_l1": 0.02278258465230465,
+          "edge_magnitude": 0.025144382551604626
+        },
+        "temporal": {
+          "flow_warp_l1": 0.015790734440088272,
+          "edge_magnitude": 0.021791491788976332
+        }
+      }
+    },
+    {
+      "frame": 32,
+      "valid_fraction": 0.9001329210069444,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01864001341164112,
+          "edge_magnitude": 0.02875785079656863
+        },
+        "independent": {
+          "flow_warp_l1": 0.02497338317334652,
+          "edge_magnitude": 0.02374086753994811
+        },
+        "temporal": {
+          "flow_warp_l1": 0.016624711453914642,
+          "edge_magnitude": 0.02111188851150812
+        }
+      }
+    },
+    {
+      "frame": 33,
+      "valid_fraction": 0.8955010308159722,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.02044566161930561,
+          "edge_magnitude": 0.02755573684093999
+        },
+        "independent": {
+          "flow_warp_l1": 0.028301702812314034,
+          "edge_magnitude": 0.02404016606947955
+        },
+        "temporal": {
+          "flow_warp_l1": 0.016160620376467705,
+          "edge_magnitude": 0.020884235232484106
+        }
+      }
+    },
+    {
+      "frame": 34,
+      "valid_fraction": 0.8840535481770834,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.020731305703520775,
+          "edge_magnitude": 0.027082641451966528
+        },
+        "independent": {
+          "flow_warp_l1": 0.02153293415904045,
+          "edge_magnitude": 0.023929238786884383
+        },
+        "temporal": {
+          "flow_warp_l1": 0.014479068107903004,
+          "edge_magnitude": 0.020631956586650773
+        }
+      }
+    },
+    {
+      "frame": 35,
+      "valid_fraction": 0.8787367078993056,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.024879656732082367,
+          "edge_magnitude": 0.025928452435661765
+        },
+        "independent": {
+          "flow_warp_l1": 0.022056814283132553,
+          "edge_magnitude": 0.023303993075501687
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01747029833495617,
+          "edge_magnitude": 0.020157585892022826
+        }
+      }
+    },
+    {
+      "frame": 36,
+      "valid_fraction": 0.8759494357638888,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.03224419057369232,
+          "edge_magnitude": 0.02481710770550896
+        },
+        "independent": {
+          "flow_warp_l1": 0.0291200652718544,
+          "edge_magnitude": 0.022195600995830463
+        },
+        "temporal": {
+          "flow_warp_l1": 0.018069840967655182,
+          "edge_magnitude": 0.019303039475983264
+        }
+      }
+    },
+    {
+      "frame": 37,
+      "valid_fraction": 0.8647189670138888,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.03380290046334267,
+          "edge_magnitude": 0.022858584160898247
+        },
+        "independent": {
+          "flow_warp_l1": 0.025645334273576736,
+          "edge_magnitude": 0.02085444880466835
+        },
+        "temporal": {
+          "flow_warp_l1": 0.015380555763840675,
+          "edge_magnitude": 0.01875425600538067
+        }
+      }
+    },
+    {
+      "frame": 38,
+      "valid_fraction": 0.8505452473958334,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.0395803339779377,
+          "edge_magnitude": 0.020067693672928155
+        },
+        "independent": {
+          "flow_warp_l1": 0.03019573912024498,
+          "edge_magnitude": 0.017332095725863587
+        },
+        "temporal": {
+          "flow_warp_l1": 0.019327815622091293,
+          "edge_magnitude": 0.01591318167892157
+        }
+      }
+    },
+    {
+      "frame": 39,
+      "valid_fraction": 0.8460828993055556,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.03833106532692909,
+          "edge_magnitude": 0.02070488088271197
+        },
+        "independent": {
+          "flow_warp_l1": 0.02681291289627552,
+          "edge_magnitude": 0.018662209604300706
+        },
+        "temporal": {
+          "flow_warp_l1": 0.015775222331285477,
+          "edge_magnitude": 0.01618205612781001
+        }
+      }
+    },
+    {
+      "frame": 40,
+      "valid_fraction": 0.7535671657986112,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.04173806309700012,
+          "edge_magnitude": 0.017792611963608686
+        },
+        "independent": {
+          "flow_warp_l1": 0.025728091597557068,
+          "edge_magnitude": 0.017317549387613932
+        },
+        "temporal": {
+          "flow_warp_l1": 0.019129710271954536,
+          "edge_magnitude": 0.015735102634803922
+        }
+      }
+    },
+    {
+      "frame": 41,
+      "valid_fraction": 0.7682020399305556,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.039939235895872116,
+          "edge_magnitude": 0.019078632429534313
+        },
+        "independent": {
+          "flow_warp_l1": 0.027147352695465088,
+          "edge_magnitude": 0.017867396859561697
+        },
+        "temporal": {
+          "flow_warp_l1": 0.016900554299354553,
+          "edge_magnitude": 0.016202932245591106
+        }
+      }
+    },
+    {
+      "frame": 42,
+      "valid_fraction": 0.7407430013020834,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.037553004920482635,
+          "edge_magnitude": 0.019765868841433058
+        },
+        "independent": {
+          "flow_warp_l1": 0.023532848805189133,
+          "edge_magnitude": 0.015668615640378466
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01488778367638588,
+          "edge_magnitude": 0.015030445772058823
+        }
+      }
+    },
+    {
+      "frame": 43,
+      "valid_fraction": 0.7299669053819444,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.03010060265660286,
+          "edge_magnitude": 0.020325211917652804
+        },
+        "independent": {
+          "flow_warp_l1": 0.0265965536236763,
+          "edge_magnitude": 0.016312449586157705
+        },
+        "temporal": {
+          "flow_warp_l1": 0.015568001195788383,
+          "edge_magnitude": 0.015026030820958755
+        }
+      }
+    },
+    {
+      "frame": 44,
+      "valid_fraction": 0.7027859157986112,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.032363973557949066,
+          "edge_magnitude": 0.02002535614312864
+        },
+        "independent": {
+          "flow_warp_l1": 0.02329263649880886,
+          "edge_magnitude": 0.016327768213608686
+        },
+        "temporal": {
+          "flow_warp_l1": 0.017146360129117966,
+          "edge_magnitude": 0.015033903308943206
+        }
+      }
+    },
+    {
+      "frame": 45,
+      "valid_fraction": 0.7241346571180556,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.0333620086312294,
+          "edge_magnitude": 0.020392204733455883
+        },
+        "independent": {
+          "flow_warp_l1": 0.021967384964227676,
+          "edge_magnitude": 0.018582931219362744
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01592925935983658,
+          "edge_magnitude": 0.01551048241409601
+        }
+      }
+    },
+    {
+      "frame": 46,
+      "valid_fraction": 0.6840413411458334,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.030502423644065857,
+          "edge_magnitude": 0.020122586044610716
+        },
+        "independent": {
+          "flow_warp_l1": 0.028742335736751556,
+          "edge_magnitude": 0.017894524218989353
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01720798760652542,
+          "edge_magnitude": 0.015049221936394186
+        }
+      }
+    },
+    {
+      "frame": 47,
+      "valid_fraction": 0.6663953993055556,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.03510447219014168,
+          "edge_magnitude": 0.01931149725820504
+        },
+        "independent": {
+          "flow_warp_l1": 0.026475748047232628,
+          "edge_magnitude": 0.018148051991182215
+        },
+        "temporal": {
+          "flow_warp_l1": 0.015707146376371384,
+          "edge_magnitude": 0.015030871185601926
+        }
+      }
+    },
+    {
+      "frame": 48,
+      "valid_fraction": 0.6265394422743056,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.04590744897723198,
+          "edge_magnitude": 0.01880050359987745
+        },
+        "independent": {
+          "flow_warp_l1": 0.03357857093214989,
+          "edge_magnitude": 0.01579704284667969
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01751634292304516,
+          "edge_magnitude": 0.01474010991115196
+        }
+      }
+    },
+    {
+      "frame": 49,
+      "valid_fraction": 0.6342434353298612,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.047189861536026,
+          "edge_magnitude": 0.019136742984547334
+        },
+        "independent": {
+          "flow_warp_l1": 0.03419487550854683,
+          "edge_magnitude": 0.01672214433258655
+        },
+        "temporal": {
+          "flow_warp_l1": 0.018030013889074326,
+          "edge_magnitude": 0.014725828170776367
+        }
+      }
+    },
+    {
+      "frame": 50,
+      "valid_fraction": 0.5822957356770834,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.051782358437776566,
+          "edge_magnitude": 0.018271984773523667
+        },
+        "independent": {
+          "flow_warp_l1": 0.028651980683207512,
+          "edge_magnitude": 0.016831128737505745
+        },
+        "temporal": {
+          "flow_warp_l1": 0.016871793195605278,
+          "edge_magnitude": 0.014707637300678329
+        }
+      }
+    },
+    {
+      "frame": 51,
+      "valid_fraction": 0.6139458550347222,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.04615141823887825,
+          "edge_magnitude": 0.017252445220947266
+        },
+        "independent": {
+          "flow_warp_l1": 0.02782815508544445,
+          "edge_magnitude": 0.015700529135909736
+        },
+        "temporal": {
+          "flow_warp_l1": 0.017245139926671982,
+          "edge_magnitude": 0.013758388220095168
+        }
+      }
+    },
+    {
+      "frame": 52,
+      "valid_fraction": 0.66546630859375,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.05089249461889267,
+          "edge_magnitude": 0.01678618449790805
+        },
+        "independent": {
+          "flow_warp_l1": 0.02505728229880333,
+          "edge_magnitude": 0.015847067739449296
+        },
+        "temporal": {
+          "flow_warp_l1": 0.016200825572013855,
+          "edge_magnitude": 0.014577934788722617
+        }
+      }
+    },
+    {
+      "frame": 53,
+      "valid_fraction": 0.6783854166666666,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.04378414526581764,
+          "edge_magnitude": 0.01540846450656068
+        },
+        "independent": {
+          "flow_warp_l1": 0.024420510977506638,
+          "edge_magnitude": 0.016306598513734106
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01926437020301819,
+          "edge_magnitude": 0.014869414123834348
+        }
+      }
+    },
+    {
+      "frame": 54,
+      "valid_fraction": 0.6924302842881944,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.04375821352005005,
+          "edge_magnitude": 0.01650520960489909
+        },
+        "independent": {
+          "flow_warp_l1": 0.03561583161354065,
+          "edge_magnitude": 0.01720284480674594
+        },
+        "temporal": {
+          "flow_warp_l1": 0.020404258742928505,
+          "edge_magnitude": 0.015666860692641314
+        }
+      }
+    },
+    {
+      "frame": 55,
+      "valid_fraction": 0.7069905598958334,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.034758828580379486,
+          "edge_magnitude": 0.018332515043370863
+        },
+        "independent": {
+          "flow_warp_l1": 0.027264336124062538,
+          "edge_magnitude": 0.018539660584692863
+        },
+        "temporal": {
+          "flow_warp_l1": 0.020739085972309113,
+          "edge_magnitude": 0.016283594393262678
+        }
+      }
+    },
+    {
+      "frame": 56,
+      "valid_fraction": 0.7419772677951388,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.031178724020719528,
+          "edge_magnitude": 0.01957592870674881
+        },
+        "independent": {
+          "flow_warp_l1": 0.023562103509902954,
+          "edge_magnitude": 0.02099792817059685
+        },
+        "temporal": {
+          "flow_warp_l1": 0.018510373309254646,
+          "edge_magnitude": 0.017298214108336204
+        }
+      }
+    },
+    {
+      "frame": 57,
+      "valid_fraction": 0.7709757486979166,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.027886709198355675,
+          "edge_magnitude": 0.020746926700367648
+        },
+        "independent": {
+          "flow_warp_l1": 0.022138677537441254,
+          "edge_magnitude": 0.019519919975131167
+        },
+        "temporal": {
+          "flow_warp_l1": 0.018823930993676186,
+          "edge_magnitude": 0.01724108901678347
+        }
+      }
+    },
+    {
+      "frame": 58,
+      "valid_fraction": 0.7790188259548612,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.024646176025271416,
+          "edge_magnitude": 0.021622455821317783
+        },
+        "independent": {
+          "flow_warp_l1": 0.01957087405025959,
+          "edge_magnitude": 0.019916796216777728
+        },
+        "temporal": {
+          "flow_warp_l1": 0.016030339524149895,
+          "edge_magnitude": 0.01738618962904986
+        }
+      }
+    },
+    {
+      "frame": 59,
+      "valid_fraction": 0.7955254448784722,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.026373839005827904,
+          "edge_magnitude": 0.02231610242058249
+        },
+        "independent": {
+          "flow_warp_l1": 0.019712436944246292,
+          "edge_magnitude": 0.020021605024150773
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013975600712001324,
+          "edge_magnitude": 0.01667674569522633
+        }
+      }
+    },
+    {
+      "frame": 60,
+      "valid_fraction": 0.8233506944444444,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.026567993685603142,
+          "edge_magnitude": 0.021915104809929344
+        },
+        "independent": {
+          "flow_warp_l1": 0.01872553676366806,
+          "edge_magnitude": 0.019122566896326403
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013643202371895313,
+          "edge_magnitude": 0.01619673523248411
+        }
+      }
+    },
+    {
+      "frame": 61,
+      "valid_fraction": 0.8218248155381944,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.02638510800898075,
+          "edge_magnitude": 0.021718595542159734
+        },
+        "independent": {
+          "flow_warp_l1": 0.02466673031449318,
+          "edge_magnitude": 0.017844366559795304
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013764401897788048,
+          "edge_magnitude": 0.015597660401288202
+        }
+      }
+    },
+    {
+      "frame": 62,
+      "valid_fraction": 0.8349541558159722,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.027566373348236084,
+          "edge_magnitude": 0.021650114246443208
+        },
+        "independent": {
+          "flow_warp_l1": 0.02170071192085743,
+          "edge_magnitude": 0.018280096615062042
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013830513693392277,
+          "edge_magnitude": 0.015730953216552733
+        }
+      }
+    },
+    {
+      "frame": 63,
+      "valid_fraction": 0.8176744249131944,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.028559155762195587,
+          "edge_magnitude": 0.021770641850490196
+        },
+        "independent": {
+          "flow_warp_l1": 0.02637566439807415,
+          "edge_magnitude": 0.018267064936020795
+        },
+        "temporal": {
+          "flow_warp_l1": 0.015713313594460487,
+          "edge_magnitude": 0.015918873805625768
+        }
+      }
+    },
+    {
+      "frame": 64,
+      "valid_fraction": 0.7874348958333334,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.02933812327682972,
+          "edge_magnitude": 0.021057794608321845
+        },
+        "independent": {
+          "flow_warp_l1": 0.021151047199964523,
+          "edge_magnitude": 0.017055722778918696
+        },
+        "temporal": {
+          "flow_warp_l1": 0.014276514761149883,
+          "edge_magnitude": 0.015420139537138097
+        }
+      }
+    },
+    {
+      "frame": 65,
+      "valid_fraction": 0.7722303602430556,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.036678072065114975,
+          "edge_magnitude": 0.020563262116675283
+        },
+        "independent": {
+          "flow_warp_l1": 0.02371160499751568,
+          "edge_magnitude": 0.016675814460305607
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01554468460381031,
+          "edge_magnitude": 0.01507871571709128
+        }
+      }
+    },
+    {
+      "frame": 66,
+      "valid_fraction": 0.7713623046875,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.04726336896419525,
+          "edge_magnitude": 0.01855306438371247
+        },
+        "independent": {
+          "flow_warp_l1": 0.03498522564768791,
+          "edge_magnitude": 0.014863988464953853
+        },
+        "temporal": {
+          "flow_warp_l1": 0.02181527018547058,
+          "edge_magnitude": 0.01426858340992647
+        }
+      }
+    },
+    {
+      "frame": 67,
+      "valid_fraction": 0.7273627387152778,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.07164224237203598,
+          "edge_magnitude": 0.010730911703670727
+        },
+        "independent": {
+          "flow_warp_l1": 0.06584209203720093,
+          "edge_magnitude": 0.00917051259209128
+        },
+        "temporal": {
+          "flow_warp_l1": 0.04034409299492836,
+          "edge_magnitude": 0.010839205162197935
+        }
+      }
+    },
+    {
+      "frame": 68,
+      "valid_fraction": 0.7377387152777778,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.06322409212589264,
+          "edge_magnitude": 0.006911812576593138
+        },
+        "independent": {
+          "flow_warp_l1": 0.029041850939393044,
+          "edge_magnitude": 0.00703287218131271
+        },
+        "temporal": {
+          "flow_warp_l1": 0.02010222338140011,
+          "edge_magnitude": 0.009647942524330289
+        }
+      }
+    },
+    {
+      "frame": 69,
+      "valid_fraction": 0.8222384982638888,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.05818429961800575,
+          "edge_magnitude": 0.005295724027297076
+        },
+        "independent": {
+          "flow_warp_l1": 0.032038185745477676,
+          "edge_magnitude": 0.006014742103277468
+        },
+        "temporal": {
+          "flow_warp_l1": 0.02665269933640957,
+          "edge_magnitude": 0.008214906617706897
+        }
+      }
+    },
+    {
+      "frame": 70,
+      "valid_fraction": 0.8739217122395834,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.05384751409292221,
+          "edge_magnitude": 0.0049246460783715345
+        },
+        "independent": {
+          "flow_warp_l1": 0.032051485031843185,
+          "edge_magnitude": 0.006097611726499071
+        },
+        "temporal": {
+          "flow_warp_l1": 0.02169988676905632,
+          "edge_magnitude": 0.00726632183673335
+        }
+      }
+    },
+    {
+      "frame": 71,
+      "valid_fraction": 0.9247233072916666,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.05736406892538071,
+          "edge_magnitude": 0.005202402788050034
+        },
+        "independent": {
+          "flow_warp_l1": 0.0363655686378479,
+          "edge_magnitude": 0.006594642470864689
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01824909821152687,
+          "edge_magnitude": 0.00708159418667064
+        }
+      }
+    },
+    {
+      "frame": 72,
+      "valid_fraction": 0.8514133029513888,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.05913291126489639,
+          "edge_magnitude": 0.006346379541883281
+        },
+        "independent": {
+          "flow_warp_l1": 0.039462462067604065,
+          "edge_magnitude": 0.008449977986952838
+        },
+        "temporal": {
+          "flow_warp_l1": 0.0178377628326416,
+          "edge_magnitude": 0.007694551991481407
+        }
+      }
+    },
+    {
+      "frame": 73,
+      "valid_fraction": 0.7037828233506944,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.07798445224761963,
+          "edge_magnitude": 0.007311267011305865
+        },
+        "independent": {
+          "flow_warp_l1": 0.049563951790332794,
+          "edge_magnitude": 0.009089477389466529
+        },
+        "temporal": {
+          "flow_warp_l1": 0.03000354953110218,
+          "edge_magnitude": 0.008176131341971603
+        }
+      }
+    },
+    {
+      "frame": 74,
+      "valid_fraction": 0.6156344943576388,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.06456746906042099,
+          "edge_magnitude": 0.008602260140811696
+        },
+        "independent": {
+          "flow_warp_l1": 0.038325756788253784,
+          "edge_magnitude": 0.010902740441116632
+        },
+        "temporal": {
+          "flow_warp_l1": 0.02597026154398918,
+          "edge_magnitude": 0.009089185677322687
+        }
+      }
+    },
+    {
+      "frame": 75,
+      "valid_fraction": 0.6135457356770834,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.057439662516117096,
+          "edge_magnitude": 0.009227558210784314
+        },
+        "independent": {
+          "flow_warp_l1": 0.03471237048506737,
+          "edge_magnitude": 0.012543136933270622
+        },
+        "temporal": {
+          "flow_warp_l1": 0.026552442461252213,
+          "edge_magnitude": 0.010188163495531269
+        }
+      }
+    },
+    {
+      "frame": 76,
+      "valid_fraction": 0.6997341579861112,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.05734657496213913,
+          "edge_magnitude": 0.010051731969795976
+        },
+        "independent": {
+          "flow_warp_l1": 0.036512285470962524,
+          "edge_magnitude": 0.012354872273463829
+        },
+        "temporal": {
+          "flow_warp_l1": 0.02578277513384819,
+          "edge_magnitude": 0.00992575252757353
+        }
+      }
+    },
+    {
+      "frame": 77,
+      "valid_fraction": 0.71820068359375,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.049197956919670105,
+          "edge_magnitude": 0.011680479610667508
+        },
+        "independent": {
+          "flow_warp_l1": 0.03977252542972565,
+          "edge_magnitude": 0.012536461213055778
+        },
+        "temporal": {
+          "flow_warp_l1": 0.03032870963215828,
+          "edge_magnitude": 0.010233507904351926
+        }
+      }
+    },
+    {
+      "frame": 78,
+      "valid_fraction": 0.7200724283854166,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.08561299741268158,
+          "edge_magnitude": 0.013529885048959769
+        },
+        "independent": {
+          "flow_warp_l1": 0.0827740728855133,
+          "edge_magnitude": 0.013440898820465686
+        },
+        "temporal": {
+          "flow_warp_l1": 0.05440177768468857,
+          "edge_magnitude": 0.0114898214153215
+        }
+      }
+    },
+    {
+      "frame": 79,
+      "valid_fraction": 0.6821356879340278,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.07242731004953384,
+          "edge_magnitude": 0.016006370619231578
+        },
+        "independent": {
+          "flow_warp_l1": 0.06791327893733978,
+          "edge_magnitude": 0.015825286566042433
+        },
+        "temporal": {
+          "flow_warp_l1": 0.04506988450884819,
+          "edge_magnitude": 0.013925615946451824
+        }
+      }
+    },
+    {
+      "frame": 80,
+      "valid_fraction": 0.5915866427951388,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.058005623519420624,
+          "edge_magnitude": 0.01763033025404986
+        },
+        "independent": {
+          "flow_warp_l1": 0.04499349370598793,
+          "edge_magnitude": 0.017957552741555607
+        },
+        "temporal": {
+          "flow_warp_l1": 0.03297494351863861,
+          "edge_magnitude": 0.015113368688845167
+        }
+      }
+    },
+    {
+      "frame": 81,
+      "valid_fraction": 0.5691460503472222,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.05566942319273949,
+          "edge_magnitude": 0.019129242616541246
+        },
+        "independent": {
+          "flow_warp_l1": 0.044260185211896896,
+          "edge_magnitude": 0.01934811835195504
+        },
+        "temporal": {
+          "flow_warp_l1": 0.04388667270541191,
+          "edge_magnitude": 0.016071342019473807
+        }
+      }
+    },
+    {
+      "frame": 82,
+      "valid_fraction": 0.5542399088541666,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.06163566932082176,
+          "edge_magnitude": 0.01919703203089097
+        },
+        "independent": {
+          "flow_warp_l1": 0.04984688758850098,
+          "edge_magnitude": 0.0196987974877451
+        },
+        "temporal": {
+          "flow_warp_l1": 0.03468120098114014,
+          "edge_magnitude": 0.016486513848398245
+        }
+      }
+    },
+    {
+      "frame": 83,
+      "valid_fraction": 0.5661146375868056,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.06662248820066452,
+          "edge_magnitude": 0.019398143244724646
+        },
+        "independent": {
+          "flow_warp_l1": 0.05151586979627609,
+          "edge_magnitude": 0.018393628737505746
+        },
+        "temporal": {
+          "flow_warp_l1": 0.027851609513163567,
+          "edge_magnitude": 0.015660264445286173
+        }
+      }
+    },
+    {
+      "frame": 84,
+      "valid_fraction": 0.6295640733506944,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.06644818186759949,
+          "edge_magnitude": 0.018692687913483264
+        },
+        "independent": {
+          "flow_warp_l1": 0.05058929696679115,
+          "edge_magnitude": 0.017554907705269608
+        },
+        "temporal": {
+          "flow_warp_l1": 0.03083411604166031,
+          "edge_magnitude": 0.015115203109442019
+        }
+      }
+    },
+    {
+      "frame": 85,
+      "valid_fraction": 0.70562744140625,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.06168576329946518,
+          "edge_magnitude": 0.01732379875931085
+        },
+        "independent": {
+          "flow_warp_l1": 0.04426536336541176,
+          "edge_magnitude": 0.015277777466119505
+        },
+        "temporal": {
+          "flow_warp_l1": 0.027330202981829643,
+          "edge_magnitude": 0.014022421369365618
+        }
+      }
+    },
+    {
+      "frame": 86,
+      "valid_fraction": 0.6823052300347222,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.04704241082072258,
+          "edge_magnitude": 0.016997453278186275
+        },
+        "independent": {
+          "flow_warp_l1": 0.02958427555859089,
+          "edge_magnitude": 0.01637125202253753
+        },
+        "temporal": {
+          "flow_warp_l1": 0.019445734098553658,
+          "edge_magnitude": 0.014376053155637255
+        }
+      }
+    },
+    {
+      "frame": 87,
+      "valid_fraction": 0.6908772786458334,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.045890361070632935,
+          "edge_magnitude": 0.018513705683689492
+        },
+        "independent": {
+          "flow_warp_l1": 0.03325040638446808,
+          "edge_magnitude": 0.01688681957768459
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01760978065431118,
+          "edge_magnitude": 0.014378553278305952
+        }
+      }
+    },
+    {
+      "frame": 88,
+      "valid_fraction": 0.70751953125,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.03754907473921776,
+          "edge_magnitude": 0.019435615165560853
+        },
+        "independent": {
+          "flow_warp_l1": 0.036453958600759506,
+          "edge_magnitude": 0.015572874218809839
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01974468119442463,
+          "edge_magnitude": 0.014069840487311868
+        }
+      }
+    },
+    {
+      "frame": 89,
+      "valid_fraction": 0.7584228515625,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.031893547624349594,
+          "edge_magnitude": 0.02051238639681947
+        },
+        "independent": {
+          "flow_warp_l1": 0.03061915561556816,
+          "edge_magnitude": 0.015694678063486137
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01903620921075344,
+          "edge_magnitude": 0.01380756228577857
+        }
+      }
+    },
+    {
+      "frame": 90,
+      "valid_fraction": 0.7847561306423612,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.02546984702348709,
+          "edge_magnitude": 0.02082086076923445
+        },
+        "independent": {
+          "flow_warp_l1": 0.022393442690372467,
+          "edge_magnitude": 0.01566467939638624
+        },
+        "temporal": {
+          "flow_warp_l1": 0.014776436612010002,
+          "edge_magnitude": 0.01343837251850203
+        }
+      }
+    },
+    {
+      "frame": 91,
+      "valid_fraction": 0.81048583984375,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.023999610915780067,
+          "edge_magnitude": 0.022120017631381165
+        },
+        "independent": {
+          "flow_warp_l1": 0.023537078872323036,
+          "edge_magnitude": 0.014624954672420726
+        },
+        "temporal": {
+          "flow_warp_l1": 0.014203447848558426,
+          "edge_magnitude": 0.013074767355825388
+        }
+      }
+    },
+    {
+      "frame": 92,
+      "valid_fraction": 0.8379109700520834,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.022638453170657158,
+          "edge_magnitude": 0.023122084374521294
+        },
+        "independent": {
+          "flow_warp_l1": 0.024573206901550293,
+          "edge_magnitude": 0.014550249249327416
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013910050503909588,
+          "edge_magnitude": 0.012702466927322686
+        }
+      }
+    },
+    {
+      "frame": 93,
+      "valid_fraction": 0.87103271484375,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.0215230081230402,
+          "edge_magnitude": 0.023941976883832147
+        },
+        "independent": {
+          "flow_warp_l1": 0.02575451135635376,
+          "edge_magnitude": 0.016577892677456726
+        },
+        "temporal": {
+          "flow_warp_l1": 0.015088583342730999,
+          "edge_magnitude": 0.013350396997788373
+        }
+      }
+    },
+    {
+      "frame": 94,
+      "valid_fraction": 0.8738267686631944,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01912873610854149,
+          "edge_magnitude": 0.024396776685527727
+        },
+        "independent": {
+          "flow_warp_l1": 0.02170703187584877,
+          "edge_magnitude": 0.01606447930429496
+        },
+        "temporal": {
+          "flow_warp_l1": 0.014235131442546844,
+          "edge_magnitude": 0.013210002113791072
+        }
+      }
+    },
+    {
+      "frame": 95,
+      "valid_fraction": 0.8817477756076388,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01893850974738598,
+          "edge_magnitude": 0.024398265165441177
+        },
+        "independent": {
+          "flow_warp_l1": 0.018906688317656517,
+          "edge_magnitude": 0.016592865364224302
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013006063178181648,
+          "edge_magnitude": 0.012980967876957912
+        }
+      }
+    },
+    {
+      "frame": 96,
+      "valid_fraction": 0.8949313693576388,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01855354942381382,
+          "edge_magnitude": 0.024631634880514706
+        },
+        "independent": {
+          "flow_warp_l1": 0.020210538059473038,
+          "edge_magnitude": 0.017418954886642156
+        },
+        "temporal": {
+          "flow_warp_l1": 0.011639133095741272,
+          "edge_magnitude": 0.013655412898344151
+        }
+      }
+    },
+    {
+      "frame": 97,
+      "valid_fraction": 0.9008992513020834,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01851748488843441,
+          "edge_magnitude": 0.02416689068663354
+        },
+        "independent": {
+          "flow_warp_l1": 0.02209540642797947,
+          "edge_magnitude": 0.018268314062380324
+        },
+        "temporal": {
+          "flow_warp_l1": 0.012039924040436745,
+          "edge_magnitude": 0.014357596752690334
+        }
+      }
+    },
+    {
+      "frame": 98,
+      "valid_fraction": 0.8902180989583334,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.017461352050304413,
+          "edge_magnitude": 0.024349330453311696
+        },
+        "independent": {
+          "flow_warp_l1": 0.018647635355591774,
+          "edge_magnitude": 0.019238759957107842
+        },
+        "temporal": {
+          "flow_warp_l1": 0.014765490777790546,
+          "edge_magnitude": 0.015052333532595167
+        }
+      }
+    },
+    {
+      "frame": 99,
+      "valid_fraction": 0.8948296440972222,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.017704587429761887,
+          "edge_magnitude": 0.024521745419969744
+        },
+        "independent": {
+          "flow_warp_l1": 0.020125236362218857,
+          "edge_magnitude": 0.019349367478314568
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013679077848792076,
+          "edge_magnitude": 0.015648775474697937
+        }
+      }
+    },
+    {
+      "frame": 100,
+      "valid_fraction": 0.9079725477430556,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.018263932317495346,
+          "edge_magnitude": 0.024564084819718904
+        },
+        "independent": {
+          "flow_warp_l1": 0.02111390046775341,
+          "edge_magnitude": 0.01782250497855392
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01185001153498888,
+          "edge_magnitude": 0.015025871875239353
+        }
+      }
+    },
+    {
+      "frame": 101,
+      "valid_fraction": 0.8993937174479166,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01775224693119526,
+          "edge_magnitude": 0.02459533354815315
+        },
+        "independent": {
+          "flow_warp_l1": 0.018101699650287628,
+          "edge_magnitude": 0.017927102481617645
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01187317818403244,
+          "edge_magnitude": 0.015586357490689146
+        }
+      }
+    },
+    {
+      "frame": 102,
+      "valid_fraction": 0.9009874131944444,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.017511926591396332,
+          "edge_magnitude": 0.024951942294251687
+        },
+        "independent": {
+          "flow_warp_l1": 0.015200205147266388,
+          "edge_magnitude": 0.018654071583467373
+        },
+        "temporal": {
+          "flow_warp_l1": 0.010606452822685242,
+          "edge_magnitude": 0.015990120756859873
+        }
+      }
+    },
+    {
+      "frame": 103,
+      "valid_fraction": 0.9001329210069444,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.016917798668146133,
+          "edge_magnitude": 0.025668088127585018
+        },
+        "independent": {
+          "flow_warp_l1": 0.014910251833498478,
+          "edge_magnitude": 0.018375492095947264
+        },
+        "temporal": {
+          "flow_warp_l1": 0.010292445309460163,
+          "edge_magnitude": 0.016344762315937116
+        }
+      }
+    },
+    {
+      "frame": 104,
+      "valid_fraction": 0.9100341796875,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.0172153040766716,
+          "edge_magnitude": 0.026256978278066598
+        },
+        "independent": {
+          "flow_warp_l1": 0.017634866759181023,
+          "edge_magnitude": 0.018833401623894186
+        },
+        "temporal": {
+          "flow_warp_l1": 0.009722121991217136,
+          "edge_magnitude": 0.01660158867929496
+        }
+      }
+    },
+    {
+      "frame": 105,
+      "valid_fraction": 0.9106513129340278,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.017474716529250145,
+          "edge_magnitude": 0.026740313511268765
+        },
+        "independent": {
+          "flow_warp_l1": 0.017193756997585297,
+          "edge_magnitude": 0.018222571354286343
+        },
+        "temporal": {
+          "flow_warp_l1": 0.010415392927825451,
+          "edge_magnitude": 0.016804986841538375
+        }
+      }
+    },
+    {
+      "frame": 106,
+      "valid_fraction": 0.9044596354166666,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01738910749554634,
+          "edge_magnitude": 0.02741084940293256
+        },
+        "independent": {
+          "flow_warp_l1": 0.018797965720295906,
+          "edge_magnitude": 0.019706537209305108
+        },
+        "temporal": {
+          "flow_warp_l1": 0.011879372410476208,
+          "edge_magnitude": 0.017383983088474646
+        }
+      }
+    },
+    {
+      "frame": 107,
+      "valid_fraction": 0.9093288845486112,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01770767755806446,
+          "edge_magnitude": 0.02778950672523648
+        },
+        "independent": {
+          "flow_warp_l1": 0.020084895193576813,
+          "edge_magnitude": 0.020648552389705883
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013461102731525898,
+          "edge_magnitude": 0.018024227665919882
+        }
+      }
+    },
+    {
+      "frame": 108,
+      "valid_fraction": 0.9083726671006944,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.018006248399615288,
+          "edge_magnitude": 0.02822864008884804
+        },
+        "independent": {
+          "flow_warp_l1": 0.01740724965929985,
+          "edge_magnitude": 0.021219410615808825
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01230102963745594,
+          "edge_magnitude": 0.01824480505550609
+        }
+      }
+    },
+    {
+      "frame": 109,
+      "valid_fraction": 0.9068128797743056,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01777886226773262,
+          "edge_magnitude": 0.02887114543540805
+        },
+        "independent": {
+          "flow_warp_l1": 0.01717381924390793,
+          "edge_magnitude": 0.021842447916666667
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01392129622399807,
+          "edge_magnitude": 0.01849676393995098
+        }
+      }
+    },
+    {
+      "frame": 110,
+      "valid_fraction": 0.9016859266493056,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.018309269100427628,
+          "edge_magnitude": 0.02971186170391008
+        },
+        "independent": {
+          "flow_warp_l1": 0.01932739093899727,
+          "edge_magnitude": 0.022886188357484107
+        },
+        "temporal": {
+          "flow_warp_l1": 0.012535505928099155,
+          "edge_magnitude": 0.01938758550905714
+        }
+      }
+    },
+    {
+      "frame": 111,
+      "valid_fraction": 0.9055989583333334,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.0185528676956892,
+          "edge_magnitude": 0.029861988740808823
+        },
+        "independent": {
+          "flow_warp_l1": 0.019778287038207054,
+          "edge_magnitude": 0.023300748712876265
+        },
+        "temporal": {
+          "flow_warp_l1": 0.012775246053934097,
+          "edge_magnitude": 0.019878897947423597
+        }
+      }
+    },
+    {
+      "frame": 112,
+      "valid_fraction": 0.9039510091145834,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01819978840649128,
+          "edge_magnitude": 0.029456843581854127
+        },
+        "independent": {
+          "flow_warp_l1": 0.02063247375190258,
+          "edge_magnitude": 0.024332390579522824
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013993438333272934,
+          "edge_magnitude": 0.020214258455762676
+        }
+      }
+    },
+    {
+      "frame": 113,
+      "valid_fraction": 0.9039645724826388,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.017628610134124756,
+          "edge_magnitude": 0.029161905774883194
+        },
+        "independent": {
+          "flow_warp_l1": 0.019106237217783928,
+          "edge_magnitude": 0.024898461734547333
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013142907060682774,
+          "edge_magnitude": 0.021008727129767923
+        }
+      }
+    },
+    {
+      "frame": 114,
+      "valid_fraction": 0.90728759765625,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01756887137889862,
+          "edge_magnitude": 0.029152784160539215
+        },
+        "independent": {
+          "flow_warp_l1": 0.020547864958643913,
+          "edge_magnitude": 0.02583922591863894
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013040336780250072,
+          "edge_magnitude": 0.021279514537138097
+        }
+      }
+    },
+    {
+      "frame": 115,
+      "valid_fraction": 0.8949991861979166,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.017486989498138428,
+          "edge_magnitude": 0.029340596292533126
+        },
+        "independent": {
+          "flow_warp_l1": 0.01569061167538166,
+          "edge_magnitude": 0.02627118054558249
+        },
+        "temporal": {
+          "flow_warp_l1": 0.012220432981848717,
+          "edge_magnitude": 0.02099319532805798
+        }
+      }
+    },
+    {
+      "frame": 116,
+      "valid_fraction": 0.9027099609375,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.017926212400197983,
+          "edge_magnitude": 0.02965696933222752
+        },
+        "independent": {
+          "flow_warp_l1": 0.01937701553106308,
+          "edge_magnitude": 0.026958018658207912
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013106431812047958,
+          "edge_magnitude": 0.021436556647805607
+        }
+      }
+    },
+    {
+      "frame": 117,
+      "valid_fraction": 0.9034898546006944,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01844729296863079,
+          "edge_magnitude": 0.029820819929534313
+        },
+        "independent": {
+          "flow_warp_l1": 0.021971000358462334,
+          "edge_magnitude": 0.026946954166187958
+        },
+        "temporal": {
+          "flow_warp_l1": 0.014019912108778954,
+          "edge_magnitude": 0.02183965608185413
+        }
+      }
+    },
+    {
+      "frame": 118,
+      "valid_fraction": 0.9020114474826388,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01824750378727913,
+          "edge_magnitude": 0.030250938265931372
+        },
+        "independent": {
+          "flow_warp_l1": 0.016547804698348045,
+          "edge_magnitude": 0.0251496763790355
+        },
+        "temporal": {
+          "flow_warp_l1": 0.012452397495508194,
+          "edge_magnitude": 0.021318661932851753
+        }
+      }
+    },
+    {
+      "frame": 119,
+      "valid_fraction": 0.8980577256944444,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.018269706517457962,
+          "edge_magnitude": 0.03065185546875
+        },
+        "independent": {
+          "flow_warp_l1": 0.01841644197702408,
+          "edge_magnitude": 0.027877216713101255
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01282154954969883,
+          "edge_magnitude": 0.02237873264387542
+        }
+      }
+    },
+    {
+      "frame": 120,
+      "valid_fraction": 0.8983832465277778,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.018137136474251747,
+          "edge_magnitude": 0.03126124961703431
+        },
+        "independent": {
+          "flow_warp_l1": 0.02278221771121025,
+          "edge_magnitude": 0.028438500797047333
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013432519510388374,
+          "edge_magnitude": 0.022298736198275698
+        }
+      }
+    },
+    {
+      "frame": 121,
+      "valid_fraction": 0.90106201171875,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.018311310559511185,
+          "edge_magnitude": 0.03194290235930798
+        },
+        "independent": {
+          "flow_warp_l1": 0.019963577389717102,
+          "edge_magnitude": 0.02731643751555798
+        },
+        "temporal": {
+          "flow_warp_l1": 0.012685533612966537,
+          "edge_magnitude": 0.022909087760775698
+        }
+      }
+    },
+    {
+      "frame": 122,
+      "valid_fraction": 0.8995225694444444,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.018255794420838356,
+          "edge_magnitude": 0.03222632314644608
+        },
+        "independent": {
+          "flow_warp_l1": 0.019351273775100708,
+          "edge_magnitude": 0.026661566192028568
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01223798282444477,
+          "edge_magnitude": 0.022476893780278225
+        }
+      }
+    },
+    {
+      "frame": 123,
+      "valid_fraction": 0.9075520833333334,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.019107554107904434,
+          "edge_magnitude": 0.032874679565429686
+        },
+        "independent": {
+          "flow_warp_l1": 0.01716516725718975,
+          "edge_magnitude": 0.028532166574515547
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013016676530241966,
+          "edge_magnitude": 0.02334292916690602
+        }
+      }
+    },
+    {
+      "frame": 124,
+      "valid_fraction": 0.8962673611111112,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.018909236416220665,
+          "edge_magnitude": 0.03310996410893459
+        },
+        "independent": {
+          "flow_warp_l1": 0.01752547174692154,
+          "edge_magnitude": 0.028873911090925627
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013114722445607185,
+          "edge_magnitude": 0.023135116053562537
+        }
+      }
+    },
+    {
+      "frame": 125,
+      "valid_fraction": 0.8986612955729166,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.018762782216072083,
+          "edge_magnitude": 0.03335732104731541
+        },
+        "independent": {
+          "flow_warp_l1": 0.017977137118577957,
+          "edge_magnitude": 0.028426559298646216
+        },
+        "temporal": {
+          "flow_warp_l1": 0.012815534137189388,
+          "edge_magnitude": 0.023392368765438303
+        }
+      }
+    },
+    {
+      "frame": 126,
+      "valid_fraction": 0.89447021484375,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.019479963928461075,
+          "edge_magnitude": 0.03316592048196232
+        },
+        "independent": {
+          "flow_warp_l1": 0.018622033298015594,
+          "edge_magnitude": 0.02754384957107843
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013148435391485691,
+          "edge_magnitude": 0.023070198881859873
+        }
+      }
+    },
+    {
+      "frame": 127,
+      "valid_fraction": 0.8789537217881944,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.019575268030166626,
+          "edge_magnitude": 0.03310169145172717
+        },
+        "independent": {
+          "flow_warp_l1": 0.018627112731337547,
+          "edge_magnitude": 0.028778994317148247
+        },
+        "temporal": {
+          "flow_warp_l1": 0.014796316623687744,
+          "edge_magnitude": 0.024084818596933403
+        }
+      }
+    },
+    {
+      "frame": 128,
+      "valid_fraction": 0.9025404188368056,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01981576345860958,
+          "edge_magnitude": 0.03290723164876302
+        },
+        "independent": {
+          "flow_warp_l1": 0.020127691328525543,
+          "edge_magnitude": 0.027862616146312042
+        },
+        "temporal": {
+          "flow_warp_l1": 0.014319395646452904,
+          "edge_magnitude": 0.023767781725116805
+        }
+      }
+    },
+    {
+      "frame": 129,
+      "valid_fraction": 0.8932223849826388,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.019851554185152054,
+          "edge_magnitude": 0.03226379693723192
+        },
+        "independent": {
+          "flow_warp_l1": 0.01737777702510357,
+          "edge_magnitude": 0.028025163388719746
+        },
+        "temporal": {
+          "flow_warp_l1": 0.014531167224049568,
+          "edge_magnitude": 0.02448299632352941
+        }
+      }
+    },
+    {
+      "frame": 130,
+      "valid_fraction": 0.9025200737847222,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01973077468574047,
+          "edge_magnitude": 0.03176490185307521
+        },
+        "independent": {
+          "flow_warp_l1": 0.022292062640190125,
+          "edge_magnitude": 0.027331329794491037
+        },
+        "temporal": {
+          "flow_warp_l1": 0.016684405505657196,
+          "edge_magnitude": 0.023928200964834175
+        }
+      }
+    },
+    {
+      "frame": 131,
+      "valid_fraction": 0.9012112087673612,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.019388427957892418,
+          "edge_magnitude": 0.030715151394114775
+        },
+        "independent": {
+          "flow_warp_l1": 0.019233962520956993,
+          "edge_magnitude": 0.02739420124128753
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013819781132042408,
+          "edge_magnitude": 0.023607654197543276
+        }
+      }
+    },
+    {
+      "frame": 132,
+      "valid_fraction": 0.8850436740451388,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.018681155517697334,
+          "edge_magnitude": 0.03011001138126149
+        },
+        "independent": {
+          "flow_warp_l1": 0.019815891981124878,
+          "edge_magnitude": 0.026282802282595167
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01410767063498497,
+          "edge_magnitude": 0.023451674218271292
+        }
+      }
+    },
+    {
+      "frame": 133,
+      "valid_fraction": 0.8819105360243056,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.018370112404227257,
+          "edge_magnitude": 0.029398547901826746
+        },
+        "independent": {
+          "flow_warp_l1": 0.020055299624800682,
+          "edge_magnitude": 0.02690264757941751
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01341307908296585,
+          "edge_magnitude": 0.023324205361160578
+        }
+      }
+    },
+    {
+      "frame": 134,
+      "valid_fraction": 0.9009467230902778,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.018063783645629883,
+          "edge_magnitude": 0.028938854441923255
+        },
+        "independent": {
+          "flow_warp_l1": 0.018145421519875526,
+          "edge_magnitude": 0.02585446600820504
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013608196750283241,
+          "edge_magnitude": 0.02288509817684398
+        }
+      }
+    },
+    {
+      "frame": 135,
+      "valid_fraction": 0.8930257161458334,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.018521375954151154,
+          "edge_magnitude": 0.028760590272791247
+        },
+        "independent": {
+          "flow_warp_l1": 0.021723873913288116,
+          "edge_magnitude": 0.025113346997429342
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013841108419001102,
+          "edge_magnitude": 0.0223905413758521
+        }
+      }
+    },
+    {
+      "frame": 136,
+      "valid_fraction": 0.8909844292534722,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01838737726211548,
+          "edge_magnitude": 0.02915695975808536
+        },
+        "independent": {
+          "flow_warp_l1": 0.02248273603618145,
+          "edge_magnitude": 0.023807220832974305
+        },
+        "temporal": {
+          "flow_warp_l1": 0.014117580838501453,
+          "edge_magnitude": 0.021745936075846354
+        }
+      }
+    },
+    {
+      "frame": 137,
+      "valid_fraction": 0.8864271375868056,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.018226567655801773,
+          "edge_magnitude": 0.029508835661645028
+        },
+        "independent": {
+          "flow_warp_l1": 0.02526802569627762,
+          "edge_magnitude": 0.024092930438471775
+        },
+        "temporal": {
+          "flow_warp_l1": 0.016283540055155754,
+          "edge_magnitude": 0.022458596323050705
+        }
+      }
+    },
+    {
+      "frame": 138,
+      "valid_fraction": 0.8743014865451388,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.017925553023815155,
+          "edge_magnitude": 0.029465538847680186
+        },
+        "independent": {
+          "flow_warp_l1": 0.019764365628361702,
+          "edge_magnitude": 0.024066734313964843
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013824058696627617,
+          "edge_magnitude": 0.0220430523741479
+        }
+      }
+    },
+    {
+      "frame": 139,
+      "valid_fraction": 0.8452555338541666,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.017747292295098305,
+          "edge_magnitude": 0.02989669500612745
+        },
+        "independent": {
+          "flow_warp_l1": 0.01762753166258335,
+          "edge_magnitude": 0.024998777052935434
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01558011956512928,
+          "edge_magnitude": 0.02222456277585497
+        }
+      }
+    },
+    {
+      "frame": 140,
+      "valid_fraction": 0.8475206163194444,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.017866870388388634,
+          "edge_magnitude": 0.03083661023308249
+        },
+        "independent": {
+          "flow_warp_l1": 0.020398087799549103,
+          "edge_magnitude": 0.02639322467878753
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01484469510614872,
+          "edge_magnitude": 0.022728003707586552
+        }
+      }
+    },
+    {
+      "frame": 141,
+      "valid_fraction": 0.823486328125,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.016926411539316177,
+          "edge_magnitude": 0.03220528621299594
+        },
+        "independent": {
+          "flow_warp_l1": 0.02027246169745922,
+          "edge_magnitude": 0.026775019776587392
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013693807646632195,
+          "edge_magnitude": 0.023561672135895374
+        }
+      }
+    },
+    {
+      "frame": 142,
+      "valid_fraction": 0.8311767578125,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.016842536628246307,
+          "edge_magnitude": 0.033553299249387256
+        },
+        "independent": {
+          "flow_warp_l1": 0.018248403444886208,
+          "edge_magnitude": 0.02722463233798158
+        },
+        "temporal": {
+          "flow_warp_l1": 0.014766190201044083,
+          "edge_magnitude": 0.023964530346440333
+        }
+      }
+    },
+    {
+      "frame": 143,
+      "valid_fraction": 0.8690185546875,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.017879728227853775,
+          "edge_magnitude": 0.03433385736802045
+        },
+        "independent": {
+          "flow_warp_l1": 0.01630801148712635,
+          "edge_magnitude": 0.02824739007388844
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013439924456179142,
+          "edge_magnitude": 0.02401428970636106
+        }
+      }
+    },
+    {
+      "frame": 144,
+      "valid_fraction": 0.8396742078993056,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01699843630194664,
+          "edge_magnitude": 0.03437954771752451
+        },
+        "independent": {
+          "flow_warp_l1": 0.01796620897948742,
+          "edge_magnitude": 0.028517646415560854
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013487517833709717,
+          "edge_magnitude": 0.024703360538856654
+        }
+      }
+    },
+    {
+      "frame": 145,
+      "valid_fraction": 0.82806396484375,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.017660876736044884,
+          "edge_magnitude": 0.035739872502345664
+        },
+        "independent": {
+          "flow_warp_l1": 0.019336380064487457,
+          "edge_magnitude": 0.029390275244619332
+        },
+        "temporal": {
+          "flow_warp_l1": 0.013428328558802605,
+          "edge_magnitude": 0.025671945833692363
+        }
+      }
+    },
+    {
+      "frame": 146,
+      "valid_fraction": 0.84771728515625,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.01805770769715309,
+          "edge_magnitude": 0.0369662415747549
+        },
+        "independent": {
+          "flow_warp_l1": 0.01915636844933033,
+          "edge_magnitude": 0.028987869561887255
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01524908747524023,
+          "edge_magnitude": 0.0257329267614028
+        }
+      }
+    },
+    {
+      "frame": 147,
+      "valid_fraction": 0.8020697699652778,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.020400390028953552,
+          "edge_magnitude": 0.03822401832131778
+        },
+        "independent": {
+          "flow_warp_l1": 0.020490845665335655,
+          "edge_magnitude": 0.029787390839819815
+        },
+        "temporal": {
+          "flow_warp_l1": 0.015385039150714874,
+          "edge_magnitude": 0.026997007108202166
+        }
+      }
+    },
+    {
+      "frame": 148,
+      "valid_fraction": 0.8158840603298612,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.020863257348537445,
+          "edge_magnitude": 0.03898864446901808
+        },
+        "independent": {
+          "flow_warp_l1": 0.02050885185599327,
+          "edge_magnitude": 0.030991976868872548
+        },
+        "temporal": {
+          "flow_warp_l1": 0.014371989294886589,
+          "edge_magnitude": 0.027228407766304766
+        }
+      }
+    },
+    {
+      "frame": 149,
+      "valid_fraction": 0.8229777018229166,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.022257640957832336,
+          "edge_magnitude": 0.03920624676872702
+        },
+        "independent": {
+          "flow_warp_l1": 0.021669790148735046,
+          "edge_magnitude": 0.031924711489209945
+        },
+        "temporal": {
+          "flow_warp_l1": 0.015556667931377888,
+          "edge_magnitude": 0.028214039522058823
+        }
+      }
+    },
+    {
+      "frame": 150,
+      "valid_fraction": 0.7908393012152778,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.023198101669549942,
+          "edge_magnitude": 0.039319326363357845
+        },
+        "independent": {
+          "flow_warp_l1": 0.023746417835354805,
+          "edge_magnitude": 0.032026967815324374
+        },
+        "temporal": {
+          "flow_warp_l1": 0.016047794371843338,
+          "edge_magnitude": 0.028417622809316596
+        }
+      }
+    },
+    {
+      "frame": 151,
+      "valid_fraction": 0.8240220811631944,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.023839762434363365,
+          "edge_magnitude": 0.03902085248161765
+        },
+        "independent": {
+          "flow_warp_l1": 0.019650381058454514,
+          "edge_magnitude": 0.031374089858111215
+        },
+        "temporal": {
+          "flow_warp_l1": 0.01574714295566082,
+          "edge_magnitude": 0.028485679626464845
+        }
+      }
+    },
+    {
+      "frame": 152,
+      "valid_fraction": 0.8352322048611112,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.025274785235524178,
+          "edge_magnitude": 0.038612410601447614
+        },
+        "independent": {
+          "flow_warp_l1": 0.02524210885167122,
+          "edge_magnitude": 0.03241099937289369
+        },
+        "temporal": {
+          "flow_warp_l1": 0.017395032569766045,
+          "edge_magnitude": 0.02907863691741345
+        }
+      }
+    },
+    {
+      "frame": 153,
+      "valid_fraction": 0.8399861653645834,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.045581694692373276,
+          "edge_magnitude": 0.03555264566458908
+        },
+        "independent": {
+          "flow_warp_l1": 0.043038509786129,
+          "edge_magnitude": 0.03018189785527248
+        },
+        "temporal": {
+          "flow_warp_l1": 0.02982058934867382,
+          "edge_magnitude": 0.027805543413349225
+        }
+      }
+    },
+    {
+      "frame": 154,
+      "valid_fraction": 0.8440144856770834,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.050091784447431564,
+          "edge_magnitude": 0.0334409377154182
+        },
+        "independent": {
+          "flow_warp_l1": 0.043261975049972534,
+          "edge_magnitude": 0.029510430728687958
+        },
+        "temporal": {
+          "flow_warp_l1": 0.02994011901319027,
+          "edge_magnitude": 0.026829938327564914
+        }
+      }
+    },
+    {
+      "frame": 155,
+      "valid_fraction": 0.8570827907986112,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.05437764897942543,
+          "edge_magnitude": 0.033921398836023665
+        },
+        "independent": {
+          "flow_warp_l1": 0.048526570200920105,
+          "edge_magnitude": 0.029870259528066597
+        },
+        "temporal": {
+          "flow_warp_l1": 0.02904559299349785,
+          "edge_magnitude": 0.027379733440922756
+        }
+      }
+    },
+    {
+      "frame": 156,
+      "valid_fraction": 0.8520711263020834,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.041558731347322464,
+          "edge_magnitude": 0.03435840606689453
+        },
+        "independent": {
+          "flow_warp_l1": 0.03736069053411484,
+          "edge_magnitude": 0.03101327933517157
+        },
+        "temporal": {
+          "flow_warp_l1": 0.023597246035933495,
+          "edge_magnitude": 0.028075640809302235
+        }
+      }
+    },
+    {
+      "frame": 157,
+      "valid_fraction": 0.8385348849826388,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.03059464320540428,
+          "edge_magnitude": 0.034188304227941176
+        },
+        "independent": {
+          "flow_warp_l1": 0.02722589671611786,
+          "edge_magnitude": 0.03141265569948683
+        },
+        "temporal": {
+          "flow_warp_l1": 0.017373716458678246,
+          "edge_magnitude": 0.02833892971861596
+        }
+      }
+    },
+    {
+      "frame": 158,
+      "valid_fraction": 0.8559299045138888,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.029506919905543327,
+          "edge_magnitude": 0.033806322135177314
+        },
+        "independent": {
+          "flow_warp_l1": 0.024636203423142433,
+          "edge_magnitude": 0.03087041144277535
+        },
+        "temporal": {
+          "flow_warp_l1": 0.018299944698810577,
+          "edge_magnitude": 0.027912560631247127
+        }
+      }
+    },
+    {
+      "frame": 159,
+      "valid_fraction": 0.84698486328125,
+      "actual_history_frames": 4,
+      "scores": {
+        "native": {
+          "flow_warp_l1": 0.03356006368994713,
+          "edge_magnitude": 0.031615866866766235
+        },
+        "independent": {
+          "flow_warp_l1": 0.030700068920850754,
+          "edge_magnitude": 0.02953311695772059
+        },
+        "temporal": {
+          "flow_warp_l1": 0.019395282492041588,
+          "edge_magnitude": 0.027413188709932215
+        }
+      }
+    }
+  ]
+}

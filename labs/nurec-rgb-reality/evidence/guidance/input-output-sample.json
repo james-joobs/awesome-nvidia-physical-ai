@@ -1,0 +1,57 @@
+{
+  "image": "front_camera/39.jpg",
+  "image_sha256": "8117e324b72a78ee57cce3f7cafca3036669c82a2f0eaf9505889b5efd49a391",
+  "rgb_shape": [
+    569,
+    1024,
+    3
+  ],
+  "pixel_uv": [
+    512,
+    450
+  ],
+  "K": [
+    [
+      1055.4954197510829,
+      0.0,
+      512.0
+    ],
+    [
+      0.0,
+      1056.310395635778,
+      284.5
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "ray_distance_relative_units": 5.151042938232422,
+  "z_depth_relative_units": 5.088960193878632,
+  "world_normal": [
+    -0.0034772271756082773,
+    -0.048029351979494095,
+    0.9988398551940918
+  ],
+  "world_position_relative_units": [
+    5.054018715172371,
+    0.03494779098511452,
+    -0.04680393023498708
+  ],
+  "native_label_shapes": {
+    "distance": [
+      1,
+      569,
+      1024,
+      1
+    ],
+    "normal": [
+      1,
+      569,
+      1024,
+      3
+    ]
+  },
+  "scope": "Actual training-pixel prediction; relative units, not measured meters; normal derived from the same predicted depth"
+}

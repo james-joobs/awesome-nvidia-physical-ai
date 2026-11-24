@@ -1,0 +1,65 @@
+# Matched-budget RGB-only geometry experiment. Values are scene-relative.
+defaults:
+  - /experimental/3dgut/3dgut_colmap
+  - override /model/gaussians/initialization@model.layers.background.initialization: ply
+  - _self_
+out_dir: /work/train-guided
+mode: trainval
+seed: 42
+dataset:
+  path: /work/ncore/rgb-only-road.json
+  camera_ids: [front_camera, front_left_camera, front_right_camera, left_camera, right_camera, back_camera]
+  lidar_ids: []
+  n_samples_per_epoch: 16000
+  n_val_image_subsample: 1
+  train_sequential_camera_frame_step: 1
+  val_camera_frame_step: 8
+  camera_mask_sources: [dataset]
+datamodule:
+  train_num_workers: 2
+  val_num_workers: 1
+  test_num_workers: 1
+trainer:
+  max_epochs: 1
+  log_every_n_steps: 100
+model:
+  layers:
+    background:
+      initialization:
+        path: /work/seed.ply
+        translate_world_to_nre: true
+  strategy:
+    add:
+      max_n_gaussians: 450000
+  renderer:
+    outputs:
+      camera:
+        enable_normals: true
+loss:
+  distance:
+    fn: log_l1
+    reduce: {name: mean}
+    lambda_: 0.1
+    start_step: 500
+    min_distance: 0.001
+    max_distance: 1000000.0
+    normalize_by_opacity: true
+    allow_missing_supervision: false
+  normal:
+    fn: rgb_normal_cosine
+    reduce: {name: mean}
+    lambda_: 0.03
+    start_step: 500
+    allow_missing_supervision: false
+  gaussian_flatten:
+    fn: abs
+    reduce: {name: mean}
+    axes_type: fixed
+    max_to_median_ratio_threshold: 5.0
+    lambda_: 0.0005
+system:
+  test:
+    video_fps: 10
+    metrics:
+      cpsnr:
+        enabled: false
