@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "frames": 12,
+  "exact_pixel_equal": true,
+  "checkpoint_sha256": "6e65e9ec33019a49f7f0d15f81f5e089c2527e131bd5339d6a14f9b3531db524",
+  "profiles": {
+    "baseline": {
+      "model_median_ms": 481.86519055161625,
+      "model_p95_ms": 665.1780371204949,
+      "model_throughput_fps": 1.9338812696577006
+    },
+    "exact": {
+      "model_median_ms": 269.57831799518317,
+      "model_p95_ms": 269.6478527155705,
+      "model_throughput_fps": 3.709462447438865
+    },
+    "tuned": {
+      "model_median_ms": 235.57354602962732,
+      "model_p95_ms": 708.5093148169103,
+      "model_throughput_fps": 3.0626355174503535
+    }
+  },
+  "scope": "Actual portable stage runner, 12-frame GPU smoke. Full benchmark is separate; startup/autotuning affect this short run."
+}

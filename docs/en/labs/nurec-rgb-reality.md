@@ -124,7 +124,8 @@ x[:, :, 2] = previous enhanced output, t−2
 x[:, :, 3] = previous enhanced output, t−3
 x[:, :, 4] = previous enhanced output, t−4
 x.shape    = [1, 3, 5, 576, 1024]
-y.shape    = [1, 3, 5, 576, 1024] → display y[:, :, 0]
+Original y.shape  = [1, 3, 5, 576, 1024] → display first
+Optimized y.shape = [1, 3, 1, 576, 1024] → decode that first RGB only
 ```
 
 The first four frames use V1. A reset repeats that startup. These are **previous generated outputs**, not future camera observations or an eight-frame future prediction. The model performs single-step diffusion-based appearance enhancement; it does not rebuild the 3D scene or prove the correctness of a filled surface. See the [official source](https://github.com/NVIDIA/harmonizer) and [model card](https://huggingface.co/nvidia/Harmonizer).
@@ -134,6 +135,25 @@ The supplied Tesla commentary proposes a shared visual encoder feeding separate 
 **Inspect support, not “truth.”** Select **Inspect RGB depth support** in the viewer. Red means zero, amber one and teal two or more distinct named cameras with a depth-consistent Gaussian-center projection. Six camera names are counted; repeated frames from one camera do not become independent cameras. This compares RGB-estimated poses with RGB-predicted depth using a 10% + 0.1-relative-unit tolerance. Occlusion, excluded moving objects and depth errors can lower the count. It is not measured visibility, a per-pixel confidence map or a hallucination detector.
 
 [Watch the same 160 camera poses in native, V1 and V5 modes](../../../labs/nurec-rgb-reality/evidence/temporal/comparison.en.mp4) · [Watch actual mouse-controlled GPU enhancement](../../../labs/nurec-rgb-reality/evidence/temporal/interaction.en.mp4)
+
+### 8. Keep the picture, remove unused decoding
+
+![Keep all five input frames and the full temporal encoder and DiT, normalize the latent, then decode only the causal first output](../../../assets/lessons/nurec-speed/pipeline.en.svg)
+
+The original wrapper decodes five RGB frames and displays only the first. The optimized path keeps **all five inputs and the complete temporal encoder/DiT**, then decodes only the normalized first latent. This causal VAE's first output does not need later decoded outputs. Full video normalization is retained before slicing; silently switching to image normalization would not be equivalent for every configuration.
+
+```text
+Input:             [1, 3, 5, 576, 1024] — current + four previous outputs
+Encoder → DiT:     [1, 16, 2, 72, 128]  — full temporal context
+Original decoder:  [1, 3, 5, 576, 1024] — display first RGB only
+Optimized decoder: [1, 3, 1, 576, 1024] — decode the same first RGB
+```
+
+**All RGB pixels match across all 160 frames.** A separate eight-frame HTTP test also verifies GPU history caching and lossless transport. Resolution, BF16 precision, weights, four-output context and diffusion step count remain unchanged.
+
+Capture is asynchronous, history tensors stay on the GPU and returned images paint directly to canvas. A bounded background writer records optional debug images. Responses from obsolete large viewpoint changes are skipped. Transport uses **lossless WebP**, with lossless PNG fallback. For lossless WebP, `quality=0` controls compression effort rather than pixel quality. [Official Pillow documentation](https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html#webp).
+
+[Actual mouse-controlled latency comparison](../../../labs/nurec-rgb-reality/evidence/speed/interaction.en.mp4) · [Matched-view quality and detail comparison](../../../labs/nurec-rgb-reality/evidence/speed/quality.en.mp4)
 
 ## Run the lab
 
@@ -225,7 +245,47 @@ python3 labs/nurec-rgb-reality/temporal/check.py
 
 The persistent GPU service is opt-in. It receives the clean 16:9 crop of the actual mouse-controlled render. Source-RGB detection markers and Alpamayo's path are then added to both display panels. Public static Pages shows the browser scene and recorded results; it never tries to connect to your computer. [Local GPU service and SSH tunnel instructions](../../../labs/nurec-rgb-reality/temporal/README.md#use-the-live-viewer).
 
+### 6. Reproduce the optimization comparison
+
+Use the existing `RV_TEMPORAL_ROOT` and `RV_INPUT`. **Stop the serving terminal with Ctrl+C first.** The shared GPU lock prevents serving and benchmarking from competing on the same GPU.
+
+```bash
+python3 labs/nurec-rgb-reality/temporal/pipeline.py --root "$RV_TEMPORAL_ROOT" --input "$RV_INPUT" benchmark
+python3 labs/nurec-rgb-reality/temporal/check_speed.py
+```
+
+`benchmark` runs three profiles sequentially and saves model latency/FPS, RGB hashes, SSIM and PSNR in `comparison/speed-benchmark/benchmark.json`. Select a fresh `--comparison-dir` to preserve previous comparisons. Add `--max-frames 12` for a shorter smoke run. The second command checks the published receipts and video hashes without a GPU.
+
+The local viewer offers **Exact pixels · default**, **Original baseline** and **Tuned**. Tuned changes convolution memory layout and kernel selection; it is faster with small numerical differences. Keep the default for pixel equality. [Optimization source](../../../labs/nurec-rgb-reality/temporal/fast.py) · [Record actual one-GPU mouse passes](../../../labs/nurec-rgb-reality/temporal/record_speed.mjs).
+
 ## Check the result
+
+### Optimization: FPS, latency and fidelity
+
+The same 160 source renders, public weights, 1024×576 BF16 inputs and four prior outputs are used throughout. Separate **model-forward performance** from **actual capture-to-paint delivery**.
+
+| GPU execution profile | Median / p95 model latency | Model throughput | Peak allocated VRAM | Fidelity to original RGB output |
+| --- | --- | --- | --- | --- |
+| Original full decode | 483.6 / 485.2ms | 2.06FPS | 6.99GiB | Reference |
+| Exact-pixel optimization · default | 271.3 / 271.4ms | 3.69FPS | 5.67GiB | 160/160 frames pixel-identical · SSIM 1.0000 |
+| Tuned · optional | 238.0 / 238.3ms | 4.12FPS | 6.41GiB | Mean PSNR 52.76dB · SSIM 0.99736 |
+
+PSNR/SSIM measure **fidelity to the original generated output**, not unseen-surface accuracy. Tuned has mean absolute error 0.291/255 and maximum error 28/255, so rare larger differences remain. The default reduces model latency about 44% without that difference. CUDA Graph replay was tested; its additional gain was too small to select as the default.
+
+The following are roughly 30-second **sequential one-GPU** browser runs on a Mac with the same scripted mouse gesture. The two passes do not contend for the GPU, and the recording is not sped up. Network and browser work contribute to delivery latency.
+
+| Actual displayed result | Original | Exact-pixel optimization |
+| --- | --- | --- |
+| Delivered AI updates | 0.89FPS | 1.79FPS |
+| Capture → paint median · four-output context | 1089ms | 547ms |
+| Capture → paint p95 · full interval | 1163ms | 671ms |
+| Separate native 3D viewer | 59.8FPS | 60.0FPS |
+
+Native 3D exploration stays near 60Hz while enhanced views arrive more frequently. The optimized pass skipped 1 stale responses at large view changes. Network conditions affect delivery; this is not 60FPS diffusion. The quality clip is inspection playback, and raw RGB equality is checked before MP4 encoding.
+
+[160-frame measurements](../../../labs/nurec-rgb-reality/evidence/speed/benchmark.json) · [Actual request/response/paint traces](../../../labs/nurec-rgb-reality/evidence/speed/interaction.json) · [HTTP/GPU-cache pixel parity](../../../labs/nurec-rgb-reality/evidence/speed/service-parity.json)
+
+
 
 ### What did temporal enhancement change?
 

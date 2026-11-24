@@ -1,0 +1,202 @@
+{
+  "scope": "Same eight native camera frames and actual poses through HTTP; verifies cached GPU history, normalization and lossless transport parity. No browser/transport FPS claim.",
+  "runs": {
+    "baseline": [
+      {
+        "rgb_sha256": "16adea58bad92bbd87ecf8d4156c9221b3e2164baf9ed27c7eb65a971fd72224",
+        "history_frames": 0,
+        "model_ms": 126.507782144472,
+        "http_ms": 785.5803340207785,
+        "timings": {
+          "request_decode_ms": 18.050014041364193,
+          "queue_ms": 0.0015909317880868912,
+          "prepare_ms": 3.863285994157195,
+          "output_encode_ms": 298.1442438904196
+        }
+      },
+      {
+        "rgb_sha256": "bf5e7bcec4650d4d9ac3860fe40ca106c9c33ddde261b092dd74b425345f2b9a",
+        "history_frames": 0,
+        "model_ms": 125.0819789711386,
+        "http_ms": 657.5441248714924,
+        "timings": {
+          "request_decode_ms": 13.04220617748797,
+          "queue_ms": 0.0017629936337471008,
+          "prepare_ms": 3.4764809533953667,
+          "output_encode_ms": 118.84742602705956
+        }
+      },
+      {
+        "rgb_sha256": "f4311549c3d7dece900ab2595764f64a541ae20f5acf75e2c27fddedb4be9e33",
+        "history_frames": 0,
+        "model_ms": 125.03301305696368,
+        "http_ms": 582.8867920208722,
+        "timings": {
+          "request_decode_ms": 12.793991947546601,
+          "queue_ms": 0.0016281846910715103,
+          "prepare_ms": 3.1885718926787376,
+          "output_encode_ms": 110.24840199388564
+        }
+      },
+      {
+        "rgb_sha256": "11a441d64f6cbb4428b98af5ea4ebc1c0329234c6d405db4f1a87e0cc93d0e7f",
+        "history_frames": 0,
+        "model_ms": 124.70907811075449,
+        "http_ms": 589.1726249828935,
+        "timings": {
+          "request_decode_ms": 9.290884947404265,
+          "queue_ms": 0.0011010561138391495,
+          "prepare_ms": 1.7237248830497265,
+          "output_encode_ms": 114.97375695034862
+        }
+      },
+      {
+        "rgb_sha256": "f3b833c15b871e3c454d54e5fcc4704829fd02207dba49aef9af2f82e6f864a5",
+        "history_frames": 4,
+        "model_ms": 761.661192169413,
+        "http_ms": 1225.8682078681886,
+        "timings": {
+          "request_decode_ms": 9.073324035853148,
+          "queue_ms": 0.0013969838619232178,
+          "prepare_ms": 6.1780179385095835,
+          "output_encode_ms": 108.60133985988796
+        }
+      },
+      {
+        "rgb_sha256": "c685f42d865318465c3fbd3ccdeade0a1cdd03686ebe92b64c5c7f99dea9e0a2",
+        "history_frames": 4,
+        "model_ms": 482.9441518522799,
+        "http_ms": 1023.6642090603709,
+        "timings": {
+          "request_decode_ms": 12.46164320036769,
+          "queue_ms": 0.0010728836059570312,
+          "prepare_ms": 9.20787313953042,
+          "output_encode_ms": 106.52797203511
+        }
+      },
+      {
+        "rgb_sha256": "b4c7f9496ef4075163eb11398fa5e6e730425a1785c355aaa017ff5447743d75",
+        "history_frames": 4,
+        "model_ms": 482.8687170520425,
+        "http_ms": 1044.6253751870245,
+        "timings": {
+          "request_decode_ms": 12.503981124609709,
+          "queue_ms": 0.0017189886420965195,
+          "prepare_ms": 8.081912994384766,
+          "output_encode_ms": 107.47160785831511
+        }
+      },
+      {
+        "rgb_sha256": "eab0c89753da735ccdfcd3ba1e51d24320b6101c687f1c9c44a4b650f78baca7",
+        "history_frames": 4,
+        "model_ms": 482.5941170565784,
+        "http_ms": 1055.2899579051882,
+        "timings": {
+          "request_decode_ms": 9.271841961890459,
+          "queue_ms": 0.0011888332664966583,
+          "prepare_ms": 7.48004112392664,
+          "output_encode_ms": 106.46430286578834
+        }
+      }
+    ],
+    "exact": [
+      {
+        "rgb_sha256": "16adea58bad92bbd87ecf8d4156c9221b3e2164baf9ed27c7eb65a971fd72224",
+        "history_frames": 0,
+        "model_ms": 124.81139786541462,
+        "http_ms": 416.1967081017792,
+        "timings": {
+          "request_decode_ms": 9.72193107008934,
+          "queue_ms": 0.0031150411814451218,
+          "prepare_ms": 2.2716650273650885,
+          "output_encode_ms": 29.9972309730947
+        }
+      },
+      {
+        "rgb_sha256": "bf5e7bcec4650d4d9ac3860fe40ca106c9c33ddde261b092dd74b425345f2b9a",
+        "history_frames": 0,
+        "model_ms": 125.19444897770882,
+        "http_ms": 424.8811670113355,
+        "timings": {
+          "request_decode_ms": 12.80750590376556,
+          "queue_ms": 0.002583954483270645,
+          "prepare_ms": 2.8455432038754225,
+          "output_encode_ms": 19.317757803946733
+        }
+      },
+      {
+        "rgb_sha256": "f4311549c3d7dece900ab2595764f64a541ae20f5acf75e2c27fddedb4be9e33",
+        "history_frames": 0,
+        "model_ms": 125.0310130417347,
+        "http_ms": 312.48600012622774,
+        "timings": {
+          "request_decode_ms": 12.756124138832092,
+          "queue_ms": 0.0012009404599666595,
+          "prepare_ms": 2.496766857802868,
+          "output_encode_ms": 19.233864033594728
+        }
+      },
+      {
+        "rgb_sha256": "11a441d64f6cbb4428b98af5ea4ebc1c0329234c6d405db4f1a87e0cc93d0e7f",
+        "history_frames": 0,
+        "model_ms": 124.79436001740396,
+        "http_ms": 310.0238749757409,
+        "timings": {
+          "request_decode_ms": 9.42129804752767,
+          "queue_ms": 0.0013320241123437881,
+          "prepare_ms": 2.1090388763695955,
+          "output_encode_ms": 19.693722017109394
+        }
+      },
+      {
+        "rgb_sha256": "f3b833c15b871e3c454d54e5fcc4704829fd02207dba49aef9af2f82e6f864a5",
+        "history_frames": 4,
+        "model_ms": 270.32571705058217,
+        "http_ms": 611.4911660552025,
+        "timings": {
+          "request_decode_ms": 9.457634994760156,
+          "queue_ms": 0.0021408777683973312,
+          "prepare_ms": 2.215377055108547,
+          "output_encode_ms": 20.110175013542175
+        }
+      },
+      {
+        "rgb_sha256": "c685f42d865318465c3fbd3ccdeade0a1cdd03686ebe92b64c5c7f99dea9e0a2",
+        "history_frames": 4,
+        "model_ms": 270.82957909442484,
+        "http_ms": 525.4263749811798,
+        "timings": {
+          "request_decode_ms": 12.653820915147662,
+          "queue_ms": 0.0023811589926481247,
+          "prepare_ms": 2.5557908229529858,
+          "output_encode_ms": 20.050355000421405
+        }
+      },
+      {
+        "rgb_sha256": "b4c7f9496ef4075163eb11398fa5e6e730425a1785c355aaa017ff5447743d75",
+        "history_frames": 4,
+        "model_ms": 270.2489730436355,
+        "http_ms": 487.4613748397678,
+        "timings": {
+          "request_decode_ms": 9.258289122954011,
+          "queue_ms": 0.00116787850856781,
+          "prepare_ms": 2.2759269922971725,
+          "output_encode_ms": 20.683974027633667
+        }
+      },
+      {
+        "rgb_sha256": "eab0c89753da735ccdfcd3ba1e51d24320b6101c687f1c9c44a4b650f78baca7",
+        "history_frames": 4,
+        "model_ms": 270.6750009674579,
+        "http_ms": 515.4463751241565,
+        "timings": {
+          "request_decode_ms": 12.348264921456575,
+          "queue_ms": 0.0012710224837064743,
+          "prepare_ms": 2.3312391713261604,
+          "output_encode_ms": 19.839896820485592
+        }
+      }
+    ]
+  },
+  "pixel_equal": true
+}

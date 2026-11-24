@@ -13,7 +13,7 @@ BASE='nvcr.io/nvidia/pytorch:25.10-py3@sha256:42263b2424fc237b34c4fc4a91c30d603c
 def run(args,**kw):subprocess.run([str(x) for x in args],check=True,**kw)
 def sha(path):return hashlib.file_digest(Path(path).open('rb'),'sha256').hexdigest()
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--root',type=Path,required=True);p.add_argument('--input',type=Path);p.add_argument('--image',default='physical-ai-harmonizer:826c199');p.add_argument('--max-frames',type=int);p.add_argument('--port',type=int,default=8765);p.add_argument('--comparison-dir',type=Path);p.add_argument('stage',choices=['setup','compare','evaluate','check','serve']);a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--root',type=Path,required=True);p.add_argument('--input',type=Path);p.add_argument('--image',default='physical-ai-harmonizer:826c199');p.add_argument('--max-frames',type=int);p.add_argument('--port',type=int,default=8765);p.add_argument('--comparison-dir',type=Path);p.add_argument('stage',choices=['setup','compare','evaluate','check','serve','benchmark']);a=p.parse_args()
     root=a.root.expanduser().resolve();root.mkdir(parents=True,exist_ok=True)
     if root.is_relative_to(HERE.parents[2]/'site/public'):raise ValueError('Keep checkpoints, runtime data and raw logs outside site/public')
     source=root/'deps/harmonizer';checkpoint=source/'models/diffusion_harmonizer.pkl';comparison=(a.comparison_dir or root/'comparison').resolve();lock=os.environ.get('GPU_LOCK','/tmp/rgb-reality-view.gpu.lock')
@@ -58,6 +58,9 @@ def main():
     if a.input:a.input=a.input.expanduser().resolve()
     if not a.input or not a.input.is_dir():raise ValueError('Supply --input with ordered16:9 novel-view render frames')
     if not comparison.is_relative_to(root):raise ValueError('Keep comparison outputs inside the selected private runtime root')
+    if a.stage=='benchmark':
+        target=comparison/'speed-benchmark'
+        run(['flock',lock,*common,'--gpus','device=0','--network','none','--shm-size=8g','-v',f'{a.input}:/input:ro','--entrypoint','python',a.image,'/adapters/benchmark_speed.py','--input','/input','--out','/data/'+str(target.relative_to(root)),'--checkpoint','/work/models/diffusion_harmonizer.pkl','--components','/data/components',*(['--max-frames',a.max_frames] if a.max_frames else [])]);return
     if a.stage=='compare':
         for mode in ['independent','temporal']:
             run(['flock',lock,*common,'--gpus','device=0','--network','none','--shm-size=8g','-v',f'{a.input}:/input:ro','--entrypoint','python',a.image,'/adapters/enhance.py','--input','/input','--out','/data/'+str((comparison/mode).relative_to(root)),'--checkpoint','/work/models/diffusion_harmonizer.pkl','--standalone-components','/data/components','--mode',mode,*(['--max-frames',a.max_frames] if a.max_frames else [])])

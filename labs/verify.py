@@ -37,6 +37,7 @@ def verify_evidence():
     assert checked["duration"] > 38 and checked["segments"][0]["gaussians"] == 18056
     runpy.run_path(str(ROOT / 'nurec-rgb-reality/guidance/check.py'))['main']()
     runpy.run_path(str(ROOT / 'nurec-rgb-reality/temporal/check.py'))['main']()
+    runpy.run_path(str(ROOT / 'nurec-rgb-reality/temporal/check_speed.py'))['main']()
     for key in ("nurec-rgb-reality", "rgb-reality-view", "pandaset-nurec", "reality-view", "carla-ego", "spatial-reconstruction", "scene-generation", "worldgen-scenes", "worldgen-isaac", "worldgen-navigation", "worldgen-dynamic-navigation"):
         runpy.run_path(str(ROOT / key / "check.py"))["main"]()
     world = report("world-driving")

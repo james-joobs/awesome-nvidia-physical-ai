@@ -76,10 +76,10 @@ export const clips = [
     ko: { title: '인체 4D 재구성: 동작·시점·Gaussian 렌더링', description: 'RGB → GEM-X/SOMA → 다중 시점 → 4D Gaussian 과정을 배웁니다. 별도 공개 SOMA 합성 제어 샘플을 RGB·3D 같은 크기로 비교하고, 직접 만든 로컬 모델도 열어보세요. YouTube 참고 영상은 별도로 임베드합니다.' },
   },
   {
-    id: 'nurec-rgb-reality', duration: '0:27', width: 1280, height: 888,
-    media: { en: 'nurec-temporal-live.en', ko: 'nurec-temporal-live.ko' },
-    en: { title: 'RGB-only Reality View: 3D geometry and temporal enhancement', description: 'Actual mouse-controlled NuRec scene → GPU Harmonizer with four previous outputs. Inspect original RGB detections, Alpamayo predictions and the native/generated pair; camera jumps reset history. Explore the saved 3D scene without a GPU or reproduce the optional local enhancer.' },
-    ko: { title: 'RGB Reality View: 3D 기준과 시간축 생성 보정', description: '실제 마우스 시점의 NuRec 장면을 GPU Harmonizer로 보정하고 이전 출력 네 장을 이어 씁니다. 원본 RGB 인식·Alpamayo 경로와 원본·보정 화면을 비교하고 큰 시점 변경에서는 이력을 비웁니다. GPU 없이 저장된 3D 장면을 탐색하거나 로컬 서버로 직접 실행해 보세요.' },
+    id: 'nurec-rgb-reality', duration: '0:30', width: 1920, height: 1080,
+    media: { en: 'nurec-speed-live.en', ko: 'nurec-speed-live.ko' },
+    en: { title: 'Faster RGB Reality View with identical image quality', description: 'One RTX 5090: retain the same temporal inputs and all RGB pixels while reducing model latency from 484ms to 271ms. Watch actual mouse passes, separate generated updates from native 3D FPS, inspect matched detail crops and reproduce the local GPU enhancer.' },
+    ko: { title: '같은 화질로 더 빨라진 RGB Reality View', description: 'RTX 5090 한 장에서 같은 시간축 입력과 RGB 픽셀을 유지하며 모델 지연을 484ms에서 271ms로 줄였습니다. 실제 마우스 조작, 보정 화면 갱신과 3D FPS, 화질 확대 비교를 보고 로컬 GPU 실습으로 따라 해 보세요.' },
   },
   {
     id: 'rgb-reality-view', duration: '0:25', width: 1280, height: 720,
@@ -170,6 +170,10 @@ export const clips = [
 
 // Extra runs share an existing lab and its reading order.
 export const labMediaFiles = {
+  'labs/nurec-rgb-reality/evidence/speed/interaction.en.mp4': 'nurec-speed-live.en.mp4',
+  'labs/nurec-rgb-reality/evidence/speed/interaction.ko.mp4': 'nurec-speed-live.ko.mp4',
+  'labs/nurec-rgb-reality/evidence/speed/quality.en.mp4': 'nurec-speed-quality.en.mp4',
+  'labs/nurec-rgb-reality/evidence/speed/quality.ko.mp4': 'nurec-speed-quality.ko.mp4',
   'labs/nurec-rgb-reality/evidence/temporal/comparison.en.mp4': 'nurec-temporal.en.mp4',
   'labs/nurec-rgb-reality/evidence/temporal/comparison.ko.mp4': 'nurec-temporal.ko.mp4',
   'labs/nurec-rgb-reality/evidence/temporal/interaction.en.mp4': 'nurec-temporal-live.en.mp4',
@@ -202,6 +206,18 @@ export const labMediaFiles = {
 };
 
 export const additionalRecordings = [
+  {
+    id: 'nurec-speed-quality', lab: 'nurec-rgb-reality', duration: '0:08', width: 1920, height: 1080,
+    media: { en: 'nurec-speed-quality.en', ko: 'nurec-speed-quality.ko' },
+    en: { title: 'Same raw pixels, less decoding: matched quality crops', description: 'All 160 outputs match the original RGB pixel for pixel. Inspect actual optimized output at the same camera with enlarged detail crops; this inspection playback is separate from inference FPS.' },
+    ko: { title: '같은 RGB 픽셀로 줄인 계산: 화질 확대 비교', description: '160프레임 모두 기존 RGB와 픽셀 전체가 일치합니다. 같은 카메라의 실제 최적화 출력과 확대 영역을 확인하세요. 화질 확인용 재생 속도와 실제 추론 FPS는 구분합니다.' },
+  },
+  {
+    id: 'nurec-temporal-initial', lab: 'nurec-rgb-reality', duration: '0:27', width: 1280, height: 888,
+    media: { en: 'nurec-temporal-live.en', ko: 'nurec-temporal-live.ko' },
+    en: { title: 'Preserved first temporal GPU viewer', description: 'The earlier actual mouse-controlled Harmonizer viewer, before current-frame decode and transport optimization.' },
+    ko: { title: '보존한 첫 시간축 GPU 뷰어', description: '현재 프레임 복원·전송 최적화 전의 실제 마우스 조작 영상입니다.' },
+  },
   {
     id: 'nurec-temporal', lab: 'nurec-rgb-reality', duration: '0:24', width: 1280, height: 640,
     media: { en: 'nurec-temporal.en', ko: 'nurec-temporal.ko' },

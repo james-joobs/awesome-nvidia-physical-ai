@@ -83,3 +83,20 @@ node labs/nurec-rgb-reality/temporal/record_viewer.mjs --language en --url 'http
 The geometry tests need NumPy; use an isolated environment. Recording requires Chrome and Playwright, or an installed module supplied through `PLAYWRIGHT_MODULE`. It checks real GPU responses, small mouse rotation, history initialization/reset and the mobile layout; no fake inference is inserted. Keep recording output under the ignored `runs/` directory.
 
 The scene remains static, RGB scale is relative, occluded surfaces are unverified and source camera adaptation is approximate. [Measured results, limitations and source data](../../../docs/en/labs/nurec-rgb-reality.md#check-the-result).
+
+## Faster execution, with the same pixels
+
+The local viewer defaults to **Exact pixels**. It retains full five-frame encoding and denoising, then decodes only the causal first output. On the same 160 frames this reduced model median latency from 483.6ms to 271.3ms, with every raw RGB pixel identical. GPU-cached history, asynchronous capture/recording, direct canvas paint and lossless WebP reduce delivery overhead. Optional **Tuned** changes convolution layout/kernel selection: 238ms with mean baseline-fidelity PSNR 52.76dB / SSIM0.99736. The default preserves exact output.
+
+Stop the serving terminal before using the shared GPU for a comparison:
+
+```bash
+python3 labs/nurec-rgb-reality/temporal/pipeline.py --root "$RV_TEMPORAL_ROOT" --input "$RV_INPUT" benchmark
+python3 labs/nurec-rgb-reality/temporal/check_speed.py
+```
+
+Choose a fresh `--comparison-dir` when preserving an existing benchmark; add `--max-frames 12` for a short run. Outputs include per-frame hashes and actual model timings. The saved checker needs no GPU. [Full performance/quality tables](../../../docs/en/labs/nurec-rgb-reality.md#optimization-fps-latency-and-fidelity).
+
+`record_speed.mjs --profile baseline` and `--profile exact` run the same real mouse gesture in **separate one-GPU passes**. Set `--language en` or `ko`, a local `--url` and an ignored output folder. The receipt distinguishes generated updates actually painted, native render FPS, model time and capture-to-paint latency. No frame interpolation or playback acceleration is applied to the live comparison.
+
+Private recording filenames continue above existing numeric prefixes after a service restart. Optimized debug writes are deferred with a bounded three-job limit; `recording=skipped_busy` explicitly marks an omitted debug capture when storage cannot keep up. This does not invent or queue displayed frames. The full old videos and earlier 160-frame results are preserved.

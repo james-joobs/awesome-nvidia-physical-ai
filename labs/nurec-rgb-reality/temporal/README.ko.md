@@ -83,3 +83,20 @@ node labs/nurec-rgb-reality/temporal/record_viewer.mjs --language ko --url 'http
 기하 검사에는 NumPy가 필요하므로 독립 환경을 쓰세요. 녹화에는 Chrome·Playwright가 필요하며, 별도 설치 모듈은 `PLAYWRIGHT_MODULE`로 지정할 수 있습니다. 실제 GPU 응답, 작은 마우스 회전, 문맥 구성·초기화와 모바일 레이아웃을 검사합니다. 가짜 추론 화면을 끼워 넣지 않습니다. 녹화는 Git에서 제외되는 `runs/` 아래에 두세요.
 
 장면은 정적이고 RGB 스케일은 상대값입니다. 가려진 면은 검증되지 않았으며 카메라 배열도 근사 어댑터를 사용합니다. [측정 결과·한계·원본 출처](../../../docs/ko/labs/nurec-rgb-reality.md#결과-확인).
+
+## 같은 픽셀로 더 빠르게 실행하기
+
+로컬 뷰어는 **화질 동일** 모드로 시작합니다. 입력 다섯 장의 encoder·DiT는 유지하고 causal decoder의 첫 출력만 복원합니다. 같은 160프레임에서 모델 중앙값은 483.6ms에서 271.3ms로 줄었고, 원본 RGB 픽셀이 모두 일치했습니다. GPU 이력 캐시·비동기 캡처와 기록·캔버스 직접 표시·손실 없는 WebP로 표시까지의 부하도 줄입니다. **추가 가속**은 합성곱 메모리 배치·커널을 바꿔 238ms를 기록했으며, 기존 대비 평균 PSNR52.76dB·SSIM0.99736으로 작은 차이가 있습니다. 기본값은 픽셀 일치를 유지합니다.
+
+공유 GPU로 비교하려면 먼저 서버 터미널을 종료하세요.
+
+```bash
+python3 labs/nurec-rgb-reality/temporal/pipeline.py --root "$RV_TEMPORAL_ROOT" --input "$RV_INPUT" benchmark
+python3 labs/nurec-rgb-reality/temporal/check_speed.py
+```
+
+기존 실험을 보존하려면 새 `--comparison-dir`을 고르세요. 짧게 확인할 때는 `--max-frames 12`를 추가합니다. 프레임별 해시와 실제 계산 시간이 기록되며 두 번째 검사는 GPU 없이 실행됩니다. [전체 성능·화질 표](../../../docs/ko/labs/nurec-rgb-reality.md#최적화-뒤의-fps지연화질).
+
+`record_speed.mjs --profile baseline`과 `--profile exact`는 **GPU 한 장에서 순서대로** 같은 실제 마우스 동작을 실행합니다. `--language en` 또는 `ko`, 로컬 `--url`과 Git에서 제외되는 결과 폴더를 지정하세요. 실제 표시한 보정 화면 수, 3D 렌더링 FPS, 모델 계산 시간과 캡처→표시 지연을 구분해 남깁니다. 실제 조작 비교 영상에는 프레임 보간이나 재생 가속을 넣지 않습니다.
+
+서버를 다시 켜도 기존 숫자 파일명 다음부터 기록해 앞선 캡처를 보존합니다. 최적화 모드의 기록은 최대 세 작업까지 백그라운드에 맡기며, 저장이 밀리면 `recording=skipped_busy`로 빠진 디버그 캡처를 표시합니다. 표시할 프레임을 만들어 내거나 요청을 쌓는 동작은 아닙니다. 이전 영상과 160프레임 결과도 보존합니다.

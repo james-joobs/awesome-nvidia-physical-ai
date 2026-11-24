@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "media": [
+    {
+      "file": "site/public/showcase/nurec-speed-live.en.mp4",
+      "sha256": "9de2cb452fabb894d07abc2f7f636384aa840d436756c02979552eef99486fc7",
+      "bytes": 5225520,
+      "seconds": 30.0,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "site/public/showcase/nurec-speed-quality.en.mp4",
+      "sha256": "3fabd2e5ab230e308f53a6c6c9e3b779e45c8d6efbbcbcf22532485531f7f791",
+      "bytes": 7302504,
+      "seconds": 8.0,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "site/public/showcase/nurec-speed-live.ko.mp4",
+      "sha256": "823fd48e87ef128e9cecb6a794389acd6caace6e02fd647f257d0068379bbd58",
+      "bytes": 5074895,
+      "seconds": 30.0,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "site/public/showcase/nurec-speed-quality.ko.mp4",
+      "sha256": "95c6d1321c100cf40c123b8c214c89dbffb2c6670f3a8274009ecb5fd9f01cfa",
+      "bytes": 7291097,
+      "seconds": 8.0,
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "credits": "PandaSet: Scale AI / Hesai; CC BY-SA 4.0 + Dataset Terms. Volvo S90: lazercar CC BY 4.0. Built on NVIDIA Cosmos.",
+  "scope": "Live comparison is actual sequential single-GPU browser recording without speed-up or interpolation. Quality video is inspection playback from actual matched raw model outputs, not a generation-FPS demo."
+}

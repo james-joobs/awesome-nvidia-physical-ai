@@ -124,7 +124,8 @@ x[:, :, 2] = 두 번째 이전 보정 출력, t−2
 x[:, :, 3] = 세 번째 이전 보정 출력, t−3
 x[:, :, 4] = 네 번째 이전 보정 출력, t−4
 x.shape    = [1, 3, 5, 576, 1024]
-y.shape    = [1, 3, 5, 576, 1024] → y[:, :, 0]을 표시
+기존 y.shape = [1, 3, 5, 576, 1024] → 첫 프레임 표시
+최적화 y.shape = [1, 3, 1, 576, 1024] → 같은 첫 프레임만 복원
 ```
 
 처음 네 장은 V1으로 처리하고, 이력을 비우면 다시 네 장을 모읍니다. 여기서 과거 입력은 **모델이 앞서 생성한 출력**입니다. 미래 카메라 사진이나 앞으로의 여덟 프레임을 예측하는 구조와 다릅니다. 단일 단계 diffusion으로 외관을 보정하며, 3D 형상을 다시 학습하거나 채워 넣은 표면의 정확성을 보장하지는 않습니다. [공식 코드](https://github.com/NVIDIA/harmonizer)와 [모델 카드](https://huggingface.co/nvidia/Harmonizer)에서 원래 구현을 확인할 수 있습니다.
@@ -134,6 +135,25 @@ y.shape    = [1, 3, 5, 576, 1024] → y[:, :, 0]을 표시
 **색은 정답이 아니라 보조 근거입니다.** 뷰어에서 **RGB 깊이 근거 살펴보기**를 고르세요. Gaussian 중심을 투영했을 때 깊이가 일치하는 카메라가 0개면 빨강, 1개면 노랑, 2개 이상이면 청록입니다. 여섯 카메라 이름을 구분하므로 같은 카메라의 여러 프레임을 별개 카메라로 세지 않습니다. RGB에서 추정한 카메라와 예측 깊이를 10% + 상대 단위 0.1의 오차 범위로 비교합니다. 가림·움직이는 객체 제외·깊이 오차 때문에 낮게 나올 수 있습니다. 실측 가시성, 픽셀별 신뢰도나 환각 판정으로 읽으면 안 됩니다.
 
 [같은 160개 시점의 원본·V1·V5 비교 영상](../../../labs/nurec-rgb-reality/evidence/temporal/comparison.ko.mp4) · [마우스로 시점을 바꿔 GPU에서 보정한 실제 화면](../../../labs/nurec-rgb-reality/evidence/temporal/interaction.ko.mp4)
+
+### 8. 화질을 그대로 유지하면서 시간을 줄이기
+
+![같은 다섯 장의 입력과 시간축 encoder·DiT를 유지하고, 정규화한 latent의 첫 프레임만 causal decoder로 복원하는 최적화](../../../assets/lessons/nurec-speed/pipeline.ko.svg)
+
+기존 코드는 현재 렌더링과 이전 출력 네 장을 넣고 RGB 다섯 장을 복원한 뒤, 화면에는 첫 장만 사용했습니다. 이번에는 **입력 다섯 장과 시간축 encoder·DiT는 유지**하면서, 정규화가 끝난 latent의 첫 프레임만 복원합니다. 이 VAE의 첫 출력은 뒤쪽 출력 복원에 의존하지 않습니다. 이미지용·영상용 정규화가 다를 수 있으므로 정규화를 생략하거나 먼저 잘라서 바꾸지 않습니다.
+
+```text
+입력:           [1, 3, 5, 576, 1024]  — 현재 1장 + 이전 출력 4장
+Encoder → DiT:  [1, 16, 2, 72, 128]   — 시간축 문맥 유지
+기존 Decoder:   [1, 3, 5, 576, 1024]  — 첫 RGB만 표시
+최적화 Decoder: [1, 3, 1, 576, 1024]  — 같은 첫 RGB만 복원
+```
+
+PNG로 양자화한 RGB를 기준으로 **160프레임 모두 기존 출력과 픽셀 전체가 일치**했습니다. GPU 이력 캐시와 HTTP 전송까지 포함한 별도 8프레임 검사도 일치했습니다. 해상도·BF16·가중치·이전 출력 네 장·diffusion 단계 수는 바꾸지 않았습니다.
+
+화면을 보낼 때는 비동기로 캡처하고, 돌아온 이미지는 캔버스에 바로 표시합니다. 이전 출력은 GPU에 캐시하고, 기록 파일은 제한된 백그라운드 작업으로 저장합니다. 큰 시점 변경 뒤 늦게 도착한 결과는 건너뛰고 최신 화면을 요청합니다. 전송에는 **손실 없는 WebP**를 쓰며, 지원되지 않으면 PNG로 돌아갑니다. WebP의 lossless 모드에서 `quality=0`은 압축 작업량을 뜻하며 픽셀 화질을 낮추는 설정이 아닙니다. [Pillow 공식 설명](https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html#webp).
+
+[실제 마우스 조작 속도 비교](../../../labs/nurec-rgb-reality/evidence/speed/interaction.ko.mp4) · [같은 시점의 화질 확대 비교](../../../labs/nurec-rgb-reality/evidence/speed/quality.ko.mp4)
 
 ## 따라 하기
 
@@ -225,7 +245,47 @@ python3 labs/nurec-rgb-reality/temporal/check.py
 
 GPU 서버는 필요할 때만 켭니다. 마우스로 선택한 실제 3D 화면의 중앙 16:9 영역을 깨끗하게 캡처해 보내고, 보정이 끝난 뒤 양쪽 화면에 원본 RGB의 인식 표식과 Alpamayo 경로를 덧그립니다. 공개 Pages에서는 3D 장면과 실제 녹화 영상을 볼 수 있으며, 방문자의 컴퓨터에 연결을 시도하지 않습니다. [GPU 서버와 SSH 터널 설정](../../../labs/nurec-rgb-reality/temporal/README.ko.md#실시간-뷰어-연결하기).
 
+### 6. 최적화 비교를 직접 실행하기
+
+기존과 같은 `RV_TEMPORAL_ROOT`·`RV_INPUT`을 사용합니다. GPU 서버를 켜뒀다면 해당 터미널에서 **Ctrl+C로 종료한 뒤** 실행하세요. GPU 잠금은 두 작업이 동시에 경쟁하지 않도록 합니다.
+
+```bash
+python3 labs/nurec-rgb-reality/temporal/pipeline.py --root "$RV_TEMPORAL_ROOT" --input "$RV_INPUT" benchmark
+python3 labs/nurec-rgb-reality/temporal/check_speed.py
+```
+
+`benchmark`는 세 방식을 차례로 실행하고 `comparison/speed-benchmark/benchmark.json`에 모델 지연·FPS·RGB 해시·SSIM·PSNR을 남깁니다. 이미 결과가 있으면 새 `--comparison-dir`을 지정하세요. 빠른 실행 확인에는 `--max-frames 12`를 추가할 수 있습니다. 두 번째 명령은 GPU 없이 저장소에 공개된 비교 기록과 영상 해시를 확인합니다.
+
+로컬 뷰어에서는 **화질 동일 · 기본**, **기존 방식**, **추가 가속**을 선택할 수 있습니다. 추가 가속은 합성곱의 메모리 배치와 커널 선택을 바꿉니다. 더 빠르지만 작은 수치 차이가 있으므로 픽셀 일치를 원하는 경우 기본 모드를 사용하세요. [실행 코드](../../../labs/nurec-rgb-reality/temporal/fast.py) · [한 GPU로 실제 조작을 녹화하는 코드](../../../labs/nurec-rgb-reality/temporal/record_speed.mjs).
+
 ## 결과 확인
+
+### 최적화 뒤의 FPS·지연·화질
+
+같은 160개 렌더링, 같은 공개 가중치, 1024×576·BF16·이전 출력 네 장을 사용했습니다. **모델 계산만의 수치**와 **실제 화면 표시까지의 수치**를 나눠 읽으세요.
+
+| GPU 실행 방식 | 모델 중앙값 / p95 | 모델 처리량 | 최대 할당 VRAM | 기존 RGB와의 화질 비교 |
+| --- | --- | --- | --- | --- |
+| 기존 전체 복원 | 483.6 / 485.2ms | 2.06FPS | 6.99GiB | 기준 |
+| 화질 동일 최적화 · 기본 | 271.3 / 271.4ms | 3.69FPS | 5.67GiB | 160/160 픽셀 전체 일치 · SSIM 1.0000 |
+| 추가 가속 · 선택 | 238.0 / 238.3ms | 4.12FPS | 6.41GiB | 평균 PSNR 52.76dB · SSIM 0.99736 |
+
+PSNR·SSIM은 **기존 생성 결과와 얼마나 같은지**를 측정하며, 실제 미관측 표면의 정확도는 아닙니다. 추가 가속은 평균 절대 차이 0.291/255, 최대 차이 28/255로 드문 큰 차이도 남아 있습니다. 기본 모드는 그 차이 없이 모델 지연을 약 44% 줄입니다. CUDA Graph도 시험했지만 추가 이득이 작아 기본 실행에는 적용하지 않았습니다.
+
+아래는 Mac의 브라우저에서 같은 마우스 동작을 약 30초씩 **한 GPU에서 순서대로** 실행한 결과입니다. 양쪽을 동시에 실행해 GPU가 경쟁하도록 하지 않았고 영상 속도를 올리지 않았습니다. 보정 화면은 GPU를 거쳐 도착하므로 네트워크와 브라우저의 영향도 포함합니다.
+
+| 실제 표시 측정 | 기존 | 화질 동일 최적화 |
+| --- | --- | --- |
+| 표시된 AI 보정 화면 | 0.89FPS | 1.75FPS |
+| 캡처 → 표시 중앙값 · 시간축 4장 사용 시 | 1121ms | 546ms |
+| 캡처 → 표시 p95 · 전체 구간 | 1266ms | 668ms |
+| 별도로 움직이는 3D 뷰어 | 59.8FPS | 60.0FPS |
+
+3D 탐색은 약 60Hz를 유지하면서 보정 화면 갱신이 빨라졌습니다. 큰 시점 전환에서는 오래된 응답 2개를 표시하지 않았습니다. 네트워크 조건에 따라 전체 지연은 달라지며, 이 데모가 60FPS로 diffusion을 실행한다는 뜻은 아닙니다. 화질 영상은 살펴보기 위한 재생이고, 픽셀 일치 검사는 MP4 인코딩 전 RGB 기준입니다.
+
+[160프레임 원본 측정값](../../../labs/nurec-rgb-reality/evidence/speed/benchmark.json) · [실제 입력·응답·표시 시각](../../../labs/nurec-rgb-reality/evidence/speed/interaction.json) · [HTTP·GPU 캐시 픽셀 일치 검사](../../../labs/nurec-rgb-reality/evidence/speed/service-parity.json)
+
+
 
 ### 시간축 보정 결과는 어떻게 읽어야 할까?
 
