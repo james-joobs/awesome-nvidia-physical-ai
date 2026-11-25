@@ -2,10 +2,10 @@
   "schema": 1,
   "mode": "actual browser pointer, keyboard and native inline recording",
   "no_playback_speedup": true,
-  "clip_duration_seconds": 20.864,
+  "clip_duration_seconds": 20.867,
   "trace": [
     {
-      "seconds": 1.608,
+      "seconds": 1.611,
       "label": "nurec",
       "model": "nurec",
       "frame": 8,
@@ -20,11 +20,11 @@
         0.04426338942958877,
         0.917995465716555
       ],
-      "triangles": 335316,
-      "fps": 58.753355204294664
+      "triangles": null,
+      "fps": 59.09589375009684
     },
     {
-      "seconds": 3.372,
+      "seconds": 3.385,
       "label": "aether",
       "model": "aether",
       "frame": 8,
@@ -40,10 +40,10 @@
         0.917995465716555
       ],
       "triangles": 58110,
-      "fps": 59.997489644784736
+      "fps": 60.002008434710504
     },
     {
-      "seconds": 5.084,
+      "seconds": 5.1,
       "label": "da3",
       "model": "da3",
       "frame": 8,
@@ -59,10 +59,10 @@
         0.917995465716555
       ],
       "triangles": 67097,
-      "fps": 60.009541265256864
+      "fps": 60.00803454927724
     },
     {
-      "seconds": 6.789,
+      "seconds": 6.809,
       "label": "surround",
       "model": "surround",
       "frame": 8,
@@ -78,10 +78,10 @@
         0.917995465716555
       ],
       "triangles": 369314,
-      "fps": 59.96286818276362
+      "fps": 60.00652790536477
     },
     {
-      "seconds": 8.521,
+      "seconds": 8.539,
       "label": "calibrated",
       "model": "calibrated",
       "frame": 8,
@@ -97,10 +97,10 @@
         0.917995465716555
       ],
       "triangles": 335316,
-      "fps": 60.005021340697965
+      "fps": 59.99598353032872
     },
     {
-      "seconds": 11.359,
+      "seconds": 11.374,
       "label": "actual-pointer-orbit",
       "model": "calibrated",
       "frame": 8,
@@ -116,10 +116,10 @@
         0.917995465716555
       ],
       "triangles": 335316,
-      "fps": 60.002008434710504
+      "fps": 59.96286818276362
     },
     {
-      "seconds": 12.738,
+      "seconds": 12.755,
       "label": "rear-camera",
       "model": "calibrated",
       "frame": 8,
@@ -135,37 +135,37 @@
         0.980693799816858
       ],
       "triangles": 335316,
-      "fps": 59.97189601453887
+      "fps": 60.005021340697965
     },
     {
-      "seconds": 18.675,
+      "seconds": 18.681,
       "label": "time-playback",
       "model": "calibrated",
-      "frame": 10,
+      "frame": 9,
       "preset": "chase",
       "camera": [
-        -8.55365029132026,
-        -2.3401611634531267,
-        3.032752125955199
+        -10.14813073569456,
+        -2.3236190191036306,
+        3.0412286509635695
       ],
       "target": [
-        0.050435725326247294,
-        0.04514884116907684,
-        0.8827521259558405
+        -1.5361929304568707,
+        0.033185435819528215,
+        0.8912286509700652
       ],
-      "triangles": 334643,
-      "fps": 60.002008434710504
+      "triangles": 334423,
+      "fps": 59.99146565139232
     },
     {
-      "seconds": 20.858,
+      "seconds": 20.86,
       "label": "pixel-depth-world-correspondence",
       "model": "calibrated",
       "frame": 8,
       "preset": "chase",
       "camera": [
-        -11.703943700243748,
-        -2.2881795104352154,
-        3.0679954657136443
+        -11.703943700244206,
+        -2.2881795104338507,
+        3.0679954657133393
       ],
       "target": [
         -3.0853759469055992,
@@ -173,7 +173,7 @@
         0.917995465716555
       ],
       "triangles": 335316,
-      "fps": 60.00050209697011
+      "fps": 60.009541265256864
     }
   ],
   "errors": [],

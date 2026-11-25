@@ -161,7 +161,7 @@ export async function mountHumanGaussianViewer(root,{manifestUrl=root.dataset.ma
       text('source-badge',manifest.source?.youtube_id?'YOUTUBE':manifest.sample_kind==='soma-synthetic-control'?(ko?'합성 렌더':'SYNTHETIC RENDER'):copy.observedBadge);text('model-title',isRig?(manifest.sample_kind==='soma-synthetic-control'?(ko?'SOMA 리깅 Gaussian 제어 샘플':'SOMA rigged Gaussian control'):(ko?'SOMA 리깅 인체 Gaussians':'SOMA-skinned human Gaussians')):copy.reconstructed);text('model-badge',manifest.sample_kind==='soma-synthetic-control'?(ko?'알려진 리깅':'KNOWN RIG'):copy.inferredBadge);
       text('notice',manifest.sample_kind==='soma-synthetic-control'?(ko?'SOMA의 공식 예제 동작을 Gaussian으로 표시한 합성 샘플입니다.':'A synthetic Gaussian sample driven by SOMA’s official example motion.'):copy.notice);
       text('info',`${count.toLocaleString()} Gaussians · ${index+1}/${manifest.segments.length} ${ko?'구간':'segment'} · ${isRig?'SOMA LBS':'conditional 4DGS'}`);
-      status.textContent=manifest.source?.youtube_id?(ko?'3D를 재생하거나 시점을 움직여 보세요. 원본 YouTube의 재생 위치는 별도로 조절합니다.':'Play or orbit 3D. Control the original YouTube playback separately.'):(ko?'두 화면의 시간이 맞춰졌습니다. 재생하거나 3D 시점을 움직여 보세요.':'Both panels share one timeline. Play the motion or orbit the model.');
+      status.textContent=ko?'3D 준비 완료':'3D ready';
       alignSource();
       state.lastLoadTimings={segment:index,usedPrefetch,blockingMs:performance.now()-started,...prepared.timings};
       if(firstModel)view('front');play(state.playing);prefetchNext(index);root.dispatchEvent(new CustomEvent('hg-ready',{detail:{segment:index,meta,manifest}}));
