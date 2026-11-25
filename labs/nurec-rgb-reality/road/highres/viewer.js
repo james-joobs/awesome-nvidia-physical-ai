@@ -1,6 +1,5 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import { SparkRenderer } from '@sparkjsdev/spark';
@@ -9,86 +8,71 @@ import { loadRoadAtlas } from '../viewer.js';
 const groundUp = new THREE.Vector3(0, 0, 1);
 const axis = (pose, column) => new THREE.Vector3(...pose.map(row => row[column]));
 const lerpAxis = (a, b, c, blend) => axis(a, c).lerp(axis(b, c), blend);
-const dimensions = {
-  car: [4.2, 1.75, 1.45, 0x536c7c], truck: [7.5, 2.15, 2.5, 0x8b939b],
-  bus: [9, 2.3, 2.95, 0x377e8e], tram: [10, 2.25, 2.9, 0x43846d],
-  person: [.42, .42, 1.65, 0xa67852], rider: [1.55, .55, 1.52, 0xa67852],
-  motorcycle: [1.8, .6, 1.35, 0x596c77], bicycle: [1.6, .5, .97, 0x745d4f],
+const groundClearance = .002;
+const rgbRatio = 768/498;
+const captions = {
+  car: ['차량', 'Car'], truck: ['트럭', 'Truck'], transit: ['대중교통', 'Transit'],
+  person: ['보행자', 'Person'],
+  bicycle: ['자전거', 'Bicycle'], motorcycle: ['오토바이', 'Motorcycle'],
 };
+const colors = ['#b6ed65', '#78dbff', '#ffc967', '#ebadf6'];
 
-function addActors(scene, releases) {
-  const box = new THREE.BoxGeometry();
-  const rounded = new RoundedBoxGeometry(1, 1, 1, 2, .15);
-  const wheel = new THREE.CylinderGeometry(1, 1, 1, 10);
-  const rubber = new THREE.MeshStandardMaterial({ color: 0x14191d });
-  const glass = new THREE.MeshStandardMaterial({ color: 0x2b3941, roughness: .3 });
-  const pools = {};
-  const paints = Object.fromEntries(Object.entries(dimensions).map(([name, [, , , color]]) =>
-    [name, new THREE.MeshStandardMaterial({ color, roughness: .56 })]));
-  releases.push(() => {
-    box.dispose(); rounded.dispose(); wheel.dispose(); rubber.dispose(); glass.dispose();
-    for (const paint of Object.values(paints)) paint.dispose();
+function findTireContacts(model) {
+  const contacts = Array(4).fill(null);
+  const position = new THREE.Vector3();
+  model.updateMatrixWorld(true);
+  model.traverse(mesh => {
+    const vertices = mesh.geometry?.getAttribute('position');
+    if (!vertices) return;
+    for (let i = 0; i < vertices.count; i++) {
+      position.fromBufferAttribute(vertices, i).applyMatrix4(mesh.matrixWorld);
+      if (position.z > .12 || Math.abs(position.x) < .7 || Math.abs(position.y) < .4) continue;
+      const corner = (position.x > 0 ? 2 : 0)+(position.y > 0 ? 1 : 0);
+      if (!contacts[corner] || position.z < contacts[corner].z) contacts[corner] = position.clone();
+    }
   });
-  const create = name => {
-    const [length, width, height] = dimensions[name];
-    const group = new THREE.Group();
-    const part = (geometry, paint, size, position) => {
-      const mesh = new THREE.Mesh(geometry, paint);
-      mesh.scale.set(...size);
-      mesh.position.set(...position);
-      group.add(mesh);
-    };
-    if (name === 'person' || name === 'rider') {
-      part(box, paints[name], [.36, .38, height*.43], [0, 0, height*.58]);
-      part(box, paints[name], [.21, .23, .23], [0, 0, height*.91]);
-      part(box, rubber, [.19, .27, height*.4], [0, 0, height*.2]);
-    }
-    if (['car', 'truck', 'bus', 'tram'].includes(name)) {
-      const cabin = name === 'car' ? .55 : .86;
-      part(rounded, paints[name], [length, width, height*.51], [0, 0, height*.36]);
-      part(rounded, glass, [length*cabin, width*.91, height*.37], [0, 0, height*.73]);
-      part(rounded, paints[name], [length*cabin*.91, width*.88, height*.11], [0, 0, height*.92]);
-      for (const x of [-.32, .32]) for (const y of [-.45, .45]) {
-        part(wheel, rubber, [.3, .18, .3], [length*x, width*y, .3]);
-      }
-    }
-    if (['rider', 'motorcycle', 'bicycle'].includes(name)) {
-      part(box, paints[name], [length*.8, width*.45, .15], [0, 0, .42]);
-      for (const x of [-.32, .32]) part(wheel, rubber, [.30, .10, .30], [length*x, 0, .30]);
-    }
-    scene.add(group);
-    return group;
-  };
-  return (from, to, fraction, yaw, ego, camera, enabled) => {
-    for (const pool of Object.values(pools)) for (const model of pool) model.visible = false;
-    if (!enabled) return 0;
-    const next = new Map(to.map(actor => [actor[0], actor]));
-    const used = {};
-    let count = 0;
-    for (const actor of from) {
-      const [id, name, x, y, heading] = actor;
-      const destination = next.get(id) ?? actor;
-      const centerX = THREE.MathUtils.lerp(x, destination[2], fraction);
-      const centerY = THREE.MathUtils.lerp(y, destination[3], fraction);
-      if (Math.hypot(centerX-ego.x, centerY-ego.y) < 1.65) continue;
-      const [length, width, height] = dimensions[name];
-      const angle = heading ?? yaw;
-      const dx = camera.x-centerX, dy = camera.y-centerY;
-      const nearLong = Math.abs(dx*Math.cos(angle)+dy*Math.sin(angle)) < length*.52+.4;
-      const nearLat = Math.abs(-dx*Math.sin(angle)+dy*Math.cos(angle)) < width*.54+.4;
-      if (nearLong && nearLat && camera.z < height+.55) continue;
-      const pool = pools[name] ??= [];
-      const index = used[name] ?? 0;
-      used[name] = index+1;
-      const model = pool[index] ??= create(name);
-      model.position.set(centerX, centerY, .02);
-      const start = heading ?? yaw, end = destination[4] ?? start;
-      model.rotation.z = start+Math.atan2(Math.sin(end-start), Math.cos(end-start))*fraction;
-      model.visible = true;
-      count++;
-    }
-    return count;
-  };
+  if (contacts.some(contact => contact === null)) throw new Error('Missing Volvo tire contact vertices');
+  return contacts;
+}
+
+function placeOnRoad(car, shadow, road, contacts, position, forward) {
+  const yaw = Math.atan2(forward.y, forward.x);
+  const heading = new THREE.Vector3(Math.cos(yaw), Math.sin(yaw), 0);
+  const x = position.x-1.35*heading.x, y = position.y-1.35*heading.y;
+  const slopeX = road.heightAt(x+.5, y)-road.heightAt(x-.5, y);
+  const slopeY = road.heightAt(x, y+.5)-road.heightAt(x, y-.5);
+  const normal = new THREE.Vector3(-slopeX, -slopeY, 1).normalize();
+  heading.z = slopeX*heading.x+slopeY*heading.y;
+  heading.normalize();
+  const lateral = new THREE.Vector3().crossVectors(normal, heading).normalize();
+  car.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(heading, lateral, normal));
+  const rotated = contacts.map(contact => contact.clone().applyQuaternion(car.quaternion));
+  const heights = rotated.map(tire => road.heightAt(x+tire.x, y+tire.y)-tire.z);
+  const z = Math.max(...heights)+groundClearance;
+  car.position.set(x, y, z);
+  shadow.position.set(x, y, road.heightAt(x, y)+.006);
+  shadow.quaternion.copy(car.quaternion);
+  return heights.map(height => z-height);
+}
+
+function drawTracks(layer, observations, ko) {
+  const width = layer.clientWidth;
+  layer.replaceChildren(...observations.map(([id, category, box]) => {
+    const [x1, y1, x2, y2] = box;
+    const marker = document.createElement('div');
+    marker.className = 'observed-track';
+    marker.dataset.trackId = id;
+    marker.style.setProperty('--track-color', colors[id % colors.length]);
+    marker.style.left = `${100*x1}%`;
+    marker.style.top = `${100*y1}%`;
+    marker.style.width = `${100*(x2-x1)}%`;
+    marker.style.height = `${100*(y2-y1)}%`;
+    const title = document.createElement('span');
+    title.textContent = `${captions[category][ko ? 0 : 1]} #${id}`;
+    title.hidden = width*(x2-x1) < 33;
+    marker.append(title);
+    return marker;
+  }));
 }
 
 export async function mountHighresViewer(root, signal, initial) {
@@ -161,11 +145,12 @@ export async function mountHighresViewer(root, signal, initial) {
     scene.add(sun);
     const car = new THREE.Group();
     model.scene.rotation.x = Math.PI/2;
-    const bounds = new THREE.Box3().setFromObject(model.scene);
+    const bounds = new THREE.Box3().setFromObject(model.scene, true);
     const scale = 4.9/(bounds.max.x-bounds.min.x);
     model.scene.scale.multiplyScalar(scale);
     model.scene.position.copy(bounds.getCenter(new THREE.Vector3())).multiplyScalar(-scale);
     model.scene.position.z = -scale*bounds.min.z;
+    const tireContacts = findTireContacts(model.scene);
     car.add(model.scene);
     scene.add(car);
     const shadow = new THREE.Mesh(new THREE.PlaneGeometry(6.2, 3.15), new THREE.ShaderMaterial({
@@ -188,7 +173,6 @@ export async function mountHighresViewer(root, signal, initial) {
     }));
     scene.add(shadow);
     releases.push(() => { shadow.geometry.dispose(); shadow.material.dispose(); });
-    const showActors = addActors(scene, releases);
 
     const camera = new THREE.PerspectiveCamera(54, 1, .05, 250);
     camera.up.copy(groundUp);
@@ -204,20 +188,84 @@ export async function mountHighresViewer(root, signal, initial) {
     const path = road.manifest.scene_fit.front_path;
     if (frames.length !== path.length || path.length < 2) throw new Error('Invalid route length');
     const route = new THREE.Line(new THREE.BufferGeometry().setFromPoints(path.map(({pose}) =>
-      new THREE.Vector3(pose[0][3], pose[1][3], .06))),
+      new THREE.Vector3(pose[0][3], pose[1][3], road.heightAt(pose[0][3], pose[1][3])+.045))),
     new THREE.LineBasicMaterial({ color: 0xb5ed59, transparent: true, opacity: .9, depthWrite: false }));
     scene.add(route);
     releases.push(() => { route.geometry.dispose(); route.material.dispose(); });
     const duration = frames.at(-1).time;
     const time = q('time'), offset = q('offset'), lift = q('lift');
     const readout = q('readout'), play = q('play'), rgb = q('rgb'), note = q('note');
-    const traffic = q('traffic'), routeLine = q('route-line');
+    const inset = q('inset'), track = q('track'), routeLine = q('route-line');
+    const source = q('source'), sourceFrame = q('source-frame'), boxes = q('boxes');
+    const sourceTag = q('source-tag');
     const modes = [...root.querySelectorAll('[data-hq-mode]')];
     const directions = [...root.querySelectorAll('[data-hq-camera]')];
     let mode = initial?.mode ?? 'chase', direction = initial?.direction ?? 'front';
-    let playing = false, last = 0, actors = 0, image = '', sourceTime = 0;
+    let playing = false, last = 0, sourceTime = 0, tireGaps = [];
+    let requested, shown, trackData, trackRequest;
+    let trackError = false, visibleTracks = 0;
     const lookahead = new Image();
     let unregistered, orbitAnchor;
+
+    const fitSource = () => {
+      if (source.hidden) return false;
+      const width = `${Math.min(source.clientWidth, source.clientHeight*rgbRatio)}px`;
+      if (sourceFrame.style.width === width) return false;
+      sourceFrame.style.width = width;
+      return true;
+    };
+    const renderObservations = () => {
+      const records = shown && track.checked && !source.hidden
+        ? trackData?.cameras[shown.direction]?.[shown.index] ?? [] : [];
+      drawTracks(boxes, records, ko);
+      visibleTracks = records.length;
+      const caption = directions.find(button => button.dataset.hqCamera === shown?.direction)?.textContent;
+      sourceTag.textContent = trackError && track.checked
+        ? (ko ? '추적 결과 로딩 실패' : 'Tracks unavailable')
+        : caption ? `${ko ? '실사 RGB' : 'Camera RGB'} · ${caption}` : '';
+    };
+    const ensureTracks = () => {
+      if (!track.checked || trackRequest) return;
+      trackError = false;
+      trackRequest = get(base+'road/tracks.json').then(response => response.json()).then(data => {
+        if (data.schema !== 1 || data.times.length !== frames.length ||
+            data.times.some((time, index) => time !== frames[index].time)) {
+          throw new Error('Tracking data does not match the route timeline');
+        }
+        trackData = data;
+        renderObservations();
+      }).catch(error => {
+        if (signal.aborted) return;
+        trackError = true;
+        renderObservations();
+        console.error(error);
+      });
+    };
+    on(rgb, 'load', () => {
+      if (!requested || rgb.currentSrc !== requested.url) return;
+      shown = requested;
+      renderObservations();
+    });
+    const showSource = (show, pictureInPicture, index) => {
+      source.hidden = !show;
+      source.toggleAttribute('data-inset', pictureInPicture);
+      if (!show) return;
+      const resized = fitSource();
+      ensureTracks();
+      const file = frames[index].rgb[direction];
+      if (!file) return;
+      const url = new URL(base+'road/'+file, location.href).href;
+      if (url === requested?.url) {
+        if (resized) renderObservations();
+        return;
+      }
+      requested = { index, direction, url };
+      shown = undefined;
+      renderObservations();
+      rgb.src = url;
+      const future = frames[index+1]?.rgb[direction];
+      if (future) lookahead.src = base+'road/'+future;
+    };
 
     const updatePose = (restartOrbit = false) => {
       const t = Number(time.value);
@@ -226,18 +274,13 @@ export async function mountHighresViewer(root, signal, initial) {
       const lo = Math.max(0, hi-1);
       const a = path[lo].pose, b = path[hi].pose;
       const blend = (t-frames[lo].time)/(frames[hi].time-frames[lo].time || 1);
-      const frame = blend < .5 ? frames[lo] : frames[hi];
+      const sourceIndex = blend < .5 ? lo : hi;
       const position = lerpAxis(a, b, 3, blend);
       const forward = lerpAxis(a, b, 2, blend).normalize();
       const left = new THREE.Vector3().crossVectors(groundUp, forward).normalize();
-      const floor = THREE.MathUtils.clamp(position.z-1.8, -.65, .65);
-      const yaw = Math.atan2(forward.y, forward.x);
-      car.position.copy(position).addScaledVector(forward, -1.35);
-      car.position.z = floor;
-      car.rotation.z = yaw;
+      tireGaps = placeOnRoad(car, shadow, road, tireContacts, position, forward);
+      const floor = road.heightAt(car.position.x, car.position.y);
       car.visible = mode === 'chase' || mode === 'orbit';
-      shadow.position.set(car.position.x, car.position.y, .028);
-      shadow.rotation.z = yaw;
       shadow.visible = car.visible;
       controls.enabled = mode === 'orbit' || mode === 'chase';
       const adjust = controls.enabled;
@@ -255,16 +298,17 @@ export async function mountHighresViewer(root, signal, initial) {
         camera.fov = mode === 'chase' ? 58 : 54;
         camera.up.copy(groundUp);
         if (mode === 'chase') {
-          camera.position.copy(position).addScaledVector(left, Number(offset.value)).addScaledVector(forward, -6.7);
-          camera.position.z = floor+3.4+Number(lift.value);
-          controls.target.copy(position).addScaledVector(forward, 5.5);
-          controls.target.z = floor+1.25;
+          camera.position.copy(position).addScaledVector(left, Number(offset.value)).addScaledVector(forward, -8.5);
+          camera.position.z = floor+3.45+Number(lift.value);
+          controls.target.copy(position).addScaledVector(forward, 1.8);
+          controls.target.z = floor+.95;
         } else {
           if (!orbitAnchor || restartOrbit) {
-            camera.position.copy(position).addScaledVector(left, 2.4+Number(offset.value))
-              .addScaledVector(forward, -3.6);
+            camera.position.copy(position).addScaledVector(left, 3.8+Number(offset.value))
+              .addScaledVector(forward, -6.0);
             camera.position.z = floor+3.0+Number(lift.value);
-            controls.target.copy(position).addScaledVector(forward, 7);
+            controls.target.copy(position).addScaledVector(forward, 2.7);
+            controls.target.z = floor+.9;
           } else {
             const step = position.clone().sub(orbitAnchor);
             camera.position.add(step);
@@ -278,20 +322,9 @@ export async function mountHighresViewer(root, signal, initial) {
 
       const showRgb = mode === 'rgb' || fallbackRgb;
       route.visible = routeLine.checked && !showRgb;
-      actors = showActors(frame.actors, blend < .5 ? frames[hi].actors : frames[lo].actors,
-        blend < .5 ? blend : 1-blend, yaw, car.position, camera.position, traffic.checked && !showRgb);
       canvas.hidden = showRgb;
-      rgb.hidden = !showRgb;
-      sourceTime = frame.time;
-      if (showRgb) {
-        const next = frame.rgb[direction];
-        if (next && next !== image) {
-          image = next;
-          rgb.src = base+'road/'+next;
-          const future = frames[blend < .5 ? hi : hi+1]?.rgb[direction];
-          if (future) lookahead.src = base+'road/'+future;
-        }
-      }
+      sourceTime = frames[sourceIndex].time;
+      showSource(showRgb || inset.checked, !showRgb && inset.checked, sourceIndex);
       if (unregistered !== fallbackRgb) {
         unregistered = fallbackRgb;
         updateNote();
@@ -301,14 +334,16 @@ export async function mountHighresViewer(root, signal, initial) {
 
     const updateNote = () => {
       note.textContent = unregistered ? (ko ? '이 시점의 3D 카메라 자세를 복원하지 못해 실제 RGB를 표시합니다.' : 'Camera pose unavailable here. Showing the original RGB frame.')
-        : mode === 'rgb' ? (ko ? 'KITScenes에서 촬영한 카메라 RGB입니다. 주행 시간에 맞춰 샘플을 표시합니다.' : 'Original KITScenes camera RGB, sampled along the timeline.')
-        : (ko ? 'Volvo는 추가한 기준 차량입니다. 주변 차량과 보행자는 RGB에서 추정한 위치를 3D 모형으로 표시합니다.' : 'The Volvo is a reference vehicle. Other vehicles and people are 3D proxies positioned from RGB observations.');
+        : mode === 'rgb' ? (ko ? 'KITScenes 실사 RGB입니다. 추적 ID는 선택한 카메라의 프레임 사이에서 이어집니다.' : 'Tracking IDs follow detections within the selected KITScenes camera.')
+        : (ko ? 'Volvo 바퀴를 복원한 노면에 맞췄습니다. 실사 추적 창에서 주변 차량을 확인할 수 있습니다.' : 'The Volvo tires follow the reconstructed road. Open the RGB tracking inset to see surrounding traffic.');
     };
     const updateButtons = () => {
       for (const button of modes) button.setAttribute('aria-pressed', String(button.dataset.hqMode === mode));
       for (const button of directions) button.setAttribute('aria-pressed', String(button.dataset.hqCamera === direction));
-      q('directions').hidden = mode !== 'calibrated' && mode !== 'rgb';
-      q('overlays').hidden = mode === 'rgb';
+      q('directions').hidden = mode !== 'calibrated' && mode !== 'rgb' && !inset.checked;
+      q('inset-option').hidden = mode === 'rgb';
+      q('track-option').hidden = !inset.checked && mode !== 'rgb' && !unregistered;
+      q('route-option').hidden = mode === 'rgb';
       for (const label of root.querySelectorAll('[data-hq-adjust]')) label.hidden = !controls.enabled;
       updateNote();
     };
@@ -323,7 +358,12 @@ export async function mountHighresViewer(root, signal, initial) {
     offset.value = '0';
     lift.value = '.35';
     on(time, 'input', () => updatePose());
-    on(traffic, 'change', () => updatePose());
+    on(inset, 'change', () => { updatePose(); updateButtons(); });
+    on(track, 'change', () => {
+      if (trackError) trackRequest = undefined;
+      ensureTracks();
+      renderObservations();
+    });
     on(routeLine, 'change', () => updatePose());
     for (const input of [offset, lift]) on(input, 'input', () => updatePose(true));
     for (const button of modes) on(button, 'click', () => {
@@ -346,13 +386,20 @@ export async function mountHighresViewer(root, signal, initial) {
     setPlaying(false);
     updatePose();
     updateButtons();
-    releases.push(() => { rgb.hidden = true; rgb.removeAttribute('src'); lookahead.removeAttribute('src'); });
+    releases.push(() => {
+      source.hidden = true;
+      boxes.replaceChildren();
+      rgb.removeAttribute('src');
+      lookahead.removeAttribute('src');
+    });
 
     const resize = () => {
       if (!stage.clientWidth || !stage.clientHeight) return;
       camera.aspect = stage.clientWidth/stage.clientHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(stage.clientWidth, stage.clientHeight);
+      fitSource();
+      if (!source.hidden) renderObservations();
     };
     resize();
     const size = new ResizeObserver(resize);
@@ -382,7 +429,8 @@ export async function mountHighresViewer(root, signal, initial) {
     on(time, 'input', () => { clock = Number(time.value); });
     root.highresViewState = () => ({
       position: camera.position.toArray(), frame: Number(time.value), duration, mode, direction,
-      sourceTime, actors, vehicle: car.visible, routeVisible: route.visible,
+      sourceTime, visibleTracks: source.hidden ? 0 : visibleTracks, tireGaps,
+      vehicle: car.visible, routeVisible: route.visible,
       gaussians: road.manifest.scene_fit.gaussians,
     });
     releases.push(() => delete root.highresViewState);

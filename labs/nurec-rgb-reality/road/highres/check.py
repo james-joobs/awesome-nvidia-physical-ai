@@ -2,7 +2,6 @@
 import hashlib
 import json
 from collections import defaultdict
-from math import dist
 from pathlib import Path
 
 from PIL import Image
@@ -32,20 +31,33 @@ def verify_route(package, views, seconds, minimum_psnr):
     assert surround["schema"] == 1 and surround["source_scene"] == fit["scene"]
     assert len(frames) == len(fit["front_path"])
     assert frames[-1]["time"] == seconds
-    assert surround["tracks"]["car"] > 0
+    tracking = json.loads((package/"tracks.json").read_text())
+    assert tracking["schema"] == 1 and set(tracking["cameras"]) == CAMERAS
+    assert tracking["times"] == [frame["time"] for frame in frames]
+    seen_cameras = {}
+    cars = 0
+    for camera, series in tracking["cameras"].items():
+        counts = defaultdict(list)
+        assert len(series) == len(frames)
+        for observations in series:
+            assert len(observations) == len({row[0] for row in observations})
+            for track, category, (x1, y1, x2, y2), confidence in observations:
+                assert 0 <= x1 < x2 <= 1 and 0 <= y1 < y2 <= 1 and 0 < confidence <= 1
+                assert seen_cameras.setdefault(track, camera) == camera
+                counts[track].append(category)
+        for observations in counts.values():
+            assert len(observations) >= 2 and len(set(observations)) == 1
+            cars += observations[0] == "car" and len(observations) >= 3
+    assert cars > 0
     assert all(first["time"] < second["time"] for first, second in zip(frames, frames[1:]))
-    positions = defaultdict(list)
     for frame, pose in zip(frames, fit["front_path"], strict=True):
         assert abs((pose["frame"]-fit["front_path"][0]["frame"])/10-frame["time"]) < .001
         assert CAMERAS == set(frame["rgb"]) == set(frame["cameras"])
-        for track, category, x, y, heading in frame["actors"]:
-            if category == "car":
-                positions[track].append((x, y))
+        assert "actors" not in frame
         for reference in frame["rgb"].values():
             with Image.open(package/reference) as image:
-                assert image.format == "WEBP" and image.width == 768
+                assert image.format == "WEBP" and image.size == (768, 498)
                 image.verify()
-    assert any(dist(points[0], points[-1]) > 1.5 for points in positions.values())
 
 
 def main():

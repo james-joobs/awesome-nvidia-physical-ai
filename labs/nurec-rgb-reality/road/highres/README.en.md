@@ -12,7 +12,7 @@ Choose a route from the [public Voxel51 sample of KITScenes Multimodal](https://
 
 LoMa matches static RGB features. COLMAP bundle adjustment fits the six cameras. Mask2Former separates road, sky and traffic. The road uses RGB reprojected onto a ground surface, the sky uses a directional RGB texture, and gsplat reconstructs the remaining static scene. All 936 camera views registered across the three routes. Camera files in the source are 3504 × 2272. The browser serves smaller copies when you choose **Camera RGB**.
 
-The Volvo is a reference model. Surrounding vehicles, bikes and people use simple 3D models whose estimated positions come from semantic masks and camera rays intersecting the ground. Toggle **Show traffic** to inspect the background, or use **Show recorded path** to trace the camera route. The camera RGB shows the observed appearance. Unseen areas and distant surfaces may remain soft in 3D.
+The Volvo is a reference model. Four contact points come from the tire mesh and follow the road surface. Choose **Camera RGB** or enable the **RGB tracking inset** to see [RT-DETR](https://huggingface.co/PekingU/rtdetr_r50vd) detections linked across frames by box motion and crop appearance. Each camera has its own track IDs. IDs can change after an occlusion. **Show recorded path** displays the camera route. Invisible or distant surfaces may remain soft in 3D.
 
 Other useful sources are the [full KITScenes release](https://kitscenes.org/multimodal/), [Zenseact Open Dataset](https://zod.zenseact.com/) and [Argoverse 2 Sensor](https://www.argoverse.org/av2.html).
 
@@ -43,6 +43,9 @@ python "$HQ_CODE/package.py" --input "$HQ_WORK/data" --sfm "$HQ_WORK/sfm" \
   --fit "$HQ_WORK/fit" --output "$HQ_WORK/browser/road"
 python "$HQ_CODE/surround.py" --input "$HQ_WORK/data" --sfm "$HQ_WORK/sfm" \
   --fit "$HQ_WORK/fit" --output "$HQ_WORK/browser/road"
+python "$HQ_CODE/track_rgb.py" "$HQ_WORK/browser/road"
+# Bridge only: borrow nearby road RGB for small gaps beneath the Volvo.
+python "$HQ_CODE/fill_contact_gaps.py" "$HQ_WORK/browser/road"
 python "$HQ_CODE/check.py"
 ```
 

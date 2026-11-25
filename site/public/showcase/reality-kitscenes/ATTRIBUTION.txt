@@ -24,8 +24,9 @@ applied one tone curve, estimated poses with LoMa-B and COLMAP, excluded
 dynamic/sky regions from static appearance fitting, fit gsplat Gaussians,
 and reprojected road RGB and a directional sky panorama. The videos show virtual camera viewpoints and selected original RGB frames.
 Browser RGB frames are anonymized source images resized to 768px wide.
-The browser uses simple models for traffic and pedestrians, placed from
-Mask2Former labels and estimates from RGB camera poses and a ground plane.
+RGB tracking uses RT-DETR detections linked across frames within each camera.
+https://huggingface.co/PekingU/rtdetr_r50vd
+Small texture gaps below the Volvo on the bridge borrow nearby observed road RGB.
 The 3D data uses camera RGB and released intrinsics as inputs.
 
 Reference vehicle: Volvo S90 Recharge by lazercar, CC BY 4.0.

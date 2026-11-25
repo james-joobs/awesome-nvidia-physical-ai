@@ -225,9 +225,9 @@ export const additionalRecordings = [
   {
     id: 'reality-kitscenes-surround', lab: 'nurec-rgb-reality', duration: '0:28', width: 1280, height: 720,
     en: { title: 'Three Frankfurt routes · Volvo and surround cameras',
-      description: 'Follow the Volvo through a tram crossing and a tree-lined avenue, then switch to side, rear, and free-orbit views.' },
+      description: 'Follow the Volvo with its tires on the road, then switch to real RGB tracks from the front and rear cameras.' },
     ko: { title: '프랑크푸르트 세 구간 · Volvo와 주변 카메라',
-      description: 'Volvo를 따라 트램 교차로와 가로수길을 지나고, 측방·후방·자유 시점으로 바꿔 봅니다.' },
+      description: '노면을 따라 달리는 Volvo와 실사 전·후방 카메라에서 이어지는 차량 추적을 확인합니다.' },
   },
   {
     id: 'reality-kitscenes', lab: 'nurec-rgb-reality', duration: '0:16', width: 1280, height: 720,

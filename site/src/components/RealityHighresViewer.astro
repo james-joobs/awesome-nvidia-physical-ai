@@ -32,8 +32,11 @@ const views = [
       <button type="button" data-hq-mode="calibrated" aria-pressed="false">{ko ? '3D 카메라' : '3D cameras'}</button>
       <button type="button" data-hq-mode="rgb" aria-pressed="false">{ko ? '실사 RGB' : 'Camera RGB'}</button>
       <div class="overlays" data-hq-overlays>
-        <label><input type="checkbox" data-hq-traffic checked /> {ko ? '주변 객체 표시' : 'Show traffic'}</label>
-        <label><input type="checkbox" data-hq-route-line /> {ko ? '촬영 경로 표시' : 'Show recorded path'}</label>
+        <label data-hq-inset-option><input type="checkbox" data-hq-inset checked /> {ko ? '실사 추적 창' : 'RGB tracking inset'}</label>
+        <label data-hq-track-option hidden><input type="checkbox" data-hq-track checked /> {ko ? '추적 표시' : 'Show tracks'}</label>
+        <label data-hq-route-option>
+          <input type="checkbox" data-hq-route-line /> {ko ? '촬영 경로 표시' : 'Show recorded path'}
+        </label>
       </div>
     </div>
     <div role="group" class="directions" data-hq-directions hidden aria-label={ko ? '카메라 방향' : 'Camera direction'}>
@@ -43,7 +46,13 @@ const views = [
   <div class="stage" data-hq-stage>
     <img class="frame" data-hq-poster src={routes[0].poster} width="1280" height="720" loading="lazy"
       alt={ko ? '프랑크푸르트 주행 구간' : 'Frankfurt driving route'} />
-    <img class="frame source" data-hq-rgb alt={ko ? '선택한 실제 카메라의 RGB 프레임' : 'RGB frame from the selected camera'} hidden />
+    <div class="source" data-hq-source hidden>
+      <div class="source-frame" data-hq-source-frame>
+        <img class="frame" data-hq-rgb alt={ko ? '선택한 실제 카메라의 RGB 프레임' : 'RGB frame from the selected camera'} />
+        <div class="track-layer" data-hq-boxes aria-hidden="true"></div>
+        <span class="source-tag" data-hq-source-tag></span>
+      </div>
+    </div>
     <div class="start" data-hq-cover>
       <button type="button" class="button button-primary" data-hq-start>{ko ? '3D 시작' : 'Start 3D'}</button>
       <p role="status" data-hq-status></p>
@@ -143,7 +152,15 @@ for (const root of document.querySelectorAll<HTMLElement>('[data-hq-viewer]')) {
   .stage { position: relative; aspect-ratio: 16/9; background: #1a1d20; border: 1px solid var(--edge); border-radius: 6px; overflow: clip; }
   .frame, .stage :global(canvas) { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .stage :global(canvas) { touch-action: none; }
-  .source { object-fit: contain; }
+  .source { position: absolute; inset: 0; display: grid; place-items: center; background: #171b1e; overflow: hidden; }
+  .source[data-inset] { inset: 10px 10px auto auto; width: min(43%, 320px); aspect-ratio: 768/498; border: 1px solid #819095; border-radius: 4px; pointer-events: none; }
+  .source-frame { position: relative; width: 100%; aspect-ratio: 768/498; overflow: hidden; }
+  .source-tag { position: absolute; bottom: 4px; left: 4px; padding: .1rem .3rem; color: #fff; background: #13191de8; font-size: .66rem; }
+  .track-layer { position: absolute; inset: 0; pointer-events: none; }
+  .track-layer :global(.observed-track) { position: absolute; box-sizing: border-box; border: 1.5px solid var(--track-color); }
+  .track-layer :global(.observed-track span) { position: absolute; top: 0; left: 0; padding: 1px 2px; background: #171b1eeb; color: var(--track-color); white-space: nowrap; font: 600 clamp(8px, 1.4vw, 11px)/1.25 ui-monospace, monospace; }
+  .source[data-inset] .track-layer :global(.observed-track) { border-width: 1px; }
+  .source[data-inset] .track-layer :global(.observed-track span) { font-size: 8px; }
   .start { position: absolute; top: 12px; right: 12px; display: grid; justify-items: end; gap: .25rem; }
   .start p { margin: 0; max-width: 22ch; color: var(--text); background: var(--surface); font-size: .78rem; }
   .start p:empty { display: none; }

@@ -139,11 +139,13 @@ export async function loadRoadAtlas(get, base) {
   const [left, bottom, right, top] = manifest.bounds_xy;
   const [offset, slopeX, slopeY, curveX] = manifest.height_coefficients;
   const height = (x, y) => offset + slopeX*x/25 + slopeY*y/10 + curveX*(x/25)**2;
-  const geometry = new THREE.PlaneGeometry(right-left, top-bottom, 96, 16);
+  const columns = 96;
+  const surfaceOffset = .015;
+  const geometry = new THREE.PlaneGeometry(right-left, top-bottom, columns, 16);
   geometry.translate((left+right)/2, (bottom+top)/2, 0);
   const positions = geometry.getAttribute('position');
   for (let i = 0; i < positions.count; i++) {
-    positions.setZ(i, height(positions.getX(i), positions.getY(i)) + 0.015);
+    positions.setZ(i, height(positions.getX(i), positions.getY(i)) + surfaceOffset);
   }
   geometry.computeBoundingSphere();
 
@@ -156,6 +158,16 @@ export async function loadRoadAtlas(get, base) {
   return {
     mesh,
     manifest,
+    heightAt(x, y) {
+      // The mesh linearly interpolates curvature between its X grid columns.
+      const column = THREE.MathUtils.clamp((x-left)/(right-left)*columns, 0, columns);
+      const first = Math.floor(column);
+      const spacing = (right-left)/columns;
+      return surfaceOffset + THREE.MathUtils.lerp(
+        height(left+first*spacing, y), height(left+Math.min(first+1, columns)*spacing, y),
+        column-first,
+      );
+    },
     backgroundModifier: roadOpacityModifier(texture, manifest),
     async loadSurroundings() {
       return manifest.surroundings

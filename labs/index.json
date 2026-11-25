@@ -127,6 +127,8 @@
         "road/highres/package.py",
         "road/highres/clear_lane.py",
         "road/highres/surround.py",
+        "road/highres/track_rgb.py",
+        "road/highres/fill_contact_gaps.py",
         "road/highres/check.py",
         "road/highres/viewer.js"
       ],
