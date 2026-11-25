@@ -52,6 +52,7 @@
         "RGB only",
         "NuRec 26.04",
         "Depth Anything 3",
+        "AetherV1",
         "Harmonizer",
         "Alpamayo 2 Edge",
         "Mask R-CNN"
@@ -98,7 +99,13 @@
         "temporal/benchmark_adaptive.py",
         "temporal/record_adaptive.mjs",
         "temporal/check_adaptive.py",
-        "check.py"
+        "check.py",
+        "unified/prepare_inputs.py",
+        "unified/run_aether.py",
+        "unified/run_da3.py",
+        "unified/export_viewer.py",
+        "unified/check.py",
+        "unified/model-pins.json"
       ],
       "evidence": "recorded.json"
     },

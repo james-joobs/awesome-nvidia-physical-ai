@@ -2,9 +2,7 @@
 
 [All labs](../../../labs/README.md) · [한국어](../../ko/labs/rgb-reality-view.md)
 
-Turn ordinary camera frames into a persistent 3D road scene, then drag to look around a Volvo S90 reference. Start with the interactive example and its mouse-control recording. The GPU workflow accepts **RGB pixels only** and estimates camera calibration, camera poses and geometry from those images.
-
-**Pipeline identity:** this lab directly runs standalone NVIDIA 3DGRUT/3DGUT, with Mask R-CNN for source-RGB perception. The separate [NuRec + Harmonizer + Alpamayo comparison](reality-view.md) and [RGB + LiDAR NuRec experiment](pandaset-nurec.md) use different pipelines. Their model calls are not part of this viewer.
+Turn camera RGB into a 3D road scene with NVIDIA 3DGUT. Orbit around the Volvo reference, inspect road-user detections, then reproduce the workflow on one RTX 5090.
 
 ## How it works
 
@@ -14,7 +12,7 @@ Turn ordinary camera frames into a persistent 3D road scene, then drag to look a
 
 One pixel gives color, not distance. COLMAP finds distinctive image patches, matches the same features in overlapping photos, and estimates camera locations and 3D points that explain those matches. Bundle adjustment refines the estimates to reduce the distance between observed image features and their projected 3D points.
 
-The example uses **162 RGB images from six camera directions**. Each image is at most 1024 pixels wide. The input folder contains JPEG pixels; original EXIF, provided intrinsics, sensor poses, depth, GPS, IMU and LiDAR are excluded. The downloader selects camera JPEGs and the original license file, without fetching other sensor files.
+The example uses 162 RGB photographs from six camera directions. COLMAP estimates camera geometry from the images.
 
 ```text
 RGB:                       uint8[height,width,3]
@@ -26,40 +24,17 @@ Triangulated sparse points: float[N,3] + RGB
 
 `K` contains pixel focal lengths and the image's optical center. A pose places a camera in the reconstructed world. Camera axes are right/down/forward; the viewer aligns the estimated road to a Z-up display. The full values are in [cameras.json](../../../labs/rgb-reality-view/evidence/cameras.json).
 
-The recorded example connected all **162 images** and recovered about **29,000 sparse points**. Its reprojection error is an image-consistency measurement, not a claim of centimeter-level road accuracy. Camera poses are **estimated from RGB**, not copied from the dataset.
+The example connects 162 images and recovers about 29,000 sparse points.
 
-Here is one actual undistorted front-camera frame. `K` is in pixels; `camera_position` uses normalized viewer units. Its near-zero x/y is the display origin around the middle capture, not a GPS reading. The height 0.9482 is relative to the median camera height normalized to 1.
+An estimated front-camera frame: `K` is in pixels and `camera_position` uses relative viewer units.
 
 ```json
 {
   "image": "front_camera/39.jpg",
   "time_seconds": 3.9,
-  "K": [
-    [
-      1055.495,
-      0.0,
-      512.0
-    ],
-    [
-      0.0,
-      1056.31,
-      284.5
-    ],
-    [
-      0.0,
-      0.0,
-      1.0
-    ]
-  ],
-  "image_size": [
-    1024,
-    569
-  ],
-  "camera_position": [
-    -0.0,
-    0.0,
-    0.9482
-  ]
+  "K": [[1055.495, 0.0, 512.0], [0.0, 1056.31, 284.5], [0.0, 0.0, 1.0]],
+  "image_size": [1024, 569],
+  "camera_position": [-0.0, 0.0, 0.9482]
 }
 ```
 
@@ -67,19 +42,17 @@ Here is one actual undistorted front-camera frame. `K` is in pixels; `camera_pos
 
 NVIDIA's open-source [3DGRUT](https://github.com/nv-tlabs/3dgrut) provides the 3DGUT renderer and training workflow. It initializes from the RGB-derived COLMAP points and optimizes many small colored 3D ellipsoids: **Gaussians**. Their positions, scales, rotations, opacity and view-dependent color are adjusted so rendered views resemble the input photos.
 
-This preset runs **16,000 iterations** and keeps **400,000 Gaussians**. The full PLY contains degree-3 spherical-harmonic color; the roughly 7.8 MB SPZ preview retains all Gaussians with degree-1 color. It is a compressed 3D scene, not a collection of pre-rendered camera angles. No pretrained depth model or gated neural-model weights are needed.
+The preset trains 16,000 iterations with 400,000 Gaussians. The compressed SPZ is a persistent 3D scene that Spark can render from any browser camera.
 
-All images contribute to camera recovery. A photometric train/validation split exists inside 3DGRUT, but the saved example is **not an independent novel-view benchmark**. Moving traffic is baked into a static scene and can produce ghosts or streaks. Unknown or occluded surfaces can be incomplete.
+Moving traffic can leave ghosts in a static Gaussian scene, and unseen surfaces can remain incomplete.
 
 ### 3. What happens when I drag or replay the path?
 
 [Spark](https://github.com/sparkjsdev/spark) projects and blends the same Gaussians for the current browser camera. Dragging changes that camera in 3D; zooming changes its distance, and panning shifts its target. A different view therefore reveals actual parallax, gaps and occlusion artifacts in the reconstruction.
 
-The **Volvo S90 Recharge** is a real 3D mesh by [lazercar](https://sketchfab.com/3d-models/volvo-s90-recharge-free-9462b07c10244fd4a28d86846dc9e3a9), simplified to a roughly 1 MB GLB with credited CC BY 4.0 rights. It is an added foreground position reference, with its own camera-dependent perspective. It does not identify the collection vehicle. Its foreground rendering and display shadow do not validate interactions with surrounding objects.
+The [Volvo S90 mesh by lazercar](https://sketchfab.com/3d-models/volvo-s90-recharge-free-9462b07c10244fd4a28d86846dc9e3a9) marks the ego position. The path slider follows the COLMAP camera trajectory; Driver view uses the estimated front-camera pose.
 
-The path slider follows **camera motion estimated by COLMAP**. It does not invoke a driving policy or apply steering controls. The Driver button hides the reference mesh and uses the estimated front camera's pose and field of view.
-
-Uncalibrated RGB has an unknown global scale. The viewer normalizes estimated camera-to-road height to one display unit and gives the car a relative display size. Its road plane is fitted to **triangulated RGB feature tracks**, not LiDAR. These units are not measured meters.
+The viewer normalizes camera-to-road height to one display unit. Coordinates are relative, not measured meters.
 
 ### 4. Recognize cars and pedestrians in the actual RGB
 
@@ -102,37 +75,18 @@ The demo keeps scores ≥ **0.8** and six road-user classes: person, car, truck,
   "image": "left_camera/39.jpg",
   "class": "person",
   "score": 0.9982,
-  "bbox_xyxy": [
-    274.1,
-    316.64,
-    294.92,
-    364.5
-  ],
-  "cropped_mask_size": [
-    21,
-    49
-  ],
-  "contact_pixel": [
-    280.0,
-    363.0
-  ],
-  "estimated_ground_xyz": [
-    -5.95426,
-    11.1151,
-    0.0
-  ]
+  "bbox_xyxy": [274.1, 316.64, 294.92, 364.5],
+  "cropped_mask_size": [21, 49],
+  "contact_pixel": [280.0, 363.0],
+  "estimated_ground_xyz": [-5.95426, 11.1151, 0.0]
 }
 ```
 
-The box is about 21×48 pixels; the saved mask is a cropped **21×49** binary raster, not a full-image mask. Alternating zero/one run lengths compress it for the browser. The model's 0.9982 score does not establish that its prediction is correct. Missed objects and false detections remain possible.
+The box is about 21×48 pixels. Its cropped 21×49 binary mask is compressed with alternating zero/one run lengths (RLE).
 
-**How does that become a 3D marker?** Take a pixel near the bottom of the predicted mask, cast a ray using COLMAP's estimated `K` and camera pose, and intersect it with the RGB-derived road plane. This supplies an **approximate contact point**, in relative viewer units. It is not a learned 3D bounding box, measured distance or ground-truth object pose. Horizon rays, far intersections and edge-truncated objects remain 2D-only. Sidewalk height, slopes, occlusion and mask errors can shift the marker.
+**How does that become a 3D marker?** Cast a ray through a bottom-mask pixel using the estimated `K` and camera pose. Its intersection with the estimated road plane supplies an approximate contact point. This is useful for placing a marker without a 3D detector.
 
-The six views are paired by nominal frame number; supplied sensor timestamps and calibration are excluded. Nearby cross-camera estimates are merged, and a short class/position association assigns temporary IDs. These IDs may switch and are not identities, measured velocities or unique-object counts. The UI uses class labels and draws at most 24 nearby markers; highlighted labels follow the selected source camera. Overlay markers do not establish correct physical occlusion.
-
-Use **Recognition on/off** to compare the original RGB with the predictions. Switch camera direction to inspect the source evidence. Cyan marks vehicles; amber marks people; purple marks cycles. The RGB panel and 3D markers advance with the same capture-frame selection. The background remains one static Gaussian reconstruction, so its moving-traffic ghosts do not disappear when the detection time changes.
-
-Tesla's [official driving-visualization documentation](https://www.tesla.com/ownersmanual/modely/en_us/GUID-2CB60804-9CEA-4F4B-8B04-09B991368DC5.html) informs the ego-centered presentation and emphasis on surrounding road users. This lab combines separately inspectable reconstruction and detection stages; it does not reproduce Tesla's proprietary network, Reality View internals or driving-control system.
+Use **Recognition on/off** and switch cameras to compare predictions with their source RGB. Cyan marks vehicles, amber people and purple cycles. Source images and 3D markers follow the same selected time.
 
 ## Run the lab
 
@@ -168,7 +122,7 @@ The first setup downloads several GB of dependencies and builds native extension
 
 ### 3. Reconstruct the public RGB example
 
-Review the [source and asset terms](../../../labs/rgb-reality-view/SOURCES.md). The example is PandaSet scene 001 from a pinned **unofficial community mirror**. The original payload license and the different first-party CC BY-SA notice are preserved. Our new example scene and recordings carry CC BY-SA 4.0 and the original dataset terms; the source code's MIT license is separate.
+The example uses PandaSet scene 001. [Data and vehicle sources](../../../labs/rgb-reality-view/SOURCES.md).
 
 For the complete workflow:
 
@@ -196,7 +150,7 @@ Open **http://127.0.0.1:8090/** on that machine. When using a remote GPU host, f
 | 3DGUT | `training-result.json`, `train/.../export_last.ply` | Completed iterations, observed runtime, sampled GPU memory |
 | Viewer export | `viewer/road.spz`, `cameras.json`, `volvo-s90.glb` | A single 3D model, RGB-derived camera path and separate car mesh |
 
-Use a fresh output folder for a different capture. Do not replace this pipeline's COLMAP outputs with another lab's point cloud. The input guard rejects extra sidecars, altered files or a manifest declaring non-RGB sensor inputs.
+Use a fresh output folder for a different capture.
 
 ### 4. Bring your own camera footage
 
@@ -212,12 +166,12 @@ For synchronized surrounding camera streams, extract images into separate camera
 
 ## Check the result
 
-The recorded sample uses **162 RGB frames, one RTX 5090, 16,000 training steps and 400,000 Gaussians**. Input feature matching and camera recovery took about a minute; the reference training loop took about two minutes. Installation, first compilation, compression and browser loading are separate. Exact observed values and scope are in [recorded.json](../../../labs/rgb-reality-view/recorded.json).
+The saved example reconstructs 162 RGB images with one RTX 5090. [Run details](../../../labs/rgb-reality-view/recorded.json).
 
 ```bash
 python3 labs/rgb-reality-view/check.py --decode-video
 ```
 
-The recording's mouse events are saved with before/after camera positions. They confirm that dragging changed the real 3D camera and path playback advanced the estimated frame. The renderer runs in the viewing browser; reconstruction and training run on the single NVIDIA GPU.
+Check that orbit changes the viewing camera and path playback advances time. Reconstruction runs on the NVIDIA GPU; interactive rendering runs in the browser.
 
-This is **offline RGB reconstruction with an interactive viewer**, not live on-vehicle perception or closed-loop autonomous driving. It gives a reproducible foundation for studying image-only geometry, neural rendering and ego-centered visualization.
+Continue with the [RGB-only NuRec, Harmonizer and Alpamayo lab](nurec-rgb-reality.md).

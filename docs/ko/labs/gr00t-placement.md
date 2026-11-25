@@ -32,6 +32,10 @@ Isaac Sim이 가상 카메라 영상과 로봇 상태를 만들고, Arena가 GR0
 
 `1`은 물체가 안정된 조건, `442`는 큐브가 기준 높이를 넘은 조건, `521`은 물체가 목적지에 놓인 조건을 통과한 제어 스텝입니다. 스텝 수를 그대로 초로 읽으면 안 됩니다. 이 실습의 판정 코드는 15Hz를 기준으로 `442 ÷ 15 ≈ 29.47초`를 구합니다. 앞선 24초 설정 기록에서는 들어 올리는 데 성공한 시도도 최종 배치 조건을 통과하지 못했습니다. 재현할 때는 그리퍼가 닫혔는지와 함께 `object_on_destination` 이벤트까지 확인합니다. [판정 코드](../../../labs/gr00t-placement/check_result.py)
 
+### 행동 배열 읽기
+
+두 카메라 입력은 각각 `[1,1,180,320,3]`이며 배치·시간·높이·너비·RGB 순서입니다. 출력은 `joint_position[1,32,7]`과 `gripper_position[1,32,1]`입니다. 한 번에 행동 32개를 예측하고 일부를 실행한 뒤 새 관측을 읽습니다.
+
 ## 따라 하기
 
 **준비물** · 화면을 띄울 수 있는 RTX Linux 환경과 `uv`가 필요합니다. [Isaac Sim 환경](../onboarding/isaac-sim-tools.md)과 [Arena 공식 설치·GR00T 가이드](https://isaac-sim.github.io/IsaacLab-Arena/release/0.3.1/pages/quickstart/running_a_real_policy/gr00t.html)의 Native uv 환경을 준비하세요. 이 예제는 Arena `c7edf3a`, GR00T 서브모듈 `e29d8fc`를 기준으로 합니다. 아래에서는 두 레포를 홈 폴더에 내려받았다고 가정합니다. 다른 곳에 받았다면 `cd`와 `ARENA_DIR`의 경로를 바꾸세요.
@@ -81,34 +85,18 @@ python labs/gr00t-placement/check_result.py \
   ./runs/gr00t-gui/evaluation/droid_pnp_gr00t/episode_results_rebuild0.jsonl
 ```
 
-[GUI 녹화 코드](../../../labs/gr00t-placement/record_gui.py)는 `gr00t-gui.mp4`, `gr00t-arena.usda`, `viewport-timing.jsonl`, `capture.json`을 만듭니다. USD에는 시작 장면이 들어 있고 공식 외부 에셋을 참조할 수 있습니다. 정책 가중치나 로봇의 전체 동작을 독립적으로 재생하는 파일은 아닙니다. 실제 모델 입력과 행동 배열도 보고 싶다면 GR00T Python 환경에서 [정책 기록 코드](../../../labs/gr00t-placement/record_policy.py)를 사용할 수 있습니다. `GR00T_MODEL_PATH`에 체크포인트 경로를, `GR00T_POLICY_OUTPUT`에 새 저장 폴더를 지정합니다.
+[GUI 녹화 코드](../../../labs/gr00t-placement/record_gui.py)는 영상·시작 USD 장면·물체 위치를 저장합니다. 모델 입출력도 보려면 [정책 기록 코드](../../../labs/gr00t-placement/record_policy.py)에 `GR00T_MODEL_PATH`와 `GR00T_POLICY_OUTPUT`을 지정하세요.
 
 ## 테스트 결과
 
-24초 설정에서는 세 번 중 두 번이 들기 판정을 받았고, 그릇에 놓은 경우는 없었습니다. 70초 설정에서는 두 번 모두 성공했고, 시뮬레이션 시간으로 34.73초와 38.27초가 걸렸습니다. 시작 배치도 달랐으므로 이 기록으로 시간 제한의 효과만 따로 판단하기는 어렵습니다.
+큐브를 **드는 것**과 **그릇에 놓는 것**을 구분해 보세요. 앞선 70초 예제는 그릇에 놓았지만, 이후 두 시도에서는 집어 든 뒤 그릇을 놓쳤습니다. [이후 시도 영상, 2배속](https://james-joobs.github.io/awesome-nvidia-physical-ai/showcase/gr00t-transfer-check.mp4).
 
-### 11월 19일 재실행: 들었다고 작업이 끝난 것은 아닙니다
-
-RTX 5090에서 실제 GR00T N1.6-DROID 정책으로 다시 실행했습니다. Arena는 `c7edf3a`, GR00T는 `e29d8fc`, **Isaac Sim은 6.1.0.0**이며, 체크포인트 리비전은 `ae3ebe8d288971ac53aa30c756ea5cba0f52611b`입니다. 두 번 모두 70초 안에 들기 조건은 통과했지만, 목적지에 놓는 조건은 통과하지 못했습니다. 프로그램은 정상 종료했어도 작업 결과는 **2회 중 배치 성공 0회**입니다.
-
-| 시도 | 들기 시점, 시뮬레이션 시간 | 그릇에 놓기 | 전체 제어 스텝 |
-| --- | --- | --- | --- |
-| 1 | 55.87초 | 미도달 | 1,050 |
-| 2 | 28.47초 | 미도달 | 1,050 |
-
-[새 시도 영상 보기](https://james-joobs.github.io/awesome-nvidia-physical-ai/showcase/gr00t-transfer-check.mp4): 두 번째 시도의 실제 뷰포트를 잘라 **2배속**으로 만든 20초 영상입니다. 큐브를 들어 올린 뒤 그릇을 지나 옮기는 장면을 볼 수 있습니다. [전체 에피소드 기록](../../../labs/gr00t-placement/recorded-2026-11-19.jsonl)에는 두 번의 실패 결과를 앞선 성공 기록과 별도로 남겼습니다. 실행마다 시작 배치가 달랐으므로, 이 몇 번의 시도만으로 일반적인 성공률이나 실패 원인을 단정할 수는 없습니다.
-
-정책 기록 코드가 받은 RGB 카메라 입력은 두 개이며, 각각 `[1, 1, 180, 320, 3]` 형태입니다. 축은 배치·시간·높이·너비·RGB 채널 순서로, 카메라 하나당 320×180 프레임 한 장을 전달했습니다. 행동 출력은 `joint_position`이 `[1, 32, 7]`, `gripper_position`이 `[1, 32, 1]`입니다. 행동 배열의 축은 배치·예측 시점·제어 관절을 뜻합니다. `32`는 한 번에 예측한 행동 시퀀스의 길이이고, 한 시도 전체의 길이가 아닙니다.
-
-```sh
-python3 labs/gr00t-placement/check_result.py labs/gr00t-placement/recorded-2026-11-19.jsonl
-```
-
-### GPU 없이 기록 다시 확인하기
-
-레포 최상위 폴더에서 두 명령을 실행합니다. Python으로 동봉한 [24초 기록](../../../labs/gr00t-placement/recorded-24s.jsonl)과 [70초 기록](../../../labs/gr00t-placement/recorded-70s.jsonl)을 읽어 들기와 놓기 시점을 확인할 수 있습니다.
+집어 드는 순간에 멈추지 말고 마지막 위치와 `object_on_destination` 판정까지 확인하세요. GPU 없이 동봉한 기록을 검사할 수 있습니다.
 
 ```sh
 python3 labs/gr00t-placement/check_result.py labs/gr00t-placement/recorded-24s.jsonl
 python3 labs/gr00t-placement/check_result.py labs/gr00t-placement/recorded-70s.jsonl
+python3 labs/gr00t-placement/check_result.py labs/gr00t-placement/recorded-2026-11-19.jsonl
 ```
+
+[앞선 성공 기록](../../../labs/gr00t-placement/recorded-70s.jsonl) · [이후 시도 기록](../../../labs/gr00t-placement/recorded-2026-11-19.jsonl)

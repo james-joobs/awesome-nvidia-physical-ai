@@ -6,9 +6,10 @@ import LessonLanding from './LessonLanding.astro';
 import LessonPreview from './LessonPreview.astro';
 import LessonTheory from './LessonTheory.astro';
 import PlacementExercise from './PlacementExercise.astro';
-import ShowcaseVideo from './ShowcaseVideo.astro';
+import LabRecordings from './LabRecordings.astro';
 import SplatExplorer from './SplatExplorer.astro';
 import RgbRealityViewer from './RgbRealityViewer.astro';
+import JointRealityViewer from './JointRealityViewer.astro';
 import HumanGaussianViewer from './HumanGaussianViewer.astro';
 import ToolTags from './ToolTags.astro';
 import { catalogSearchUrl, pageUrl, repositoryFile } from '../lib/catalog.mjs';
@@ -34,15 +35,18 @@ const course = courses.find(({ lessons, advanced }) =>
 );
 const isPlacement = id === 'gr00t-placement';
 const startLabel = learningCopy[locale].firstExercise;
-const exampleLabel = locale === 'ko' ? '실행 영상과 기록' : 'Example run and recording';
+const exampleLabel = locale === 'ko' ? '시연 영상' : 'Watch the demo';
+const hasViewer = ['nurec-rgb-reality', 'rgb-reality-view', 'spatial-reconstruction', 'worldgen-scenes', 'human-4d-gaussian'].includes(id);
+const demoAnchor = id === 'nurec-rgb-reality' ? 'joint-geometry' : 'explore';
+const heroClip = id === 'nurec-rgb-reality' ? additionalRecordings.find(r => r.id === 'reality-joint-geometry') ?? clip : clip;
 const topic = topicForPage(`labs/${id}`);
 const topicLabels = topicsCopy[locale];
 const ko = locale === 'ko';
 const preparation = {
-  'nurec-rgb-reality': ko ? 'NuRec·Harmonizer·Alpamayo를 실제 실행한 RGB 전용 실습입니다. GPU 없이도 저장된 장면과 출력을 볼 수 있습니다.' : 'An RGB-only NuRec, Harmonizer and Alpamayo run. Explore the saved scene and model outputs without a CUDA GPU.',
+  'nurec-rgb-reality': ko ? '브라우저에서 RGB 도로를 둘러보고 비교 모드를 바꿔 보세요.' : 'Explore the RGB road and switch comparison modes in your browser.',
   'rgb-reality-view': ko ? '브라우저에서 먼저 둘러보세요. 직접 복원하려면 Linux와 RTX 5090 한 장이 필요합니다.'
     : 'Explore in the browser first. The tested reconstruction preset uses Linux and one RTX 5090.',
-  'human-4d-gaussian': ko ? '31.9초 실제 영상에서 만든4D Gaussian을 둘러보세요. 원본은 YouTube 공식 플레이어로 표시하며, 공개 허락을 확인한 파생 결과만 제공합니다.' : 'Explore a 31.9s reconstructed 4D Gaussian. The original stays in the official YouTube player; only permission-cleared derivative results are hosted.',
+  'human-4d-gaussian': ko ? '춤 동작을 여러 방향에서 보고 시간과 시점을 바꿔 보세요.' : 'Explore the dance from different viewpoints and times.',
   'gr00t-placement': ko ? '브라우저에서 시작합니다. 정책을 직접 실행하려면 RTX Linux 환경이 필요합니다.'
     : 'Start in the browser. Running the policy requires RTX on Linux.',
   'replicator-outputs': ko ? '심화 실습 · RTX GPU, Isaac Sim 6.1, Isaac Lab 필요.'
@@ -51,10 +55,10 @@ const preparation = {
     : 'Reconstruct the bundled point cloud with Python 3.12.',
 }[id];
 const steps = [
+  ...(hasViewer ? [{ id: demoAnchor, label: ko ? '3D 데모' : '3D demo' }] : []),
+  { id: 'example-run', label: exampleLabel },
   ...(isPlacement ? [{ id: 'first-exercise', label: startLabel }] : []),
   ...headings,
-  ...(['nurec-rgb-reality', 'rgb-reality-view', 'spatial-reconstruction', 'worldgen-scenes', 'human-4d-gaussian'].includes(id) ? [{ id: 'explore', label: id === 'human-4d-gaussian' ? (ko ? 'RGB·3D 동작 비교' : 'Compare RGB and 3D motion') : (ko ? '3D 공간 둘러보기' : 'Explore the 3D scene') }] : []),
-  { id: 'example-run', label: exampleLabel },
   { id: 'code', label: labels.code },
 ];
 ---
@@ -66,7 +70,7 @@ const steps = [
     </Fragment>
     <ToolTags slot="facts" tags={tags} label={labels.tools} />
     <Fragment slot="actions">
-      {['nurec-rgb-reality', 'rgb-reality-view', 'spatial-reconstruction', 'worldgen-scenes', 'human-4d-gaussian'].includes(id) && <a class="button button-primary" href="#explore">{id === 'human-4d-gaussian' ? (ko ? 'RGB·3D 비교 실습' : 'Compare RGB and 3D') : (ko ? '3D 공간 직접 둘러보기' : 'Explore the 3D scene')}</a>}
+      {hasViewer && <a class="button button-primary" href={`#${demoAnchor}`}>{id === 'human-4d-gaussian' ? (ko ? 'RGB·3D 비교 실습' : 'Compare RGB and 3D') : (ko ? '3D 공간 직접 둘러보기' : 'Explore the 3D scene')}</a>}
       {isPlacement && <a class="button button-primary" href="#first-exercise">{startLabel}<Icon name="down" size={16} /></a>}
       <a class:list={isPlacement ? 'plain-link' : ['button', ['nurec-rgb-reality', 'rgb-reality-view', 'spatial-reconstruction', 'worldgen-scenes', 'human-4d-gaussian'].includes(id) ? 'button-secondary' : 'button-primary']} href="#run">{labels.run}<Icon name="down" size={16} /></a>
       {tags.includes('Replicator') && (
@@ -77,34 +81,29 @@ const steps = [
       <a class="plain-link" href="#code">{labels.code} <Icon name="down" size={16} /></a>
       <a class="plain-link" href={repositoryFile(path)}>{labels.github} <Icon name="external" size={16} /></a>
     </Fragment>
-    <LessonPreview slot="preview" image={showcaseMedia(`${clip.media?.[locale] ?? id}.jpg`)} alt={entry.title} caption={topicLabels.recording}
+    <LessonPreview slot="preview" image={showcaseMedia(`${heroClip.media?.[locale] ?? heroClip.id}.jpg`)} alt={entry.title} caption={topicLabels.recording}
       href="#example-run" label={exampleLabel} />
     {isPlacement && <PlacementExercise locale={locale} />}
-    {['nurec-rgb-reality', 'rgb-reality-view'].includes(id) && <RgbRealityViewer locale={locale} id={id} />}
+    {id === 'nurec-rgb-reality' && <JointRealityViewer locale={locale} />}
+    {id === 'nurec-rgb-reality' && <details class="lab-disclosure previous-demo">
+      <summary><span>{ko?'NuRec 3D 장면도 둘러보기':'Explore the NuRec 3D scene'} </span><Icon name="chevron" size={17}/></summary>
+      <RgbRealityViewer locale={locale} id={id}/>
+    </details>}
+    {id === 'rgb-reality-view' && <RgbRealityViewer locale={locale} id={id}/>}
     {id === 'human-4d-gaussian' && <HumanGaussianViewer locale={locale} manifestUrl={showcaseMedia('human-4d-dance/manifest.json')} reference={true} />}
-    {id === 'human-4d-gaussian' && <details class="lab-control-example"><summary>{ko ? 'SOMA 합성 리깅 제어 예제도 보기' : 'Also explore the synthetic SOMA rig control'}</summary><HumanGaussianViewer locale={locale} manifestUrl={showcaseMedia('human-4d-control/manifest.json')} reference={false} id="rig-control" /></details>}
-    <LessonTheory locale={locale} page={`labs/${id}`} flow={lessonFlows[id]} theory={theory} showPixels={id === 'scene-to-data'} />
-    <GuideCommands locale={locale} />
-    <div class="prose" set:html={html} />
-    {id === 'spatial-reconstruction' && <SplatExplorer locale={locale} />}
-    {id === 'worldgen-scenes' && ['robot-lab', 'livingroom', 'forest-trail'].map((sceneId, index) => <SplatExplorer locale={locale} sceneId={sceneId} first={index === 0} />)}
-    <section class="lab-video" id="example-run" aria-labelledby="example-run-title">
-      <h2 id="example-run-title">{exampleLabel}</h2>
-      <div class="video-preview"><ShowcaseVideo locale={locale} clip={clip} title={entry.title} /></div>
-      {additionalRecordings.filter((recording) => recording.lab === id && !recording.labRoute).map((recording) => (
-        <div class="additional-recording" id={recording.id}>
-          <h3>{recording[locale].title}</h3>
-          <p>{recording[locale].description}</p>
-          <div class="video-preview"><ShowcaseVideo locale={locale} clip={recording} title={recording[locale].title} /></div>
-        </div>
-      ))}
-      <div class="lab-video-links">
-        <a class="plain-link" href={repositoryFile(`labs/${id}/${evidence}`)}>{labels.evidence}<Icon name="external" size={16} /></a>
-        <a class="plain-link" href={`${pageUrl(locale, 'showcase')}#${id}`}>{labels.back}<Icon name="right" size={16} /></a>
-      </div>
-    </section>
-    <section class="lab-code" id="code" aria-labelledby="code-title">
-      <h2 id="code-title">{labels.code}</h2>
+    {id === 'human-4d-gaussian' && <details class="lab-disclosure lab-control-example"><summary><span>{ko ? 'SOMA 리깅 예제' : 'SOMA rigging example'}</span><Icon name="chevron" size={17}/></summary><HumanGaussianViewer locale={locale} manifestUrl={showcaseMedia('human-4d-control/manifest.json')} reference={false} id="rig-control" /></details>}
+    {id === 'spatial-reconstruction' && <SplatExplorer locale={locale}/>}
+    {id === 'worldgen-scenes' && <SplatExplorer locale={locale} sceneId="robot-lab" first/>}
+    {id === 'worldgen-scenes' && <details class="lab-disclosure"><summary><span>{ko?'거실과 숲길도 둘러보기':'Explore the living room and forest'}</span><Icon name="chevron" size={17}/></summary>{['livingroom','forest-trail'].map(sceneId=><SplatExplorer locale={locale} sceneId={sceneId}/>)}</details>}
+    <LabRecordings locale={locale} id={id} clip={clip} evidence={evidence}/>
+    <details class="lab-disclosure lab-learning" id="learn">
+      <summary><span>{ko?'동작 원리와 실습 가이드':'How it works and hands-on guide'}</span><Icon name="chevron" size={17}/></summary>
+      <LessonTheory locale={locale} page={`labs/${id}`} flow={lessonFlows[id]} theory={theory} showPixels={id === 'scene-to-data'} />
+      <GuideCommands locale={locale} />
+      <div class="prose" set:html={html}/>
+    </details>
+    <details class="lab-disclosure lab-code" id="code">
+      <summary id="code-title"><span>{labels.code}</span><Icon name="chevron" size={17}/></summary>
       {lab.codePreview && <p><a class="plain-link" href={repositoryFile(`labs/${id}`)}>{ko ? "단계별 실행기·학습 코드·검사 도구 전체 보기" : "Browse all stage adapters, training code and validation tools"}<Icon name="external" size={16} /></a></p>}
       {code.map(({ name, path, source }) => (
         <details>
@@ -113,12 +112,25 @@ const steps = [
           <Fragment set:html={renderCodeBlock(source, path.split('.').at(-1), locale)} />
         </details>
       ))}
-    </section>
+    </details>
   </LessonLanding>
 </Base>
 
+<script>
+  import {enableLinkedDisclosures} from '../lib/disclosures.mjs';
+  enableLinkedDisclosures();
+</script>
+
 <style>
-  .lab-video, .lab-code { margin-block: 2rem; }
+  .lab-disclosure{margin-block:1.25rem;border-block:1px solid var(--edge)}
+  .lab-disclosure>summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:54px;padding-block:.75rem;font-weight:650;cursor:pointer;list-style:none}
+  .lab-disclosure>summary::-webkit-details-marker{display:none}
+  .lab-disclosure>summary:hover{color:var(--accent)}
+  .lab-disclosure[open]>summary :global(svg){rotate:180deg}
+  .lab-learning[open]{padding-bottom:1rem}
+  .previous-demo :global(.rgb-viewer){margin-block:1rem}
+  .lab-code[open]{padding-bottom:1rem}
+
   :is(.lab-video, .lab-code) h2 { margin-bottom: 12px; font-size: clamp(1.5rem, 2.6vw, 1.75rem); line-height: 1.25; letter-spacing: -.02em; }
   .lab-video-links { display: flex; flex-wrap: wrap; gap: 0 16px; }
   .lab-video-links a { min-height: 44px; }

@@ -1,0 +1,30 @@
+Reality View joint RGB geometry experiment, 2026-11-25.
+
+PandaSet camera RGB: Scale AI / Hesai. This lab fetched camera pixels only.
+Data notices differ: retain CC BY 4.0 + original PandaSet Dataset Terms and
+Scale's CC BY-SA 4.0 notice. Scene derivatives, depth previews and recordings
+are distributed as CC BY-SA 4.0 + original Dataset Terms. See the parent lab's
+SOURCES.md and evidence/PANDASET-DATA-LICENSE.txt. No LiDAR or imported sensor
+camera poses/calibration/timestamps/depth are used.
+
+AetherV1: Aether Team, MIT code and model card.
+https://github.com/Sage-PhysicalAI/Aether
+https://huggingface.co/AetherWorldModel/AetherV1
+Aether uses CogVideoX-5b-I2V VAE/text encoder under separate CogVideoX terms;
+research use is permitted; commercial use requires registration/authorization.
+https://huggingface.co/zai-org/CogVideoX-5b-I2V/blob/main/LICENSE
+No upstream model weights are redistributed here.
+
+DA3-BASE: Depth Anything 3 Team / ByteDance Seed, Apache-2.0 code and checkpoint.
+https://github.com/ByteDance-Seed/Depth-Anything-3
+https://huggingface.co/depth-anything/DA3-BASE
+Other DA3 checkpoints have different terms. No weights are redistributed here.
+
+Volvo S90 Recharge (Free): lazercar, CC BY 4.0.
+https://sketchfab.com/3d-models/volvo-s90-recharge-free-9462b07c10244fd4a28d86846dc9e3a9
+Adapted/meshopt-compressed asset is reused from the parent lab. An added position
+reference, not the capture vehicle, OEM dynamics, endorsement, or measured scale.
+
+Our Python/JavaScript adapters are MIT. The new display is a per-frame RGB-D
+triangle mesh. It is not a WorldLatent/WorldVAE latent and not a newly trained
+Gaussian model. Depth, camera, source timing and RGB/SfM alignment are estimates.

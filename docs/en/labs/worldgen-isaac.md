@@ -22,7 +22,7 @@ source points [x, y, z]
   → Isaac Sim points in the chosen meter scale
 ```
 
-The selected floor points have **16.0 mm RMS residual** after this transformation. This is agreement with the fitted plane, not ground-truth scene accuracy. The full transformed room spans roughly 44 m across X; remote surfaces remain distorted and uncalibrated. The robot exercise only validates an authored **5 × 4 m** test floor near the original viewpoint.
+The robot exercise uses a **5 × 4 m** test floor near the original viewpoint. Inspect that area first, then adjust the scale or extend its collision geometry.
 
 The prepared arrays are `points: float32[80000,3]`, `indices: int32[158802,3]` and `uv: float32[80000,2]`. Points are positions in the chosen meter scale; each index row selects the three corners of one triangle; UV coordinates locate its colors in the panorama.
 
@@ -135,11 +135,11 @@ python3 labs/worldgen-isaac/record_gui.py \
   --work "$PWD/runs/worldgen-recording" --scenario combined --ffmpeg /path/to/ffmpeg
 ```
 
-Use a fresh output directory for a new recording. The helper waits until the simulator is ready, records its native window, then starts the control loop. It leaves `native-gui.mp4`, `window.txt`, logs and the physical trajectory together. Published viewport clips are crops of these real GUI pixels. Check the recording's wall duration separately from simulation time; rendering does not always keep up with the physics step rate.
+Use a fresh folder for each recording. The helper waits for the viewport, then saves the native video and robot trajectory.
 
-The 6.2 example uses `SimulationManager.step()` and `RenderingManager.render()` to separate physical steps from drawing. Our GPU GUI recipe uses the documented per-frame rendering compatibility flag `--/rtx/hydra/supportMultiTickRate=false`; this lab does not validate multi-rate camera or LiDAR capture. Initial shader/viewport preparation can take one to two minutes. Recording starts only after a real viewport frame is saved. [NVIDIA multi-tick settings](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/sensors/isaacsim_sensors_multitick_rendering.html)
+The Isaac Sim 6.2 runner separates physics stepping and rendering and applies the [documented GUI compatibility setting](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/sensors/isaacsim_sensors_multitick_rendering.html). Allow time for the viewport to initialize before capture.
 
-Room appearance uses the panorama through native OmniPBR, with an emission display setting to make the baked colors visible. This is not a recovered, physically calibrated illumination model. The recorded control pose is `[position_xyz, quaternion_xyzw]`; wheel speed commands act at the axle midpoint, 0.10 m in front of the chassis frame.
+The panorama supplies the room texture. Control logs store `[position_xyz, quaternion_xyzw]`; wheel commands act at the axle midpoint.
 
 ## Check the result without a GPU
 
@@ -153,7 +153,7 @@ This verifies the bundled scale metadata, cube-drop results, raycasts, physical 
 python3 labs/worldgen-isaac/check.py --run runs/worldgen-isaac/detour
 ```
 
-A successful import is not a validated digital twin. This lesson demonstrates **a generated visual environment plus a checked local physics setup**. Scale is assumed, the surface is estimated, collisions are authored only for the test area, and the robot uses a simple state-feedback controller. [WorldGen generation lab](worldgen-scenes.md) · [Isaac Sim concepts](../isaac-sim.md) · [Media provenance](../../../site/public/showcase/SPATIAL-CREDITS.md).
+Continue to [sensor-based navigation](worldgen-navigation.md) to replace the fixed waypoint route. [WorldGen generation](worldgen-scenes.md) · [Isaac Sim concepts](../isaac-sim.md) · [Media credits](../../../site/public/showcase/SPATIAL-CREDITS.md).
 
 
 [Next: let sensor scans choose the route](worldgen-navigation.md).

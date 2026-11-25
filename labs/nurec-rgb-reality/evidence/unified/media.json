@@ -1,0 +1,14 @@
+{
+  "en": {
+    "duration": 20.964,
+    "mp4_bytes": 2531503,
+    "source": "actual native browser recording; trimmed startup, unchanged playback speed",
+    "errors": []
+  },
+  "ko": {
+    "duration": 20.864,
+    "mp4_bytes": 2410154,
+    "source": "actual native browser recording; trimmed startup, unchanged playback speed",
+    "errors": []
+  }
+}

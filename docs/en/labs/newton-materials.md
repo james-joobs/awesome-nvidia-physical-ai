@@ -20,7 +20,7 @@ For example, a row `[0.2, 1.3, 0.8]` means a point is 0.2 m along X, 1.3 m along
 
 ### What does the video show?
 
-Newton computes the motion on the GPU and writes time-sampled OpenUSD. Isaac Sim opens that file and displays the recorded states. The capture is the actual Isaac Sim viewport, cropped from the application window. **The solver is Newton; this GUI recording is a replay**, with a playback speed of 0.65× and a short hold at the end. Shots appear in the order XPBD cloth, VBD cloth and cable twist. The three cable variants use the official example’s different stiffness values.
+Newton computes the cloth and cable motion on the GPU and saves it as OpenUSD. Isaac Sim replays these states in the order XPBD cloth, VBD cloth and cable twist.
 
 ## Run it
 
@@ -50,6 +50,6 @@ The recorded GUI environment was Isaac Sim `6.1.0.0`, launched through Isaac Lab
 
 ## Check the result
 
-The run fails if an official `--test` command fails, point arrays contain NaN/Inf, or no animated points are found. `result.json` includes the official example source hashes, array shapes, displacement and time range. The maximum stored-vertex displacements were about 5.06 m for XPBD cloth and 4.28 m for VBD cloth in this setup. They show deformation, not accuracy scores.
+Look at how cloth stretches, folds and settles, then compare the cable stiffness settings. `verify` checks the animated points and saved outputs; `capture.json` records the GUI capture.
 
-`run.json` stores command and artifact hashes. `verify` checks these again. `capture.json` separately records the GUI version and captured takes. Keep solver success and successful GUI capture as separate checks: one does not guarantee the other. [Physics and contact experiments](physics.md) · [Newton principles](../newton.md)
+[Run details](../../../labs/newton-materials/recorded.json) · [Physics and contact experiments](physics.md) · [Newton principles](../newton.md)

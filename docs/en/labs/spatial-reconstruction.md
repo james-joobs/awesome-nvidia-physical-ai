@@ -4,7 +4,7 @@
 
 ## How do camera images become a space you can explore?
 
-The interactive scene below is a **real fVDB Gaussian Splatting reconstruction** of a CARLA fountain plaza. It is not a panorama on a sphere or a video playing behind a camera. The renderer projects 3D Gaussians from your current viewpoint. Use the 3D button to orbit, pan and move closer; use the video if your browser does not support the viewer.
+Explore a CARLA fountain plaza reconstructed with **fVDB Gaussian Splatting**. Orbit, pan and move closer in the 3D viewer, or watch the saved video.
 
 ![Input and output flow](../../../assets/lessons/spatial-worlds/reconstruction.en.svg)
 
@@ -30,13 +30,13 @@ For a concrete point, pixel `(320,180)` in `view_000.png` has depth **21.237 m**
 
 Each Gaussian stores a center `[x,y,z]`, three scales, a rotation quaternion, an opacity and color coefficients. It is a soft ellipsoid in space. fVDB projects and blends these ellipsoids, compares the result with a training image, and adjusts them to reduce rendering error. It also splits or removes Gaussians during refinement. The final model has **345,318 Gaussians**. [fVDB Reality Capture](https://github.com/openvdb/fvdb-reality-capture)
 
-The 6.15 MB browser SPZ keeps all 345,318 Gaussians with quantized parameters and degree-1 color coefficients. The full recording uses the original degree-3 spherical-harmonic model. Appearance can therefore differ slightly between the interactive preview and the video. A radiance field describes appearance; collision surfaces, mass and a robot's control loop require separate data.
+The browser preview compresses the full Gaussian scene for interactive viewing. Add separate collision geometry and a controller when using the scene in a robot simulation.
 
 ### How is this different from a generated world?
 
 This experiment **reconstructs a supplied scene**. It does not invent unseen streets from a text prompt. World Labs Marble and NVIDIA Lyra address generative 3D worlds; Infinigen constructs geometry from procedural rules. The [3D worlds comparison](../spatial-worlds.md) separates those outputs and their execution requirements.
 
-Two additional clips below use **Apple SHARP** on a single CARLA camera image. We supply the known 90° intrinsics instead of relying on missing EXIF. SHARP predicts 1,179,648 Gaussians per image; fVDB then renders a small nearby camera movement. It does not reconstruct the back of every object or produce a complete 360° world. Its weights are for noncommercial research, unlike its separately licensed code.
+The single-image comparison uses **Apple SHARP** to predict Gaussians from one CARLA image. Explore nearby viewpoints and compare its coverage with the multi-view reconstruction.
 
 ## Capture and reconstruct a new scene
 
@@ -61,7 +61,7 @@ python labs/spatial-reconstruction/reconstruct.py \
   --input runs/plaza-input --output runs/plaza-3dgs --ffmpeg ffmpeg
 ```
 
-The script uses 63 RGB training views for 40 epochs. It leaves camera poses fixed, exports the full PLY and the lighter `.splat`, renders a new camera path, and writes evaluation metrics. In the recorded environment, cuDNN library versions conflicted, so this script disables cuDNN and uses native PyTorch CUDA convolutions; fVDB training and rendering still run on the GPU. That workaround is explicit in the source and record.
+The script fits 63 RGB views for 40 epochs, exports PLY and a compact `.splat`, and renders a new camera path.
 
 For the web preview, keep every Gaussian and compress the full PLY with a pinned PlayCanvas CLI:
 
@@ -89,6 +89,6 @@ This helper assumes those inputs are our 90° CARLA cameras. Change the focal le
 python3 labs/spatial-reconstruction/check.py
 ```
 
-The bundled checker verifies the split, camera rotations, finite model parameters, preview size and recorded video hashes. The [recorded run](../../../labs/spatial-reconstruction/recorded.json) has 9 held-out RGB views with a mean **23.434 dB PSNR**. The photometric fit excludes those RGBs, and the seed excludes their depth and colors. This is a small synthetic scene measurement, not a cross-dataset benchmark. Water reflections, distant backgrounds, holes and views outside the captured region remain imperfect.
+The checker validates saved cameras, model parameters and videos. Compare the reference and reconstruction, especially reflections, distant buildings and surfaces outside the capture range. [Run details](../../../labs/spatial-reconstruction/recorded.json).
 
 The repository includes camera metadata, code, metrics, compressed recordings and the browser preview. [Media provenance and license scope](../../../site/public/showcase/SPATIAL-CREDITS.md) · [Generate an indoor scene](scene-generation.md) · [fVDB theory](../fvdb-reality-capture.md).

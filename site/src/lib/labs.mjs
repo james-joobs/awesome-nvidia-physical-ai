@@ -1,6 +1,6 @@
 import manifest from '../../../labs/index.json';
 
-const files = import.meta.glob(['../../../labs/*/*.{py,sh,json,yaml,patch,js,mjs,html,css,txt}', '../../../labs/*/guidance/*.{py,yaml,txt}', '../../../labs/*/temporal/*.{py,mjs,json}'], {
+const files = import.meta.glob(['../../../labs/*/*.{py,sh,json,yaml,patch,js,mjs,html,css,txt}', '../../../labs/*/guidance/*.{py,yaml,txt}', '../../../labs/*/temporal/*.{py,mjs,json}', '../../../labs/*/unified/*.{py,mjs,js,json,txt}'], {
   query: '?raw', import: 'default', eager: true,
 });
 

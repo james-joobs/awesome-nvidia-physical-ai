@@ -4,13 +4,13 @@
 
 ## What is moving, and what does the camera measure?
 
-Start with the four-view recording below. These are **actual CARLA 0.9.16 RGB sensors**, rendered by Unreal Engine, rather than an Isaac Sim replay. City streets, a rainy junction, a wet suburb at sunset, and a foggy highway use four different maps. The bonnet at the bottom of each image locates the camera in the vehicle.
+Explore city streets, a rainy junction, a sunset suburb and a foggy highway through **CARLA RGB cameras**. The four-view recording makes the different scenes easy to compare.
 
 ![Input and output flow](../../../assets/lessons/spatial-worlds/ego.en.svg)
 
 ### The driver and the camera have different jobs
 
-CARLA **Traffic Manager** reads the simulated traffic and road network and applies throttle, steering, and braking. It is a rule-based controller. The RGB camera records what an on-board camera would see; **Traffic Manager does not infer its actions from this video**. This is useful sensor and environment testing, not evidence of a learned driving model's accuracy. [Traffic Manager documentation](https://carla.readthedocs.io/en/0.9.16/adv_traffic_manager/)
+CARLA **Traffic Manager** controls the vehicle using the simulated road network and traffic states. The RGB camera records the view from the car; it is not the controller’s input. [Traffic Manager documentation](https://carla.readthedocs.io/en/0.9.16/adv_traffic_manager/)
 
 One simulation tick advances time by `0.05 s`. Two attached cameras capture that same tick: ego at `(0.3, 0, 1.45) m` relative to the vehicle, and chase at `(-6, 0, 3) m`. The original RGB sensor buffer has shape `[540, 960, 4]`, with `uint8` BGRA channels. `capture.py` removes alpha and reverses BGR to RGB before writing video. A frame ID pairs an image with the vehicle's measured position and speed.
 
@@ -31,7 +31,7 @@ Road network + current actor states → Traffic Manager → vehicle controls
 | Bottom left | Town02 / wet sunset | Residential streets and changing lighting |
 | Bottom right | Town04 / fog | How quickly distant objects disappear |
 
-These are different routes, not a matched-route weather benchmark. Each published take contains 320 frames at 20 FPS, runs at its original speed, and links to measured trajectory records. Fog and rain affect appearance; this experiment does not establish a tire-friction change.
+Watch road markings, lighting and visibility across the four routes.
 
 ## Run your own ego-camera recording
 
@@ -78,8 +78,8 @@ The packaging step adds platform/map labels, reduces video size, and makes the f
 
 ## Check the result and choose the next experiment
 
-No GPU is needed to watch the videos, read [recorded.json](../../../labs/carla-ego/recorded.json), or run `check.py` on the bundled results. The checker verifies frame counts, time steps, finite positions, travel distances, and published video hashes. It does not certify driving safety or policy performance.
+Watch the videos or run `check.py` without a GPU to validate the saved frames and vehicle positions. [Run details](../../../labs/carla-ego/recorded.json).
 
 Use [CARLA → fVDB reconstruction](spatial-reconstruction.md) to turn known camera views into an actual 3DGS scene. Use [Alpamayo inference](world-driving.md) to inspect a learned model's outputs, then the [AlpaSim guide](../workflows/alpasim-closed-loop.md) for policy evaluation with the required scene access. These are separate execution paths.
 
-**Credits and terms:** [CARLA 0.9.16](https://github.com/carla-simulator/carla/tree/0.9.16) source code is [MIT](https://github.com/carla-simulator/carla/blob/0.9.16/LICENSE); CARLA-specific assets are CC-BY, with no version specified in its [README](https://github.com/carla-simulator/carla/tree/0.9.16#licenses). Unreal Engine and integrations have their own terms. Our recordings were resized and labeled; see [media credits](../../../site/public/showcase/SPATIAL-CREDITS.md).
+**Credits:** [CARLA](https://github.com/carla-simulator/carla/tree/0.9.16) · [Asset and media terms](../../../site/public/showcase/SPATIAL-CREDITS.md).

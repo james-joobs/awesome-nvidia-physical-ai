@@ -16,7 +16,7 @@ DA-2 reads that panorama and predicts a **distance array `[800, 1600]`**. Each v
 
 ![Actual laboratory panorama above and inferred relative distance below](../../../assets/lessons/worldgen/robot-lab-data.webp)
 
-The distance preview is brighter for farther inferred surfaces. It is a visualization of model output, not ground truth. A convincing panorama can still have bent tables, uncertain distances or inconsistent hidden surfaces.
+Brighter pixels in the distance preview indicate farther predicted surfaces. Inspect object edges and shapes before exporting the scene.
 
 ### 2. Turn each ray into a Gaussian
 
@@ -29,7 +29,7 @@ angular pixel footprint + distance → Gaussian scale
 local surface frame → rotation quaternion [w, x, y, z]
 ```
 
-Here the camera is at `[0, 0, 0]`, with X right, Y down and Z forward. The full result has **1,280,000 Gaussians**, one per panorama pixel. Each Gaussian carries center, scale, rotation, opacity and color. The PLY stores **log scale** and **logit opacity**, so consumers must decode those fields. Our exporter corrects the upstream opacity encoding and clamps degenerate pole scales; it does not train a new model. The mesh connects neighboring back-projected pixels into triangles. It is an inferred surface shell, not a set of separately modeled, articulated objects.
+The source camera is at `[0,0,0]`, with X right, Y down and Z forward. Each panorama pixel becomes one Gaussian with position, scale, rotation, opacity and color. The PLY stores log scale and logit opacity; the exporter decodes them and handles the panorama poles. The mesh connects neighboring back-projected pixels into triangles.
 
 A real pixel from our generated laboratory follows below. Values are rounded; the audit retains full precision. The near-forward ray places this Gaussian mostly along +Z. Distance remains in normalized WorldGen units.
 
@@ -75,7 +75,7 @@ In our run, **16.30%** of panorama pixels came from the calibrated image project
 
 ![Our input, the keep/generate mask and the expanded panorama](../../../assets/lessons/worldgen/image-conditioning.webp)
 
-This adapter replaces upstream's ordinary-image-to-panorama mapping; the FLUX panorama model, DA-2 and WorldGen geometry conversion remain upstream implementations. Newly filled regions are invented. Keeping RGB does not guarantee that DA-2 estimates the original object's geometry correctly.
+The adapter preserves the observed panorama region and generates the surrounding scene. Inspect both the image and predicted distance before using the geometry.
 
 ## Create your own scene step by step
 
@@ -90,7 +90,7 @@ runs/worldgen-runtime/.venv/bin/hf auth login
 
 The first command creates Python 3.11 with PyTorch 2.7/cu128, Nunchaku 0.2 and fixed WorldGen/DA-2 source revisions. It does not install into Isaac Sim. The second saves your Hugging Face login locally; do not paste a token into a script or commit it. Before downloading, accept access terms for **both** [FLUX.1-dev](https://huggingface.co/black-forest-labs/FLUX.1-dev) and [FLUX.1-Fill-dev](https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev) using the same account.
 
-The runner uses Nunchaku FP4 and CPU offload to fit the machine. DA-2's built-in PyTorch SDPA fallback avoids the older xFormers kernel that fails on RTX 5090. PyTorch3D is installed **without native extensions**: this workflow only needs its pure-PyTorch quaternion conversion. Native PyTorch3D rasterization is unavailable in this environment. Source and model hashes are in [model-pins.json](../../../labs/worldgen-scenes/model-pins.json).
+The runner uses Nunchaku FP4, CPU offload and compatible PyTorch attention to fit this GPU. [Pinned source and model versions](../../../labs/worldgen-scenes/model-pins.json).
 
 ### 2. Generate a place from text
 
@@ -102,7 +102,7 @@ runs/worldgen-runtime/.venv/bin/python labs/worldgen-scenes/generate.py \
   --prompt "A spacious realistic robotics laboratory with collaborative robot arms on workbenches, yellow safety markings on a polished concrete floor, metal storage racks, large windows, natural daylight, no people, a coherent modern industrial interior"
 ```
 
-The first run downloads fixed model snapshots; later runs reuse the cache. `panorama.png` appears first, followed by `distance.npy`, `scene.ply`, `scene-mesh.ply`, `scene-mesh.glb` and `result.json`. An image alone does not mean 3D conversion succeeded: check for the final result file. On this machine, the successful robotics-lab run took about **44 seconds after cached downloads**, including model load; this is a single run, not a hardware benchmark.
+The first run downloads the pinned models; later runs reuse the cache. Look for `panorama.png`, `distance.npy`, `scene.ply`, `scene-mesh.glb` and the final `result.json`.
 
 ### 3. Expand an image with known camera information
 
@@ -128,7 +128,7 @@ runs/fvdb-runtime/bin/python labs/worldgen-scenes/render.py \
   --output runs/worldgen/robot-lab/render --ffmpeg ffmpeg
 ```
 
-The renderer writes 480 frames at 24 FPS into a **20-second MP4**, plus camera matrices in `cameras.json`. It rotates 360° while changing the camera center by 0.4 / 0.09 / 0.3 world units across X/Y/Z. This is re-rendering from a 3D PLY, rather than cropping a flat panorama. Movement stays near the source viewpoint because unseen surfaces are not reliably reconstructed. All three recordings below use the full Gaussian scene. The browser previews use 320,000 Gaussians, one in four, with widened footprints to reduce download size; load only the scene you want.
+The renderer saves a 20-second MP4 and `cameras.json`. It rotates and moves the camera near the source viewpoint. Use the interactive preview to compare the laboratory, room and forest.
 
 ## Check the data and understand the limits
 
@@ -147,9 +147,9 @@ runs/worldgen-runtime/.venv/bin/python labs/worldgen-scenes/audit.py \
 
 It opens the real distance array and PLY, checks finite positive distances, normalized rotations and `XYZ = ray × distance`, and writes `geometry-audit.json`. For the image route it also verifies exact preservation of observed panorama pixels. A changed prompt or package version can change the output; compare the data checks, not just an expected filename.
 
-The forest recording exposes much more transparency and gaps than the indoor scenes. Thin leaves, depth discontinuities and surfaces uncovered by translation are difficult for a single RGB-distance shell. Alpha coverage is recorded as a **render diagnostic**, not a geometric accuracy score. We do not have ground-truth geometry or a held-out PSNR benchmark for these generated worlds. None of the results includes validated collisions, metric scale, joints or a robot controller.
+The forest shows more gaps around leaves and occluded surfaces. Generated scenes need scale and collision checks before a robot simulation; continue with the next lab.
 
-**Licenses:** [WorldGen code](https://github.com/ZiYang-xie/WorldGen/blob/7ce7b2767fdf31e2727b69a2e61e2e950e3a017f/LICENSE), its [LoRA card](https://huggingface.co/LeoXie/WorldGen) and [DA-2 weights](https://huggingface.co/haodongli/DA-2) list Apache-2.0. FLUX base and derived quantized weights retain separate **FLUX.1-dev Non-Commercial** model terms; output permissions have their own scope. The repository distributes our example outputs and code, not those model weights. [Media provenance](../../../site/public/showcase/SPATIAL-CREDITS.md) · [Measured fVDB reconstruction](spatial-reconstruction.md) · [Editable procedural house](scene-generation.md).
+**Sources:** [WorldGen](https://github.com/ZiYang-xie/WorldGen), [DA-2](https://huggingface.co/haodongli/DA-2) and [FLUX model terms](https://huggingface.co/black-forest-labs/FLUX.1-dev). WorldGen/DA-2 list Apache-2.0; FLUX weights have separate non-commercial terms. [Media credits](../../../site/public/showcase/SPATIAL-CREDITS.md).
 
 
 **Next: [import this laboratory into Isaac Sim, check scale and collisions, and drive a robot](worldgen-isaac.md).**

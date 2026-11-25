@@ -25,7 +25,7 @@ Isaac Sim 대신 **Infinigen**으로 방·가구·재질·조명이 있는 집�
 
 ### 영상은 어떤 조건으로 만들었나요?
 
-서로 다른 시점 48개를 `640 × 360`, 픽셀당 Cycles 16샘플로 렌더링하고 OpenImageDenoise를 적용했습니다. 이를 8 FPS로 재생해 6초 영상으로 만들었습니다. **원래 24 FPS 타임라인보다 3배 느리게** 카메라 경로를 보여줍니다. 방과 가구는 정지해 있고 카메라만 이동합니다. 적은 샘플에 노이즈 제거를 적용한 미리보기이므로 세부 무늬가 부드럽게 보일 수 있습니다. 원본 프레임과 `.blend`는 OMEN에 보관합니다.
+생성한 방 사이로 카메라가 이동하는 영상입니다. 집은 정적인 장면이며, 저장한 `.blend`에서 가구·재질·카메라 경로를 바꿔 볼 수 있습니다.
 
 ## 직접 집을 생성하고 렌더링하기
 
@@ -42,7 +42,7 @@ INFINIGEN_MINIMAL_INSTALL=True uv pip install -e .
 cd ../..
 ```
 
-Linux에서는 프로젝트가 안내하는 시스템 빌드 패키지도 필요할 수 있습니다. 고정된 커밋의 Infinigen 2 미리보기 API를 사용하며, 예전 `infinigen_examples.generate_indoors`와는 실행 경로가 다릅니다. 이번 도우미는 Blackwell에서 Blender 4.2의 GPU 호환성 문제를 피하도록 CPU와 Cycles 12스레드를 명시했습니다. fVDB·CARLA 실험은 별도로 RTX GPU에서 실행했습니다.
+Linux에서는 프로젝트가 안내하는 시스템 빌드 패키지도 준비합니다. 이 도우미는 고정한 Infinigen 2 API와 Cycles 12스레드 CPU 렌더링을 사용합니다.
 
 ### 2. 집을 생성해 장면 파일로 저장하기
 
@@ -78,4 +78,4 @@ GPU 없이 영상을 보거나 동봉한 해시와 카메라 경로 요약을 �
 python3 labs/scene-generation/check.py
 ```
 
-[실행 기록](../../../labs/scene-generation/recorded.json)에는 소스 커밋, Blender 버전, 프레임 수, 카메라 이동과 편집 조건을 적었습니다. 메시가 생성되었다고 바로 로봇 실습 환경이 완성되는 것은 아닙니다. 다른 시뮬레이터로 가져갈 때 크기·충돌체·관절·재질을 확인하세요. [공식 시뮬레이터 내보내기 문서](https://github.com/princeton-vl/infinigen/blob/53033dd55c7191cbc436be6ffbb63c026935a509/docs/source/ExportingToSimulators.md) · [미디어 출처](../../../site/public/showcase/SPATIAL-CREDITS.md) · [3DGS 광장 둘러보기](spatial-reconstruction.md).
+방 연결, 가구 배치와 카메라 경로를 살펴보세요. 로봇 실습에 가져갈 때는 [공식 내보내기 문서](https://github.com/princeton-vl/infinigen/blob/53033dd55c7191cbc436be6ffbb63c026935a509/docs/source/ExportingToSimulators.md)에 따라 크기와 충돌체를 확인합니다. [실행 상세](../../../labs/scene-generation/recorded.json) · [미디어 출처](../../../site/public/showcase/SPATIAL-CREDITS.md) · [3DGS 광장](spatial-reconstruction.md).

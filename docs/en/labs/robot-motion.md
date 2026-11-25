@@ -67,4 +67,4 @@ You can also start by opening the [AutoData replay scene](../../../labs/robot-mo
 
 In the recorded run, the original tool center entered the new obstacle and the replanned path avoided it. The paths had 24 and 26 waypoints with the same endpoints. AutoData got three successful demonstrations in six attempts. Its replay reported three successes, and the audit finds each first success frame. [Recorded results](../../../labs/robot-motion/recorded.json)
 
-The [November 19 rerun](../../../labs/robot-motion/replan-2026-11-19.json) also checked all active collision spheres at the stored waypoints. The minimum sphere-to-box clearance was about **2.17 mm**, and the two final tool positions matched. The planner separately performs swept collision validation. Warmup conditions differ between the baseline and replan, so their wall times are not a fair speed comparison.
+For a closer collision review, inspect the arm’s collision spheres along the path. [Full-arm check](../../../labs/robot-motion/replan-2026-11-19.json).

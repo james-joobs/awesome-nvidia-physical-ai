@@ -1,0 +1,390 @@
+{
+  "schema": 1,
+  "model": "AetherV1",
+  "task": "prediction",
+  "input": "first RGB + camera raymap estimated from all 17 RGB frames in the separate reconstruction pass",
+  "condition_geometry_sha256": "eeeeacb2bbcf69231d963f2a33ac811d52cf481daf89433dd2859e47a45bbe49",
+  "steps": 50,
+  "seed": 42,
+  "shape": [
+    17,
+    480,
+    720,
+    3
+  ],
+  "model_fps_condition": 12,
+  "source_timestamps_used": false,
+  "camera_ground_truth_used": false,
+  "lidar_used": false,
+  "source_records": [
+    {
+      "name": "00.jpg",
+      "sha256": "af7995f6b6a69c509d41a7cfb13bc0db6963e00da4ce7b0046b1c4e4f37ab1a0",
+      "loaded_size": [
+        1024,
+        568
+      ],
+      "crop_xywh": [
+        86,
+        0,
+        852,
+        568
+      ],
+      "resize": [
+        720,
+        480
+      ]
+    },
+    {
+      "name": "03.jpg",
+      "sha256": "1efc68585c1395853c90e4f0cf4195457157e6338d2f04760a2ae50850b25eaf",
+      "loaded_size": [
+        1024,
+        568
+      ],
+      "crop_xywh": [
+        86,
+        0,
+        852,
+        568
+      ],
+      "resize": [
+        720,
+        480
+      ]
+    },
+    {
+      "name": "06.jpg",
+      "sha256": "c05a7367ab1e91a8ebe3be06d497409d53d1fba38055ad7946682bfe2bb7d17e",
+      "loaded_size": [
+        1024,
+        568
+      ],
+      "crop_xywh": [
+        86,
+        0,
+        852,
+        568
+      ],
+      "resize": [
+        720,
+        480
+      ]
+    },
+    {
+      "name": "09.jpg",
+      "sha256": "00ea47a9ae4c3d348ca61c6f8e7568b8958a2e5903e80d9de2ca50d489e5d7ff",
+      "loaded_size": [
+        1024,
+        568
+      ],
+      "crop_xywh": [
+        86,
+        0,
+        852,
+        568
+      ],
+      "resize": [
+        720,
+        480
+      ]
+    },
+    {
+      "name": "12.jpg",
+      "sha256": "2ff9368548cfd64a8cc4a6ae325bb3d17c9f88cd6629962c531ad13e078c72d1",
+      "loaded_size": [
+        1024,
+        568
+      ],
+      "crop_xywh": [
+        86,
+        0,
+        852,
+        568
+      ],
+      "resize": [
+        720,
+        480
+      ]
+    },
+    {
+      "name": "15.jpg",
+      "sha256": "d00fe1246e50a0bfc9aaa7589d4e3c259c04ca2a4ce201ff46e7bd5c05a49080",
+      "loaded_size": [
+        1024,
+        568
+      ],
+      "crop_xywh": [
+        86,
+        0,
+        852,
+        568
+      ],
+      "resize": [
+        720,
+        480
+      ]
+    },
+    {
+      "name": "18.jpg",
+      "sha256": "fc686b26bbbc83cd18c770e1949e43f6984017700061b234a2e7fbfd9b88a5ab",
+      "loaded_size": [
+        1024,
+        568
+      ],
+      "crop_xywh": [
+        86,
+        0,
+        852,
+        568
+      ],
+      "resize": [
+        720,
+        480
+      ]
+    },
+    {
+      "name": "21.jpg",
+      "sha256": "8cdf3d5a495bfce11f2d09e68e39ab58845d2f8c42a387e24d1d0e2a33d483bd",
+      "loaded_size": [
+        1024,
+        568
+      ],
+      "crop_xywh": [
+        86,
+        0,
+        852,
+        568
+      ],
+      "resize": [
+        720,
+        480
+      ]
+    },
+    {
+      "name": "24.jpg",
+      "sha256": "d881c437c26f5b84921d0fc438f535a002e14715cccaec478f869d94dd678c4e",
+      "loaded_size": [
+        1024,
+        568
+      ],
+      "crop_xywh": [
+        86,
+        0,
+        852,
+        568
+      ],
+      "resize": [
+        720,
+        480
+      ]
+    },
+    {
+      "name": "27.jpg",
+      "sha256": "741badc3f42af09d82c496aefe02f362aac40daa924cdf3fabc8c147c199d5e3",
+      "loaded_size": [
+        1024,
+        568
+      ],
+      "crop_xywh": [
+        86,
+        0,
+        852,
+        568
+      ],
+      "resize": [
+        720,
+        480
+      ]
+    },
+    {
+      "name": "30.jpg",
+      "sha256": "2cb9f256f63bf933a96e91bccf3d175e61216e4a8682b6e4691bdfd887a64bde",
+      "loaded_size": [
+        1024,
+        568
+      ],
+      "crop_xywh": [
+        86,
+        0,
+        852,
+        568
+      ],
+      "resize": [
+        720,
+        480
+      ]
+    },
+    {
+      "name": "33.jpg",
+      "sha256": "5864322ed723b819f97b5ffef00cb77d271f006ea6f5ce4bb1b9aec1d8effc3f",
+      "loaded_size": [
+        1024,
+        568
+      ],
+      "crop_xywh": [
+        86,
+        0,
+        852,
+        568
+      ],
+      "resize": [
+        720,
+        480
+      ]
+    },
+    {
+      "name": "36.jpg",
+      "sha256": "74c6e82f4a29e4591e5c07ec7167bf035068b3ae3b405bc7c12889ae96cfc486",
+      "loaded_size": [
+        1024,
+        568
+      ],
+      "crop_xywh": [
+        86,
+        0,
+        852,
+        568
+      ],
+      "resize": [
+        720,
+        480
+      ]
+    },
+    {
+      "name": "39.jpg",
+      "sha256": "dc93b95cb60c5c12b384c404c58f95a367debb5783eb62cd07e7f5076788d0cc",
+      "loaded_size": [
+        1024,
+        568
+      ],
+      "crop_xywh": [
+        86,
+        0,
+        852,
+        568
+      ],
+      "resize": [
+        720,
+        480
+      ]
+    },
+    {
+      "name": "42.jpg",
+      "sha256": "93ba3658ef454fa1413a3f6f1d7b6f08890769ea6de0daa975f179d6b7045926",
+      "loaded_size": [
+        1024,
+        568
+      ],
+      "crop_xywh": [
+        86,
+        0,
+        852,
+        568
+      ],
+      "resize": [
+        720,
+        480
+      ]
+    },
+    {
+      "name": "45.jpg",
+      "sha256": "a400e587415448b1a5fc59c6c32f50d631f82af60228e437710425285b11f82b",
+      "loaded_size": [
+        1024,
+        568
+      ],
+      "crop_xywh": [
+        86,
+        0,
+        852,
+        568
+      ],
+      "resize": [
+        720,
+        480
+      ]
+    },
+    {
+      "name": "48.jpg",
+      "sha256": "c09bac6e01fb19dc08e6fbef13f945acbbd2b523d2b6894369657f4f90d50291",
+      "loaded_size": [
+        1024,
+        568
+      ],
+      "crop_xywh": [
+        86,
+        0,
+        852,
+        568
+      ],
+      "resize": [
+        720,
+        480
+      ]
+    }
+  ],
+  "device": "NVIDIA GeForce RTX 5090",
+  "torch": "2.9.0a0+145a3a7bda.nv25.10",
+  "cuda": "13.0",
+  "precision": "bfloat16",
+  "offload": false,
+  "empty_prompt": "real T5 embedding; encoder released after upstream initialization",
+  "camera_postprocess": "upstream raymap_to_poses, origin scale .1, no temporal smoothing",
+  "depth_units": "model-relative; not measured meters",
+  "raymap": "direction and signed-log origin; not Plucker moment",
+  "timing": {
+    "load_seconds": 7.600776061881334,
+    "inference_seconds": 80.24241746007465,
+    "frames_per_second_offline": 0.21185802394922246,
+    "peak_allocated_gib": 14.573383331298828,
+    "peak_reserved_gib": 16.15625
+  },
+  "output_shapes": {
+    "observed_rgb": [
+      17,
+      480,
+      720,
+      3
+    ],
+    "decoded_rgb": [
+      17,
+      480,
+      720,
+      3
+    ],
+    "pointmap": [
+      17,
+      480,
+      720,
+      3
+    ],
+    "camera_pose": [
+      17,
+      4,
+      4
+    ],
+    "intrinsics": [
+      17,
+      3,
+      3
+    ],
+    "ray_o": [
+      17,
+      480,
+      720,
+      3
+    ],
+    "ray_d": [
+      17,
+      480,
+      720,
+      3
+    ],
+    "depth": [
+      17,
+      480,
+      720
+    ]
+  }
+}

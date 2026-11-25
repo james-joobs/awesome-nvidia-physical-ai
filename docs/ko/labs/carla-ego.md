@@ -4,13 +4,13 @@
 
 ## 자동차와 카메라는 각각 무엇을 할까요?
 
-먼저 아래의 4분할 영상을 보세요. **CARLA 0.9.16의 실제 RGB 센서**로 촬영한 화면입니다. Isaac Sim에서 경로를 재생한 영상과 달리 Unreal Engine이 도로와 교통을 렌더링합니다. 도심, 폭우가 내리는 교차로, 해 질 무렵의 젖은 주택가, 안개 낀 고속도로에 서로 다른 맵을 사용했습니다. 화면 아래에 보이는 보닛으로 카메라의 위치를 가늠할 수 있습니다.
+도시 도로, 비 오는 교차로, 해 질 무렵 주택가, 안개 낀 고속도로를 **CARLA RGB 카메라**로 살펴봅니다. 네 화면을 함께 보며 환경마다 달라지는 풍경을 비교하세요.
 
 ![입력과 출력의 흐름](../../../assets/lessons/spatial-worlds/ego.ko.svg)
 
 ### 운전하는 프로그램과 영상을 찍는 센서를 구분해 봅시다
 
-CARLA의 **Traffic Manager**는 가상 차량과 도로 정보를 읽고 가속·조향·제동을 정하는 규칙 기반 제어기입니다. RGB 카메라는 그 차에서 보이는 풍경을 기록합니다. **Traffic Manager가 이 카메라 영상을 보고 운전하는 것은 아닙니다.** 다양한 센서·환경을 시험하는 예제이며, 학습한 자율주행 모델의 성능을 검증한 결과는 아닙니다. [Traffic Manager 공식 설명](https://carla.readthedocs.io/en/0.9.16/adv_traffic_manager/)
+CARLA의 **Traffic Manager**는 시뮬레이터의 도로와 교통 상태를 읽고 차량을 제어합니다. RGB 카메라는 차에서 보이는 풍경을 기록하며 제어기의 입력은 아닙니다. [Traffic Manager 공식 설명](https://carla.readthedocs.io/en/0.9.16/adv_traffic_manager/)
 
 한 스텝마다 가상 시간이 `0.05초`씩 흐릅니다. 차량 기준 `(0.3, 0, 1.45)m`에 운전자 카메라를, `(-6, 0, 3)m`에 뒤따라가는 카메라를 달아 같은 스텝을 촬영합니다. 원본 센서 버퍼는 `[540, 960, 4]` 모양의 `uint8` 배열입니다. BGRA 순서이므로 알파를 빼고 BGR을 RGB로 바꾼 뒤 영상에 씁니다. 프레임 번호로 그 순간의 차량 위치·속도와 연결합니다.
 
@@ -31,7 +31,7 @@ CARLA의 **Traffic Manager**는 가상 차량과 도로 정보를 읽고 가속�
 | 왼쪽 아래 | Town02 / 젖은 노면·일몰 | 주택가 도로와 빛의 변화 |
 | 오른쪽 아래 | Town04 / 안개 | 먼 물체가 보이기 시작하는 거리 |
 
-경로가 서로 다르므로 같은 도로의 날씨만 바꾼 성능 비교는 아닙니다. 각 영상은 20 FPS로 찍은 320프레임을 원래 속도로 재생합니다. 날씨에 따른 화면 차이를 보여주며, 이 실험에서 타이어 마찰 변화까지 확인한 것은 아닙니다.
+차선, 조명과 먼 물체의 가시거리가 각 경로에서 어떻게 달라지는지 살펴보세요.
 
 ## 내 환경에서 운전자 카메라로 촬영하기
 
@@ -78,8 +78,8 @@ python3 labs/carla-ego/check.py
 
 ## 결과를 검사하고 다음 실습으로 이어 가기
 
-GPU가 없어도 영상과 [촬영 기록](../../../labs/carla-ego/recorded.json)을 보거나 `check.py`를 실행할 수 있습니다. 프레임 수, 시간 간격, 좌표의 유효성, 이동 거리와 공개 영상 해시를 검사합니다. 주행 안전성이나 정책 성능을 판정하는 검사는 아닙니다.
+GPU 없이 영상을 보고 `check.py`로 저장된 프레임과 차량 위치를 검사할 수 있습니다. [실행 상세](../../../labs/carla-ego/recorded.json).
 
 [CARLA → fVDB 복원 실습](spatial-reconstruction.md)에서는 여러 시점의 영상으로 실제 3DGS 공간을 만듭니다. 학습 모델의 출력은 [Alpamayo 실습](world-driving.md)에서, 필요한 장면 접근 권한을 갖춘 정책 평가는 [AlpaSim 가이드](../workflows/alpasim-closed-loop.md)에서 이어 갈 수 있습니다. 서로 독립된 실행 경로입니다.
 
-**출처·이용 조건:** [CARLA 0.9.16](https://github.com/carla-simulator/carla/tree/0.9.16) 코드는 [MIT](https://github.com/carla-simulator/carla/blob/0.9.16/LICENSE), CARLA 자체 에셋은 CC-BY입니다. [README](https://github.com/carla-simulator/carla/tree/0.9.16#licenses)에는 CC-BY의 버전이 명시되어 있지 않습니다. Unreal Engine과 통합 구성요소에는 별도 조건이 적용됩니다. 공개 영상은 크기를 줄이고 설명을 덧붙였습니다. [미디어 출처](../../../site/public/showcase/SPATIAL-CREDITS.md)에서 확인할 수 있습니다.
+**출처:** [CARLA](https://github.com/carla-simulator/carla/tree/0.9.16) · [에셋·영상 사용 조건](../../../site/public/showcase/SPATIAL-CREDITS.md).

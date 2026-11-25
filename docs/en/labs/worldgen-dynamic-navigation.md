@@ -62,7 +62,7 @@ range frame + measured ego pose + measurement time
 
 The magenta body is a **kinematic PhysX rigid body**. `actors.py` supplies continuous targets through `set_kinematic_targets()` every physics step. The range sensor sees the resulting collider, and recorded poses confirm the actual body follows those targets. Robot motion comes from its wheel drives, not direct chassis pose edits. Orange dots visualize the controller's remembered cells; cyan is the current planned axle path.
 
-The displayed obstacle mesh is synchronized from the **measured PhysX pose after every step**, using a separate non-colliding visual prim for the 6.2 compatibility renderer. It does not follow a prerecorded animation or merely draw the requested target. `render_position_xyz` is compared with the actual collider pose in the checker. An empty plan is hidden so an old cyan line cannot remain visible while the robot waits.
+The viewport follows the moving collider, while orange dots show remembered obstacles and cyan shows the current planned route.
 
 ![Actual gate, range beams and robot in the Isaac Sim GUI](../../../assets/lessons/worldgen-dynamic-navigation/closed.webp)
 
@@ -136,67 +136,20 @@ Use a fresh folder for each recording. The helper waits for the real viewport be
 
 ## Check measured stops, replanning and video evidence
 
-![Recorded gate motion and robot progress](../../../assets/lessons/worldgen-dynamic-navigation/gate.en.svg)
+![Gate motion and robot progress](../../../assets/lessons/worldgen-dynamic-navigation/gate.en.svg)
 
-The new controller maintained a measured stationary hold in the 4.0–7.5 s check interval. It generated a new path at 8.6 s as the lower part of the passage reopened. The previous controller still had no path after the gate fully withdrew at 9.8 s. Replaying its final scan into a fresh copy of that same planner does find a route: accumulated memory is the blocker.
+Watch the robot brake when the gate closes, wait, then resume after fresh scans clear the map. Compare this with the older controller, whose permanent map retains the removed barrier.
 
-| Run | Goal | Time to goal (simulation s) | Obstacle contact reports |
-|---|---|---|---|
-| Previous permanent map, gate | No | — (18 s test) | 0 |
-| Updated map, gate | Yes | 20.07 | 0 |
-| Updated map, entering box | Yes | 25.32 | 0 |
-| Updated map, 1 s sensor gap | Yes | 20.65 | 0 |
+![Rerouting around a moving box](../../../assets/lessons/worldgen-dynamic-navigation/cart.en.svg)
 
-These are individual recorded runs. Goal times exclude the following 2 s hold. All checks also compare actual collider and display coordinates; the recorded difference was zero.
-
-![Actual chassis route after a box enters the initial detour](../../../assets/lessons/worldgen-dynamic-navigation/cart.en.svg)
-
-The dashed line is the first sensor-generated axle plan. The solid line is measured chassis motion. The first upper-side plan appeared at 3.1 s, after the box began entering at 2 s. Braking occurred at 4.3 s; a later route took the robot around the other side.
-
-The gate scan below cleared one cell but still had no route. A later frame found a route and permitted combined forward and turning commands. Clearing a cell alone does not release the robot.
-
-```json
-[
-  {
-    "scan_time_s": 8.1,
-    "cleared_cells": 1,
-    "path_points": 0,
-    "phase": "wait-for-path",
-    "command_v_omega": [
-      0.0,
-      0.0
-    ]
-  },
-  {
-    "scan_time_s": 8.6,
-    "cleared_cells": 2,
-    "path_points": 66,
-    "phase": "follow-scan-path",
-    "command_v_omega": [
-      0.2811,
-      -1.1
-    ]
-  }
-]
-```
-
-[Recorded observation example](../../../labs/worldgen-dynamic-navigation/evidence/clearing-example.json) · [Initial USD scenes](https://james-joobs.github.io/awesome-nvidia-physical-ai/showcase/worldgen-dynamic-navigation-scenes.zip)
-
-
+When the box enters the first detour, the controller chooses another route. The sensor-gap case shows the robot stopping until measurements return. [Observation example](../../../labs/worldgen-dynamic-navigation/evidence/clearing-example.json) · [Initial USD scenes](https://james-joobs.github.io/awesome-nvidia-physical-ai/showcase/worldgen-dynamic-navigation-scenes.zip).
 
 ```bash
 python3 labs/worldgen-dynamic-navigation/test_navigation.py
 python3 labs/worldgen-dynamic-navigation/check.py
-```
-
-The CPU-only checker verifies actual actor movement, range timestamps, physical standstill, map clearing, route changes, target arrival, obstacle contacts and published media hashes. To inspect your own run:
-
-```bash
 python3 labs/worldgen-dynamic-navigation/check.py --run runs/worldgen-dynamic/cart-dynamic
 ```
 
-The comparison uses native Isaac Sim GUI recordings at 1× speed. The previous-method excerpt and new-method run are labeled separately. Full individual takes remain below the guide.
+Check the bundled example first, then your own run. The exercise uses a known test-floor boundary and horizontal range sensor. [Run details](../../../labs/worldgen-dynamic-navigation/recorded.json) · [Nav2 obstacle-layer reading](https://docs.nav2.org/rolling/configuration_and_development/configuration_guide/core_servers/costmap_2d/costmap_plugins/obstacle/) · [Media credits](../../../site/public/showcase/SPATIAL-CREDITS.md).
 
-The ego pose and 5×4 m test-floor boundary are known. Sensing is an ideal horizontal plane, and the generated furniture still has no validated collision coverage. This controller does not estimate obstacle velocity, predict arbitrary human motion, perform SLAM or establish real-robot safety. [Nav2 obstacle-layer marking and clearing](https://docs.nav2.org/rolling/configuration_and_development/configuration_guide/core_servers/costmap_2d/costmap_plugins/obstacle/) is useful further reading; Nav2 is not the runtime used here.
-
-[Previous sensor lab](worldgen-navigation.md) · [Scale and colliders](worldgen-isaac.md) · [Media provenance](../../../site/public/showcase/SPATIAL-CREDITS.md)
+[Previous sensor lab](worldgen-navigation.md) · [Scale and colliders](worldgen-isaac.md)

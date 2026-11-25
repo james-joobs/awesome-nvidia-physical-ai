@@ -20,7 +20,7 @@
 
 ### 영상에서는 무엇을 보나요?
 
-Newton이 GPU에서 움직임을 계산하고, 시간별 상태를 OpenUSD로 저장합니다. Isaac Sim에서 그 파일을 열어 계산된 움직임을 보여 줍니다. 실제 프로그램 창에서 뷰포트 부분을 잘라 담았으며, **물리 계산은 Newton, GUI에서는 저장된 결과 재생**입니다. XPBD 천, VBD 천, 케이블 비틀림 순서로 재생합니다. 속도는 0.65배이고 끝부분을 잠시 멈춰 보여 줍니다. 케이블 세 개는 공식 예제에서 정한 강성 값이 다릅니다.
+Newton이 GPU에서 천과 케이블의 움직임을 계산해 OpenUSD로 저장합니다. Isaac Sim에서 XPBD 천, VBD 천, 케이블 비틀림 순서로 재생합니다.
 
 ## 직접 실행하기
 
@@ -50,6 +50,6 @@ python labs/physics/capture_gui.py ./runs/newton-materials-001 ./runs/newton-gui
 
 ## 결과 확인하기
 
-공식 예제의 `--test`가 실패하거나, 점 좌표에 NaN·Inf가 있거나, 시간에 따라 변하는 점이 없으면 실행을 실패로 처리합니다. `result.json`에서 공식 예제 소스 해시, 배열 크기, 이동량과 시간 범위를 확인할 수 있습니다. 이번 설정에서 저장된 점의 최대 이동량은 XPBD 천 약 5.06m, VBD 천 약 4.28m였습니다. 변형이 일어났다는 측정값이며 정확도 점수는 아닙니다.
+천이 늘어나고 접히며 바닥에 놓이는 모습과 케이블 강성에 따른 변화를 비교하세요. `verify`는 움직이는 점과 저장 파일을 검사하고, `capture.json`은 GUI 촬영 정보를 담습니다.
 
-`run.json`에는 명령어와 결과 파일의 해시가 들어가고, `verify`가 다시 검사합니다. 별도 `capture.json`에는 GUI 버전과 촬영한 장면을 남깁니다. 물리 계산 성공과 GUI 녹화 성공은 각각 확인하세요. [접촉·마찰·반발 실험](physics.md) · [Newton 동작 원리](../newton.md)
+[실행 상세](../../../labs/newton-materials/recorded.json) · [접촉·마찰·반발 실험](physics.md) · [Newton 동작 원리](../newton.md)

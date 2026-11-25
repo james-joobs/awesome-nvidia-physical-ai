@@ -133,36 +133,18 @@ The helper waits for a real viewport frame before starting control. Raw native-w
 
 ## Inspect the evidence without an NVIDIA GPU
 
-![Recorded scan hits and chassis paths across three layouts](../../../assets/lessons/worldgen-navigation/paths.en.svg)
+![Sensor hits and robot paths](../../../assets/lessons/worldgen-navigation/paths.en.svg)
 
-The plots use actual saved poses and scan endpoints. Green is the sensor-controlled trajectory; the dashed red path is the fixed controller that stalled. These are post-run data plots, separate from the native GUI footage.
+Compare the fixed route with sensor-based planning in the center, lower and upper layouts. The sensor planner selects an open side; disabling its measurements makes the robot stop.
 
-| Run | Goal reached | Time to goal (simulation seconds) | Obstacle contact reports |
-|---|---|---|---|
-| Fixed route, lower passage blocked | No | — (20 s run) | 638 |
-| Sensor, central box | Yes | 12.08 | 0 |
-| Sensor, lower passage blocked | Yes | 12.08 | 0 |
-| Sensor, upper passage blocked | Yes | 12.08 | 0 |
-| Sensor data disabled | No; remains still | — (3 s check) | 0 |
-
-638 counts reports during a persistent contact, not distinct impacts. Successful recordings include a further 3 s goal hold. Mirrored layouts produced almost identical travel times; these are individual runs, not averaged benchmark results.
-
-[Download the lower-layout initial USD scene](https://james-joobs.github.io/awesome-nvidia-physical-ai/showcase/worldgen-navigation-scene.zip). Keep `assets/` beside `sensor/` when opening `sensor/scene.usdc`. The Python controller is provided separately in the source.
-
-
+[Download the initial USD scene](https://james-joobs.github.io/awesome-nvidia-physical-ai/showcase/worldgen-navigation-scene.zip). Keep `assets/` beside `sensor/` and open `sensor/scene.usdc`. Run the Python controller to drive the robot.
 
 ```bash
 python3 labs/worldgen-navigation/test_navigation.py
 python3 labs/worldgen-navigation/check.py
-```
-
-The first command tests planning behavior from observations and the stop conditions. The second checks the actual Recorded experiments, range shapes and timestamps, route choices, contacts, endpoints and media hashes. To check your own complete run:
-
-```bash
 python3 labs/worldgen-navigation/check.py --run runs/worldgen-navigation/sensor-lower
 ```
 
-[Return to scale and collider checks](worldgen-isaac.md) · [WorldGen generation](worldgen-scenes.md) · [Media provenance](../../../site/public/showcase/SPATIAL-CREDITS.md)
+The first two commands check the planner and saved example. The third checks your own run. [Run details](../../../labs/worldgen-navigation/recorded.json) · [Media credits](../../../site/public/showcase/SPATIAL-CREDITS.md).
 
-
-[Next: react to moving obstacles and clear old observations](worldgen-dynamic-navigation.md).
+**Next: [react to moving obstacles and clear old observations](worldgen-dynamic-navigation.md).**

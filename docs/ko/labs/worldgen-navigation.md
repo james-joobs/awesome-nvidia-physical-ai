@@ -133,36 +133,18 @@ python3 labs/worldgen-navigation/record_gui.py \
 
 ## GPU 없이 기록을 검사합니다
 
-![세 가지 배치에서 기록한 센서 측정점과 실제 주행 경로](../../../assets/lessons/worldgen-navigation/paths.ko.svg)
+![센서 측정점과 로봇 경로](../../../assets/lessons/worldgen-navigation/paths.ko.svg)
 
-녹색 선은 센서 제어로 실제 이동한 몸체 위치입니다. 빨간 점선은 상자에 막힌 기존 제어의 기록입니다. 센서 측정점도 함께 표시했습니다. 실행 후 저장 데이터로 그린 그래프이며, GUI 녹화와 구분해 보세요.
+중앙·아래·위 배치에서 고정 경로와 센서 제어를 비교하세요. 센서 제어는 열린 쪽으로 우회하고, 측정을 끄면 정지합니다.
 
-| 실행 | 도착 여부 | 도착까지의 시뮬레이션 시간 | 장애물 접촉 보고 수 |
-|---|---|---|---|
-| 기존 제어, 아래쪽 통로 막힘 | 실패 | — (20초 실행) | 638 |
-| 센서 제어, 중앙 상자 | 성공 | 12.08초 | 0 |
-| 센서 제어, 아래쪽 통로 막힘 | 성공 | 12.08초 | 0 |
-| 센서 제어, 위쪽 통로 막힘 | 성공 | 12.08초 | 0 |
-| 센서 데이터 차단 | 정지 유지 | — (3초 검사) | 0 |
-
-638은 한동안 이어진 접촉에서 발생한 보고 수이며, 별개의 충돌 638회를 뜻하지 않습니다. 성공 영상은 도착 후 약 3초 동안 정지하는 모습까지 담았습니다. 좌우 대칭 배치에서 이동 시간이 거의 같았으며, 여러 회차의 평균이나 성능 벤치마크 결과는 아닙니다.
-
-[아래쪽 통로 배치의 시작 USD 장면 다운로드](https://james-joobs.github.io/awesome-nvidia-physical-ai/showcase/worldgen-navigation-scene.zip). `assets/`와 `sensor/`를 나란히 두고 `sensor/scene.usdc`를 여세요. 경로를 계산하는 Python 제어기는 소스 코드로 제공합니다.
-
-
+[시작 USD 장면 다운로드](https://james-joobs.github.io/awesome-nvidia-physical-ai/showcase/worldgen-navigation-scene.zip). `assets/`와 `sensor/`를 나란히 두고 `sensor/scene.usdc`를 엽니다. 로봇 주행은 Python 제어기로 실행합니다.
 
 ```bash
 python3 labs/worldgen-navigation/test_navigation.py
 python3 labs/worldgen-navigation/check.py
-```
-
-첫 명령은 관측에 따라 경로가 달라지는지와 정지 조건을 검사합니다. 두 번째는 GPU 머신에서 실제 실행한 데이터로 거리 배열의 크기와 시각, 우회 방향, 접촉, 도착 위치, 영상 해시를 확인합니다. 직접 실행한 결과도 검사할 수 있습니다.
-
-```bash
 python3 labs/worldgen-navigation/check.py --run runs/worldgen-navigation/sensor-lower
 ```
 
-[공간 크기·충돌체 실습으로 돌아가기](worldgen-isaac.md) · [WorldGen 공간 생성](worldgen-scenes.md) · [영상·입력 출처](../../../site/public/showcase/SPATIAL-CREDITS.md)
+앞의 두 명령으로 계획기와 동봉한 예제를 검사하고, 세 번째로 직접 실행한 결과를 확인합니다. [실행 상세](../../../labs/worldgen-navigation/recorded.json) · [영상 출처](../../../site/public/showcase/SPATIAL-CREDITS.md).
 
-
-[다음 실습: 움직이는 장애물에 대응하고 오래된 관측 지우기](worldgen-dynamic-navigation.md).
+**다음 실습: [움직이는 장애물에 대응하고 오래된 관측 지우기](worldgen-dynamic-navigation.md).**

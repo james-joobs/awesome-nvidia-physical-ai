@@ -1,0 +1,26 @@
+---
+import Icon from './Icon.astro';
+import ShowcaseVideo from './ShowcaseVideo.astro';
+import ToolTags from './ToolTags.astro';
+import {pageUrl,repositoryFile} from '../lib/catalog.mjs';
+import {findLab,labCopy} from '../lib/labs.mjs';
+import {showcaseCopy} from '../lib/showcase.mjs';
+const {locale,item}=Astro.props;
+const entry=item[locale],lab=findLab(item.lab??item.id),labels=showcaseCopy[locale],labLabels=labCopy[locale];
+const labUrl=pageUrl(locale,`labs/${lab.id}`);
+const guide=item.route?pageUrl(locale,item.route):item.guide?repositoryFile(`docs/${locale}/${item.guide}.md`):labUrl;
+---
+<article class="hub-media-card showcase-card" id={item.id}>
+  <ShowcaseVideo locale={locale} clip={item} title={entry.title}/>
+  <div class="showcase-caption">
+    <h3>{entry.title}</h3><p>{entry.description}</p>
+    <ToolTags tags={item.tags??lab.tags} label={labLabels.tools}/>
+    <div class="card-links">
+      <a class="plain-link lab-link" href={item.labRoute?pageUrl(locale,item.labRoute):labUrl}>{item.labRoute?(locale==='ko'?'분야별 실습':'Choose a field'):labLabels.action}<Icon name="right" size={16}/></a>
+      {guide!==labUrl&&<a class="plain-link" href={guide}>{labels.guide}</a>}
+    </div>
+  </div>
+</article>
+<style>
+.showcase-card>:global(.video-frame){border-bottom:1px solid var(--edge)}.showcase-caption{flex:1;display:flex;flex-direction:column;gap:8px;min-width:0;padding:16px 18px 12px}.showcase-caption h3{font-size:clamp(1.1rem,2vw,1.28rem);line-height:1.35}.showcase-caption p{color:var(--prose-text);font-size:.9375rem;line-height:1.6}.card-links{display:flex;flex-wrap:wrap;align-items:center;gap:0 14px;margin-top:auto}.card-links a{min-height:44px}.card-links a:not(.lab-link){color:var(--muted)}:lang(ko) .showcase-caption{word-break:keep-all;overflow-wrap:anywhere}@media(max-width:575px){.showcase-caption{padding-inline:14px}}
+</style>

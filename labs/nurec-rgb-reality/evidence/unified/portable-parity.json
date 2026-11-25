@@ -1,0 +1,17 @@
+{
+  "rgb": {
+    "same_shape": true,
+    "raw_equal": true,
+    "max_abs": 0.0
+  },
+  "disparity": {
+    "same_shape": true,
+    "raw_equal": true,
+    "max_abs": 0.0
+  },
+  "raymap": {
+    "same_shape": true,
+    "raw_equal": true,
+    "max_abs": 0.0
+  }
+}

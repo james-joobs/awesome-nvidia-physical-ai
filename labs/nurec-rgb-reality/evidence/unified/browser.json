@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "scope": "Chrome mobile emulation on M2 Max, not a physical phone; local production build",
+  "results": [
+    {
+      "lang": "en",
+      "viewport": [
+        390,
+        844
+      ],
+      "models": 5,
+      "rear_rgb": true,
+      "touch_orbit": true,
+      "time_advance": true,
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "overflow": 0,
+      "inline_video": {
+        "playsinline": true,
+        "paused": false,
+        "ready": 4,
+        "currentTime": 0.934,
+        "error": null
+      },
+      "source_code": true,
+      "language_route": "http://127.0.0.1:8121/awesome-nvidia-physical-ai/ko/labs/nurec-rgb-reality/#joint-geometry",
+      "errors": []
+    },
+    {
+      "lang": "ko",
+      "viewport": [
+        390,
+        844
+      ],
+      "models": 5,
+      "rear_rgb": true,
+      "touch_orbit": true,
+      "time_advance": true,
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "overflow": 0,
+      "inline_video": {
+        "playsinline": true,
+        "paused": false,
+        "ready": 4,
+        "currentTime": 1.0269,
+        "error": null
+      },
+      "source_code": true,
+      "language_route": "http://127.0.0.1:8121/awesome-nvidia-physical-ai/labs/nurec-rgb-reality/#joint-geometry",
+      "errors": []
+    }
+  ]
+}

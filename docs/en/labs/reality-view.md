@@ -34,7 +34,7 @@ A Gaussian scene describes appearance. It does not supply vehicle dynamics, coll
 
 The published `harmonizer_nontemporal.pt` checkpoint takes `float[1,3,1,576,1024]` RGB normalized to `[-1,1]` and produces an image of the same shape. It runs a learned, single-step enhancement based on Cosmos. Our runner converts the output back to RGB PNG without an extra color-transfer pass.
 
-This is **non-temporal inference**: each image is independent. The temporal checkpoint uses previous enhanced frames and a separate Cosmos base model. Access to that base model was unavailable in this run, so no temporal result is claimed. [Harmonizer model card](https://huggingface.co/nvidia/Harmonizer) · [Official integration](https://docs.nvidia.com/nurec/nurec/harmonizer.html)
+This example uses **non-temporal inference**, which processes each image independently. [Harmonizer model card](https://huggingface.co/nvidia/Harmonizer) · [Official integration](https://docs.nvidia.com/nurec/nurec/harmonizer.html)
 
 **Built on NVIDIA Cosmos.** Pixel changes can smooth an artifact or alter a lane edge. We compare against the original USD rather than treating every change as an improvement.
 
@@ -53,7 +53,7 @@ pred_rot:        float[1,1,1,64,3,3]
 
 The 64 future poses cover 6.4 seconds at 0.1-second intervals. The actual first predicted point is approximately `[0.5010, 0.000064, 0.0]` m; the last is `[30.2868, -0.08339, 0.0]` m. These are relative to the ego vehicle at query time: `x` forward, `y` left, `z` up. The compositor places that origin at `[0,-1.8,0]` in our USD world, applies the display camera’s inverse pose, and projects with `K`. BEV shows the complete route even where points fall outside the camera image.
 
-The animation reveals a **single saved prediction**. It does not send steering commands or request fresh policy decisions after moving. The returned reasoning text is `<NOMINAL>`; no longer explanation is inferred. [Alpamayo 2 Edge](https://github.com/NVlabs/alpamayo2-edge)
+The animation displays **one saved prediction**, rather than closed-loop vehicle control. [Alpamayo 2 Edge](https://github.com/NVlabs/alpamayo2-edge)
 
 ## Run the lab
 
@@ -86,14 +86,14 @@ mkdir -p "$REALITY_VIEW_ROOT" "$ALPAMAYO_ROOT"
 nvidia-smi
 ```
 
-The variables select output/model folders; they do not contain a server address or credential. Confirm the GPU is free before starting. Install `uv` and authenticate with Hugging Face if required by your account, then download the pinned models:
+The variables select the output and model folders. Install `uv`, sign in to Hugging Face if needed, and download the pinned models:
 
 ```bash
 bash labs/reality-view/setup_models.sh
 docker pull nvcr.io/nvidia/nre/nre-ga:26.04
 ```
 
-The runner pins the verified container digest in [run.sh](../../../labs/reality-view/run.sh). NuRec’s runtime terms, Harmonizer’s **NVIDIA Open Model License** and Alpamayo weights’ **OpenMDW-1.1** are separate from this repository’s MIT code license. We do not redistribute model weights. [Pins and official licenses](../../../labs/reality-view/model-pins.json)
+The container and model versions are fixed in [run.sh](../../../labs/reality-view/run.sh). [Model versions and terms](../../../labs/reality-view/model-pins.json)
 
 ### 3. Capture the road and convert its data
 
@@ -105,7 +105,7 @@ bash labs/reality-view/run.sh capture
 bash labs/reality-view/run.sh prepare
 ```
 
-Expect `CAPTURE complete: 120 training, 40 held-out, 22 policy frames`, then `prepared.json` and `ncore/own-road.json`. Use a fresh output folder for a new attempt; the NCore writer expects new component groups. The historical camera ID `camera_front_wide_120fov` is an integration identifier; **the actual camera here is a 90° pinhole**, as recorded in its intrinsics.
+Expect `CAPTURE complete: 120 training, 40 held-out, 22 policy frames`, followed by `prepared.json` and `ncore/own-road.json`. Use a fresh output folder for each attempt. The camera uses a 90° pinhole projection.
 
 ### 4. Fit NuRec, render the elevated camera, then run Harmonizer
 
@@ -115,9 +115,7 @@ bash labs/reality-view/run.sh render
 bash labs/reality-view/run.sh enhance
 ```
 
-Training creates `train/<run-id>/artifacts/last.usdz`. Rendering uses `novel-rig.json`, with the same poses as the held-out USD reference, and explicitly selects `--renderer gsplat`. The 26.04 default renderer stalled on this artifact during our attempt. Successful output is **40 PNGs in `novel/`**, followed by **40 PNGs in `enhanced/`** and `harmonizer-result.json`.
-
-The standalone TorchScript runner needs the Transformer Engine operations supplied by this NuRec image. It preserves the checkpoint’s original device placement: forcing all frozen constants onto CUDA caused a device mismatch in our initial test.
+Training creates `train/<run-id>/artifacts/last.usdz`. The renderer uses `novel-rig.json` and saves **40 PNGs in `novel/`**. Enhancement adds **40 PNGs in `enhanced/`** and `harmonizer-result.json`.
 
 ### 5. Run the driving model and make your own videos
 
@@ -136,21 +134,12 @@ python labs/reality-view/package.py \
   --font /absolute/path/to/NotoSansKR.ttf
 ```
 
-This writes English/Korean **20-second** comparison videos, separate NuRec/Harmonizer/route clips, lossless frame samples and measurement JSON. The film uses edited playback speed; it does not represent real-time model throughput.
+This writes English/Korean comparison videos, separate NuRec/Harmonizer/route clips and sample frames.
 
 ## Verify the result
 
-| Check | Measured in this run | Interpretation |
-|---|---|---|
-| NuRec fitting | 2,400 steps, 67.42 s | Training-loop time, not complete setup time |
-| Held-out NuRec / Harmonizer PSNR | **29.21 / 27.09 dB**, 40 aligned views | Enhancement reduced pixel fidelity on this simple synthetic scene |
-| Non-temporal Harmonizer | **0.1285 s/frame** median after the first; first frame 12.55 s | GPU forward time with synchronization; excludes image I/O and loading |
-| Alpamayo | **23.43 s** including loading/input handling; **19.24 s** reported by `run_data` | One prediction, unsuitable for a real-time claim |
-| Alpamayo peak PyTorch allocation | **5.76 GiB** | Excludes some driver/runtime memory; not total GPU use |
-| Future poses | 64 finite XYZ/rotation pairs | Interface check, not driving safety or collision evaluation |
+Compare lane edges and object boundaries across the original USD render, NuRec and Harmonizer. In this example, the held-out PSNR was **29.21 dB for NuRec and 27.09 dB after Harmonizer**: a smoother image does not always preserve the reference more closely.
 
-Inspect lane edges, object boundaries and newly revealed ground. Whole-frame PSNR also includes large simple sky/ground regions; it is not a perception or policy score. Keep the lower Harmonizer score visible when discussing this run.
+The saved trajectory contains 64 predicted poses. Inspect their direction and ego-frame coordinates, then use the [checker](../../../labs/reality-view/check.py) to validate the files. [Run details](../../../labs/reality-view/recorded.json).
 
-The original USD, complete captures and trained NuRec artifact remain in the local output folder. The repository includes lightweight videos, nine lossless sample images, the 64-pose JSON and [measured receipt](../../../labs/reality-view/recorded.json). No NVIDIA driving dataset or pretrained checkpoint is bundled.
-
-Next: [NuRec principles](../nurec.md) · [Alpamayo principles](../alpamayo.md) · [AlpaSim closed-loop evaluation](../workflows/alpasim-closed-loop.md). Closing the loop requires new rendered sensor observations after each applied control step, plus separate collision and off-road evaluation.
+Continue with [NuRec principles](../nurec.md), [Alpamayo principles](../alpamayo.md), or [AlpaSim closed-loop evaluation](../workflows/alpasim-closed-loop.md).

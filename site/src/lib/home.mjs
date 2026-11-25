@@ -2,7 +2,7 @@ export const homeCopy = {
   en: {
     description: 'Explore robotics, physics engines, world models, and autonomous driving through NVIDIA tools. Start with a recorded experiment or browser lab, then use the code and guides to run your own.',
     siteTour: 'Site tour video',
-    tourDescription: 'A 70-second tour of WorldGen scenes, sensor-guided navigation, moving obstacles, lab code, and catalog search. Recorded from the site and edited at 1.3× speed.',
+    tourDescription: 'Explore the demos, learning paths and searchable tool catalog in a short site tour.',
     journey: 'Start at your level',
     stages: {
       browser: ['Start in the browser', 'Judge a GR00T trial without installing anything.'],
@@ -39,7 +39,7 @@ export const homeCopy = {
   ko: {
     description: '로보틱스, 물리 엔진, 월드 모델, 자율주행을 NVIDIA 도구로 배워 보세요. 실행 영상과 브라우저 실습에서 시작해, 코드와 가이드로 직접 실험할 수 있습니다.',
     siteTour: '사이트 둘러보기 영상',
-    tourDescription: 'WorldGen 장면 생성, 센서 주행, 이동 장애물 대응부터 실습 코드와 카탈로그 검색까지 약 70초로 둘러봅니다. 사이트 화면을 새로 촬영해 1.3배속으로 편집했습니다.',
+    tourDescription: '데모와 학습 경로, 도구 카탈로그를 짧은 영상으로 둘러봅니다.',
     journey: '지금 환경에서 시작하기',
     stages: {
       browser: ['브라우저에서 시작하기', 'GR00T가 물체를 제대로 옮겼는지 판정합니다.'],

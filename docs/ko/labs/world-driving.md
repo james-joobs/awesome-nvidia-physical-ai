@@ -114,14 +114,14 @@ python3 labs/world-driving/check.py \
   --alpamayo labs/world-driving/evidence/alpamayo-synthetic
 ```
 
-위 경로는 저장소에 동봉한 공개 결과를 사용하므로 모델 실행 환경을 설치하지 않아도 됩니다. GPU에서 직접 돌린 뒤에는 내 출력 폴더로 바꿔 검사하세요. 촬영한 CLI 실행은 입력 처리까지 13.37초, PyTorch 최대 할당 메모리는 5.76 GiB였습니다. RTX 5090 한 대에서 합성 입력 하나를 처리한 기록이며, 일반적인 성능 수치로 해석하지 않습니다.
+동봉한 공개 결과를 사용하므로 모델을 설치하지 않아도 됩니다. GPU에서 실행한 뒤에는 내 출력 폴더로 바꿔 검사하세요.
 
-`evidence/prediction-scene/alpamayo-trajectory.usda`에는 모델이 예측한 위치 64개를 도로 위에 그려 두었습니다. 저장된 위치·회전 배열에 맞춰 차량 모형도 움직입니다. 이 장면의 Isaac Sim 영상은 **예측 경로 재생**이며, 재생 중에 모델이 새 주행 결정을 하거나 차량 물리를 계산하지 않습니다. [재생 장면 생성 코드](../../../labs/world-driving/make_prediction_scene.py) · [실행·검사 기록](../../../labs/world-driving/recorded.json)
+`evidence/prediction-scene/alpamayo-trajectory.usda`를 열면 예측한 자세 64개를 Isaac Sim에서 재생합니다. 제어 후 다시 관측하는 피드백은 [AlpaSim 실습](../workflows/alpasim-closed-loop.md)에서 이어갑니다. [재생 장면 생성 코드](../../../labs/world-driving/make_prediction_scene.py).
 
 ### 무엇을 비교해야 할까?
 
 - **Cosmos:** 첫 프레임과 마지막 프레임을 나란히 보고, 큐브 방향·카메라 움직임·물체 형태를 확인하세요. `sample_outputs.json`이 `success`여도 지시한 동작이 나오지 않았다면 별도로 기록합니다.
 - **Alpamayo:** 빠진 가중치 없이 모델이 로드됐는지, 저장된 좌표가 유효한지, 차량 기준 좌표를 올바르게 읽었는지 확인합니다. 그럴듯한 설명과 경로만으로 안전한 주행을 입증할 수는 없습니다.
-- **접근 권한:** 11월 19일 촬영 머신에서 NuRec 장면 접근은 확인됐지만, 별도 PhysicalAI-AV 원본 데이터셋 요청은 HTTP 403으로 거절됐습니다. 공개된 합성 입력 실험에는 두 데이터셋 모두 필요하지 않습니다. 승인과 사용 조건은 각각 다르며, 해당 데이터에서 파생된 영상·지표는 로컬에 보관합니다.
+
 
 [소스·모델 버전](../../../labs/world-driving/model-pins.json) · [Cosmos](../cosmos.md) · [Alpamayo](../alpamayo.md) · [AlpaSim 폐루프 실습](../workflows/alpasim-closed-loop.md)

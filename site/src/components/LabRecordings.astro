@@ -1,0 +1,32 @@
+---
+import Icon from './Icon.astro';
+import ShowcaseVideo from './ShowcaseVideo.astro';
+import { pageUrl, repositoryFile } from '../lib/catalog.mjs';
+import { additionalRecordings } from '../lib/showcase.mjs';
+const {locale,id,clip,evidence}=Astro.props;
+const ko=locale==='ko';
+const extra=additionalRecordings.filter(r=>r.lab===id&&!r.labRoute);
+const primary=id==='nurec-rgb-reality'?extra.find(r=>r.id==='reality-joint-geometry')??clip:clip;
+const others=primary===clip?extra:[clip,...extra.filter(r=>r!==primary)];
+---
+<section class="lab-recordings" id="example-run" aria-labelledby="example-run-title">
+  <h2 id="example-run-title">{ko?'시연 영상':'Watch the demo'}</h2>
+  <div id={primary.id} class="primary-recording">
+    {primary!==clip&&<h3>{primary[locale].title}</h3>}
+    <div class="video-preview"><ShowcaseVideo locale={locale} clip={primary} title={primary[locale].title}/></div>
+  </div>
+  {others.length>0&&<details class="more-recordings">
+    <summary><span>{ko?'비교·확장 영상':'More demos and comparisons'} <small>{others.length}</small></span><Icon name="chevron" size={17}/></summary>
+    <div class="recording-grid">{others.map(r=><article id={r.id} class="recording-card">
+      <ShowcaseVideo locale={locale} clip={r} title={r[locale].title}/>
+      <h3>{r[locale].title}</h3>
+    </article>)}</div>
+  </details>}
+  <div class="recording-links">
+    <a href={pageUrl(locale,'showcase')}>{ko?'영상 전체 보기':'Browse all videos'}<Icon name="right" size={15}/></a>
+    <a href={repositoryFile(`labs/${id}/${evidence}`)}>{ko?'실행 기록':'Run details'}<Icon name="external" size={14}/></a>
+  </div>
+</section>
+<style>
+.lab-recordings{margin-block:2rem}.lab-recordings>h2{margin-bottom:1rem;font-size:1.5rem}.primary-recording h3{font-size:1rem;margin-bottom:.7rem}.video-preview{overflow:clip;border:1px solid var(--edge);border-radius:6px}.more-recordings{margin-top:1rem;border-block:1px solid var(--edge)}summary{display:flex;justify-content:space-between;align-items:center;gap:1rem;min-height:48px;padding-block:.5rem;cursor:pointer;list-style:none;font-weight:600}summary::-webkit-details-marker{display:none}summary:hover{color:var(--accent)}summary small{font-size:.75rem;margin-inline-start:.5rem;color:var(--muted);font-variant-numeric:tabular-nums}.more-recordings[open] summary :global(svg){rotate:180deg}.recording-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;padding-block:.75rem 1.25rem}.recording-card{min-width:0;border:1px solid var(--edge);border-radius:6px;overflow:clip}.recording-card h3{font-size:.9rem;line-height:1.5;padding:.75rem 1rem}.recording-links{display:flex;flex-wrap:wrap;gap:.25rem 1.2rem;margin-top:.5rem}.recording-links a{display:inline-flex;align-items:center;gap:.4rem;min-height:44px;font-size:.85rem;color:var(--muted)}@media(max-width:575px){.recording-grid{grid-template-columns:1fr}}
+</style>

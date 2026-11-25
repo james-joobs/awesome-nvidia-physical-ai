@@ -114,14 +114,14 @@ python3 labs/world-driving/check.py \
   --alpamayo labs/world-driving/evidence/alpamayo-synthetic
 ```
 
-Those paths use the bundled public outputs, so the command works without installing the model runtimes. Replace them with your own output folders after a GPU run. The recorded CLI prediction took 13.37 seconds including input processing, with 5.76 GiB peak PyTorch allocation; this is one synthetic sample on one RTX 5090, not a general performance benchmark.
+The command uses bundled results and needs no model installation. After a GPU run, replace the paths with your own output folders.
 
-The saved `evidence/prediction-scene/alpamayo-trajectory.usda` draws the 64 predicted positions on our road and animates a cosmetic vehicle proxy. Its transforms come from the saved model tensors. The Isaac Sim recording of this scene is **trajectory replay**, with no new driver decisions or vehicle dynamics. [Replay generator](../../../labs/world-driving/make_prediction_scene.py) · [Recorded checks](../../../labs/world-driving/recorded.json)
+Open `evidence/prediction-scene/alpamayo-trajectory.usda` to replay the 64 predicted poses in Isaac Sim. For control-and-observation feedback, continue to the [AlpaSim lab](../workflows/alpasim-closed-loop.md). [Replay generator](../../../labs/world-driving/make_prediction_scene.py).
 
 ### Compare the right things
 
 - **Cosmos:** compare the initial and last frames, cube direction, camera motion and object identity. Report a prompt-following failure even when `sample_outputs.json` says `success`.
 - **Alpamayo:** check that all weights loaded, the saved tensors are finite, and positions use the documented ego frame. A plausible explanation and a curved path do not establish safe driving.
-- **Access:** the November 19 audit confirmed NuRec scene access on the recording machine, while the separate PhysicalAI-AV source dataset returned HTTP 403. The public synthetic test does not need either dataset. Their access approvals and terms are independent; dataset-derived video and metrics remain local.
+
 
 [Source and version pins](../../../labs/world-driving/model-pins.json) · [Cosmos](../cosmos.md) · [Alpamayo](../alpamayo.md) · [AlpaSim closed loop](../workflows/alpasim-closed-loop.md)

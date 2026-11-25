@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Icon from './Icon.astro';
 import ShowcaseVideo from './ShowcaseVideo.astro';
 import ToolTags from './ToolTags.astro';
+import ShowcaseCard from './ShowcaseCard.astro';
 import { pageUrl, repositoryFile } from '../lib/catalog.mjs';
 import { findLab, heroTags, labCopy, scenes } from '../lib/labs.mjs';
 import { additionalRecordings, clips, featured, grids, sceneLabels, showcaseCopy, showcaseMedia } from '../lib/showcase.mjs';
@@ -12,7 +13,7 @@ const labels = showcaseCopy[locale];
 const labLabels = labCopy[locale];
 const labUrl = (id) => pageUrl(locale, `labs/${id}`);
 const sections = [
-  { id: 'recent-runs', title: locale === 'ko' ? '새로 실행한 실험' : 'New experiment runs', items: additionalRecordings },
+  { id: 'recent-runs', title: locale === 'ko' ? '새 데모와 비교 영상' : 'More demos and comparisons', items: additionalRecordings },
   { id: 'by-topic', title: labels.grids, items: grids },
   { id: 'single-clips', title: labels.clips, items: clips },
 ];
@@ -57,26 +58,13 @@ const sections = [
     <section class="shell showcase-section" id={id} aria-labelledby={`${id}-heading`} data-video-section>
       <h2 id={`${id}-heading`}>{title}</h2>
       <div class="hub-media-grid showcase-grid">
-        {items.map((item) => {
-          const entry = item[locale];
-          const lab = findLab(item.lab ?? item.id);
-          const guide = item.route ? pageUrl(locale, item.route) : repositoryFile(`docs/${locale}/${item.guide}.md`);
-          return (
-            <article class="hub-media-card showcase-card" id={item.id}>
-              <ShowcaseVideo locale={locale} clip={item} title={entry.title} />
-              <div class="showcase-caption">
-                <h3>{entry.title}</h3>
-                <p>{entry.description}</p>
-                <ToolTags tags={item.tags ?? lab.tags} label={labLabels.tools} />
-                <div class="card-links">
-                  <a class="plain-link lab-link" href={item.labRoute ? pageUrl(locale, item.labRoute) : labUrl(lab.id)}>{item.labRoute ? (locale === 'ko' ? '분야별 실습 고르기' : 'Choose a lab by field') : labLabels.action} <Icon name="right" size={16} /></a>
-                  <a class="plain-link" href={guide}>{labels.guide}</a>
-                </div>
-              </div>
-            </article>
-          );
-        })}
+        {items.slice(0,6).map(item=><ShowcaseCard locale={locale} item={item}/>)}
       </div>
+      {items.length>6&&<details class="showcase-more">
+        <summary><span>{locale==='ko'?`나머지 영상 ${items.length-6}개 보기`:`Show ${items.length-6} more videos`}</span><Icon name="chevron" size={17}/></summary>
+        <div class="hub-media-grid showcase-grid">{items.slice(6).map(item=><ShowcaseCard locale={locale} item={item}/>)}</div>
+      </details>}
+
     </section>
   ))}
   <div class="shell credits">
@@ -87,6 +75,8 @@ const sections = [
 </Base>
 
 <script>
+  import {enableLinkedDisclosures} from '../lib/disclosures.mjs';
+  enableLinkedDisclosures();
   const views = document.querySelectorAll<HTMLAnchorElement>('.showcase-views a');
   const updateView = () => {
     const target = document.getElementById(window.location.hash.slice(1));
@@ -101,6 +91,12 @@ const sections = [
 </script>
 
 <style>
+  .showcase-more{margin-top:1rem;border-block:1px solid var(--edge)}
+  .showcase-more>summary{display:flex;align-items:center;justify-content:space-between;min-height:48px;gap:1rem;padding-block:.7rem;cursor:pointer;list-style:none;font-weight:600}
+  .showcase-more>summary::-webkit-details-marker{display:none}
+  .showcase-more>summary:hover{color:var(--accent)}
+  .showcase-more[open]>summary :global(svg){rotate:180deg}
+  .showcase-more .showcase-grid{padding-block:.75rem 1.25rem}
   .showcase-header { padding-block: clamp(28px, 4vw, 55px) 26px; }
   .showcase-header h1 { font-size: clamp(1.875rem, 4vw, 2.5rem); line-height: 1.2; }
   .showcase-header p { margin-top: 12px; max-width: 46rem; color: var(--prose-text); line-height: 1.75; }

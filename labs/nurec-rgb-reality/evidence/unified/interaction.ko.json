@@ -1,0 +1,183 @@
+{
+  "schema": 1,
+  "mode": "actual browser pointer, keyboard and native inline recording",
+  "no_playback_speedup": true,
+  "clip_duration_seconds": 20.864,
+  "trace": [
+    {
+      "seconds": 1.608,
+      "label": "nurec",
+      "model": "nurec",
+      "frame": 8,
+      "preset": "chase",
+      "camera": [
+        -11.703943700239748,
+        -2.288179510447871,
+        3.067995465716555
+      ],
+      "target": [
+        -3.0853759469055992,
+        0.04426338942958877,
+        0.917995465716555
+      ],
+      "triangles": 335316,
+      "fps": 58.753355204294664
+    },
+    {
+      "seconds": 3.372,
+      "label": "aether",
+      "model": "aether",
+      "frame": 8,
+      "preset": "chase",
+      "camera": [
+        -11.703943700239748,
+        -2.288179510447871,
+        3.067995465716555
+      ],
+      "target": [
+        -3.0853759469055992,
+        0.04426338942958877,
+        0.917995465716555
+      ],
+      "triangles": 58110,
+      "fps": 59.997489644784736
+    },
+    {
+      "seconds": 5.084,
+      "label": "da3",
+      "model": "da3",
+      "frame": 8,
+      "preset": "chase",
+      "camera": [
+        -11.703943700239748,
+        -2.288179510447871,
+        3.067995465716555
+      ],
+      "target": [
+        -3.0853759469055992,
+        0.04426338942958877,
+        0.917995465716555
+      ],
+      "triangles": 67097,
+      "fps": 60.009541265256864
+    },
+    {
+      "seconds": 6.789,
+      "label": "surround",
+      "model": "surround",
+      "frame": 8,
+      "preset": "chase",
+      "camera": [
+        -11.703943700239748,
+        -2.288179510447871,
+        3.067995465716555
+      ],
+      "target": [
+        -3.0853759469055992,
+        0.04426338942958877,
+        0.917995465716555
+      ],
+      "triangles": 369314,
+      "fps": 59.96286818276362
+    },
+    {
+      "seconds": 8.521,
+      "label": "calibrated",
+      "model": "calibrated",
+      "frame": 8,
+      "preset": "chase",
+      "camera": [
+        -11.703943700239748,
+        -2.288179510447871,
+        3.067995465716555
+      ],
+      "target": [
+        -3.0853759469055992,
+        0.04426338942958877,
+        0.917995465716555
+      ],
+      "triangles": 335316,
+      "fps": 60.005021340697965
+    },
+    {
+      "seconds": 11.359,
+      "label": "actual-pointer-orbit",
+      "model": "calibrated",
+      "frame": 8,
+      "preset": "chase",
+      "camera": [
+        5.148437455157674,
+        1.5542039867261035,
+        4.695149983688104
+      ],
+      "target": [
+        -3.0853759469055992,
+        0.04426338942958877,
+        0.917995465716555
+      ],
+      "triangles": 335316,
+      "fps": 60.002008434710504
+    },
+    {
+      "seconds": 12.738,
+      "label": "rear-camera",
+      "model": "calibrated",
+      "frame": 8,
+      "preset": "input",
+      "camera": [
+        -9.198937748564996,
+        -0.2424036625676812,
+        0.9544512603929666
+      ],
+      "target": [
+        -17.179744205829767,
+        0.3108039060193445,
+        0.980693799816858
+      ],
+      "triangles": 335316,
+      "fps": 59.97189601453887
+    },
+    {
+      "seconds": 18.675,
+      "label": "time-playback",
+      "model": "calibrated",
+      "frame": 10,
+      "preset": "chase",
+      "camera": [
+        -8.55365029132026,
+        -2.3401611634531267,
+        3.032752125955199
+      ],
+      "target": [
+        0.050435725326247294,
+        0.04514884116907684,
+        0.8827521259558405
+      ],
+      "triangles": 334643,
+      "fps": 60.002008434710504
+    },
+    {
+      "seconds": 20.858,
+      "label": "pixel-depth-world-correspondence",
+      "model": "calibrated",
+      "frame": 8,
+      "preset": "chase",
+      "camera": [
+        -11.703943700243748,
+        -2.2881795104352154,
+        3.0679954657136443
+      ],
+      "target": [
+        -3.0853759469055992,
+        0.04426338942958877,
+        0.917995465716555
+      ],
+      "triangles": 335316,
+      "fps": 60.00050209697011
+    }
+  ],
+  "errors": [],
+  "client": "Chrome on M2 Max; desktop1440x1080, drawing pixel ratio1",
+  "inference_on_browser": false,
+  "camera_observations_hz_nominal": 3.3333333333333335
+}

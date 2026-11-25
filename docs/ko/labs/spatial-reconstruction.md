@@ -4,7 +4,7 @@
 
 ## 카메라 사진이 어떻게 탐색할 수 있는 공간이 될까요?
 
-아래 3D 화면은 CARLA의 분수 광장을 **fVDB Gaussian Splatting으로 실제 복원한 결과**입니다. 구에 파노라마를 붙이거나 동영상을 틀어 둔 것이 아닙니다. 내가 선택한 시점에서 3차원 Gaussian을 투영해 새 화면을 그립니다. 버튼을 눌러 회전·이동·확대를 해 보세요. 3D를 지원하지 않는 브라우저에서는 아래 영상을 볼 수 있습니다.
+CARLA 분수 광장을 **fVDB Gaussian Splatting**으로 복원했습니다. 3D 화면에서 회전·이동·확대를 해 보거나 저장된 시연 영상을 살펴보세요.
 
 ![입력과 출력의 흐름](../../../assets/lessons/spatial-worlds/reconstruction.ko.svg)
 
@@ -30,13 +30,13 @@
 
 중심 좌표 `[x,y,z]`, 세 축의 크기, 회전 쿼터니언, 불투명도, 색 계수를 저장합니다. 공간에 놓인 부드러운 타원체라고 생각하면 됩니다. fVDB가 이 타원체들을 화면에 투영하고 겹쳐 그린 뒤 학습 사진과 비교합니다. 오차가 줄어드는 방향으로 값을 조정하고, 필요한 곳에는 Gaussian을 늘리거나 지웁니다. 이번 전체 모델에는 **345,318개**가 들어 있습니다. [fVDB Reality Capture](https://github.com/openvdb/fvdb-reality-capture)
 
-브라우저용 SPZ에는 Gaussian 345,318개를 모두 유지하고 값을 양자화했습니다. 색 계수는 1차까지만 담아 용량을 6.15MB로 줄였습니다. 녹화 영상은 시선 방향에 따른 색을 표현하는 3차 spherical harmonics 계수까지 포함한 전체 모델로 렌더링했습니다. 따라서 브라우저 미리보기와 영상의 색·밀도에는 차이가 있을 수 있습니다. 이 표현은 장면의 겉모습을 담습니다. 충돌 면, 질량, 로봇 제어는 별도로 구성해야 합니다.
+브라우저에서는 전체 Gaussian 장면을 압축한 미리보기를 사용합니다. 로봇 시뮬레이션에 연결하려면 충돌체와 제어기를 별도로 구성합니다.
 
 ### 새로운 세계를 생성한 것과는 무엇이 다를까요?
 
 이 실습은 **주어진 장면을 복원**합니다. 프롬프트로 보이지 않던 골목을 만들어 내지는 않습니다. World Labs Marble과 NVIDIA Lyra는 생성형 3D 세계를, Infinigen은 규칙으로 조합한 실제 기하 구조를 다룹니다. [3D 세계 도구 비교](../spatial-worlds.md)에서 출력 형식과 실행 조건을 나누어 볼 수 있습니다.
 
-아래의 추가 영상 두 개는 CARLA 사진 한 장씩을 **Apple SHARP**에 넣은 결과입니다. EXIF 추측 대신 실제 90° 카메라의 내부 파라미터를 사용했습니다. 이미지마다 Gaussian 1,179,648개를 예측하고 fVDB로 주변 시점을 그렸습니다. 물체 뒷면까지 복원하거나 완전한 360° 세계를 만든 결과는 아닙니다. 모델 가중치는 비상업적 연구용이며 코드 라이선스와 다릅니다.
+사진 한 장으로 복원하는 비교 영상은 **Apple SHARP**를 사용합니다. 가까운 시점으로 움직여 보고 여러 사진으로 복원한 장면과 관측 범위를 비교하세요.
 
 ## 새로운 장면을 촬영하고 복원하기
 
@@ -61,7 +61,7 @@ python labs/spatial-reconstruction/reconstruct.py \
   --input runs/plaza-input --output runs/plaza-3dgs --ffmpeg ffmpeg
 ```
 
-카메라 자세를 고정한 채 RGB 63장으로 40에포크를 학습합니다. 전체 PLY와 가벼운 `.splat`을 저장하고, 새 카메라 경로의 영상과 검사 지표를 만듭니다. 촬영 환경에서는 cuDNN 라이브러리 버전 충돌이 있어 cuDNN을 끄고 PyTorch의 기본 CUDA 합성곱을 사용했습니다. fVDB 학습·렌더링은 계속 GPU에서 수행합니다. 코드와 실행 기록에도 이 우회 설정을 명시했습니다.
+RGB 63장으로 40에포크를 학습하고, 전체 PLY와 가벼운 `.splat`, 새 카메라 경로의 영상을 저장합니다.
 
 브라우저용 모델은 Gaussian을 버리지 않고 전체 PLY를 PlayCanvas CLI로 압축합니다.
 
@@ -89,6 +89,6 @@ python labs/spatial-reconstruction/reconstruct_single.py \
 python3 labs/spatial-reconstruction/check.py
 ```
 
-검사용으로 남긴 시점, 카메라 회전, 모델 값의 유효성, 미리보기 용량과 영상 해시를 확인합니다. [이번 실행 기록](../../../labs/spatial-reconstruction/recorded.json)의 검사 이미지 9장은 평균 **PSNR 23.434dB**입니다. 학습에 이 RGB들을 넣지 않았고 초기 점군에도 해당 깊이·색을 넣지 않았습니다. 작은 합성 장면에서 측정한 값이며, 여러 데이터셋을 비교한 성능 순위는 아닙니다. 물결, 먼 배경, 촬영 범위 바깥은 여전히 번지거나 비어 보일 수 있습니다.
+저장한 카메라·모델·영상의 유효성을 검사합니다. 원본과 복원 화면에서 물결·먼 건물·촬영 범위 바깥을 비교하세요. [실행 상세](../../../labs/spatial-reconstruction/recorded.json).
 
 저장소에는 코드·카메라 정보·지표·압축 영상·브라우저용 모델을 넣었습니다. [미디어 출처와 이용 조건](../../../site/public/showcase/SPATIAL-CREDITS.md) · [실내 장면 생성하기](scene-generation.md) · [fVDB 동작 원리](../fvdb-reality-capture.md).

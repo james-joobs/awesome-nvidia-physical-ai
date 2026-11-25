@@ -75,7 +75,7 @@ export async function mountHumanGaussianViewer(root,{manifestUrl=root.dataset.ma
     if(!camera)return;const config=manifest.camera??meta?.camera??{},target=config.target??[0,.85,0],position=config.position;const fit=fitFactor(camera.aspect);currentFit=fit;const distance=(config.distance??(position?Math.hypot(position[0]-target[0],position[2]-target[2]):2.8))*fit,heightOffset=(position?position[1]-target[1]:.08)*fit;
     camera.fov=config.fov??42;camera.updateProjectionMatrix();
     const directions={front:[0,heightOffset,distance],left:[-distance,heightOffset,0],right:[distance,heightOffset,0],back:[0,heightOffset,-distance]};camera.position.fromArray(target).add(new THREE.Vector3().fromArray(directions[name]??directions.front));controls.target.fromArray(target);controls.update();
-    text('view-label',name==='front'?copy.front:`${copy[name]} · ${manifest?.sample_kind==='soma-synthetic-control'?(ko?'리깅 제어 샘플':'rig control'):(ko?'생성 추정 포함':'inferred appearance')}`);
+    text('view-label',copy[name]??copy.front);
     root.querySelectorAll('[data-hg-view]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.hgView===name)));
   }
   function play(value){
@@ -159,7 +159,7 @@ export async function mountHumanGaussianViewer(root,{manifestUrl=root.dataset.ma
       const firstModel=state.segment<0;state.segment=index;state.ready=true;state.buffering=false;cover.hidden=true;stage.setAttribute('aria-busy','false');root.dataset.ready='true';
       text('source-title',(ko?manifest.source?.title_ko:undefined)??manifest.source?.title??(isRig?(ko?'SOMA 합성 RGB · 제어 샘플':'SOMA synthetic RGB · control'):copy.observed));
       text('source-badge',manifest.source?.youtube_id?'YOUTUBE':manifest.sample_kind==='soma-synthetic-control'?(ko?'합성 렌더':'SYNTHETIC RENDER'):copy.observedBadge);text('model-title',isRig?(manifest.sample_kind==='soma-synthetic-control'?(ko?'SOMA 리깅 Gaussian 제어 샘플':'SOMA rigged Gaussian control'):(ko?'SOMA 리깅 인체 Gaussians':'SOMA-skinned human Gaussians')):copy.reconstructed);text('model-badge',manifest.sample_kind==='soma-synthetic-control'?(ko?'알려진 리깅':'KNOWN RIG'):copy.inferredBadge);
-      text('notice',manifest.sample_kind==='soma-synthetic-control'?(ko?'이 공개 샘플은 SOMA의 공식 중립 체형과 예제 동작을 Gaussian으로 그린 리깅 제어 예제입니다. RGB 영상에서 외형을 학습한 결과나 위 YouTube 인물의 모델이 아닙니다.':'This public control renders SOMA’s official neutral body and example motion as rigged Gaussians. It is not an RGB-trained reconstruction or a model of the person in the YouTube reference.'):copy.notice);
+      text('notice',manifest.sample_kind==='soma-synthetic-control'?(ko?'SOMA의 공식 예제 동작을 Gaussian으로 표시한 합성 샘플입니다.':'A synthetic Gaussian sample driven by SOMA’s official example motion.'):copy.notice);
       text('info',`${count.toLocaleString()} Gaussians · ${index+1}/${manifest.segments.length} ${ko?'구간':'segment'} · ${isRig?'SOMA LBS':'conditional 4DGS'}`);
       status.textContent=manifest.source?.youtube_id?(ko?'3D를 재생하거나 시점을 움직여 보세요. 원본 YouTube의 재생 위치는 별도로 조절합니다.':'Play or orbit 3D. Control the original YouTube playback separately.'):(ko?'두 화면의 시간이 맞춰졌습니다. 재생하거나 3D 시점을 움직여 보세요.':'Both panels share one timeline. Play the motion or orbit the model.');
       alignSource();
@@ -176,15 +176,17 @@ export async function mountHumanGaussianViewer(root,{manifestUrl=root.dataset.ma
     q('seek').max=String(Math.max(0,Math.ceil(manifest.duration*manifest.fps)-1));
     if(manifest.source?.url){source.src=assets.url(manifest.source.url);source.hidden=false;if(q('youtube'))q('youtube').hidden=true;q('source-empty').hidden=true;text('help',copy.help);}
     const credit=q('credit');credit.replaceChildren();
-    for(const value of [manifest.source?.credit,manifest.source?.license].filter(Boolean)){const span=document.createElement('span');span.textContent=value;credit.append(span,document.createTextNode(' · '));}
-    const citation=safeLink(manifest.source?.attribution_url);if(citation){const a=document.createElement('a');a.href=citation;a.textContent=copy.sourceCredit;a.target='_blank';a.rel='noopener noreferrer';credit.append(a);}
-    if(manifest.provenance)text('provenance',ko&&manifest.provenance_ko?manifest.provenance_ko:typeof manifest.provenance==='string'?manifest.provenance:JSON.stringify(manifest.provenance));
+    const citation=safeLink(manifest.source?.attribution_url);
+    if(citation){const a=document.createElement('a');a.href=citation;a.textContent=manifest.source?.credit??copy.sourceCredit;a.target='_blank';a.rel='noopener noreferrer';credit.append(a);}
+    else if(manifest.source?.credit)credit.textContent=manifest.source.credit;
+    if(manifest.source?.license){const span=document.createElement('span');span.textContent=manifest.source.license;credit.append(document.createTextNode(' · '),span);}
+    // Detailed provenance remains available through the result manifest.
     const manifestLink=q('manifest');manifestLink.href=assets.url(assets.local?assets.manifestBase.split('/').at(-1):assets.manifestBase);manifestLink.hidden=false;
     renderer=new THREE.WebGLRenderer({antialias:false,preserveDrawingBuffer:true,powerPreference:'low-power'});renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.setClearColor(0xf3f4f5);renderer.domElement.tabIndex=0;renderer.domElement.setAttribute('aria-label',ko?'회전 가능한 인체 Gaussian 모델':'Orbitable human Gaussian model');stage.append(renderer.domElement);
     scene=new THREE.Scene();scene.background=new THREE.Color(0xf3f4f5);camera=new THREE.PerspectiveCamera(42,1,.01,50);controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.dampingFactor=.12;controls.minDistance=.5;controls.maxDistance=8;controls.maxPolarAngle=Math.PI*.6;controls.rotateSpeed=.5;controls.listenToKeyEvents(renderer.domElement);
     spark=new SparkRenderer({renderer,enableLod:false,accumExtSplats:true,covSplats:true,preUpdate:true,blurAmount:.15});scene.add(spark);
     resize=new ResizeObserver(()=>{if(!stage.clientWidth||!stage.clientHeight)return;renderer.setSize(stage.clientWidth,stage.clientHeight,false);camera.aspect=stage.clientWidth/stage.clientHeight;const fit=fitFactor(camera.aspect);const offset=camera.position.clone().sub(controls.target).multiplyScalar(fit/currentFit);camera.position.copy(controls.target).add(offset);currentFit=fit;camera.updateProjectionMatrix();});resize.observe(stage);view('front');
-    const freeView=()=>{text('view-label',manifest?.sample_kind==='soma-synthetic-control'?(ko?'자유 시점 · 리깅 제어 샘플':'Free view · known rig'):(ko?'자유 시점 · 생성 추정 포함':'Free view · inferred appearance'));root.querySelectorAll('[data-hg-view]').forEach(button=>button.setAttribute('aria-pressed','false'));};
+    const freeView=()=>{text('view-label',ko?'자유 시점':'Free view');root.querySelectorAll('[data-hg-view]').forEach(button=>button.setAttribute('aria-pressed','false'));};
     listen(controls,'start',()=>{state.orbit=false;q('orbit').setAttribute('aria-pressed','false');freeView();});
     listen(q('play'),'click',()=>play(!state.playing));listen(q('seek'),'input',event=>seek(Number(event.target.value)/manifest.fps));listen(q('orbit'),'click',()=>{state.orbit=!state.orbit;q('orbit').setAttribute('aria-pressed',String(state.orbit));freeView();});listen(q('fit'),'click',()=>view('front'));
     for(const button of root.querySelectorAll('[data-hg-view]'))listen(button,'click',()=>view(button.dataset.hgView));

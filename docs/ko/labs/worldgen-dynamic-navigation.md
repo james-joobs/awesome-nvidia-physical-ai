@@ -136,67 +136,20 @@ python3 labs/worldgen-dynamic-navigation/record_gui.py \
 
 ## 실제 정지·경로 변경·영상 기록을 검사합니다
 
-![차단벽 이동과 로봇 진행의 실제 기록](../../../assets/lessons/worldgen-dynamic-navigation/gate.ko.svg)
+![차단벽 이동과 로봇 진행](../../../assets/lessons/worldgen-dynamic-navigation/gate.ko.svg)
 
-새 제어는 4.0~7.5초 검사 구간에서 실제 정지 상태를 유지했습니다. 아래쪽에 통과할 공간이 생긴 8.6초에 새 경로를 계산했습니다. 이전 제어는 차단벽이 완전히 빠져나간 9.8초 뒤에도 경로를 찾지 못했습니다. 마지막 스캔만 같은 계획기의 빈 지도에 넣으면 경로가 나옵니다. 물리적인 벽보다 지도에 쌓인 관측이 문제였음을 확인하는 검사입니다.
+차단벽이 닫히면 제동하고 기다렸다가, 새 측정으로 지도가 갱신되면 다시 출발하는지 보세요. 이전 제어는 사라진 벽이 지도에 남는 모습을 비교할 수 있습니다.
 
-| 실행 | 도착 | 도착까지의 시뮬레이션 시간 | 장애물 접촉 보고 |
-|---|---|---|---|
-| 이전 누적 지도·차단벽 | 실패 | — (18초 실행) | 0 |
-| 새 지도·차단벽 | 성공 | 20.07 | 0 |
-| 새 지도·통로에 들어오는 상자 | 성공 | 25.32 | 0 |
-| 새 지도·센서 프레임 1초 중단 | 성공 | 20.65 | 0 |
+![움직이는 상자를 피해 바꾼 경로](../../../assets/lessons/worldgen-dynamic-navigation/cart.ko.svg)
 
-각각 한 번씩 기록한 실행이며 평균 성능이 아닙니다. 도착 시간에는 이후 약 2초의 정지 유지 시간을 포함하지 않았습니다. 실제 충돌체와 화면 표시 좌표의 차이도 검사했고, 기록에서는 0이었습니다.
-
-![첫 우회로가 막힌 뒤 실제로 이동한 경로](../../../assets/lessons/worldgen-dynamic-navigation/cart.ko.svg)
-
-점선은 처음 센서로 계산한 차축 경로, 실선은 실제 몸체 이동입니다. 위쪽으로 돌아가는 첫 계획은 상자가 움직이기 시작한 2초 뒤인 3.1초에 나왔습니다. 4.3초에는 제동했고, 이후 다른 쪽으로 돌아 도착했습니다.
-
-아래 기록에서는 지도 칸 하나를 지웠지만 아직 경로가 없어 기다립니다. 다음 기록에서는 경로 66개 지점을 찾아 전진 0.2811m/s와 회전 -1.1rad/s를 함께 명령합니다. 지도에서 칸을 지웠다고 바로 출발하지는 않습니다.
-
-```json
-[
-  {
-    "scan_time_s": 8.1,
-    "cleared_cells": 1,
-    "path_points": 0,
-    "phase": "wait-for-path",
-    "command_v_omega": [
-      0.0,
-      0.0
-    ]
-  },
-  {
-    "scan_time_s": 8.6,
-    "cleared_cells": 2,
-    "path_points": 66,
-    "phase": "follow-scan-path",
-    "command_v_omega": [
-      0.2811,
-      -1.1
-    ]
-  }
-]
-```
-
-[실제 관측 예시 파일](../../../labs/worldgen-dynamic-navigation/evidence/clearing-example.json) · [두 배치의 시작 USD 장면](https://james-joobs.github.io/awesome-nvidia-physical-ai/showcase/worldgen-dynamic-navigation-scenes.zip)
-
-
+상자가 첫 우회로에 들어오면 다른 길을 선택합니다. 센서 중단 예제에서는 측정이 돌아올 때까지 정지합니다. [관측 예시](../../../labs/worldgen-dynamic-navigation/evidence/clearing-example.json) · [시작 USD 장면](https://james-joobs.github.io/awesome-nvidia-physical-ai/showcase/worldgen-dynamic-navigation-scenes.zip).
 
 ```bash
 python3 labs/worldgen-dynamic-navigation/test_navigation.py
 python3 labs/worldgen-dynamic-navigation/check.py
-```
-
-GPU 없이 실제 장애물의 이동, 측정 시각, 로봇의 정지 유지, 지도에서 지운 관측, 경로 변경, 도착 위치, 접촉 기록과 영상 해시를 확인합니다. 직접 실행한 결과도 검사할 수 있습니다.
-
-```bash
 python3 labs/worldgen-dynamic-navigation/check.py --run runs/worldgen-dynamic/cart-dynamic
 ```
 
-비교 영상은 Isaac Sim GUI를 1배속으로 녹화했습니다. 이전 방식의 일부 구간과 새 방식의 실행을 구분해 표시했고, 개별 녹화도 아래에서 볼 수 있습니다.
+동봉한 예제부터 검사한 뒤 직접 실행한 결과를 확인하세요. 이 실습은 시험 바닥의 경계와 로봇 위치를 알고 수평 거리 센서를 사용합니다. [실행 상세](../../../labs/worldgen-dynamic-navigation/recorded.json) · [Nav2 장애물 지도 참고 자료](https://docs.nav2.org/rolling/configuration_and_development/configuration_guide/core_servers/costmap_2d/costmap_plugins/obstacle/) · [영상 출처](../../../site/public/showcase/SPATIAL-CREDITS.md).
 
-현재 로봇 위치와 5×4m 시험 바닥 경계는 알고 있다고 가정합니다. 이상적인 수평 거리 센서를 사용하며, 생성된 가구 전체의 충돌까지 검증하지는 않았습니다. 장애물 속도나 사람의 다음 움직임을 예측하는 제어기, SLAM, 실물 로봇의 안전 검증으로 볼 수는 없습니다. 더 확장할 때는 [Nav2의 장애물 표시·삭제 설정](https://docs.nav2.org/rolling/configuration_and_development/configuration_guide/core_servers/costmap_2d/costmap_plugins/obstacle/)도 참고할 수 있습니다. 이번 실행에 Nav2를 사용한 것은 아닙니다.
-
-[이전 센서 실습](worldgen-navigation.md) · [공간 크기·충돌체](worldgen-isaac.md) · [영상·입력 출처](../../../site/public/showcase/SPATIAL-CREDITS.md)
+[이전 센서 실습](worldgen-navigation.md) · [공간 크기·충돌체](worldgen-isaac.md)

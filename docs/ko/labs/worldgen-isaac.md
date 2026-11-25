@@ -135,11 +135,11 @@ python3 labs/worldgen-isaac/record_gui.py \
   --work "$PWD/runs/worldgen-recording" --scenario combined --ffmpeg /path/to/ffmpeg
 ```
 
-새로 녹화할 때는 새 출력 폴더를 사용하세요. 도우미는 시뮬레이터 준비를 기다린 뒤 실제 창을 녹화하고 제어 루프를 시작합니다. `native-gui.mp4`, 창 정보 `window.txt`, 로그와 물리 궤적을 함께 남깁니다. 공개한 뷰포트 영상은 이 실제 GUI 화면을 잘라 만든 것입니다. 렌더링 속도에 따라 물리 시간보다 실제 재생 시간이 길어질 수 있으므로 두 시간을 구분해서 확인하세요.
+녹화마다 새 폴더를 사용하세요. 뷰포트 준비가 끝나면 실제 창 영상과 로봇 궤적을 저장합니다.
 
-6.2 예제는 `SimulationManager.step()`과 `RenderingManager.render()`로 물리 스텝과 화면 그리기를 분리합니다. GPU GUI 구성에는 공식 문서의 프레임별 렌더링 호환 플래그 `--/rtx/hydra/supportMultiTickRate=false`를 적용했습니다. 여러 주기의 카메라·LiDAR 촬영을 검증한 구성은 아닙니다. 처음 셰이더·뷰포트를 준비할 때 1~2분이 걸릴 수 있습니다. 실제 뷰포트 프레임이 저장된 뒤에 녹화를 시작합니다. [NVIDIA multi-tick 설정](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/sensors/isaacsim_sensors_multitick_rendering.html)
+Isaac Sim 6.2 실행기는 물리 계산과 화면 그리기를 나누고 [공식 GUI 호환 설정](https://docs.isaacsim.omniverse.nvidia.com/6.2.0/sensors/isaacsim_sensors_multitick_rendering.html)을 적용합니다. 처음에는 뷰포트가 준비될 때까지 기다려 주세요.
 
-공간의 겉모습은 파노라마를 OmniPBR로 표시하고, 구워진 색이 잘 보이도록 발광 표시값을 조정했습니다. 실제 조명이나 반사율을 복원·보정한 재질은 아닙니다. 제어에 기록한 자세 형식은 `[position_xyz, quaternion_xyzw]`이며, 바퀴 속도 명령의 기준점은 몸체 좌표보다 0.10m 앞에 있는 차축 중앙입니다.
+파노라마는 방의 텍스처로 사용합니다. 제어 기록은 `[position_xyz, quaternion_xyzw]`이며 바퀴 명령은 차축 중앙을 기준으로 합니다.
 
 ## GPU 없이 결과를 검사합니다
 
@@ -153,7 +153,7 @@ python3 labs/worldgen-isaac/check.py
 python3 labs/worldgen-isaac/check.py --run runs/worldgen-isaac/detour
 ```
 
-장면을 가져왔다고 검증된 디지털 트윈이 완성되는 것은 아닙니다. 이 실습은 **생성한 시각 환경에, 동작을 확인한 국소 물리 구성을 더하는 과정**입니다. 크기는 가정했고, 표면은 추정값이며, 충돌체는 시험 구역에만 설정했습니다. 로봇은 단순한 상태 피드백으로 움직입니다. [WorldGen 생성 실습](worldgen-scenes.md) · [Isaac Sim 원리](../isaac-sim.md) · [영상·입력 출처](../../../site/public/showcase/SPATIAL-CREDITS.md).
+고정 경유점 대신 센서가 경로를 선택하도록 [다음 실습](worldgen-navigation.md)에서 확장해 보세요. [WorldGen 생성](worldgen-scenes.md) · [Isaac Sim 원리](../isaac-sim.md) · [영상 출처](../../../site/public/showcase/SPATIAL-CREDITS.md).
 
 
 [다음 실습: 센서로 장애물을 보고 우회하기](worldgen-navigation.md).

@@ -16,7 +16,7 @@ DA-2는 파노라마를 읽고 **거리 배열** `[800, 1600]`을 예측합니�
 
 ![실제로 생성한 실험실 파노라마와 상대 거리 추정값](../../../assets/lessons/worldgen/robot-lab-data.webp)
 
-거리 미리보기는 멀다고 추정한 곳일수록 밝게 표시합니다. 모델 출력을 시각화한 것이며 정답 데이터는 아닙니다. 파노라마가 그럴듯해 보여도 책상이 휘거나, 거리가 부정확하거나, 가려진 면이 일관되지 않을 수 있습니다.
+거리 미리보기에서 밝은 곳일수록 멀리 예측한 표면입니다. 내보내기 전에 물체의 모양과 경계를 살펴보세요.
 
 ### 2. 픽셀마다 Gaussian을 배치합니다
 
@@ -130,7 +130,7 @@ runs/fvdb-runtime/bin/python labs/worldgen-scenes/render.py \
   --output runs/worldgen/robot-lab/render --ffmpeg ffmpeg
 ```
 
-480프레임을 24 FPS로 저장한 **20초 MP4**와 카메라 행렬 `cameras.json`이 생깁니다. 카메라는 360° 회전하면서 X/Y/Z 방향으로 각각 총 0.4 / 0.09 / 0.3만큼 위치도 바뀝니다. 평면 파노라마를 잘라 움직인 것이 아니라 3D PLY를 새 시점에서 그린 영상입니다. 가려졌던 면을 정확히 알 수 없으므로 원래 시점 가까이에서 움직입니다. 아래 세 영상은 전체 Gaussian을 사용했습니다. 브라우저 미리보기는 다운로드를 줄이기 위해 네 개 중 하나인 32만 개를 남기고 픽셀을 덮는 크기를 넓혔습니다. 원하는 장면만 불러보세요.
+20초 MP4와 카메라 행렬 `cameras.json`을 저장합니다. 원래 시점 근처에서 카메라를 회전·이동하며, 실험실·거실·숲을 인터랙티브 미리보기로도 비교할 수 있습니다.
 
 ## 데이터 검사와 결과의 한계 확인하기
 
@@ -149,9 +149,9 @@ runs/worldgen-runtime/.venv/bin/python labs/worldgen-scenes/audit.py \
 
 실제 거리 배열과 PLY를 열어 양수·유한값인지, 회전이 정규화되어 있는지, `XYZ = 광선 × 거리`가 맞는지 확인하고 `geometry-audit.json`을 저장합니다. 이미지 경로에서는 관측한 파노라마 픽셀을 그대로 유지했는지도 확인합니다. 프롬프트나 패키지 버전을 바꾸면 결과가 달라질 수 있습니다. 파일 이름만 보고 판단하지 말고 데이터 검사도 함께 하세요.
 
-숲길 영상에는 실내보다 투명하게 비거나 구멍이 생긴 영역이 많이 보입니다. 얇은 잎, 깊이가 급변하는 경계, 카메라가 옮겨지면서 드러나는 면은 RGB·거리 한 겹만으로 표현하기 어렵습니다. 기록된 alpha coverage는 **렌더링 상태를 확인하는 값**이며 형상 정확도 점수가 아닙니다. 생성 공간의 정답 형상이나 검사 시점 PSNR은 없습니다. 검증된 충돌체·미터 단위 크기·관절·로봇 제어기는 포함되지 않습니다.
+숲에서는 얇은 잎과 가려졌던 면 주변에 빈틈이 더 많이 보입니다. 로봇 시뮬레이션으로 연결할 때 필요한 크기·충돌체 검사는 다음 실습에서 다룹니다.
 
-**라이선스:** [WorldGen 코드](https://github.com/ZiYang-xie/WorldGen/blob/7ce7b2767fdf31e2727b69a2e61e2e950e3a017f/LICENSE), [LoRA 카드](https://huggingface.co/LeoXie/WorldGen), [DA-2 가중치](https://huggingface.co/haodongli/DA-2)는 Apache-2.0을 명시합니다. FLUX 원본과 양자화 파생 가중치에는 별도 **FLUX.1-dev Non-Commercial** 모델 조건이 적용되며, 출력물 이용 범위도 따로 규정합니다. 저장소에는 직접 만든 예제 결과와 코드를 배포하고 모델 가중치는 넣지 않습니다. [영상·입력 출처](../../../site/public/showcase/SPATIAL-CREDITS.md) · [fVDB로 장면 복원하기](spatial-reconstruction.md) · [편집 가능한 집 생성하기](scene-generation.md).
+**출처:** [WorldGen](https://github.com/ZiYang-xie/WorldGen), [DA-2](https://huggingface.co/haodongli/DA-2), [FLUX 모델 사용 조건](https://huggingface.co/black-forest-labs/FLUX.1-dev). WorldGen·DA-2는 Apache-2.0이며 FLUX 가중치에는 별도 비상업적 사용 조건이 있습니다. [영상·입력 출처](../../../site/public/showcase/SPATIAL-CREDITS.md).
 
 
 **다음 실습: [이 실험실을 Isaac Sim으로 가져와 크기·충돌체를 확인하고 로봇을 움직여 보세요](worldgen-isaac.md).**

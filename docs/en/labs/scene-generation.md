@@ -25,7 +25,7 @@ A mesh consists of vertex coordinates and indexed faces. Materials tell the rend
 
 ### How to read the recording
 
-The clip renders 48 distinct viewpoints at `640 × 360`, with 16 Cycles samples per pixel and OpenImageDenoise. We play these at 8 FPS for a six-second tour, **one third of the original 24 FPS timeline speed**. The room is static; only the camera moves. Low-sample, denoised rendering is a preview, with softer details than a converged render. Original frames and the `.blend` remain on an RTX workstation.
+The video follows a camera through the generated rooms. The house is static, and the saved `.blend` lets you change furniture, materials and camera paths.
 
 ## Generate, save and render your own house
 
@@ -42,7 +42,7 @@ INFINIGEN_MINIMAL_INSTALL=True uv pip install -e .
 cd ../..
 ```
 
-On Linux, install system build dependencies listed by the project if needed. This is the Infinigen 2 preview API at a fixed commit; the older `infinigen_examples.generate_indoors` commands are a different pipeline. Our helper deliberately renders on the CPU and caps Cycles at 12 threads, avoiding Blender 4.2 GPU compatibility issues on Blackwell. Our fVDB and CARLA experiments use the RTX GPU separately.
+On Linux, install the project’s system build dependencies as needed. This helper uses the fixed Infinigen 2 API and CPU rendering with 12 Cycles threads.
 
 ### 2. Generate the house and save the scene
 
@@ -78,4 +78,4 @@ No GPU is needed to watch the recording or check the bundled hashes and camera-p
 python3 labs/scene-generation/check.py
 ```
 
-[recorded.json](../../../labs/scene-generation/recorded.json) records the actual source revision, Blender version, frame count, camera motion and edit settings. A generated mesh is not automatically a simulation-ready robot environment. Check scale, collision shapes, joints and materials before an export. [Official simulator export guide](https://github.com/princeton-vl/infinigen/blob/53033dd55c7191cbc436be6ffbb63c026935a509/docs/source/ExportingToSimulators.md) · [Media credits](../../../site/public/showcase/SPATIAL-CREDITS.md) · [Explore the 3DGS plaza](spatial-reconstruction.md).
+Inspect room connections, furniture placement and the camera path. For robot simulation, check scale and colliders using the [official export guide](https://github.com/princeton-vl/infinigen/blob/53033dd55c7191cbc436be6ffbb63c026935a509/docs/source/ExportingToSimulators.md). [Run details](../../../labs/scene-generation/recorded.json) · [Media credits](../../../site/public/showcase/SPATIAL-CREDITS.md) · [3DGS plaza](spatial-reconstruction.md).

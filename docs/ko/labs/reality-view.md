@@ -38,7 +38,7 @@ Gaussian 장면이 표현하는 것은 카메라에서 본 모습입니다. 차�
 
 공개된 `harmonizer_nontemporal.pt`에 `float[1,3,1,576,1024]` 형태의 RGB를 넣습니다. 픽셀 값은 `[-1,1]`로 정규화합니다. Cosmos 기반의 단일 스텝 모델이 같은 크기의 이미지를 출력하면 다시 RGB PNG로 저장합니다. 이번 코드에는 별도의 색 전이 처리를 더하지 않았습니다.
 
-이 체크포인트는 **프레임별 보정**입니다. 이전 프레임을 참고하지 않습니다. 이전 보정 결과를 함께 쓰는 temporal 모드는 별도 체크포인트와 Cosmos 기본 모델이 필요합니다. 이번 계정에서는 그 기본 모델이 403 응답이어서, temporal 결과는 포함하지 않았습니다. [Harmonizer 모델 카드](https://huggingface.co/nvidia/Harmonizer) · [공식 연결 방법](https://docs.nvidia.com/nurec/nurec/harmonizer.html)
+이 예제는 이미지를 한 장씩 독립적으로 처리하는 **프레임별 보정**을 사용합니다. [Harmonizer 모델 카드](https://huggingface.co/nvidia/Harmonizer) · [공식 연결 방법](https://docs.nvidia.com/nurec/nurec/harmonizer.html)
 
 **Built on NVIDIA Cosmos.** 화면이 매끈해져도 차선이나 물체의 경계가 달라질 수 있습니다. 원래 USD와 비교해서 바뀐 픽셀이 실제 정답에 가까워졌는지 확인합니다.
 
@@ -59,7 +59,7 @@ pred_rot:        float[1,1,1,64,3,3]
 
 영상 합성 코드는 차량의 원점을 USD의 `[0,-1.8,0]`에 놓고, 예측 위치를 표시용 카메라 좌표로 바꾼 뒤 `K`로 화면에 투영합니다. 카메라 밖에 있는 점도 볼 수 있도록 작은 BEV를 함께 표시합니다.
 
-영상에서는 **한 번 저장한 예측 경로를 순서대로 드러냅니다.** 조향 명령을 실행하거나 이동 후 다시 추론하는 단계는 포함하지 않았습니다. 모델의 추론 텍스트는 `<NOMINAL>`이었으며, 그 밖의 설명을 만들어 붙이지 않았습니다. [Alpamayo 2 Edge 공식 소스](https://github.com/NVlabs/alpamayo2-edge)
+영상은 **한 번 예측한 경로를 재생**합니다. 차량을 제어하고 다시 판단하는 폐루프 주행은 [AlpaSim 실습](../workflows/alpasim-closed-loop.md)에서 다룹니다. [Alpamayo 2 Edge 공식 소스](https://github.com/NVlabs/alpamayo2-edge)
 
 ## 실행하기
 
@@ -94,14 +94,14 @@ mkdir -p "$REALITY_VIEW_ROOT" "$ALPAMAYO_ROOT"
 nvidia-smi
 ```
 
-앞의 변수는 결과와 모델을 어디에 저장할지 정합니다. 서버 주소나 인증 정보를 넣는 자리가 아닙니다. GPU에 다른 작업이 없는지 확인한 뒤 진행하세요. `uv`를 설치하고 계정에 따라 필요한 Hugging Face 인증을 마쳤다면 다음을 실행합니다.
+앞의 변수는 결과·모델 저장 폴더를 정합니다. `uv`와 필요한 Hugging Face 인증을 준비한 뒤 실행하세요.
 
 ```bash
 bash labs/reality-view/setup_models.sh
 docker pull nvcr.io/nvidia/nre/nre-ga:26.04
 ```
 
-실행기는 [run.sh](../../../labs/reality-view/run.sh)에 확인한 컨테이너 digest를 고정했습니다. NuRec 런타임의 약관, Harmonizer의 **NVIDIA Open Model License**, Alpamayo 가중치의 **OpenMDW-1.1**은 이 저장소의 MIT 코드 라이선스와 각각 구분됩니다. 사전 학습 가중치는 저장소에 포함하지 않았습니다. [고정 버전과 공식 라이선스](../../../labs/reality-view/model-pins.json)
+소스와 모델 버전은 [run.sh](../../../labs/reality-view/run.sh)에 고정했습니다. [모델 버전과 사용 조건](../../../labs/reality-view/model-pins.json)
 
 ### 3. 도로를 촬영하고 NCore로 변환하기
 
@@ -115,7 +115,7 @@ bash labs/reality-view/run.sh prepare
 
 `CAPTURE complete: 120 training, 40 held-out, 22 policy frames`가 출력되는지 확인하세요. 변환 후에는 `prepared.json`과 `ncore/own-road.json`이 생깁니다. 다시 시도할 때는 새 결과 폴더를 사용하세요. NCore 작성기는 기존 데이터 그룹에 같은 항목을 덧쓰지 않습니다.
 
-카메라 ID `camera_front_wide_120fov`는 기존 연동에서 쓰는 식별자입니다. **실제 카메라의 수평 화각은 90°인 pinhole 모델**이며, 파일에 저장한 내부 파라미터를 기준으로 동작합니다.
+카메라는 수평 화각 90°의 pinhole 모델을 사용합니다.
 
 ### 4. NuRec 학습 → 새 시점 렌더링 → Harmonizer 실행
 
@@ -125,9 +125,9 @@ bash labs/reality-view/run.sh render
 bash labs/reality-view/run.sh enhance
 ```
 
-학습이 끝나면 `train/<run-id>/artifacts/last.usdz`가 생깁니다. `render`는 검사용 USD와 똑같은 카메라 자세를 `novel-rig.json`으로 만들고, `--renderer gsplat`을 명시해 렌더링합니다. 이번 아티팩트에서는 26.04의 기본 렌더러가 멈추는 문제가 있어 이 경로를 사용했습니다.
+학습 후 `train/<run-id>/artifacts/last.usdz`가 생깁니다. `render`는 `novel-rig.json`에 지정한 카메라로 장면을 그립니다.
 
-성공하면 `novel/`에 **PNG 40장**, `enhanced/`에 **보정 PNG 40장**, 그리고 `harmonizer-result.json`이 생깁니다. TorchScript 추론에는 이 NuRec 이미지의 Transformer Engine 연산이 필요합니다. 체크포인트 내부의 CPU·GPU 상수 배치를 유지해야 하며, 초기 시험에서 모든 상수를 CUDA로 옮겼을 때는 장치 불일치가 발생했습니다.
+`novel/`에 **PNG 40장**, `enhanced/`에 **보정 PNG 40장**, 그리고 `harmonizer-result.json`이 생기는지 확인하세요.
 
 ### 5. 주행 모델을 실행하고 영상 만들기
 
@@ -146,21 +146,12 @@ python labs/reality-view/package.py \
   --font /absolute/path/to/NotoSansKR.ttf
 ```
 
-영문·한국어 **20초 비교 영상**, NuRec·Harmonizer·경로 표시 단독 영상, 비교 이미지와 측정 JSON을 만듭니다. 영상은 보기 편하게 재생 속도를 편집한 결과입니다. 모델이 실제로 그 속도로 추론한다는 뜻은 아닙니다.
+영문·한국어 비교 영상, NuRec·Harmonizer·경로 표시 영상과 샘플 이미지를 만듭니다.
 
-## 결과 확인하기
+## 결과 확인
 
-| 확인 항목 | 이번 실행의 측정값 | 읽는 방법 |
-|---|---|---|
-| NuRec 학습 | 2,400스텝, 67.42초 | 설치·데이터 준비를 제외한 학습 구간 시간 |
-| 새 시점 NuRec / Harmonizer PSNR | **29.21 / 27.09 dB**, 같은 시점 40장 | 이 단순한 합성 장면에서는 보정 후 원본과의 픽셀 일치도가 낮아짐 |
-| 프레임별 Harmonizer | 첫 프레임 제외 중앙값 **0.1285초/장**, 첫 프레임 12.55초 | GPU 동기화를 포함한 추론 시간. 이미지 입출력·모델 로딩 제외 |
-| Alpamayo | 로딩·입력 처리 포함 **23.43초**, `run_data` 기록 **19.24초** | 한 번의 예측에 걸린 시간. 실시간 성능으로 해석할 수 없음 |
-| Alpamayo PyTorch 최대 할당량 | **5.76GiB** | 드라이버 등을 포함한 전체 GPU 사용량과는 다름 |
-| 미래 자세 | XYZ·회전 64쌍 모두 유한값 | 입출력 검사이며 주행 안전성·충돌 회피 평가가 아님 |
+원래 USD, NuRec 복원, Harmonizer 보정에서 차선과 물체 경계를 비교하세요. 이 예제의 검사 시점 PSNR은 **NuRec 29.21dB, 보정 후 27.09dB**였습니다. 화면이 매끄러워지는 것과 원본을 더 가깝게 재현하는 것은 다를 수 있습니다.
 
-차선 가장자리, 차량 경계, 새로 드러난 지면을 살펴보세요. 전체 화면 PSNR에는 단순한 하늘·땅 영역도 크게 반영됩니다. 객체 인식이나 주행 정책의 점수로 대신 쓸 수 없습니다. 이번 결과를 소개할 때는 Harmonizer 적용 후 PSNR이 낮아졌다는 점도 함께 남깁니다.
+예측 경로에는 미래 자세 64개가 들어 있습니다. 방향과 차량 기준 좌표를 살펴보고 [결과 검사 코드](../../../labs/reality-view/check.py)로 파일을 확인하세요. [실행 상세](../../../labs/reality-view/recorded.json).
 
-전체 촬영 데이터와 원래 USD, 학습한 NuRec 아티팩트는 로컬 결과 폴더에 보관합니다. 저장소에는 가벼운 영상, 손실 없는 샘플 이미지 9장, 미래 자세 64개 JSON, [실행 기록](../../../labs/reality-view/recorded.json)을 넣었습니다. NVIDIA 주행 데이터셋과 사전 학습 체크포인트는 포함하지 않았습니다.
-
-이어서 보기: [NuRec 동작 원리](../nurec.md) · [Alpamayo 동작 원리](../alpamayo.md) · [AlpaSim 폐루프 평가](../workflows/alpasim-closed-loop.md). 폐루프로 확장하려면 제어를 적용한 다음 위치에서 센서 영상을 다시 만들고 재추론해야 하며, 충돌·도로 이탈도 따로 평가해야 합니다.
+[NuRec 원리](../nurec.md) · [Alpamayo 원리](../alpamayo.md) · [AlpaSim 폐루프 실습](../workflows/alpasim-closed-loop.md)
