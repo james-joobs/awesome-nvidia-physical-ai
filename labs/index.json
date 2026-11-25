@@ -125,6 +125,8 @@
         "road/highres/reconstruct.py",
         "road/highres/train.py",
         "road/highres/package.py",
+        "road/highres/clear_lane.py",
+        "road/highres/surround.py",
         "road/highres/check.py",
         "road/highres/viewer.js"
       ],

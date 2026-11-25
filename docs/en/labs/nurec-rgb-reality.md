@@ -132,7 +132,7 @@ On the same 1,887 validation projections, a second LoMa and BA pass lowered the 
 
 ### 8. Render novel views in Frankfurt
 
-Explore a real Frankfurt street reconstructed from six KITScenes cameras. Shift the camera sideways or raise it over the same road and compare with the PandaSet exercise below. [Reproduction, dataset shortlist and terms](../../../labs/nurec-rgb-reality/road/highres/README.en.md).
+Choose a Frankfurt route and play it in the Volvo chase view. At an intersection, pause and switch to **3D cameras** or **Camera RGB** to compare the side and rear views at the same time. In **Free orbit**, drag the scene or adjust lateral position and height. [Reproduction, dataset shortlist and terms](../../../labs/nurec-rgb-reality/road/highres/README.en.md).
 
 ## Run the lab
 

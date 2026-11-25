@@ -39,7 +39,7 @@ const startLabel = learningCopy[locale].firstExercise;
 const exampleLabel = locale === 'ko' ? '시연 영상' : 'Watch the demo';
 const hasViewer = ['nurec-rgb-reality', 'rgb-reality-view', 'spatial-reconstruction', 'worldgen-scenes', 'human-4d-gaussian'].includes(id);
 const demoAnchor = id === 'nurec-rgb-reality' ? 'frankfurt-3d' : 'explore';
-const heroClip = id === 'nurec-rgb-reality' ? additionalRecordings.find(r => r.id === 'reality-kitscenes') ?? clip : clip;
+const heroClip = id === 'nurec-rgb-reality' ? additionalRecordings.find(r => r.id === 'reality-kitscenes-surround') ?? clip : clip;
 const topic = topicForPage(`labs/${id}`);
 const topicLabels = topicsCopy[locale];
 const ko = locale === 'ko';

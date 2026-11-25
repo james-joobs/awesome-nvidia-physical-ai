@@ -24,27 +24,43 @@ def main():
     parser.add_argument("--sfm",type=Path,required=True)
     parser.add_argument("--fit",type=Path,required=True)
     parser.add_argument("--output",type=Path,required=True)
+    parser.add_argument("--cleaned-lane", type=Path)
     args=parser.parse_args()
     out=args.output
     out.mkdir(parents=True,exist_ok=True)
     fit=json.loads((args.fit/"fit.json").read_text())
+    scene_source = args.fit
+    if args.cleaned_lane:
+        scene_source = args.cleaned_lane
+        cleanup = json.loads((scene_source/"lane.json").read_text())
+        if cleanup["before_lane_cleanup_gaussians"] != fit["gaussians"]:
+            raise ValueError("Lane cleanup was run on a different Gaussian fit")
+        fit.update(cleanup)
     records=json.loads((args.sfm/"cameras.json").read_text())["records"]
     geometry=np.load(args.fit/"geometry.npz")
     poses,k,indices=[geometry[key] for key in ("poses","intrinsics","indices")]
-    xx=np.array([x["pose"][0][3] for x in fit["front_path"]])
-    bounds=[float(xx.min()-5),-9,float(xx.max()+15),9]
-    width=1920
-    height=round(width*(bounds[3]-bounds[1])/(bounds[2]-bounds[0]))
+    centers = np.array([np.array(row["pose"])[:2, 3] for row in fit["front_path"]])
+    lo = centers.min(axis=0)-[7, 12]
+    hi = centers.max(axis=0)+[16, 12]
+    bounds = [*lo, *hi]
+    extent = hi-lo
+    width = int(np.clip(np.ceil(extent[0]*49), 1920, 6144))
+    height = int(np.clip(np.ceil(extent[1]*width/extent[0]), 128, 2100))
     x,y=np.meshgrid(np.linspace(bounds[0],bounds[2],width,endpoint=False),
                     np.linspace(bounds[3],bounds[1],height,endpoint=False))
     world=np.dstack([x,y,np.zeros(x.shape)])
     weighted=np.zeros((*x.shape,3),np.float32)
     weight=np.zeros(x.shape,np.float32)
-    votes=np.zeros(x.shape,np.uint8)
+    votes=np.zeros(x.shape,np.uint16)
     for i in indices:
         pose=poses[i]
-        relative=world-pose[:3,3]
-        camera=relative@pose[:3,:3]
+        # Only source-visible tiles within the atlas depth cap can contribute.
+        col = np.flatnonzero(np.abs(x[0]-pose[0,3]) < 45)
+        row_ids = np.flatnonzero(np.abs(y[:,0]-pose[1,3]) < 45)
+        if not len(col) or not len(row_ids):
+            continue
+        tile = np.s_[row_ids[0]:row_ids[-1]+1, col[0]:col[-1]+1]
+        camera=(world[tile]-pose[:3,3])@pose[:3,:3]
         z=camera[...,2]
         focal=np.array([k[i,0,0],k[i,1,1]])
         uv=camera[...,:2]*focal/np.maximum(z[...,None],.1)+k[i,:2,2]
@@ -64,9 +80,9 @@ def main():
             edge=cv2.distanceTransform(mask,cv2.DIST_L2,5)
             interior=cv2.remap(edge,u,v,cv2.INTER_LINEAR)
             contribution=(np.clip(quality,0,65)**.85*np.clip(interior/45,0,1)).astype(np.float32)
-            weighted += colors*contribution[...,None]
-            weight += contribution
-        votes+=valid
+            weighted[tile] += colors*contribution[...,None]
+            weight[tile] += contribution
+        votes[tile] += valid
     mask=votes>=2
     if mask.mean()<.1:
         raise ValueError(f"Insufficient multiple-view road coverage: {mask.mean():.1%}")
@@ -77,8 +93,8 @@ def main():
     pixels=np.rint(255*(pixels/255)**.86).astype(np.uint8)
     alpha=(np.clip(cv2.distanceTransform(mask.astype(np.uint8),cv2.DIST_L2,5)/5,0,1)*255).astype(np.uint8)
     Image.fromarray(np.dstack([pixels,alpha])).save(out/"ground.webp",quality=92)
-    for name in ("scene.spz","sky.webp"):
-        shutil.copyfile(args.fit/name,out/name)
+    shutil.copyfile(scene_source/"scene.spz", out/"scene.spz")
+    shutil.copyfile(args.fit/"sky.webp", out/"sky.webp")
     fit["sky"].update(asset(out,"sky.webp"))
     fit.update(road_coverage=float(mask.mean()),road_size=[width,height],
                atlas_asset=asset(out,"ground.webp"))

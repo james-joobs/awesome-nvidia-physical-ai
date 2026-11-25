@@ -6,7 +6,7 @@ import { additionalRecordings } from '../lib/showcase.mjs';
 const {locale,id,clip,evidence}=Astro.props;
 const ko=locale==='ko';
 const extra=additionalRecordings.filter(r=>r.lab===id&&!r.labRoute);
-const primary=id==='nurec-rgb-reality'?extra.find(r=>r.id==='reality-kitscenes')??clip:clip;
+const primary=id==='nurec-rgb-reality'?extra.find(r=>r.id==='reality-kitscenes-surround')??clip:clip;
 const others=primary===clip?extra:[clip,...extra.filter(r=>r!==primary)];
 ---
 <section class="lab-recordings" id="example-run" aria-labelledby="example-run-title">
@@ -14,7 +14,7 @@ const others=primary===clip?extra:[clip,...extra.filter(r=>r!==primary)];
   <div id={primary.id} class="primary-recording">
     {primary!==clip&&<h3>{primary[locale].title}</h3>}
     <div class="video-preview"><ShowcaseVideo locale={locale} clip={primary} title={primary[locale].title}/></div>
-    {primary.id==='reality-kitscenes'&&<p class="recording-credit"><a href="https://www.kitscenes.com/multimodal/">KITScenes Multimodal</a> · <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></p>}
+    {primary.id==='reality-kitscenes-surround'&&<p class="recording-credit"><a href="https://kitscenes.org/multimodal/">KITScenes Multimodal</a> · <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></p>}
   </div>
   {others.length>0&&<details class="more-recordings">
     <summary><span>{ko?'비교·확장 영상':'More demos and comparisons'} <small>{others.length}</small></span><Icon name="chevron" size={17}/></summary>

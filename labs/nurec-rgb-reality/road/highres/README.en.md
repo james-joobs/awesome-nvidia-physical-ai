@@ -2,19 +2,28 @@
 
 [한국어](README.ko.md) · [PandaSet road reprojection](../README.md)
 
-This reconstruction uses a 7.2-second KITScenes Multimodal clip from the [public Voxel51 release](https://huggingface.co/datasets/Voxel51/kitscenes-multimodal). Start 3D and change the recording position, lateral offset and height. These controls display novel views of a static reconstruction. People and moving vehicles are masked during fitting. Some distant buildings and occlusion edges are incomplete.
+Choose a route from the [public Voxel51 sample of KITScenes Multimodal](https://huggingface.co/datasets/Voxel51/kitscenes-multimodal) and start the viewer. Play the Volvo chase view, then pause and select **3D cameras** or **Camera RGB**. All six camera buttons share the same timeline. Drag in **Free orbit** to inspect lane markings and nearby facades.
 
-| Data candidate | Camera capture and access |
-| --- | --- |
-| [KITScenes Multimodal](https://www.kitscenes.com/multimodal/) | 3504 × 2272 on the six ring streams in the tested clip. All nine cameras contribute 72.5 MP per time in the full rig. The official download is gated. The Voxel51 release provides a public sample under CC BY-NC 4.0 and the KITScenes terms. |
-| [Zenseact Open Dataset](https://zod.zenseact.com/) | 8 MP wide-angle front camera and a CC BY-SA 4.0 license. An access request is required for the sequence downloads. Useful for a future front-view comparison. |
-| [Argoverse 2 Sensor](https://www.argoverse.org/av2.html) | Seven surround cameras and a front stereo pair. Camera images are 2048 × 1550 or portrait. Public access through the [AWS bucket](https://registry.opendata.aws/argoverse/), CC BY-NC-SA 4.0. |
+| Route | Time | What you can see |
+| --- | ---: | --- |
+| Tram and intersections | 19.5 s | Tram, cyclists, pedestrians and crossing traffic |
+| Tree-lined avenue | 27.0 s | Oncoming and parked vehicles along a residential street |
+| Downtown bridge | 7.2 s | The original scene with the added chase and surround views |
 
-The Frankfurt clip's native images are 3504 × 2272. The Gaussian fit uses images resized to at most 1152 px wide. The road texture samples the native RGB into a 1920 × 852 atlas. Distance-weighted blending and feathered semantic boundaries reduce visible seams between camera images. Input data consists of RGB and the released camera intrinsics. LoMa and COLMAP recover the poses and sparse 3D points. The reconstruction uses six cameras at 25 times, with all 150 images registered and an in-fit mean reprojection error of **1.00 px** at up to 1440 px wide.
+LoMa matches static RGB features. COLMAP bundle adjustment fits the six cameras. Mask2Former separates road, sky and traffic. The road uses RGB reprojected onto a ground surface, the sky uses a directional RGB texture, and gsplat reconstructs the remaining static scene. All 936 camera views registered across the three routes. Camera files in the source are 3504 × 2272. The browser serves smaller copies when you choose **Camera RGB**.
 
-On one RTX 5090, the selected fit trained **292,762 Gaussians** in **29.2 s** for 7,600 steps, excluding setup, camera recovery and texture baking. The renderer penalizes Gaussian opacity on confirmed sky pixels. The browser draws a separate RGB sky panorama and keeps the ground texture fixed. On eight photos withheld from the appearance fit and texture baking, the static-pixel PSNR averaged **24.49 dB**. The photos were available for camera recovery. An earlier 3,800-step fit scored 25.08 dB on those pixels. The selected fit has cleaner sky and facade detail in the filmed novel views. These measurements characterize one clip.
+The Volvo is a reference model. Surrounding vehicles, bikes and people use simple 3D models whose estimated positions come from semantic masks and camera rays intersecting the ground. Toggle **Show traffic** to inspect the background, or use **Show recorded path** to trace the camera route. The camera RGB shows the observed appearance. Unseen areas and distant surfaces may remain soft in 3D.
+
+Other useful sources are the [full KITScenes release](https://kitscenes.org/multimodal/), [Zenseact Open Dataset](https://zod.zenseact.com/) and [Argoverse 2 Sensor](https://www.argoverse.org/av2.html).
 
 ## Reproduce
+
+The commands below recreate the bridge. For the longer routes, add the fetch options and use the training arguments in the table.
+
+| Route | `--scene` | `--first` | `--last` | `--stride` | Training arguments |
+| --- | --- | ---: | ---: | ---: | --- |
+| Tram and intersections | `03ed2585-0729-92ad-98af-fdd9ac1c3a80` | 2 | 197 | 5 | `--steps 10500` |
+| Tree-lined avenue | `04a39028-c434-6cff-b3f4-9f8dbb9aa078` | 2 | 272 | 3 | `--steps 16500 --max-width 1440 --grow-grad2d .00018` |
 
 Install the [LoMa and Mask2Former environment](../README.md#reproduce) with CUDA PyTorch and Python 3.12, then add the COLMAP and gsplat wheels. CUDA builds the gsplat extension on the first run. The verified setup used PyTorch 2.9.1, pycolmap 4.2.1 and gsplat 1.5.3.
 
@@ -32,7 +41,19 @@ npm exec --yes --package=@playcanvas/splat-transform@3.12.0 -- splat-transform \
   "$HQ_WORK/fit/scene.ply" "$HQ_WORK/fit/scene.spz" --spz-version 3
 python "$HQ_CODE/package.py" --input "$HQ_WORK/data" --sfm "$HQ_WORK/sfm" \
   --fit "$HQ_WORK/fit" --output "$HQ_WORK/browser/road"
+python "$HQ_CODE/surround.py" --input "$HQ_WORK/data" --sfm "$HQ_WORK/sfm" \
+  --fit "$HQ_WORK/fit" --output "$HQ_WORK/browser/road"
 python "$HQ_CODE/check.py"
+```
+
+For the avenue, clear floating Gaussians above the traced ego lane before exporting the final scene. The Gaussian fit's held-out metric is measured before this browser export step.
+
+```bash
+python "$HQ_CODE/clear_lane.py" --fit "$HQ_WORK/fit" --output "$HQ_WORK/lane"
+npm exec --yes --package=@playcanvas/splat-transform@3.12.0 -- splat-transform \
+  "$HQ_WORK/lane/scene.ply" "$HQ_WORK/lane/scene.spz" --spz-version 3
+python "$HQ_CODE/package.py" --input "$HQ_WORK/data" --sfm "$HQ_WORK/sfm" \
+  --fit "$HQ_WORK/fit" --cleaned-lane "$HQ_WORK/lane" --output "$HQ_WORK/browser/road"
 ```
 
 [Source, license and changes](../../../../site/public/showcase/reality-kitscenes/ATTRIBUTION.txt) · [KITScenes paper](https://arxiv.org/abs/2606.02956).

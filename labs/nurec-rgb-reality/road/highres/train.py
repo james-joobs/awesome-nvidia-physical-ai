@@ -92,6 +92,8 @@ def main():
     parser.add_argument("--sfm",type=Path,required=True)
     parser.add_argument("--output",type=Path,required=True)
     parser.add_argument("--steps",type=int,default=7600)
+    parser.add_argument("--max-width", type=int, default=1152)
+    parser.add_argument("--grow-grad2d", type=float, default=.00026)
     args=parser.parse_args()
     args.output.mkdir(parents=True)
     src=json.loads((args.input/"input.json").read_text())
@@ -101,7 +103,8 @@ def main():
         raise ValueError("Too few registered views for the scene")
     labels=[cv2.imread(str(args.sfm/"labels"/r["file"].replace(".jpg",".png")),0) for r in rows]
     xyz, seed_color, poses, road_inliers=ground_alignment(pycolmap.Reconstruction(args.sfm),rows,labels)
-    keep=(np.linalg.norm(xyz,axis=1)<220)&(xyz[:,2]>-5)
+    front_centers = poses[[r["camera"] == 1 for r in rows], :3, 3]
+    keep = (cKDTree(front_centers).query(xyz)[0] < 160) & (xyz[:, 2] > -6)
     xyz,seed_color=xyz[keep],seed_color[keep]
     nearest=cKDTree(xyz).query(xyz,k=4)[0][:,1:].mean(axis=1)
     scale=np.clip(nearest*.78,.035,1.7)
@@ -122,16 +125,19 @@ def main():
     opts={key:torch.optim.Adam([p],lr=lr[key],eps=1e-12) for key,p in params.items()}
     schedule=torch.optim.lr_scheduler.ExponentialLR(opts["means"], gamma=.13**(1/args.steps))
     strategy=DefaultStrategy(refine_start_iter=160,refine_stop_iter=round(args.steps*.82),
-                             refine_every=90,reset_every=20000,grow_grad2d=.00026,
+                             refine_every=90,reset_every=20000,grow_grad2d=args.grow_grad2d,
                              prune_opa=.012,verbose=True)
     strategy.check_sanity(params,opts)
     state=strategy.initialize_state(scene_scale=28.0)
 
     data=[]
     withheld = []
+    withheld_frames = {
+        src["frames"][round(f * (len(src["frames"])-1))] for f in (.25, .50, .75, .92)
+    }
     for i,r in enumerate(rows):
         image=Image.open(args.input/"images"/r["file"]).convert("RGB")
-        image.thumbnail((1152,750),Image.Resampling.LANCZOS)
+        image.thumbnail((args.max_width, args.max_width), Image.Resampling.LANCZOS)
         width,height=image.size
         rgb=np.array(image)
         # A uniform tone curve brightens the underexposed clip without frame-wise pumping.
@@ -143,7 +149,7 @@ def main():
         k=np.diag([width/r["size"][0],height/r["size"][1],1])@r["K"]
         sky = cv2.erode((label==10).astype(np.uint8), np.ones((13,13),np.uint8)).astype(bool)
         pack=(i,width,height,toned,valid,k,sky)
-        if r["frame"] in (41,59,77,89) and r["camera"] in (1,2):
+        if r["frame"] in withheld_frames and r["camera"] in (1,2):
             withheld.append(pack)
         else:
             data.append(pack)
