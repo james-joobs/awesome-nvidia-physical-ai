@@ -6,7 +6,7 @@ import { additionalRecordings } from '../lib/showcase.mjs';
 const {locale,id,clip,evidence}=Astro.props;
 const ko=locale==='ko';
 const extra=additionalRecordings.filter(r=>r.lab===id&&!r.labRoute);
-const primary=id==='nurec-rgb-reality'?extra.find(r=>r.id==='reality-joint-geometry')??clip:clip;
+const primary=id==='nurec-rgb-reality'?extra.find(r=>r.id==='reality-dense-latent')??clip:clip;
 const others=primary===clip?extra:[clip,...extra.filter(r=>r!==primary)];
 ---
 <section class="lab-recordings" id="example-run" aria-labelledby="example-run-title">

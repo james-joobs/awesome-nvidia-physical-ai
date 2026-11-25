@@ -4,7 +4,7 @@
 
 Reconstruct a road from camera RGB, explore it in 3D, and connect appearance enhancement, road-user detection and predicted driving paths.
 
-[Explore NuRec](#explore) · [Compare DA3 and Aether](#joint-geometry) · [Run the lab](#run-the-lab)
+[Previous 3DGS and perception](#explore) · [Compare Reality View](#joint-geometry) · [Run the lab](#run-the-lab)
 
 ## How it works
 
@@ -105,22 +105,34 @@ Camera-to-world:  float[102,4,4]
 
 A real front-camera pixel `(378,350)` has RGB `[70,73,80]` and relative Z-depth `3.82502`. Calculate `X=(u-cx)Z/fx`, `Y=(v-cy)Z/fy`, then apply the camera rotation and position. Its scene coordinate is `[-4.29220,0.03739,0.22340]`. Click an RGB pixel in the viewer to see this mapping.
 
-These modes display RGB-D meshes, not a newly trained Gaussian or WorldLatent latent. Generated RGB is shown separately from observed evidence.
+The DA3 and Aether reconstruction modes display frame-local RGB-D meshes. Generated RGB is shown separately from observed evidence.
 
 [3D interaction recording](../../../labs/nurec-rgb-reality/evidence/unified/interaction.en.mp4) · [Observed/generated RGB](../../../labs/nurec-rgb-reality/evidence/unified/generation.en.mp4) · [Full setup and model terms](../../../labs/nurec-rgb-reality/unified/README.md).
+
+### 6. Keep the background while changing vehicles, cameras and time
+
+![Observed persistent background and time-local vehicles, alongside a separate joint-diffusion experiment](../../../assets/lessons/reality-dense-latent/pipeline.en.svg)
+
+The **3DGS background + time-local vehicles** mode in the [comparison](#joint-geometry) reuses the earlier high-quality NuRec fit. Source-RGB foreground masks and DA3 depth support the removal of 26,108 Gaussians in at least two views; the remaining 1,173,892 retain their learned parameters. Selected-time RGB-D meshes provide the vehicle surfaces. Keeping the background avoids per-frame holes, although estimated masks/depth and remaining ghosts limit the separation.
+
+The **diffusion experiments** condition Aether on the first RGB frame and left/right camera paths. Its actual final jointly denoised state is `float16[1,5,56,60,90]`: 17 frames compress to five temporal slots, with 16 RGB, 16 disparity and 24 camera channels. Decoding produces 17 RGB/depth/camera frames, available as separate viewer modes. Generated traffic and road structure may differ from the observations.
+
+[WorldLatent](https://worldlatent.github.io/) instead trains a WorldVAE that fuses RGB, depth and camera rays into **one learned bottleneck**. Neither the Aether state nor an RGB-D array is that WorldVAE. A temporal latent also does not directly provide a complete Gaussian scene: generated geometry still needs multiview validation and persistent scene storage. No public inference weights were located when checked on 2026-11-25; the runnable experiments use public Aether and, separately, the 4LC cache library.
+
+[Actual 3D comparison recording](../../../site/public/showcase/reality-dense.en.mp4) · [Implementation, reproduction and measurement scope](../../../labs/nurec-rgb-reality/dense/README.md).
 
 ## Run the lab
 
 ### 1. Explore without a CUDA GPU
 
-Use the viewer on this page and the native NuRec/Harmonizer comparison. The source-RGB recognition panel, camera selector, predicted path and mouse controls are interactive. Browser playback reuses saved inference outputs.
+Press **Start 3D**, then drag to orbit the road. Play or scrub the timeline to inspect vehicles at a selected time. Use **Compare** to switch depth-reconstruction and generated-view modes. Expand **Inspect RGB and depth data**, then click an RGB pixel to inspect its coordinates. Explore detections and Alpamayo paths in the **Previous 3DGS** demo below.
+
+The browser uses saved results. If you cloned the repository, verify the packaged data without a GPU:
 
 ```bash
 python3 labs/nurec-rgb-reality/check.py
-python3 labs/rgb-reality-view/serve.py --root site/public/showcase/nurec-rgb-reality --port 8092
+python3 labs/nurec-rgb-reality/dense/check.py
 ```
-
-Open **http://127.0.0.1:8092/**. An internet connection supplies pinned viewer JavaScript modules. Video and evidence checks also work without an NVIDIA GPU.
 
 ### 2. Prepare one GPU machine
 

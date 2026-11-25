@@ -4,7 +4,7 @@
 
 카메라 RGB로 도로를 복원해 3D로 둘러보고, 화면 보정·주변 객체 인식·예측 경로를 연결합니다.
 
-[NuRec 둘러보기](#explore) · [DA3·Aether 비교](#joint-geometry) · [실습 따라 하기](#따라-하기)
+[기존 3DGS·객체 인식](#explore) · [Reality View 비교](#joint-geometry) · [실습 따라 하기](#따라-하기)
 
 ## 동작 원리
 
@@ -105,22 +105,34 @@ Harmonizer에 현재 NuRec 렌더링과 이전 보정 출력 네 장을 넣습�
 
 실제 전방 픽셀 `(378,350)`의 RGB는 `[70,73,80]`, 상대 Z-depth는 `3.82502`입니다. `X=(u-cx)Z/fx`, `Y=(v-cy)Z/fy`로 카메라 좌표를 얻고 회전·위치를 적용하면 장면 좌표 `[-4.29220,0.03739,0.22340]`가 됩니다. 뷰어에서 RGB 픽셀을 눌러 이 대응을 확인하세요.
 
-이 모드는 새로 학습한 Gaussian이나 WorldLatent latent가 아닌 RGB-D 메시입니다. 생성 RGB는 관측 결과와 나눠 보여줍니다.
+DA3·Aether 복원 모드는 프레임별 RGB-D 메시입니다. 생성 RGB는 관측 결과와 나눠 보여줍니다.
 
 [3D 조작 영상](../../../labs/nurec-rgb-reality/evidence/unified/interaction.ko.mp4) · [관측 RGB와 생성 RGB 비교](../../../labs/nurec-rgb-reality/evidence/unified/generation.ko.mp4) · [전체 설치 절차와 모델 조건](../../../labs/nurec-rgb-reality/unified/README.ko.md).
+
+### 6. 배경을 유지하고 차량·카메라·시간을 분리하기
+
+![실제 RGB로 복원한 배경과 시간별 차량, 별도의 공동 디퓨전 생성 실험](../../../assets/lessons/reality-dense-latent/pipeline.ko.svg)
+
+[새 비교 화면](#joint-geometry)의 **3DGS 배경 + 시간별 차량**은 이전 고화질 NuRec 모델을 활용합니다. 실제 RGB에서 검출한 차량 마스크와 DA3 깊이가 두 번 이상 일치하는 Gaussian 26,108개를 배경에서 제외하고, 남은 1,173,892개는 그대로 유지했습니다. 차량 표면은 선택한 시간의 RGB-D 메시로 표시합니다. 배경을 매 프레임 새로 띄우지 않아 빈 화면을 줄이지만, 검출·깊이 오차와 일부 차량 잔상은 남을 수 있습니다.
+
+**디퓨전 실험**에서는 첫 RGB와 좌·우로 이동하는 카메라 경로를 Aether에 넣었습니다. 모델이 함께 디노이징한 실제 상태는 `float16[1,5,56,60,90]`입니다. 시간 17장이 5개 latent 시간 슬롯으로 압축되고, 채널 56개는 RGB 16개·disparity 16개·카메라 24개로 구성됩니다. 이를 디코딩해 RGB·깊이·카메라가 함께 나온 17장을 뷰어에서 확인합니다. 생성한 차량·도로는 실제 관측과 달라질 수 있습니다.
+
+[WorldLatent](https://worldlatent.github.io/)의 핵심은 RGB·깊이·카메라 ray를 **학습된 하나의 bottleneck**으로 합치는 WorldVAE입니다. 위 Aether 상태나 RGB-D 배열을 WorldVAE라고 부를 수는 없습니다. 또한 시간축 latent 자체가 사방에서 완성된 Gaussian 장면은 아닙니다. 생성한 기하를 여러 시점에서 검증하고 장면에 유지하는 단계가 필요합니다. 공개 추론 가중치는 2026-11-25 확인 기준으로 찾지 못해, 여기서는 공개된 Aether와 별도의 4LC 캐시를 실제 실행했습니다.
+
+[실제 3D 비교 영상](../../../site/public/showcase/reality-dense.ko.mp4) · [구현·재현 절차와 측정 범위](../../../labs/nurec-rgb-reality/dense/README.ko.md).
 
 ## 따라 하기
 
 ### 1. CUDA GPU 없이 저장된 결과부터 보기
 
-이 페이지의 뷰어와 NuRec·Harmonizer 비교 영상을 열어보세요. 원본 RGB 인식, 카메라 선택, 예측 경로와 마우스 조작을 직접 확인할 수 있습니다. 브라우저는 미리 실행해 둔 모델 출력을 읽습니다.
+**3D 시작**을 누르고 도로를 드래그해 보세요. 재생을 누르거나 타임라인을 움직이면 선택한 시간의 차량을 볼 수 있습니다. **비교 모드**에서 깊이 복원과 생성 시점을 바꾸고, **RGB·깊이 데이터 살펴보기**를 펼친 뒤 RGB 픽셀을 누르면 좌표를 확인할 수 있습니다. 객체 인식과 Alpamayo 경로는 아래 **기존 3DGS** 데모에서 살펴봅니다.
+
+브라우저 데모는 저장된 결과를 사용합니다. 저장소를 복제했다면 GPU 없이 파일 무결성도 검사할 수 있습니다.
 
 ```bash
 python3 labs/nurec-rgb-reality/check.py
-python3 labs/rgb-reality-view/serve.py --root site/public/showcase/nurec-rgb-reality --port 8092
+python3 labs/nurec-rgb-reality/dense/check.py
 ```
-
-**http://127.0.0.1:8092/**에 접속합니다. 뷰어의 지정된 JavaScript 모듈을 불러오려면 인터넷 연결이 필요합니다. 영상 재생과 증거 파일 검사에는 NVIDIA GPU가 필요하지 않습니다.
 
 ### 2. GPU 머신 준비하기
 

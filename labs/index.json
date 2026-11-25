@@ -105,7 +105,13 @@
         "unified/run_da3.py",
         "unified/export_viewer.py",
         "unified/check.py",
-        "unified/model-pins.json"
+        "unified/model-pins.json",
+        "dense/fuse.py",
+        "dense/mask_gaussians.py",
+        "dense/cache_benchmark.py",
+        "dense/export_dense.py",
+        "dense/check.py",
+        "dense/evidence.json"
       ],
       "evidence": "recorded.json"
     },

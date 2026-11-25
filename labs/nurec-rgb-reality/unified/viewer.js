@@ -1,5 +1,5 @@
-// Frame-local RGB-D surfaces from actual Aether / DA3 outputs. MIT adapter.
-// These are depth meshes, not a WorldVAE latent or a new Gaussian checkpoint.
+// Persistent NuRec backgrounds, time-local RGB-D surfaces and Aether comparisons.
+// MIT adapter. Loads saved outputs; does not execute WorldLatent or a WorldVAE.
 import * as T from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
@@ -7,9 +7,20 @@ import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import { SparkRenderer, SplatMesh } from '@sparkjsdev/spark';
 
 export async function mountJointViewer(root) {
+  const cleanups=[],controller=new AbortController();let closed=false;
+  const release=()=>{if(closed)return;closed=true;controller.abort();for(const cleanup of cleanups.splice(0).reverse())try{cleanup();}catch{};};
+  const register=cleanup=>{if(closed){cleanup();throw new DOMException('Viewer closed','AbortError');}cleanups.push(cleanup);};
+  root.jointViewerCancel=release;
+  try{const dispose=await buildJointViewer(root,register,controller.signal);return()=>{dispose();cleanups.length=0;controller.abort();delete root.jointViewerCancel;};}
+  catch(error){release();delete root.jointViewerCancel;throw error;}
+}
+
+async function buildJointViewer(root,register,signal) {
   const ko=root.dataset.locale==='ko',base=root.dataset.jointRoot.replace(/\/$/,'')+'/';
-  const get=async url=>{const r=await fetch(url);if(!r.ok)throw new Error(`HTTP ${r.status}`);return r;};
+  const get=async url=>{const r=await fetch(url,{signal});if(!r.ok)throw new Error(`HTTP ${r.status}`);return r;};
   const manifest=await(await get(base+'scene.json')).json();
+  const dense=manifest.dense?await(await get(base+manifest.dense)).json():null;
+  if(dense?.schema===3)manifest.models.push(...dense.models);
   const stage=root.querySelector('[data-joint-stage]'),status=root.querySelector('[data-joint-status]');
   const select=root.querySelector('[data-joint-model]'),slider=root.querySelector('[data-joint-frame]');
   const rgb=root.querySelector('[data-joint-rgb]'),depthCanvas=root.querySelector('[data-joint-depth]');
@@ -17,21 +28,45 @@ export async function mountJointViewer(root) {
   const renderer=new T.WebGLRenderer({antialias:true,powerPreference:'high-performance'});
   renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.setClearColor(0xdce1e5);renderer.outputColorSpace=T.SRGBColorSpace;
   stage.append(renderer.domElement);renderer.domElement.setAttribute('aria-label',ko?'프레임별 RGB·깊이·카메라 3D 비교':'Frame-local RGB, depth and camera 3D comparison');
+  renderer.domElement.tabIndex=0;
+  register(()=>{renderer.setAnimationLoop(null);renderer.dispose();renderer.forceContextLoss();renderer.domElement.remove();});
   const scene=new T.Scene(),camera=new T.PerspectiveCamera(64,1,.03,250);camera.up.set(0,0,1);
-  const controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.maxDistance=50;controls.minDistance=.3;controls.maxPolarAngle=Math.PI*.88;
+  const controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.dampingFactor=.12;controls.maxDistance=50;controls.minDistance=.3;controls.maxPolarAngle=Math.PI*.88;
+  register(()=>controls.dispose());
   scene.add(new T.HemisphereLight(0xffffff,0x69727d,2));
   const sun=new T.DirectionalLight(0xffffff,2);sun.position.set(-5,-8,12);scene.add(sun);
   const surfaces=Array.from({length:6},()=>{const mesh=new T.Mesh(new T.BufferGeometry(),new T.MeshBasicMaterial({side:T.DoubleSide}));mesh.frustumCulled=false;mesh.visible=false;scene.add(mesh);return mesh;});
   const marker=new T.Mesh(new T.SphereGeometry(.1,16,12),new T.MeshBasicMaterial({color:0xff3465,depthTest:false}));marker.renderOrder=100;marker.visible=false;scene.add(marker);
+  register(()=>{surfaces.forEach(s=>{s.geometry.dispose();s.material.dispose();});marker.geometry.dispose();marker.material.dispose();});
   const gltf=await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).loadAsync(base+'../nurec-rgb-reality/'+manifest.vehicle.file);
+  register(()=>gltf.scene.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();}));
   const car=new T.Group();gltf.scene.rotation.x=Math.PI/2;gltf.scene.scale.setScalar(manifest.vehicle.scale);car.add(gltf.scene);scene.add(car);
-  let index=8,model=manifest.models.find(m=>m.id===manifest.default),preset='chase',playing=false,clock=0,dead=false,revision=0,baseline=null,spark=null;
+  let index=8,model=manifest.models.find(m=>m.id===(manifest.default==='hybrid'?'calibrated':manifest.default)),preset='chase',playing=false,clock=0,dead=false,revision=0,baseline=null,spark=null;
+  let denseMode=manifest.default==='hybrid',denseBackground=null,foregroundMask=null;
+  let cameraAnchor=manifest.frames[index].camera_position;
+  register(()=>{dead=true;revision++;baseline?.dispose();denseBackground?.dispose();spark?.dispose();});
+  async function loadDense(){
+    if(!dense)throw new Error('Dense experiment unavailable');
+    if(!denseBackground){
+      if(!spark){spark=new SparkRenderer({renderer});scene.add(spark);}
+      const record=dense.static_gaussians,bytes=await(await get(base+'dense/'+record.file)).arrayBuffer();
+      const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),x=>x.toString(16).padStart(2,'0')).join('');
+      if(bytes.byteLength!==record.bytes||hash!==record.sha256)throw new Error('Gaussian checksum mismatch');
+      denseBackground=new SplatMesh({fileBytes:bytes,fileName:record.file});await denseBackground.initialized;scene.add(denseBackground);
+      const compressed=await(await get(base+'dense/'+dense.mask.file)).arrayBuffer();
+      const magic=new Uint8Array(compressed,0,Math.min(2,compressed.byteLength));
+      const raw=magic[0]===0x1f&&magic[1]===0x8b?await new Response(new Blob([compressed]).stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer():compressed;
+      const maskHash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',raw)),x=>x.toString(16).padStart(2,'0')).join('');
+      if(raw.byteLength!==dense.mask.decoded_bytes||maskHash!==dense.mask.sha256)throw new Error('Foreground mask checksum mismatch');foregroundMask=new Uint8Array(raw);
+    }
+  }
   const sourceSelect=root.querySelector('[data-joint-camera]');
   const activeCamera=()=>model?.views_per_frame===6?Number(sourceSelect.value):0;
   const activeView=()=>index*(model?.views_per_frame??1)+activeCamera();
   const updateCameraOptions=()=>{sourceSelect.closest('label').hidden=model?.views_per_frame!==6;};
   const buffers=new Map(),textures=new Map(),history=[];
-  const modelLabel=m=>ko?({calibrated:'DA3-BASE · RGB 카메라 보조 입력',surround:'DA3-BASE · 주변 RGB 6개',da3:'DA3-BASE · 전방 RGB',aether:'AetherV1 · 전방 RGB'}[m.id]??m.label):m.label;
+  register(()=>{for(const promise of textures.values())void promise.then(t=>t.dispose()).catch(()=>{});});
+  const modelLabel=m=>ko?({calibrated:'DA3-BASE · RGB 카메라 보조 입력',surround:'DA3-BASE · 주변 RGB 6개',da3:'DA3-BASE · 전방 RGB',aether:'AetherV1 · 전방 RGB','generated-left':'Aether · 왼쪽 시점 생성','generated-right':'Aether · 오른쪽 시점 생성'}[m.id]??m.label):m.label;
   let imageLoads=0;const imageQueue=[];
   async function loadTexture(url){
     if(imageLoads>=4)await new Promise(resolve=>imageQueue.push(resolve));
@@ -60,6 +95,7 @@ export async function mountJointViewer(root) {
   const frameData=()=>manifest.frames[index];
   function setPreset(name){
     preset=name;const f=frameData(),yaw=f.yaw_radians;
+    cameraAnchor=f.camera_position;
     car.position.set(...f.ground_position);car.rotation.z=yaw;car.visible=name!=='input';
     if(name==='input'){
       const pose=model?model.camera_to_world[activeView()]:null;
@@ -83,7 +119,9 @@ export async function mountJointViewer(root) {
     return C.slice(0,3).map(r=>r[0]*q[0]+r[1]*q[1]+r[2]*q[2]+r[3]);
   }
   async function setFrame(value,{move=false}={}){
-    index=Number(value);slider.value=String(index);time.textContent=`${frameData().time_seconds.toFixed(1)} s · ${index+1}/17`;marker.visible=false;
+    if(dead)return;
+    info.textContent=ko?'왼쪽 RGB의 픽셀을 누르면 깊이와 3D 좌표가 표시됩니다.':'Click a pixel in the RGB panel to inspect its depth and 3D coordinate.';
+    index=Number(value);slider.value=String(index);time.textContent=`${(model?.rgb_kind==='generated'?index/12:frameData().time_seconds).toFixed(1)} s · ${index+1}/17`;marker.visible=false;
     car.position.set(...frameData().ground_position);car.rotation.z=frameData().yaw_radians;
     const thisRevision=++revision;
     if(model){
@@ -106,7 +144,7 @@ export async function mountJointViewer(root) {
         const X=(x*model.stride+model.ray_pixel_offset-K[0][2])*d/K[0][0],Y=(y*model.stride+model.ray_pixel_offset-K[1][2])*d/K[1][1];
         positions[i*3]=C[0][0]*X+C[0][1]*Y+C[0][2]*d+C[0][3];positions[i*3+1]=C[1][0]*X+C[1][1]*Y+C[1][2]*d+C[1][3];positions[i*3+2]=C[2][0]*X+C[2][1]*Y+C[2][2]*d+C[2][3];
       }
-      const triangle=(a,b,c)=>{const za=values[a],zb=values[b],zc=values[c],lo=Math.min(za,zb,zc),hi=Math.max(za,zb,zc);if(lo>0&&hi/lo<1.1){indices[count++]=a;indices[count++]=b;indices[count++]=c;}};
+      const triangle=(a,b,c)=>{const za=values[a],zb=values[b],zc=values[c],lo=Math.min(za,zb,zc),hi=Math.max(za,zb,zc);if(lo>0&&hi/lo<1.1&&(!denseMode||(foregroundMask[v*n+a]&&foregroundMask[v*n+b]&&foregroundMask[v*n+c]))){indices[count++]=a;indices[count++]=b;indices[count++]=c;}};
       for(let y=0;y<h-1;y++)for(let x=0;x<w-1;x++){const i=y*w+x;triangle(i,i+w,i+1);triangle(i+1,i+w,i+w+1);}
       geometry.getAttribute('position').needsUpdate=true;geometry.getIndex().needsUpdate=true;geometry.setDrawRange(0,count);
       totalTriangles+=count/3;
@@ -116,49 +154,66 @@ export async function mountJointViewer(root) {
       depthCanvas.width=w;depthCanvas.height=h;const ctx=depthCanvas.getContext('2d'),im=ctx.createImageData(w,h);
       for(let i=0;i<n;i++){const d=depth[i]/65535*model.depth_max,t=Math.min(1,Math.log1p(d)/Math.log1p(40)),off=i*4;im.data[off]=depth[i]?Math.round(255*(1-t)):220;im.data[off+1]=depth[i]?Math.round(210*(1-t*t)):225;im.data[off+2]=depth[i]?Math.round(80+175*t):229;im.data[off+3]=255;}ctx.putImageData(im,0,0);
       try{await Promise.all(textureJobs);}catch(error){if(dead||thisRevision!==revision)return;throw error;}if(dead||thisRevision!==revision)return;
+      if(denseBackground)denseBackground.visible=denseMode;
+      const caption=root.querySelector('[data-joint-rgb-caption]');if(caption)caption.textContent=model.rgb_kind==='generated'?(ko?'디퓨전으로 생성한 RGB':'Diffusion-generated RGB'):(ko?'관측 RGB':'Observed RGB');
       const keep=new Set(model.rgb.slice(index*model.views_per_frame,(index+1)*model.views_per_frame).map(x=>base+x));
       for(const [url,promise] of textures){if(textures.size<=24)break;if(!keep.has(url)){textures.delete(url);void promise.then(t=>t.dispose()).catch(()=>{});}}
       if(baseline)baseline.visible=false;
-      status.textContent=ko?`${modelLabel(model)} · 프레임별 깊이 메시 · 관측 RGB 색상 · 보이지 않은 영역은 비워둡니다.`:`${model.label} · per-frame depth mesh · observed RGB texture · unseen areas remain empty.`;
+      const generated=model.rgb_kind==='generated';
+      const chip=root.querySelector('[data-joint-kind]');chip.textContent=generated?(ko?'생성 실험 · Aether':'Generated · Aether'):(ko?'RGB 복원':'RGB reconstruction');chip.dataset.generated=String(generated);
+      root.querySelector('[data-joint-depth-figure]').hidden=false;root.querySelector('[data-joint-inspector]').hidden=false;
+      status.textContent=denseMode?(ko?'3DGS 배경과 선택한 시간의 차량을 함께 표시합니다.':'3DGS background with vehicles at the selected time.'):(generated?(ko?'생성 시점 비교입니다. 차량·도로는 원본과 달라질 수 있습니다.':'Generated-view comparison. Vehicles and road details can differ from the source.'):(ko?`${modelLabel(model)} · 시간별 깊이 표면`:`${model.label} · time-local depth surfaces`));
       root.dataset.jointTriangles=String(totalTriangles);
     }else{
+      if(denseBackground)denseBackground.visible=false;
       surfaces.forEach(s=>s.visible=false);if(baseline)baseline.visible=true;
-      const observed=manifest.models[0];rgb.src=base+observed.rgb[index];depthCanvas.getContext('2d').clearRect(0,0,depthCanvas.width,depthCanvas.height);
-      status.textContent=ko?'기존 NuRec: 모든 시간의 RGB로 학습한 정적 Gaussian 장면입니다. 주변 차량의 잔상이 남을 수 있습니다.':'Existing NuRec: one static Gaussian scene trained over time. Moving traffic can leave ghosts.';
+      const observed=manifest.models.find(m=>m.id==='calibrated');rgb.src=base+observed.rgb[index*observed.views_per_frame+1];depthCanvas.getContext('2d').clearRect(0,0,depthCanvas.width,depthCanvas.height);
+      root.querySelector('[data-joint-rgb-caption]').textContent=ko?'관측 RGB':'Observed RGB';
+      root.querySelector('[data-joint-depth-figure]').hidden=true;root.querySelector('[data-joint-inspector]').hidden=true;
+      const chip=root.querySelector('[data-joint-kind]');chip.textContent=ko?'RGB 복원 · NuRec':'RGB reconstruction · NuRec';chip.dataset.generated='false';
+      status.textContent=ko?'기존 고화질 3DGS · 시간에 걸쳐 학습한 정적 장면입니다.':'Previous high-quality 3DGS · a static scene fitted across time.';
     }
-    if(move||preset==='input')setPreset(preset);root.dataset.jointFrame=String(index);
+    const nextAnchor=frameData().camera_position;
+    if(preset==='input')setPreset('input');
+    else if(move){const delta=new T.Vector3(...nextAnchor).sub(new T.Vector3(...cameraAnchor));camera.position.add(delta);controls.target.add(delta);controls.update();}
+    cameraAnchor=nextAnchor;
+    root.dataset.jointFrame=String(index);
   }
-  await loadModel(model);await setFrame(index);setPreset('chase');
+  if(denseMode)await loadDense();await loadModel(model);await setFrame(index);setPreset('chase');
   const resize=new ResizeObserver(()=>{camera.aspect=stage.clientWidth/stage.clientHeight;camera.updateProjectionMatrix();renderer.setSize(stage.clientWidth,stage.clientHeight);});resize.observe(stage);
+  register(()=>resize.disconnect());
   let visible=true;const observer=new IntersectionObserver(([e])=>visible=e.isIntersecting);observer.observe(stage);
+  register(()=>observer.disconnect());
   const updateError=error=>{if(!dead){status.textContent=ko?'이 프레임의 RGB를 불러오지 못했습니다. 다른 프레임을 선택해 다시 시도하세요.':'Could not load this RGB frame. Select another frame to retry.';console.error(error);}};
-  let last=performance.now();renderer.setAnimationLoop(()=>{const now=performance.now(),dt=Math.min((now-last)/1000,.1);last=now;if(dead||!visible||document.hidden)return;controls.update();renderer.render(scene,camera);history.push(now);if(history.length>240)history.shift();if(playing){clock+=dt;if(clock>=.3){clock=0;void setFrame((index+1)%17,{move:true}).catch(updateError);}}});
+  let last=performance.now();renderer.setAnimationLoop(()=>{const now=performance.now(),dt=Math.min((now-last)/1000,.1);last=now;if(dead||!visible||document.hidden)return;controls.update();renderer.render(scene,camera);history.push(now);if(history.length>240)history.shift();if(playing){clock+=dt;if(clock>=(model?.rgb_kind==='generated'?1/12:.3)){clock=0;void setFrame((index+1)%17,{move:true}).catch(updateError);}}});
   const onModel=async()=>{
-    select.disabled=true;playing=false;play.textContent=ko?'재생':'Play';status.textContent=ko?'실제 모델 출력을 불러오는 중…':'Loading actual model outputs…';
-    const previous=model;
+    root.querySelectorAll('select,[data-joint-frame],[data-joint-play],[data-joint-preset]').forEach(e=>e.disabled=true);playing=false;play.textContent=ko?'재생':'Play';status.textContent=ko?'비교 장면을 불러오는 중…':'Loading the comparison scene…';
+    const previous=model,previousDense=denseMode;
     try{
+      denseMode=select.value==='hybrid';
       if(select.value==='nurec'){
-        if(!baseline){spark=new SparkRenderer({renderer});scene.add(spark);baseline=new SplatMesh({url:base+'../nurec-rgb-reality/guided.spz'});await baseline.initialized;scene.add(baseline);}
+        if(!baseline){if(!spark){spark=new SparkRenderer({renderer});scene.add(spark);}baseline=new SplatMesh({url:base+'../nurec-rgb-reality/guided.spz'});await baseline.initialized;scene.add(baseline);}
         model=null;
-      }else{const next=manifest.models.find(m=>m.id===select.value);await loadModel(next);model=next;}
-      updateCameraOptions();await setFrame(index);root.dataset.jointModel=model?.id??'nurec';
-    }catch(e){model=previous;select.value=previous?.id??'nurec';status.textContent=ko?'출력을 열지 못했습니다. 이전 장면을 유지합니다.':'Could not open these outputs. Previous scene retained.';console.error(e);}
-    finally{select.disabled=false;}
+      }else{const next=manifest.models.find(m=>m.id===(denseMode?'calibrated':select.value));await loadModel(next);if(denseMode)await loadDense();if(next.rgb_kind==='generated')await Promise.all(next.rgb.map(path=>texture(base+path)));model=next;}
+      if(dead)return;updateCameraOptions();await setFrame(index);root.dataset.jointModel=denseMode?'hybrid':model?.id??'nurec';
+    }catch(e){if(dead)return;model=previous;denseMode=previousDense;select.value=previousDense?'hybrid':previous?.id??'nurec';status.textContent=ko?'비교 장면을 열지 못했습니다. 다시 선택해 주세요.':'Could not load this comparison. Select it again to retry.';console.error(e);}
+    finally{if(!dead)root.querySelectorAll('select,[data-joint-frame],[data-joint-play],[data-joint-preset]').forEach(e=>e.disabled=false);}
   };
   const onFrame=()=>{playing=false;play.textContent=ko?'재생':'Play';void setFrame(slider.value,{move:true}).catch(updateError);};
   const onPlay=()=>{playing=!playing;clock=0;play.textContent=playing?(ko?'일시 정지':'Pause'):(ko?'재생':'Play');};
   const onPixel=e=>{
-    if(!model)return;const b=rgb.getBoundingClientRect(),[w,h]=model.grid,x=Math.min(w-1,Math.max(0,Math.floor((e.clientX-b.left)/b.width*w))),y=Math.min(h-1,Math.max(0,Math.floor((e.clientY-b.top)/b.height*h)));
+    if(!model)return;root.querySelector('[data-joint-inspector]').open=true;const b=rgb.getBoundingClientRect(),[w,h]=model.grid,x=Math.min(w-1,Math.max(0,Math.floor((e.clientX-b.left)/b.width*w))),y=Math.min(h-1,Math.max(0,Math.floor((e.clientY-b.top)/b.height*h)));
     const value=buffers.get(model.id)[activeView()*w*h+y*w+x],d=value/65535*model.depth_max;
     if(!value){info.textContent=ko?'이 픽셀은 신뢰도·거리 필터에서 제외됐습니다.':'This pixel was excluded by the confidence/range display filter.';marker.visible=false;return;}
     const xyz=point(x,y,d);marker.position.set(...xyz);marker.visible=true;
     info.textContent=`RGB (${x*model.stride}, ${y*model.stride}) → Z ${d.toFixed(3)} → XYZ [${xyz.map(v=>v.toFixed(3)).join(', ')}] · ${ko?'상대 단위':'relative units'}`;
   };
   const handlers=[];root.querySelectorAll('[data-joint-preset]').forEach(b=>{const fn=()=>setPreset(b.dataset.jointPreset);b.addEventListener('click',fn);handlers.push([b,fn]);});
-  const onSource=()=>void setFrame(index,{move:true}).catch(updateError);sourceSelect.addEventListener('change',onSource);updateCameraOptions();select.value=model.id;
+  const freeView=()=>{preset='free';root.dataset.jointPreset='free';root.querySelectorAll('[data-joint-preset]').forEach(b=>b.setAttribute('aria-pressed','false'));};controls.addEventListener('start',freeView);
+  const onSource=()=>void setFrame(index,{move:true}).catch(updateError);sourceSelect.addEventListener('change',onSource);updateCameraOptions();select.value=denseMode?'hybrid':model.id;
   select.addEventListener('change',onModel);slider.addEventListener('input',onFrame);play.addEventListener('click',onPlay);rgb.addEventListener('click',onPixel);
-  root.querySelectorAll('[data-joint-model],[data-joint-frame],[data-joint-play],[data-joint-preset]').forEach(e=>e.disabled=false);
-  root.dataset.jointReady='true';root.dataset.jointModel=model.id;
-  root.jointViewerState=()=>({model:model?.id??'nurec',frame:index,preset,camera:camera.position.toArray(),target:controls.target.toArray(),triangles:model?Number(root.dataset.jointTriangles):null,fps:history.length>1?(history.length-1)*1000/(history.at(-1)-history[0]):null});
-  return()=>{dead=true;revision++;renderer.setAnimationLoop(null);resize.disconnect();observer.disconnect();controls.dispose();surfaces.forEach(s=>{s.geometry.dispose();s.material.dispose();});marker.geometry.dispose();marker.material.dispose();baseline?.dispose();spark?.dispose();gltf.scene.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();});for(const promise of textures.values())void promise.then(t=>t.dispose()).catch(()=>{});select.removeEventListener('change',onModel);sourceSelect.removeEventListener('change',onSource);slider.removeEventListener('input',onFrame);play.removeEventListener('click',onPlay);rgb.removeEventListener('click',onPixel);handlers.forEach(([b,fn])=>b.removeEventListener('click',fn));renderer.dispose();renderer.forceContextLoss();renderer.domElement.remove();delete root.jointViewerState;};
+  root.querySelectorAll('[data-joint-model],[data-joint-camera],[data-joint-frame],[data-joint-play],[data-joint-preset]').forEach(e=>e.disabled=false);
+  root.dataset.jointReady='true';root.dataset.jointModel=denseMode?'hybrid':model.id;
+  root.jointViewerState=()=>({model:denseMode?'hybrid':model?.id??'nurec',frame:index,preset,camera:camera.position.toArray(),target:controls.target.toArray(),triangles:model?Number(root.dataset.jointTriangles):null,gaussians:denseMode?dense.decomposition.retained_gaussians:null,fps:history.length>1?(history.length-1)*1000/(history.at(-1)-history[0]):null});
+  return()=>{if(dead)return;dead=true;revision++;renderer.setAnimationLoop(null);resize.disconnect();observer.disconnect();controls.removeEventListener('start',freeView);controls.dispose();surfaces.forEach(s=>{s.geometry.dispose();s.material.dispose();});marker.geometry.dispose();marker.material.dispose();baseline?.dispose();denseBackground?.dispose();spark?.dispose();gltf.scene.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();});for(const promise of textures.values())void promise.then(t=>t.dispose()).catch(()=>{});select.removeEventListener('change',onModel);sourceSelect.removeEventListener('change',onSource);slider.removeEventListener('input',onFrame);play.removeEventListener('click',onPlay);rgb.removeEventListener('click',onPixel);handlers.forEach(([b,fn])=>b.removeEventListener('click',fn));renderer.dispose();renderer.forceContextLoss();renderer.domElement.remove();delete root.jointViewerState;};
 }

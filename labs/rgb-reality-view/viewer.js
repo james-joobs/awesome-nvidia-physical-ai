@@ -97,7 +97,7 @@ export async function mountRgbViewer(root) {
   const variantSelect=root.querySelector('[data-rgb-variant]'),variantNote=root.querySelector('[data-rgb-variant-note]');
   const updateVariantNote=()=>{if(variantNote)variantNote.textContent=variant?.[ko?'note_ko':'note_en']??'';root.dataset.rgbModel=variant?.id??'original';};
   if(variantSelect&&variants.length){
-    for(const v of variants){const option=document.createElement('option');option.value=v.id;option.textContent=v[ko?'label_ko':'label_en'];variantSelect.append(option);}
+    for(const v of variants){const option=document.createElement('option');option.value=v.id;option.textContent=root.dataset.rgbFeatured==='true'?({guided:ko?'깊이 보완 3DGS':'Depth-guided 3DGS',original:ko?'기본 3DGS':'Baseline 3DGS'}[v.id]??v[ko?'label_ko':'label_en']):v[ko?'label_ko':'label_en'];variantSelect.append(option);}
     variantSelect.value=variant.id;variantSelect.disabled=false;updateVariantNote();
   }
   const changeVariant=async()=>{

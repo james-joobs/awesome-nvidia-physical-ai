@@ -28,3 +28,10 @@ reference, not the capture vehicle, OEM dynamics, endorsement, or measured scale
 Our Python/JavaScript adapters are MIT. The new display is a per-frame RGB-D
 triangle mesh. It is not a WorldLatent/WorldVAE latent and not a newly trained
 Gaussian model. Depth, camera, source timing and RGB/SfM alignment are estimates.
+
+Dense scene and joint-diffusion experiments (2026-11-25):
+- Static background: filtered prior RGB-only NuRec production fit; source RGB Mask R-CNN + DA3-BASE depth support. Retained Gaussian parameters unchanged.
+- Left/right generated RGB-D-camera sequences: public AetherV1 + CogVideoX base; model terms in labs/nurec-rgb-reality/unified/README.md. Generated pixels are not verified observations.
+- 4LC standalone latent-cache library: MIT, https://github.com/ZGCA-HMI-Lab/4LC ; separate cache experiment, not the 14B video generator.
+- WorldLatent: research reference only, https://worldlatent.github.io/ ; no WorldVAE or WorldLatent weights used.
+- New road derivatives retain the PandaSet source attribution and CC BY-SA 4.0 + original Dataset Terms above.

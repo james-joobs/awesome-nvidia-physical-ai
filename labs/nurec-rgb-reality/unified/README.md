@@ -24,7 +24,7 @@ The portable Aether image below was independently built and run:22.74 s,14.58 Gi
 
 ## Start in a browser
 
-Open the parent lab's **RGB, depth and cameras together** panel. Its default uses six RGB cameras and RGB-estimated camera priors. Compare:
+Open **Explore a real road in 3D** in the parent lab and press **Start 3D**. The default keeps a 3DGS background with time-local vehicles; [that composition is explained separately](../dense/README.md). Use **Compare → Depth reconstruction** for the original RGB-D experiments:
 
 1. **DA3-BASE · RGB/SfM camera priors:** six current-time depth surfaces; better camera anchoring, not a camera-pose accuracy test.
 2. **DA3-BASE ·6 RGB cameras:** jointly estimated depth and cameras without camera priors. Wider coverage, but larger camera drift in this clip.

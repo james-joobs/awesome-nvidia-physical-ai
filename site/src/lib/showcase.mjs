@@ -78,8 +78,8 @@ export const clips = [
   {
     id: 'nurec-rgb-reality', duration: '0:30', width: 1920, height: 1080,
     media: { en: 'nurec-adaptive-live.en', ko: 'nurec-adaptive-live.ko' },
-    en: { title: 'Responsive Reality View: preview while moving, refine at rest', description: 'Reconstruct a road from RGB with DA3, Aether and NuRec, then explore depth, camera views and Alpamayo paths.' },
-    ko: { title: 'Reality View: 이동 중 미리보기, 정지 후 고화질', description: 'DA3·Aether·NuRec으로 RGB 도로를 복원하고 깊이·카메라 시점·Alpamayo 경로를 살펴봅니다.' },
+    en: { title: 'Reality View: explore a road reconstructed from RGB', description: 'Reconstruct a road from RGB with DA3, Aether and NuRec, then explore depth, camera views and Alpamayo paths.' },
+    ko: { title: 'Reality View: RGB로 복원한 도로 둘러보기', description: 'DA3·Aether·NuRec으로 RGB 도로를 복원하고 깊이·카메라 시점·Alpamayo 경로를 살펴봅니다.' },
   },
   {
     id: 'rgb-reality-view', duration: '0:25', width: 1280, height: 720,
@@ -170,6 +170,8 @@ export const clips = [
 
 // Extra runs share an existing lab and its reading order.
 export const labMediaFiles = {
+  'site/public/showcase/reality-dense.en.mp4': 'reality-dense.en.mp4',
+  'site/public/showcase/reality-dense.ko.mp4': 'reality-dense.ko.mp4',
   'labs/nurec-rgb-reality/evidence/unified/interaction.en.mp4': 'reality-joint.en.mp4',
   'labs/nurec-rgb-reality/evidence/unified/interaction.ko.mp4': 'reality-joint.ko.mp4',
   'labs/nurec-rgb-reality/evidence/unified/generation.en.mp4': 'reality-aether-generation.en.mp4',
@@ -218,6 +220,13 @@ export const labMediaFiles = {
 };
 
 export const additionalRecordings = [
+  {
+    id: 'reality-dense-latent', lab: 'nurec-rgb-reality', duration: '0:39', width: 1080, height: 938,
+    dimensions: {en: [1080, 1036], ko: [1080, 938]},
+    media: { en: 'reality-dense.en', ko: 'reality-dense.ko' },
+    en: { title: 'Persistent 3DGS, time-local vehicles and joint diffusion', description: 'Compare the earlier sparse mesh with a persistent background, change time, and inspect separately generated left/right views.' },
+    ko: { title: '3DGS 배경·시간별 차량·공동 디퓨전 비교', description: '이전 깊이 메시와 배경 유지 방식을 비교하고, 시간을 바꾸며 좌·우 시점 생성 결과도 살펴봅니다.' },
+  },
   {
     id: 'reality-joint-geometry', lab: 'nurec-rgb-reality', duration: '0:21', width: 1440, height: 1080,
     media: { en: 'reality-joint.en', ko: 'reality-joint.ko' },

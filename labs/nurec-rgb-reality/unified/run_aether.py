@@ -8,6 +8,7 @@ import argparse
 import gc
 import hashlib
 import json
+import importlib.util
 import sys
 import time
 from pathlib import Path
@@ -30,6 +31,8 @@ def main():
     p.add_argument('--model-fps', type=int, default=12, choices=[8,10,12,15,24])
     p.add_argument('--offload', action='store_true')
     p.add_argument('--camera-from', type=Path, help='Prediction: geometry.npz from a completed RGB-only Aether reconstruction')
+    p.add_argument('--camera-truck', type=float, default=0., help='Final sideways camera offset as a fraction of first-view median depth; ramps from zero')
+    p.add_argument('--save-joint-latent', action='store_true', help='Save Aether actual final 56-channel denoising state, before modality decoding')
     a = p.parse_args()
     if a.out.exists():
         raise ValueError('Choose a fresh output directory; earlier results are preserved')
@@ -38,6 +41,17 @@ def main():
     a.out.mkdir(parents=True)
     sys.path.insert(0, str(a.upstream.resolve()))
     from aether.pipelines.aetherv1_pipeline_cogvideox import AetherV1PipelineCogVideoX
+    if a.save_joint_latent:
+        # Instrument a private copy. Never modify the pinned upstream checkout.
+        upstream_file=a.upstream/'aether/pipelines/aetherv1_pipeline_cogvideox.py'
+        source=upstream_file.read_text()
+        anchor='        rgb_latents = latents[:, :, : self.vae.config.latent_channels]'
+        if source.count(anchor)!=1: raise RuntimeError('Upstream latent capture anchor changed')
+        instrumented=a.out/'instrumented_pipeline.py'
+        instrumented.write_text(source.replace(anchor, '        self.captured_joint_latent = latents.detach().float().cpu()\n'+anchor))
+        spec=importlib.util.spec_from_file_location('aether_captured_pipeline',instrumented)
+        module=importlib.util.module_from_spec(spec);sys.modules[spec.name]=module;spec.loader.exec_module(module)
+        AetherV1PipelineCogVideoX=module.AetherV1PipelineCogVideoX
     from aether.utils.postprocess_utils import postprocess_pointmap, camera_pose_to_raymap
     from diffusers import AutoencoderKLCogVideoX, CogVideoXDPMScheduler, CogVideoXTransformer3DModel
     from transformers import AutoTokenizer, T5EncoderModel
@@ -75,11 +89,19 @@ def main():
     if a.camera_from:
         previous=np.load(a.camera_from)
         poses=previous['camera_pose'].copy();poses=np.linalg.inv(poses[0])[None]@poses
+        offset=float(np.median(previous['depth'][0]))*a.camera_truck
+        poses[:,:3,3]+=poses[:,:3,0]*np.linspace(0,offset,a.frames)[:,None]
+        np.savez_compressed(a.out/'requested_cameras.npz',camera_pose=poses.copy(),intrinsics=previous['intrinsics'].copy())
         rays=camera_pose_to_raymap(camera_pose=poses,intrinsic=previous['intrinsics'].copy(),H=a.height,W=a.width,dmax=1.)
         kwargs={'task':'prediction','image':rgb[0],'raymap':rays,'guidance_scale':3.}
     result=pipe(**kwargs,height=a.height,width=a.width,num_frames=a.frames,num_inference_steps=a.steps,fps=a.model_fps,generator=torch.Generator(device='cuda').manual_seed(42))
     torch.cuda.synchronize();seconds=time.perf_counter()-start
     stats={'load_seconds':load_seconds,'inference_seconds':seconds,'frames_per_second_offline':a.frames/seconds,'peak_allocated_gib':torch.cuda.max_memory_allocated()/2**30,'peak_reserved_gib':torch.cuda.max_memory_reserved()/2**30}
+    if a.save_joint_latent:
+        latent=pipe.captured_joint_latent.numpy()
+        if not np.isfinite(latent).all():raise RuntimeError('Nonfinite joint latent')
+        np.save(a.out/'joint-latent.npy',latent.astype('<f2'))
+        (a.out/'latent.json').write_text(json.dumps({'model':'AetherV1','shape':list(latent.shape),'layout':'B,T_lat,C,H_lat,W_lat','channels':{'rgb':[0,16],'disparity':[16,32],'camera_direction_signed_log_origin':[32,56]},'temporal_compression':4,'spatial_compression':8,'is_worldvae':False,'is_learned_fused_worldlatent':False,'upstream_sha256':hashlib.sha256(source.encode()).hexdigest(),'capture':'Actual final jointly denoised state before upstream modality decoding','camera_truck_fraction':a.camera_truck,'sha256':hashlib.sha256((a.out/'joint-latent.npy').read_bytes()).hexdigest()},indent=2)+'\n')
     # Upstream stores direction + signed-log origin, NOT Plucker d/m rays.
     # postprocess_pointmap mutates the raymap, so preserve original raw values.
     np.savez_compressed(a.out/'raw.npz',rgb=result.rgb,disparity=result.disparity,raymap=result.raymap)

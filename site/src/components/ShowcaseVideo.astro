@@ -6,11 +6,12 @@ const labels = showcaseCopy[locale];
 const mediaId = clip.media?.[locale] ?? clip.id;
 const poster = showcaseMedia(`${mediaId}.jpg`);
 const movie = showcaseMedia(`${mediaId}.mp4`);
+const [width,height] = clip.dimensions?.[locale] ?? [clip.width,clip.height];
 const playLabel = locale === 'ko' ? `${title} ${labels.play}` : `${labels.play} ${title}`;
 ---
-<div class="video-frame" style={{aspectRatio: `${clip.width} / ${clip.height}`}}>
+<div class="video-frame" style={{aspectRatio: `${width} / ${height}`}}>
   <a href={movie} class="video-cover" data-video-cover data-autoplay={autoplay ? '' : undefined} aria-label={playLabel}>
-    <img src={poster} width={clip.width} height={clip.height} loading={eager ? 'eager' : 'lazy'}
+    <img src={poster} width={width} height={height} loading={eager ? 'eager' : 'lazy'}
       fetchpriority={eager ? 'high' : 'auto'} alt="" />
     <span class="video-play" aria-hidden="true">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 4.75v14.5L20 12z" /></svg>

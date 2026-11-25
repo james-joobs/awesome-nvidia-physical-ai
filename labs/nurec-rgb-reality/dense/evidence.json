@@ -1,0 +1,210 @@
+{
+  "schema": 1,
+  "checked_on": "2026-11-25",
+  "worldlatent_executed": false,
+  "worldvae_public_release_located": false,
+  "worldlatent_reference": "https://worldlatent.github.io/",
+  "4lc_revision": "c44132ab231aaa3e31d4ac45d742d6fb76bb9b21",
+  "4lc_video_generator_executed": false,
+  "worldmirror_executed": false,
+  "rgb_only": true,
+  "gaussian_split": {
+    "schema": 1,
+    "method": "source RGB mask + DA3 z-depth support in at least 2 source views",
+    "input_gaussians": 1200000,
+    "retained_gaussians": 1173892,
+    "removed_gaussians": 26108,
+    "input_sha256": "3aa340b6d1a2579f3f1d8d301fe006f1a7d67890bd64a297a5f2c59d20fbad9a",
+    "output_sha256": "cbd79d91d3be51b3614abf0a4a6b635437d5b088beaefea81f51ca1faa42aba6",
+    "elapsed_seconds": 7.8765365849249065,
+    "source": "previous trained NuRec RGB scene; no retraining; retained Gaussian parameters unchanged",
+    "generated_pixels_used": false,
+    "uses_lidar": false,
+    "limitations": "Estimated depth and detector masks may miss objects or remove some background. This is an experimental static/foreground decomposition."
+  },
+  "generation": {
+    "left": {
+      "load_seconds": 5.347754538990557,
+      "inference_seconds": 79.8709710650146,
+      "frames_per_second_offline": 0.21284328678265446,
+      "peak_allocated_gib": 14.577630519866943,
+      "peak_reserved_gib": 16.158203125
+    },
+    "right": {
+      "load_seconds": 7.604468476958573,
+      "inference_seconds": 80.34205896500498,
+      "frames_per_second_offline": 0.21159527424365338,
+      "peak_allocated_gib": 14.573383331298828,
+      "peak_reserved_gib": 16.15625
+    }
+  },
+  "actual_latent": {
+    "model": "AetherV1",
+    "shape": [
+      1,
+      5,
+      56,
+      60,
+      90
+    ],
+    "layout": "B,T_lat,C,H_lat,W_lat",
+    "channels": {
+      "rgb": [
+        0,
+        16
+      ],
+      "disparity": [
+        16,
+        32
+      ],
+      "camera_direction_signed_log_origin": [
+        32,
+        56
+      ]
+    },
+    "temporal_compression": 4,
+    "spatial_compression": 8,
+    "is_worldvae": false,
+    "is_learned_fused_worldlatent": false,
+    "upstream_sha256": "56a7577aaebdd1b326405e7f72220128f50473efbca4c9a09ab336cc3459cee2",
+    "capture": "Actual final jointly denoised state before upstream modality decoding",
+    "camera_truck_fraction": 0.0,
+    "sha256": "a9258fbbdab591ea8f6a39691e404c3c5f8237ac73e6823a8865be48ef95d38e"
+  },
+  "latent_capture_raw_output_parity": {
+    "rgb": true,
+    "disparity": true,
+    "raymap": true
+  },
+  "rgb_cache": {
+    "grid": [
+      140,
+      252
+    ],
+    "construction_seconds": 1.268587097991258,
+    "front_read_seconds": 0.5475010969676077,
+    "six_camera_compose_seconds": 0.30887047899886966,
+    "peak_allocated_gib": 0.3752932548522949
+  },
+  "reprojection_occupancy": {
+    "front_camera_cache": 0.8376300615422866,
+    "six_camera_static_history": 0.915799666853512
+  },
+  "occupancy_is_accuracy": false,
+  "aether_latent_cache": {
+    "source_joint_shape": [
+      1,
+      5,
+      56,
+      60,
+      90
+    ],
+    "cached_channels": 32,
+    "readout_shape": [
+      1,
+      5,
+      60,
+      90,
+      32
+    ],
+    "query_seconds": 0.01660278090275824,
+    "coverage": 0.8256295919418335,
+    "semantics": "Jointly denoised RGB/disparity feature blocks; camera channels define geometry and are not projected as view-invariant features",
+    "not_worldvae": true
+  },
+  "browser": {
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "renderer": "ANGLE (NVIDIA, Vulkan 1.4.357 (NVIDIA NVIDIA GeForce RTX 5090 (0x00002B85)), NVIDIA)",
+    "canvas": [
+      1920,
+      1080
+    ],
+    "samples": [
+      {
+        "model": "calibrated",
+        "sample_count": 557,
+        "mean_fps": 60.00215447592373,
+        "frame_interval_p50_ms": 16.69999999999891,
+        "frame_interval_p95_ms": 16.700000000000728
+      },
+      {
+        "model": "hybrid",
+        "sample_count": 561,
+        "mean_fps": 60.001925195460814,
+        "frame_interval_p50_ms": 16.69999999999709,
+        "frame_interval_p95_ms": 16.799999999999272
+      }
+    ],
+    "errors": [],
+    "scope": "Headless Chrome hardware Vulkan, actual pointer orbit, 60 Hz cap; not maximum uncapped renderer throughput and not camera-to-display inference FPS"
+  },
+  "quality_selection": "Pure RGB-D surfel fusion tried and rejected as default because of visible fragmentation; retain learned 3DGS background. Generated frames remain a separate experimental comparison because traffic and geometry can drift.",
+  "mobile_validation": [
+    {
+      "language": "en",
+      "viewport_width": 390,
+      "horizontal_overflow": false,
+      "modes": 8,
+      "touch_orbit": true,
+      "inline_video": true,
+      "fullscreen": false,
+      "language_switch_verified": true,
+      "errors": [],
+      "device_scope": "Chrome mobile emulation, not a physical handset"
+    },
+    {
+      "language": "ko",
+      "viewport_width": 390,
+      "horizontal_overflow": false,
+      "modes": 8,
+      "touch_orbit": true,
+      "inline_video": true,
+      "fullscreen": false,
+      "language_switch_verified": true,
+      "errors": [],
+      "device_scope": "Chrome mobile emulation, not a physical handset"
+    }
+  ],
+  "presentation_browser_validation": {
+    "canvas": [
+      1920,
+      1080
+    ],
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "renderer": "ANGLE (NVIDIA, Vulkan 1.4.357 (NVIDIA NVIDIA GeForce RTX 5090 (0x00002B85)), NVIDIA)",
+    "samples": [
+      {
+        "model": "calibrated",
+        "frames": 1567,
+        "mean_fps": 60.00245064252784,
+        "frame_interval_p95_ms": 16.700000000004366
+      },
+      {
+        "model": "hybrid",
+        "frames": 1477,
+        "mean_fps": 60.002356219810935,
+        "frame_interval_p95_ms": 16.70000000001164
+      }
+    ],
+    "errors": [],
+    "scope": "Hardware Chrome/Vulkan at a 60Hz cap after the presentation cleanup; not inference FPS"
+  },
+  "presentation_recording": {
+    "dimensions": {
+      "en": [
+        1080,
+        1036
+      ],
+      "ko": [
+        1080,
+        938
+      ]
+    },
+    "durations": [
+      39.24,
+      39.16
+    ],
+    "speedup": 1,
+    "rendering": "actual browser interaction on RTX 5090; saved reconstruction/inference outputs"
+  }
+}
