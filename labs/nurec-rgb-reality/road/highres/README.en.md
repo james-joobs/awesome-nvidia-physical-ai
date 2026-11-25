@@ -1,6 +1,6 @@
 # Frankfurt from new viewpoints
 
-[한국어](README.ko.md) · [PandaSet road reprojection](../README.md)
+[한국어](README.ko.md) · [PandaSet road reprojection](../README.md) · [Open the hands-on Pages lesson](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/frankfurt-reality/)
 
 Choose a route from the [public Voxel51 sample of KITScenes Multimodal](https://huggingface.co/datasets/Voxel51/kitscenes-multimodal) and start the viewer. Play the Volvo chase view, then pause and select **3D cameras** or **Camera RGB**. All six camera buttons share the same timeline. Drag in **Free orbit** to inspect lane markings and nearby facades.
 
@@ -46,7 +46,7 @@ python "$HQ_CODE/surround.py" --input "$HQ_WORK/data" --sfm "$HQ_WORK/sfm" \
 python "$HQ_CODE/track_rgb.py" "$HQ_WORK/browser/road"
 # Bridge only: borrow nearby road RGB for small gaps beneath the Volvo.
 python "$HQ_CODE/fill_contact_gaps.py" "$HQ_WORK/browser/road"
-python "$HQ_CODE/check.py"
+python "$HQ_CODE/check.py" --package "$HQ_WORK/browser/road" --route bridge
 ```
 
 For the avenue, clear floating Gaussians above the traced ego lane before exporting the final scene. The Gaussian fit's held-out metric is measured before this browser export step.

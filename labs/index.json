@@ -130,6 +130,7 @@
         "road/highres/track_rgb.py",
         "road/highres/fill_contact_gaps.py",
         "road/highres/check.py",
+        "road/highres/preview.py",
         "road/highres/viewer.js"
       ],
       "evidence": "recorded.json"

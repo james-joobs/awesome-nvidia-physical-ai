@@ -16,7 +16,7 @@ import ToolTags from './ToolTags.astro';
 import { catalogSearchUrl, pageUrl, repositoryFile } from '../lib/catalog.mjs';
 import { renderCodeBlock } from '../lib/code-blocks.mjs';
 import { labCode, labCopy } from '../lib/labs.mjs';
-import { courseRoute, courses, firstExerciseRoute, learningCopy } from '../lib/learning.mjs';
+import { courseRoute, courses, firstExerciseRoute, frankfurtGuide, learningCopy } from '../lib/learning.mjs';
 import { lessonFlows } from '../lib/lesson-flows.mjs';
 import { renderGuide } from '../lib/markdown.mjs';
 import { additionalRecordings, clips, grids, showcaseMedia } from '../lib/showcase.mjs';
@@ -78,6 +78,9 @@ const steps = [
       {hasViewer && <a class="button button-primary" href={`#${demoAnchor}`}>{id === 'human-4d-gaussian' ? (ko ? 'RGB·3D 비교 실습' : 'Compare RGB and 3D') : (ko ? '3D 공간 직접 둘러보기' : 'Explore the 3D scene')}</a>}
       {isPlacement && <a class="button button-primary" href="#first-exercise">{startLabel}<Icon name="down" size={16} /></a>}
       <a class:list={isPlacement ? 'plain-link' : ['button', ['nurec-rgb-reality', 'rgb-reality-view', 'spatial-reconstruction', 'worldgen-scenes', 'human-4d-gaussian'].includes(id) ? 'button-secondary' : 'button-primary']} href="#run">{labels.run}<Icon name="down" size={16} /></a>
+      {id === 'nurec-rgb-reality' && <a class="plain-link" href={pageUrl(locale, frankfurtGuide.page)}>
+        {ko ? '프랑크푸르트 구현 실습' : 'Build the Frankfurt demo'} <Icon name="right" size={16} />
+      </a>}
       {tags.includes('Replicator') && (
         <a class="plain-link" href={catalogSearchUrl(locale, 'Replicator')}>
           {ko ? '카탈로그에서 Replicator 보기' : 'Replicator in the catalog'} <Icon name="right" size={17} />

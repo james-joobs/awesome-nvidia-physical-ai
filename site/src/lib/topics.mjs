@@ -3,7 +3,7 @@ import alpasimImage from '../../../assets/project-marks/alpasim-hdmap.webp?url&n
 import cosmosImage from '../../../assets/project-marks/cosmos.png?url&no-inline';
 import switchyardImage from '../../../assets/project-marks/switchyard-logo.webp?url&no-inline';
 import { modelGuide, workflows } from './catalog.mjs';
-import { courseRoute, workbenchProject } from './learning.mjs';
+import { courseRoute, frankfurtGuide, workbenchProject } from './learning.mjs';
 import { clips, grids, showcaseMedia } from './showcase.mjs';
 import { toolGuides } from './tool-guides.mjs';
 
@@ -24,6 +24,10 @@ const driving = {
   credit: { label: 'AlpaSim', url: 'https://github.com/NVlabs/alpasim/blob/affc2eab209fa43bdfa2f26c0f8d437922d78a68/docs/VIDEO_MODEL.md#how-it-works' },
   en: { ...drivingGuide.en, alt: 'Official AlpaSim frame with a high-definition map overlaid on a road scene' },
   ko: { ...drivingGuide.ko, alt: '도로 카메라 영상에 정밀지도를 겹친 AlpaSim 공식 예시' },
+};
+const frankfurt = {
+  ...frankfurtGuide, image: showcaseMedia('reality-kitscenes-surround.jpg'),
+  kind: 'screenshot', tools: ['KITScenes', 'LoMa', 'COLMAP', 'gsplat', 'RT-DETR'],
 };
 
 export const topicGuides = [
@@ -89,7 +93,7 @@ export const topics = [
       en: { title: 'Autonomous driving', outcome: 'RGB → COLMAP → NuRec and Harmonizer, with Alpamayo predictions and source-RGB perception. Inspect each stage from one RTX 5090 run.', availability: 'RGB only · interactive 3D · code and checks' },
       ko: { title: '자율주행', outcome: 'RGB → COLMAP → NuRec·Harmonizer에 Alpamayo 예측과 원본 RGB 인식을 연결했습니다. RTX 5090 한 장에서 실행한 각 단계를 직접 확인합니다.', availability: 'RGB 전용 · 3D 직접 조작 · 코드와 결과 검사' },
     },
-    entries: [recording('nurec-rgb-reality', ['RGB only', 'NuRec', 'Harmonizer', 'Alpamayo 2 Edge']), recording('rgb-reality-view', ['RGB only', 'COLMAP', 'NVIDIA 3DGUT', 'Spark']), recording('pandaset-nurec', ['PandaSet', 'NuRec', 'Harmonizer', 'Blender']), recording('carla-ego', ['CARLA', 'Unreal Engine', 'Ego RGB']), recording('reality-view', ['NuRec', 'Harmonizer', 'Alpamayo 2 Edge', 'Isaac Sim']), driving, recording('world-driving', ['Isaac Sim', 'Alpamayo2-Edge', 'Cosmos3-Edge'])],
+    entries: [frankfurt, recording('nurec-rgb-reality', ['RGB only', 'NuRec', 'Harmonizer', 'Alpamayo 2 Edge']), recording('rgb-reality-view', ['RGB only', 'COLMAP', 'NVIDIA 3DGUT', 'Spark']), recording('pandaset-nurec', ['PandaSet', 'NuRec', 'Harmonizer', 'Blender']), recording('carla-ego', ['CARLA', 'Unreal Engine', 'Ego RGB']), recording('reality-view', ['NuRec', 'Harmonizer', 'Alpamayo 2 Edge', 'Isaac Sim']), driving, recording('world-driving', ['Isaac Sim', 'Alpamayo2-Edge', 'Cosmos3-Edge'])],
   },
   {
     slug: 'world-models', theme: 'blue', icon: 'layers',

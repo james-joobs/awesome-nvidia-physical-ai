@@ -1,4 +1,5 @@
 """Verify the recorded high-resolution Reality View packages."""
+import argparse
 import hashlib
 import json
 from collections import defaultdict
@@ -7,6 +8,8 @@ from pathlib import Path
 from PIL import Image
 
 CAMERAS = {"front", "front_left", "front_right", "rear", "rear_left", "rear_right"}
+ROUTES = {"bridge": ("", 150, 7.2, 20), "tram": ("tram", 240, 19.5, 20),
+          "avenue": ("avenue", 546, 27.0, 18)}
 
 
 def verify_route(package, views, seconds, minimum_psnr):
@@ -60,10 +63,14 @@ def verify_route(package, views, seconds, minimum_psnr):
                 image.verify()
 
 
-def main():
+def main(package=None, route="bridge"):
+    if package is not None:
+        _, views, seconds, minimum_psnr = ROUTES[route]
+        verify_route(package, views, seconds, minimum_psnr)
+        print(f"KITSCENES_NOVEL_VIEW_OK: {route}, {views} registered camera views, {seconds:g} seconds")
+        return
     data = Path(__file__).resolve().parents[4]/"site/public/showcase"
-    routes = (("", 150, 7.2, 20), ("tram", 240, 19.5, 20), ("avenue", 546, 27.0, 18))
-    for route, views, seconds, minimum_psnr in routes:
+    for route, views, seconds, minimum_psnr in ROUTES.values():
         verify_route(data/"reality-kitscenes"/route/"road", views, seconds, minimum_psnr)
     for clip in ("reality-kitscenes", "reality-road-novel", "reality-kitscenes-surround"):
         assert (data/(clip+".mp4")).stat().st_size > 10000
@@ -72,4 +79,8 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--package", type=Path, help="Verify this local road package")
+    parser.add_argument("--route", choices=ROUTES, default="bridge", help="Preset of the local package")
+    args = parser.parse_args()
+    main(args.package, args.route)

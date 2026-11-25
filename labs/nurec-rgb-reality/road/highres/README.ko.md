@@ -1,6 +1,6 @@
 # 프랑크푸르트 3D 주행
 
-[English](README.en.md) · [PandaSet 노면 재투영](../README.ko.md)
+[English](README.en.md) · [PandaSet 노면 재투영](../README.ko.md) · [Pages에서 구현 원리와 실습 따라 하기](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/frankfurt-reality/)
 
 [KITScenes Multimodal의 Voxel51 공개 배포본](https://huggingface.co/datasets/Voxel51/kitscenes-multimodal)에서 세 구간을 골랐습니다. **3D 시작**을 누르고 Volvo 추적 시점으로 재생하세요. 멈춘 뒤 **3D 카메라** 또는 **실사 RGB**를 선택하면 같은 시간의 전·측·후방을 볼 수 있습니다. **자유 시점**에서 화면을 드래그해 차선과 외벽을 살펴보세요.
 

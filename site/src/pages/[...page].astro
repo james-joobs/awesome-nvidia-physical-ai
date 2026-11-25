@@ -6,7 +6,7 @@ import TopicGallery from '../components/TopicGallery.astro';
 import VideoLab from '../components/VideoLab.astro';
 import { languages, modelGuide, workflows } from '../lib/catalog.mjs';
 import { labs } from '../lib/labs.mjs';
-import { courses, courseRoute, onboardingGuides, workbenchProject } from '../lib/learning.mjs';
+import { courses, courseRoute, frankfurtGuide, onboardingGuides, workbenchProject } from '../lib/learning.mjs';
 import { principlesRoute } from '../lib/principles.mjs';
 import { topics, topicGuides } from '../lib/topics.mjs';
 import { toolGuides } from '../lib/tool-guides.mjs';
@@ -26,7 +26,7 @@ export function getStaticPaths() {
       guide: modelGuide,
       parent: 'models',
     });
-    entries.push(...[...onboardingGuides, workbenchProject].map((guide) => ({
+    entries.push(...[...onboardingGuides, workbenchProject, frankfurtGuide].map((guide) => ({
       page: guide.page,
       sourcePath: `docs/${locale}/${guide.page}.md`,
       guide,

@@ -44,6 +44,35 @@ export const workbenchProject = {
   },
 };
 
+export const frankfurtGuide = {
+  page: 'labs/frankfurt-reality',
+  sections: ['first-look', 'pipeline', 'inspect-data', 'setup', 'rebuild', 'verify'],
+  flow: {
+    en: [
+      ['Read synchronized cameras', 'RGB × 6 + K per camera', 'Group the camera views by recording time. K relates a pixel to a ray.'],
+      ['Reconstruct and track', 'LoMa + COLMAP → poses · RT-DETR → boxes', 'Recover the static scene from shared features and link real objects within each RGB stream.'],
+      ['Display both on one timeline', 'scene.spz + road.webp + tracks.json', 'Orbit the 3D road, or switch to the matching RGB observations and track IDs.'],
+    ],
+    ko: [
+      ['같은 시간의 카메라 영상 읽기', 'RGB 6장 + 카메라별 내부 파라미터 K', '촬영 시간별로 영상을 묶습니다. K를 이용해 픽셀이 향하는 방향을 구합니다.'],
+      ['장면 복원과 객체 추적', 'LoMa·COLMAP → 카메라 자세 · RT-DETR → 박스', '공통 특징점으로 정적 장면을 복원하고, 카메라 영상별로 같은 객체를 연결합니다.'],
+      ['한 타임라인에서 보기', 'scene.spz + road.webp + tracks.json', '3D 도로를 돌려 보거나, 같은 시간에 촬영한 실사 영상과 추적 ID를 확인합니다.'],
+    ],
+  },
+  en: {
+    title: 'Build the Frankfurt RGB Reality View',
+    description: 'Follow a real object across frames, then rebuild a 7.2-second road scene from six camera streams on one RTX GPU.',
+    alt: 'Volvo on the reconstructed Frankfurt road beside the synchronized RGB tracking view',
+    preparation: 'Browser first. Python 3 can inspect the published data. Use Linux and an NVIDIA GPU to rebuild the scene.',
+  },
+  ko: {
+    title: '프랑크푸르트 RGB Reality View 만들기',
+    description: '실사 영상에서 같은 차량의 ID를 따라가고, RTX GPU 한 장으로 카메라 6대가 촬영한 7.2초 도로를 복원합니다.',
+    alt: '복원한 프랑크푸르트 도로 위 Volvo와 같은 시간의 실사 추적 화면',
+    preparation: '브라우저에서 시작합니다. 저장된 데이터는 Python 3로 확인하고, 직접 복원할 때는 Linux와 NVIDIA GPU를 사용합니다.',
+  },
+};
+
 export const courses = [
   {
     slug: 'simulation-data',
@@ -158,6 +187,11 @@ export const courses = [
         route: 'labs/world-driving#implementation', mode: 'gpu',
         en: ['Read a learned model’s output', 'Inspect six-camera inputs and Alpamayo’s future poses; distinguish inference from a driving rollout.'],
         ko: ['학습 모델의 출력 읽기', '여섯 카메라 입력과 Alpamayo의 미래 자세를 보고 추론과 실제 주행을 구분합니다.'],
+      },
+      {
+        route: frankfurtGuide.page, mode: 'browser',
+        en: ['Rebuild the Frankfurt RGB Reality View', 'Inspect a real object track first, then reproduce a road scene on one RTX GPU.'],
+        ko: ['프랑크푸르트 RGB Reality View 만들기', '실사 차량 추적 데이터를 살펴본 뒤 RTX GPU 한 장으로 도로를 복원합니다.'],
       },
       {
         route: 'labs/nurec-rgb-reality#explore', mode: 'gpu',

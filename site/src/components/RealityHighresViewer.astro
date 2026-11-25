@@ -1,5 +1,7 @@
 ---
 import { showcaseMedia } from '../lib/showcase.mjs';
+import { pageUrl } from '../lib/catalog.mjs';
+import { frankfurtGuide } from '../lib/learning.mjs';
 const { locale } = Astro.props;
 const ko = locale === 'ko';
 const routes = [
@@ -19,6 +21,7 @@ const views = [
   aria-labelledby="frankfurt-heading">
   <h2 id="frankfurt-heading">{ko ? '프랑크푸르트 3D 주행' : 'Drive through Frankfurt in 3D'}</h2>
   <p>{ko ? '세 구간을 달리며 Volvo 추적 시점, 자유 시점, 실제 전·측·후방 카메라를 바꿔 보세요.' : 'Take three routes and switch between a Volvo chase view, free orbit, and the original front, side, and rear camera views.'}</p>
+  <p><a href={pageUrl(locale, frankfurtGuide.page)}>{ko ? '구현 원리와 실습 따라 하기' : 'How it works and how to rebuild it'}</a></p>
   <div class="routes" role="group" aria-label={ko ? '주행 구간' : 'Driving route'}>
     {routes.map((route, index) => <button type="button" data-hq-route={route.id} data-base={route.base}
       data-poster={route.poster} aria-pressed={index === 0}>
