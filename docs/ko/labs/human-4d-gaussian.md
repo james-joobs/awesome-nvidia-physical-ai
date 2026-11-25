@@ -79,9 +79,9 @@ RGB 손실과 함께 사용 → Gaussian 파라미터 갱신
 
 ### 1. GPU 없이 먼저 둘러보기
 
-위의 **3D 예제 불러오기**를 누르세요. 춤 동작을 멈추고 옆·뒤로 돌려 본 다음, 그 시점에서 다시 재생해 보세요. 원본 YouTube는 별도로 조작합니다. **SOMA 합성 리깅 예제**를 펼치면 다른 동작 샘플도 볼 수 있습니다.
+오른쪽 모델 화면의 **3D 시작**을 누르세요. 춤 동작을 멈추고 옆·뒤로 돌려 본 다음, 그 시점에서 다시 재생해 보세요. 원본 YouTube는 별도로 조작합니다. **SOMA 합성 리깅 예제**를 펼치면 다른 동작 샘플도 볼 수 있습니다.
 
-자신의 결과는 **로컬 결과 폴더 열기**에서 `manifest.json`이 있는 폴더를 선택합니다. `source.mp4`를 함께 넣으면 원본과 모델이 같은 타임라인으로 움직입니다.
+직접 학습한 결과는 `render` 단계에서 만든 비교 영상으로 먼저 확인합니다. `package`는 웹 뷰어에 연결할 모델·동작·타임라인 데이터를 다음 구조로 만듭니다.
 
 ```text
 my-result/
@@ -152,7 +152,7 @@ python3 labs/human-4d-gaussian/pipeline.py --root "$HUMAN_4D_ROOT" package
 python3 labs/human-4d-gaussian/pipeline.py --root "$HUMAN_4D_ROOT" --deep check
 ```
 
-`render`는 고정 시점과 자유 시점 영상을, `package`는 브라우저 데이터를 만듭니다. 검사를 통과하면 [뷰어](#explore)의 **로컬 결과 폴더 열기**에서 `$HUMAN_4D_ROOT/package`를 선택하세요.
+`render`는 고정 시점과 자유 시점 영상을, `package`는 웹 뷰어용 데이터를 만듭니다. `check`를 통과한 뒤 `$HUMAN_4D_ROOT/renders` 아래의 MP4를 열어 동작과 외형을 확인하세요.
 
 ### 7. 전체 동작으로 확장하기
 

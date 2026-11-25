@@ -325,7 +325,7 @@ def main():
  try:
   if a.stage=='check':print(json.dumps(check_package(r.package,a.deep,shutil.which(r.config.get('ffmpeg','ffmpeg')),r.root/'checks.json'),indent=2));return
   if a.stage=='serve':
-   r.need(r.package/'manifest.json');print(f'Package: http://127.0.0.1:{a.port}/manifest.json\nOpen the Pages human-4d-gaussian lab and select this local result folder. This local server serves data only, not GPU inference.',flush=True)
+   r.need(r.package/'manifest.json');print(f'Package: http://127.0.0.1:{a.port}/manifest.json\nPackage data is available over loopback HTTP for web-viewer integration. Inspect rendered MP4 files under the output renders directory.',flush=True)
    handler=lambda *args,**kwargs:http.server.SimpleHTTPRequestHandler(*args,directory=str(r.package),**kwargs);http.server.ThreadingHTTPServer(('127.0.0.1',a.port),handler).serve_forever();return
   journal=r.journal_path();recipe={'config':r.config,'mode':a.mode,'seed_only':a.seed_only if a.stage=='refine' else False}
   if a.stage=='refine':recipe['trajectory_experiment']=a.trajectory_experiment

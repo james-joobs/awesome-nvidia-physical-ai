@@ -78,7 +78,7 @@ flock "$HUMAN_4D_ROOT/.gpu.lock" "$RECON_PY" labs/human-4d-gaussian/fresh_interv
 
 출력은 로컬에 남으며 업로드·Git push·Pages 배포를 하지 않습니다. 다른 영상과 다른 조건은 새 출력 폴더에서 시작하세요. 원본 출처 표기와 파생 모델 재배포 권한은 별개입니다. YouTube 다운로더는 포함하지 않습니다.
 
-Pages의 **로컬 결과 폴더 열기**에서 `manifest.json`이 있는 패키지를 고르면 파일을 브라우저 안에서 읽습니다. 원본 비교용 `source.mp4`도 패키지 안에 있어야 합니다. `serve`는 로컬 데이터 서버이며 GPU 학습이나 Pages 전체 앱을 대신 실행하지 않습니다.
+검사한 결과는 `renders` 아래의 비교 영상으로 확인합니다. `package`는 웹 프런트엔드에 연결할 `manifest.json`·모델·타임라인 데이터를 만듭니다. `serve`는 이 패키지를 HTTP로 제공하는 데이터 서버입니다.
 
 `runtime.json`의 선택 항목 `source_credit`·`source_reference_url`로 내 입력 영상의 출처를 적을 수 있습니다. 모델 목록·브라우저 패키지에 함께 저장하며, 비교 영상에도 출처를 표시합니다. 기본 영상 폰트로 표시할 때는 영문 출처를 쓰거나 해당 문자를 지원하는 폰트를 준비하세요.
 

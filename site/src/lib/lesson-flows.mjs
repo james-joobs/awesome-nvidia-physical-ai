@@ -5,13 +5,13 @@ export const lessonFlows = {
       ['Read RGB and time', 'RGB[T,H,W,3] + timestamps → observed frames', 'Use a local video you can use. The public SOMA control is a separate synthetic example with known geometry.'],
       ['Estimate human motion', 'GEM-X → joints[T,77,3] + SOMA deformations[T,110,4,4]', 'RGB estimates are not motion-capture truth. The synthetic control already supplies its official rig motion.'],
       ['Learn a time-conditioned model', 'Generated views + actual RGB + original face/hand crops → 4D Gaussians', 'MoGe-3 depth and normals are weak inferred priors. Preserve the real source camera and label unobserved appearance.'],
-      ['Separate time from viewpoint', 'query time → 3D particles → user camera → rendered RGB', 'Pause and orbit, then hold the camera and play. Open your own folder locally; the public control demonstrates known-rig rendering.'],
+      ['Separate time from viewpoint', 'query time → 3D particles → user camera → rendered RGB', 'Pause and orbit, then hold the camera and play. Use the comparison video to inspect your own reconstruction.'],
     ],
     ko: [
       ['RGB와 시간부터 확인', 'RGB[T,H,W,3] + 시각 → 실제 관측 프레임', '사용할 수 있는 로컬 영상으로 진행합니다. 공개 SOMA 샘플은 기하 구조를 아는 별도의 합성 제어 예제입니다.'],
       ['인체 동작 추정', 'GEM-X → 관절[T,77,3] + SOMA 변형[T,110,4,4]', 'RGB 추정값은 모션 캡처 정답이 아닙니다. 합성 제어 샘플에는 공식 리깅 동작이 이미 있습니다.'],
       ['시간에 따라 변하는 모델 학습', '생성 시점 + 실제 RGB + 원본 얼굴·손 영역 → 4D Gaussian', 'MoGe-3의 깊이·법선은 약한 추정 제약입니다. 실제 원본 카메라를 유지하고, 미관측 외형을 구분합니다.'],
-      ['시간과 관찰 시점을 따로 제어', '조회 시각 → 3D 입자 → 사용자 카메라 → RGB 렌더링', '동작을 멈추고 회전한 뒤, 카메라를 고정하고 재생합니다. 내 결과 폴더는 로컬에서 열고 공개 제어 샘플은 알려진 리깅으로 렌더링합니다.'],
+      ['시간과 관찰 시점을 따로 제어', '조회 시각 → 3D 입자 → 사용자 카메라 → RGB 렌더링', '동작을 멈추고 회전한 뒤, 카메라를 고정하고 재생합니다. 직접 학습한 모델은 비교 영상으로 확인합니다.'],
     ],
   },
   'nurec-rgb-reality': {

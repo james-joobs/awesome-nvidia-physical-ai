@@ -79,9 +79,9 @@ Generated-view guidance receives less weight than the observed camera. Rendering
 
 ### 1. Explore without a CUDA GPU
 
-Choose **Load the 3D example** above. Pause the dance, drag to inspect the sides or back, then play it from the new angle. The original YouTube player is controlled separately. The optional **synthetic SOMA rig example** provides another motion sample.
+Choose **Start 3D** in the model panel above. Pause the dance, drag to inspect the sides or back, then play it from the new angle. The original YouTube player is controlled separately. The optional **synthetic SOMA rig example** provides another motion sample.
 
-To view your own result, choose **Open a local result folder** and select the folder containing `manifest.json`. Include `source.mp4` for a shared source/model timeline:
+Inspect your trained result in the comparison video produced by `render`. The `package` stage creates model, motion and timeline data for a web viewer:
 
 ```text
 my-result/
@@ -152,7 +152,7 @@ python3 labs/human-4d-gaussian/pipeline.py --root "$HUMAN_4D_ROOT" package
 python3 labs/human-4d-gaussian/pipeline.py --root "$HUMAN_4D_ROOT" --deep check
 ```
 
-`render` creates fixed-camera and orbit videos. `package` creates the browser data. After `check` passes, open `$HUMAN_4D_ROOT/package` with **Open a local result folder** in [the viewer](#explore).
+`render` creates fixed-camera and orbit videos. `package` creates web-viewer data. After `check` passes, open the MP4 files under `$HUMAN_4D_ROOT/renders` to inspect motion and appearance.
 
 ### 7. Extend to the full motion
 

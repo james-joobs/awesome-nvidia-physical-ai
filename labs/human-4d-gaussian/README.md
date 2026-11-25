@@ -100,7 +100,7 @@ python3 labs/human-4d-gaussian/pipeline.py --root "$HUMAN_4D_ROOT" \
   --package-dir "$HUMAN_4D_ROOT/package-full" --deep check
 ```
 
-A full timeline is written only after every interval completes. Stage journals match inputs, runtime configuration, adapter code and output hashes before reuse. Rerun the same command after an interruption; changed inputs or conditions require a separate output root. Renders are stored under `renders/<model-and-renderer-hash>` so the full result does not replace the short one. Select `package-full` in the Pages folder picker.
+A full timeline is written only after every interval completes. Stage journals match inputs, runtime configuration, adapter code and output hashes before reuse. Rerun the same command after an interruption; changed inputs or conditions require a separate output root. Renders are stored under `renders/<model-and-renderer-hash>` so the full result does not replace the short one. The `package-full` output contains the complete timeline for web integration.
 
 The older `refine --trajectory-experiment` path binds a shared seed snapshot to SOMA material tracks and fits observed-only later intervals through the stable conditional factorization. It remains an explicitly selected comparison: it produced more smearing than fresh multiview fitting. Plain `refine` and `refine --seed-only` complete the short seed; neither silently starts the experimental transfer route.
 
@@ -149,9 +149,9 @@ python3 labs/human-4d-gaussian/pipeline.py --root "$CONTROL_ROOT" --mode control
 
 `multiview`, `train` and `refine` return an explicit error in control mode, since those stages do not occur. Full rebuild details and array layouts are in [CONTROL-SOURCES.md](CONTROL-SOURCES.md).
 
-## Local viewing
+## Inspect your result
 
-Open the Pages lab and choose **Open a local result folder**. Select the package folder containing `manifest.json`, `source.mp4` and its model subfolders. Files are read with browser-local URLs, not uploaded. The optional `serve` command provides a loopback data URL; it does not run GPU inference or claim to host the full Pages application.
+Inspect the generated comparison videos under `renders`. The package contains `manifest.json`, model data and the motion timeline for integration with a web frontend. The optional `serve` command exposes these package files over loopback HTTP.
 
 Optional `source_credit` and `source_reference_url` in `runtime.json` carry your input attribution into the selected model inventory and browser package; the native comparison also prints the credit. Use an ASCII credit or a compatible installed font for native video text.
 
