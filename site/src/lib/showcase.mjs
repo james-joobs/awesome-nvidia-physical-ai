@@ -170,6 +170,8 @@ export const clips = [
 
 // Extra runs share an existing lab and its reading order.
 export const labMediaFiles = {
+  'site/public/showcase/reality-kitscenes.mp4': 'reality-kitscenes.mp4',
+  'site/public/showcase/reality-road-novel.mp4': 'reality-road-novel.mp4',
   'site/public/showcase/reality-dense.en.mp4': 'reality-dense.en.mp4',
   'site/public/showcase/reality-dense.ko.mp4': 'reality-dense.ko.mp4',
   'labs/nurec-rgb-reality/evidence/unified/interaction.en.mp4': 'reality-joint.en.mp4',
@@ -220,6 +222,18 @@ export const labMediaFiles = {
 };
 
 export const additionalRecordings = [
+  {
+    id: 'reality-kitscenes', lab: 'nurec-rgb-reality', duration: '0:16', width: 1280, height: 720,
+    en: { title: 'Frankfurt from new viewpoints · KITScenes',
+      description: 'Follow the route, shift sideways and rise above an RGB reconstruction from six KITScenes cameras.' },
+    ko: { title: '프랑크푸르트 도로의 새 시점 · KITScenes',
+      description: 'KITScenes 카메라 6대로 복원한 도로에서 좌우로 이동하고 시점을 높여 봅니다.' },
+  },
+  {
+    id: 'reality-road-novel', lab: 'nurec-rgb-reality', duration: '0:16', width: 1280, height: 638,
+    en: { title: 'PandaSet road from new viewpoints', description: 'Orbit the reconstructed road with RGB road reprojection, facades and a separate sky layer.' },
+    ko: { title: 'PandaSet 도로를 새 시점에서 보기', description: 'RGB 노면과 외벽, 별도 하늘 배경을 합성한 도로를 여러 각도에서 둘러봅니다.' },
+  },
   {
     id: 'reality-dense-latent', lab: 'nurec-rgb-reality', duration: '0:39', width: 1080, height: 938,
     dimensions: {en: [1080, 1036], ko: [1080, 938]},

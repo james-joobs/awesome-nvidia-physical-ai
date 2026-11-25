@@ -111,7 +111,22 @@
         "dense/cache_benchmark.py",
         "dense/export_dense.py",
         "dense/check.py",
-        "dense/evidence.json"
+        "dense/evidence.json",
+        "road/infer.py",
+        "road/calibrate.py",
+        "road/bake.py",
+        "road/bake_surroundings.py",
+        "road/compare_ground.py",
+        "road/filter_sky.py",
+        "road/package.py",
+        "road/check.py",
+        "road/viewer.js",
+        "road/highres/fetch_kit.py",
+        "road/highres/reconstruct.py",
+        "road/highres/train.py",
+        "road/highres/package.py",
+        "road/highres/check.py",
+        "road/highres/viewer.js"
       ],
       "evidence": "recorded.json"
     },

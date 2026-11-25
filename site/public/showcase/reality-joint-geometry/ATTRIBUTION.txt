@@ -35,3 +35,8 @@ Dense scene and joint-diffusion experiments (2026-11-25):
 - 4LC standalone latent-cache library: MIT, https://github.com/ZGCA-HMI-Lab/4LC ; separate cache experiment, not the 14B video generator.
 - WorldLatent: research reference only, https://worldlatent.github.io/ ; no WorldVAE or WorldLatent weights used.
 - New road derivatives retain the PandaSet source attribution and CC BY-SA 4.0 + original Dataset Terms above.
+- The road atlas is derived from the same observed PandaSet camera images.
+  The directional sky panorama and facade atlases also derive from these images.
+  Road and sky labels use the Mask2Former Cityscapes checkpoint.
+  Camera correspondences use LoMa-B. Refined road depth also uses Depth Pro 2-B.
+  Model checkpoints are obtained separately. See labs/nurec-rgb-reality/road/README.md.

@@ -1,6 +1,7 @@
 {
   "schema": 1,
-  "default": "hybrid",
+  "default": "road",
+  "road": true,
   "units": "normalized camera-height units; not measured meters",
   "source": "PandaSet camera RGB; CC BY-SA 4.0 + original Dataset Terms",
   "source_times": "Existing lab nominal filename/10 times, not imported sensor timestamps",

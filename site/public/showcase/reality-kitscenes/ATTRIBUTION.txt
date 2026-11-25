@@ -1,0 +1,23 @@
+Frankfurt RGB novel-view reconstruction, for non-commercial educational use.
+
+Original camera imagery: KITScenes Multimodal, Institute of Measurement and
+Control Systems (MRT), Karlsruhe Institute of Technology (KIT), and FZI Research
+Center for Information Technology. https://www.kitscenes.com/multimodal/
+Schwarzkopf, Immel et al., The Road Ahead in Autonomous Driving:
+The KITScenes Multimodal Dataset. https://arxiv.org/abs/2606.02956
+
+Source of the camera files: the public FiftyOne release prepared by Harpreet
+Sahota and Voxel51, scene 00fc1b9b-005e-554c-7733-c4c0adeca015.
+https://huggingface.co/datasets/Voxel51/kitscenes-multimodal
+
+The reconstructed scene, road and sky textures, video and poster use the
+source data's CC BY-NC 4.0 license and KITScenes dataset terms.
+https://creativecommons.org/licenses/by-nc/4.0/
+https://huggingface.co/datasets/KIT-MRT/KITScenes-Multimodal
+
+Changes: sampled six anonymized RGB camera streams, resampled images,
+applied one tone curve, estimated poses with LoMa-B and COLMAP, excluded
+dynamic/sky regions from static appearance fitting, fit gsplat Gaussians,
+and reprojected road RGB and a directional sky panorama. The video shows
+the reconstructed scene at displaced virtual camera viewpoints.
+Original camera files and sensor metadata are not bundled with this demo.

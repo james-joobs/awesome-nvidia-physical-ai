@@ -121,6 +121,19 @@ The **diffusion experiments** condition Aether on the first RGB frame and left/r
 
 [Actual 3D comparison recording](../../../site/public/showcase/reality-dense.en.mp4) · [Implementation, reproduction and measurement scope](../../../labs/nurec-rgb-reality/dense/README.md).
 
+
+### 7. Texture a fixed road surface from camera RGB
+
+**Reprojected RGB road + 3D scene** maps observed pixels to one persistent road surface. Mask2Former separates road and sky, LoMa and bundle adjustment refine the cameras, and DA3 and Depth Pro 2 help estimate road height. A texel needs road support in at least two source views. The default view also textures supported vertical facades and maps observed sky by direction.
+
+Use the [comparison viewer](#joint-geometry) to switch at the same viewpoint, or choose **Reprojected RGB road only** to see lane markings and texture coverage. [Inputs, reproduction and measurements](../../../labs/nurec-rgb-reality/road/README.md).
+
+On the same 1,887 validation projections, a second LoMa and BA pass lowered the overall p90 error from 6.39 to 5.97 px. Facade projection and road texture retain the better-performing first-pass outputs.
+
+### 8. Render novel views in Frankfurt
+
+Explore a real Frankfurt street reconstructed from six KITScenes cameras. Shift the camera sideways or raise it over the same road and compare with the PandaSet exercise below. [Reproduction, dataset shortlist and terms](../../../labs/nurec-rgb-reality/road/highres/README.en.md).
+
 ## Run the lab
 
 ### 1. Explore without a CUDA GPU

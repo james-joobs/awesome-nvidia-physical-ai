@@ -11,15 +11,17 @@ const {locale}=Astro.props;const ko=locale==='ko';
       <figure data-joint-depth-figure><figcaption>{ko?'예측 깊이 · 밝음: 가까움 / 파랑: 멂':'Predicted depth · bright: near / blue: far'}</figcaption><img data-joint-depth-poster src={showcaseMedia('reality-joint-geometry/dense/depth-preview.jpg')} width="252" height="140" alt={ko?'선택한 RGB의 예측 깊이 미리보기':'Predicted depth preview for the selected RGB'} loading="lazy" /><canvas data-joint-depth width="252" height="140" hidden role="img" aria-label={ko?'예측 깊이. 회색은 표시에서 제외한 픽셀입니다.':'Predicted depth. Gray marks display-filtered pixels.'}></canvas></figure>
     </div>
     <div class="joint-stage" data-joint-stage>
-      <img class="joint-poster" data-joint-poster src={showcaseMedia('reality-joint-geometry/dense/preview.jpg')} width="896" height="504" alt={ko?'실사 RGB로 복원한 도로와 자차 위치':'Road reconstructed from real RGB with an ego-vehicle reference'} loading="lazy" />
-      <span class="joint-kind" data-joint-kind>{ko?'RGB 복원':'RGB reconstruction'}</span>
+      <img class="joint-poster" data-joint-poster src={showcaseMedia('reality-joint-geometry/road/preview.jpg')} width="596" height="389" alt={ko?'실사 RGB로 복원한 도로와 자차 위치':'Road reconstructed from real RGB with an ego-vehicle reference'} loading="lazy" />
+      <span class="joint-kind" data-joint-kind>{ko?'RGB 노면 재투영':'RGB road reprojection'}</span>
       <div class="joint-cover" data-joint-cover><div class="joint-start-card"><button data-joint-load type="button"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m12 2 9 5v10l-9 5-9-5V7zM3 7l9 5 9-5M12 12v10"/></svg><span data-joint-load-label>{ko?'3D 시작':'Start 3D'}</span></button><p data-joint-message role="status">{ko?'회전 · 확대 · 시간 이동':'Rotate · Zoom · Scrub time'}</p></div></div>
     </div>
   </div>
   <div data-joint-tools hidden>
     <div class="joint-controls">
       <label>{ko?'비교 모드':'Compare'} <select data-joint-model disabled>
-        <optgroup label={ko?'도로 장면':'Road scene'}><option value="hybrid">{ko?'3DGS 배경 + 시간별 차량':'3DGS background + time-local vehicles'}</option><option value="nurec">{ko?'기존 고화질 3DGS':'Previous high-quality 3DGS'}</option></optgroup>
+        <optgroup label={ko?'도로 장면':'Road scene'}>
+          <option value="road">{ko?'RGB 노면 재투영 + 3D 장면':'Reprojected RGB road + 3D scene'}</option>
+          <option value="road-only">{ko?'RGB 노면만 보기':'Reprojected RGB road only'}</option><option value="hybrid">{ko?'3DGS 배경 + 시간별 차량':'3DGS background + time-local vehicles'}</option><option value="nurec">{ko?'기존 고화질 3DGS':'Previous high-quality 3DGS'}</option></optgroup>
         <optgroup label={ko?'깊이 복원 비교':'Depth reconstruction'}><option value="calibrated">{ko?'DA3 · RGB 카메라 보조 입력':'DA3 · RGB/SfM camera priors'}</option><option value="surround">{ko?'DA3 · 주변 카메라 6개':'DA3 · six RGB cameras'}</option><option value="da3">{ko?'DA3 · 전방 카메라':'DA3 · front camera'}</option><option value="aether">{ko?'Aether · 전방 복원':'Aether · front reconstruction'}</option></optgroup>
         <optgroup label={ko?'디퓨전 생성 실험':'Diffusion generation experiments'}><option value="generated-right">{ko?'Aether · 오른쪽 시점 생성':'Aether · generated right views'}</option><option value="generated-left">{ko?'Aether · 왼쪽 시점 생성':'Aether · generated left views'}</option></optgroup>
       </select></label>
@@ -44,8 +46,8 @@ for(const root of document.querySelectorAll<HTMLElement>('[data-joint-viewer]'))
   function reset(){
     delete root.dataset.jointReady;delete root.dataset.jointModel;
     q('tools').hidden=true;q('cover').hidden=false;q('poster').hidden=false;q('depth-poster').hidden=false;q('depth').hidden=true;q('depth-figure').hidden=false;
-    rgb.src=initialRgb;q('rgb-caption').textContent=ko?'관측 RGB':'Observed RGB';q('kind').textContent=ko?'RGB 복원':'RGB reconstruction';q('kind').dataset.generated='false';label.textContent=start;message.textContent=hint;load.disabled=false;
-    (q('model') as HTMLSelectElement).value='hybrid';(q('camera') as HTMLSelectElement).value='1';(q('frame') as HTMLInputElement).value='8';q('time').textContent='2.4 s · 9/17';q('inspector').removeAttribute('open');q('stage').setAttribute('aria-busy','false');
+    rgb.src=initialRgb;q('rgb-caption').textContent=ko?'관측 RGB':'Observed RGB';q('kind').textContent=ko?'RGB 노면 재투영':'RGB road reprojection';q('kind').dataset.generated='false';label.textContent=start;message.textContent=hint;load.disabled=false;
+    (q('model') as HTMLSelectElement).value='road';(q('camera') as HTMLSelectElement).value='1';(q('frame') as HTMLInputElement).value='8';q('time').textContent='2.4 s · 9/17';q('inspector').removeAttribute('open');q('stage').setAttribute('aria-busy','false');
   }
   load.addEventListener('click',async()=>{
     if(loading)return;loading=true;load.disabled=true;label.textContent=ko?'불러오는 중…':'Loading 3D…';message.textContent=ko?'장면을 준비하고 있습니다.':'Preparing the road scene.';q('stage').setAttribute('aria-busy','true');root.dataset.jointLoading='true';

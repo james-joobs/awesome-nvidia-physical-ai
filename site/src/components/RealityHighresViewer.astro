@@ -1,0 +1,91 @@
+---
+import { showcaseMedia } from '../lib/showcase.mjs';
+const { locale } = Astro.props;
+const ko = locale === 'ko';
+---
+<section id="frankfurt-3d" class="scene" data-hq-viewer data-locale={locale}
+  data-hq-base={showcaseMedia('reality-kitscenes/')}
+  data-hq-canvas-label={ko?'프랑크푸르트 도로의 자유 시점 3D':'Interactive Frankfurt street scene'}
+  aria-labelledby="frankfurt-heading">
+  <h2 id="frankfurt-heading">{ko?'프랑크푸르트 도로를 새 시점에서 보기':'See Frankfurt from a new viewpoint'}</h2>
+  <p>{ko?'촬영 위치를 따라 이동하거나 카메라를 옆으로 움직여 보세요. 바닥은 카메라 RGB를 재투영한 표면입니다.':'Follow the recorded route or shift the camera sideways. The road surface is textured with reprojected camera RGB.'}</p>
+  <div class="stage" data-hq-stage>
+    <img data-hq-poster src={showcaseMedia('reality-kitscenes.jpg')} width="1280" height="720"
+      loading="lazy" alt={ko?'RGB로 복원한 프랑크푸르트 도로':'Frankfurt street reconstructed from RGB'} />
+    <div class="start" data-hq-cover>
+      <button type="button" class="button button-primary" data-hq-start>{ko?'3D 시작':'Start 3D'}</button>
+      <p role="status" data-hq-status>{ko?'회전 · 카메라 이동':'Orbit · Move camera'}</p>
+    </div>
+  </div>
+  <div class="controls" data-hq-controls hidden>
+    <label>{ko?'촬영 경로':'Recorded route'} <input type="range" min="0" max="1" step="0.05" data-hq-time /><output data-hq-readout></output></label>
+    <label>{ko?'좌우 이동':'Lateral shift'} <input type="range" min="-1.8" max="1.8" step="0.05" data-hq-offset /></label>
+    <label>{ko?'카메라 높이':'Camera height'} <input type="range" min="0" max="2" step="0.05" data-hq-lift /></label>
+    <button type="button" data-hq-close>{ko?'3D 닫기':'Close 3D'}</button>
+  </div>
+  <p class="credit">{ko?'KITScenes 카메라 RGB를 재구성한 비상업 교육용 데모입니다.':'Non-commercial educational reconstruction from KITScenes camera RGB.'}
+    <a href="https://www.kitscenes.com/multimodal/">KITScenes Multimodal</a> ·
+    <a href="https://huggingface.co/datasets/Voxel51/kitscenes-multimodal">Voxel51</a> ·
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> ·
+    <a href={showcaseMedia('reality-kitscenes/ATTRIBUTION.txt')}>{ko?'출처와 변경 사항':'Credits and changes'}</a> ·
+    <a href="#joint-geometry">{ko?'기존 PandaSet 비교':'PandaSet comparison'}</a>
+  </p>
+</section>
+<script>
+for (const root of document.querySelectorAll<HTMLElement>('[data-hq-viewer]')) {
+  const q = (name:string) => root.querySelector<HTMLElement>(`[data-hq-${name}]`)!;
+  const start = q('start') as HTMLButtonElement;
+  const startText = start.textContent;
+  const status = q('status');
+  const hint = status.textContent;
+  const ko = root.dataset.locale === 'ko';
+  let abort: AbortController | undefined;
+  let dispose: (() => void) | undefined;
+  const close = () => {
+    abort?.abort();
+    dispose?.();
+    dispose = undefined;
+    root.removeAttribute('data-hq-ready');
+    q('cover').hidden = q('poster').hidden = false;
+    q('controls').hidden = true;
+    start.disabled = false;
+    start.textContent = startText;
+    status.textContent = hint;
+  };
+  start.addEventListener('click', async () => {
+    abort = new AbortController();
+    start.disabled = true;
+    start.textContent = ko ? '장면 불러오는 중…' : 'Loading scene…';
+    try {
+      const { mountHighresViewer } = await import('../../../labs/nurec-rgb-reality/road/highres/viewer.js');
+      dispose = await mountHighresViewer(root, abort.signal);
+      q('cover').hidden = q('poster').hidden = true;
+      q('controls').hidden = false;
+      root.dataset.hqReady = 'true';
+    } catch (error) {
+      close();
+      status.textContent = ko ? '장면을 열지 못했습니다. 다시 시도해 주세요.' : 'The scene could not open. Try again.';
+      console.error(error);
+    }
+  });
+  q('close').addEventListener('click', () => { close(); start.focus(); });
+  window.addEventListener('pagehide', close, {once:true});
+}
+</script>
+<style>
+  .scene { margin-block: 2.5rem; }
+  h2 { margin-bottom: .5rem; }
+  p { line-height: 1.6; }
+  .stage { position: relative; aspect-ratio: 16/9; background: var(--surface); border: 1px solid var(--edge); border-radius: 6px; overflow: clip; }
+  .stage img, .stage :global(canvas) { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .stage :global(canvas) { touch-action: none; }
+  .start { position: absolute; top: 12px; right: 12px; display: grid; justify-items: center; gap: 5px; padding: 12px; background: var(--surface); border: 1px solid var(--edge); border-radius: 6px; }
+  .start p { margin: 0; max-width: 22ch; color: var(--muted); font-size: .78rem; }
+  .controls { display: flex; flex-wrap: wrap; gap: .6rem 1rem; align-items: center; padding-block: .75rem; }
+  .controls label { display: flex; align-items: center; gap: .5rem; min-height: 44px; font-size: .85rem; }
+  .controls input { width: clamp(94px, 13vw, 140px); accent-color: #76b900; }
+  .controls button { min-height: 44px; padding: .5rem .75rem; background: var(--surface); border: 1px solid var(--edge); border-radius: 5px; color: var(--text); }
+  .credit { margin-top: .5rem; color: var(--muted); font-size: .82rem; }
+  [hidden] { display: none !important; }
+  @media (max-width: 610px) { .stage { aspect-ratio: 4/3; } .start { padding: 8px; } }
+</style>

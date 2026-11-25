@@ -10,6 +10,7 @@ import LabRecordings from './LabRecordings.astro';
 import SplatExplorer from './SplatExplorer.astro';
 import RgbRealityViewer from './RgbRealityViewer.astro';
 import JointRealityViewer from './JointRealityViewer.astro';
+import RealityHighresViewer from './RealityHighresViewer.astro';
 import HumanGaussianViewer from './HumanGaussianViewer.astro';
 import ToolTags from './ToolTags.astro';
 import { catalogSearchUrl, pageUrl, repositoryFile } from '../lib/catalog.mjs';
@@ -37,8 +38,8 @@ const isPlacement = id === 'gr00t-placement';
 const startLabel = learningCopy[locale].firstExercise;
 const exampleLabel = locale === 'ko' ? '시연 영상' : 'Watch the demo';
 const hasViewer = ['nurec-rgb-reality', 'rgb-reality-view', 'spatial-reconstruction', 'worldgen-scenes', 'human-4d-gaussian'].includes(id);
-const demoAnchor = id === 'nurec-rgb-reality' ? 'joint-geometry' : 'explore';
-const heroClip = id === 'nurec-rgb-reality' ? additionalRecordings.find(r => r.id === 'reality-dense-latent') ?? clip : clip;
+const demoAnchor = id === 'nurec-rgb-reality' ? 'frankfurt-3d' : 'explore';
+const heroClip = id === 'nurec-rgb-reality' ? additionalRecordings.find(r => r.id === 'reality-kitscenes') ?? clip : clip;
 const topic = topicForPage(`labs/${id}`);
 const topicLabels = topicsCopy[locale];
 const ko = locale === 'ko';
@@ -56,8 +57,11 @@ const preparation = {
 }[id];
 const steps = [
   ...(hasViewer ? [{ id: demoAnchor, label: ko ? '3D 데모' : '3D demo' }] : []),
-  ...(id === 'nurec-rgb-reality' ? [{ id: 'explore', label: ko ? '고화질 3DGS' : 'High-quality 3DGS' }] : []),
   { id: 'example-run', label: exampleLabel },
+  ...(id === 'nurec-rgb-reality' ? [
+    { id: 'joint-geometry', label: ko ? 'PandaSet 노면 비교' : 'PandaSet road comparison' },
+    { id: 'explore', label: ko ? '기존 고화질 3DGS' : 'Previous high-quality 3DGS' },
+  ] : []),
   ...(isPlacement ? [{ id: 'first-exercise', label: startLabel }] : []),
   ...headings,
   { id: 'code', label: labels.code },
@@ -85,6 +89,8 @@ const steps = [
     <LessonPreview slot="preview" image={showcaseMedia(`${heroClip.media?.[locale] ?? heroClip.id}.jpg`)} alt={entry.title} caption={topicLabels.recording}
       href="#example-run" label={exampleLabel} />
     {isPlacement && <PlacementExercise locale={locale} />}
+    {id === 'nurec-rgb-reality' && <RealityHighresViewer locale={locale} />}
+    {id === 'nurec-rgb-reality' && <LabRecordings locale={locale} id={id} clip={clip} evidence={evidence}/>}
     {id === 'nurec-rgb-reality' && <JointRealityViewer locale={locale} />}
     {id === 'nurec-rgb-reality' && <RgbRealityViewer locale={locale} id={id} featured/>}
     {id === 'rgb-reality-view' && <RgbRealityViewer locale={locale} id={id}/>}
@@ -93,7 +99,7 @@ const steps = [
     {id === 'spatial-reconstruction' && <SplatExplorer locale={locale}/>}
     {id === 'worldgen-scenes' && <SplatExplorer locale={locale} sceneId="robot-lab" first/>}
     {id === 'worldgen-scenes' && <details class="lab-disclosure"><summary><span>{ko?'거실과 숲길도 둘러보기':'Explore the living room and forest'}</span><Icon name="chevron" size={17}/></summary>{['livingroom','forest-trail'].map(sceneId=><SplatExplorer locale={locale} sceneId={sceneId}/>)}</details>}
-    <LabRecordings locale={locale} id={id} clip={clip} evidence={evidence}/>
+    {id !== 'nurec-rgb-reality' && <LabRecordings locale={locale} id={id} clip={clip} evidence={evidence}/>}
     <details class="lab-disclosure lab-learning" id="learn">
       <summary><span>{ko?'동작 원리와 실습 가이드':'How it works and hands-on guide'}</span><Icon name="chevron" size={17}/></summary>
       <LessonTheory locale={locale} page={`labs/${id}`} flow={lessonFlows[id]} theory={theory} showPixels={id === 'scene-to-data'} />

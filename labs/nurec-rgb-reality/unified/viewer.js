@@ -5,6 +5,10 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import { SparkRenderer, SplatMesh } from '@sparkjsdev/spark';
+import { loadRoadAtlas } from '../road/viewer.js';
+
+const isRoadMode = mode => mode === 'road' || mode === 'road-only';
+const usesDenseScene = mode => mode === 'hybrid' || isRoadMode(mode);
 
 export async function mountJointViewer(root) {
   const cleanups=[],controller=new AbortController();let closed=false;
@@ -41,18 +45,45 @@ async function buildJointViewer(root,register,signal) {
   const gltf=await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).loadAsync(base+'../nurec-rgb-reality/'+manifest.vehicle.file);
   register(()=>gltf.scene.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();}));
   const car=new T.Group();gltf.scene.rotation.x=Math.PI/2;gltf.scene.scale.setScalar(manifest.vehicle.scale);car.add(gltf.scene);scene.add(car);
-  let index=8,model=manifest.models.find(m=>m.id===(manifest.default==='hybrid'?'calibrated':manifest.default)),preset='chase',playing=false,clock=0,dead=false,revision=0,baseline=null,spark=null;
-  let denseMode=manifest.default==='hybrid',denseBackground=null,foregroundMask=null;
+  let mode = manifest.default;
+  let index=8,model=manifest.models.find(m=>m.id===(usesDenseScene(mode)?'calibrated':mode)),preset='chase',playing=false,clock=0,dead=false,revision=0,baseline=null,spark=null;
+  let denseMode = usesDenseScene(mode), denseBackground = null, foregroundMask = null;
+  let road = null, roadBackground = null, roadSurroundings = null;
+  const ensureRoad = async () => {
+    if (road) return;
+    road = await loadRoadAtlas(get, base);
+    register(() => road.dispose());
+    scene.add(road.mesh);
+  };
+  const ensureRoadBackground = async () => {
+    if (!roadBackground) {
+      roadBackground = await road.loadBackground();
+      register(() => roadBackground.dispose());
+      scene.add(roadBackground);
+    }
+    if (!roadSurroundings) {
+      roadSurroundings = await road.loadSurroundings();
+      if (roadSurroundings) {
+        register(() => roadSurroundings.dispose());
+        scene.add(roadSurroundings.group);
+      }
+    }
+  };
+  for (const option of select.querySelectorAll('option')) {
+    if (isRoadMode(option.value)) option.hidden = !manifest.road;
+  }
   let cameraAnchor=manifest.frames[index].camera_position;
   register(()=>{dead=true;revision++;baseline?.dispose();denseBackground?.dispose();spark?.dispose();});
-  async function loadDense(){
+  async function loadDense(loadBackground = true){
     if(!dense)throw new Error('Dense experiment unavailable');
-    if(!denseBackground){
-      if(!spark){spark=new SparkRenderer({renderer});scene.add(spark);}
+    if(!spark){spark=new SparkRenderer({renderer});scene.add(spark);}
+    if(loadBackground && !denseBackground){
       const record=dense.static_gaussians,bytes=await(await get(base+'dense/'+record.file)).arrayBuffer();
       const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),x=>x.toString(16).padStart(2,'0')).join('');
       if(bytes.byteLength!==record.bytes||hash!==record.sha256)throw new Error('Gaussian checksum mismatch');
       denseBackground=new SplatMesh({fileBytes:bytes,fileName:record.file});await denseBackground.initialized;scene.add(denseBackground);
+    }
+    if(!foregroundMask){
       const compressed=await(await get(base+'dense/'+dense.mask.file)).arrayBuffer();
       const magic=new Uint8Array(compressed,0,Math.min(2,compressed.byteLength));
       const raw=magic[0]===0x1f&&magic[1]===0x8b?await new Response(new Blob([compressed]).stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer():compressed;
@@ -96,15 +127,16 @@ async function buildJointViewer(root,register,signal) {
   function setPreset(name){
     preset=name;const f=frameData(),yaw=f.yaw_radians;
     cameraAnchor=f.camera_position;
-    car.position.set(...f.ground_position);car.rotation.z=yaw;car.visible=name!=='input';
+    positionCar();
     if(name==='input'){
-      const pose=model?model.camera_to_world[activeView()]:null;
+      const roadCamera = isRoadMode(mode) ? road?.manifest : null;
+      const pose = (roadCamera ?? model)?.camera_to_world[activeView()];
       const R=pose?pose.slice(0,3).map(r=>r.slice(0,3)):f.camera_rotation_opencv;
       camera.position.set(...(pose?pose.slice(0,3).map(r=>r[3]):f.camera_position));
       controls.target.copy(camera.position).add(new T.Vector3(R[0][2],R[1][2],R[2][2]).multiplyScalar(8));
       // Roll agrees with the actual input camera; free views return to Z-up.
       camera.up.set(-R[0][1],-R[1][1],-R[2][1]);
-      camera.fov=model?2*Math.atan(model.source_shape[1]/(2*model.intrinsics[activeView()][1][1]))*180/Math.PI:39;
+      camera.fov=model?2*Math.atan(model.source_shape[1]/(2*(roadCamera ?? model).intrinsics[activeView()][1][1]))*180/Math.PI:39;
     }else{
       camera.up.set(0,0,1);const offsets={chase:[-3.6,-2.4,2],side:[1.5,-4,2.0],overhead:[3,0,8]};
       const v=new T.Vector3(...offsets[name]).applyAxisAngle(new T.Vector3(0,0,1),yaw);
@@ -118,17 +150,31 @@ async function buildJointViewer(root,register,signal) {
     const q=[(u-K[0][2])*d/K[0][0],(v-K[1][2])*d/K[1][1],d];
     return C.slice(0,3).map(r=>r[0]*q[0]+r[1]*q[1]+r[2]*q[2]+r[3]);
   }
+  function positionCar() {
+    const frame = frameData();
+    car.position.set(...frame.ground_position);
+    if (isRoadMode(mode) && road) car.position.z = road.manifest.ground_height_at_ego[index];
+    car.rotation.z = frame.yaw_radians;
+    car.visible = preset !== 'input' && mode !== 'road-only';
+  }
+  function updateRoadLayer() {
+    if (!road) return;
+    road.mesh.visible = isRoadMode(mode);
+    if (roadBackground) roadBackground.visible = mode === 'road';
+    if (roadSurroundings) roadSurroundings.group.visible = mode === 'road';
+  }
   async function setFrame(value,{move=false}={}){
     if(dead)return;
     info.textContent=ko?'왼쪽 RGB의 픽셀을 누르면 깊이와 3D 좌표가 표시됩니다.':'Click a pixel in the RGB panel to inspect its depth and 3D coordinate.';
     index=Number(value);slider.value=String(index);time.textContent=`${(model?.rgb_kind==='generated'?index/12:frameData().time_seconds).toFixed(1)} s · ${index+1}/17`;marker.visible=false;
-    car.position.set(...frameData().ground_position);car.rotation.z=frameData().yaw_radians;
+    positionCar();
+    updateRoadLayer();
     const thisRevision=++revision;
     if(model){
       const [w,h]=model.grid,n=w*h,view=activeView(),depth=buffers.get(model.id).subarray(view*n,(view+1)*n);
       let totalTriangles=0;surfaces.forEach(s=>s.visible=false);
       const textureJobs=[];
-      for(let slot=0;slot<model.views_per_frame;slot++){
+      for(let slot=0;slot<(mode==='road-only'?0:model.views_per_frame);slot++){
       const v=index*model.views_per_frame+slot,values=buffers.get(model.id).subarray(v*n,(v+1)*n),mesh=surfaces[slot];
       if(mesh.geometry.getAttribute('position')?.count!==n||mesh.userData.model!==model.id){
         mesh.geometry.dispose();mesh.geometry=new T.BufferGeometry();
@@ -154,15 +200,21 @@ async function buildJointViewer(root,register,signal) {
       depthCanvas.width=w;depthCanvas.height=h;const ctx=depthCanvas.getContext('2d'),im=ctx.createImageData(w,h);
       for(let i=0;i<n;i++){const d=depth[i]/65535*model.depth_max,t=Math.min(1,Math.log1p(d)/Math.log1p(40)),off=i*4;im.data[off]=depth[i]?Math.round(255*(1-t)):220;im.data[off+1]=depth[i]?Math.round(210*(1-t*t)):225;im.data[off+2]=depth[i]?Math.round(80+175*t):229;im.data[off+3]=255;}ctx.putImageData(im,0,0);
       try{await Promise.all(textureJobs);}catch(error){if(dead||thisRevision!==revision)return;throw error;}if(dead||thisRevision!==revision)return;
-      if(denseBackground)denseBackground.visible=denseMode;
+      if(denseBackground)denseBackground.visible=mode==='hybrid';
       const caption=root.querySelector('[data-joint-rgb-caption]');if(caption)caption.textContent=model.rgb_kind==='generated'?(ko?'디퓨전으로 생성한 RGB':'Diffusion-generated RGB'):(ko?'관측 RGB':'Observed RGB');
       const keep=new Set(model.rgb.slice(index*model.views_per_frame,(index+1)*model.views_per_frame).map(x=>base+x));
       for(const [url,promise] of textures){if(textures.size<=24)break;if(!keep.has(url)){textures.delete(url);void promise.then(t=>t.dispose()).catch(()=>{});}}
       if(baseline)baseline.visible=false;
       const generated=model.rgb_kind==='generated';
-      const chip=root.querySelector('[data-joint-kind]');chip.textContent=generated?(ko?'생성 실험 · Aether':'Generated · Aether'):(ko?'RGB 복원':'RGB reconstruction');chip.dataset.generated=String(generated);
+      const chip=root.querySelector('[data-joint-kind]');
+      chip.textContent=isRoadMode(mode)?(ko?'RGB 노면 재투영':'RGB road reprojection'):generated?(ko?'생성 실험 · Aether':'Generated · Aether'):(ko?'RGB 복원':'RGB reconstruction');
+      chip.dataset.generated=String(generated);
       root.querySelector('[data-joint-depth-figure]').hidden=false;root.querySelector('[data-joint-inspector]').hidden=false;
-      status.textContent=denseMode?(ko?'3DGS 배경과 선택한 시간의 차량을 함께 표시합니다.':'3DGS background with vehicles at the selected time.'):(generated?(ko?'생성 시점 비교입니다. 차량·도로는 원본과 달라질 수 있습니다.':'Generated-view comparison. Vehicles and road details can differ from the source.'):(ko?`${modelLabel(model)} · 시간별 깊이 표면`:`${model.label} · time-local depth surfaces`));
+      status.textContent=isRoadMode(mode)
+        ? (mode==='road-only'
+          ? (ko?'여러 카메라에서 확인한 노면 텍스처만 표시합니다.':'Shows only the road texture observed in multiple camera views.')
+          : (ko?'여러 시점의 RGB로 노면과 건물 일부를 입히고, 하늘을 별도 배경으로 표시합니다.':'Multi-view RGB textures cover the road and supported facades, with a separate sky background.'))
+        : denseMode?(ko?'3DGS 배경과 선택한 시간의 차량을 함께 표시합니다.':'3DGS background with vehicles at the selected time.'):(generated?(ko?'생성 시점 비교입니다. 차량·도로는 원본과 달라질 수 있습니다.':'Generated-view comparison. Vehicles and road details can differ from the source.'):(ko?`${modelLabel(model)} · 시간별 깊이 표면`:`${model.label} · time-local depth surfaces`));
       root.dataset.jointTriangles=String(totalTriangles);
     }else{
       if(denseBackground)denseBackground.visible=false;
@@ -179,7 +231,10 @@ async function buildJointViewer(root,register,signal) {
     cameraAnchor=nextAnchor;
     root.dataset.jointFrame=String(index);
   }
-  if(denseMode)await loadDense();await loadModel(model);await setFrame(index);setPreset('chase');
+  if (denseMode && mode !== 'road-only') await loadDense(mode === 'hybrid');
+  if (isRoadMode(mode)) await ensureRoad();
+  if (mode === 'road') await ensureRoadBackground();
+  await loadModel(model);await setFrame(index);setPreset('chase');
   const resize=new ResizeObserver(()=>{camera.aspect=stage.clientWidth/stage.clientHeight;camera.updateProjectionMatrix();renderer.setSize(stage.clientWidth,stage.clientHeight);});resize.observe(stage);
   register(()=>resize.disconnect());
   let visible=true;const observer=new IntersectionObserver(([e])=>visible=e.isIntersecting);observer.observe(stage);
@@ -188,15 +243,24 @@ async function buildJointViewer(root,register,signal) {
   let last=performance.now();renderer.setAnimationLoop(()=>{const now=performance.now(),dt=Math.min((now-last)/1000,.1);last=now;if(dead||!visible||document.hidden)return;controls.update();renderer.render(scene,camera);history.push(now);if(history.length>240)history.shift();if(playing){clock+=dt;if(clock>=(model?.rgb_kind==='generated'?1/12:.3)){clock=0;void setFrame((index+1)%17,{move:true}).catch(updateError);}}});
   const onModel=async()=>{
     root.querySelectorAll('select,[data-joint-frame],[data-joint-play],[data-joint-preset]').forEach(e=>e.disabled=true);playing=false;play.textContent=ko?'재생':'Play';status.textContent=ko?'비교 장면을 불러오는 중…':'Loading the comparison scene…';
-    const previous=model,previousDense=denseMode;
+    const previous=model,previousDense=denseMode,previousMode=mode;
     try{
-      denseMode=select.value==='hybrid';
+      mode = select.value;
+      denseMode = usesDenseScene(mode);
       if(select.value==='nurec'){
         if(!baseline){if(!spark){spark=new SparkRenderer({renderer});scene.add(spark);}baseline=new SplatMesh({url:base+'../nurec-rgb-reality/guided.spz'});await baseline.initialized;scene.add(baseline);}
         model=null;
-      }else{const next=manifest.models.find(m=>m.id===(denseMode?'calibrated':select.value));await loadModel(next);if(denseMode)await loadDense();if(next.rgb_kind==='generated')await Promise.all(next.rgb.map(path=>texture(base+path)));model=next;}
-      if(dead)return;updateCameraOptions();await setFrame(index);root.dataset.jointModel=denseMode?'hybrid':model?.id??'nurec';
-    }catch(e){if(dead)return;model=previous;denseMode=previousDense;select.value=previousDense?'hybrid':previous?.id??'nurec';status.textContent=ko?'비교 장면을 열지 못했습니다. 다시 선택해 주세요.':'Could not load this comparison. Select it again to retry.';console.error(e);}
+      }else{
+        const next=manifest.models.find(m=>m.id===(denseMode?'calibrated':mode));
+        await loadModel(next);
+        if(denseMode && mode!=='road-only') await loadDense(mode==='hybrid');
+        if(isRoadMode(mode)) await ensureRoad();
+        if(mode==='road') await ensureRoadBackground();
+        if(next.rgb_kind==='generated') await Promise.all(next.rgb.map(path=>texture(base+path)));
+        model=next;
+      }
+      if(dead)return;updateCameraOptions();await setFrame(index);root.dataset.jointModel=mode;
+    }catch(e){if(dead)return;model=previous;denseMode=previousDense;mode=previousMode;select.value=previousMode;status.textContent=ko?'비교 장면을 열지 못했습니다. 다시 선택해 주세요.':'Could not load this comparison. Select it again to retry.';console.error(e);}
     finally{if(!dead)root.querySelectorAll('select,[data-joint-frame],[data-joint-play],[data-joint-preset]').forEach(e=>e.disabled=false);}
   };
   const onFrame=()=>{playing=false;play.textContent=ko?'재생':'Play';void setFrame(slider.value,{move:true}).catch(updateError);};
@@ -210,10 +274,10 @@ async function buildJointViewer(root,register,signal) {
   };
   const handlers=[];root.querySelectorAll('[data-joint-preset]').forEach(b=>{const fn=()=>setPreset(b.dataset.jointPreset);b.addEventListener('click',fn);handlers.push([b,fn]);});
   const freeView=()=>{preset='free';root.dataset.jointPreset='free';root.querySelectorAll('[data-joint-preset]').forEach(b=>b.setAttribute('aria-pressed','false'));};controls.addEventListener('start',freeView);
-  const onSource=()=>void setFrame(index,{move:true}).catch(updateError);sourceSelect.addEventListener('change',onSource);updateCameraOptions();select.value=denseMode?'hybrid':model.id;
+  const onSource=()=>void setFrame(index,{move:true}).catch(updateError);sourceSelect.addEventListener('change',onSource);updateCameraOptions();select.value=mode;
   select.addEventListener('change',onModel);slider.addEventListener('input',onFrame);play.addEventListener('click',onPlay);rgb.addEventListener('click',onPixel);
   root.querySelectorAll('[data-joint-model],[data-joint-camera],[data-joint-frame],[data-joint-play],[data-joint-preset]').forEach(e=>e.disabled=false);
-  root.dataset.jointReady='true';root.dataset.jointModel=denseMode?'hybrid':model.id;
-  root.jointViewerState=()=>({model:denseMode?'hybrid':model?.id??'nurec',frame:index,preset,camera:camera.position.toArray(),target:controls.target.toArray(),triangles:model?Number(root.dataset.jointTriangles):null,gaussians:denseMode?dense.decomposition.retained_gaussians:null,fps:history.length>1?(history.length-1)*1000/(history.at(-1)-history[0]):null});
-  return()=>{if(dead)return;dead=true;revision++;renderer.setAnimationLoop(null);resize.disconnect();observer.disconnect();controls.removeEventListener('start',freeView);controls.dispose();surfaces.forEach(s=>{s.geometry.dispose();s.material.dispose();});marker.geometry.dispose();marker.material.dispose();baseline?.dispose();denseBackground?.dispose();spark?.dispose();gltf.scene.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();});for(const promise of textures.values())void promise.then(t=>t.dispose()).catch(()=>{});select.removeEventListener('change',onModel);sourceSelect.removeEventListener('change',onSource);slider.removeEventListener('input',onFrame);play.removeEventListener('click',onPlay);rgb.removeEventListener('click',onPixel);handlers.forEach(([b,fn])=>b.removeEventListener('click',fn));renderer.dispose();renderer.forceContextLoss();renderer.domElement.remove();delete root.jointViewerState;};
+  root.dataset.jointReady='true';root.dataset.jointModel=mode;
+  root.jointViewerState=()=>({model:mode,frame:index,preset,camera:camera.position.toArray(),target:controls.target.toArray(),triangles:model?Number(root.dataset.jointTriangles):null,gaussians:mode==='road'?road.manifest.sky_filtered.gaussians_retained:mode==='hybrid'?dense.decomposition.retained_gaussians:null,fps:history.length>1?(history.length-1)*1000/(history.at(-1)-history[0]):null});
+  return()=>{if(dead)return;dead=true;revision++;renderer.setAnimationLoop(null);resize.disconnect();observer.disconnect();controls.removeEventListener('start',freeView);controls.dispose();surfaces.forEach(s=>{s.geometry.dispose();s.material.dispose();});marker.geometry.dispose();marker.material.dispose();baseline?.dispose();denseBackground?.dispose();spark?.dispose();roadBackground?.dispose();roadSurroundings?.dispose();road?.dispose();gltf.scene.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();});for(const promise of textures.values())void promise.then(t=>t.dispose()).catch(()=>{});select.removeEventListener('change',onModel);sourceSelect.removeEventListener('change',onSource);slider.removeEventListener('input',onFrame);play.removeEventListener('click',onPlay);rgb.removeEventListener('click',onPixel);handlers.forEach(([b,fn])=>b.removeEventListener('click',fn));renderer.dispose();renderer.forceContextLoss();renderer.domElement.remove();delete root.jointViewerState;};
 }
