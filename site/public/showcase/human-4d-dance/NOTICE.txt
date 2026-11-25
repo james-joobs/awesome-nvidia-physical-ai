@@ -1,0 +1,4 @@
+Source reference: 지숭이_Jisoong — 체포하겠어🚨🚨
+https://www.youtube.com/shorts/rWS8uli1-m0
+Derivative3D/4D demonstration published with permission confirmed by the project maintainer on 2026-11-25. Original footage/audio are not bundled. Further reuse rights are not specified.
+Our pipeline code: MIT. Third-party model/data terms remain separate; see labs/human-4d-gaussian/SOURCES.md. Browser model is a reduced preview, not an exact copy of the full learned Gaussian set.

@@ -3,10 +3,11 @@ import '../styles/human-gaussian.css';
 import {humanGaussianMarkup} from '../lib/human-gaussian-markup.mjs';
 const {locale,manifestUrl='',reference=true,id='explore'}=Astro.props;
 const controlSample=Astro.props.controlSample??manifestUrl.includes('human-4d-control');
+const youtubeSource=Astro.props.youtubeSource??manifestUrl.includes('human-4d-dance');
 const sourcePosterUrl=Astro.props.sourcePosterUrl??(controlSample?manifestUrl.replace(/manifest\.json$/,'ui-source-poster.jpg'):'');
-const modelPosterUrl=Astro.props.modelPosterUrl??(controlSample?manifestUrl.replace(/manifest\.json$/,'ui-model-poster.jpg'):'');
+const modelPosterUrl=Astro.props.modelPosterUrl??((controlSample||youtubeSource)?manifestUrl.replace(/manifest\.json$/,controlSample?'ui-model-poster.jpg':'poster.jpg'):'');
 ---
-<section class="human-gaussian" id={id} data-human-gaussian data-locale={locale} data-manifest={manifestUrl} set:html={humanGaussianMarkup(locale,{manifestUrl,reference,controlSample,sourcePosterUrl,modelPosterUrl})} />
+<section class="human-gaussian" id={id} data-human-gaussian data-locale={locale} data-manifest={manifestUrl} set:html={humanGaussianMarkup(locale,{manifestUrl,reference,controlSample,youtubeSource,sourcePosterUrl,modelPosterUrl})} />
 <script>
 for(const root of document.querySelectorAll<HTMLElement>('[data-human-gaussian]')){
  let active:any;let loading=false;

@@ -301,10 +301,16 @@ def check_package(package,deep=False,ffmpeg=None,report_path=None):
    if error>1e-4:raise ValueError('Native conditional numeric parity failed')
   reports.append({'id':item['id'],'gaussians':N,'frames':meta['frames'],'native_numeric_max_position_error':error,'hashes_verified':True})
  if abs(end-float(manifest['duration']))>1e-4:raise ValueError('Timeline total differs from manifest')
- source=safe(package,manifest['source']['url']);assert source.is_file() and source.stat().st_size>0
+ source_url=manifest.get('source',{}).get('url')
+ if source_url:
+  source=safe(package,source_url);assert source.is_file() and source.stat().st_size>0
+ else:
+  youtube=manifest.get('source',{}).get('youtube_id','')
+  if len(youtube)!=11 or any(c not in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-' for c in youtube):raise ValueError('Model-only packages require an explicit official YouTube reference')
+  if manifest['source'].get('attribution_url')!='https://www.youtube.com/shorts/'+youtube:raise ValueError('YouTube source citation differs from the embed')
  videos_decoded=[]
  if ffmpeg:
-  for name in [manifest['source']['url'],manifest.get('comparison')]:
+  for name in [source_url,manifest.get('comparison')]:
    if name:subprocess.run([ffmpeg,'-v','error','-i',str(safe(package,name)),'-f','null','-'],check=True);videos_decoded.append(name)
  result={'schema':1,'pass':True,'duration':end,'segments':reports,'deep_finite_check':deep,'videos_fully_decoded':videos_decoded,'scope':'File/time/numeric export validation, not real-person geometry accuracy'};
  if report_path:write(report_path,result)

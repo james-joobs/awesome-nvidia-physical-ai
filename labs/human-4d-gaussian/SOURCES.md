@@ -7,7 +7,7 @@ The lab has two distinct inputs. The **public control** uses licensed SOMA examp
 - Original: [체포하겠어🚨🚨 — YouTube Shorts](https://www.youtube.com/shorts/rWS8uli1-m0).
 - Publisher: [지숭이_Jisoong](https://www.youtube.com/@%EC%A7%80%EC%88%AD%EC%9D%B4_Jisoo).
 - Attribution metadata was obtained from YouTube's official oEmbed endpoint.
-- Pages links to the official YouTube player. The referenced performer's downloaded video, reconstructed appearance, motion estimates and derived model package are not included in public assets.
+- Pages links to the official YouTube player. The referenced performer's downloaded video and audio are not included in public assets. The project maintainer confirmed permission to publish the 3D/4D derivative results on 2026-11-25; those results are provided separately from the synthetic control.
 - An attribution link is not a redistribution license for footage or a derived identifiable-person model.
 
 ## Public synthetic control
@@ -37,4 +37,10 @@ Pinned revisions are recorded in [model-pins.json](model-pins.json). Install req
 
 Source pixels are observed. GEM-X/SOMA motion, masks, cameras, depth and normals are estimated. Unobserved appearance is generated. Agreement with MoGe guidance is not measured real-world geometry accuracy. The recommended full-motion `extend` route generates twelve new view videos per later interval using two Turbo4 passes, unlike the seed’s Base24-plus-Turbo recipe. Generated video count, accepted synthetic targets, independent observed cameras and repeated loss-weighting slots are distinct counts. Explicit teacher curation may retain fewer generated directions. The separate `--trajectory-experiment` comparison transfers short-interval appearance without new later-interval multiview diffusion.
 
-The independent adapters in this folder follow the repository's MIT license. Third-party code/assets and input-footage rights remain separate. `package` for the monocular route creates a private local package; it does not publish to Pages or copy runtime paths, raw checkpoints, model caches or source logs into the public repository.
+The independent adapters in this folder follow the repository's MIT license. Third-party code/assets and input-footage rights remain separate. `package` for the monocular route creates a private local package. The separate `publish_package.py` exporter requires a local derivative-publication permission receipt, excludes source RGB/audio and exports only a reduced browser model with sanitized metadata. Runtime paths, training checkpoints, model caches and source logs are not published.
+
+## Published dance reconstruction
+
+Source credit: **지숭이_Jisoong — 체포하겠어🚨🚨**, [official YouTube Shorts](https://www.youtube.com/shorts/rWS8uli1-m0). Permission for public3D/4D derivative results was confirmed by the project maintainer on 2026-11-25. Original RGB/audio stay in the official YouTube player. Permission details are retained privately; this statement does not grant a blanket license for further redistribution of the person model or footage. Third-party tool and model terms in the table above continue to apply. In particular, the Turbo adapter weights have CC BY-NC-SA4.0 terms; this is not an unrestricted commercial-asset recipe.
+
+The published31.9s native orbit video retains the full selected trained model. The browser representation is a reduced subset capped at400000 Gaussians per segment, preserving the parameters of retained points; it is not pixel-identical to the full model. Separate earlier rigged3DGS four-view footage is preserved as a comparison. No original-video panels or source audio are present in either hosted clip.

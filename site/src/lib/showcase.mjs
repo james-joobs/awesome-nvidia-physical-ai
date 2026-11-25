@@ -70,10 +70,10 @@ export const grids = [
 
 export const clips = [
   {
-    id: 'human-4d-gaussian', duration: '0:39', width: 1392, height: 1016,
-    media: { en: 'human-4d-control/interaction.en', ko: 'human-4d-control/interaction.ko' },
-    en: { title: 'Human 4D reconstruction: motion, views and Gaussian rendering', description: 'Learn the RGB → GEM-X/SOMA → multiview → 4D Gaussian workflow. Start with a separately licensed synthetic SOMA control, compare matching RGB and 3D at equal size, then load a local model. The YouTube reference is embedded separately.' },
-    ko: { title: '인체 4D 재구성: 동작·시점·Gaussian 렌더링', description: 'RGB → GEM-X/SOMA → 다중 시점 → 4D Gaussian 과정을 배웁니다. 별도 공개 SOMA 합성 제어 샘플을 RGB·3D 같은 크기로 비교하고, 직접 만든 로컬 모델도 열어보세요. YouTube 참고 영상은 별도로 임베드합니다.' },
+    id: 'human-4d-gaussian', duration: '0:32', width: 720, height: 960,
+    media: { en: 'human-4d-dance/orbit', ko: 'human-4d-dance/orbit' },
+    en: { title: 'Human 4D reconstruction: motion, views and Gaussian rendering', description: 'Explore a 31.9s permission-cleared dance reconstruction: GEM-X/SOMA motion, generated multiview priors and conditional 4D Gaussians. Compare the earlier rigged3DGS video, orbit the browser preview and follow the GPU lab. The original remains in the official YouTube player.' },
+    ko: { title: '인체 4D 재구성: 동작·시점·Gaussian 렌더링', description: '공개 허락을 확인한 31.9초 춤 영상의 4D 재구성을 둘러봅니다. GEM-X/SOMA 동작 추정, 다중 시점 생성, conditional 4DGS로 이어지는 과정을 배우고 초기 리깅3DGS 결과도 비교하세요. 원본은 YouTube 공식 플레이어로 표시합니다.' },
   },
   {
     id: 'nurec-rgb-reality', duration: '0:30', width: 1920, height: 1080,
@@ -170,6 +170,8 @@ export const clips = [
 
 // Extra runs share an existing lab and its reading order.
 export const labMediaFiles = {
+  'site/public/showcase/human-4d-dance/orbit.mp4': 'human-4d-dance/orbit.mp4',
+  'site/public/showcase/human-4d-dance/rigged-3dgs.mp4': 'human-4d-dance/rigged-3dgs.mp4',
   'labs/nurec-rgb-reality/evidence/adaptive/interaction.en.mp4': 'nurec-adaptive-live.en.mp4',
   'labs/nurec-rgb-reality/evidence/adaptive/interaction.ko.mp4': 'nurec-adaptive-live.ko.mp4',
   'labs/nurec-rgb-reality/evidence/adaptive/browser.en.mp4': 'nurec-browser-preview.en.mp4',
@@ -212,6 +214,12 @@ export const labMediaFiles = {
 };
 
 export const additionalRecordings = [
+  {
+    id: 'human-rigged-3dgs', lab: 'human-4d-gaussian', duration: '0:32', width: 1280, height: 680,
+    media: { en: 'human-4d-dance/rigged-3dgs', ko: 'human-4d-dance/rigged-3dgs' },
+    en: { title: 'Earlier 3DGS: one rigged avatar, four simultaneous views', description: 'Preserved first reconstruction using GEM-X, SOMA, Warp and 3DGUT. The observed front and inferred back share one rig; compare its appearance limits with the later conditional 4D model. Source RGB and audio are excluded.' },
+    ko: { title: '초기 3DGS: 한 리깅 모델을 네 방향에서 동시에 보기', description: 'GEM-X·SOMA·Warp· 3DGUT로 만든 초기 결과입니다. 같은 리깅을 정면·측면·후면에서 보고, 이후 conditional 4D 모델과 외형 차이를 비교하세요. 원본 RGB와 오디오는 포함하지 않았습니다.' },
+  },
   {
     id: 'nurec-browser-preview', lab: 'nurec-rgb-reality', duration: '0:30', width: 1920, height: 1080,
     media: { en: 'nurec-browser-preview.en', ko: 'nurec-browser-preview.ko' },

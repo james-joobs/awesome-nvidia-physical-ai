@@ -154,3 +154,15 @@ python3 labs/human-4d-gaussian/pipeline.py --root "$CONTROL_ROOT" --mode control
 Open the Pages lab and choose **Open a local result folder**. Select the package folder containing `manifest.json`, `source.mp4` and its model subfolders. Files are read with browser-local URLs, not uploaded. The optional `serve` command provides a loopback data URL; it does not run GPU inference or claim to host the full Pages application.
 
 Optional `source_credit` and `source_reference_url` in `runtime.json` carry your input attribution into the selected model inventory and browser package; the native comparison also prints the credit. Use an ASCII credit or a compatible installed font for native video text.
+
+## Published reconstruction / 공개 재구성 결과
+
+[English](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/human-4d-gaussian/#explore) · [한국어](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/human-4d-gaussian/#explore)
+
+31.9s /957 frames /8 conditional 4D intervals. A reduced browser subset and full-quality native orbit video are published with derivative permission confirmed by the maintainer. Original footage/audio stay in the official YouTube player. The synthetic SOMA control remains separate.
+
+```bash
+python3 labs/human-4d-gaussian/check_published.py --deep
+```
+
+This checks the published model hashes, complete timeline and retained-parameter numeric parity without a CUDA GPU. `publish_package.py` requires a separate local permission receipt, excludes source footage/audio and refuses to overwrite an existing export. It does not upload or push anything. [Sources and usage scope](SOURCES.md).

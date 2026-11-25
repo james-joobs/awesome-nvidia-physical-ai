@@ -81,3 +81,15 @@ flock "$HUMAN_4D_ROOT/.gpu.lock" "$RECON_PY" labs/human-4d-gaussian/fresh_interv
 Pages의 **로컬 결과 폴더 열기**에서 `manifest.json`이 있는 패키지를 고르면 파일을 브라우저 안에서 읽습니다. 원본 비교용 `source.mp4`도 패키지 안에 있어야 합니다. `serve`는 로컬 데이터 서버이며 GPU 학습이나 Pages 전체 앱을 대신 실행하지 않습니다.
 
 `runtime.json`의 선택 항목 `source_credit`·`source_reference_url`로 내 입력 영상의 출처를 적을 수 있습니다. 모델 목록·브라우저 패키지에 함께 저장하며, 비교 영상에도 출처를 표시합니다. 기본 영상 폰트로 표시할 때는 영문 출처를 쓰거나 해당 문자를 지원하는 폰트를 준비하세요.
+
+## 공개 재구성 결과
+
+[한국어 실습](https://james-joobs.github.io/awesome-nvidia-physical-ai/ko/labs/human-4d-gaussian/#explore) · [English](https://james-joobs.github.io/awesome-nvidia-physical-ai/labs/human-4d-gaussian/#explore)
+
+전체 31.9초· 957프레임을 8개의 conditional4D 구간으로 나눠 공개했습니다. 브라우저에는 경량 모델을, 영상에는 전체 학습 모델의 고화질 자유 시점 렌더링을 제공합니다. 파생 결과의 공개 허락을 확인했으며 원본 영상·음원은 YouTube 공식 플레이어로 표시합니다. 기존 SOMA 합성 제어 예제도 별도로 유지했습니다.
+
+```bash
+python3 labs/human-4d-gaussian/check_published.py --deep
+```
+
+CUDA GPU 없이 공개 모델의 해시·전체 시간 범위·선택한 입자의 수치 대응을 검사합니다. `publish_package.py`는 별도의 로컬 공개 허락 기록이 있어야 실행할 수 있으며 원본 영상·음원은 내보내지 않습니다. 기존 결과를 덮어쓰거나 업로드·푸시하지 않습니다. [출처·이용 범위](SOURCES.md).

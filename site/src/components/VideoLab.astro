@@ -42,7 +42,7 @@ const preparation = {
   'nurec-rgb-reality': ko ? 'NuRec·Harmonizer·Alpamayo를 실제 실행한 RGB 전용 실습입니다. GPU 없이도 저장된 장면과 출력을 볼 수 있습니다.' : 'An RGB-only NuRec, Harmonizer and Alpamayo run. Explore the saved scene and model outputs without a CUDA GPU.',
   'rgb-reality-view': ko ? '브라우저에서 먼저 둘러보세요. 직접 복원하려면 Linux와 RTX 5090 한 장이 필요합니다.'
     : 'Explore in the browser first. The tested reconstruction preset uses Linux and one RTX 5090.',
-  'human-4d-gaussian': ko ? '브라우저에서 SOMA 합성 제어 샘플을 먼저 살펴보세요. 본인 영상으로 인체를 복원하는 과정은 NVIDIA GPU 실습으로 이어집니다.' : 'Start with the synthetic SOMA control in your browser, then follow the NVIDIA GPU workflow for a local video you can use.',
+  'human-4d-gaussian': ko ? '31.9초 실제 영상에서 만든4D Gaussian을 둘러보세요. 원본은 YouTube 공식 플레이어로 표시하며, 공개 허락을 확인한 파생 결과만 제공합니다.' : 'Explore a 31.9s reconstructed 4D Gaussian. The original stays in the official YouTube player; only permission-cleared derivative results are hosted.',
   'gr00t-placement': ko ? '브라우저에서 시작합니다. 정책을 직접 실행하려면 RTX Linux 환경이 필요합니다.'
     : 'Start in the browser. Running the policy requires RTX on Linux.',
   'replicator-outputs': ko ? '심화 실습 · RTX GPU, Isaac Sim 6.1, Isaac Lab 필요.'
@@ -81,7 +81,8 @@ const steps = [
       href="#example-run" label={exampleLabel} />
     {isPlacement && <PlacementExercise locale={locale} />}
     {['nurec-rgb-reality', 'rgb-reality-view'].includes(id) && <RgbRealityViewer locale={locale} id={id} />}
-    {id === 'human-4d-gaussian' && <HumanGaussianViewer locale={locale} manifestUrl={showcaseMedia('human-4d-control/manifest.json')} reference={true} />}
+    {id === 'human-4d-gaussian' && <HumanGaussianViewer locale={locale} manifestUrl={showcaseMedia('human-4d-dance/manifest.json')} reference={true} />}
+    {id === 'human-4d-gaussian' && <details class="lab-control-example"><summary>{ko ? 'SOMA 합성 리깅 제어 예제도 보기' : 'Also explore the synthetic SOMA rig control'}</summary><HumanGaussianViewer locale={locale} manifestUrl={showcaseMedia('human-4d-control/manifest.json')} reference={false} id="rig-control" /></details>}
     <LessonTheory locale={locale} page={`labs/${id}`} flow={lessonFlows[id]} theory={theory} showPixels={id === 'scene-to-data'} />
     <GuideCommands locale={locale} />
     <div class="prose" set:html={html} />

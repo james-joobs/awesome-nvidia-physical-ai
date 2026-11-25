@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "scope": "Public synthetic control with known SOMA geometry and official example motion; not a monocular human reconstruction",
+  "scope": "Original synthetic SOMA control preserved below; a separate permission-cleared monocular reconstruction is listed under published_reconstruction.",
   "public_package": "site/public/showcase/human-4d-control/manifest.json",
   "reference": {
     "url": "https://www.youtube.com/shorts/rWS8uli1-m0",
@@ -68,6 +68,17 @@
     ]
   },
   "license": "Apache-2.0 SOMA assets, MIT wrapper; included NOTICE and SOMA-LICENSE",
-  "private_video_or_derived_model_included": false,
-  "reconstruction_metrics": "reconstruction-evaluation.json"
+  "reconstruction_metrics": "reconstruction-evaluation.json",
+  "published_reconstruction": {
+    "package": "site/public/showcase/human-4d-dance/manifest.json",
+    "frames": 957,
+    "duration": 31.9,
+    "segments": 8,
+    "source_delivery": "Official YouTube embed only",
+    "permission": "Derived results publication confirmed by the project maintainer2026-11-25",
+    "browser_representation": "Reduced conditional4D subset,400000 Gaussians per segment; full-quality native result in orbit.mp4",
+    "source_rgb_audio_bundled": false
+  },
+  "original_source_video_audio_included": false,
+  "permission_cleared_derived_model_included": true
 }

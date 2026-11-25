@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "title": "Monocular human4D Gaussian reconstruction",
+  "fps": 30,
+  "duration": 31.9,
+  "representation": "native-conditional-4d",
+  "sample_kind": "permission-cleared-reconstruction",
+  "source": {
+    "youtube_id": "rWS8uli1-m0",
+    "title": "YouTube original · 지숭이_Jisoong",
+    "credit": "지숭이_Jisoong — 체포하겠어🚨🚨",
+    "attribution_url": "https://www.youtube.com/shorts/rWS8uli1-m0",
+    "delivery": "Official YouTube embed only; no source RGB or audio bundled",
+    "title_ko": "원본 YouTube · 지숭이_Jisoong"
+  },
+  "camera": {
+    "target": [
+      -0.0511796772480011,
+      1.0093230712413785,
+      0.22507452964782715
+    ],
+    "distance": 3.9,
+    "fov": 42,
+    "framing_aspect": 0.75,
+    "source_width": 1080,
+    "source_height": 1920
+  },
+  "segments": [
+    {
+      "id": "s00",
+      "start": 0,
+      "duration": 4,
+      "root": "browser/s00/"
+    },
+    {
+      "id": "s01",
+      "start": 4,
+      "duration": 4,
+      "root": "browser/s01/"
+    },
+    {
+      "id": "s02",
+      "start": 8,
+      "duration": 4,
+      "root": "browser/s02/"
+    },
+    {
+      "id": "s03",
+      "start": 12,
+      "duration": 4,
+      "root": "browser/s03/"
+    },
+    {
+      "id": "s04",
+      "start": 16,
+      "duration": 4,
+      "root": "browser/s04/"
+    },
+    {
+      "id": "s05",
+      "start": 20,
+      "duration": 4,
+      "root": "browser/s05/"
+    },
+    {
+      "id": "s06",
+      "start": 24,
+      "duration": 4,
+      "root": "browser/s06/"
+    },
+    {
+      "id": "s07",
+      "start": 28,
+      "duration": 3.9,
+      "root": "browser/s07/"
+    }
+  ],
+  "poster": "poster.jpg",
+  "comparison": "orbit.mp4",
+  "permission": {
+    "scope": "Derived3D/4D results",
+    "confirmed_by": "Project maintainer",
+    "confirmed_date": "2026-11-25",
+    "source_footage_redistributed": false
+  },
+  "provenance": "RGB-estimated GEM-X/SOMA motion, generated multiview priors and native conditional4D Gaussian fitting. Browser preview uses a reduced subset; full-quality native rendering is provided as video. Unobserved sides and back are inferred, not captured ground truth.",
+  "provenance_ko": "RGB에서 GEM-X/SOMA로 추정한 동작, 생성한 다중 시점 자료, conditional 4D Gaussian 학습을 연결했습니다. 브라우저는 입자 수를 줄인 미리보기이며, 전체 모델의 고화질 결과는 영상으로 제공합니다. 관측하지 않은 측면·후면은 추정입니다."
+}

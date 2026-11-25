@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "media": [
+    {
+      "file": "orbit.mp4",
+      "bytes": 3942780,
+      "sha256": "95579c5c12013230a72861238d4f55653ca7d2a95d8b2dfc8bf57574fe3c25a5",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 720,
+          "height": 960,
+          "r_frame_rate": "30/1",
+          "nb_frames": "957"
+        }
+      ],
+      "format": {
+        "duration": "31.900000"
+      }
+    },
+    {
+      "file": "rigged-3dgs.mp4",
+      "bytes": 5135262,
+      "sha256": "d0e3a800bd3882958ad30b3940f7c541ad7b34fc6499618dd7e328df66bd8a65",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 1280,
+          "height": 680,
+          "r_frame_rate": "15/1",
+          "nb_frames": "479"
+        }
+      ],
+      "format": {
+        "duration": "31.933333"
+      }
+    }
+  ],
+  "scope": "Model-only derivatives. Orbit video is a crop of the preserved full-quality native4D render, not the reduced browser subset. Earlier rigged3DGS video retains four generated-view panels; original RGB/audio are excluded.",
+  "source": "https://www.youtube.com/shorts/rWS8uli1-m0"
+}

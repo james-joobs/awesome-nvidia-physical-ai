@@ -6,7 +6,7 @@ Estimate human motion from one camera, then learn a Gaussian representation that
 
 The reference is [“체포하겠어🚨🚨” on YouTube Shorts](https://www.youtube.com/shorts/rWS8uli1-m0), published by **지숭이_Jisoong**. The original opens through YouTube's official player. Public examples carry their own source and usage notes. You can load your own video and model files locally to follow the lab.
 
-The lab has two paths. The **public 3D example is a synthetic control sample built from official SOMA example motion**, for learning camera, time and rig controls. It is not presented as appearance reconstructed from real RGB. **Monocular reconstruction runs on a local video you can use.** Keep their inputs and evaluation criteria separate.
+The **31.9s dance reconstruction** is now available in the browser, with permission to publish the 3D/4D derivative results confirmed. Original footage and audio remain in the official YouTube player. The existing **synthetic SOMA rig control** is preserved as a separate example. Follow the GPU lab below to reconstruct a video you can use.
 
 ## How it works
 
@@ -111,9 +111,9 @@ Generated-camera constraints receive less weight than the observed RGB camera. A
 
 ### 1. Start with observation and camera controls
 
-Read each media item's source note and view the reference through the YouTube player. The public sample is a **synthetic human driven by SOMA motion**, not a real person reconstructed from monocular footage. It is a separate asset from the reference video, not its reconstruction before/after pair.
+Choose **Load the 3D example** above to fetch the reduced 4D Gaussian reconstruction learned from the dance video. The original remains in the official YouTube player on the left; orbit the 3D reconstruction on the right. Playback controls are independent. The 31.9s model has eight intervals; only the current and next interval are prepared in memory.
 
-Start with camera/time controls on the public synthetic sample. Source comparisons below apply to **local mode with your video and the model made from that same video**.
+Pause3D and inspect the same pose from several directions. Open **Also explore the synthetic SOMA rig control** for the separate known-geometry example. Loading your own local RGB/model pair still provides a shared source/model timeline.
 
 Use the 3D controls in this order:
 
@@ -235,6 +235,22 @@ python3 labs/human-4d-gaussian/pipeline.py --root "$HUMAN_4D_ROOT" \
 The full timeline is written only after every interval passes its checks. Your short render and package remain intact; new renders use a separate folder identified by the selected model inventory. Open `package-full` in the viewer and inspect the beginning, middle, end and every interval boundary.
 
 ## Check the result
+
+### Explore the published 3DGS and 4DGS results
+
+| Result | Actual implementation | What to inspect |
+| --- | --- | --- |
+| Earlier rigged 3DGS | GEM-X/SOMA motion, one Gaussian appearance, Warp deformation and 3DGUT rendering | Front/left/back/right shown simultaneously. Hidden appearance uses body/symmetry priors. |
+| Full-quality 4DGS video | Conditional 4D Gaussians fitted to generated multiview priors and original RGB · 957 frames | Native free-view render of the full selected models, not the reduced browser subset. |
+| Browser 4DGS | At most 400000 retained Gaussians per interval across the same eight intervals | Selection preserves temporal/body-height coverage and retained parameters. It is not pixel-identical to the full model. |
+
+[Full 31.9s native orbit video](../../../site/public/showcase/human-4d-dance/orbit.mp4) · [Earlier four-view 3DGS comparison](../../../site/public/showcase/human-4d-dance/rigged-3dgs.mp4)
+
+Total browser-model transfer is about 382MiB, fetched in segments rather than all at page load. On mobile, watch the video first; use Wi-Fi to **Load the 3D example**. The next segment is prefetched; slower connections can pause at boundaries. 30Hz is the model time sampling rate, not guaranteed browser FPS.
+
+Source: **지숭이_Jisoong — 체포하겠어🚨🚨**. Sides, back and occluded hands are inferred, not measured multiview ground truth. [Sources and usage scope](../../../labs/human-4d-gaussian/SOURCES.md) · [Published-package checker](../../../labs/human-4d-gaussian/check_published.py).
+
+
 
 ### 1. Inspect the complete interval
 

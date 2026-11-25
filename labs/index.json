@@ -20,6 +20,8 @@
         "clean_model.py",
         "conditional.py",
         "control_sample.py",
+        "publish_package.py",
+        "check_published.py",
         "export_model.py",
         "fit_interval.py",
         "fresh_interval.py",

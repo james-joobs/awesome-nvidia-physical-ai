@@ -19,6 +19,12 @@ class PackageTests(unittest.TestCase):
  def test_valid_numeric_package_is_read_only(self):
   with tempfile.TemporaryDirectory() as tmp:
    root=Path(tmp);fixture(root);before=sorted(str(p.relative_to(root)) for p in root.rglob('*'));r=pipeline.check_package(root,True);self.assertTrue(r['pass']);self.assertEqual(before,sorted(str(p.relative_to(root)) for p in root.rglob('*')));self.assertEqual(r['videos_fully_decoded'],[])
+ def test_model_only_package_uses_youtube_without_local_footage(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   root=Path(tmp);m=fixture(root);(root/'source.mp4').unlink();m['source']={'youtube_id':'rWS8uli1-m0','attribution_url':'https://www.youtube.com/shorts/rWS8uli1-m0'};(root/'manifest.json').write_text(json.dumps(m))
+   self.assertTrue(pipeline.check_package(root,True)['pass'])
+   m['source']['attribution_url']='https://example.com';(root/'manifest.json').write_text(json.dumps(m))
+   with self.assertRaises(ValueError):pipeline.check_package(root)
  def test_reject_path_escape(self):
   with tempfile.TemporaryDirectory() as tmp:
    root=Path(tmp);m=fixture(root);m['segments'][0]['root']='../outside';(root/'manifest.json').write_text(json.dumps(m))

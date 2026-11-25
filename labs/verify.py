@@ -32,6 +32,7 @@ def verify_files():
 
 
 def verify_evidence():
+    runpy.run_path(str(ROOT / 'human-4d-gaussian/check_published.py'))['main']()
     check_human = runpy.run_path(str(ROOT / "human-4d-gaussian/pipeline.py"))["check_package"]
     checked = check_human(ROOT.parent / "site/public/showcase/human-4d-control", deep=True)
     assert checked["duration"] > 38 and checked["segments"][0]["gaussians"] == 18056

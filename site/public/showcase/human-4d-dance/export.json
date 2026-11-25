@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "frames": 957,
+  "fps": 30,
+  "duration": 31.9,
+  "segments": [
+    {
+      "id": "s00",
+      "original_gaussians": 661102,
+      "gaussians": 400000,
+      "compressed_bytes": 51730110,
+      "source_meta_sha256": "a0e5d4ad01545e2c081b9022b5a197b883f0e70e3991a3469bb8b4f8e36d69ba"
+    },
+    {
+      "id": "s01",
+      "original_gaussians": 897493,
+      "gaussians": 400000,
+      "compressed_bytes": 50956620,
+      "source_meta_sha256": "b081f432755fb4a4f6dcf5070a095cd4c8d1381851c64a0e7d1ce44a11762519"
+    },
+    {
+      "id": "s02",
+      "original_gaussians": 648689,
+      "gaussians": 400000,
+      "compressed_bytes": 49243131,
+      "source_meta_sha256": "b2bf5d0c09058d10f18cf1dbbe20843ec6b2a18c19fe70e4b5c28da098256ab3"
+    },
+    {
+      "id": "s03",
+      "original_gaussians": 714813,
+      "gaussians": 400000,
+      "compressed_bytes": 49628048,
+      "source_meta_sha256": "c5bb94139d34c0828d470a435169d18d5cf0cce68b6ddb6642f4a07d960ec2de"
+    },
+    {
+      "id": "s04",
+      "original_gaussians": 728261,
+      "gaussians": 400000,
+      "compressed_bytes": 49453834,
+      "source_meta_sha256": "5cf5263d8e3c1793bf0d1765cbd06a3683b1cebecccd731f3a0ab617caca2203"
+    },
+    {
+      "id": "s05",
+      "original_gaussians": 775231,
+      "gaussians": 400000,
+      "compressed_bytes": 49826965,
+      "source_meta_sha256": "7abf19ea1aac49b90a062142db8ac7df95694bb37f7de72396666b307f828b0d"
+    },
+    {
+      "id": "s06",
+      "original_gaussians": 575010,
+      "gaussians": 400000,
+      "compressed_bytes": 49744863,
+      "source_meta_sha256": "22019c75db477f5312da11ec0c33ddb499f41987bf4995e9590a3dae0e41006e"
+    },
+    {
+      "id": "s07",
+      "original_gaussians": 476037,
+      "gaussians": 400000,
+      "compressed_bytes": 50392472,
+      "source_meta_sha256": "572b257657881edbdd5d9c39221cf35717a4e3f1c37585a5e58d3bfcd5f0274c"
+    }
+  ],
+  "source_rgb_included": false,
+  "source_audio_included": false,
+  "preview_limit": 400000,
+  "scope": "Permission-cleared derivative model preview. Not a license grant for further reuse. Full original models are preserved locally."
+}
