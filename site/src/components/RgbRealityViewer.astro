@@ -1,14 +1,16 @@
 ---
 import {showcaseMedia} from '../lib/showcase.mjs';
 import '../../../labs/rgb-reality-view/viewer.css';
-const {locale,id='rgb-reality-view'}=Astro.props;const ko=locale==='ko';const nurec=id==='nurec-rgb-reality';
+const {locale,id='rgb-reality-view',featured=false}=Astro.props;const ko=locale==='ko';const nurec=id==='nurec-rgb-reality';
+const poster=featured?'nurec-guided-interaction':nurec?'nurec-rgb-reality':'rgb-perception';
 ---
-<section class="rgb-viewer" id="explore" data-rgb-viewer data-root={showcaseMedia(id)} data-rgb-guidance={nurec?'guidance.json':undefined} data-locale={locale} aria-labelledby="rgb-view-title">
-<h2 id="rgb-view-title">{ko?'마우스로 Volvo 주변을 직접 둘러보기':'Orbit around the Volvo yourself'}</h2>
-<p>{ko?'카메라를 돌리고 시간을 움직이며 도로와 주변 객체를 살펴보세요.':'Orbit the camera and scrub time to explore the road and surrounding objects.'}</p>
+<section class:list={['rgb-viewer',{'rgb-featured':featured}]} id="explore" data-rgb-viewer data-rgb-featured={featured?'true':undefined} data-root={showcaseMedia(id)} data-rgb-guidance={nurec?'guidance.json':undefined} data-locale={locale} aria-labelledby="rgb-view-title">
+<h2 id="rgb-view-title">{featured?(ko?'이전 고화질 3DGS · NuRec':'Previous high-quality 3DGS · NuRec'):(ko?'마우스로 Volvo 주변을 직접 둘러보기':'Orbit around the Volvo yourself')}</h2>
+<p>{featured?(ko?'깊이 보정한 NuRec 3DGS입니다. 운전자 시점과 주변 객체를 함께 살펴보세요.':'Explore the depth-guided NuRec 3DGS with driver views and surrounding objects.'):(ko?'카메라를 돌리고 시간을 움직이며 도로와 주변 객체를 살펴보세요.':'Orbit the camera and scrub time to explore the road and surrounding objects.')}</p>
+{featured&&<nav class="rgb-featured-links" aria-label={ko?'3D 결과 이동':'3D result navigation'}><a href="#joint-geometry">{ko?'DA3·Aether 비교로 이동':'Back to DA3 / Aether'}</a><a href="#nurec-guided-interaction">{ko?'3DGS 시연 영상':'3DGS demo recording'}</a></nav>}
 <div class="rgb-stage" data-rgb-stage>
-<img class="rgb-poster" src={showcaseMedia(`${nurec?'nurec-rgb-reality':'rgb-perception'}.${locale}.jpg`)} alt={ko?'RGB로 복원한 도로와 Volvo S90':'RGB-reconstructed road with a Volvo S90 reference'} loading="lazy" width="1280" height="720">
-<div class="rgb-loading" data-rgb-cover><button data-rgb-load type="button">{ko?'3D 장면 열기':'Open 3D scene'}</button></div>
+<img class="rgb-poster" src={showcaseMedia(`${poster}.${locale}.jpg`)} alt={ko?'RGB로 복원한 도로와 Volvo S90':'RGB-reconstructed road with a Volvo S90 reference'} loading="lazy" width="1280" height="720">
+<div class="rgb-loading" data-rgb-cover><button data-rgb-load type="button">{featured?(ko?'고화질 3DGS 열기':'Open high-quality 3DGS'):(ko?'3D 장면 열기':'Open 3D scene')}</button></div>
 <span class="rgb-cursor" data-rgb-cursor hidden aria-hidden="true"></span><span class="rgb-chip">{nurec?'RGB only · NuRec':'RGB only · 3DGS'}</span>
 </div>
 <div class="rgb-toolbar"><div class="rgb-presets">{['chase','rear','side','overhead','driver'].map((view,i)=><button type="button" data-rgb-preset={view} disabled>{(ko?['추적','뒤','옆','위','운전자']:['Chase','Rear','Side','Overhead','Driver'])[i]}</button>)}</div><div class="rgb-timeline"><button type="button" data-rgb-play disabled>{ko?'경로 재생':'Play path'}</button><label class="visually-hidden" for={`rgb-frame-${locale}`}>{ko?'촬영 프레임':'Recorded frame'}</label><input id={`rgb-frame-${locale}`} data-rgb-frame type="range" min="0" max="26" value="13" step="1" disabled><output data-rgb-time>—</output></div></div>
@@ -27,4 +29,5 @@ for(const root of document.querySelectorAll<HTMLElement>('[data-rgb-viewer]')){
 </script>
 <style>
 .rgb-viewer{margin-block:2rem;--viewer-bg:var(--surface,#f6f8fa)}.rgb-viewer p{color:var(--muted,#59636b);line-height:1.7}.rgb-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.rgb-toolbar{background:var(--surface,#f6f8fa);color:var(--text,#25292d);border-color:var(--edge,#d8dee4)}.rgb-viewer button{background:var(--surface,#fff);color:var(--text,#25292d);border-color:var(--edge,#bcc5cc)}.rgb-viewer button[aria-pressed=true],.rgb-loading button{background:#76b900;color:#132300;border-color:#76b900}.rgb-viewer :global(canvas){z-index:1}.rgb-chip{z-index:2}.rgb-loading{z-index:5}.rgb-credit a{color:inherit;text-decoration:underline}.rgb-credit{margin:0;padding:0;justify-content:flex-start}
+.rgb-featured{padding-top:1.5rem;border-top:1px solid var(--edge,#d8dee4)}.rgb-featured-links{display:flex;flex-wrap:wrap;gap:.25rem 1.25rem;margin-block:.25rem .75rem}.rgb-featured-links a{display:inline-flex;align-items:center;min-height:44px;font-size:.875rem;color:var(--accent,#568600);text-underline-offset:3px}
 </style>

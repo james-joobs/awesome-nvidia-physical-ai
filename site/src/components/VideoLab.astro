@@ -56,6 +56,7 @@ const preparation = {
 }[id];
 const steps = [
   ...(hasViewer ? [{ id: demoAnchor, label: ko ? '3D 데모' : '3D demo' }] : []),
+  ...(id === 'nurec-rgb-reality' ? [{ id: 'explore', label: ko ? '고화질 3DGS' : 'High-quality 3DGS' }] : []),
   { id: 'example-run', label: exampleLabel },
   ...(isPlacement ? [{ id: 'first-exercise', label: startLabel }] : []),
   ...headings,
@@ -85,10 +86,7 @@ const steps = [
       href="#example-run" label={exampleLabel} />
     {isPlacement && <PlacementExercise locale={locale} />}
     {id === 'nurec-rgb-reality' && <JointRealityViewer locale={locale} />}
-    {id === 'nurec-rgb-reality' && <details class="lab-disclosure previous-demo">
-      <summary><span>{ko?'NuRec 3D 장면도 둘러보기':'Explore the NuRec 3D scene'} </span><Icon name="chevron" size={17}/></summary>
-      <RgbRealityViewer locale={locale} id={id}/>
-    </details>}
+    {id === 'nurec-rgb-reality' && <RgbRealityViewer locale={locale} id={id} featured/>}
     {id === 'rgb-reality-view' && <RgbRealityViewer locale={locale} id={id}/>}
     {id === 'human-4d-gaussian' && <HumanGaussianViewer locale={locale} manifestUrl={showcaseMedia('human-4d-dance/manifest.json')} reference={true} />}
     {id === 'human-4d-gaussian' && <details class="lab-disclosure lab-control-example"><summary><span>{ko ? 'SOMA 리깅 예제' : 'SOMA rigging example'}</span><Icon name="chevron" size={17}/></summary><HumanGaussianViewer locale={locale} manifestUrl={showcaseMedia('human-4d-control/manifest.json')} reference={false} id="rig-control" /></details>}
@@ -128,7 +126,6 @@ const steps = [
   .lab-disclosure>summary:hover{color:var(--accent)}
   .lab-disclosure[open]>summary :global(svg){rotate:180deg}
   .lab-learning[open]{padding-bottom:1rem}
-  .previous-demo :global(.rgb-viewer){margin-block:1rem}
   .lab-code[open]{padding-bottom:1rem}
 
   :is(.lab-video, .lab-code) h2 { margin-bottom: 12px; font-size: clamp(1.5rem, 2.6vw, 1.75rem); line-height: 1.25; letter-spacing: -.02em; }
