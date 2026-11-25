@@ -77,9 +77,9 @@ export const clips = [
   },
   {
     id: 'nurec-rgb-reality', duration: '0:30', width: 1920, height: 1080,
-    media: { en: 'nurec-speed-live.en', ko: 'nurec-speed-live.ko' },
-    en: { title: 'Faster RGB Reality View with identical image quality', description: 'One RTX 5090: retain the same temporal inputs and all RGB pixels while reducing model latency from 484ms to 271ms. Watch actual mouse passes, separate generated updates from native 3D FPS, inspect matched detail crops and reproduce the local GPU enhancer.' },
-    ko: { title: '같은 화질로 더 빨라진 RGB Reality View', description: 'RTX 5090 한 장에서 같은 시간축 입력과 RGB 픽셀을 유지하며 모델 지연을 484ms에서 271ms로 줄였습니다. 실제 마우스 조작, 보정 화면 갱신과 3D FPS, 화질 확대 비교를 보고 로컬 GPU 실습으로 따라 해 보세요.' },
+    media: { en: 'nurec-adaptive-live.en', ko: 'nurec-adaptive-live.ko' },
+    en: { title: 'Responsive Reality View: preview while moving, refine at rest', description: 'One RTX 5090: actual moving AI updates rise from 1.60 to 3.52FPS, or use a smooth 59FPS browser 3D preview before HQ refinement. Compare latency, temporary quality loss and final stationary fidelity; reproduce the source workflow.' },
+    ko: { title: 'Reality View: 이동 중 미리보기, 정지 후 고화질', description: 'RTX 5090 한 장에서 이동 중 AI 화면 갱신을 1.60에서 3.52FPS로 높였습니다. 약 59FPS 브라우저 3D 미리보기도 비교하고, 최종 고화질까지의 대기 시간과 화질 차이를 실습 코드로 확인하세요.' },
   },
   {
     id: 'rgb-reality-view', duration: '0:25', width: 1280, height: 720,
@@ -170,6 +170,12 @@ export const clips = [
 
 // Extra runs share an existing lab and its reading order.
 export const labMediaFiles = {
+  'labs/nurec-rgb-reality/evidence/adaptive/interaction.en.mp4': 'nurec-adaptive-live.en.mp4',
+  'labs/nurec-rgb-reality/evidence/adaptive/interaction.ko.mp4': 'nurec-adaptive-live.ko.mp4',
+  'labs/nurec-rgb-reality/evidence/adaptive/browser.en.mp4': 'nurec-browser-preview.en.mp4',
+  'labs/nurec-rgb-reality/evidence/adaptive/browser.ko.mp4': 'nurec-browser-preview.ko.mp4',
+  'labs/nurec-rgb-reality/evidence/adaptive/quality.en.mp4': 'nurec-adaptive-quality.en.mp4',
+  'labs/nurec-rgb-reality/evidence/adaptive/quality.ko.mp4': 'nurec-adaptive-quality.ko.mp4',
   'labs/nurec-rgb-reality/evidence/speed/interaction.en.mp4': 'nurec-speed-live.en.mp4',
   'labs/nurec-rgb-reality/evidence/speed/interaction.ko.mp4': 'nurec-speed-live.ko.mp4',
   'labs/nurec-rgb-reality/evidence/speed/quality.en.mp4': 'nurec-speed-quality.en.mp4',
@@ -206,6 +212,24 @@ export const labMediaFiles = {
 };
 
 export const additionalRecordings = [
+  {
+    id: 'nurec-browser-preview', lab: 'nurec-rgb-reality', duration: '0:30', width: 1920, height: 1080,
+    media: { en: 'nurec-browser-preview.en', ko: 'nurec-browser-preview.ko' },
+    en: { title: 'Smooth browser 3D preview, then GPU refinement', description: 'About 59FPS actual browser preview with no moving AI calls; HQ arrives after the camera settles. Wall-clock sequential comparison, with final wait time shown separately.' },
+    ko: { title: '부드러운 브라우저 3D 미리보기, 멈추면 GPU 보정', description: '이동 중 AI 요청 없이 약 59FPS로 실제 3D 화면을 보여줍니다. 카메라 정지 후 고화질까지의 대기 시간도 표시한 실제 속도 비교입니다.' },
+  },
+  {
+    id: 'nurec-adaptive-quality', lab: 'nurec-rgb-reality', duration: '0:08', width: 1920, height: 1080,
+    media: { en: 'nurec-adaptive-quality.en', ko: 'nurec-adaptive-quality.ko' },
+    en: { title: 'Preview quality and stationary HQ: different references', description: 'Inspect actual512 preview versus continuous1024 output, plus restored HQ versus a fresh stationary five-forward reference. All20 stationary raw outputs match. This is inspection playback, not live FPS.' },
+    ko: { title: '미리보기 화질과 정지 후 고화질: 다른 기준으로 비교하기', description: '실제 512 미리보기와 연속 1024 출력, 정지 후 고화질과 새 이력의 실제 5회 추론 기준을 나눠 봅니다. 정지 시점 20곳의 원본 RGB가 일치했습니다. 화질 확인용 재생입니다.' },
+  },
+  {
+    id: 'nurec-exact-speed', lab: 'nurec-rgb-reality', duration: '0:30', width: 1920, height: 1080,
+    media: { en: 'nurec-speed-live.en', ko: 'nurec-speed-live.ko' },
+    en: { title: 'Preserved exact-pixel optimization comparison', description: 'Earlier full-decoder versus exact-pixel optimization:484ms to271ms model time, with all160 raw outputs identical. Separate from progressive preview.' },
+    ko: { title: '이전 비교 보존: 같은 픽셀로 줄인 계산', description: '전체 디코딩과 화질 동일 최적화를 비교한 영상입니다. 모델 계산 484→271ms, 원본 RGB 160프레임 일치를 확인했습니다. 이동 중 미리보기 실험과 별도입니다.' },
+  },
   {
     id: 'nurec-speed-quality', lab: 'nurec-rgb-reality', duration: '0:08', width: 1920, height: 1080,
     media: { en: 'nurec-speed-quality.en', ko: 'nurec-speed-quality.ko' },

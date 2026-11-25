@@ -100,3 +100,16 @@ python3 labs/nurec-rgb-reality/temporal/check_speed.py
 `record_speed.mjs --profile baseline`과 `--profile exact`는 **GPU 한 장에서 순서대로** 같은 실제 마우스 동작을 실행합니다. `--language en` 또는 `ko`, 로컬 `--url`과 Git에서 제외되는 결과 폴더를 지정하세요. 실제 표시한 보정 화면 수, 3D 렌더링 FPS, 모델 계산 시간과 캡처→표시 지연을 구분해 남깁니다. 실제 조작 비교 영상에는 프레임 보간이나 재생 가속을 넣지 않습니다.
 
 서버를 다시 켜도 기존 숫자 파일명 다음부터 기록해 앞선 캡처를 보존합니다. 최적화 모드의 기록은 최대 세 작업까지 백그라운드에 맡기며, 저장이 밀리면 `recording=skipped_busy`로 빠진 디버그 캡처를 표시합니다. 표시할 프레임을 만들어 내거나 요청을 쌓는 동작은 아닙니다. 이전 영상과 160프레임 결과도 보존합니다.
+
+## 이동 중 미리보기와 정지 후 보정 직접 해 보기
+
+[시간축 보정 설치 안내](#실시간-뷰어-연결하기)에 따라 GPU 서비스와 노트북의 로컬 뷰어를 실행하세요. 노트북에서 **http://127.0.0.1:8092/?lang=ko&execution=adaptive**를 열면 AI 미리보기를 선택할 수 있습니다. 더 부드러운 브라우저 3D 미리보기는 주소 끝을 **`execution=native`**로 바꾸면 됩니다. 장면을 불러온 뒤 **자동 갱신**을 켜고 드래그했다가 놓아 보세요. 오른쪽 캡션에 **512×288 AI 미리보기**, **브라우저 3D · AI 생성 아님**, **1024×576 고화질**이 구분되어 표시됩니다. 고화질 보정이 끝나면 다시 움직일 때까지 새 요청을 보내지 않습니다. 기존 **화질 동일 · 연속 고화질** 방식도 그대로 선택할 수 있습니다.
+
+GPU 화질 검사를 재현하려면 먼저 서비스 터미널에서 Ctrl+C로 실행을 멈추세요. 시간축 보정 README의 안내대로 `RV_INPUT`은 개선 모델의 순서 있는 렌더링 폴더, `RGB_GUIDED_PROD`는 그 모델의 비공개 production 폴더로 지정합니다.
+
+```bash
+python3 labs/nurec-rgb-reality/temporal/pipeline.py --root "$RV_TEMPORAL_ROOT" --comparison-dir "$RV_TEMPORAL_ROOT/adaptive-check" --input "$RV_INPUT" --rig "$RGB_GUIDED_PROD/rig-orbit.json" --max-frames 12 adaptive-benchmark
+python3 labs/nurec-rgb-reality/temporal/check_adaptive.py
+```
+
+첫 명령은 한 GPU에서 연속 고화질 기준, 저해상도 미리보기, 정지 후 고화질을 실제로 실행합니다. 기존 결과 폴더가 있으면 덮어쓰지 않고 중단합니다. 전체 160개 시점을 확인하려면 `--max-frames 12`를 빼세요. 160개는 렌더링한 카메라 시점 수이며 새로 촬영한 사진 수가 아닙니다. 두 번째 명령은 GPU 없이 공개 측정 기록과 영상 파일을 검사합니다. [GPU 비교 코드](../../nurec-rgb-reality/temporal/benchmark_adaptive.py) · [움직임 판단 코드](../../rgb-reality-view/motion-policy.mjs) · [실제 이동·정지 녹화 코드](../../nurec-rgb-reality/temporal/record_adaptive.mjs).

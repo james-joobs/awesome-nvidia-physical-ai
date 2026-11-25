@@ -89,6 +89,13 @@
         "temporal/check_speed.py",
         "temporal/test_context.py",
         "temporal/test_support.py",
+        "temporal/adaptive.py",
+        "temporal/test_adaptive.py",
+        "temporal/adaptive_stats.py",
+        "temporal/test_adaptive_stats.py",
+        "temporal/benchmark_adaptive.py",
+        "temporal/record_adaptive.mjs",
+        "temporal/check_adaptive.py",
         "check.py"
       ],
       "evidence": "recorded.json"
@@ -116,6 +123,7 @@
         "record_perception.mjs",
         "viewer.js",
         "record_tour.mjs",
+        "motion-policy.mjs",
         "check.py"
       ],
       "evidence": "recorded.json"

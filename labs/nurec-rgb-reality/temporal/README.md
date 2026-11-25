@@ -100,3 +100,16 @@ Choose a fresh `--comparison-dir` when preserving an existing benchmark; add `--
 `record_speed.mjs --profile baseline` and `--profile exact` run the same real mouse gesture in **separate one-GPU passes**. Set `--language en` or `ko`, a local `--url` and an ignored output folder. The receipt distinguishes generated updates actually painted, native render FPS, model time and capture-to-paint latency. No frame interpolation or playback acceleration is applied to the live comparison.
 
 Private recording filenames continue above existing numeric prefixes after a service restart. Optimized debug writes are deferred with a bounded three-job limit; `recording=skipped_busy` explicitly marks an omitted debug capture when storage cannot keep up. This does not invent or queue displayed frames. The full old videos and earlier 160-frame results are preserved.
+
+## Try motion-aware preview and refinement
+
+Start the existing GPU service and local viewer as described in the [temporal setup](#use-the-live-viewer). On your laptop open **http://127.0.0.1:8092/?lang=en&execution=adaptive** for fast AI preview, or change `execution=adaptive` to **`execution=native`** for browser 3D preview. Load the scene, select **Update continuously**, drag, then release. The right caption identifies **512×288 AI preview**, **browser 3D · not AI generation**, or **1024×576 HQ**. After HQ is ready, it stays put until you move again. The unchanged **Exact · continuous high quality** profile remains available.
+
+To reproduce GPU quality checks, first stop the serving terminal. Set `RV_INPUT` to the improved model's ordered render path and `RGB_GUIDED_PROD` to its private production folder, as in the temporal README:
+
+```bash
+python3 labs/nurec-rgb-reality/temporal/pipeline.py --root "$RV_TEMPORAL_ROOT" --comparison-dir "$RV_TEMPORAL_ROOT/adaptive-check" --input "$RV_INPUT" --rig "$RGB_GUIDED_PROD/rig-orbit.json" --max-frames 12 adaptive-benchmark
+python3 labs/nurec-rgb-reality/temporal/check_adaptive.py
+```
+
+The first command performs actual full-resolution reference, low-resolution preview and stationary HQ passes on one GPU. It refuses an existing result folder. Remove `--max-frames 12` to run all 160 rendered poses; these are camera samples, not 160 new observations. The second command checks published receipts and videos without a GPU. [GPU runner](../../nurec-rgb-reality/temporal/benchmark_adaptive.py) · [Motion policy](../../rgb-reality-view/motion-policy.mjs) · [Record the actual move/rest passes](../../nurec-rgb-reality/temporal/record_adaptive.mjs).

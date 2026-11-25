@@ -1,0 +1,223 @@
+{
+  "schema": 1,
+  "device": "NVIDIA GeForce RTX 5090",
+  "checkpoint_sha256": "6e65e9ec33019a49f7f0d15f81f5e089c2527e131bd5339d6a14f9b3531db524",
+  "parameters_verified": true,
+  "preview": [
+    {
+      "model_ms": 31.749581918120384,
+      "final_forward_ms": 31.749581918120384,
+      "history_frames": 0,
+      "resolution": [
+        512,
+        288
+      ],
+      "server_total_ms": 50.72074290364981,
+      "rgb_sha256": "71c1f9266d657a133b2a75d6e6b5c1862c9d519f2878187200073ca8be95bb0c",
+      "frame": 0,
+      "input_sha256": "9a3542a368345c0951c1449927eafdeaa7ad774bd9badf8169972eee00096507",
+      "psnr_vs_hq_db": 27.985552333581655,
+      "ssim_vs_hq": 0.8517703727192466
+    },
+    {
+      "model_ms": 31.78587998263538,
+      "final_forward_ms": 31.78587998263538,
+      "history_frames": 0,
+      "resolution": [
+        512,
+        288
+      ],
+      "server_total_ms": 50.768047105520964,
+      "rgb_sha256": "5207a8dc683a8fcca77a85b41f03ddd1978381cc8badcf84619fd2502ee74a99",
+      "frame": 1,
+      "input_sha256": "649090c630f9d521b3150383b32a8bd3085fb5cf5e778a9916838d300d94569e",
+      "psnr_vs_hq_db": 27.460621590535442,
+      "ssim_vs_hq": 0.8513059700859946
+    },
+    {
+      "model_ms": 31.765426974743605,
+      "final_forward_ms": 31.765426974743605,
+      "history_frames": 0,
+      "resolution": [
+        512,
+        288
+      ],
+      "server_total_ms": 50.702712032943964,
+      "rgb_sha256": "11918dae5f7de9784c726b3f334dbb034fbfd8ca1f1f2f6dd93b09fddb96ad67",
+      "frame": 2,
+      "input_sha256": "53ee028aa7596ae422eb38ace3ec8def0c6926b5acbc1e2caba58bfdacfbec6d",
+      "psnr_vs_hq_db": 26.916906931848985,
+      "ssim_vs_hq": 0.8460301616422431
+    },
+    {
+      "model_ms": 31.738735968247056,
+      "final_forward_ms": 31.738735968247056,
+      "history_frames": 0,
+      "resolution": [
+        512,
+        288
+      ],
+      "server_total_ms": 51.07086501084268,
+      "rgb_sha256": "857be3def6a6bde352523df0e92bf0a346b56362eb90a35993daa14004382c8c",
+      "frame": 3,
+      "input_sha256": "dc460d3413d50b9f61309b61d86e040250325b35c309256f84063723590995bd",
+      "psnr_vs_hq_db": 27.354115807513153,
+      "ssim_vs_hq": 0.8509664050024653
+    },
+    {
+      "model_ms": 67.05437996424735,
+      "final_forward_ms": 67.05437996424735,
+      "history_frames": 4,
+      "resolution": [
+        512,
+        288
+      ],
+      "server_total_ms": 86.46469097584486,
+      "rgb_sha256": "d8ac98cf0b50ad2f9e0ff166cc1f65e2040770cb99cefd3be1dc653cabc19d49",
+      "frame": 4,
+      "input_sha256": "78e96bf9d555d5042213ec436417b9f7aea158df4b044fab09f8e7928c54bddc",
+      "psnr_vs_hq_db": 27.708429772644564,
+      "ssim_vs_hq": 0.8611239936928496
+    },
+    {
+      "model_ms": 67.03208992257714,
+      "final_forward_ms": 67.03208992257714,
+      "history_frames": 4,
+      "resolution": [
+        512,
+        288
+      ],
+      "server_total_ms": 86.00518014281988,
+      "rgb_sha256": "d5eb4c4a29a6fe267bd57fdfedcd3a933991f9ca5d831ce4f96637eca8a01c71",
+      "frame": 5,
+      "input_sha256": "fe5ed980a187d25fee4469d82b95bd1544670c9112fce64c6c247b014c440245",
+      "psnr_vs_hq_db": 27.495755921510828,
+      "ssim_vs_hq": 0.862634565558028
+    },
+    {
+      "model_ms": 67.04446021467447,
+      "final_forward_ms": 67.04446021467447,
+      "history_frames": 4,
+      "resolution": [
+        512,
+        288
+      ],
+      "server_total_ms": 86.28873317502439,
+      "rgb_sha256": "bec2b189c12504f354d1bd752ed7efdd2e726a1e7094792650610f693f14b186",
+      "frame": 6,
+      "input_sha256": "3c80a965fd6936d2cead30095f21cc985f4cccc607551767b4283bd3c141d3ac",
+      "psnr_vs_hq_db": 27.09310740612569,
+      "ssim_vs_hq": 0.86324970285574
+    },
+    {
+      "model_ms": 67.02999002300203,
+      "final_forward_ms": 67.02999002300203,
+      "history_frames": 4,
+      "resolution": [
+        512,
+        288
+      ],
+      "server_total_ms": 86.7519611492753,
+      "rgb_sha256": "bfa8d8131076c12150e2c1136b70c4e20b35c82cb68eb5f41d0eb7c2b8f69042",
+      "frame": 7,
+      "input_sha256": "ef969bfd34a18cb0412db1c54e1e81b7793ae35e72475d86876c641baa2eec63",
+      "psnr_vs_hq_db": 27.14337798614041,
+      "ssim_vs_hq": 0.8647229302734283
+    },
+    {
+      "model_ms": 67.06566596403718,
+      "final_forward_ms": 67.06566596403718,
+      "history_frames": 4,
+      "resolution": [
+        512,
+        288
+      ],
+      "server_total_ms": 86.66849811561406,
+      "rgb_sha256": "8ebd617f1cf96f81d9bdc1e9d801e3f82c1b21c15950ac866789388a00aa931a",
+      "frame": 8,
+      "input_sha256": "83e21bdad6317b13ed6199ff9549adfea14492f7d8d9b68bb2d6dcdabd750592",
+      "psnr_vs_hq_db": 27.363916935999914,
+      "ssim_vs_hq": 0.8691762895544085
+    },
+    {
+      "model_ms": 67.05316808074713,
+      "final_forward_ms": 67.05316808074713,
+      "history_frames": 4,
+      "resolution": [
+        512,
+        288
+      ],
+      "server_total_ms": 86.20813116431236,
+      "rgb_sha256": "5844a7f377da671e63788f94b6716ccac775bf8d042d1ca72494c6cb0346f597",
+      "frame": 9,
+      "input_sha256": "928991a647b26090a532253c3bab1a826c4cb766ed895c6f5ba3bb508c8a5ca2",
+      "psnr_vs_hq_db": 27.34584453045175,
+      "ssim_vs_hq": 0.8669873562010805
+    },
+    {
+      "model_ms": 67.06566899083555,
+      "final_forward_ms": 67.06566899083555,
+      "history_frames": 4,
+      "resolution": [
+        512,
+        288
+      ],
+      "server_total_ms": 86.20966295711696,
+      "rgb_sha256": "b612934336b8333fff2ab8b106d220e5271c3d0b86132f19fb5d4d4b35bb3502",
+      "frame": 10,
+      "input_sha256": "c1428ee17e3ebbc6b02832621156d4ec0ee2c9c53c2c477f78a24c83a2aa9e65",
+      "psnr_vs_hq_db": 26.774588146914006,
+      "ssim_vs_hq": 0.8679267488868316
+    },
+    {
+      "model_ms": 67.07936711609364,
+      "final_forward_ms": 67.07936711609364,
+      "history_frames": 4,
+      "resolution": [
+        512,
+        288
+      ],
+      "server_total_ms": 86.53653995133936,
+      "rgb_sha256": "b5a51f930fb5f80a2cf0c84c8e13cfacc54e3a767bef751b6b13abd641c55744",
+      "frame": 11,
+      "input_sha256": "b5fcaaf1893298ade9594fb72692220de3b1406fb2914c5217fcb4ac4d688aee",
+      "psnr_vs_hq_db": 26.298844830049077,
+      "ssim_vs_hq": 0.8636947273848073
+    }
+  ],
+  "refinement": [
+    {
+      "frame": 0,
+      "pixel_equal_fresh_hq_reference": true,
+      "model_ms": 393.43027397990227,
+      "model_calls": 2,
+      "reused_reference_slots": 4,
+      "resolution": [
+        1024,
+        576
+      ],
+      "hq_uses_preview_history": false,
+      "reference_five_forward_ms": 764.6965652238578,
+      "actual_two_forward_ms": 393.43027397990227,
+      "rgb_sha256": "e46e55e4d9df1a97d796af979449d310367def58dc19099cdac44bbdc7d2c14d",
+      "reference_rgb_sha256": "e46e55e4d9df1a97d796af979449d310367def58dc19099cdac44bbdc7d2c14d"
+    },
+    {
+      "frame": 8,
+      "pixel_equal_fresh_hq_reference": true,
+      "model_ms": 393.1556099560112,
+      "model_calls": 2,
+      "reused_reference_slots": 4,
+      "resolution": [
+        1024,
+        576
+      ],
+      "hq_uses_preview_history": false,
+      "reference_five_forward_ms": 765.699032926932,
+      "actual_two_forward_ms": 393.1556099560112,
+      "rgb_sha256": "942a5e8a2b88c7b339d57030ee736374ce183c21a0f3c413d4eaa9371466c068",
+      "reference_rgb_sha256": "942a5e8a2b88c7b339d57030ee736374ce183c21a0f3c413d4eaa9371466c068"
+    }
+  ],
+  "scope": "Experimental512 research-model preview, not an official NIM mode. Preview fidelity is against continuous1024 outputs. Restored HQ is against five actual stationary1024 forwards with fresh history; not moving-history equality or unseen-view accuracy."
+}

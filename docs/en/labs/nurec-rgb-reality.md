@@ -155,6 +155,25 @@ Capture is asynchronous, history tensors stay on the GPU and returned images pai
 
 [Actual mouse-controlled latency comparison](../../../labs/nurec-rgb-reality/evidence/speed/interaction.en.mp4) · [Matched-view quality and detail comparison](../../../labs/nurec-rgb-reality/evidence/speed/quality.en.mp4)
 
+### 9. Move quickly, then refine at rest
+
+![Motion-aware preview with separate low-resolution and full-quality history banks](../../../assets/lessons/nurec-adaptive/pipeline.en.svg)
+
+A mouse-controlled view has two different jobs: respond promptly while the camera moves, then resolve detail once the view settles. The local viewer now offers two optional progressive modes:
+
+| Mode | While moving | After the camera stops |
+| --- | --- | --- |
+| **Fast AI preview → HQ at rest** | Run the same checkpoint at 512×288, using a separate low-resolution history bank | Capture a **fresh 1024×576 render** and run full-quality temporal enhancement |
+| **Browser 3D preview → HQ at rest** | Copy the actual browser 3D viewport at its render cadence; **no AI generation** | Run the same full-quality refinement |
+
+The camera must stay below the significant-motion threshold for **180ms**. New movement invalidates an in-flight refinement; stale HQ results are discarded. Once a current-view HQ result is painted, the GPU waits until the view changes again. Low-resolution generated pixels never enter the HQ input or history. Original-RGB perception and Alpamayo remain separate from generation.
+
+For an empty HQ history, the pinned deterministic V1 model produces the same quantized RGB for an identical frozen input. We run it **once**, reuse that RGB in four reference slots, then run **one actual V5 forward**. This returns one HQ image in about 394ms of model time, versus about 767ms for five actual reference forwards. Reused slots are neither four independent camera observations nor four displayed AI frames. Existing valid HQ history instead uses one V5 call.
+
+**512×288 is our experimental research-model adapter**, not an advertised official NIM mode. The [official NIM documentation](https://docs.nvidia.com/nim/harmonizer/introduction) describes fixed 1024×576 enhancement; [upstream inference guidance](https://github.com/NVIDIA/harmonizer/blob/main/skills/harmonizer/references/inference.md) explains temporal context. The preview is softer, and waiting for stationary HQ adds delay. Inspect both tradeoffs below.
+
+[Actual AI-preview comparison](../../../labs/nurec-rgb-reality/evidence/adaptive/interaction.en.mp4) · [Smooth browser preview comparison](../../../labs/nurec-rgb-reality/evidence/adaptive/browser.en.mp4) · [Matched quality inspection](../../../labs/nurec-rgb-reality/evidence/adaptive/quality.en.mp4)
+
 ## Run the lab
 
 ### 1. Explore without a CUDA GPU
@@ -258,7 +277,41 @@ python3 labs/nurec-rgb-reality/temporal/check_speed.py
 
 The local viewer offers **Exact pixels · default**, **Original baseline** and **Tuned**. Tuned changes convolution memory layout and kernel selection; it is faster with small numerical differences. Keep the default for pixel equality. [Optimization source](../../../labs/nurec-rgb-reality/temporal/fast.py) · [Record actual one-GPU mouse passes](../../../labs/nurec-rgb-reality/temporal/record_speed.mjs).
 
+### 7. Try motion-aware preview and refinement
+
+Start the existing GPU service and local viewer as described in the [temporal setup](../../../labs/nurec-rgb-reality/temporal/README.md#use-the-live-viewer). On your laptop open **http://127.0.0.1:8092/?lang=en&execution=adaptive** for fast AI preview, or change `execution=adaptive` to **`execution=native`** for browser 3D preview. Load the scene, select **Update continuously**, drag, then release. The right caption identifies **512×288 AI preview**, **browser 3D · not AI generation**, or **1024×576 HQ**. After HQ is ready, it stays put until you move again. The unchanged **Exact · continuous high quality** profile remains available.
+
+To reproduce GPU quality checks, first stop the serving terminal. Set `RV_INPUT` to the improved model's ordered render path and `RGB_GUIDED_PROD` to its private production folder, as in the temporal README:
+
+```bash
+python3 labs/nurec-rgb-reality/temporal/pipeline.py --root "$RV_TEMPORAL_ROOT" --comparison-dir "$RV_TEMPORAL_ROOT/adaptive-check" --input "$RV_INPUT" --rig "$RGB_GUIDED_PROD/rig-orbit.json" --max-frames 12 adaptive-benchmark
+python3 labs/nurec-rgb-reality/temporal/check_adaptive.py
+```
+
+The first command performs actual full-resolution reference, low-resolution preview and stationary HQ passes on one GPU. It refuses an existing result folder. Remove `--max-frames 12` to run all 160 rendered poses; these are camera samples, not 160 new observations. The second command checks published receipts and videos without a GPU. [GPU runner](../../../labs/nurec-rgb-reality/temporal/benchmark_adaptive.py) · [Motion policy](../../../labs/rgb-reality-view/motion-policy.mjs) · [Record the actual move/rest passes](../../../labs/nurec-rgb-reality/temporal/record_adaptive.mjs).
+
 ## Check the result
+
+### Motion-aware results: moving FPS, stationary HQ and quality
+
+Three real **6s mouse drags + 4s rest** cycles per mode, recorded in English and Korean in separate sequential passes. GPU: one RTX 5090; browser: Mac Chrome over the local SSH-forwarded service. The baseline here is the already optimized **continuous 1024×576 exact** profile, not the older full decoder. Numbers below use the Korean recording; English moving AI rates were 1.82 → 3.75FPS, and browser preview was 59.49FPS.
+
+| Actual browser measurement | Continuous HQ | Fast AI preview → HQ | Browser 3D preview → HQ |
+| --- | --- | --- | --- |
+| **AI outputs actually painted while moving** | 1.60FPS | **3.52FPS** | 0 · no AI calls while moving |
+| Browser preview while moving | Separate 3D viewport | Brief fallback before AI preview | **59.41FPS** |
+| Moving capture → paint median / p95 | 568 / 727ms | **250 / 333ms** | Not an AI latency measure |
+| Moving V5 model median | 270ms | **69ms** | No moving model call |
+| Last significant camera change → current-view HQ, median | 838ms | 1476ms | 1317ms |
+| Pointer release → current-view HQ, median | 1465ms | 2054ms | 1964ms |
+
+Orbit damping continues after pointer release, so the last two rows use different starting clocks. The progressive modes trade a softer or unenhanced moving image and **longer final HQ wait** for more responsive movement. Network, capture and paint overhead explain why a roughly 67ms offline preview model call does not deliver 15AI FPS to this browser. Native/browser frames are never counted as generated AI frames. After a valid HQ paint, both progressive modes sent **zero redundant requests** during the remaining rest intervals.
+
+Across 160 matched rendered inputs, the upscaled 512 preview had mean **PSNR 24.61dB / SSIM 0.8761** against continuous full-resolution generated outputs, excluding the first four context-initialization frames. This is fidelity to a generated reference, not measured scene truth. On **20 stationary poses**, the restored 1024 output was **raw-RGB identical in 20/20 cases** to five actual full-resolution forwards of the same frozen input with fresh history. This does **not** claim equality to the continuously moving HQ history; the contexts differ. Cold HQ used two actual forwards totaling a 394ms median, with no preview pixels in HQ history. A fresh 12-frame portable run also passed.
+
+[160 preview / 20 stationary measurements](../../../labs/nurec-rgb-reality/evidence/adaptive/validation.json) · [Six actual move/rest traces](../../../labs/nurec-rgb-reality/evidence/adaptive/interaction.json) · [12-frame portable check](../../../labs/nurec-rgb-reality/evidence/adaptive/portable-smoke.json)
+
+
 
 ### Optimization: FPS, latency and fidelity
 

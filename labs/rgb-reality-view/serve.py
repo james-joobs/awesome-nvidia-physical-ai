@@ -22,7 +22,7 @@ class Handler(SimpleHTTPRequestHandler):
   route=unquote(urlsplit(self.path).path).lstrip('/')
   if route=='cameras.json' and a.enhancer_url:self.config();return
   if route=='favicon.ico':self.send_response(204);self.end_headers();return
-  if route in {'','index.html','viewer.html','viewer.js','viewer.css','perception-view.js','policy-view.js','enhancement-view.js'}:
+  if route in {'','index.html','viewer.html','viewer.js','viewer.css','perception-view.js','policy-view.js','enhancement-view.js','motion-policy.mjs'}:
    name='viewer.html' if route in {'','index.html'} else route;self.path='/'+name;self.directory=str(lab)
   elif route in ALLOWED or camera_file(route):self.directory=str(root)
   else:self.send_error(404);return
@@ -30,8 +30,8 @@ class Handler(SimpleHTTPRequestHandler):
  def do_HEAD(self):
   route=unquote(urlsplit(self.path).path).lstrip('/')
   if route=='cameras.json' and a.enhancer_url:self.config(head=True);return
-  if not camera_file(route) and route not in ALLOWED|{'','index.html','viewer.html','viewer.js','viewer.css','perception-view.js','policy-view.js','enhancement-view.js'}:self.send_error(404);return
-  self.directory=str(lab if route in {'','index.html','viewer.html','viewer.js','viewer.css','perception-view.js','policy-view.js','enhancement-view.js'} else root);self.path='/viewer.html' if route in {'','index.html'} else self.path;super().do_HEAD()
+  if not camera_file(route) and route not in ALLOWED|{'','index.html','viewer.html','viewer.js','viewer.css','perception-view.js','policy-view.js','enhancement-view.js','motion-policy.mjs'}:self.send_error(404);return
+  self.directory=str(lab if route in {'','index.html','viewer.html','viewer.js','viewer.css','perception-view.js','policy-view.js','enhancement-view.js','motion-policy.mjs'} else root);self.path='/viewer.html' if route in {'','index.html'} else self.path;super().do_HEAD()
  def do_POST(self):
   if urlsplit(self.path).path!='/api/enhance' or not a.enhancer_url:self.send_error(404);return
   if urlsplit('http://'+self.headers.get('Host','')).hostname not in {'localhost','127.0.0.1','::1'}:self.send_error(403);return

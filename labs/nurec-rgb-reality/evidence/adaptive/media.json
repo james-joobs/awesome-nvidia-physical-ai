@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "media": [
+    {
+      "file": "site/public/showcase/nurec-adaptive-live.en.mp4",
+      "sha256": "c1c953e349cd761468db212c9a11ae2de751749cbc04935615e78fd47b9d35f6",
+      "bytes": 4989034,
+      "seconds": 30.0,
+      "alias": "interaction",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "site/public/showcase/nurec-browser-preview.en.mp4",
+      "sha256": "40ccb45e7afd0b117d1cfad61b64a8cf923d174a08f7cd9af07f013dcb3fb168",
+      "bytes": 4838421,
+      "seconds": 30.0,
+      "alias": "browser",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "site/public/showcase/nurec-adaptive-quality.en.mp4",
+      "sha256": "fb9436fb5e9a30ca7b0a3432edf97d529adf73b8a34927f02e6ad62df240ccfe",
+      "bytes": 3105633,
+      "seconds": 8.0,
+      "alias": "quality",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "site/public/showcase/nurec-adaptive-live.ko.mp4",
+      "sha256": "ae5ef4df2453dc9aa9237781d53c82923fb21790a14c09f70bab4eaa234a477b",
+      "bytes": 4560049,
+      "seconds": 30.0,
+      "alias": "interaction",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "site/public/showcase/nurec-browser-preview.ko.mp4",
+      "sha256": "494eeeed53190609749fb93a42c63fc230f2d7292e06625da9649549a868f935",
+      "bytes": 4747651,
+      "seconds": 30.0,
+      "alias": "browser",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "site/public/showcase/nurec-adaptive-quality.ko.mp4",
+      "sha256": "f144334399f29afbbd777f6006f2678b31822cb9005a8842a4327b7a38fbd427",
+      "bytes": 3089600,
+      "seconds": 8.0,
+      "alias": "quality",
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "credits": "PandaSet: Scale AI / Hesai \u00b7 CC BY-SA 4.0 + Dataset Terms \u00b7 Volvo S90: lazercar CC BY 4.0 \u00b7 Built on NVIDIA Cosmos",
+  "scope": "Actual sequential single-GPU browser captures for interaction/browser videos at wall-clock pace. Quality video is offline raw-output inspection, not live FPS. Gray recorder padding below the original browser viewport was removed; no content timing was accelerated."
+}
