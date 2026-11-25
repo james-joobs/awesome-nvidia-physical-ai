@@ -2,7 +2,16 @@ import * as THREE from 'three';
 import { dyno, SplatMesh } from '@sparkjsdev/spark';
 
 async function readTexture(get, url) {
-  const image = await createImageBitmap(await (await get(url)).blob(), {
+  let response;
+  try {
+    response = await get(url);
+  } catch (error) {
+    // Retry a transient connection reset without masking HTTP or abort errors.
+    if (!(error instanceof TypeError)) throw error;
+    await new Promise(resolve => setTimeout(resolve, 140));
+    response = await get(url);
+  }
+  const image = await createImageBitmap(await response.blob(), {
     imageOrientation: 'flipY',
     premultiplyAlpha: 'none',
     colorSpaceConversion: 'none',
@@ -64,11 +73,15 @@ function skyMesh(texture) {
 async function loadSurroundings(get, base, record) {
   const group = new THREE.Group();
   const jobs = [
-    readTexture(get, base+record.sky.file).then(texture => skyMesh(texture)),
-    ...record.facades.map(wall => readTexture(get, base+wall.file)
+    () => readTexture(get, base+record.sky.file).then(skyMesh),
+    ...record.facades.map(wall => () => readTexture(get, base+wall.file)
       .then(texture => facadeMesh(wall.corners, texture))),
   ];
-  const results = await Promise.allSettled(jobs);
+  const results = [];
+  for (let offset = 0; offset < jobs.length; offset += 3) {
+    results.push(...await Promise.allSettled(jobs.slice(offset, offset+3).map(load => load())));
+    if (results.some(result => result.status === 'rejected')) break;
+  }
   const failure = results.find(result => result.status === 'rejected');
   const meshes = results.filter(result => result.status === 'fulfilled').map(result => result.value);
   const dispose = () => {
